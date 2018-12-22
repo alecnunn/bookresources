@@ -1,0 +1,38 @@
+#include "kShaderSharedParams.h"
+
+// Sun
+sampler SunTexture;
+float4 sunDir, sunColor;
+float4x4 mSunTexProj;
+
+struct VS_INPUT
+{
+    float3 position        : POSITION;
+    float2 texcoord        : TEXCOORD0;
+    float3 normal          : NORMAL;
+    float4 diffuse         : COLOR0;
+};
+
+struct VS_OUTPUT
+{
+    float4 position        : POSITION;
+    float2 texcoord        : TEXCOORD0;
+    float4 SunUV		   : TEXCOORD3;
+    float4 diffuse         : COLOR0;
+};
+
+VS_OUTPUT VertexShader(const VS_INPUT v)
+{
+    VS_OUTPUT o = (VS_OUTPUT)0;
+    o.position = mul(float4(v.position.xyz, 1.0f), mWorldViewProj);
+	o.SunUV = mul(float4(v.position.xyz, 1.0f), mSunTexProj);
+	o.diffuse = v.diffuse;	
+    o.texcoord = v.texcoord;
+    return o;
+}
+
+float4 PixelShader(VS_OUTPUT v) : COLOR
+{
+	float4 sun = tex2Dproj(SunTexture, v.SunUV);
+	return v.diffuse + sun;
+}

@@ -1,0 +1,51 @@
+# Bones Testbed
+
+include "../base.bld"
+
+if (!$(CORALHOME))
+{
+	set CORALHOME = `$(PWD)`$(BS)..$(BS)CoralTree
+}
+
+set FILES =		GPGBoneParser		\
+				GPGBonePortal		\
+				GPGMotionParser
+
+set LIBTARGETS = GPGBonesTestbed
+set EXETARGETS = BonesTestbed
+
+set ROOT.CPPFLAGS += -I..$(BS)Include_ifx
+set ROOT.CPPFLAGS += -I.. -I$(CORALHOME)
+
+set ROOT.LIBS = $(LIBTARGETS) GPGBones GPGFileIO GPGHParser GPGInfoRenderOGL
+set ROOT.LIBS += GPGBase GPGMemory
+
+if($(BLD_OS) == nt)
+{
+	set LIBCMD += /LIBPATH:$(CORALHOME)$(BS)lib wdsWO.lib ewWO.lib wba.lib gpl.lib osd.lib
+}
+else
+{
+	set LIBCMD = -L$(CORALHOME)$(BS)lib -L/usr/X11/lib -L/usr/X11R6/lib
+	set LIBS += wdsXO ewXO
+	set LIBS += wba gpl osd
+
+	# Nvidia supplied drivers use pthreads
+	set ROOT.LIBS += pthread
+}
+set OSLIBS += $(ROOT.GLLIBS)
+
+
+html:
+{
+	rm -f html/*
+	doc++ --html --dir html --footer FOOTER -f *.h
+}
+
+ps:
+{
+	doc++ --tex --output refman.tex *.h
+	latex refman.tex
+	latex refman.tex
+	system("dvips -f < refman.dvi > refman.ps");
+}

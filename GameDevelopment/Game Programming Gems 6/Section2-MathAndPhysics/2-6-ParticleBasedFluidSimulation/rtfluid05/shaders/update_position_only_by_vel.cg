@@ -1,0 +1,12 @@
+#include "sph.cg"
+
+void main(float index : TEXCOORD0,
+		  uniform samplerRECT attr_rect : TEXUNIT0,
+		  uniform float timestep,
+		  out float3 result : COLOR)
+{
+	float3 pos = f3texRECT(attr_rect, float2(index, GPU_ATTR_POS));
+	float3 vel = f3texRECT(attr_rect, float2(index, GPU_ATTR_VEL));
+
+	result = pos + timestep*vel;
+}

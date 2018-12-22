@@ -1,0 +1,104 @@
+struct appdata : application2vertex 
+{ 
+  float4 position ; 
+  float4 Texture0 : TEXCOORD0; 
+
+ 
+}; 
+struct vfconn : vertex2fragment 
+{ 
+  float4 HPOS : POSITION; 
+  float4 COL0 : COLOR0; 
+  float4 Texture0 : TEXCOORD0; 
+
+}; 
+#define B  32      // table size
+#define B2 66      // B*2 + 2
+#define BR 0.03125 // 1 / B
+
+// this is the smoothstep function f(t) = 3t^2 - 2t^3, without the normalization
+float3 s_curve(float3 t)
+{
+  return t*t*( float3(3.0f, 3.0f, 3.0f) - float3(2.0f, 2.0f, 2.0f)*t);
+}
+
+
+// 3D version
+float noise(float3 v, float4 pg[B2])
+{
+  v = v + float3(10000.0f, 10000.0f, 10000.0f);   // hack to avoid negative numbers
+
+  float3 i = frac(v * BR) * B;   // index between 0 and B-1
+  float3 f = frac(v);            // fractional position
+
+  // lookup in permutation table
+  float2 p;
+  p[0] = pg[ i[0]     ].w;
+  p[1] = pg[ i[0] + 1 ].w;
+  p = p + i[1];
+
+  float4 b;
+  b[0] = pg[ p[0] ].w;
+  b[1] = pg[ p[1] ].w;
+  b[2] = pg[ p[0] + 1 ].w;
+  b[3] = pg[ p[1] + 1 ].w;
+  b = b + i[2];
+
+  // compute dot products between gradients and vectors
+  float4 r;
+  r[0] = dot( pg[ b[0] ].xyz, f );
+  r[1] = dot( pg[ b[1] ].xyz, f - float3(1.0f, 0.0f, 0.0f) );
+  r[2] = dot( pg[ b[2] ].xyz, f - float3(0.0f, 1.0f, 0.0f) );
+  r[3] = dot( pg[ b[3] ].xyz, f - float3(1.0f, 1.0f, 0.0f) );
+
+  float4 r1;
+  r1[0] = dot( pg[ b[0] + 1 ].xyz, f - float3(0.0f, 0.0f, 1.0f) );
+  r1[1] = dot( pg[ b[1] + 1 ].xyz, f - float3(1.0f, 0.0f, 1.0f) );
+  r1[2] = dot( pg[ b[2] + 1 ].xyz, f - float3(0.0f, 1.0f, 1.0f) );
+  r1[3] = dot( pg[ b[3] + 1 ].xyz, f - float3(1.0f, 1.0f, 1.0f) );
+
+  // interpolate
+  f = s_curve(f);
+  r = lerp( r, r1, f[2] );
+  r = lerp( r.xyyy, r.zwww, f[1] );
+  return lerp( r.x, r.y, f[0] );
+}
+
+float MultiFractal(float3 pos, float octaves, float offset,float freqchange,float h,float4 pg[B2])
+{
+	float result;
+	float signal;
+	float weight;
+	float freq=1;
+	result=(noise(pos,pg)+offset)*pow(freq,-h);
+	freq*=freqchange;
+	weight=result;
+	pos*=freqchange;
+	for(int i=0;i<octaves;i++)
+	{
+		clamp(weight,0,1);//Clamp used to get rid of a conditional
+		signal=(noise(pos,pg)+offset)*pow(freq,-h);
+		freq*=freqchange;
+		result+=weight*signal;
+		weight*=signal;
+		pos*=freqchange;
+
+	}
+return result;
+}
+
+vfconn main(appdata IN, uniform float4x4 ModelViewProj,const uniform float4 pg[B2] ) 
+{ 
+  vfconn OUT; 
+  float4 temppos=IN.position;
+  float nmod=MultiFractal(IN.position.xyz,5,.8,2,.15,pg)/15;
+  //float nmod=noise(IN.position.xyz,pg);
+  temppos.x=temppos.x*(1+nmod);
+  temppos.y=temppos.y*(1+nmod);
+  temppos.z=temppos.z*(1+nmod);
+  OUT.HPOS = mul(ModelViewProj, temppos);
+  OUT.COL0.xyzw=1;
+  OUT.Texture0=IN.Texture0;
+
+  return OUT; 
+}

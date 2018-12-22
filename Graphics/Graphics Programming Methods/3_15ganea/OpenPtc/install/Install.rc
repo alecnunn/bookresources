@@ -1,0 +1,99 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN                ICON    DISCARDABLE     "Windows.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// FILE
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(__INSTALL_PTC_DLL__)
+#if defined(APSTUDIO_INVOKED)
+IDR_PTC_DLL$(__INSTALL_PTC_DLL__) FILE    DISCARDABLE     "../library/ptc.dll"
+#else
+IDR_PTC_DLL             FILE    DISCARDABLE     "../library/ptc.dll"
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(__INSTALL_HERMES_DLL__)
+#if defined(APSTUDIO_INVOKED)
+IDR_HERMES_DLL$(__INSTALL_HERMES_DLL__) FILE    DISCARDABLE     "../library/hermes.dll"
+#else
+IDR_HERMES_DLL          FILE    DISCARDABLE     "../library/hermes.dll"
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(__INSTALL_PTCDEBUG_DLL__)
+#if defined(APSTUDIO_INVOKED)
+IDR_PTCDEBUG_DLL$(__INSTALL_PTCDEBUG_DLL__) FILE    DISCARDABLE     "../library/ptcdebug.dll"
+#else
+IDR_PTCDEBUG_DLL        FILE    DISCARDABLE     "../library/ptcdebug.dll"
+#endif
+#endif
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

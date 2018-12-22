@@ -1,0 +1,228 @@
+<html>
+<head>
+<title></title>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Output</h2>
+<p>RASSIGN = 37<br>
+  RASSIGN = 37<br>
+  RASSIGN = 37<br>
+  RASSIGN = 37<br>
+  RASSIGN = 37<br>
+  RASSIGN = 37<br>
+  RASSIGN = 37<br>
+THE TABLE OF QUADRUPLES ARE</p>
+<p>LABEL	OPER	OP1	OP2	RES</p>
+<p> =	0	-	sum<br>
+  =	0	-	idx<br>
+  L1:	&lt;	idx	nums	t1<br>
+  goto	-	-	L3<br>
+  L2:	+	idx	1	t2<br>
+  =	t2	-	idx<br>
+  goto	-	-	L1<br>
+  L3:	If=	t1	0	L4<br>
+  *	idx	4	t3<br>
+  =	56	-	t4<br>
+  =[]	t4	t3	t5<br>
+  +	sum	t5	t6<br>
+  =	t6	-	sum<br>
+  +	idx	1	t7<br>
+  *	idx	5	data1<br>
+  +	t8		data1<br>
+  *	t8	4	t10<br>
+  =	136	-	t11<br>
+  =[]	t11	t10	t12<br>
+  +	sum	t12	t13<br>
+  =	t13	-	sum<br>
+  +	idx	1	t14<br>
+  *	idx	5	data2<br>
+  +	t15		data2<br>
+  +	idx	3	t17<br>
+  *	t15	3	data2<br>
+  +	t18		data2<br>
+  *	t18	4	t20<br>
+  =	536	-	t21<br>
+  =[]	t21	t20	t22<br>
+  +	sum	t22	t23<br>
+  =	t23	-	sum<br>
+  goto	-	-	L2<br>
+  L4:	Nop	-	-	-<br>
+  =	0	-	i<br>
+  L5:	&lt;	i	10	t24<br>
+  goto	-	-	L7<br>
+  L6:	+	i	1	t25<br>
+  =	t25	-	i<br>
+  goto	-	-	L5<br>
+  L7:	If=	t24	0	L8<br>
+  *	i	4	t26<br>
+  =	16	-	t27<br>
+  =[]	t27	t26	t28<br>
+  +	sum	t28	t29<br>
+  *	i	10	t30<br>
+  +	t29	t30	t31<br>
+  =	t31	-	sum<br>
+  +	i	1	t32<br>
+  *	i	5	data1<br>
+  +	t33		data1<br>
+  *	t33	4	t35<br>
+  =	136	-	t36<br>
+  =[]	t36	t35	t37<br>
+  +	sum	t37	t38<br>
+  =	t38	-	sum<br>
+  +	i	1	t39<br>
+  *	i	5	data2<br>
+  +	t40		data2<br>
+  +	i	3	t42<br>
+  *	t40	3	data2<br>
+  +	t43		data2<br>
+  *	t43	4	t45<br>
+  =	536	-	t46<br>
+  =[]	t46	t45	t47<br>
+  +	sum	t47	t48<br>
+  =	t48	-	sum<br>
+  goto	-	-	L6<br>
+  L8:	Nop	-	-	-<br>
+  =	0	-	i<br>
+  L9:	&lt;	i	10	t49<br>
+  goto	-	-	L11<br>
+  L10:	+	i	1	t50<br>
+  =	t50	-	i<br>
+  goto	-	-	L9<br>
+  L11:	If=	t49	0	L12<br>
+  *	i	4	t51<br>
+  =	16	-	t52<br>
+  =[]	t52	t51	t53<br>
+  *	i	10	t54<br>
+  +	t53	t54	t55<br>
+  =	t55	-	a<br>
+  goto	-	-	L10<br>
+  L12:	Nop	-	-	-<br>
+  /	sum	nums	t56<br>
+  =	t56	-	sum<br>
+  ..................................<br>
+  Printing the quadruples Blockwise<br>
+  ..................................<br>
+  Block No:0<br>
+  =	0	-	sum<br>
+  =	0	-	idx<br>
+  Block No:1<br>
+  L1:	&lt;	idx	nums	t1<br>
+  goto	-	-	L3<br>
+  Block No:2<br>
+  L2:	+	idx	1	t2<br>
+  =	t2	-	idx<br>
+  goto	-	-	L1<br>
+  Block No:3<br>
+  L3:	If=	t1	0	L4<br>
+  Block No:4<br>
+  *	idx	4	t3<br>
+  =	56	-	t4<br>
+  =[]	t4	t3	t5<br>
+  +	sum	t5	t6<br>
+  =	t6	-	sum<br>
+  +	idx	1	t7<br>
+  *	idx	5	data1<br>
+  +	t8		data1<br>
+  *	t8	4	t10<br>
+  =	136	-	t11<br>
+  =[]	t11	t10	t12<br>
+  +	sum	t12	t13<br>
+  =	t13	-	sum<br>
+  +	idx	1	t14<br>
+  *	idx	5	data2<br>
+  +	t15		data2<br>
+  +	idx	3	t17<br>
+  *	t15	3	data2<br>
+  +	t18		data2<br>
+  *	t18	4	t20<br>
+  =	536	-	t21<br>
+  =[]	t21	t20	t22<br>
+  +	sum	t22	t23<br>
+  =	t23	-	sum<br>
+  goto	-	-	L2<br>
+  Block No:5<br>
+  =	0	-	i<br>
+  Block No:6<br>
+  L5:	&lt;	i	10	t24<br>
+  goto	-	-	L7<br>
+  Block No:7<br>
+  L6:	+	i	1	t25<br>
+  =	t25	-	i<br>
+  goto	-	-	L5<br>
+  Block No:8<br>
+  L7:	If=	t24	0	L8<br>
+  Block No:9<br>
+  *	i	4	t26<br>
+  =	16	-	t27<br>
+  =[]	t27	t26	t28<br>
+  +	sum	t28	t29<br>
+  *	i	10	t30<br>
+  +	t29	t30	t31<br>
+  =	t31	-	sum<br>
+  +	i	1	t32<br>
+  *	i	5	data1<br>
+  +	t33		data1<br>
+  *	t33	4	t35<br>
+  =	136	-	t36<br>
+  =[]	t36	t35	t37<br>
+  +	sum	t37	t38<br>
+  =	t38	-	sum<br>
+  +	i	1	t39<br>
+  *	i	5	data2<br>
+  +	t40		data2<br>
+  +	i	3	t42<br>
+  *	t40	3	data2<br>
+  +	t43		data2<br>
+  *	t43	4	t45<br>
+  =	536	-	t46<br>
+  =[]	t46	t45	t47<br>
+  +	sum	t47	t48<br>
+  =	t48	-	sum<br>
+  goto	-	-	L6<br>
+  Block No:10<br>
+  =	0	-	i<br>
+  Block No:11<br>
+  L9:	&lt;	i	10	t49<br>
+  goto	-	-	L11<br>
+  Block No:12<br>
+  L10:	+	i	1	t50<br>
+  =	t50	-	i<br>
+  goto	-	-	L9<br>
+  Block No:13<br>
+  L11:	If=	t49	0	L12<br>
+  Block No:14<br>
+  *	i	4	t51<br>
+  =	16	-	t52<br>
+  =[]	t52	t51	t53<br>
+  *	i	10	t54<br>
+  +	t53	t54	t55<br>
+  =	t55	-	a<br>
+  goto	-	-	L10<br>
+  Block No:15<br>
+  /	sum	nums	t56<br>
+  =	t56	-	sum<br>
+  Construct Flow Graph<br>
+  Print Flow Graph<br>
+  B1<br>
+  B2<br>
+  B4 <br>
+  B2 <br>
+  B6	B5<br>
+  B3 <br>
+  B7<br>
+  B9 <br>
+  B7 <br>
+  B11	B10<br>
+  B8 <br>
+  B12<br>
+  B14 <br>
+  B12 <br>
+  B16	B15<br>
+  B13 </p>
+<p>Printing Labels<br>
+  L1	L2	L3	L4	L5	L6	L7	L8	L9	L10	L11	L12 </p>
+<p></p>
+<pre>&nbsp;</pre>
+
+</body>
+</html>

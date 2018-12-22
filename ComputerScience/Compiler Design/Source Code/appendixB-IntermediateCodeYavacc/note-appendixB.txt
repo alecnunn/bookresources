@@ -1,0 +1,14 @@
+JavaCC is a tool enabling the language designer to specify the lexical and syntax specifications.
+In generates a set of Java files which are meant for the scanning and parsing the source program.
+Along with the specification the semantic actions can be attached so the intermediate code corresponding source code can be generated.
+We have used the quadruples as the intermediate code.
+
+When the specification files are processed by JavaCC, it produces the following files as follows:
+CParser.java
+CParserConstants.java
+CParserTokenManager.java
+JavaCharStream.java
+ParseException.java
+Token.java
+TokenMgrError.java
+These files compiled using Javac produces the scanner and parser routines.

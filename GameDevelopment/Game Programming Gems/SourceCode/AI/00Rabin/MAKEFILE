@@ -1,0 +1,7 @@
+LOADLIBES = -lGL -lglut -lMesaGLU -L/usr/X11R6/lib -lX11 \
+	-lXi -lXmu
+
+ai_engine: custom_time.o fsm.o fsm_drone.o game_object.o game_object_db.o \
+	hud.o main.o msgroute.o mtxlib.o text.o vector.o
+	$(CC) *.o -o ai_engine $(LOADLIBES)
+

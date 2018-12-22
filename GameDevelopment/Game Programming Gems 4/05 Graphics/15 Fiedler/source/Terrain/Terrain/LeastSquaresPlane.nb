@@ -1,0 +1,158 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4869,        116]*)
+(*NotebookOutlinePosition[      5527,        139]*)
+(*  CellTagsIndexPosition[      5483,        135]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[""], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(\[IndentingNewLine]\(a00 = sum_xx;\)\), "\[IndentingNewLine]", 
+    \(\(a01 = sum_xy;\)\), "\[IndentingNewLine]", 
+    \(\(a02 = sum_x;\)\), "\[IndentingNewLine]", 
+    \(\(a10 = sum_xy;\)\), "\[IndentingNewLine]", 
+    \(\(a11 = sum_yy;\)\), "\[IndentingNewLine]", 
+    \(\(a12 = sum_y;\)\), "\[IndentingNewLine]", 
+    \(\(a20 = sum_x;\)\), "\[IndentingNewLine]", 
+    \(\(a21 = sum_y;\)\), "\[IndentingNewLine]", 
+    \(\(a22 = sum_samples;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(b0 = sum_xz;\)\), "\[IndentingNewLine]", 
+    \(\(b1 = sum_yz;\)\), "\[IndentingNewLine]", 
+    \(\(b2 = sum_z;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(i00 = a11*a22 - a12*a21;\)\), "\[IndentingNewLine]", 
+    \(\(i01 = a02*a21 - a01*a22;\)\), "\[IndentingNewLine]", 
+    \(\(i02 = a01*a12 - a02*a11;\)\), "\[IndentingNewLine]", 
+    \(\(i10 = a12*a20 - a10*a22;\)\), "\[IndentingNewLine]", 
+    \(\(i11 = a00*a22 - a02*a20;\)\), "\[IndentingNewLine]", 
+    \(\(i12 = a02*a10 - a00*a12;\)\), "\[IndentingNewLine]", 
+    \(\(i20 = a10*a21 - a11*a20;\)\), "\[IndentingNewLine]", 
+    \(\(i21 = a01*a20 - a00*a21;\)\), "\[IndentingNewLine]", 
+    \(\(i22 = 
+        a00*a11 - a01*a10;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(determinant = 
+        a00*i00 + a01*i10 + 
+          a02*i20;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(FullSimplify[
+        determinant];\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(i00 /= determinant;\)\), "\[IndentingNewLine]", 
+    \(\(i01 /= determinant;\)\), "\[IndentingNewLine]", 
+    \(\(i02 /= determinant;\)\), "\[IndentingNewLine]", 
+    \(\(i10 /= determinant;\)\), "\[IndentingNewLine]", 
+    \(\(i11 /= determinant;\)\), "\[IndentingNewLine]", 
+    \(\(i12 /= determinant;\)\), "\[IndentingNewLine]", 
+    \(\(i20 /= determinant;\)\), "\[IndentingNewLine]", 
+    \(\(i21 /= determinant;\)\), "\[IndentingNewLine]", 
+    \(\(i22 /= determinant;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(\(x0 = i00*b0 + i01*b1 + i02*b2;\)\), "\[IndentingNewLine]", 
+    \(\(x1 = 
+        i10*b0 + i11*b1 + 
+          i12*b2;\)\[IndentingNewLine]\), "\[IndentingNewLine]", 
+    \(nx = FullSimplify[\(-x0\)]\), "\[IndentingNewLine]", 
+    \(\(\(ny\)\(=\)\(FullSimplify[\(-x1\)]\)\(\[IndentingNewLine]\)\)\)}], \
+"Input"],
+
+Cell[BoxData[
+    \(\((sum_xz\ \((\(-sum_y\^2\) + sum_samples\ sum_yy)\) - 
+          sum_samples\ sum_xy\ sum_yz + 
+          sum_x\ sum_y\ sum_yz + \((sum_xy\ sum_y - 
+                sum_x\ sum_yy)\)\ sum_z)\)/\((\(-2\)\ sum_x\ sum_xy\ sum_y + 
+          sum_xx\ sum_y\^2 + sum_x\^2\ sum_yy + 
+          sum_samples\ \((sum_xy\^2 - sum_xx\ sum_yy)\))\)\)], "Output"],
+
+Cell[BoxData[
+    \(\((\(-sum_x\^2\)\ sum_yz + 
+          sum_samples\ \((\(-sum_xy\)\ sum_xz + sum_xx\ sum_yz)\) - 
+          sum_xx\ sum_y\ sum_z + 
+          sum_x\ \((sum_xz\ sum_y + 
+                sum_xy\ sum_z)\))\)/\((\(-2\)\ sum_x\ sum_xy\ sum_y + 
+          sum_xx\ sum_y\^2 + sum_x\^2\ sum_yy + 
+          sum_samples\ \((sum_xy\^2 - sum_xx\ sum_yy)\))\)\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1600}, {0, 1127}},
+WindowSize->{754, 751},
+WindowMargins->{{Automatic, 378}, {133, Automatic}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 26, 0, 30, "Input"],
+
+Cell[CellGroupData[{
+Cell[1768, 53, 2330, 43, 910, "Input"],
+Cell[4101, 98, 369, 6, 68, "Output"],
+Cell[4473, 106, 380, 7, 68, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

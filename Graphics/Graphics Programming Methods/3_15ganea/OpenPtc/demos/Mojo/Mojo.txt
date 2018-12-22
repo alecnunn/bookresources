@@ -1,0 +1,43 @@
+wait! stop! read!
+a little demo made for gaffer for his great ptc package
+an old effect I made for a demo with basehead
+but it never got made
+the only truecolour effect I made to date :)
+time to move on I guess...
+
+THIS IS NOT TESTED AT ALL! I've run it on 1 machine (mine) under 1 video
+mode under one compiler (dos, watcom, 10.6, release). so. erm. sorry
+if it don't work, it aint ptc's fault O:-)
+
+so, no responsibility taken for this code or any of its effects, blah blah
+read it and weep - it's HORRIBLE! it was real hack-around with it until
+it looks ok type code. but it does look ok, on a p2... (well, I have a p90
+ok?)
+
+it used to be processor independent on speed... no longer. but hey. I dont
+care. just watch it in slowmo!
+
+just a note about ptc...
+it's really neat! I unzipped the package, read 0% docs, read 5% example
+source code and put it in, in only 40 minutes, starting from the ftp.
+it compiled and ran perfectly, first time. (ptc that is :))
+that has to be the easiest (large) piece of code I've ever had to drop in.
+congrats are due to the man gaffer!
+
+some greets?
+
+haplo! the man...
+zeb! the man...
+gandalf! the perfectionist...
+the french! the sceners...
+lassi! stop eating McDs...
+jak! stop not composing...
+croaker! keep composing..
+erm
+erm
+erm
+*! ...
+
+contact?
+alex@uk
+

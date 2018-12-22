@@ -1,0 +1,4 @@
+Name "Allen"
+Age 24
+Chapter 8
+Demo "Property Script"

@@ -1,0 +1,273 @@
+
+
+CGAPatch "Sonar - noise modulated sine"
+{
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 0.25;
+	}
+
+	CGATriangleEnvelope Env1
+	{
+		Center = 0.001;
+		Duration = 2.5;
+	}
+
+	CGATriangleEnvelope Env2
+	{
+		Center = 0.5;
+		Duration = 2.5;
+		SignalMode = 1;
+	}
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGAAverager Avg1
+	{
+		Duration = 0.0005;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 2000;
+		FMAttenuation = 0.2;
+	}
+
+	Connection = Trigger1, Env1,SampleOut, TRIG;
+	Connection = Trigger1, Env2,SampleOut, TRIG;
+	Connection = Env1, OSC1,SampleOut, Amplitude;
+	Connection = Env2, Noise1,SampleOut, AM;
+	Connection = Noise1, Avg1,SampleOut, SampleIn;
+	Connection = Avg1, OSC1,SampleOut, FM;
+
+}
+
+CGASignal  SubmarineEngine
+{
+	File = "m_subengine01.wav";
+}
+
+CGAPatch "Submarine - Engine only"
+{
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.01;
+		Amplitude = 0.9;
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = SubmarineEngine;
+		Frequency = 1.0;
+	}
+
+	Connection = LFO1, Wave1,SampleOut, Amplitude;
+
+}
+
+CGAPatch "Submarine - Low Turbulences only"
+{
+
+	CGANoiseMSineOsc Noise1
+	{
+	}
+}
+
+CGAPatch "Submarine - Hight Turbulences only"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+		
+	}
+
+	CGASineXOscillator VCO1
+	{
+		Frequency = 860;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = LFO1,VCO1, SampleOut, FM;
+
+}
+
+
+
+CGAPatch "Submarine - Engine and Low Turbulences"
+{
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.01;
+		Amplitude = 0.9;
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = SubmarineEngine;
+		Frequency = 1.0;
+	}
+
+	CGANoiseMSineOsc Noise1
+	{
+	}
+
+	CGAMixer2 Mix1
+	{
+		InputGain1 = 0.7;
+	}
+	
+	Connection = LFO1, Wave1,SampleOut, Amplitude;
+	Connection = LFO1, Noise1,SampleOut, AM;
+
+	Connection = Wave1,Mix1, SampleOut, SampleIn1;
+	Connection = Noise1,Mix1, SampleOut, SampleIn2;
+}
+
+
+CGAPatch "Submarine - Engine,Turbulences"
+{
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.01;
+		Amplitude = 0.9;
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = SubmarineEngine;
+		Frequency = 1.0;
+	}
+
+	CGANoiseMSineOsc Noise1
+	{
+	}
+
+	CGASineXOscillator Noise2
+	{
+		Frequency = 860;
+		FMAttenuation = 0.1;
+	}
+
+
+	CGAMixer3 Mix1
+	{
+		InputGain1 = 0.7;
+		InputGain3 = 0.02;
+	}
+	
+	Connection = LFO1, Wave1,SampleOut, Amplitude;
+	Connection = LFO1, Noise1,SampleOut, AM;
+	Connection = LFO1, Noise2,SampleOut, AM;
+
+	Connection = Wave1,Mix1, SampleOut, SampleIn1;
+	Connection = Noise1,Mix1, SampleOut, SampleIn2;
+	Connection = Noise2,Mix1, SampleOut, SampleIn3;
+}
+
+
+
+
+CGAPatch "Submarine - Engine,Noise, Turbulences, Sonar"
+{
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.01;
+		Amplitude = 0.9;
+	}
+
+
+	CGAImpulseGenerator SonarTrigger1
+	{
+		Frequency = 0.25;
+	}
+
+	CGATriangleEnvelope SonarEnv1
+	{
+		Center = 0.001;
+		Duration = 2.5;
+	}
+
+	CGATriangleEnvelope SonarEnv2
+	{
+		Center = 0.5;
+		Duration = 2.5;
+		SignalMode = 1;
+	}
+
+	CGANoiseGenerator SonarNoise1
+	{
+	}
+
+	CGAAverager SonarAvg1
+	{
+		Duration = 0.0005;
+	}
+
+	CGASineOscillator SonarOSC1
+	{
+		Frequency = 2000;
+		FMAttenuation = 0.2;
+	}
+
+
+	Connection = SonarTrigger1, SonarEnv1,SampleOut, TRIG;
+	Connection = SonarTrigger1, SonarEnv2,SampleOut, TRIG;
+	Connection = SonarEnv1, SonarOSC1,SampleOut, Amplitude;
+	Connection = SonarEnv2, SonarNoise1,SampleOut, AM;
+	Connection = SonarNoise1, SonarAvg1,SampleOut, SampleIn;
+	Connection = SonarAvg1, SonarOSC1,SampleOut, FM;
+
+
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = SubmarineEngine;
+		Frequency = 1.0;
+		FMAttenuation = 0.01;
+	}
+
+	CGANoiseMSineOsc Noise1
+	{
+	}
+
+	CGASineXOscillator Noise2
+	{
+		Frequency = 860;
+		FMAttenuation = 0.1;
+	}
+
+
+	CGAMixer4 Mix1
+	{
+		InputGain1 = 0.7;
+		InputGain3 = 0.02;
+		InputGain4 = 0.5;
+	}
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 400;
+		FMAttenuation = 0.4;
+	}
+
+	Connection = LFO1, Wave1,SampleOut, FM;
+	
+	Connection = LFO1, Wave1,SampleOut, Amplitude;
+	Connection = LFO1, LPF1,SampleOut, FM;
+	Connection = LFO1, Noise1,SampleOut, AM;
+	Connection = LFO1, Noise2,SampleOut, AM;
+
+	Connection = Wave1,Mix1, SampleOut, SampleIn1;
+	Connection = Noise1,Mix1, SampleOut, SampleIn2;
+	Connection = Noise2,Mix1, SampleOut, SampleIn3;
+	Connection = SonarOsc1,Mix1, SampleOut, SampleIn4;
+
+	Connection = Mix1,LPF1, SampleOut, SampleIn;
+}
+
+

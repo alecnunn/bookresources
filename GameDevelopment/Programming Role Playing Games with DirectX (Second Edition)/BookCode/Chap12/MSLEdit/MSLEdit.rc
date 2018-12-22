@@ -1,0 +1,229 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EDIT DIALOG DISCARDABLE  0, 0, 267, 130
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Master Spell List Editor (MSL Edit) by Jim Adams"
+CLASS "MSLEdit"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Load",IDC_LOAD,210,90,50,14
+    PUSHBUTTON      "Save",IDC_SAVE,210,110,50,14
+    LISTBOX         IDC_SPELLS,5,15,195,109,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Spell List",IDC_STATIC,5,5,50,8
+    PUSHBUTTON      "New",IDC_NEW,210,70,50,14
+    DEFPUSHBUTTON   "Edit",IDC_EDIT,210,15,50,14
+    PUSHBUTTON      "Clear",IDC_CLEAR,210,35,50,14
+END
+
+IDD_MODIFY DIALOG DISCARDABLE  0, 0, 307, 286
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Modify Spell"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NAME,49,20,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESCRIPTION,49,35,80,35,ES_MULTILINE | WS_VSCROLL
+    EDITTEXT        IDC_DMGCLASS,49,74,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CURECLASS,49,89,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_COST,49,105,35,12,ES_AUTOHSCROLL
+    CONTROL         "Alter Health",IDC_HEALTH,"Button",BS_AUTORADIOBUTTON,
+                    140,5,65,10
+    CONTROL         "Alter Mana",IDC_MANA,"Button",BS_AUTORADIOBUTTON,140,15,
+                    65,10
+    CONTROL         "Cure Effect",IDC_CURE,"Button",BS_AUTORADIOBUTTON,140,
+                    24,65,10
+    CONTROL         "Cause Effect",IDC_CAUSE,"Button",BS_AUTORADIOBUTTON,140,
+                    34,65,10
+    CONTROL         "Raise Dead",IDC_RAISE,"Button",BS_AUTORADIOBUTTON,140,
+                    43,70,10
+    CONTROL         "Instant Kill",IDC_KILL,"Button",BS_AUTORADIOBUTTON,140,
+                    53,65,10
+    CONTROL         "Dispel Magic",IDC_DISPEL,"Button",BS_AUTORADIOBUTTON,
+                    140,63,65,10
+    CONTROL         "Teleport",IDC_TELEPORT,"Button",BS_AUTORADIOBUTTON,140,
+                    73,65,10
+    EDITTEXT        IDC_CHANCE,266,5,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VALUE1,266,20,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VALUE2,266,35,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VALUE3,266,50,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VALUE4,266,65,35,12,ES_AUTOHSCROLL
+    CONTROL         "Targets Single",IDC_SINGLE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,235,90,65,8
+    CONTROL         "Targets Self",IDC_SELF,"Button",BS_AUTORADIOBUTTON,235,
+                    99,55,8
+    CONTROL         "Targets Area",IDC_AREA,"Button",BS_AUTORADIOBUTTON,235,
+                    109,55,8
+    EDITTEXT        IDC_RANGE,155,90,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DISTANCE,155,105,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MESH1,61,130,35,12,ES_AUTOHSCROLL
+    CONTROL         "Loop Animation",IDC_LOOP1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,25,145,75,10
+    CONTROL         "N/A",IDC_NONE1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    25,159,75,8
+    CONTROL         "Caster",IDC_CASTER1,"Button",BS_AUTORADIOBUTTON,25,168,
+                    75,8
+    CONTROL         "Caster to Target",IDC_TOTARGET1,"Button",
+                    BS_AUTORADIOBUTTON,25,178,75,8
+    CONTROL         "Target to Caster",IDC_TOCASTER1,"Button",
+                    BS_AUTORADIOBUTTON,25,188,75,8
+    CONTROL         "Target",IDC_TARGET1,"Button",BS_AUTORADIOBUTTON,25,199,
+                    75,8
+    CONTROL         "Scale Distance",IDC_SCALE1,"Button",BS_AUTORADIOBUTTON,
+                    25,209,75,8
+    EDITTEXT        IDC_SPEED1,61,225,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SOUND1,61,239,36,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MESH2,151,130,35,12,ES_AUTOHSCROLL
+    CONTROL         "Loop Animation",IDC_LOOP2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,115,145,75,10
+    CONTROL         "N/A",IDC_NONE2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    115,159,75,8
+    CONTROL         "Caster",IDC_CASTER2,"Button",BS_AUTORADIOBUTTON,115,168,
+                    75,8
+    CONTROL         "Caster to Target",IDC_TOTARGET2,"Button",
+                    BS_AUTORADIOBUTTON,115,178,75,8
+    CONTROL         "Target to Caster",IDC_TOCASTER2,"Button",
+                    BS_AUTORADIOBUTTON,115,188,75,8
+    CONTROL         "Target",IDC_TARGET2,"Button",BS_AUTORADIOBUTTON,115,199,
+                    75,8
+    CONTROL         "Scale Distance",IDC_SCALE2,"Button",BS_AUTORADIOBUTTON,
+                    115,209,75,8
+    EDITTEXT        IDC_SPEED2,150,225,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SOUND2,150,239,36,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MESH3,245,130,35,12,ES_AUTOHSCROLL
+    CONTROL         "Loop Animation",IDC_LOOP3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,210,145,75,10
+    CONTROL         "N/A",IDC_NONE3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    211,159,75,8
+    CONTROL         "Caster",IDC_CASTER3,"Button",BS_AUTORADIOBUTTON,211,168,
+                    75,8
+    CONTROL         "Caster to Target",IDC_TOTARGET3,"Button",
+                    BS_AUTORADIOBUTTON,211,178,75,8
+    CONTROL         "Target to Caster",IDC_TOCASTER3,"Button",
+                    BS_AUTORADIOBUTTON,211,188,75,8
+    CONTROL         "Target",IDC_TARGET3,"Button",BS_AUTORADIOBUTTON,211,199,
+                    75,8
+    CONTROL         "Scale Distance",IDC_SCALE3,"Button",BS_AUTORADIOBUTTON,
+                    211,209,75,8
+    EDITTEXT        IDC_SPEED3,245,225,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SOUND3,245,239,36,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDC_OK,250,266,50,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,185,266,50,14
+    LTEXT           "Spell #",IDC_STATIC,5,5,25,10
+    LTEXT           "#",IDC_NUM,35,5,50,10
+    RTEXT           "Name",IDC_STATIC,21,20,25,10
+    RTEXT           "Description",IDC_STATIC,5,35,40,10
+    RTEXT           "2x Dmg Class",IDC_STATIC,0,75,45,10
+    RTEXT           "Effect Chance",IDC_STATIC,210,5,50,10
+    RTEXT           "Spell Value 1",IDC_STATIC,216,20,45,10
+    RTEXT           "Cost (MP)",IDC_STATIC,10,106,35,10
+    RTEXT           "Range",IDC_STATIC,125,90,25,10
+    RTEXT           "Spell Value 2",IDC_STATIC,216,35,45,10
+    RTEXT           "Speed/Time",IDC_STATIC,10,225,46,10
+    RTEXT           "Sound #",IDC_STATIC,20,241,36,10
+    RTEXT           "Speed/Time",IDC_STATIC,105,226,41,10
+    RTEXT           "Spell Value 3",IDC_STATIC,216,50,45,10
+    RTEXT           "Cure Class",IDC_STATIC,5,90,40,10
+    RTEXT           "Speed/Time",IDC_STATIC,200,225,41,10
+    RTEXT           "Mesh #1",IDC_STATIC,20,130,35,10
+    RTEXT           "Mesh #2",IDC_STATIC,110,130,35,10
+    RTEXT           "Mesh #3",IDC_STATIC,205,130,35,10
+    RTEXT           "Sound #",IDC_STATIC,110,241,36,10
+    RTEXT           "Sound #",IDC_STATIC,205,241,36,10
+    RTEXT           "Max. Distance",IDC_STATIC,105,106,45,10
+    RTEXT           "Spell Value 4",IDC_STATIC,215,65,45,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_EDIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 123
+    END
+
+    IDD_MODIFY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 300
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 279
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,10 @@
+void main(fixed2 coord : TEXCOORD0,
+		  uniform samplerRECT rect : TEXUNIT0,
+		  uniform int len,
+		  out float3 result : COLOR)
+{
+	float density = 0.0;
+	for (int i = 0; i < len; i++)
+		density += f1texRECT(rect, coord + float2(i, 0));
+	result = float3(1.0/density, 150000.0f*max(density - 1000.0f, 0.0), 0);
+}

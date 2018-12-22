@@ -1,0 +1,1 @@
+subdiv %1 -res:8x6

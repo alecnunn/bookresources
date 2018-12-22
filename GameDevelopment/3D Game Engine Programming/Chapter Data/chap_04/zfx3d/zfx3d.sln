@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zfx3d", "zfx3d.vcproj", "{1C1E5615-BA1D-4827-ABF0-FBAEC8762083}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{1C1E5615-BA1D-4827-ABF0-FBAEC8762083}.Debug.ActiveCfg = Release|Win32
+		{1C1E5615-BA1D-4827-ABF0-FBAEC8762083}.Debug.Build.0 = Release|Win32
+		{1C1E5615-BA1D-4827-ABF0-FBAEC8762083}.Release.ActiveCfg = Release|Win32
+		{1C1E5615-BA1D-4827-ABF0-FBAEC8762083}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

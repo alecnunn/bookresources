@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include "..\CD.h"
+#include "..\SCSI.h"
+
+#define DEF_CD	"TEAC"
+#define argCD	((argc>1)?argv[1]:DEF_CD)
+
+main(int argc, char **argv)
+{
+	int a;
+	unsigned char CDB[ATAPI_CDB_SIZE];
+	unsigned char BUF[RAW_SECTOR_SIZE];
+
+	#define XXX RAW_SECTOR_SIZE
+
+    memset(CDB, 0, ATAPI_CDB_SIZE);
+
+	CDB[0] = // opcode	
+	
+	// CDB[00] = HIBYTE(HIWORD(XXX));
+	// CDB[00] = LOBYTE(HIWORD(XXX));
+	// CDB[00] = HIBYTE(LOWORD(XXX));
+	// CDB[00] = LOBYTE(LOWORD(XXX));
+
+	// CDB[00] = HIBYTE(XXX);
+	// CDB[00] = LOBYTE(XXX);
+
+
+	a = SCSI_SEND_CMD(argCD, CDB, ATAPI_CDB_SIZE, NO_SENSE, BUF, RAW_SECTOR_SIZE, SCSI_DATA_IN);
+	if (a == SCSI_OK)
+	{
+		//
+		for (a = 0; a < 30; a++)
+			printf("02X ",BUF[a]); printf("\n");
+
+	}
+		else
+	{
+		// 
+	}
+
+}

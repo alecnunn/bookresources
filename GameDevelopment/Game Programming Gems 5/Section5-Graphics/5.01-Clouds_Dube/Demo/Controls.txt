@@ -1,0 +1,2 @@
+X - Randomize clouds
+C - Switch between different clouds animation speeds.

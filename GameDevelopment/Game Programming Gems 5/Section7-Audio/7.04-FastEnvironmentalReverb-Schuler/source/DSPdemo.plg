@@ -1,0 +1,71 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: DSPdemo - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x407 /fo"Release/DSPdemo.res" /d "NDEBUG" /d "_AFXDLL" "C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\DSPdemo.rc"" 
+Creating temporary file "C:\DOKUME~1\CHRIST~1\LOKALE~1\Temp\RSP11.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "NDEBUG" /D "ASM_PROCESSING" /D "WIN32" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/DSPdemo.pch" /YX"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\cDsp0Pole.cpp"
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\cDspDiskRead.cpp"
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\cDspFDN4.cpp"
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\cSoundBuffer.cpp"
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\cSoundOut.cpp"
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\DSPdemo.cpp"
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\DSPdemoDlg.cpp"
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\PlugIn.cpp"
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\PlugInFDN4.cpp"
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\WaveFile.cpp"
+]
+Creating command line "cl.exe @C:\DOKUME~1\CHRIST~1\LOKALE~1\Temp\RSP11.tmp" 
+Creating temporary file "C:\DOKUME~1\CHRIST~1\LOKALE~1\Temp\RSP12.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "NDEBUG" /D "ASM_PROCESSING" /D "WIN32" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/DSPdemo.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Arbeitszimmer\Reverb Article\Release1.1\Demo\source\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOKUME~1\CHRIST~1\LOKALE~1\Temp\RSP12.tmp" 
+Creating temporary file "C:\DOKUME~1\CHRIST~1\LOKALE~1\Temp\RSP13.tmp" with contents
+[
+dsound.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/ReverbDemo.pdb" /machine:I386 /out:"Release/ReverbDemo.exe" 
+".\Release\cDsp0Pole.obj"
+".\Release\cDspDiskRead.obj"
+".\Release\cDspFDN4.obj"
+".\Release\cSoundBuffer.obj"
+".\Release\cSoundOut.obj"
+".\Release\DSPdemo.obj"
+".\Release\DSPdemoDlg.obj"
+".\Release\PlugIn.obj"
+".\Release\PlugInFDN4.obj"
+".\Release\StdAfx.obj"
+".\Release\WaveFile.obj"
+".\Release\DSPdemo.res"
+]
+Creating command line "link.exe @C:\DOKUME~1\CHRIST~1\LOKALE~1\Temp\RSP13.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+cDsp0Pole.cpp
+cDspDiskRead.cpp
+cDspFDN4.cpp
+cSoundBuffer.cpp
+cSoundOut.cpp
+DSPdemo.cpp
+DSPdemoDlg.cpp
+PlugIn.cpp
+PlugInFDN4.cpp
+WaveFile.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+ReverbDemo.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

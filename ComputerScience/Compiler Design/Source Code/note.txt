@@ -1,0 +1,27 @@
+Welcome to the world of Compilation. This CD contents will help you to get all the source codes developed in our book on Compiler Design.
+All the programs are tested in Linux Platform (CentOS,Fedora), and cygwin in Windows Platform).
+The CD has been organized to provide the contents as follows:
+1.	Source code for generating Intermediate Code for a language similar to C language as discussed in Chapter 6
+2.	Source code for generating the 8086 machine code as discussed in Chapter 8
+3.	Source code for generating the Intermediate Code for C language using the tools Lex and Yacc tools for the scanning and parsing as discussed in Appendix-A
+4.  Source code for generating the Intermediate Code for C lanaguage using the Javacc for the scanning and parsing as discussed in Appendix-B
+5.	Source Code for all the laboratory exercises as discussed in Appendix-C
+6.  Source code for a very simple mini compiler for a C language (Only few features of the languages are covered. The rest is left to the reader to exercis)
+
+Basically all the codes are developed and tested in Linux environment. In order to migrate the work in Microsoft Windows environment, a tool named cygwin is used.
+The steps for working with the codes in these six sections are as follows:
+
+Linux:
+Goto the folder where the files (source code, test input C files) are present
+For the first four sections run the make command (before executing the make command, open the file makefile and study the linkage of all the files involed).
+
+Windows:
+Install cygwin software (freely downloadable from www.cygwin.com - also available in the CD)
+The home folder for the cygwin may look as follows:
+	D:\cygwin\home\muni\compiler\sourcecode
+Goto the cygwin home folder in the command line
+Create any sub folder based on your requirements
+Copy all the required source files into this folder
+Run the make command
+Run the exe file ...
+	Wish you all success!!!

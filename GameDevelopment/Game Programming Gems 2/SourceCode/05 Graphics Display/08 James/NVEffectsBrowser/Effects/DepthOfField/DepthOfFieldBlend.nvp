@@ -1,0 +1,55 @@
+/************************************************************************
+DepthOfFieldBlend.nvp
+
+This pixel shader expects 3 textures: 
+- t0.rgb contains a high-res version of the frame-buffer
+  t0.a   contains how much to interpolate this pixel between hi- and 
+  low-res textures (this interpolator value is derived from the 
+  per-pixel distance from the camera and transformed with a 
+  depth-of-field formula). 
+- t1,rgba same as t0, except filtered down 
+- t2,rgba same as t1, except filtered down even more
+
+First, each texture is sampled.  From the three interpolator samples, we 
+compute one that looks "good".  Given the interpolator we then interpolate 
+between the various colors from the texture stages.  If the interpolator 
+is < 0.5 we linearly interpolate between t0 and t1 and output that result.
+If the interpolator is >= 0.5 we linearly interpolate between t1 and t2
+and output that result instead.
+  
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+; Declare pixel shader version 
+ps.1.1
+
+def c0, 0.0f, 0.0f, 0.0f, 0.5f
+def c1, 0.0f, 0.0f, 0.0f, 1./3.f
+
+; sample all the texture stages
+tex t0
+tex t1
+tex t2
+
+; first interpolate the interpolator: using t0 straight produces ghosting 
+; since the DoF selection is always hi-res (ie, t0) even for the blurred parts.
+; playing with various combinations of t0, t1, t2 shows that the following
+; is reasonable (depth-changing edges never get really unblurred)
+; and yet only takes a single instruction.
+lrp r0.a, c0, t2.a, t0.a
+
+; although the following also produces good results (but with a bit of ghosting
+; and two instructions)
+; r0.a = 0.666*(.5*t2.a + .5*t1.a) + 0.333 * t0.a)
+;      = 0.333*(t0.a+t1.a+t2.a)
+; lrp r0.a, c0, t2.a, t1.a
+; lrp r0.a, c1, r0.a, t0.a	
+
+mov_x2_sat r1.a,   r0.a				// pretend 0 <= r0.a <= 0.5 
+lrp	       r1.rgb, r1.a, t1, t0		// correctly interpolate t0, t1 and store 
+mov_sat    r1.a,   r0_bx2.a         // pretend 0.5 <= r0.a <= 1
+lrp        r0.rgb, r1.a, t2, t1     // correctly interpolate t1, t2 and store 
+
+cnd		   r0.rgb, r0.a, r0, r1		// figure out which case is the true one and select it
+
+; mov r0.rgb, t0.a

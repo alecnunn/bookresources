@@ -1,0 +1,63 @@
+
+#include "constants.h"
+
+vs.1.0
+
+// Helpers for the lighting
+#beginfragment set_power
+mov r_intensity.w, c_mat_power.w
+#endfragment
+
+#beginfragment clamp_diffuse_exponentiate_specular
+lit r_intensity_result, r_intensity
+#endfragment
+
+#beginfragment pointlight_accumulate_diffuse
+mad r_diffusecolor.xyz, r_intensity_result.y, c_pointlight_diffuse++, r_diffusecolor
+#endfragment
+
+#beginfragment pointlight_accumulate_diffuse_last
+mad oD0.xyz, r_intensity_result.y, c_pointlight_diffuse++, r_diffusecolor
+#endfragment
+
+#beginfragment pointlight_accumulate_specular_first
+mul r_specularcolor.xyz, r_intensity_result.z, c_pointlight_specular++
+#endfragment
+
+#beginfragment pointlight_accumulate_specular
+mad r_specularcolor.xyz, r_intensity_result.z, c_pointlight_specular++, r_specularcolor
+#endfragment
+
+#beginfragment pointlight_accumulate_specular_last
+mad oD1.xyz, r_intensity_result.z, c_pointlight_specular++, r_specularcolor
+#endfragment
+
+#beginfragment pointlight_accumulate_specular_first_and_last
+mul oD1.xyz, r_intensity_result.z, c_pointlight_specular++
+#endfragment
+
+// Dirlight
+#beginfragment dirlight_accumulate_diffuse
+mad r_diffusecolor.xyz, r_intensity_result.y, c_dirlight_diffuse++, r_diffusecolor
+#endfragment
+
+#beginfragment dirlight_accumulate_diffuse_last
+mad oD0.xyz, r_intensity_result.y, c_dirlight_diffuse++, r_diffusecolor
+#endfragment
+
+#beginfragment dirlight_accumulate_specular_first
+mul r_specularcolor.xyz, r_intensity_result.z, c_dirlight_specular++
+#endfragment
+
+#beginfragment dirlight_accumulate_specular
+mad r_specularcolor.xyz, r_intensity_result.z, c_dirlight_specular++, r_specularcolor
+#endfragment
+
+#beginfragment dirlight_accumulate_specular_last
+mad oD1.xyz, r_intensity_result.z, c_dirlight_specular++, r_specularcolor
+#endfragment
+
+#beginfragment dirlight_accumulate_specular_first_and_last
+mul oD1.xyz, r_intensity_result.z, c_dirlight_specular++
+#endfragment
+

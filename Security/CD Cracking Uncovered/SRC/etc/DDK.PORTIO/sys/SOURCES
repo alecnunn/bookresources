@@ -1,0 +1,10 @@
+# The sources for the Generic Port I/O device driver:
+
+TARGETNAME=genport
+TARGETPATH=obj
+TARGETTYPE=DRIVER
+
+INCLUDES=..\
+
+SOURCES=genport.c genport.rc
+

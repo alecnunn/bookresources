@@ -1,0 +1,66 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Clipper  Class Reference</h1>Routines for clipping areas. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcClipper-members.html">List of all members.</a><h2>Static Public Members</h2>
+<ul>
+<li>Area <a class="el" href="class_ptcClipper.html#d0">clip</a> (const Area &amp;clip,const Area &amp;area)
+<li>void <a class="el" href="class_ptcClipper.html#d1">clip</a> (const Area &amp;clip_source,const Area &amp;source,Area &amp;clipped_source, const Area &amp;clip_destination,const Area &amp;destination,Area &amp;clipped_destination)
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Routines for clipping areas.
+<p>
+This class provides low level area clipping routines.
+<p>
+Before using the clipper class take a look at the high level <a class="el" href="class_ptcSurface.html#a15">Surface::clip</a>(const Area &amp;clip) function.
+<p>
+Typically the only time the clipper class is required is when you are managing your own pixel buffers and performing clipping manually. <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="d0" doxytag="ptc::Clipper::clip"></a>Area ptc::Clipper::clip (const Area &amp; <em>clip</em>, const Area &amp; <em>area</em>)<code> [static]</code></h3>
+<div class="in">
+
+<p>
+Clip the area <em>area</em> to the clipping area <em>clip</em> and returns the result.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>clip</em> -  the clip area. <dd>
+<em>area</em> -  the area to clip. </dl><dl compact><dt>
+<b>Returns: </b><dd>
+The clipped area. </dl></div>
+
+<h3><a name="d1" doxytag="ptc::Clipper::clip"></a>void ptc::Clipper::clip (const Area &amp; <em>clip_source</em>, const Area &amp; <em>source</em>, Area &amp; <em>clipped_source</em>, const Area &amp; <em>clip_destination</em>, const Area &amp; <em>destination</em>, Area &amp; <em>clipped_destination</em>)<code> [static]</code></h3>
+<div class="in">
+
+<p>
+Clip the source area <em>source</em> to the source clip area <em>clip_source,</em> then clips the destination area <em>destination</em> to the destination clip area <em>clip_destination.</em>
+<p>
+This clip assumes that the source and destination areas are dependent, so when the source area is clipped, the destination area is adjusted to compensate and vice versa.
+<p>
+This clipping routine also correctly handles cases where the source and destination areas involve stretching.
+<p>
+The resulting clipped areas are assigned to the <em>clipped_source</em> and <em>clipped_destination</em> parameters.
+<p>
+<dl compact><dt>
+<b>TODO: add source_reference and destination_reference areas for proper stretch clip support!</b><dd>
+</dl><dl compact><dt>
+<b>Parameters: </b><dd>
+<em>clip_source</em> -  the source clip area. <dd>
+<em>source</em> -  the source area to clip. <dd>
+<em>clipped_source</em> -  the output clipped source area. <dd>
+<em>clip_destination</em> -  the destination clip area. <dd>
+<em>destination</em> -  the destination area to clip. <dd>
+<em>clipped_destination</em> -  the output clipped destination area. </dl></div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

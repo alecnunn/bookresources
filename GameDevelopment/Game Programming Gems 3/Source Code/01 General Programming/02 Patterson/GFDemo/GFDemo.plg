@@ -1,0 +1,90 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GFDemo - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Default\LOCALS~1\Temp\RSP58D.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "../" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/GFDemo.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\ToneByte\Dev\GPGems3\GFDemo\AVLayerConfigObj_SystemConfig_t.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Default\LOCALS~1\Temp\RSP58D.tmp" 
+Creating temporary file "C:\DOCUME~1\Default\LOCALS~1\Temp\RSP58E.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/GFDemo.pdb" /machine:I386 /out:"../GFBin/Win32/GFDemo.exe" 
+.\Release\AVLayerConfigObj_Game_t.obj
+.\Release\AVLayerConfigObj_GameConfig_t.obj
+.\Release\AVLayerConfigObj_GameEditor_t.obj
+.\Release\AVLayerConfigObj_GameHud_t.obj
+.\Release\AVLayerConfigObj_GameLose_t.obj
+.\Release\AVLayerConfigObj_GamePause_t.obj
+.\Release\AVLayerConfigObj_GameViewer_t.obj
+.\Release\AVLayerConfigObj_GameWin_t.obj
+.\Release\AVLayerConfigObj_Intro_t.obj
+.\Release\AVLayerConfigObj_StartMenu_t.obj
+.\Release\AVLayerConfigObj_SystemConfig_t.obj
+.\Release\AVLayerObj_Game_t.obj
+.\Release\AVLayerObj_GameConfig_t.obj
+.\Release\AVLayerObj_GameEditor_t.obj
+.\Release\AVLayerObj_GameHud_t.obj
+.\Release\AVLayerObj_GameLose_t.obj
+.\Release\AVLayerObj_GamePause_t.obj
+.\Release\AVLayerObj_GameViewer_t.obj
+.\Release\AVLayerObj_GameWin_t.obj
+.\Release\AVLayerObj_Intro_t.obj
+.\Release\AVLayerObj_StartMenu_t.obj
+.\Release\AVLayerObj_SystemConfig_t.obj
+.\Release\GameApp_t.obj
+.\Release\GameFactoryImpl_t.obj
+.\Release\GameState_t.obj
+.\Release\GFDemo.obj
+.\Release\LogicLayerConfigObj_Game_t.obj
+.\Release\LogicLayerConfigObj_GameConfig_t.obj
+.\Release\LogicLayerConfigObj_GameEditor_t.obj
+.\Release\LogicLayerConfigObj_GameLose_t.obj
+.\Release\LogicLayerConfigObj_GamePause_t.obj
+.\Release\LogicLayerConfigObj_GameViewer_t.obj
+.\Release\LogicLayerConfigObj_GameWin_t.obj
+.\Release\LogicLayerConfigObj_Intro_t.obj
+.\Release\LogicLayerConfigObj_StartMenu_t.obj
+.\Release\LogicLayerConfigObj_SystemConfig_t.obj
+.\Release\LogicLayerObj_Game_t.obj
+.\Release\LogicLayerObj_GameConfig_t.obj
+.\Release\LogicLayerObj_GameEditor_t.obj
+.\Release\LogicLayerObj_GameLose_t.obj
+.\Release\LogicLayerObj_GamePause_t.obj
+.\Release\LogicLayerObj_GameViewer_t.obj
+.\Release\LogicLayerObj_GameWin_t.obj
+.\Release\LogicLayerObj_Intro_t.obj
+.\Release\LogicLayerObj_StartMenu_t.obj
+.\Release\LogicLayerObj_SystemConfig_t.obj
+.\Release\StdAfx.obj
+.\Release\TaskConfigObj_Game_t.obj
+.\Release\TaskConfigObj_GameConfig_t.obj
+.\Release\TaskConfigObj_Intro_t.obj
+.\Release\TaskConfigObj_SystemConfig_t.obj
+.\Release\TaskObj_ChangeDriver_t.obj
+.\Release\TaskObj_StartApp_t.obj
+.\Release\GFDemoResources.res
+\ToneByte\Dev\GPGems3\GFLib\Win32\SystemsWin32Lib.lib
+\ToneByte\Dev\GPGems3\GFSrc\Systems\Win32\VisualSysD3D7Dll\Release\VisualSysD3D7Dll.lib
+\ToneByte\Dev\GPGems3\GFSrc\Systems\Win32\VisualSysD3D8Dll\Release\VisualSysD3D8Dll.lib
+\ToneByte\Dev\GPGems3\GFSrc\Systems\Win32\VisualSysOpenGLDll\Release\VisualSysOpenGLDll.lib
+\ToneByte\Dev\GPGems3\GFLib\Win32\GFObjects.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\Default\LOCALS~1\Temp\RSP58E.tmp"
+<h3>Output Window</h3>
+Compiling...
+AVLayerConfigObj_SystemConfig_t.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+GFDemo.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

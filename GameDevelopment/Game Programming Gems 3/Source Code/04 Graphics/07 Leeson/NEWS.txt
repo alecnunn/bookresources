@@ -1,0 +1,9 @@
+News
+****
+This lists the user-visible changes made to the code, and which releases
+they occurred between. For more detailed information see the
+`ChangeLog' files in the Tracey source tree.
+
+0.1
+===
+	nothing so far as this is the first release

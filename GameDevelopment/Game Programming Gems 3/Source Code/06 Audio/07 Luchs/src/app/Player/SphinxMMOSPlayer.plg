@@ -1,0 +1,61 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SphinxMMOSPlayer - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"..\..\..\..\mak\player\release/SphinxMMOSPlayer.res" /d "NDEBUG" /d "_AFXDLL" "C:\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\0205\src\app\Player\SphinxMMOSPlayer.rc"" 
+Creating temporary file "C:\DOCUME~1\Default\LOCALS~1\Temp\RSPF.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"..\..\..\..\mak\player\release/SphinxMMOSPlayer.pch" /Yu"stdafx.h" /Fo"..\..\..\..\mak\player\release/" /Fd"..\..\..\..\mak\player\release/" /FD /c 
+"C:\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\0205\src\app\Player\atomos.cpp"
+"C:\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\0205\src\app\Player\SphinxMMOSPlayer.cpp"
+"C:\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\0205\src\app\Player\SphinxMMOSPlayerDoc.cpp"
+"C:\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\0205\src\app\Player\SphinxMMOSPlayerMainFrame.cpp"
+"C:\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\0205\src\app\Player\SphinxMMOSPlayerView.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Default\LOCALS~1\Temp\RSPF.tmp" 
+Creating temporary file "C:\DOCUME~1\Default\LOCALS~1\Temp\RSP10.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"..\..\..\..\mak\player\release/SphinxMMOSPlayer.pch" /Yc"stdafx.h" /Fo"..\..\..\..\mak\player\release/" /Fd"..\..\..\..\mak\player\release/" /FD /c 
+"C:\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\0205\src\app\Player\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Default\LOCALS~1\Temp\RSP10.tmp" 
+Creating temporary file "C:\DOCUME~1\Default\LOCALS~1\Temp\RSP11.tmp" with contents
+[
+/nologo /version:0.603 /subsystem:windows /incremental:no /pdb:"..\..\..\..\mak\SphinxMMOSPlayer.pdb" /debug /machine:I386 /out:"..\..\..\bin/SphinxMMOSPlayer.exe" 
+\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\mak\player\release\atomos.obj
+\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\mak\player\release\SphinxMMOSPlayer.obj
+\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\mak\player\release\SphinxMMOSPlayerDoc.obj
+\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\mak\player\release\SphinxMMOSPlayerMainFrame.obj
+\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\mak\player\release\SphinxMMOSPlayerView.obj
+\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\mak\player\release\StdAfx.obj
+\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\mak\player\release\SphinxMMOSPlayer.res
+]
+Creating command line "link.exe @C:\DOCUME~1\Default\LOCALS~1\Temp\RSP11.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+importing atombase
+importing atomgaud
+C:\ToneByte\Doc\GPGems3\Finished\Luchs\final5\code\0205\src\app\Player\..\\..\\lib\\atomgaud\\GASystem.h(40) : warning C4518: 'IGADevice ' : storage-class or type specifier(s) unexpected here; ignored
+library is linking with atombase.lib
+Compiling...
+atomos.cpp
+SphinxMMOSPlayer.cpp
+SphinxMMOSPlayerDoc.cpp
+SphinxMMOSPlayerMainFrame.cpp
+SphinxMMOSPlayerView.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SphinxMMOSPlayer.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

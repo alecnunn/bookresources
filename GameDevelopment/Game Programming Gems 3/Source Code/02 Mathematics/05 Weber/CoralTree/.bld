@@ -1,0 +1,175 @@
+# Root build file
+
+if (!$(CORALHOME))
+{
+	echo "[31mWARNING[0m CORALHOME not set"
+	if($(BLD_OSTYPE) == unix)
+	{
+		set CORALHOME = `pwd`
+		echo "setting CORALHOME to $(CORALHOME)"
+	}
+	else
+	{
+		set CORALHOME = `CD`
+		echo "setting CORALHOME to $(CORALHOME)"
+		set CORALHOME_NOT_IN_ENV = 1
+	}
+}
+include $(CORALHOME)/meta/coral.bld
+
+# BASE modules that most stuff depends on
+#set ROOT.BASE = meta osd gpl wba spa mte bld
+set ROOT.BASE = meta osd gpl wba
+
+# GUI modules for user interfaces
+set ROOT.GUI = ew wds
+
+# MISC modules that are part of coral but are not in the other concise dists
+set ROOT.MISC = lm ips sui
+
+# NETworking modules, message passing based
+set ROOT.NET = dna nl
+
+# Distributed Shared Memory related modules
+set ROOT.DSM = km kmd dss dssx nrm ncs
+
+# What you need for build.exe
+set ROOT.BLD = meta osd gpl wba bld
+
+# ALL for all currently open sourced modules
+#set ROOT.ALL = $(BASE) $(GUI) $(NET) $(DSM)
+set ROOT.ALL = $(BASE) $(GUI)
+
+set ROOT.DIRECTORIES = $(ALL)
+
+# Files in root directory for source distributions
+set ROOT.ROOTFILES = OVERVIEW README CORALVERSION INSTALL .bld makefile
+
+^(meta|osd|gpl|wba|mte|spa|ew|wds|iws|nl|km|kmd|dss|dssx|dna|lm|xlm|nrm|ncs)$:
+{
+	set SILENT = 1
+	if($(PRETTY) == 1)
+	{
+		system("echo -n '[32m'")
+	}
+	echo "====================================================================="
+	echo "MODULE $(0)"
+	if($(PRETTY) == 1)
+	{
+		system("echo -n '[0m'")
+	}
+	cd $(0)
+	if( $(CORALHOME_NOT_IN_ENV) == 1)
+	{
+		echo "[33mCORALHOME not in environment, using temporary .bat file[0m"
+		system("echo set CORALHOME=$(CORALHOME)> tmpbld.bat")
+		system("echo build.exe $(BLD_TARGETS) >> tmpbld.bat")
+		system("tmpbld.bat")
+		del tmpbld.bat
+	}
+	else
+	{
+		build.exe $(BLD_TARGETS)
+	}
+	cd ..
+}
+
+all:
+{
+	build( $(DIRECTORIES) )
+}
+
+clean:
+{
+	build( $(DIRECTORIES) )
+}
+
+install:
+{
+	build( $(DIRECTORIES) )
+}
+
+share:
+{
+	build( $(DIRECTORIES) )
+}
+
+ct([!-.0-~]+):
+{
+	if ($(1) == BASE)
+	{
+		set ROOT.DIRECTORIES = $(BASE)
+	}
+	else if ($(1) == GUI)
+	{
+		set ROOT.DIRECTORIES = $(GUI)
+	}
+	else if ($(1) == MISC)
+	{
+		set ROOT.DIRECTORIES = $(MISC)
+	}
+	else if ($(1) == NET)
+	{
+		set ROOT.DIRECTORIES = $(NET)
+	}
+	else if ($(1) == DSM)
+	{
+		set ROOT.DIRECTORIES = $(DSM)
+	}
+	else if ($(1) == BLD)
+	{
+		set ROOT.DIRECTORIES = $(BLD)
+	}
+	else if ($(1) == ALL)
+	{
+		set ROOT.DIRECTORIES = $(ALL)
+	}
+	else
+	{
+		exit
+	}
+	foreach D ($(DIRECTORIES))
+	{
+		cd $(D)
+		build.exe clean
+		cd ..
+	}
+	rm -f meta/platform.h
+	mkdir coral
+	tar cvf coral/tmp.tar $(ROOTFILES) $(DIRECTORIES)
+	cd coral
+	tar xvf tmp.tar
+	rm tmp.tar
+	cd ..
+	tar cvf ct$(1).$(CORALVERSION).tar coral
+	rm -rf coral
+	gzip -9 ct$(1).$(CORALVERSION).tar
+}
+
+full:
+{
+	check( ctALL )
+	check( ctBLD )
+	check( ctNET )
+	check( ctBASE )
+	check( ctDSM )
+	check( ctGUI )
+}
+
+
+v([!-.0-~]+):
+{
+	set ROOT.VTAG=$(1)
+	check(ctBASE)
+	check(ctGUI)
+	check(ctNET)
+	check(ctBLD)
+	check(ctDSM)
+	check(ctALL)
+
+	# need not compress this since ct files are already compressed
+	tar cvf dist.$(VTAG).tar ct*
+}
+
+
+

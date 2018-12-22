@@ -1,0 +1,105 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Deutsch (Deutschland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+ZFXSELECTIONDIALOG DIALOG DISCARDABLE  0, 0, 199, 83
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Pandoras Legacy - Select Network Operating Mode"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Network Parameters",IDC_STATIC,5,5,190,50
+    LTEXT           "Enter Port Number",IDC_STATIC,10,20,60,10
+    EDITTEXT        IDC_PORT,75,20,25,10,ES_AUTOHSCROLL
+    LTEXT           "Enter Server IP",IDC_STATIC,10,40,60,10
+    EDITTEXT        IDC_IP1,75,40,25,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_IP2,105,40,25,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_IP3,135,40,25,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_IP4,165,40,25,10,ES_AUTOHSCROLL
+    PUSHBUTTON      "Start As Client",IDCLIENT,42,60,55,15
+    DEFPUSHBUTTON   "Start As Server",IDSERVER,107,60,50,15
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    "ZFXSELECTIONDIALOG", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 192
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 76
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Deutsch (Deutschland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

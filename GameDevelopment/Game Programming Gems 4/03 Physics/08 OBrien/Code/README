@@ -1,0 +1,141 @@
+Interactive Deformations Using Modal Analysis
+Demo/Source Code
+April 2003
+
+Kris Hauser, Chen Shen, James O'Brien
+
+khauser@cs.berkeley.edu
+csh@cs.berkeley.edu
+job@cs.berkeley.edu
+
+
+This demo demonstrates our interactive simulator for generating
+animations with deformable objects, using modal analysis.
+
+Familiarity of the techniques of modal analysis is necessary for using
+the source code or creating new models.  Besides that, very little
+technical knowledge is needed for running the demo.  Basic knowledge
+of coordinate systems is needed for building new scenes.
+
+-----------------
+COMPILING
+-----------------
+
+This has been tested on Red Hat Linux 7.0 but should work fine with
+any system that Numerical Recipes and GLUT.  Firstly, edit the
+Makefile to point the GLUT and NRFILES variables to the correct
+directories/files, and modify other settings if necessary.  Typing
+'make' in the modeDef directory should then compile a program called
+'simulate'.
+
+Numerical Recipes code is available at www.nr.com for a small fee.
+Alternatively, you may transcribe the singular value decomposition
+routine from the online text for free.
+
+To run in double-precision mode, uncomment the line:
+
+'#DEFINES += MATH_DOUBLE'
+
+in the makefile.  The caveat here is that the SVD routine must be
+formatted using doubles (which is not standard in the Numerical
+Recipes distribution).
+
+Let me (Kris) know if there's any problem.
+
+
+-----------------
+RUNNING THE DEMO
+-----------------
+
+To run the program with a certain scene file, call
+
+simulate -scene [file]
+
+The default scene is scene.setup.
+
+To display command line arguments and run-time keyboard commands, run
+the program with the -help argument.
+
+To print verbose debugging information, use -v.  Multiple levels may
+be specified with -vn where n is a digit or -vv...v (n times).
+Currently 3 is the maximum level of verbosity.
+
+To turn on the drawing of penetrations, animations, and constraints,
+use the -drawpen, -drawconst, and -drawanim arguments.
+
+Navigation is accomplished using the mouse.  Dragging with the left
+mouse button translates, middle button scales, right button rotates.
+To start and pause the simulation, use the space key.
+
+
+-----------------
+SOURCE CODE
+-----------------
+
+The source code was written by Kris Hauser, adapting code written by
+Chen Shen and James O'Brien.  Some code was adapted from code written
+by Kris at Sony in 2002.
+
+math       --  math-related files.
+modal      --  modal simulation in a local coordinate system.
+simulation --  simulation in an inertial reference frame,
+   collision detection and response, inertial constraints, etc.
+   Also contains the main program and UI functions.
+shared     --  common data structures / algorithms / misc
+
+Use/modify at your own risk!
+
+
+-----------------
+NEW MODELS
+-----------------
+
+To create new models for simulation, certain data need to be
+available.  The models must include tetrahedral volume data for
+collision detection.  For a deformable object, the object modes and
+frequencies must be generated as well.  Generating these modes can be
+done either using an eigen- decomposition or approximated by hand;
+either will do.
+
+The modal analysis preprocessing step has been ignored and it out of
+the scope of this demo.  See the book chapter in Game Programing Gems
+4 for information about computing modes.
+
+Properly defining the object modes requires a solution to the
+generalized eigendecomposition of the stiffness and mass matrices of
+the object.  We recommend using ARPACK or TRLAN, as we have had good
+results with these packages.  Alternatively, one can define arbitrary
+modes using heuristic/artistic methods.
+
+The data formats used by this program are quite simple, and are
+described in formats.txt.  Examples can be found in the models
+directory.
+
+
+-----------------
+NEW SCENES
+-----------------
+
+Editing and creating new scenes is fairly straightforward although at
+first the format will appear completely cryptic.  All .scene files are
+almost completely numbers.  Looking at formats.txt should clarify most
+things as will looking at the code that reads the files.
+
+
+-----------------
+KNOWN BUGS
+-----------------
+
+Animations (like in batbrain.scene) are not yet functional.
+
+This version runs slightly slower than our original program, for
+reasons unknown as of now.
+
+
+
+-----------------
+HISTORY
+-----------------
+
+4/25/03- first release.
+

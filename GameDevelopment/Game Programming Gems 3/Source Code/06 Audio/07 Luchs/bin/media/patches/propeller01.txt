@@ -1,0 +1,165 @@
+
+CGASignal  Propeller1
+{
+	File = "m_propeller01.wav";
+}
+
+
+CGAPatch "Propeller"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.05;
+	}
+
+	CGASinCosOscillator LFO2
+	{
+		Frequency = 4.0;
+		FMAttenuation = 0.9;
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		Frequency = 0.9;
+		WaveTable = Propeller1;
+		FMAttenuation = 0.1;
+	}
+
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 200.0;
+	}
+
+	Connection = LFO1,LFO2, SampleOut, FM;
+	Connection = LFO1,LPF1, SampleOut, FM;
+
+	Connection = LFO2,Wave1, SampleOut, TRIG;
+	Connection = LFO2,Wave1, SampleOut, FM;
+	Connection = LFO2,LPF1, SampleOut, FM;
+	Connection = Wave1,LPF1, SampleOut, SampleIn;
+
+}
+
+CGAPatch "Propeller - Slow Motion"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.05;
+	}
+
+	CGASinCosOscillator LFO2
+	{
+		Frequency = 0.33;
+		FMAttenuation = 0.9;
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		Frequency = 0.9;
+		WaveTable = Propeller1;
+		FMAttenuation = 0.1;
+	}
+
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 200.0;
+	}
+
+	Connection = LFO1,LFO2, SampleOut, FM;
+	Connection = LFO1,LPF1, SampleOut, FM;
+
+	Connection = LFO2,Wave1, SampleOut, TRIG;
+	Connection = LFO2,Wave1, SampleOut, FM;
+	Connection = LFO2,LPF1, SampleOut, FM;
+	Connection = Wave1,LPF1, SampleOut, SampleIn;
+
+}
+	
+
+CGAPatch "Propeller Noise"
+{
+	CGATriangleOscillator LFO1
+	{
+		Frequency = 0.05;
+	}
+
+	CGASinCosOscillator LFO2
+	{
+		Frequency = 16.0;
+		FMAttenuation = 0.5;
+	}
+
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	
+	CGASawtoothOscillator OSC1
+	{
+		Frequency = 660;
+		FMAttenuation = 0.5;
+	}
+
+	CGAMixer2 Mix1
+	{
+		InputGain1 = 0.2;
+		InputGain2 = 0.9;
+	}
+
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 400.0;
+	
+	}
+
+	Connection = LFO1,LFO2, SampleOut, FM;
+
+	Connection = LFO2,LPF1, SampleOut, FM;
+	Connection = Noise1,OSC1, SampleOut, FM;
+	Connection = OSC1,Mix1, SampleOut, SampleIn1;
+	Connection = Noise1,Mix1, SampleOut, SampleIn2;
+	Connection = Mix1,LPF1, SampleOut, SampleIn;
+
+}
+
+
+CGAPatch "Clipped Propeller  - SineX Oscillator with SinCos LFO Modulation"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+		
+	}
+	
+	CGASinCosOscillator LFO2
+	{
+		Frequency = 4.0;
+		FMAttenuation = 1.0;
+		
+	}
+
+
+	CGASineXOscillator VCO1
+	{
+		Frequency = 60;
+		FMAttenuation = 0.03;
+	}
+
+	CGAClipper Clipper1
+	{
+		CMAttenuation = 0.63;
+	}
+
+
+	Connection = LFO1,LFO2, SampleOut, FM;
+	Connection = LFO2,VCO1, SampleOut, FM;
+	Connection = VCO1,Clipper1, SampleOut, SampleIn;
+	Connection = LFO2,Clipper1, SampleOut, Clipping;
+
+}
+
+

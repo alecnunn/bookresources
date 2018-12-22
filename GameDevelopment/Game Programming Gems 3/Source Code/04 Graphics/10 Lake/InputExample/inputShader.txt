@@ -1,0 +1,72 @@
+-- this is a file with several example shaders,
+-- '--' lines are commented out.  Only one function can be compiled
+-- at a time with this compiler.
+
+OpenGLGouraudShaderWithSpecular()
+{
+
+	ambientTerm = MatAmb;
+	ambientTerm = ambientTerm * MatAmb;
+
+	diffuseTerm = LightDif0;
+	diffuseTerm = diffuseTerm * MatDif;
+	-- just do directional dot product for this one
+	normLightPos = 'normalize'(LightPos0);
+	dotproduct = normLightPos 'dot3' Normal;
+	diffuseTerm = dotproduct * diffuseTerm;
+	diffuseTerm = 'maxWith0'(diffuseTerm);
+
+
+	vertToViewpoint = ViewerPos - Pos;
+	vertToViewpoint = 'normalize'(vertToViewpoint);
+
+	sumVector = normLightPos + vertToViewpoint;
+	sumVector = 'normalize'(sumVector);
+	sdotn = sumVector 'dot3' Normal;
+	sdotn = 'maxWith0'(sdotn);
+	sdotn = sdotn ^ MatShininess;
+	specularTerm = sdotn * MatSpec * LightSpec0;
+	specularTerm = 'maxWith0'(specularTerm);
+	oColor = ambientTerm + diffuseTerm + specularTerm;
+}
+
+
+--flatshader()
+--{	
+--	temp = LightAmb0;
+--	oColor = temp * MatAmb;
+
+--}
+
+--flatshader2()
+--{
+--	ambientTerm = LightAmb0;
+--	ambientTerm = ambientTerm * MatAmb;
+--	diffuseTerm = LightDif0;
+--	diffuseTerm = diffuseTerm * MatDif;
+--	shaderComputation = ambientTerm + diffuseTerm;
+--	oColor = shaderComputation;
+--}
+
+--flatshader2()
+--{
+--	amb = LightAmb0 * MatAmb;
+--	dif = LightDif0 * MatDif;
+--	oColor = amb + diffuse;
+--}
+
+--OpenGLGouraudShaderNoSpecular()
+--{
+--	ambientTerm = LightAmb0;
+--	ambientTerm = ambientTerm * MatAmb;
+	
+--	diffuseTerm = LightDif0;
+--	diffuseTerm = diffuseTerm * MatDif;
+	-- just do directional dot product for this one
+--	dotproduct = LightPos0 'dot4' Normal;
+--	diffuseTerm = dotproduct * diffuseTerm;
+	
+--	shaderComputation = ambientTerm + diffuseTerm;
+--	oColor = shaderComputation;
+--}
+

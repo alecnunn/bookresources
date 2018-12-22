@@ -1,0 +1,35 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: DSSample - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPB72.tmp" with contents
+[
+/nologo /MLd /W2 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/DSSample.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\3D Book CD\Book Code\Chapter 02\DSSample\DSSample.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPB72.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPB73.tmp" with contents
+[
+winmm.lib dsound.lib dinput8.lib d3d8.lib d3dx8.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"../bin/DSSample.pdb" /debug /machine:I386 /out:"../bin/DSSample.exe" /pdbtype:sept 
+".\Debug\DSSample.obj"
+".\Debug\StdAfx.obj"
+".\Debug\wavread.obj"
+"..\lib\GameLib.lib"
+]
+Creating command line "link.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPB73.tmp"
+<h3>Output Window</h3>
+Compiling...
+DSSample.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+DSSample.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

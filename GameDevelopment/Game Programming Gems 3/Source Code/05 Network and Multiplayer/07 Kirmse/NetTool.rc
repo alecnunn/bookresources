@@ -1,0 +1,206 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAIN DIALOGEX 0, 0, 514, 316
+STYLE DS_3DLOOK | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "NetTool"
+CLASS "NetTool"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "List2",IDC_FILTER_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | 
+                    WS_BORDER | WS_TABSTOP,4,2,159,73
+    PUSHBUTTON      "&New filter",IDC_ADD_FILTER,4,80,49,14
+    PUSHBUTTON      "&Add reverse",IDC_ADD_REVERSE,58,80,50,14
+    PUSHBUTTON      "&Remove filter",IDC_REMOVE_FILTER,113,80,50,14
+    GROUPBOX        "Filter",IDC_FILTER,170,2,336,92
+    LTEXT           "&From",IDC_STATIC,174,17,16,8
+    CONTROL         "IPAddress1",IDC_IPADDRESS_FROM,"SysIPAddress32",
+                    WS_TABSTOP,194,14,75,13
+    LTEXT           "Port",IDC_STATIC,275,17,14,8
+    EDITTEXT        IDC_PORT1,295,14,31,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "&To",IDC_STATIC,180,34,10,8
+    CONTROL         "IPAddress2",IDC_IPADDRESS_TO,"SysIPAddress32",
+                    WS_TABSTOP,194,32,75,13
+    LTEXT           "Port",IDC_STATIC,275,34,14,8
+    EDITTEXT        IDC_PORT2,295,32,31,13,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "UDP",IDC_UDP,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,336,16,31,10
+    CONTROL         "TCP",IDC_TCP,"Button",BS_AUTORADIOBUTTON,336,34,30,10
+    GROUPBOX        "Latency",IDC_LATENCY,175,47,152,43
+    LTEXT           "&Mean",IDC_STATIC,184,59,19,8
+    CONTROL         "Slider1",IDC_LATENCY_MEAN,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,208,57,73,11
+    EDITTEXT        IDC_MEAN_EDIT,283,56,22,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms",IDC_STATIC10,307,57,10,8
+    LTEXT           "&Variance",IDC_STATIC,179,75,29,8
+    CONTROL         "Slider1",IDC_LATENCY_VARIANCE,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,208,74,73,11
+    EDITTEXT        IDC_VARIANCE_EDIT,283,73,22,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "ms",IDC_STATIC11,307,74,10,8
+    CONTROL         "&Enabled",IDC_ENABLED,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,333,54,42,10
+    CONTROL         "&Listed",IDC_LISTED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,333,72,35,10
+    GROUPBOX        "UDP Options",IDC_LATENCY2,376,10,125,80
+    LTEXT           "&Packet loss (percent):",IDC_STATIC,383,30,70,8
+    EDITTEXT        IDC_LOSS_EDIT,456,28,23,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_LOSS_SPIN,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,480,28,
+                    11,12
+    LTEXT           "Reordering (percent):",IDC_STATIC,383,48,68,8
+    EDITTEXT        IDC_REORDER_EDIT,456,46,23,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_REORDER_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,480,46,11,12
+    LTEXT           "Duplication (percent):",IDC_STATIC,383,64,68,8
+    EDITTEXT        IDC_DUPLICATION_EDIT,456,62,23,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_DUPLICATION_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,480,62,11,12
+    GROUPBOX        "Bandwidth",IDC_BANDWIDTH,4,99,159,212
+    CONTROL         "List3",IDC_HOST_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,11,112,99,79
+    LTEXT           "Address",IDC_STATIC1,6,203,26,8
+    CONTROL         "IPAddress1",IDC_HOST_ADDRESS,"SysIPAddress32",
+                    WS_TABSTOP,34,201,75,13
+    PUSHBUTTON      "Remove host",IDC_REMOVE_HOST,112,178,48,13
+    PUSHBUTTON      "New &host",IDC_ADD_HOST,112,201,48,13
+    LTEXT           "&Send",IDC_STATIC2,19,228,18,8
+    CONTROL         "Slider3",IDC_SEND_SLIDER,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,37,227,68,11
+    EDITTEXT        IDC_SEND_EDIT,105,226,35,12,ES_AUTOHSCROLL
+    LTEXT           "by/s",IDC_STATIC4,143,228,15,8
+    LTEXT           "Re&ceive",IDC_STATIC3,9,241,28,8
+    CONTROL         "Slider4",IDC_RECEIVE_SLIDER,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,37,241,68,11
+    EDITTEXT        IDC_RECEIVE_EDIT,105,240,35,12,ES_AUTOHSCROLL
+    LTEXT           "by/s",IDC_STATIC5,143,242,15,8
+    PUSHBUTTON      "300",IDC_BW1,21,258,29,12
+    PUSHBUTTON      "14.4k",IDC_BW2,51,258,29,12
+    PUSHBUTTON      "28.8k",IDC_BW3,81,258,29,12
+    PUSHBUTTON      "33.6k",IDC_BW4,111,258,29,12
+    PUSHBUTTON      "56k",IDC_BW5,21,271,29,12
+    PUSHBUTTON      "DSL",IDC_BW6,51,271,29,12
+    PUSHBUTTON      "T1",IDC_BW7,81,271,29,12
+    PUSHBUTTON      "Infinite",IDC_BW8,111,271,29,12
+    LTEXT           "Compression",IDC_STATIC6,12,293,41,8
+    EDITTEXT        IDC_COMPRESSION,56,291,21,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",IDC_COMPRESSION_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS,78,291,
+                    10,12
+    LTEXT           "%",IDC_STATIC7,91,293,8,8
+    CONTROL         "Uses PPP",IDC_PPP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    107,293,45,10
+    CONTROL         "List1",IDC_PACKET_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,170,103,336,191
+    PUSHBUTTON      "Clear list",IDC_PACKET_CLEAR,170,296,50,14
+    CONTROL         "Show packets",IDC_PACKET_TOGGLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,227,298,61,10
+    CONTROL         "Log to file",IDC_LOG,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,295,298,47,10
+    CTEXT           "Send usage",IDC_STATIC,117,112,39,8
+    CTEXT           "Receive usage",IDC_STATIC,112,138,50,8
+    RTEXT           "0",IDC_SEND_USAGE,118,124,25,8
+    RTEXT           "0",IDC_RECEIVE_USAGE,118,150,25,8
+    LTEXT           "%",IDC_STATIC,145,150,8,8
+    LTEXT           "%",IDC_STATIC,145,124,8,8
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MAIN, DIALOG
+    BEGIN
+        RIGHTMARGIN, 513
+        BOTTOMMARGIN, 301
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "main.ico"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

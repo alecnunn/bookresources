@@ -1,0 +1,80 @@
+/*********************************************************************NVMH2****
+Path:  C:\Dev\devrel\Nv_sdk_4\Dx8\NVEffectsBrowser\Effects\CA_Water
+File:  NormalMapCreate.nvp
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+This file is provided without support, instruction, or implied warranty of any
+kind.  NVIDIA makes no guarantee of its fitness for a particular purpose and is
+not liable under any circumstances for any damages or loss whatsoever arising
+from the use or inability to use this file or items derived from it.
+
+Comments:
+
+Neighbor-differencing part of normal map creation.  This doesn't apply 
+  any sort of normalization to the output color
+
+******************************************************************************/
+
+
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+
+
+
+def c7, 0.5, 0.5, 0.5, 1.0
+
+// red for s axis
+def c5, 1.0, 0.0, 0.0, 1.0
+
+// green for t axis
+def c6, 0.0, 1.0, 0.0, 1.0
+
+// blue
+def c4, 0.0, 0.0, 1.0, 1.0
+
+def c3, 0.0, 1.0, 1.0, 0.0
+
+def c2, 0.5, 0.5, 0.0, 0.0
+def c1, 1.0, 1.0, 0.0, 0.0
+
+
+; get colors from all 4 texture stages
+; t0 = -s,  0
+; t1 = +s,  0
+; t2 =  0, +t
+; t3 =  0, -t
+
+
+
+tex t0
+tex t1
+tex t2
+tex t3
+
+
+sub_x4 r0, t0, t1       // t0 - t1
+mul t0, r0, c5			// t0 = s result
+
+sub_x4 r1, t3, t2       // r1 = t result
+
+mad r0, r1, c6, t0      // r0 = rg for s and t result
+
+mul t1, r0, r0          // t1 = square s and t difference
+
+dp3_d2 r1, 1-t1, c1     // r1 = (1 - s^2 + 1 - t^2 )/2
+
+//add_d2 r1, 1-t0, 1-r1
+
+add r0, r0, c2
+
+
+mad r0, r1, c4, r0      // rg + blue
+
+

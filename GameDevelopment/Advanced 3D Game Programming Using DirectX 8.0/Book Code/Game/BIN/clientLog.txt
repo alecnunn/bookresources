@@ -1,0 +1,4 @@
+Log file for Client
+===============================
+Enter cGameApp::SceneInit()
+Client is creating a player entity

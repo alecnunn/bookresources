@@ -1,0 +1,9 @@
+
+int Contact::ComputeHash()    const
+{
+    int Hash = 
+     ((int( mObject0 ) & 255) << 24) +
+     ((int( mObject1 ) & 255) << 16) +
+    	((mID_Part0 & 255) << 8) + (mID_Part1 & 255);
+    return Hash32Bits( Hash ); // Now scramble it
+}

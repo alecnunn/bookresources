@@ -1,0 +1,37 @@
+/************************************************************************
+SharpenBlit.nvp
+
+This pixel shader sharpens an input texture.  It explicitly encodes the 
+following filter kernel in code:
+      -1
+       4
+    -1  -1
+
+The pixel shader assumes the same texture is sampled with appropriate 
+offsets at all four texture units.  Texture t0 represents the center 
+value; we thus compute
+r0 = 4*t0 - t1 - t2 - t3
+
+To avoid overflows the computation is reordered as:
+r0 = t0 - t1 + t0 - t2 + t0 - t3 + t0
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+; Declare pixel shader version
+ps.1.1
+	
+; sample all 4 texture stages
+tex t0          // this is the center sample
+tex t1
+tex t2
+tex t3
+
+; compute r0 = t0 - t1 + t0 - t2 + t0 - t3 + t0
+mov     r0, t0
+sub     r0, r0,   t1
+add     r0, r0,   t0
+sub     r0, r0,   t2
+add     r0, r0,   t0
+sub     r0, r0,   t3
+add_sat r0, r0,   t0

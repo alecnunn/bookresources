@@ -1,0 +1,199 @@
+
+
+*** test0() ***
+
+TestBufferSingle: size=1
+TestBufferSingle: size=2
+TestBufferSingle: size=4
+TestBufferSingle: size=8
+
+
+*** test1() ***
+
+TestCount: c=0
+Buffer: size=1  [ 80 ]
+TestCount: c=1
+Buffer: size=1  [ 81 ]
+TestCount: c=127
+Buffer: size=1  [ ff ]
+TestCount: c=128
+Buffer: size=2  [ 00 81 ]
+TestCount: c=129
+Buffer: size=2  [ 01 81 ]
+TestCount: c=255
+Buffer: size=2  [ 7f 81 ]
+TestCount: c=16383
+Buffer: size=2  [ 7f ff ]
+TestCount: c=16384
+Buffer: size=3  [ 00 00 81 ]
+TestCount: c=16385
+Buffer: size=3  [ 01 00 81 ]
+TestCount: c=32767
+Buffer: size=3  [ 7f 7f 81 ]
+TestCount: c=32768
+Buffer: size=3  [ 00 00 82 ]
+TestCount: c=2097151
+Buffer: size=3  [ 7f 7f ff ]
+TestCount: c=2097152
+Buffer: size=4  [ 00 00 00 81 ]
+TestCount: c=2097153
+Buffer: size=4  [ 01 00 00 81 ]
+TestCount: c=268435455
+Buffer: size=4  [ 7f 7f 7f ff ]
+TestCount: c=268435456
+Buffer: size=5  [ 00 00 00 00 81 ]
+TestCount: c=268435457
+Buffer: size=5  [ 01 00 00 00 81 ]
+TestCount: c=4294967294
+Buffer: size=5  [ 7e 7f 7f 7f 8f ]
+TestCount: c=4294967295
+Buffer: size=5  [ 7f 7f 7f 7f 8f ]
+
+
+*** test2() ***
+
+Test_int8: val=24
+Buffer: size=1  [ 18 ]
+Test_int8: val=-42
+Buffer: size=1  [ d6 ]
+Test_uint8: val=34
+Buffer: size=1  [ 22 ]
+Test_int16: val=10043
+Buffer: size=2  [ 27 3b ]
+Test_int16: val=-3482
+Buffer: size=2  [ f2 66 ]
+Test_uint16: val=32422
+Buffer: size=2  [ 7e a6 ]
+Test_int32: val=33
+Buffer: size=4  [ 00 00 00 21 ]
+Test_int32: val=100223
+Buffer: size=4  [ 00 01 87 7f ]
+Test_uint32: val=456456
+Buffer: size=4  [ 00 06 f7 08 ]
+Test_int64: val=123456789012345
+Buffer: size=8  [ 00 00 70 48 86 0d df 79 ]
+Test_uint64: val=123456789012345
+Buffer: size=8  [ 00 00 70 48 86 0d df 79 ]
+Test_float32: val=1.000000
+Buffer: size=4  [ 3f 80 00 00 ]
+Test_float32: val=12345.7
+Buffer: size=4  [ 46 40 e6 b6 ]
+Test_float64: val=3.14159
+Buffer: size=8  [ 40 09 21 f9 f0 1b 86 6e ]
+Test_float64: val=1.5e+170
+Buffer: size=8  [ 63 43 df 7d b4 6c 3a 1b ]
+Test_bool: val=1
+Buffer: size=1  [ 01 ]
+Test_bool: val=0
+Buffer: size=1  [ 00 ]
+
+
+*** test3() ***
+
+TestString: 'testing'
+Buffer: size=8  [ 87 74 65 73 74 69 6e 67 ]
+TestString: 'testing again'
+Buffer: size=14  [ 8d 74 65 73 74 69 6e 67 20 61 67 61 69 6e ]
+TestCharPtr: 'testing char*'
+Buffer: size=14  [ 8d 74 65 73 74 69 6e 67 20 63 68 61 72 2a ]
+TestCharPtr: 'testing char* again'
+Buffer: size=20  [ 93 74 65 73 74 69 6e 67 20 63 68 61 72 2a 20 61 67 61 69 6e ]
+
+
+*** test4() ***
+
+TestArray: numItems=4
+Buffer: size=17  [ 84 00 00 00 01 00 00 00 02 00 00 00 03 00 00 00 04 ]
+TestArray: numItems=5
+Buffer: size=21  [ 85 3f 00 00 00 bf c0 00 00 42 05 c2 8f 42 f0 99 9a 42 c8 33 33 ]
+TestArray: numItems=5
+Buffer: size=41  [ 85 3f e0 00 00 00 00 00 00 bf f8 00 00 00 00 00 00 40 40 b8 51 eb 85 1e b8 40 5e 13 33 33 33 33 33 40 59 06 66 66 66 66 66 ]
+TestArray: numItems=3
+Buffer: size=14  [ 83 84 7a 65 72 6f 83 6f 6e 65 83 74 77 6f ]
+
+
+*** test5() ***
+
+TestRaw: len=8
+Buffer: size=8  [ 00 01 02 03 04 05 06 07 ]
+TestRaw: len=8
+Buffer: size=8  [ 3f f3 be 76 c8 b4 39 58 ]
+
+
+*** test6() ***
+
+pair:
+Buffer: size=11  [ 00 00 00 64 86 66 6f 6f 62 61 72 ]
+list:
+Buffer: size=1  [ 80 ]
+Buffer: size=3  [ 81 00 01 ]
+Buffer: size=5  [ 82 00 01 00 22 ]
+Buffer: size=7  [ 83 00 01 00 22 00 2a ]
+vector:
+Buffer: size=1  [ 80 ]
+Buffer: size=5  [ 81 3f 80 00 00 ]
+Buffer: size=9  [ 82 3f 80 00 00 40 49 0f d0 ]
+Buffer: size=13  [ 83 3f 80 00 00 40 49 0f d0 42 85 c2 8f ]
+deque:
+Buffer: size=1  [ 80 ]
+Buffer: size=5  [ 81 83 6f 6e 65 ]
+Buffer: size=9  [ 82 83 6f 6e 65 83 74 77 6f ]
+set:
+Buffer: size=1  [ 80 ]
+Buffer: size=9  [ 81 00 00 00 00 00 00 27 27 ]
+Buffer: size=17  [ 82 00 00 00 00 00 00 27 27 00 00 00 00 14 c1 b2 58 ]
+Buffer: size=25  [ 83 00 00 00 00 00 00 27 27 00 00 00 00 14 c1 b2 58 00 0c 5f 35 e6 5f f9 c7 ]
+multiset:
+Buffer: size=1  [ 80 ]
+Buffer: size=9  [ 81 00 00 00 00 00 00 27 27 ]
+Buffer: size=17  [ 82 00 00 00 00 00 00 27 27 00 00 00 00 14 c1 b2 58 ]
+Buffer: size=25  [ 83 00 00 00 00 00 00 27 27 00 00 00 00 00 00 27 27 00 00 00 00 14 c1 b2 58 ]
+map:
+Buffer: size=1  [ 80 ]
+Buffer: size=10  [ 81 01 40 c3 99 28 f5 c2 8f 5c ]
+Buffer: size=19  [ 82 01 40 c3 99 28 f5 c2 8f 5c 06 41 17 73 a9 1e b8 51 ec ]
+multimap:
+Buffer: size=1  [ 80 ]
+Buffer: size=6  [ 81 01 46 1c c8 f6 ]
+Buffer: size=11  [ 82 01 46 1c c8 f6 02 43 ae 36 32 ]
+Buffer: size=16  [ 83 01 46 1c c8 f6 01 47 bf dd 2c 02 43 ae 36 32 ]
+Buffer: size=21  [ 84 01 46 1c c8 f6 01 47 bf dd 2c 02 43 ae 36 32 02 46 1c c8 f6 ]
+hash_set:
+Buffer: size=1  [ 80 ]
+Buffer: size=5  [ 81 00 00 27 27 ]
+Buffer: size=9  [ 82 14 c1 b2 58 00 00 27 27 ]
+Buffer: size=13  [ 83 00 01 43 87 14 c1 b2 58 00 00 27 27 ]
+hash_multiset:
+Buffer: size=1  [ 80 ]
+Buffer: size=5  [ 81 00 00 27 27 ]
+Buffer: size=9  [ 82 14 c1 b2 58 00 00 27 27 ]
+Buffer: size=13  [ 83 14 c1 b2 58 00 00 27 27 00 00 27 27 ]
+hash_map:
+Buffer: size=1  [ 80 ]
+Buffer: size=10  [ 81 01 40 c3 99 28 f5 c2 8f 5c ]
+Buffer: size=19  [ 82 01 40 c3 99 28 f5 c2 8f 5c 06 41 17 73 a9 1e b8 51 ec ]
+hash_multimap:
+Buffer: size=1  [ 80 ]
+Buffer: size=6  [ 81 01 46 1c c8 f6 ]
+Buffer: size=11  [ 82 01 46 1c c8 f6 02 43 ae 36 32 ]
+Buffer: size=16  [ 83 01 46 1c c8 f6 01 47 bf dd 2c 02 43 ae 36 32 ]
+Buffer: size=21  [ 84 01 46 1c c8 f6 01 47 bf dd 2c 02 43 ae 36 32 02 46 1c c8 f6 ]
+
+
+*** test7() ***
+
+Buffer: size=20  [ 93 8c 68 65 6c 6c 6f 2c 20 77 6f 72 6c 64 00 00 00 2a 1d 8c ]
+
+
+*** test8() ***
+
+Buffer: size=32  [ 00 83 00 03 88 87 74 65 73 74 69 6e 67 00 04 84 00 00 01 56 00 05 89 82 3f 80 00 00 40 00 00 00 ]
+Buffer: size=41  [ 00 84 83 62 61 7a 85 84 71 75 75 78 83 66 6f 6f 84 83 62 61 72 81 78 84 00 00 00 01 82 7a 7a 89 82 3f 80 00 00 40 59 99 9a ]
+
+
+*** test9() ***
+
+Buffer: size=16  [ 00 00 00 01 82 68 69 82 40 90 00 00 42 62 99 9a ]
+Buffer: size=17  [ 81 00 00 00 01 82 68 69 82 40 90 00 00 42 62 99 9a ]
+Buffer: size=40  [ 82 00 00 00 01 82 68 69 82 40 90 00 00 42 62 99 9a 00 00 00 02 85 74 68 65 72 65 83 40 90 00 00 42 62 99 9a 44 5e 87 df ]
+Buffer: size=50  [ 83 00 00 00 01 82 68 69 82 40 90 00 00 42 62 99 9a 00 00 00 02 85 74 68 65 72 65 83 40 90 00 00 42 62 99 9a 44 5e 87 df 00 00 00 03 84 61 73 64 66 80 ]

@@ -1,0 +1,6 @@
+
+
+LIBRARY   ATOMGAUDD
+DESCRIPTION "Atomos - GameAudio System, debug"
+EXPORTS
+		GetSystem	@1

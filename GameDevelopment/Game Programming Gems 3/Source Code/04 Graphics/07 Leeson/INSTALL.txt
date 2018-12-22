@@ -1,0 +1,5 @@
+Windows:
+	Just type in make if use MinGW32 or Cygnus utilities. Visual C++ people you'll have to create your own project from the files. There all required and some of them are need in you include path.
+
+Unix:
+	Type make just like for the windows version. Unforunatly make clean won't work unless you swop the del for rm in the main makefile.

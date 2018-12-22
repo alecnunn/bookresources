@@ -1,0 +1,10 @@
+(beginning of phonebook)
+1. Smith 123-4567
+2. Jones 234-5678
+3. Brown 345-6789
+(end of phonebook)
+
+This text might be interesting, and even very interesting. But it is not important at all.
+[imp]And this text is extremely boring; but there is nothing we can do -- it is important![/imp]
+Here is the section of humour...
+[imp]And here is the protocol of committee JX1321 meeting, dated 11.05.2004[/imp]

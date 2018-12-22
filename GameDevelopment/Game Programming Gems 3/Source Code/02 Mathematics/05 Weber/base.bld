@@ -1,0 +1,782 @@
+# A CORE BUILD ROUTINE FILE
+
+set COLON=":"
+set WARNING="[31mWARNING$(COLON)$(0)[0m"
+
+if ($(CODEGEN) == optimize)
+{
+}
+else if ($(CODEGEN) == profile)
+{
+}
+else if ($(CODEGEN) == debug)
+{
+}
+else if ($(CODEGEN) == insure)
+{
+}
+else
+{
+	set ROOT.CODEGEN = default
+}
+
+platformflags:
+{
+	set SILENT = 1
+	set IGNORE = 1
+
+	if($(GPG_PLATFORM_OVERRIDE) == 1)
+	{
+		set ROOT.PLATFORMFLAGS += -DGPG_PLATFORM_OVERRIDE
+	}
+	set ROOT.PLATFORMFLAGS += "-DGPG_OSTYPE=$(GPG_OSTYPE)"
+	set ROOT.PLATFORMFLAGS += "-DGPG_OS=$(GPG_OS)"
+	set ROOT.PLATFORMFLAGS += "-DGPG_OSVER=$(GPG_OSVER)"
+	set ROOT.PLATFORMFLAGS += "-DGPG_COMPILER=$(GPG_COMPILER)"
+	set ROOT.PLATFORMFLAGS += "-DGPG_2DGL=$(GPG_2DGL)"
+	set ROOT.PLATFORMFLAGS += "-DGPG_3DGL=$(GPG_3DGL)"
+	set ROOT.PLATFORMFLAGS += "-DGPG_HW=$(GPG_HW)"
+	set ROOT.CPPFLAGS += $(PLATFORMFLAGS)
+}
+
+platformsetup:
+{
+	set IGNORE = 1
+	if($(BLD_OS) == linux)
+	{
+		#set ROOT.CXX = g++-3.0
+		#set ROOT.C = gcc-3.0
+		set ROOT.CXX = g++
+		set ROOT.C = gcc
+		set ROOT.OUTPUT = "-o "
+		set ROOT.CPPFLAGS += $(CPPFLAGS)
+		set ROOT.OBJ = .o
+		if($(CODEGEN) == debug)
+		{
+			#set ROOT.CXXFLAGS = '-DDEFAULT_VTABLE_THUNKS=0' -Wsynth -g -D_DEBUG -Wall -DGPG_SUPPRESS_GetSystemTick -DGPG_BOUNDSCHECK
+			set ROOT.CXXFLAGS = -g -D_DEBUG -Wall -DGPG_BOUNDSCHECK
+			#set ROOT.CXXFLAGS = -g -Wall -DGPG_SUPPRESS_GetSystemTick -DGPG_BOUNDSCHECK
+			set ROOT.CXXFLAGS += -D_REENTRANT -DMTE_THREADING_ENABLED
+			#set ROOT.CXXFLAGS = -g -D_DEBUG -DGPG_BOUNDSCHECK
+			#set ROOT.CXXFLAGS += -DGPG_NO_MEMORY_ABST
+		}
+		if($(CODEGEN) == profile)
+		{
+			#set ROOT.CXXFLAGS = -g -D_DEBUG -Wall -DGPG_SUPPRESS_GetSystemTick
+			set ROOT.CXXFLAGS = -g -pg -D_DEBUG -DGPG_BOUNDSCHECK
+		}
+		if($(CODEGEN) == optimize)
+		{
+			set ROOT.CXXFLAGS = -O3
+		}
+		if($(CODEGEN) == insure)
+		{
+			set ROOT.CXX = insure
+			set ROOT.CXXFLAGS = -g -D_DEBUG
+			set ROOT.CXXFLAGS += -DGPG_NO_MEMORY_ABST
+		}
+		set ROOT.CPPFLAGS += -I/usr/X11R6/include
+		set ROOT.LIBINCL = "-L"
+		set ROOT.NOLINK = -c
+		set ROOT.AR = ar
+		set ROOT.ARFLAGS = -ur
+		set ROOT.AROUTPREFIX =
+		set ROOT.CP = cp
+		set ROOT.MD = "mkdir -p"
+		set ROOT.RM = "rm -rf"
+		set ROOT.RMDIR = "rm -rf"
+		set ROOT.LIBFLAG = "-l"
+		set ROOT.LIBPRE = "lib"
+		set ROOT.LIBSUF = ".a"
+		set ROOT.LIBDL = ".so"
+		set ROOT.PARA = "'"
+		set ROOT.LF = ""
+		set ROOT.GT = ">"
+		set ROOT.LT = "<"
+		set ROOT.PWD = pwd
+		set ROOT.LS = ls
+		set ROOT.BS = "/"
+		set ROOT.EXEOUTPUT = "-o "
+		set ROOT.LD1 =  -ldl
+		set ROOT.LD2 = 
+		set ROOT.FAT1 += -rdynamic -Xlinker --export-dynamic -Xlinker --whole-archive
+		set ROOT.FAT2 -= -Xlinker --no-whole-archive
+		set ROOT.OSLIBS = -lm -lc -lcrypt -ldl
+		set ROOT.GLLIBS = -L/usr/X11/lib -L/usr/X11R6/lib -lX11 -lGLU -lGL -lXext
+		set ROOT.CORALLIBS = $(LIBINCL)$(CORALHOME)$(BS)lib -lwdsXX -lewXX -lncs -ldna -lwba -lmte -lgpl -losd $(RMFHOME)/RAMP/lib/Linux_2_2/libRAMP.a $(RMFHOME)/RMF/lib/Linux_2_2/libRMF.a
+
+		set ROOT.GPG_PLATFORM_OVERRIDE = 1
+		set ROOT.GPG_OSTYPE=GPG_UNIX
+		set ROOT.GPG_OS=GPG_LINUX
+		set ROOT.GPG_OSVER=2
+		set ROOT.GPG_COMPILER=GPG_GNU
+		set ROOT.GPG_2DGL=GPG_2D_X_GFX
+		set ROOT.GPG_3DGL=GPG_3D_OPENGL
+
+		if($(BLD_HARDWARE) == x86)
+		{
+			set ROOT.GPG_HW=GPG_X86
+		}
+		if($(BLD_HARDWARE) == axp)
+		{
+			set ROOT.GPG_HW=GPG_AXP
+		}
+	}
+	else if($(BLD_OS) == nt)
+	{
+		if($(COMPILER) == intel)
+		{
+			set ROOT.CXX = icl.exe
+			set ROOT.C = icl.exe
+			set ROOT.LINKER = xilink.exe
+			set ROOT.GPG_COMPILER=GPG_INTEL
+		}
+		else
+		{
+			set ROOT.CXX = cl.exe
+			set ROOT.C = cl.exe
+			set ROOT.LINKER = link.exe
+			set ROOT.GPG_COMPILER=GPG_MICROSOFT
+		}
+		set ROOT.OUTPUT = /Fo
+		set ROOT.CPPFLAGS += $(CPPFLAGS)
+		set ROOT.OBJ = .obj
+		set ROOT.DLFLAGS += '/DLL'
+		if($(CODEGEN) == debug)
+		{
+			set ROOT.CXXFLAGS += "/Gm /ZI /Od /GZ /D _DEBUG /MLd"
+			set ROOT.CPPFLAGS += '-DGPG_CONSOLE_LOG'
+			set ROOT.DLFLAGS += '/DEBUG'
+		}
+		else if($(CODEGEN) == optimize)
+		{
+			set ROOT.CXXFLAGS += "/EHsc /O2 /ML /D NDEBUG"
+		}
+		else
+		{
+			set ROOT.CXXFLAGS += "/ML"
+		}
+		set ROOT.LIBCMD = ""
+		set ROOT.LIBRARY = ""
+		set ROOT.LIBINCL = "/LIBPATH:"
+		set ROOT.NOLINK = /c
+		set ROOT.AR = lib.exe
+		set ROOT.ARFLAGS = /NOLOGO
+		set ROOT.AROUTPREFIX = "/OUT:"
+		set ROOT.CP = copy
+		set ROOT.MD = md
+		set ROOT.RM = "del /Q"
+		set ROOT.RMDIR = "rmdir"
+		set ROOT.LIBPRE = 
+		set ROOT.LIBSUF = ".lib"
+		set ROOT.LIBDL = ".dll"
+		set ROOT.PARA = 
+		set ROOT.LF =
+		set ROOT.GT = "^>"
+		set ROOT.LT = "^<"
+		set ROOT.PWD = 'cd'
+		set ROOT.LS = 'dir /B'
+		set ROOT.BS = "\\\\"
+		set ROOT.EXEOUTPUT = /Fe
+		set ROOT.FORCECXX = -Tp
+		set ROOT.LD1 = /link
+		set ROOT.OSLIBS += kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib winmm.lib ws2_32.lib
+		if($(CODEGEN) == debug)
+		{
+			set ROOT.BLATOSLIBS += "/NODEFAULTLIB libcd.lib oldnames.lib"
+		}
+		else
+		{
+		}
+		set ROOT.GLLIBS = glu32.lib opengl32.lib
+		set ROOT.CORALLIBS = $(LIBINCL)$(CORALHOME)$(BS)lib wdsWG.lib ewWG.lib wba.lib mte.lib gpl.lib osd.lib
+
+		set ROOT.GPG_PLATFORM_OVERRIDE = 1
+		set ROOT.GPG_OSTYPE=GPG_WIN32
+		set ROOT.GPG_OS=GPG_WINNT
+		set ROOT.GPG_OSVER=4
+		set ROOT.GPG_2DGL=GPG_2D_GDI
+		set ROOT.GPG_3DGL=GPG_3D_OPENGL
+
+		if($(BLD_HARDWARE) == x86)
+		{
+			set ROOT.GPG_HW=GPG_X86
+		}
+	}
+
+	set ROOT.CPPFLAGS += -I..$(BS)Include -I..$(BS)Include$(BS)Base '-DGPG_USE_PLATFORM_ABSTRACTION'
+
+	set ROOT.MODENAME = $(BLD_HARDWARE)_$(BLD_OS)_$(BLD_OSVER)_$(CODEGEN)
+
+	#echo "configured For $(MODENAME)"
+	set ROOT.OBJDIR = .$(BS)$(MODENAME)
+	set ROOT.LIBDIR = ..$(BS)Lib$(BS)$(MODENAME)
+
+
+	if($(BLD_OS) == linux)
+	{
+		set ROOT.LD1 += -L$(LIBDIR)
+	}
+	else if($(BLD_OS) == nt)
+	{
+		set ROOT.CXXFLAGS += /nologo /EHsc /W3 /GX /I "..\include" /D "WIN32" /D "WIN32_LEAN_AND_MEAN" /D "_MBCS" /D "_LIB" /YX /Fd"$(OBJDIR)$(BS)" /FD
+	}
+
+	set IGNORE = 0
+}
+check("platformsetup")
+check("platformflags")
+
+prebuild:
+{
+	if(!exists($(OBJDIR)))
+	{
+		$(ECHO) $(MD) $(OBJDIR)
+	}
+	if(!exists($(LIBDIR)))
+	{
+		$(ECHO) $(MD) $(LIBDIR)
+	}
+}
+
+
+derivedlists:
+{
+	set ROOT.OBJECTS =
+	set ROOT.LOBJECTS =
+	set ROOT.LIBFILES =
+	set ROOT.DLIBFILES =
+	set ROOT.TARGETS =
+	set ROOT.DI_CLEAN =
+	if ($(DI_FILES))
+	{
+		foreach F ($(DI_FILES))
+		{
+			set ROOT.TARGETS += $(OBJDIR)$(BS)$(F)$(OBJ)
+			set ROOT.OBJECTS += $(OBJDIR)$(BS)$(F)$(OBJ)
+			set ROOT.DI_CLEAN += $(F).h $(F).cpp
+		}
+	}
+	if ($(FILES))
+	{
+		foreach F ($(FILES))
+		{
+			set ROOT.OBJECTS += $(OBJDIR)$(BS)$(F)$(OBJ)
+		}
+	}
+	if ($(LIBS))
+	{
+		foreach L ($(LIBS))
+		{
+#			set ROOT.LOBJECTS += $(LIBDIR)$(BS)$(LIBPRE)$(L)$(LIBSUF)
+			if($(BLD_OS) == nt)
+			{
+				set ROOT.LIBFILES += $(LIBDIR)$(BS)$(LIBPRE)$(L)$(LIBSUF)
+			}
+			else
+			{
+				set ROOT.LIBFILES += $(LIBFLAG)$(L)
+			}
+		}
+	}
+	if ($(DEFAULTLIBS))
+	{
+		foreach L ($(DEFAULTLIBS))
+		{
+			set ROOT.DLIBFILES += "/DEFAULTLIB:"$(LIBDIR)$(BS)$(LIBPRE)$(L)$(LIBSUF)
+		}
+	}
+	if ($(LIBTARGETS))
+	{
+		foreach L ($(LIBTARGETS))
+		{
+			set ROOT.LOBJECTS += $(LIBDIR)$(BS)$(LIBPRE)$(L)$(LIBSUF)
+			set ROOT.TARGETS += $(LIBDIR)$(BS)$(LIBPRE)$(L)$(LIBSUF)
+			if($(BLD_OS) == linux)
+			{
+				set ROOT.TARGETS += $(LIBDIR)$(BS)$(LIBPRE)$(L)$(LIBDL)
+			}
+		}
+	}
+	if ($(DLTARGETS))
+	{
+		foreach L ($(DLTARGETS))
+		{
+			set ROOT.TARGETS += $(LIBDIR)$(BS)$(LIBPRE)$(L)$(LIBDL)
+		}
+	}
+	if ($(FATTARGETS))
+	{
+		foreach E ($(FATTARGETS))
+		{
+			set ROOT.TARGETS += $(LIBDIR)$(BS)$(E).exe
+		}
+	}
+	if ($(EXETARGETS))
+	{
+		foreach E ($(EXETARGETS))
+		{
+			set ROOT.TARGETS += $(LIBDIR)$(BS)$(E).exe
+		}
+	}
+}
+
+
+([ -~]*)DI.(cpp)$:
+{
+	set SILENT = $(PRETTY)
+	if($(DSP) == 1)
+	{
+		echo "$(WARNING) dual interface dsp generation not implemented"
+		break
+	}
+	if (exists("$(1).h"))
+	{
+		if (["$(1).h"])
+		{
+			set COMPILE_LINE = $(COMPONENT_SCRIPT) $(1).h $(COMPONENT_TEMPLATE)
+			if($(PRETTY) == 1)
+			{
+				echo " [1m[36mgenerating $(0)[0m"
+			}
+			$(ECHO) $(COMPILE_LINE)
+		}
+	}
+}
+
+
+([ -~]*)(/|\\)([ -~]*).(o|obj)$:
+{
+	set SILENT = $(PRETTY)
+	if($(DSP) == 1)
+	{
+		echo "$(WARNING) object files should not be generated during dsp build"
+		break
+	}
+	if (!exists("$(3).cpp"))
+	{
+		check("$(3).cpp")
+	}
+
+	if (exists("$(3).cpp"))
+	{
+		if (["$(3).cpp"])
+		{
+			set COMPILE_LINE = $(CXX) "$(OUTPUT)$(0)" $(CPPFLAGS) $(CXXFLAGS) $(NOLINK) $(FORCECXX) "$(3).cpp"
+			if($(PRETTY) == 1)
+			{
+				echo "[32m compiling $(0) [0m"
+			}
+			$(ECHO) $(COMPILE_LINE)
+		}
+	}
+	else
+	{
+		check(REMOTE.$(0))
+	}
+}
+
+
+REMOTE.([ -~]*)(/|\\)([ -.0-Z^-~]*)(/|\\)([ -~]*).(o|obj)$:
+{
+	if (exists("$(1)$(2)$(5).cpp"))
+	{
+		if(!exists($(1)$(2)$(3)$(4)$(5).$(6)) || (dateof($(1)$(2)$(3)$(4)$(5).$(6)) < dateof($(1)$(2)$(5).cpp)))
+		{
+			if (["$(1)$(2)$(5).cpp"])
+			{
+				set COMPILE_LINE = $(CXX) "$(OUTPUT)$(1)$(2)$(3)$(4)$(5).$(6)" $(CPPFLAGS) $(CXXFLAGS) $(NOLINK) $(FORCECXX) "$(1)$(2)$(5).cpp"
+				if($(PRETTY) == 1)
+				{
+					echo "[32m compiling $(1)$(2)$(3)$(4)$(5).$(6) [0m"
+				}
+				$(ECHO) $(COMPILE_LINE)
+			}
+		}
+	}
+	else if (exists("$(1)$(2)$(5).c"))
+	{
+		if(!exists($(1)$(2)$(3)$(4)$(5).$(6)) || (dateof($(1)$(2)$(3)$(4)$(5).$(6)) < dateof($(1)$(2)$(5).c)))
+		{
+			if (["$(1)$(2)$(5).c"])
+			{
+				set COMPILE_LINE = $(CXX) "$(OUTPUT)$(1)$(2)$(3)$(4)$(5).$(6)" $(CPPFLAGS) $(CXXFLAGS) $(NOLINK) "$(1)$(2)$(5).c"
+				if($(PRETTY) == 1)
+				{
+					echo "[32m compiling $(1)$(2)$(3)$(4)$(5).$(6) [0m"
+				}
+				$(ECHO) $(COMPILE_LINE)
+			}
+		}
+	}
+	else
+	{
+		echo "$(WARNING) Can\'t find source for $(1)$(2)$(3)$(4)$(5).$(6)"
+	}
+}
+
+dsp:
+{
+	set ROOT.DSP=1
+	#check(test.dsp)
+}
+
+GPG([ -~]*).noifx$:
+{
+	set ROOT.NOGPG=$(1)
+}
+
+([ -~]*)(/|\\)([ -~]*)_lib.(dsp)$:
+{
+	echo LIB $(0)
+	set SILENT=1
+	check(derivedlists)
+	set DSPFILE = $(3)_lib.dsp
+	set PRJNAME = $(3).lib
+	set LIBNAME = $(1)$(2)$(3).lib
+	system("echo $(PARA)# Microsoft Developer Studio Project File - Name=\"$(PRJNAME)\" - Package Owner=$(LT)4$(GT)$(LF)$(PARA) > $(DSPFILE)")
+	system("echo $(PARA)# Microsoft Developer Studio Generated Build File, Format Version 6.00$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# ** DO NOT EDIT **$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# TARGTYPE \"Win32 (x86) Static Library\" 0x0104$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)CFG=$(PRJNAME) - Win32 $(CODEGEN)$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE This is not a valid makefile. To build this project using NMAKE,$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE use the Export Makefile command and run$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE NMAKE /f \"$(PRJNAME).mak\".$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE You can specify a configuration when running NMAKE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE by defining the macro CFG on the command line. For example$(COLON)$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE NMAKE /f \"$(PRJNAME).mak\" CFG=\"$(PRJNAME) - Win32 $(CODEGEN)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE Possible choices for configuration are$(COLON)$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE \"$(PRJNAME) - Win32 $(CODEGEN)\" (based on \"Win32 (x86) Static Library\")$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Begin Project$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP AllowPerConfigDependencies 0$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP Scc_ProjName \"\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP Scc_LocalPath \"\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)CPP=cl.exe$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)RSC=rc.exe$(LF)$(PARA) >> $(DSPFILE)")
+	set CFG='$(CFG)'
+	#system("echo $(PARA)# PROP BASE Use_Debug_Libraries 1$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP BASE Output_Dir \"$(OBJDIR)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP BASE Intermediate_Dir \"$(OBJDIR)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP BASE Target_Dir \"\"$(LF)$(PARA) >> $(DSPFILE)")
+	#system("echo $(PARA)# PROP Use_Debug_Libraries 1$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP Output_Dir \"$(OBJDIR)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP Intermediate_Dir \"$(OBJDIR)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP Target_Dir \"\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# ADD BASE CPP $(CPPFLAGS) $(CXXFLAGS) /c$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# ADD CPP $(CPPFLAGS) $(CXXFLAGS) /c$(LF)$(PARA) >> $(DSPFILE)")
+	#system("echo $(PARA)# ADD BASE RSC /l 0x409 /d \"_DEBUG\"$(LF)$(PARA) >> $(DSPFILE)")
+	#system("echo $(PARA)# ADD RSC /l 0x409 /d \"_DEBUG\"$(LF)$(PARA) >> $(DSPFILE)")
+	#system("echo $(PARA)BSC32=bscmake.exe$(LF)$(PARA) >> $(DSPFILE)")
+	#system("echo $(PARA)# ADD BASE BSC32 /nologo$(LF)$(PARA) >> $(DSPFILE)")
+	#system("echo $(PARA)# ADD BSC32 /nologo$(LF)$(PARA) >> $(DSPFILE)")
+	#system("echo $(PARA)LIB32=link.exe -lib$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# ADD BASE LIB32 /nologo $(ARFLAGS) $(AROUTPREFIX)$(LIBNAME) $(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# ADD LIB32 /nologo $(ARFLAGS) $(AROUTPREFIX)$(LIBNAME) $(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Begin Target$(LF)$(PARA) >> $(DSPFILE)")
+	#system("echo $(PARA)# Name \"$(PRJNAME) - Win32 Release\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Name \"$(PRJNAME) - Win32 $(CODEGEN)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Begin Group \"Source Files\"$(LF)$(PARA) >> $(DSPFILE)")
+	foreach F ($(FILES))
+	{
+		system("echo $(PARA)# Begin Source File$(LF)$(PARA) >> $(DSPFILE)")
+		system("echo $(PARA)SOURCE=.$(BS)$(F).cpp$(LF)$(PARA) >> $(DSPFILE)")
+		system("echo $(PARA)# End Source File$(LF)$(PARA) >> $(DSPFILE)")
+	}
+	system("echo $(PARA)# PROP Default_Filter \"cpp;c;cxx;rc;def;r;odl;idl;hpj;bat\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# End Group$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Begin Group \"Header Files\"$(LF)$(PARA) >> $(DSPFILE)")
+	set IGNORE=1
+	set HFILES=`$(LS) *.h`
+	if($(HFILES) != "File Not Found")
+	{
+		foreach H ($(HFILES))
+		{
+			system("echo $(PARA)# Begin Source File$(LF)$(PARA) >> $(DSPFILE)")
+			system("echo $(PARA)SOURCE=.$(BS)$(H)$(LF)$(PARA) >> $(DSPFILE)")
+			system("echo $(PARA)# End Source File$(LF)$(PARA) >> $(DSPFILE)")
+		}
+	}
+	build($(3).noifx)
+	set J=$(NOGPG)
+	set LSCMD="$(LS) ..$(BS)Include$(BS)$(J)$(BS)*.h"
+	set HFILES=`$(LSCMD)`
+	if($(HFILES) != "File Not Found" && $(HFILES) != "The system cannot find the file specified.")
+	{
+		foreach H ($(HFILES))
+		{
+			system("echo $(PARA)# Begin Source File$(LF)$(PARA) >> $(DSPFILE)")
+			system("echo $(PARA)SOURCE=..$(BS)Include$(BS)$(J)$(BS)$(H)$(LF)$(PARA) >> $(DSPFILE)")
+			system("echo $(PARA)# End Source File$(LF)$(PARA) >> $(DSPFILE)")
+		}
+	}
+	set IGNORE=0
+	system("echo $(PARA)# PROP Default_Filter \"h;hpp;hxx;hm;inl\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# End Group$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# End Target$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# End Project$(LF)$(PARA) >> $(DSPFILE)")
+}
+
+([ -~]*)(/|\\)([ -~]*)_exe.(dsp)$:
+{
+	echo EXE $(0)
+	set SILENT=1
+	check(derivedlists)
+	set DSPFILE = $(3)_exe.dsp
+	set PRJNAME = $(3).exe
+	set EXENAME = $(1)$(2)$(3).exe
+	system("echo $(PARA)# Microsoft Developer Studio Project File - Name=\"$(PRJNAME)\" - Package Owner=$(LT)4$(GT)$(LF)$(PARA) > $(DSPFILE)")
+	system("echo $(PARA)# Microsoft Developer Studio Generated Build File, Format Version 6.00$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# ** DO NOT EDIT **$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# TARGTYPE \"Win32 (x86) Application\" 0x0101$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)CFG=$(PRJNAME) - Win32 $(CODEGEN)$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE This is not a valid makefile. To build this project using NMAKE,$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE use the Export Makefile command and run$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE NMAKE /f \"$(PRJNAME).mak\".$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE You can specify a configuration when running NMAKE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE by defining the macro CFG on the command line. For example$(COLON)$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE NMAKE /f \"$(PRJNAME).mak\" CFG=\"$(PRJNAME) - Win32 $(CODEGEN)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE Possible choices for configuration are$(COLON)$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE \"$(PRJNAME) - Win32 $(CODEGEN)\" (based on \"Win32 (x86) Application\")$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)!MESSAGE$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Begin Project$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP AllowPerConfigDependencies 0$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP Scc_ProjName \"\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP Scc_LocalPath \"\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)CPP=cl.exe$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)RSC=rc.exe$(LF)$(PARA) >> $(DSPFILE)")
+	set CFG='$(CFG)'
+	system("echo $(PARA)# PROP BASE Output_Dir \"$(OBJDIR)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP BASE Intermediate_Dir \"$(OBJDIR)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP BASE Target_Dir \"\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP Output_Dir \"$(OBJDIR)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP Intermediate_Dir \"$(OBJDIR)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# PROP Target_Dir \"\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# ADD BASE CPP $(CPPFLAGS) $(CXXFLAGS) /c$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# ADD CPP $(CPPFLAGS) $(CXXFLAGS) /c$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# ADD BASE LINK32 /out:$(EXENAME) $(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# ADD LINK32 $(OSLIBS) /out:$(EXENAME) $(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Begin Target$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Name \"$(PRJNAME) - Win32 $(CODEGEN)\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Begin Group \"Source Files\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Begin Source File$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)SOURCE=.$(BS)$(3).cpp$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# End Source File$(LF)$(PARA) >> $(DSPFILE)")
+	#foreach F ($(FILES))
+	#{
+	#	system("echo $(PARA)# Begin Source File$(LF)$(PARA) >> $(DSPFILE)")
+	#	system("echo $(PARA)SOURCE=.$(BS)$(F).cpp$(LF)$(PARA) >> $(DSPFILE)")
+	#	system("echo $(PARA)# End Source File$(LF)$(PARA) >> $(DSPFILE)")
+	#}
+	system("echo $(PARA)# PROP Default_Filter \"cpp;c;cxx;rc;def;r;odl;idl;hpj;bat\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# End Group$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# Begin Group \"Header Files\"$(LF)$(PARA) >> $(DSPFILE)")
+	#set IGNORE=1
+	#set HFILES=`$(LS) *.h`
+	#if($(HFILES) != "File Not Found")
+	#{
+	#	foreach H ($(HFILES))
+	#	{
+	#		system("echo $(PARA)# Begin Source File$(LF)$(PARA) >> $(DSPFILE)")
+	#		system("echo $(PARA)SOURCE=.$(BS)$(H)$(LF)$(PARA) >> $(DSPFILE)")
+	#		system("echo $(PARA)# End Source File$(LF)$(PARA) >> $(DSPFILE)")
+	#	}
+	#}
+	#build($(3).noifx)
+	#set J=$(NOGPG)
+	#set LSCMD="$(LS) ..$(BS)Include$(BS)$(J)$(BS)*.h"
+	#set HFILES=`$(LSCMD)`
+	#if($(HFILES) != "File Not Found" && $(HFILES) != "The system cannot find the file specified.")
+	#{
+	#	foreach H ($(HFILES))
+	#	{
+	#		system("echo $(PARA)# Begin Source File$(LF)$(PARA) >> $(DSPFILE)")
+	#		system("echo $(PARA)SOURCE=..$(BS)Include$(BS)$(J)$(BS)$(H)$(LF)$(PARA) >> $(DSPFILE)")
+	#		system("echo $(PARA)# End Source File$(LF)$(PARA) >> $(DSPFILE)")
+	#	}
+	#}
+	set IGNORE=0
+	system("echo $(PARA)# PROP Default_Filter \"h;hpp;hxx;hm;inl\"$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# End Group$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# End Target$(LF)$(PARA) >> $(DSPFILE)")
+	system("echo $(PARA)# End Project$(LF)$(PARA) >> $(DSPFILE)")
+}
+
+([ -~]*)(/|\\)([ -~]*).(a|lib)$:
+{
+	set SILENT = $(PRETTY)
+	check(prebuild)
+	check(derivedlists)
+	if($(DSP) == 1)
+	{
+		check($(1)$(2)$(3)_lib.dsp)
+		break
+	}
+	if ([$(OBJECTS)])
+	{
+		set AR_LINE = $(AR) $(ARFLAGS) "$(AROUTPREFIX)$(0)" $(OBJECTS)
+
+		if($(PRETTY) == 1)
+		{
+			echo "[33m linking $(0) [0m"
+		}
+
+		$(ECHO) $(AR_LINE)
+
+	}
+}
+
+([ -~]*).(so):
+{
+	set SILENT = $(PRETTY)
+	check(prebuild)
+	check(derivedlists)
+	if($(DSP) == 1)
+	{
+		break
+	}
+	if ([$(OBJECTS)] || [$(REMOTEOBJECTS)])
+	{
+		# GCC FAQ says to use gcc -shared not ld -shared,
+		#	specifically to construct statics
+		set AR_LINE = gcc -shared -Xlinker --export-dynamic -o $(0) $(OBJECTS) $(REMOTEOBJECTS) $(LIBCMD) 
+
+		if($(PRETTY) == 1)
+		{
+			echo "[33m linking $(0) [0m"
+		}
+
+		$(ECHO) $(AR_LINE)
+#		$(CP) $(OBJDIR)$(BS)$(0) $(LIBDIR)$(BS)$(0)
+	}
+}
+
+([ -~]*).(dll):
+{
+	echo "--- $(0) ---"
+	set SILENT = $(PRETTY)
+	check(prebuild)
+	check(derivedlists)
+	if($(DSP) == 1)
+	{
+		echo "$(WARNING) DLL dsp generation not yet implemented"
+		break
+	}
+	if ([$(OBJECTS)] || [$(REMOTEOBJECTS)])
+	{
+		set IMPLIB = "/IMPLIB:"
+		set OUT = "/OUT:"
+		set LINK_LINE = $(LINKER) $(ARFLAGS) $(DLFLAGS) $(OUT)$(0) $(IMPLIB)$(1).lib $(DLIBFILES) $(OBJECTS) $(REMOTEOBJECTS) $(LIBFILES) $(OSLIBS)
+		if($(PRETTY) == 1)
+		{
+			echo "[33m linking $(0) [0m"
+		}
+
+		$(ECHO) $(LINK_LINE)
+	}
+}
+
+([ -~]*)(/|\\)([ -~]*).(exe)$:
+{
+	set SILENT = $(PRETTY)
+	check (derivedlists)
+	if($(DSP) == 1)
+	{
+		check($(1)$(2)$(3)_exe.dsp)
+		break
+	}
+	if (exists("$(3).cpp"))
+	{
+		if (["$(3).cpp" $(LOBJECTS)] || (exists("$(3).h") && ["$(3).h"]))
+		{
+			set TMP=0
+			foreach E ($(FATTARGETS))
+			{
+				if($(E)==$(3))
+				{
+					set TMP=1
+				}
+			}
+			set TLD1=$(LD1)
+			set TLD2=$(LD2)
+			if($(TMP))
+			{
+				set TLD1+=$(FAT1)
+				set TLD2-=$(FAT2)
+				set TBOLD="[1m"
+			}
+			set EXE_LINE = $(CXX) "$(EXEOUTPUT)$(0)" $(CPPFLAGS) $(CXXFLAGS) $(FORCECXX) "$(3).cpp" $(TLD1) $(LIBRARY) $(LIBCMD) $(LIBFILES) $(TLD2) $(OSLIBS)
+			if($(PRETTY) == 1)
+			{
+				echo "[35m compiling $(TBOLD)$(0) [0m"
+			}
+			$(ECHO) $(EXE_LINE)
+		}
+	}
+}
+
+objclean:
+{
+	check(derivedlists)
+	set SILENT = $(PRETTY)
+	if($(PRETTY) == 1)
+	{
+		echo "[31m cleaning objects[0m"
+	}
+	check(derivedlists)
+	$(RM) $(OBJECTS) $(REMOTEOBJECTS)
+}
+
+clean:
+{
+	check(derivedlists)
+	set IGNORE=1
+	set SILENT = $(PRETTY)
+	if($(PRETTY) == 1)
+	{
+		echo "[31m cleaning all[0m"
+	}
+	$(RM) $(OBJDIR)$(BS)*
+	$(RM) $(TARGETS)
+	$(RM) $(DI_CLEAN)
+	set IGNORE=0
+}
+
+all:
+{
+	check(derivedlists)
+	[ $(TARGETS) ]
+}
+
+help:
+{
+	echo "For build.exe runtime flags use build.exe -h"
+	echo ""
+	echo "These settings for the CODEGEN environment variable are supported$(COLON)"
+	echo " debug        - Set compile flags for debugging"
+	echo " optimize     - Set compile flags for optimization"
+	echo " insure       - Set compile flags for insure++"
+	echo " profile      - Set compile flags for profiling"
+	echo " default      - Do not set any code generation flags"
+	echo ""
+	echo "Some example supported targets$(COLON)"
+	echo " clean          - Remove all built files"
+	echo " objclean       - Remove object files"
+	echo " prebuild       - Setup directories needed for build"
+	echo " all            - Build all default targets"
+	echo " dsw all        - Build workspace and project files for MSVSC++"
+}
+
+

@@ -1,0 +1,28 @@
+ps.1.4
+
+def c0, 0.8, 0.5, 0.3, 1.0
+
+def c1, 0.8, 0.5, 0.5, 1.0
+def c2, 0.5, 0.2, 0.2, 1.0
+def c3, 0.3, 0.1, 0.1, 1.0
+
+def c4, 0.3, 0.3, 0.3, 1.0
+
+def c5, 0.0, 0.0, 0.0, 1.0
+def c6, 1.0, 1.0, 1.0, 1.0
+
+texld  r0, t0
+
+dp3_sat r3, r0_bx2, v0_bx2
+
+sub r4, r3, c0
+cmp r5, r4.r, c1, c2
+cmp r4, r4.b, r5, c3
+
+dp3_sat r1, r0_bx2, v1_bx2
+
+sub r1, r1, c4
+cmp r1.rgb, r1, c6, c5
+
+mul r0, r4, r1
+

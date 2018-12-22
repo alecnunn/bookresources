@@ -1,0 +1,22 @@
+;
+; DependentAR.nvp
+;
+
+
+#include "PixelConstants.h"
+
+
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+; get colors from all 4 texture stages
+tex t0                   ; source texture
+texreg2ar t1, t0         ; looup into t1 based on t0 alpha and red
+
+
+; move result of dependent lookup into output
+mov r0, t1
+

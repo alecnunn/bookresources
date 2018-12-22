@@ -1,0 +1,58 @@
+/*********************************************************************NVMH2****
+Path:  C:\Dev\devrel\Nv_sdk_4\Dx8\NVEffectsBrowser\Effects\Dot3Bump_Dynamic
+File:  EqualWeightCombine_PostMult.nvp
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+This file is provided without support, instruction, or implied warranty of any
+kind.  NVIDIA makes no guarantee of its fitness for a particular purpose and is
+not liable under any circumstances for any damages or loss whatsoever arising
+from the use or inability to use this file or items derived from it.
+
+Comments:
+
+Simple pixel shader that samples all 4 texture stages, averages these
+samples and outputs the result.  Offset each texture stage's iterated
+coordinates by various amounts to sample a texels neighbors & blur.
+
+*************************************************************************/
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+// Define constant for biasing back from [-0.5,0.5] 
+//  to [0,1]
+
+def c7, 0.5, 0.5, 0.5, 1.0
+
+
+; get colors from all 4 texture stages
+tex t0		// 1st neighbor
+tex t1		// 2nd neighbor
+tex t2		// etc.
+tex t3
+
+
+// Bias to [-.5,.5] range to avoid loss of bits
+//  when adding.  Divide by two to average.
+// The use of bias means that a value of 0.5 (127)
+//  stored in the texture actualy represents the
+//  value zero when doing the pixel math, so texels
+//  of value 0x01 and 0x01 in the texture will not add
+//  to 0x02
+
+add_d2  r0, t0_bias, t1_bias
+add_d2  r1, t2_bias, t3_bias
+
+add_d2  r0, r0, r1
+
+// bring back to the range [0,1]
+add     r0, r0, c7
+
+
+
+
+

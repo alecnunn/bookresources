@@ -1,0 +1,581 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "Aniso"=.\Effects\Aniso\Aniso.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\aniso
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "BRDF"=.\Effects\BRDF\BRDF.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\brdf
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "BlinnBump"=.\EFFECTS\BlinnBump\BlinnBump.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\blinnbump
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "BlinnBumpDynamicMap"=.\Effects\BlinnBumpDynamicMap\BlinnBumpDynamicMap.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\blinnbumpdynamicmap
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "CA_Fire"=.\Effects\CA_Fire\CA_Fire.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "CubeMap"=.\EFFECTS\CubeMap\CubeMap.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "DepthOfField"=.\EFFECTS\DepthOfField\DepthOfField.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Dot3Bump"=.\Effects\Dot3Bump\Dot3Bump.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\dot3bump
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "FilterBlit"=.\Effects\FilterBlit\FilterBlit.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "FishEye"=.\EFFECTS\FishEye\FishEye.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "FogRoom"=.\Effects\FogRoom\FogRoom.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\fogroom
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameOfLife"=.\Effects\GameOfLife\GameOfLife.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Halo"=.\Effects\Halo\Halo.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Keyframe"=.\Effects\Keyframe\Keyframe.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "LinkerDemo"=.\Effects\LinkerDemo\LinkerDemo.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Membrane"=.\Effects\Membrane\Membrane.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\membrane
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ModelView"=.\Effects\ModelView\ModelView.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\modelview
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "MotionBlur"=.\EFFECTS\MotionBlur\MotionBlur.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NVEffectsBrowser"=.\NVEffectsBrowser.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Noise"=.\Effects\Noise\Noise.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\noise
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "OpenGL_Example"=.\Effects\OpenGL_Example\OpenGL_Example.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\opengl_example
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PaletteSkin"=.\Effects\PaletteSkin\PaletteSkin.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Particles"=.\EFFECTS\Particles\Particles.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\particles
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Quad"=.\Effects\Quad\Quad.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\quad
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Rainbow"=.\Effects\Rainbow\Rainbow.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\rainbow
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Shadows"=.\Effects\Shadows\Shadows.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "SimpleFog"=.\Effects\SimpleFog\SimpleFog.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\simplefog
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "SineWave"=.\Effects\SineWave\SineWave.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\sinewave
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ToonShade"=.\Effects\ToonShade\ToonShade.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\toonshade
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "TwoSided"=.\Effects\TwoSided\TwoSided.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\twosided
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "VertexLight"=.\EFFECTS\VertexLight\VertexLight.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\vertexlight
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "VertexMorph"=.\Effects\VertexMorph\VertexMorph.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\vertexmorph
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "linkerdialog"=.\Effects\LinkerDemo\linkerdialog.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\linkerdemo
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "reflect_and_refract"=.\EFFECTS\reflect_and_refract\reflect_and_refract.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\effects\reflect_and_refract
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "texkill"=.\EFFECTS\texkill\texkill.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

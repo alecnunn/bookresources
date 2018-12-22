@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PhysicsEngine", "PhysicsEngine.vcproj", "{7024AA84-C808-40EE-BFD3-C3A26B45AF6B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{7024AA84-C808-40EE-BFD3-C3A26B45AF6B}.Debug.ActiveCfg = Debug|Win32
+		{7024AA84-C808-40EE-BFD3-C3A26B45AF6B}.Debug.Build.0 = Debug|Win32
+		{7024AA84-C808-40EE-BFD3-C3A26B45AF6B}.Release.ActiveCfg = Release|Win32
+		{7024AA84-C808-40EE-BFD3-C3A26B45AF6B}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

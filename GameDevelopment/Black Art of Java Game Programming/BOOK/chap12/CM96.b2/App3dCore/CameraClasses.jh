@@ -1,0 +1,32 @@
+class fCamera extends fGenericCamera {
+   /**
+    * Constructs a camera
+    */
+   public fCamera(fWorld w,double viewAngle,double viewdistance,
+                  fPoint3d pos,fAngle3d agl);
+   /**
+    * Renders the world.
+    */
+   public void paint(Graphics g)
+   /**
+    * Updates the camera.
+    */
+   public void update(double dt)
+   /**
+    * Sets the screen dimenstions.
+    */
+   public void setScreenSize(int w,int h)
+   /**
+    * Sets the position and angle of the camera.
+    */
+   public void setOrientation(fPoint3d pos,fAngle3d agl)
+}
+
+class fMagicCamera extends fCamera {
+   /**
+    * Constructs a magic camera.
+    */
+   fMagicCamera(fWorld w,double viewAngle,double viewdistance,
+                fPoint3d pos,fAngle3d agl,
+                double gridSize,double fadingFactor)
+}

@@ -1,0 +1,79 @@
+// ******** Volumetric Fog Pixel Shader ***********
+// Rob James - 2003
+
+// This Fragment Shader Handles the shadow volume depth
+// peeling - maintaining the fragment depth (in effect 
+// our 2nd depth buffer) and the updated shadow in/out 
+// count.
+//
+// If the *previous* fragment was lit (unshadowed)
+// then in-scatter is accumulated
+//
+
+struct v2f
+{
+	float4 pos		: POSITION;	// Position in clip space
+	float4 Wpos		: WPOS;	// Position in clip space
+	float4 Tex0		: TEXCOORD0;// Not used
+	float4 Tex1		: TEXCOORD1;// Vertex Pos in ModelView space
+	float4 Tex2		: TEXCOORD2;// Tex Coord for copy-backed pbuffer
+	float4 Tex3		: TEXCOORD3;// Distance to Light
+	float4 Col0		: COLOR0;	// Diffuse light		
+};
+
+
+/*
+updates:
+
+	y = in-scatter
+	z = light distance
+	w = 2nd depth
+*/
+
+
+fragout_float main(v2f IN,
+			 uniform sampler2D texs0 : texunit0,
+			 uniform samplerRECT texs1 : texunit1,
+			 uniform float   incdec)
+{
+	fragout_float OUT; 
+	
+	float4 samp	= f4texRECTproj(texs1, IN.Tex2.xyw);
+
+	// Depth peel! Discard if more distant the last frag captured
+	float pk = 1.0/(IN.Wpos.w*1500.0);
+
+	if (pk >= samp.w) 
+	{
+		discard;
+	}
+
+	OUT.col.w = pk; // fragment depth
+
+	//store current frags linear eye distance
+	float ldist = length(IN.Tex1.xyz);
+
+	OUT.col.z = ldist;	
+
+	OUT.col.x = samp.x + incdec;//IN.Tex3.w;
+	
+	// Find the point on the fragment to fragment line seg
+	// thats closest to the light.
+	float3 EndPoint = normalize(IN.Tex1.xyz)*samp.z;
+	float3 LightPoint = IN.Tex3.xyz; 
+	
+    float	LineMag			= dot(EndPoint,EndPoint);
+    float	U				= dot(LightPoint, EndPoint) / LineMag;
+    float3	Intersection	= U * EndPoint;          
+    float	ooDistance		= 1.0/length( LightPoint - Intersection );	
+
+	// Evaluate the integrated In-scatter equation
+	float f1 = ooDistance * atan(ooDistance * (length(Intersection) - length(IN.Tex1.xyz)));
+	float f2 = ooDistance * atan(ooDistance * (length(Intersection) - samp.z));
+	float ii = 11.0 * abs(f2 - f1);
+
+	OUT.col.y =  samp.y + ((samp.x < 0.501)?ii: 0.0);
+
+	return OUT;
+}
+

@@ -1,0 +1,14 @@
+/***********************************************
+
+Demo for chapter "Gridless Controllable Fire"
+in Games Programming Gems 5.
+
+Author: Neeharika Adabala
+
+Date: August 2004
+
+************************************************/
+
+
+This directory contains the textures and the 
+fragment shader programs of the demo.

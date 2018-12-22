@@ -1,0 +1,27 @@
+CC = g++ -Wall -ansi
+
+all:
+	$(CC) -c ../../../source/PointMass.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/PhysicsSpace.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/BoundingSphere.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/Frustum.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/Matrix.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/Octree.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/Plane.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/Quaternion.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/Ray.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/Vector3D.cpp -I /usr/include -I ../../../source
+
+clean:
+	@echo Cleaning up...
+	@rm PointMass
+	@rm PhysicsSpace
+	@rm BoundingSphere
+	@rm Frustum
+	@rm Matrix
+	@rm Octree
+	@rm Plane
+	@rm Quaternion
+	@rm Ray
+	@rm Vector
+	@echo Done.

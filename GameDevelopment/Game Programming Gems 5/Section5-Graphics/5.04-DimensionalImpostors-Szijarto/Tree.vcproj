@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding = "Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.00"
+	Name="Tree"
+	ProjectGUID="{3A68081D-E8F9-4523-9436-530DE9E5530B}"
+	SccProjectName="&quot;$/FarTree&quot;, BPAAAAAA"
+	SccAuxPath=""
+	SccLocalPath=""
+	SccProvider="MSSCCI:Microsoft Visual SourceSafe"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="0"
+				RuntimeLibrary="4"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/MACHINE:I386 /IGNORE:4089"
+				AdditionalDependencies="d3dxof.lib dxguid.lib d3dx9dt.lib d3d9.lib winmm.lib"
+				OutputFile="$(OutDir)/Tree.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/Tree.pdb"
+				SubSystem="2"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				InlineFunctionExpansion="1"
+				OmitFramePointers="TRUE"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
+				StringPooling="TRUE"
+				RuntimeLibrary="4"
+				BufferSecurityCheck="FALSE"
+				EnableFunctionLevelLinking="TRUE"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/MACHINE:I386 /IGNORE:4089"
+				AdditionalDependencies="d3dxof.lib dxguid.lib d3dx9.lib d3d9.lib winmm.lib"
+				OutputFile="$(OutDir)/Tree.exe"
+				LinkIncremental="1"
+				GenerateDebugInformation="TRUE"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter
+			Name="Shaders"
+			Filter="">
+			<File
+				RelativePath="shaders\blocks.cg">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile vs_2_0 $(InputPath) -o $(TargetDir)blocks.vsh
+"
+						Outputs="bloacks.vsh"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="vertex shader compile"
+						CommandLine="cgc -profile vs_2_0 $(InputPath) -o $(TargetDir)blocks.vsh
+"
+						Outputs="block.vsh"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="shaders\blocks_ps.cg">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile ps_2_0 $(InputPath) -o $(TargetDir)blocks_ps.psh
+"
+						Outputs="blocks_ps.psh"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile ps_2_0 $(InputPath) -o $(TargetDir)blocks_ps.psh
+"
+						Outputs="block_ps.psh"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="shaders\leaves.cg">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile vs_2_0 $(InputPath) -o $(TargetDir)leaves.vsh
+"
+						Outputs="leaves.vsh"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile vs_2_0 $(InputPath) -o $(TargetDir)leaves.vsh
+"
+						Outputs="leaves.vsh"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="shaders\leaves_ps.cg">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile ps_2_0 $(InputPath) -o $(TargetDir)leaves_ps.psh
+"
+						Outputs="leaves_ps.psh"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile ps_2_0 $(InputPath) -o $(TargetDir)leaves_ps.psh
+"
+						Outputs="leaves_ps.psh"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="shaders\objects.cg">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile vs_2_0 $(InputPath) -o $(TargetDir)objects.vsh
+"
+						Outputs="objects.vsh"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile vs_2_0 $(InputPath) -o $(TargetDir)objects.vsh
+"
+						Outputs="objects.vsh"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="shaders\objects_ps.cg">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile ps_2_0 $(InputPath) -o $(TargetDir)objects_ps.psh
+"
+						Outputs="objects_ps.psh"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="cgc -profile ps_2_0 $(InputPath) -o $(TargetDir)objects_ps.psh
+"
+						Outputs="objects_ps.psh"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Source Files"
+			Filter="">
+			<File
+				RelativePath="Tree.cpp">
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="">
+			<File
+				RelativePath="Tree.rc">
+			</File>
+			<File
+				RelativePath="icon.ico">
+			</File>
+			<File
+				RelativePath="resource.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="Object Files"
+			Filter="">
+			<File
+				RelativePath="objects\Impostors.obj">
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="TRUE">
+					<Tool
+						Name="VCCustomBuildTool"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="TRUE">
+					<Tool
+						Name="VCCustomBuildTool"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="objects\Leaf.obj">
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="TRUE">
+					<Tool
+						Name="VCCustomBuildTool"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="TRUE">
+					<Tool
+						Name="VCCustomBuildTool"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="objects\Tree.obj">
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="TRUE">
+					<Tool
+						Name="VCCustomBuildTool"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="TRUE">
+					<Tool
+						Name="VCCustomBuildTool"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

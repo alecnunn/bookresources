@@ -1,0 +1,66 @@
+# WDS
+set MODULE = wds
+if (!$(CORALHOME))
+{
+	cd ..
+    if($(BLD_OSTYPE) == unix)
+    {
+        set CORALHOME = `pwd`
+    }
+    else
+    {
+        set CORALHOME = `CD`
+    }
+	cd $(MODULE)
+}
+include $(CORALHOME)/meta/coral.bld
+
+set MODULES =	ew$(WI)$(GI) 		\
+				wba 				\
+				gpl 				\
+				osd
+
+set LIBRARY = 	$(LIBPRE)$(MODULE)$(WI)$(GI)$(LIBSUFF)
+
+set FILES =		bevel 			\
+				button 			\
+				cond 			\
+				confirm 		\
+				document 		\
+				divider 		\
+				form 			\
+				getnum 			\
+				getstr 			\
+				gfxtest 		\
+				image 			\
+				initlook 		\
+				hfile 			\
+				hier 			\
+				htest 			\
+				hardlook 		\
+				look 			\
+				menu 			\
+				mfd	 			\
+				number 			\
+				part 			\
+				pentry 			\
+				pick 			\
+				popup 			\
+				portal			\
+				relay 			\
+				scope 			\
+				scroll 			\
+				wstr 			\
+				table 			\
+				textlist 		\
+				tip		 		\
+				wtypes 			\
+				wwidget			\
+				wxpm
+
+# set PROGRAMS =	xwds$(EXE)
+
+set TARGETS = $(LIBRARY) $(PROGRAMS)
+
+set OSLIBS = $(GFXLIBS) $(OSLIBS)
+

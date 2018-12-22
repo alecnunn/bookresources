@@ -1,0 +1,57 @@
+<html>
+<head>
+<title></title>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Output</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p> THE TABLE OF QUADRUPLES ARE</p>
+<p>LABEL	OPER	OP1	OP2	RES</p>
+<p> =	0	-	idx<br>
+  L1:	&lt;	idx	nums	t1<br>
+  goto	-	-	L3<br>
+  L2:	+	idx	1	t2<br>
+  =	t2	-	idx<br>
+  goto	-	-	L1<br>
+  L3:	If=	t1	0	L4<br>
+  +	sum	idx	t3<br>
+  =	t3	-	sum<br>
+  goto	-	-	L2<br>
+  L4:	Nop	-	-	-<br>
+  /	sum	nums	t4<br>
+  =	t4	-	average<br>
+  ..................................<br>
+  Printing the quadruples Blockwise<br>
+  ..................................<br>
+  Block No:0<br>
+  =	0	-	idx<br>
+  Block No:1<br>
+  L1:	&lt;	idx	nums	t1<br>
+  goto	-	-	L3<br>
+  Block No:2<br>
+  L2:	+	idx	1	t2<br>
+  =	t2	-	idx<br>
+  goto	-	-	L1<br>
+  Block No:3<br>
+  L3:	If=	t1	0	L4<br>
+  Block No:4<br>
+  +	sum	idx	t3<br>
+  =	t3	-	sum<br>
+  goto	-	-	L2<br>
+  Block No:5<br>
+  /	sum	nums	t4<br>
+  =	t4	-	average<br>
+  Construct Flow Graph<br>
+  Print Flow Graph<br>
+  B1<br>
+  B2<br>
+  B4 <br>
+  B2 <br>
+  B6	B5<br>
+  B3 </p>
+<p>Printing Labels<br>
+  L1	L2	L3	L4 </p>
+<p></p>
+</body>
+</html>

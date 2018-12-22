@@ -1,0 +1,424 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta name="Author" content="Christian Nentwich (brn@eleet.mcb.at)">
+<meta name="Description" content="A gentle introduction to OpenPTC 1.0">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Introduction to OpenPTC</title>
+</head>
+
+<body TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#824250" VLINK="#51188E" ALINK="#FF0000"
+BACKGROUND="white.gif">
+
+<h1 align="center"><font face="Arial" size="7">Introduction to OpenPTC</font></h1>
+
+<p align="center"><i>This document is an introduction to OpenPTC 1.0. It was last modified
+on June 22, 1999.</i></p>
+
+<hr WIDTH="100%" align="center">
+
+<h1>Table of Contents</h1>
+
+<blockquote>
+  <font SIZE="+2"><p>1. <a HREF="#link_intro">Introduction</a></font> </p>
+  <p><font SIZE="+2">2. <a HREF="#link_whatis">What is ... ?</a></font> </p>
+  <blockquote>
+    <font SIZE="+2"><p>2.1 <a HREF="#link_whatis_format">... a Format ?</a></font> <br>
+    <font SIZE="+2">2.2 <a HREF="#link_whatis_surface">... a Surface ?</a></font> <br>
+    <font SIZE="+2">2.3 <a HREF="#link_whatis_console">... a Console ?</a></font> <br>
+    <font SIZE="+2">2.4 <a HREF="#link_whatis_eh">... Exception Handling ?</a></font> <br>
+    <font SIZE="+2">2.5 <a HREF="#link_whatis_int32">... this int32, short16, char8 business ?</a></font></p>
+  </blockquote>
+  <font SIZE="+2"><p>3. <a HREF="#link_howdoi">How do I ... ?</a></font> </p>
+  <blockquote>
+    <font SIZE="+2"><p>3.1 <a HREF="#link_howdoi_format">... request my colour format ?</a></font>
+    <br>
+    <font SIZE="+2">3.2 <a HREF="#link_howdoi_openconsole">... open a Console ?</a></font> <br>
+    <font SIZE="+2">3.3 <a HREF="#link_howdoi_createsurface">... create a Surface ?</a></font>
+    <br>
+    <font SIZE="+2">3.4 <a HREF="#link_howdoi_draw">... draw my stuff ?</a></font></p>
+  </blockquote>
+  <font SIZE="+2"><p>4. <a HREF="#link_whereis">Where is ... ?</a></font> </p>
+  <blockquote>
+    <font SIZE="+2"><p>4.1 <a HREF="#link_whereis_ptc">... PTC ?</a></font> <br>
+    <font SIZE="+2">4.2 <a HREF="#link_whereis_api">... the API specification ?</a></font></p>
+  </blockquote>
+  <font SIZE="+2"><p>5. <a HREF="#link_whatthefuck">What the f@$* ?</a></font></p>
+</blockquote>
+
+<hr WIDTH="100%">
+
+<h1><a NAME="link_intro"></a>1. Introduction</h1>
+
+<p>OpenPTC (PTC) is a cross-platform graphics API that was developed to make writing games
+and demos easy - and the result fast. What PTC will do for you is give you access to the
+framebuffer of the platform you are on, manage offscreen buffers for you and convert these
+buffers to whatever video format is available at that time. </p>
+
+<p>This approach gives you the advantage that you can concentrate on writing your code for
+one colour format (<i>32 bit RGB Truecolour </i>would be a good idea) and leave the rest
+to PTC. You do not even have to worry about any speed losses when the format you use is
+not available on the target platform - benchmarks show that PTC will convert a 32 bit
+buffer to 16 bit faster than it can do a 32 bit to 32 bit copy (because less data has to
+be transferred). </p>
+
+<p>In the next few sections, I shall explain the basic use of PTC, how to get access to
+the framebuffer, and so on. The structure of the document from now on is an evolutionary
+one, from the basics to the details: 
+
+<ul>
+  <li>What is ... ? - describing the classes you will use</li>
+  <li>How do I ... ? - showing you the ways of doing things with PTC</li>
+  <li>Where is ... ? - some links you might care about</li>
+  <li>What the f@$* ? - telling you where to ask any remaining questions :)</li>
+</ul>
+
+<p>One thing left to be said: <b>This page is useless if you do not look at the examples
+included with the PTC distributions.</b> Look at some real code while you are browsing
+through this, preferably look at the more simple examples such as &quot;Random&quot;,
+&quot;Palette&quot; and some of the simpler demo programs such as &quot;Fire&quot; and
+&quot;Tunnel&quot;.<br>
+&nbsp; </p>
+
+<hr WIDTH="100%">
+
+<h1><a NAME="link_whatis"></a>2. What is ... ?</h1>
+
+<h2><a NAME="link_whatis_format"></a>2.1 ... a Format ?</h2>
+
+<p>The <i>Format </i>class hold information about how pixels are composed in a specific
+framebuffer or offscreen buffer. When you use PTC, you will create instances of this class
+to specify the format you want to use in your application and the format you want the
+screen to have. PTC supports both indexed formats (e.g. 8 bit colour with a palette) and
+direct formats (e.g. 16 bit rgb 565 or 32 bit RGB888). Click <a HREF="#link_howdoi_format">here</a>
+for usage information on the Format class. <br>
+&nbsp; </p>
+
+<h2><a NAME="link_whatis_surface"></a>2.2 ... a Surface ?</h2>
+
+<p>A <i>Surface </i>is a memory area (in system memory, not in video memory)&nbsp;that you
+can draw into if you don't want to draw directly to the screen. If you draw into a
+Surface, that gives you the advantage that the Surface will be automatically converted
+from the colour format you chose to the colour format of the Console that has been opened.
+In other words, if you use a Surface, you do not have to worry about converting your
+pixels to the format made available by the OS. <br>
+&nbsp; </p>
+
+<h2><a NAME="link_whatis_console"></a>2.3 ... a Console ?</h2>
+
+<p>The <i>Console </i>is your interface to the world. Is contains the routines to access
+the framebuffer, and some simple keyboard routines. No matter what you do, you will always
+(well, most of the time, anyway) have to create a Console object at some point. On most
+systems, a Console will create a fullscreen display. On some (e.g. X11, DirectX if
+requested) a window will be created. To you, it doesn't really matter very much, you won't
+notice unless you perform special checks to ensure either working mode is used. <br>
+One thing you should note is that <i>Console </i>and <i>Surface </i>have the same
+baseclass in PTC, that is, a Console is of the same type as a Surface (namely they are
+both Base Surfaces). This should tell you that most operations available for Surfaces are
+also available for Consoles (e.g. you have to lock()&nbsp;both Consoles and Surfaces, more
+later). <br>
+&nbsp; </p>
+
+<h2><a NAME="link_whatis_eh"></a>2.4 ... Exception Handling ?</h2>
+
+<p>Exception handling is a very efficient way to handle errors in your applications. PTC
+keeps exception handling to a minimum to avoid overhead because current C++ compilers
+aren't too great at implementing it. Unless you decide otherwise, you will only have one
+try/catch block in your application (wrapping your&nbsp; whole main() function). <br>
+PTC uses a single class called <i>Error </i>to report exceptions. If an error occurs, this
+can be caught and <i>Error::report()</i> will display the error and end the application.
+Look at the examples, you will understand them immediately (er.. :) <br>
+&nbsp; </p>
+
+<h2><a NAME="link_whatis_int32"></a>2.5 ... this int32, short16, char8 business ?</h2>
+
+<p>These types are defined to be the same size across all platforms. Here is what they are
+supposed to be: 
+
+<ul>
+  <li>int32 = unsigned int, 4 bytes</li>
+  <li>short16 = unsigned short, 2 bytes</li>
+  <li>char8 = unsigned char, 1 byte</li>
+</ul>
+
+<p>We <b>strongly suggest that you use those types for all pixel manipulation</b>. Not
+only will this guarantee that your application works on any architecture, it will also
+prevent you from causing colour distortions through signed/unsigned incompatibilities. Not
+long ago, I had to answer a question from someone who had used a char*&nbsp;instead of
+char8*&nbsp;to draw his stuff and got his colours messed up (greetings to Nado&nbsp;:). </p>
+
+<hr WIDTH="100%">
+
+<h1><a NAME="link_howdoi"></a>3. How do I ... ?</h1>
+
+<h2><a NAME="link_howdoi_format"></a>3.1 ... request my colour Format ?</h2>
+
+<p>Before you can create a Console or a Surface, you have to decide on the colour format
+you want to use in your routines. PTC offers you two different formats: 
+
+<ul>
+  <li>Indexed colour</li>
+  <li>Direct colour</li>
+</ul>
+
+<p>Accordingly, there are two different constructors offered to create format objects of
+the right type: 
+
+<ul>
+  <li><i>Format(int bits);</i></li>
+  <li><i>Format(int bits, int32 r, int32 g, int32 b, int32 a=0);</i></li>
+</ul>
+
+<p>If you want an indexed colour mode, you have to use the first constructor. The converse
+is true as well, for direct modes use the second constructor. Note that at the moment <b>only
+8 bit indexed modes</b> are supported, so if you want an indexed colour mode, make sure
+you pass 8 and nothing else to the constructor. In the second constructor, r, g, and b
+stand for the bitmasks of the colour components, that is the mask you use on a pixel of
+that format to select a single colour component. Look below for some common bitmasks. </p>
+
+<p>By the way, for those who aren't too experienced with C++ yet, the <i>a=0</i> in the
+second constructor means that this parameter may be omitted when creating a Format object
+and will be set to 0 by default then. Enough talking, here are some examples: 
+
+<ul>
+  <li><i>Format myFormat(8);</i>&nbsp; // Creates an indexed 8 bit colour format (aka 256
+    colours with a palette)</li>
+  <li><i>Format myFormat(32,0xFF0000,0xFF00,0xFF); </i>// Creates a format for 32 bit
+    truecolour mode</li>
+</ul>
+
+<p>I still owe you the most common bitmasks, here they are: 
+
+<ul>
+  <li>32 bit Truecolour: <i>Format(32,0xFF0000,0xFF00,0xFF)</i></li>
+  <li>16 bit Direct Colour: <i>Format(16,0xF800,0x7E0,0x1F)</i></li>
+  <li>15 bit Hicolour: <i>Format(16,0x7C00,0x3E0,0x1F) </i><b>Attention:</b> Note how 16 bit
+    is passed to the constructor, not 15 bit. PTC always uses the actual number of bits used
+    per pixel!</li>
+</ul>
+
+<h3>Pitfalls</h3>
+
+<ul>
+  <li>Do NOT use any colour formats apart from 32 bit RGB 888, 16 bit RGB 565 or indexed 8 bit
+    mode if you care about speed! These are the only formats for which optimised routines are
+    available. All other formats will be converted using a slower generic conversion routine.
+    We believe that those formats are the most sensible ones to use in any application.</li>
+  <li>Do NOT pass anything but 8 to the constructor for indexed modes!</li>
+</ul>
+
+<h2><a NAME="link_howdoi_openconsole"></a>3.2 ... open a Console ?</h2>
+
+<p>There are quite a few ways to open a Console, even some platform specific ones, but
+those will not be discussed here (and are not normally needed). The first thing to do is
+to get a Console object: </p>
+
+<blockquote>
+  <i><p>Console console;</i></p>
+</blockquote>
+
+<p>You can now open the Console using one of the open routines. I will just show you the
+cross-platform compatible way, there might be more detailed opening functions available to
+fine tune your program for a target platform. Check out the PTC documentation for you
+platform (which might or might not be included). Anyway, we will use the following open
+routine: </p>
+
+<blockquote>
+  <i><p>void open(const char title[],int width,int height,Format &amp;format);</i></p>
+</blockquote>
+
+<p>The parameters you pass are the string to appear on the title bar if your program is
+executed in a window (always pass a string, even if you compile under DOS), the width and
+the height of the video mode you want to initialise, and the format you want the video
+mode to have. Here is an example: </p>
+
+<blockquote>
+  <i><p>Format format(32,0xFF0000,0xFF00,0xFF);</i> </p>
+  <p><i>Console console;</i> <br>
+  <i>console.open(&quot;Hello PTC world&quot;,320,200,format);</i></p>
+</blockquote>
+
+<p>This will instruct PTC to try and initialise a 320x200 Truecolour mode. Note that there
+is no guarantee that PTC will be able to initalise that mode. Normally, PTC will fall back
+to the next worse mode if the requested mode is not available. If you want to draw
+directly to the video memory later, you might care whether PTC did in fact initialise the
+mode you wanted or if it fell back to a different mode. You can check by looking at the
+Console's format and comparing it to the format you requested. </p>
+
+<blockquote>
+  <i><p>if(console.format()!=format) throw Error(&quot;I wanted exactly the format I
+  requested. Now I'm angry&quot;);</i></p>
+</blockquote>
+
+<p>Normally, however, you will use a surface and leave the drawing to PTC so you shouldn't
+worry what video mode got initialised. <br>
+&nbsp; <br>
+&nbsp; </p>
+
+<h2><a NAME="link_howdoi_createsurface"></a>3.3 ... create a Surface ?</h2>
+
+<p>Nothing is easier than creating a Surface to draw into. All you need to use is the
+constructor of the Surface class: </p>
+
+<blockquote>
+  <i><p>Surface(int width,int height,const Format &amp;format);</i></p>
+</blockquote>
+
+<p>So, if you want an offscreen surface of the same size as the Console in the previous
+example, you would use: </p>
+
+<blockquote>
+  <i><p>Surface surface(320,200,format);</i></p>
+</blockquote>
+
+<p>You should use the same format for the Console and the Surface. Anything else would be
+a bit weird (although it is possible). <br>
+&nbsp; <br>
+&nbsp; </p>
+
+<h2><a NAME="link_howdoi_draw"></a>3.4 ... draw my stuff ?</h2>
+
+<p>First of all, you have to decide how you want to render your things, that is: 
+
+<ul>
+  <li>a) into an offscreen surface</li>
+  <li>b)&nbsp;directly into video memory (this is discouraged behaviour&nbsp;:)</li>
+</ul>
+
+<p>What should normally do is <b>draw into an offscreen surface.</b> Let's assume you
+created a Surface object in 32 bit truecolour mode, the actual screen mode is - whatever,
+it doesn't matter. Now you want to get your hands on the pixels, use the <i>lock() </i>function
+to get a pointer to the Surface's pixel data - it is a void* pointer so you have to cast
+it to whatever you want it to be: </p>
+
+<blockquote>
+  <i><p>int32 *dest;&nbsp; // Truecolour this time!</i> <br>
+  <i>dest=(int32 *)surface.lock();</i> <br>
+  <i>...</i> <br>
+  <i>surface.unlock(); // Unlock the surface</i></p>
+</blockquote>
+
+<p>As opposed to a Console, a Surface <b>guarantees linear memory</b>, so you do not have
+to use a pitch (look below)&nbsp;to get to the next scanline, just hardcode the width you
+requested. So to put a pixel at (x/y) in a 320x200 surface, you can hardcode 320 as the
+width: </p>
+
+<blockquote>
+  <i><p>int32 *dest=surface.lock();</i> <br>
+  <i>*(dest+y*320+x)=0xffffff;</i> <br>
+  <i>surface.unlock();</i></p>
+</blockquote>
+
+<p>Draw whatever you want into your surface. When you're finished, nothing will be on the
+screen yet, you have to copy your beautifully rendered surface to the console - after
+unlocking, etc: </p>
+
+<blockquote>
+  <i><p>surface.copy(console);</i> <br>
+  <i>console.update();</i></p>
+</blockquote>
+
+<p>This will copy your Surface to the Console and convert the pixel formats as needed.
+Note the call to console.update(), this is necessary so that things actually get shown on
+the screen, don't leave it out. </p>
+
+<p>If you decide to <b>draw directly to the console</b>, then good luck. You will have to
+pray that your video mode is available and your application will only run in that specific
+video mode. (It still makes sense in some cases, for instance you might want to support
+only 8 bit indexed mode FOR WHATEVER REASON and disallow PTC to convert that mode to
+what's available). In this case, you use the <i>lock()</i> function of the Console object
+you allocated, in 8 bit indexed mode: </p>
+
+<blockquote>
+  <i><p>char8 *dest;</i> <br>
+  <i>dest=(char8 *)console.lock();</i></p>
+</blockquote>
+
+<p>When you are finished, <b>you have to unlock the console again!</b> And, while we are
+at it, beware of the following major </p>
+
+<h3>Big fat Pitfall</h3>
+
+<p>When you draw directly to the Console, PTC cannot guarantee you that the video memory
+is one big linear block of pixels. What PTC does guarantee is that every scanline is a
+linear block of pixels. However, to get from one scanline to the next, you have to use the
+<b>pitch</b> returned by the Console. The pitch is the amount of bytes you have to jump to
+get from the start of one scanline to the next. Here is some example code that fills the
+screen with random pixels in 8 bit colour mode: </p>
+
+<blockquote>
+  <i><p>char8 *dest;</i> <br>
+  <i>dest=(char8 *)console.lock();</i> </p>
+  <p><i>for(int j=0;i&lt;console.height();j++)</i> <br>
+  <i>{ for(int i=0;i&lt;console.width();i++)</i> <br>
+  <i>&nbsp; *(dest+j*console.pitch()+i)=random(255);</i> <br>
+  <i>}</i> </p>
+  <p><i>console.unlock(); // Release console lock</i> <br>
+  <i>console.update(); // update the console (don't leave that one out)</i></p>
+</blockquote>
+
+<h3>Pitfalls</h3>
+
+<p>This is the part of your code where you WILL make mistakes. There are some mistakes
+which are made quite frequently, TAKE CARE to avoid them: 
+
+<ul>
+  <li><b>Again, when drawing directly to the Console, use the pitch!</b> Do not hardcode the
+    width to get to the next scanline (look above)</li>
+  <li><b>The pitch is in bytes, not in pixels. </b>So, therefore, take care to avoid pointer
+    arithmetic mistakes! It you add the pitch to an int32*, you will end up moving 4 times
+    further than you wanted to! You have to cast the pointer to char8*, then add the pitch and
+    cast back!.</li>
+  <li><b>When drawing directly to the Console, keep in mind the size may change</b>, even from
+    one frame to the next (a user might resize the window, etc.). Therefore you will have to
+    use the width()&nbsp;and height() function every time to determine the Console's
+    dimension.</li>
+  <li>Every <b>lock() has to be followed by an unlock()</b> eventually!</li>
+  <li><b>Do NOT forget to call surface.update()</b> when you are finished drawing !</li>
+  <li><b>Do NOT forget to copy the surface to the console</b> ! (Ok, that one is a bit stupid,
+    who'd forget about that? :)</li>
+</ul>
+
+<p><br>
+</p>
+
+<hr WIDTH="100%">
+
+<h1><a NAME="link_whereis"></a>4. Where is ... ?</h1>
+
+<h2><a NAME="link_whereis_ptc"></a>4.1. ... PTC ?</h2>
+
+<p>The home page for OpenPTC is <a href="http://www.gaffer.org/ptc">http://www.gaffer.org/ptc/</a></p>
+
+<h2><a NAME="link_whereis_api"></a>4.2 ... the API specification ?</h2>
+
+<p>All documentation is available from the PTC website (see above). <br>
+&nbsp; </p>
+
+<hr WIDTH="100%">
+
+<h1><a NAME="link_whatthefuck"></a>5. What the f@$* ?</h1>
+
+<p>So you have a question that has not been answered.. :) Well, there are quite a few ways
+to actually get an answer to your questions (please follow them in that order): 
+
+<ul>
+  <li>Start your newsgroup reader, connect to news.scene.org and ask your question on
+    coders.ptc. If you think it is a bug you are asking about, ask on coders.ptc.bugs.</li>
+  <li>Ask me by e-mail: brn@eleet.mcb.at (please note that I am maintaining the X-Window
+    distribution of PTC and thus won't be able to answer any questions on DirectX or DOS PTC
+    in much detail. For those questions, use the newsgroups).</li>
+</ul>
+
+<p>Questions that turn out to be common problems will be included in this document in the
+future. <br>
+&nbsp; </p>
+
+<hr WIDTH="100%">
+
+<p>Written by Christian Nentwich (<a HREF="mailto:brn@eleet.mcb.at">brn@eleet.mcb.at</a>)
+and updated to OpenPTC 1.0 by Glenn &quot;Gaffer&quot; Fiedler.<br>
+<b>Please do send me any feedback or additions you may have.</b> </p>
+</body>
+</html>

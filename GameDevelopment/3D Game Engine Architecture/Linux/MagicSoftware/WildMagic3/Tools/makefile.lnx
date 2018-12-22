@@ -1,0 +1,20 @@
+build :
+	make build -f makeall.lnx CONFIG=Debug APP=ImViewer
+	make build -f makeall.lnx CONFIG=Debug APP=ScenePrinter
+	make build -f makeall.lnx CONFIG=Debug APP=SimpleViewer
+	make build -f makeall.lnx CONFIG=Debug APP=VolumeRenderer
+	make build -f makeall.lnx CONFIG=Release APP=ImViewer
+	make build -f makeall.lnx CONFIG=Release APP=ScenePrinter
+	make build -f makeall.lnx CONFIG=Release APP=SimpleViewer
+	make build -f makeall.lnx CONFIG=Release APP=VolumeRenderer
+
+clean :
+	make clean -f makeall.lnx CONFIG=Debug APP=ImViewer
+	make clean -f makeall.lnx CONFIG=Debug APP=ScenePrinter
+	make clean -f makeall.lnx CONFIG=Debug APP=SimpleViewer
+	make clean -f makeall.lnx CONFIG=Debug APP=VolumeRenderer
+	make clean -f makeall.lnx CONFIG=Release APP=ImViewer
+	make clean -f makeall.lnx CONFIG=Release APP=ScenePrinter
+	make clean -f makeall.lnx CONFIG=Release APP=SimpleViewer
+	make clean -f makeall.lnx CONFIG=Release APP=VolumeRenderer
+

@@ -1,0 +1,11 @@
+Place the files:  svdcmp.c, nrutil.c, pythag.c, and nrutil.h
+Numerical Recipes in this directory.i
+
+Numerical Recipes code is available at www.nr.com for a small fee.
+Alternatively, you may transcribe the singular value decomposition
+routine from the online text for free.
+
+(The authors of this demo code are unaffiliated with the authors
+of Numerical Recipes.)
+
+

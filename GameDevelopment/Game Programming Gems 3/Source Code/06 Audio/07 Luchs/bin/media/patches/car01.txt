@@ -1,0 +1,377 @@
+
+
+CGASignal  StarterClick
+{
+	File = "m_starterclick01.wav";
+}
+
+CGASignal  StarterLoop
+{
+	File = "m_starterloop01.wav";
+}
+
+CGAPatch "Car, start loop"
+{
+	CGAWavetableOscillator WAV2
+	{
+		WaveTable = StarterLoop;
+	}
+
+
+}
+
+CGAPatch "Car 1, starting"
+{
+
+	CGATriangleEnvelope Env1
+	{
+		Center=0.1;
+		Duration = 3;
+	}
+
+	CGASequencer16 SEQ1
+	{
+		Frequency = 0.5;
+		Steps = XoooXoooXoooXooo;
+		FMAttenuation = 0.3;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = StarterClick;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		WaveTable = StarterLoop;
+	}
+
+	CGABalance Mix1
+	{
+		Balance = 0.66;
+	}
+
+	Connection = Env1, SEQ1, SampleOut, FM;
+	Connection = SEQ1, WAV2, SampleOut, TRIG;
+	Connection = WAV1, Mix1, SampleOut, SampleIn1;
+	Connection = WAV2, Mix1, SampleOut, SampleIn2;
+
+}
+
+CGAPatch "Car, starting"
+{
+
+	CGATriangleEnvelope Env1
+	{
+		Duration = 1;
+	}
+
+	CGASequencer16 SEQ1
+	{
+		Frequency = 1.0;
+		Steps = Xooooooooooooooo;
+		FMAttenuation = 0.35;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = StarterClick;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		WaveTable = StarterLoop;
+		PMAttenuation = 0.03;
+	}
+
+	CGABalance Mix1
+	{
+		Balance = 0.66;
+	}
+
+	Connection = Env1, SEQ1, SampleOut, FM;
+	Connection = Env1, WAV2, SampleOut, Phase;
+	Connection = SEQ1, WAV2, SampleOut, TRIG;
+	Connection = WAV1, Mix1, SampleOut, SampleIn1;
+	Connection = WAV2, Mix1, SampleOut, SampleIn2;
+
+}
+
+
+CGASignal  Intake1
+{
+	File = "m_intake01.wav";
+}
+
+CGASignal  Impulse1
+{
+	File = "m_impulse01.wav";
+}
+
+CGASignal  Exhaust1
+{
+	File = "m_exhaust02.wav";
+}
+
+CGAPatch "Power Stroke"
+{
+	CGASineOscillator SPEED1
+	{
+		Frequency = 0.05;
+	}
+
+	CGAImpulseGenerator TRIG1
+	{
+		Frequency = 60.0;
+		FMAttenuation = 0.2;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		Frequency = 1.0;
+		Amplitude = 0.6;
+		FMAttenuation = 0.1;
+		WaveTable = Intake1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		Frequency = 0.8;
+		FMAttenuation = 0.1;
+		WaveTable = Impulse1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV3
+	{
+		Frequency = 1.0;
+		FMAttenuation = 0.1;
+		WaveTable = Exhaust1;
+		Repeat = 1;
+	}
+
+	CGASelector SEL1
+	{
+		Selection = 15;
+	}
+
+	CGAButterworthLPF LPF1
+	{
+	}
+
+	Connection = SPEED1,LPF1, SampleOut, FM;
+	Connection = SPEED1,TRIG1, SampleOut, FM;
+	Connection = TRIG1,WAV1, SampleOut, TRIG;
+	Connection = TRIG1,WAV2, SampleOut, TRIG;
+	Connection = TRIG1,WAV3, SampleOut, TRIG;
+	Connection = TRIG1,SEL1, SampleOut, TRIG;	
+	Connection = WAV1,SEL1, SampleOut, SampleIn1;
+	Connection = WAV2,SEL1, SampleOut, SampleIn3;
+	Connection = WAV3,SEL1, SampleOut, SampleIn4;
+
+	Connection = SEL1,LPF1, SampleOut, SampleIn;
+
+}
+
+
+
+
+
+
+
+CGASignal  CombustionLoop1
+{
+	File = "m_combustion_loop01.wav";
+}
+
+CGASignal  CombustionLoop2
+{
+	File = "m_combustion_loop02.wav";
+}
+
+CGASignal  CombustionLoop3
+{
+	File = "m_combustion_loop03.wav";
+}
+
+CGASignal  CombustionLoop4
+{
+	File = "m_combustion_loop04.wav";
+}
+
+CGAPatch "2 Crossfaded CombustionImpulses"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.05;
+		Amplitude = 0.3;
+	}
+
+	CGAWavetableOscillator WAV1
+	{
+		Frequency = 0.8;
+		WaveTable = CombustionLoop1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		Frequency = 0.8;
+		WaveTable = CombustionLoop2;
+	}
+
+	CGABalance BAL1
+	{
+	
+	}
+
+	Connection = LFO1,WAV1, SampleOut, FM;
+	Connection = LFO1,WAV2, SampleOut, FM;
+	Connection = LFO1,BAL1, SampleOut, Balance;
+	Connection = WAV1,BAL1, SampleOut, SampleIn1;
+	Connection = WAV2,BAL1, SampleOut, SampleIn2;
+
+}
+
+CGAPatch "2B Crossfaded CombustionImpulses"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.05;
+		Amplitude = 0.3;
+	}
+
+	CGAWavetableOscillator WAV1
+	{
+		Frequency = 0.8;
+		WaveTable = CombustionLoop1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		Frequency = 0.4;
+		WaveTable = CombustionLoop4;
+	}
+
+	CGABalance BAL1
+	{
+	
+	}
+
+	Connection = LFO1,WAV1, SampleOut, FM;
+	Connection = LFO1,WAV2, SampleOut, FM;
+	Connection = LFO1,BAL1, SampleOut, Balance;
+	Connection = WAV1,BAL1, SampleOut, SampleIn1;
+	Connection = WAV2,BAL1, SampleOut, SampleIn2;
+
+}
+
+CGAPatch "3 Crossfaded CombustionImpulses"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.05;
+		Amplitude = 0.3;
+	}
+
+	CGAWavetableOscillator WAV1
+	{
+		Frequency = 0.8;
+		WaveTable = CombustionLoop1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		Frequency = 0.8;
+		WaveTable = CombustionLoop2;
+	}
+
+	CGAWavetableOscillator WAV3
+	{
+		Frequency = 2;
+		WaveTable = CombustionLoop3;
+	}
+
+	CGABalance BAL1
+	{
+	
+	}
+
+	Connection = LFO1,WAV1, SampleOut, FM;
+	Connection = LFO1,WAV2, SampleOut, FM;
+	Connection = LFO1,BAL1, SampleOut, Balance;
+	Connection = WAV1,BAL1, SampleOut, SampleIn1;
+	Connection = WAV2,BAL1, SampleOut, SampleIn2;
+
+
+}
+
+
+CGAPatch "Car - Tires screeching"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.2;
+	}
+
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	
+	CGASawtoothOscillator OSC1
+	{
+		Frequency = 1360;
+		FMAttenuation = 0.1;
+	}
+
+	CGABalance Mix1
+	{
+	}
+
+
+	CGAButterworthLPF LPF1
+	{
+	
+	}
+
+
+	Connection = LFO1,LPF1, SampleOut, FM;
+	Connection = Noise1,OSC1, SampleOut, FM;
+	Connection = OSC1,Mix1, SampleOut, SampleIn1;
+	Connection = Noise1,Mix1, SampleOut, SampleIn2;
+	Connection = Mix1,LPF1, SampleOut, SampleIn;
+
+}
+
+CGASignal  Tractor
+{
+	File = "m_tractor01.wav";
+}
+
+CGAPatch "Tractor"
+{
+
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 0.1;
+		Amplitude = 0.5;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = Tractor;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = OSC1, WAV1, SampleOut, FM;
+
+}

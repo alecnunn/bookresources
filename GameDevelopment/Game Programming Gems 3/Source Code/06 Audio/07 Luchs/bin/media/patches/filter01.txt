@@ -1,0 +1,276 @@
+
+CGAPatch "LPF"
+{
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 200;
+	}
+
+	Connection = Noise1, LPF1,SampleOut, SampleIn;
+
+}
+
+
+
+
+
+CGAPatch "LPF, modulated by LFO"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 500;
+		FMAttenuation = 0.2;
+	}
+
+	Connection = LFO1, LPF1,SampleOut, FM;
+	Connection = Noise1, LPF1,SampleOut, SampleIn;
+
+}
+
+
+CGAPatch "Sawtooth BLIT with LFO Modulation"
+{
+	CGASinCosOscillator LFO
+	{
+		Frequency = 0.1;
+		
+	}
+
+	CGASawtoothOscBLIT VCO
+	{
+		Frequency = 100;
+		FMAttenuation = 0.08;
+	}
+
+	CGAButterworthLPF LPF
+	{
+		Frequency = 300;
+		FMAttenuation = 0.5;
+	}
+	
+	Connection = LFO,VCO, SampleOut, FM;
+	Connection = LFO,LPF, SampleOut, FM;
+	Connection = VCO,LPF, SampleOut, SampleIn;
+
+}
+
+CGAPatch "Noise with Resonator"
+{
+
+	CGANoiseGenerator Noise1
+	{
+	}
+	
+	CGAResonator Reso1
+	{
+		Frequency = 500;
+	}
+
+	Connection = Noise1,Reso1, SampleOut, SampleIn;
+
+}
+
+CGAPatch "Noise with Resonator, modulated by LFO"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 500;
+		FMAttenuation = 0.2;
+	}
+
+	Connection = LFO1, Reso1,SampleOut, FM;
+	Connection = Noise1, Reso1,SampleOut, SampleIn;
+
+}
+
+CGAPatch "Noise with 2 Resonators"
+{
+
+	CGANoiseGenerator Noise1
+	{
+	}
+		
+	CGAResonator Reso1
+	{
+		Frequency = 500;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 720;
+	}
+
+	CGAMixer2 MIX
+	{
+	}
+
+	Connection = Noise1,Reso1, SampleOut, SampleIn;
+	Connection = Noise1,Reso2, SampleOut, SampleIn;
+	Connection = Reso1,MIX, SampleOut, SampleIn1;
+	Connection = Reso2,MIX, SampleOut, SampleIn2;
+
+}
+
+CGAPatch "Noise with 2 Resonators, modulated"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+
+	CGANoiseGenerator Noise1
+	{
+	}
+		
+	CGAResonator Reso1
+	{
+		Frequency = 500;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 720;
+		FMAttenuation = 0.1;
+	}
+
+	CGAMixer2 MIX
+	{
+	}
+
+	Connection = LFO1,Reso2, SampleOut, FM;
+	Connection = Noise1,Reso1, SampleOut, SampleIn;
+	Connection = Noise1,Reso2, SampleOut, SampleIn;
+	Connection = Reso1,MIX, SampleOut, SampleIn1;
+	Connection = Reso2,MIX, SampleOut, SampleIn2;
+
+}
+
+CGAPatch "Noise with 2 Resonators, modulated by 2 LFOs"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+
+	CGASineOscillator LFO2
+	{
+		Frequency = 0.07;
+	}
+
+	CGANoiseGenerator Noise1
+	{
+	}
+		
+	CGAResonator Reso1
+	{
+		Frequency = 500;
+		FMAttenuation = 0.15;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 720;
+		FMAttenuation = 0.1;
+	}
+
+	CGAMixer2 MIX
+	{
+	}
+
+	Connection = LFO1,Reso1, SampleOut, FM;
+	Connection = LFO2,Reso2, SampleOut, FM;
+	Connection = Noise1,Reso1, SampleOut, SampleIn;
+	Connection = Noise1,Reso2, SampleOut, SampleIn;
+	Connection = Reso1,MIX, SampleOut, SampleIn1;
+	Connection = Reso2,MIX, SampleOut, SampleIn2;
+
+}
+
+CGASignal  Impulse
+{
+	File = "m_impulse03.wav";
+}
+
+CGAPatch "Impulse Sample and Resonator"
+{
+
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 2;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Impulse;
+		Frequency = 0.5;
+		Repeat = 1;
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 800;
+	}
+
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Wave1, Reso1,SampleOut, SampleIn;
+
+}
+
+CGAPatch "Impulse Sample and Resonator, tempo controlled"
+{
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+	
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 8;
+		FMAttenuation = 0.4;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Impulse;
+		Frequency = 0.5;
+		Repeat = 1;
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 300;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = LFO1,Trigger1, SampleOut, FM;
+	Connection = LFO1,Reso1, SampleOut, FM;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Wave1, Reso1,SampleOut, SampleIn;
+
+}

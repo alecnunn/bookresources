@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: math3D - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP147C.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /Fp"Release/math3D.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 03\math3D\BspTree.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 03\math3D\color3.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 03\math3D\color4.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 03\math3D\matrix4.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 03\math3D\plane3.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 03\math3D\point3.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP147C.tmp" 
+Creating command line "link.exe -lib /nologo /out:"Release\math3D.lib"  ".\Release\BspTree.obj" ".\Release\color3.obj" ".\Release\color4.obj" ".\Release\matrix4.obj" ".\Release\plane3.obj" ".\Release\point3.obj" "
+<h3>Output Window</h3>
+Compiling...
+BspTree.cpp
+color3.cpp
+color4.cpp
+matrix4.cpp
+plane3.cpp
+point3.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+math3D.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,395 @@
+
+
+CGAPatch "Simple Noise"
+{
+	CGANoiseGenerator Noise1
+	{
+	}
+}
+
+CGAPatch "Noise with Resonance"
+{
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGAResonator Reso1
+	{
+	}
+
+	Connection = Noise1, Reso1,SampleOut, SampleIn;
+
+}
+
+
+
+CGAPatch "Sonar - noise modulated sine"
+{
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 0.25;
+	}
+
+	CGATriangleEnvelope Env1
+	{
+		Center = 0.001;
+		Duration = 2.5;
+	}
+
+	CGATriangleEnvelope Env2
+	{
+		Center = 0.5;
+		Duration = 2.5;
+		SignalMode = 1;
+	}
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGAAverager Avg1
+	{
+		Duration = 0.0002;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 2000;
+		FMAttenuation = 0.2;
+	}
+
+	Connection = Trigger1, Env1,SampleOut, TRIG;
+	Connection = Trigger1, Env2,SampleOut, TRIG;
+	Connection = Env1, OSC1,SampleOut, Amplitude;
+	Connection = Env2, Noise1,SampleOut, AM;
+	Connection = Noise1, Avg1,SampleOut, SampleIn;
+	Connection = Avg1, OSC1,SampleOut, FM;
+
+}
+
+
+
+CGAPatch "Sine OSC modulated by Noise + Averager"
+{
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGAAverager Ave1
+	{
+		Duration = 0.0005;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 160.0;
+		FMAttenuation = 0.9;
+	}
+
+	Connection = Noise1, Ave1,SampleOut, SampleIn;
+	Connection = Ave1, OSC1,SampleOut, FM;
+
+}
+
+CGAPatch "Submarine - 3 Sine OSC modulated by Noise + Averager"
+{
+	CGATriangleOscillator LFO1
+	{
+		Frequency = 0.01;
+		Amplitude = 0.6;
+	}
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGAAverager Ave1
+	{
+		Duration = 0.0001;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 160.0;
+		FMAttenuation = 0.9;
+	}
+
+	CGANoiseGenerator Noise2
+	{
+	}
+
+	CGAAverager Ave2
+	{
+		Duration = 0.00001;
+	}
+
+	CGASineOscillator OSC2
+	{
+		Frequency = 1120.0;
+		FMAttenuation = 0.9;
+		Amplitude = 0.8f;
+	}
+
+	CGABalance ModMix1
+	{
+	}
+
+	CGASineOscillator OSC3
+	{
+		Frequency = 540.0;
+		FMAttenuation = 0.9;
+	}
+
+	CGAMixer3 Mix1
+	{
+	}
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 0.1;
+	}
+
+	Connection = LFO1, LPF1,SampleOut, FM;
+	Connection = LFO1, ModMix1,SampleOut, SampleIn1;
+
+	Connection = Noise1, Ave1,SampleOut, SampleIn;
+	Connection = Ave1, OSC1,SampleOut, FM;
+	Connection = Noise2, Ave2,SampleOut, SampleIn;
+	Connection = Ave2, OSC2,SampleOut, FM;
+	Connection = OSC2, ModMix1,SampleOut, SampleIn2;
+	Connection = ModMix1, OSC3 ,SampleOut, FM;
+
+	Connection = OSC1,Mix1, SampleOut, SampleIn1;
+	Connection = OSC2,Mix1, SampleOut, SampleIn2;
+	Connection = OSC3,Mix1, SampleOut, SampleIn3;
+
+	Connection = Mix1,LPF1, SampleOut, SampleIn;
+}
+
+
+
+CGAPatch "2 OSC modulated by noise, mono"
+{
+	CGATriangleOscillator LFO
+	{
+		Frequency = 0.05;
+		
+	}
+
+
+	CGANoiseGenerator Noise1
+	{
+		
+	}
+
+	CGABalance ModMix1
+	{
+		
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 200.0;
+	}
+
+	CGANoiseGenerator Noise2
+	{
+		
+	}
+
+	CGASineOscillator OSC2
+	{
+		Frequency = 160.0;
+	}
+
+	CGAInterleaver Stereo
+	{
+	
+	}
+
+	Connection = 0,2,SampleOut, SampleIn1;
+	Connection = 1,2,SampleOut, SampleIn2;
+
+	Connection = 2,3,SampleOut, FM;
+	Connection = 4,5,SampleOut, FM;
+	Connection = 3,6,SampleOut, SampleIn1;
+	Connection = 5,6,SampleOut, SampleIn2;
+}
+
+
+CGAPatch "SineX Oscillator"
+{
+	CGASineXOscillator VCO
+	{
+		Frequency = 200;
+	}
+
+}
+
+CGAPatch "SineX Oscillator with LFO Modulation"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 0.1;
+		
+	}
+
+	CGASineXOscillator VCO
+	{
+		Frequency = 200;
+		FMAttenuation = 0.6;
+	}
+
+	Connection = 0,1, SampleOut, FM;
+
+}
+
+CGASignal Shot1
+{
+	File = "m_shot01.wav";
+}
+
+CGASignal Shot2
+{
+	File = "m_shot02.wav";
+}
+
+CGASignal Shot3
+{
+	File = "m_shot03.wav";
+}
+
+
+CGAPatch "Random and Threshold <no sound, clicks only>"
+{
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGAThreshold THRESH1
+	{
+		LowerLevel = 0.99;
+		UpperLevel = 1.0;
+	}
+
+	Connection = RAND1,THRESH1, SampleOut, SampleIn;
+}
+
+CGAPatch "Random and Threshold single sample"
+{
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGAThreshold THRESH1
+	{
+		LowerLevel = 0.99;
+		UpperLevel = 1.0;
+	}
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = Shot2;
+		FMAttenuation = 0.1;
+		Repeat = 1;
+	}
+
+	Connection = RAND1,THRESH1, SampleOut, SampleIn;
+	Connection = THRESH1,WAV1, SampleOut, TRIG;
+
+}
+
+CGASignal  Envelope
+{
+	File = "m_env01.wav";
+}
+
+
+CGAPatch "Random and Threshold single sample, env pitch"
+{
+
+	CGAWavetableOscillator ENV1
+	{
+		WaveTable = Envelope;
+		Frequency = 0.0001;
+	}
+
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGAThreshold THRESH1
+	{
+		LowerLevel = 0.99;
+		UpperLevel = 1.0;
+	}
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = Shot2;
+		FMAttenuation = 0.1;
+		Repeat = 1;
+	}
+
+	Connection = ENV1,WAV1, SampleOut, FM;
+	Connection = RAND1,THRESH1, SampleOut, SampleIn;
+	Connection = THRESH1,WAV1, SampleOut, TRIG;
+
+}
+
+
+CGAPatch "Random and Threshold selected sample"
+{
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGAThreshold THRESH1
+	{
+		LowerLevel = 0.99;
+		UpperLevel = 1.0;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = Shot1;
+		FMAttenuation = 0.1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		WaveTable = Shot2;
+		FMAttenuation = 0.1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV3
+	{
+		WaveTable = Shot3;
+		FMAttenuation = 0.1;
+		Repeat = 1;
+	}
+
+	CGASelector SEL1
+	{
+		Selection = 7;
+	}
+
+	Connection = RAND1,THRESH1, SampleOut, SampleIn;
+	Connection = THRESH1,WAV1, SampleOut, TRIG;
+	Connection = THRESH1,WAV2, SampleOut, TRIG;
+	Connection = THRESH1,WAV3, SampleOut, TRIG;
+	Connection = THRESH1,SEL1, SampleOut, TRIG;
+
+	Connection = WAV1,SEL1, SampleOut, SampleIn1;
+	Connection = WAV2,SEL1, SampleOut, SampleIn2;
+	Connection = WAV3,SEL1, SampleOut, SampleIn3;
+
+
+}

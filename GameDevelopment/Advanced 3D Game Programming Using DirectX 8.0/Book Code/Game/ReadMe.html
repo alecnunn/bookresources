@@ -1,0 +1,186 @@
+
+<h1>Mobots Attack!</h1>
+<p>This project ended up being considerably larger than I originally
+anticipated.&nbsp; All told, with all the projects, it's almost 20,000 lines of
+code.&nbsp; The purpose of this file is to give you the necessary info you'll
+need to make this code useful to you.&nbsp; I want to take a moment to thank
+Lydia Choy for doing the models and textures for this game.</p>
+<h3>General</h3>
+<p>There are 6 projects in the workspace.&nbsp; They are:</p>
+<ul>
+  <li><i>GameLib</i>.&nbsp; We've seen this before; it's all of our DirectX code
+    and some game-related code.&nbsp; It is essentially unchanged from
+    chapter 8.</li>
+  <li><i>Math3d</i>.&nbsp; Also something that should be familiar.&nbsp; This
+    library hasn't changed much since chapter 3.</li>
+  <li><i>NetLib</i>.&nbsp; Dan's multi-threaded networking library from chapter
+    5.</li>
+  <li><i>GameCommon</i>.&nbsp; This is a lib that holds most of the similar code
+    between the client and the server.&nbsp; This project essentially exists to
+    expedite compile times.</li>
+  <li>GameClient.&nbsp; This is a GameLib style application like most of the
+    other book samples.&nbsp; It connects to a server (either running on the
+    same machine or somewhere else on the internet) and allows a user to run
+    around inside the world and fire rockets. </li>
+</ul>
+<h3>Compiling</h3>
+<p>Make sure you have STLport set up before you try playing with this.&nbsp; The
+stress that the Visual C++ list STL class was putting on the heap was causing
+all sorts of hairy problems (leaks, crashes, etc).&nbsp; The STLport list class
+ends up barely allocating at all since it does things The Right Way.&nbsp; If
+you are getting access violations out of the box, most likely this is because
+the code is using the Visual C++ version of the STL.&nbsp; To setup STLport,
+unzip the files (they're in the 'other code' directory) to a local drive, then
+set up the directory with all the headers in Visual C in the tools-&gt;options
+dialog; making sure that it appears in the list above the Visual C STL
+files.&nbsp;</p>
+<h3>Debugging</h3>
+<p>To aid in the finding of bugs and the reporting of info while the game is
+running, there are two helpful functions that work on both the client and the
+server.&nbsp; They are DebPrint() and LogPrint().&nbsp; They both take a list of
+arguments a'la printf.. an example: LogPrint(&quot;some number %d&quot;,
+some_number);&nbsp; DebPrint prints the line to the screen.&nbsp; On the server,
+the text shows up in the edit box, on the client it becomes the bottom of the
+list of strings making the psuedo-console.&nbsp; LogPrint writes the line to a
+file.&nbsp; For the client, the file is &quot;clientLog.txt&quot; and for the
+server it's &quot;serverLog.txt&quot;.&nbsp; I detest the iostream library,
+sorry.</p>
+<h3>Grokking</h3>
+<p>If you want to dig into the code and figure out how it works, a good place to
+start would be MsgDaemon.* (in the GameCommon project).&nbsp; That details the
+way objects are classified and how they communicate with each other.&nbsp; From
+there you should explore the Net Messages (starting with NetMessages.*).&nbsp;
+This code builds on the object communication system to allow for communications
+to be sent over the wire to other machines.&nbsp; Read each of the entity files
+(note that cGameEntPara isn't used in this version of the code, but was left for
+the sake of helping people out).&nbsp; Find In Files is your friend.</p>
+<h3>Options</h3>
+<p>The server doesn't have any command-line options.&nbsp; The client has a
+plethora of them.&nbsp; Besides the standard ones (the -res#x#. -forceSW/HW, -iter/nameDDraw),
+there are the following options.</p>
+<ul>
+  <li>-client aa.bb.cc.dd<br>
+    This instructs the client to attempt to connect to a server living on the
+    machine with IP aa.bb.cc.dd.&nbsp; If this option isn't included, it is
+    assumed that the client should connect to localhost (127.0.0.1)</li>
+  <li>-name your_name<br>
+    Makes the players name &quot;your_name&quot;.&nbsp; The name can't have any
+    spaces, and must be less than 32 characters.</li>
+  <li>-noTex<br>
+    Runs the game without textures.&nbsp; This is for people playing on slower
+    machines, or people whose cards do not support 32 bit ARGB textures.</li>
+  <li>-iMouse<br>
+    Some people like their mice inverted.&nbsp; Others didn't get hugged enough
+    when they were young.&nbsp; Okay, I was kidding about that last part, but if
+    you don't want your mouse to be inverted specify this flag.</li>
+</ul>
+<h3>Controls</h3>
+<p>The following table lists out the keys and what they do.&nbsp; One of the
+first things you'll probably want to do is re-map them... but this is similar to
+what my quake setup is.</p>
+<table border="1" width="45%">
+  <tr>
+    <td width="20%"><b>key</b></td>
+    <td width="80%"><b>action</b></td>
+  </tr>
+  <tr>
+    <td width="20%">left click</td>
+    <td width="80%">spawn (when dead), fire weapon when alive</td>
+  </tr>
+  <tr>
+    <td width="20%">right click</td>
+    <td width="80%">move forward</td>
+  </tr>
+  <tr>
+    <td width="20%">up arrow</td>
+    <td width="80%">move forward</td>
+  </tr>
+  <tr>
+    <td width="20%">down arrow</td>
+    <td width="80%">move backward</td>
+  </tr>
+  <tr>
+    <td width="20%">right arrow</td>
+    <td width="80%">turn right</td>
+  </tr>
+  <tr>
+    <td width="20%">left arrow</td>
+    <td width="80%">turn left</td>
+  </tr>
+  <tr>
+    <td width="20%">pgup</td>
+    <td width="80%">tilt up</td>
+  </tr>
+  <tr>
+    <td width="20%">pgdn</td>
+    <td width="80%">tilt down</td>
+  </tr>
+  <tr>
+    <td width="20%">space</td>
+    <td width="80%">move up</td>
+  </tr>
+  <tr>
+    <td width="20%">e</td>
+    <td width="80%">move backwards</td>
+  </tr>
+  <tr>
+    <td width="20%">s</td>
+    <td width="80%">strafe left</td>
+  </tr>
+  <tr>
+    <td width="20%">f</td>
+    <td width="80%">strafe right</td>
+  </tr>
+  <tr>
+    <td width="20%">~</td>
+    <td width="80%">clear console</td>
+  </tr>
+  <tr>
+    <td width="20%">TAB</td>
+    <td width="80%">show scoreboard</td>
+  </tr>
+</table>
+<h3>ToDo</h3>
+<p>If you want to add stuff to the game, you have your work cut out for you; the
+project is just a bare minimum set up.&nbsp; Adding features is the fun
+part.&nbsp; Some ideas to get you started:</p>
+<ul>
+  <li>There is no prediction (interpolation or extrapolation). That, combined
+    with the latency, is why the game is so choppy.&nbsp; This is a big thing to
+    fix.</li>
+  <li>The text printing system in the game client is far from ideal.&nbsp; Using
+    GDI is an all-around bad idea; quads with textured letters should be used
+    instead.</li>
+  <li>The players can currently glide right through each other.&nbsp; That's
+    bad. :)</li>
+  <li>There is little or no physics in the game right now.&nbsp; This was mostly
+    because the planned physics chapter had to be pulled a few months ago. </li>
+  <li>There should be some sort of frag limit or time limit.</li>
+  <li>Adding bots using the code written in chapter 4 wouldn't be difficult at
+    all.</li>
+  <li>The projectile objects should explode when they hit things, instead of
+    just dissapearing.&nbsp; One way to do this would be to have the rocket
+    object spawn an explosion object on the server when it explodes, and have
+    the creation be broadcast over the network.&nbsp; Giving the explosion
+    visual flair on the client side wouldn't be too difficult, and as an added
+    bonus you could add splash damage on the server side for when the projectile
+    hits the ground near your target</li>
+  <li>There's only one weapon.&nbsp; And only one model.&nbsp; And only one
+    level.</li>
+  <li>The robots should have some sort of HUD giving them a health amount.&nbsp;
+    Adding health and ammo boxes would be cool.</li>
+  <li>There should be some mechanism for people to type in messages that get
+    broadcast to the other players&nbsp; </li>
+  <li>If the server doesn't hear from a client for a little bit, the client is
+    probably not playing anymore, but was unable to send a logout request.&nbsp;
+    However the server still things the client is connected, still sends
+    messages, and doesn't allow a client from that IP to reconnect.&nbsp; This
+    could be fixed by, for example, writing a function called TimeoutHosts() that returns
+    a list hosts that have not sent any data in the last however many milliseconds.&nbsp;
+    However, clients will need to send an 'i'm still here' packet to avoid
+    false-positives (if the player doesn't move, currently no messages get sent
+    back and forth). </li>
+  <li>Right now a whole lot of relatively small net messages are being sent, and
+    they're not being compressed.&nbsp; Implement some scheme to prevent bandwidth
+    overflow </li>
+</ul>

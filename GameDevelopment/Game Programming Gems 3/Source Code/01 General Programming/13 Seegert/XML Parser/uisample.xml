@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE UISCREEN SYSTEM "uidefinitions.dtd">
+
+<UISCREEN NAME="screen0" BACKGROUND="screen0_bg.tga">
+    <UITEXT NAME="text0" LEFT="10%" RIGHT="90%"
+            TOP="10%" BOTTOM="25%">
+        <UITEXTITEM>This is the title bar.</UITEXTITEM>
+    </UITEXT>
+    <UILISTBOX NAME="list0" LEFT="30%" RIGHT="70%"
+               TOP="40%" BOTTOM="70%">
+        <UITEXTITEM>This is item 1.</UITEXTITEM>
+        <UITEXTITEM>This is item 2.</UITEXTITEM>
+        <UITEXTITEM>%1001%</UITEXTITEM>
+    </UILISTBOX>
+    <UIBUTTON NAME="button0" LEFT="40%" RIGHT="60%"
+              TOP="80%" BOTTOM="90%">
+        <UITEXTITEM>OK</UITEXTITEM>
+        <UIEVENT ONCLICK="PushScreen"
+                 PARAMETER1="screen1"/>
+    </UIBUTTON>
+</UISCREEN>

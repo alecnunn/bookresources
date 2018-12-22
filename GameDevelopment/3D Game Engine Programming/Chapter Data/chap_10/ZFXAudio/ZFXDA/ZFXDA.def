@@ -1,0 +1,6 @@
+;ZFXDA.def
+;The following functions are exported from this DLL
+LIBRARY   "ZFXDA.dll"
+EXPORTS
+   CreateAudioDevice
+   ReleaseAudioDevice

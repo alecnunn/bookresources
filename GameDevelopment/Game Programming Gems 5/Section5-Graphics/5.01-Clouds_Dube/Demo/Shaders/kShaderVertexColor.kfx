@@ -1,0 +1,26 @@
+#include "kShaderSharedParams.h"
+
+struct VS_INPUT
+{
+    float3 position : POSITION;
+    float4 diffuse : COLOR0;
+};
+
+struct VS_OUTPUT
+{
+    float4 position : POSITION;
+    float4 diffuse : COLOR0;
+};
+
+VS_OUTPUT VertexShader(const VS_INPUT v)
+{
+    VS_OUTPUT o = (VS_OUTPUT)0;
+    o.position = mul(float4(v.position.xyz, 1.0f), mWorldViewProj);
+    o.diffuse = v.diffuse;
+    return o;
+}
+
+float4 PixelShader(const VS_OUTPUT v) : COLOR
+{
+    return v.diffuse;
+}

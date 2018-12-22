@@ -1,0 +1,109 @@
+<xml>
+
+<engine_root obj='scene root' addr='0xB994E0'/>
+
+<editor_root obj='scene root' addr='0xB99850'/>
+
+<data class='CEditorSceneItem' id='0xB99850'>
+  scene root
+  false
+  true
+  
+  0xB997E8
+  2
+  0xB998F8
+  0xAAE6D8
+</data>
+
+<data class='CEditorNode' id='0xB997E8'>
+  scene root
+  false
+  false
+  true
+  true
+  true
+  0xB994E0
+</data>
+
+<data class='CEditorSceneItem' id='0xB998F8'>
+  default camera
+  false
+  false
+  
+  0xB992A0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0xAAE6D8'>
+  sphere0001
+  false
+  false
+  
+  0xAAF978
+  0
+</data>
+
+<data class='CEngineNode' id='0xB994E0'>
+  scene root
+  2
+  0xB995F0
+  0xD7E7C0
+  0; 0; 0; 1
+  0; 0; 0
+  true
+  true
+</data>
+
+<data class='CEditorCamera' id='0xB992A0'>
+  default camera
+  false
+  false
+  true
+  true
+  false
+  0xB995F0
+</data>
+
+<data class='CEditorSphere' id='0xAAF978'>
+  sphere0001
+  false
+  false
+  true
+  true
+  true
+  0xD7E7C0
+</data>
+
+<data class='CEngineCamera' id='0xB995F0'>
+  default camera
+  0
+  0; 0; 0; 1
+  10; 0; 10
+  true
+  true
+  0; 0; 0
+  0; 1; 0
+  0; 1; 0
+  1.0472
+  1.33333
+  1
+  1000
+  true
+  10
+  true
+  true
+</data>
+
+<data class='CEngineSphere' id='0xD7E7C0'>
+  sphere0001
+  0
+  0; 0; 0; 1
+  10; -0.5; 0
+  true
+  true
+  1
+  8
+  0x0
+</data>
+
+</xml>

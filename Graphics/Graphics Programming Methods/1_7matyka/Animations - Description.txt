@@ -1,0 +1,48 @@
+Animations for article:
+
+"Inverse Dynamic Displacement Constraints in Real-Time Cloth and Soft Body Models."
+by Maciej Matyka, document done: Linkoping 18.III.2003
+University of Wroclaw
+email: maq@panoramix.ift.uni.wroc.pl
+url:   http://panoramix.ift.uni.wroc.pl/~maq
+
+
+Short Description:
+	There are some animations which I prepared especially for my article for GPM
+	book. It has been done, because of my experience with programs, source codes,
+	compilers, enviroments, operating systems. Sometimes everything is going to crash, 
+	but you always have possibility to run an animation (however, remember, that 
+	programs which are given on a CD will run faster, and results will be more 
+	detailed drawn.
+
+Files:
+
+	file:		flag.m1v
+	type:		mpeg-1
+	duration:	12 [s]
+	description:
+			Example of constrained cloth simulation. As we see - no stretching occurs.
+
+
+
+	file:		SoftBody1.m1v
+	type:		mpeg-1
+	duration:	7 [s]
+	description:
+			Soft body colliding with two walls. Visualization with velocity vectors.
+
+
+
+	file:		SoftBody2.m1v
+	type:		mpeg-1
+	duration:	8 [s]
+	description:
+			Two Soft Bodies with better visualization (enviroment mapping, lighting) with velocity
+			and normal vectors on one of them.
+	
+
+
+
+
+Special note:
+	Textures were made by inz. Mariusz Jarosz.

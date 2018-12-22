@@ -1,0 +1,97 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "CA_Fire"=.\DX8\NVEffectsBrowser\Effects\CA_Fire\CA_Fire.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\dx8
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "CA_RGB_Plasmas"=.\DX8\NVEffectsBrowser\Effects\CA_RGB_Plasmas\CA_RGB_Plasmas.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\dx8\nveffectsbrowser\effects\ca_rgb_plasmas
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Dot3BumpDynamic"=.\DX8\NVEffectsBrowser\Effects\Dot3Bump_Dynamic\Dot3BumpDynamic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\dx8\nveffectsbrowser\effects\dot3bump_dynamic
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameOfLife"=.\DX8\NVEffectsBrowser\Effects\CA_GameOfLife\GameOfLife.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\dx8
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ReflectiveBumpDynamic"=.\DX8\NVEffectsBrowser\Effects\ReflectiveBumpDynamic\ReflectiveBumpDynamic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    gjames2k
+    .\dx8\nveffectsbrowser\effects\reflectivebumpdynamic
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

@@ -1,0 +1,150 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EDIT DIALOG DISCARDABLE  0, 0, 312, 226
+STYLE WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "MLS Editor"
+CLASS "MlsEdit"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_SCRIPT,10,15,230,95,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add to Script...",IDC_ADD,245,150,55,15
+    PUSHBUTTON      "Delete",IDC_DELETE,245,15,55,15
+    PUSHBUTTON      "Move Up",IDC_UP,245,75,55,15
+    PUSHBUTTON      "Move Down",IDC_DOWN,245,95,55,15
+    PUSHBUTTON      "Edit",IDC_EDIT,245,35,55,15
+    PUSHBUTTON      "Save Script...",IDC_SAVE,185,115,55,15
+    PUSHBUTTON      "Load Script...",IDC_LOAD,100,115,55,15
+    PUSHBUTTON      "Load Actions...",IDC_LOADACTIONS,245,200,55,15
+    PUSHBUTTON      "New Script",IDC_NEW,10,115,55,15
+    LISTBOX         IDC_ACTIONS,10,150,230,65,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Insert in Script...",IDC_INSERT,245,175,55,15
+    GROUPBOX        " Script ",IDC_STATIC,5,5,300,130
+    GROUPBOX        " Actions ",IDC_STATIC,5,140,300,80
+    LISTBOX         IDC_SCRIPTLIST,245,55,50,15,LBS_NOINTEGRALHEIGHT | NOT 
+                    WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_MODIFY DIALOG DISCARDABLE  0, 0, 187, 141
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Modify Action Entry"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDC_OK,130,120,50,14
+    LTEXT           "Entry #",IDC_STATIC,5,45,25,8
+    CONTROL         "TRUE",IDC_TRUE,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,25,85,45,10
+    CONTROL         "FALSE",IDC_FALSE,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,115,85,45,10
+    GROUPBOX        " TITLE ",IDC_FRAME,5,60,175,50
+    EDITTEXT        IDC_VALUE,75,95,60,10,ES_AUTOHSCROLL
+    LTEXT           "Min.",IDC_STATIC1,50,70,20,10
+    LTEXT           "Max.",IDC_STATIC2,50,80,20,10
+    LTEXT           "Value",IDC_STATIC3,50,95,20,10
+    LTEXT           "MIN#",IDC_MIN,75,70,60,8
+    LTEXT           "MAX#",IDC_MAX,75,80,60,8
+    EDITTEXT        IDC_TEXT,10,80,165,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CHOICE,10,80,165,60,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDC_CANCEL,75,120,50,14
+    LTEXT           "Static",IDC_ACTIONTEXT,5,5,175,35,WS_BORDER
+    RTEXT           "# of #",IDC_NUM,30,45,50,8
+    PUSHBUTTON      "<--",IDC_PREV,85,45,20,10
+    PUSHBUTTON      "-->",IDC_NEXT,105,45,20,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_EDIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 305
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 219
+    END
+
+    IDD_MODIFY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,22 @@
+// pixel shader for dual plane masking
+// 2001 - Greg Snook
+
+ps.1.1
+def c0, 0.5f,0.5f,0.5f,0.5f
+def c1, 0.0f,0.0f,0.0f,0.0f
+
+// read in the two textures
+tex t0
+tex t1
+
+// copy the output rgb of t0
+mov r0.rgb, t0
+
+// compute the subtractions
+sub r1.a, t0, v0
+sub r0.a, t1, 1-v0
+
+// if (r0.a>0) return r1.a, else 0.0
+add r0.a, r0.a, c0
+cnd r0.a, r0.a, r1.a, c1
+

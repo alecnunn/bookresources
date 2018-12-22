@@ -1,0 +1,16 @@
+// A simple IDL file
+//
+// Copyright 2004 Bae,Hyun-jik.  All rights reserved.
+//
+// Permission is granted to use this code for any purpose, as long as this
+// copyright message remains intact.
+
+config
+{
+	StartID=10;
+}
+
+// RPC Function definitions
+Knight_Move(int id,float x,float y,float z);
+Knight_Attack(int id,int target,int damage);
+ShowChat(string text);

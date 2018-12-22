@@ -1,0 +1,97 @@
+// GPM - Pixel Shader Optimizations for Terrain Rendering Demo
+// Kenny Mitchell
+// Copyright Electronic Arts 2002, 2003
+
+#include "analytic_shader_constants.h"
+
+// pixel shader version 2.0
+ps_2_0
+
+// CP_SUNCOLOR - constant sun RGB color
+// CP_SUNLIGHT - constant sun light direction + sun angle factor (Alpha)
+// CP_SKYLIGHT - constant sky light RGB factor + constant=1 (Alpha)
+
+dcl_2d		SAMP_TERRAIN_COLOR			
+dcl_2d		SAMP_DETAIL_COLOR			
+dcl_2d		SAMP_NORMAL_HORIZON_MAP		
+dcl_2d		SAMP_CLOUD_LAYER			
+
+dcl			TEX_TERRAIN_COLOR.xy		// terrain color texture + sky light radiance map
+dcl			TEX_DETAIL_COLOR.xy			// terrain detail color texture + detail horizon map alpha
+dcl			TEX_NORMAL_HORIZON_MAP.xy	// normal and horizon map
+dcl			TEX_CLOUD_LAYER.xy			// cloud map layer
+
+texld		REG_TERRAIN_COLOR,		TEX_TERRAIN_COLOR,		SAMP_TERRAIN_COLOR
+texld		REG_DETAIL_COLOR,		TEX_DETAIL_COLOR,		SAMP_DETAIL_COLOR
+texld		REG_NORMAL_HORIZON_MAP,	TEX_NORMAL_HORIZON_MAP,	SAMP_NORMAL_HORIZON_MAP
+texld		REG_CLOUD_LAYER,		TEX_CLOUD_LAYER,		SAMP_CLOUD_LAYER
+
+// signed scaling of source normal map
+mad_pp		REG_NORMAL_HORIZON_MAP.xyz, REG_NORMAL_HORIZON_MAP, CP_CONST.w, -CP_CONST.y
+
+// dot sun vector with terrain normal
+dp3_sat_pp	REG_SUNLIGHT.rgb, CP_SUNLIGHT, REG_NORMAL_HORIZON_MAP
+
+
+// multiply inverted cloud density with sun light color
+mul_pp		REG_SUNLIGHT.rgb, REG_SUNLIGHT, REG_CLOUD_LAYER
+
+// 1-detail horizon map
+sub_pp		REG_DETAIL_COLOR.a, CP_CONST.y, REG_DETAIL_COLOR.a
+
+// perturb horizon map by detail horizon map
+sub_sat		REG_SHADOW.a, REG_NORMAL_HORIZON_MAP.a, REG_DETAIL_COLOR.a
+
+
+
+// multiply sun light illumination by sun light color
+mul_pp		REG_SUNLIGHT.rgb, REG_SUNLIGHT, CP_SUNCOLOR
+
+// difference between sun light angle and perturbed horizon angle
+sub_sat		REG_SHADOW.a, CP_SUNLIGHT.a, REG_SHADOW.a
+
+
+
+// multiply terrain color texture with detail color
+mul_pp		REG_TERRAIN_COLOR.rgb, REG_TERRAIN_COLOR, REG_DETAIL_COLOR
+
+// perturb sky radiance map by detail color
+mul_pp		REG_SKY_RADIANCE.rgb, REG_TERRAIN_COLOR.a, REG_DETAIL_COLOR
+
+// subtract sun light by terrain shadow factor
+sub_sat		REG_SUNLIGHT.rgb, REG_SUNLIGHT, REG_SHADOW.a
+
+
+
+// 1 - 1/PI * detailed sky radiance
+mad_pp		REG_SKY_TEMP.rgb, REG_SKY_RADIANCE, CP_CONST.x, CP_CONST.y
+
+// 1 - detailed terrain color * sky temp
+mad_sat_pp	REG_SKYLIGHT.rgb, REG_SKY_TEMP, -REG_TERRAIN_COLOR, CP_CONST.y
+
+// 1/detailed sky radiance (scalar)
+rcp_pp		REG_SKY_TEMP, REG_SKYLIGHT.b
+
+// 1/detailed sky radiance (vector)
+//rcp_pp		REG_SKY_TEMP.r, REG_SKYLIGHT.r
+//rcp_pp		REG_SKY_TEMP.g, REG_SKYLIGHT.g
+//rcp_pp		REG_SKY_TEMP.b, REG_SKYLIGHT.b
+
+mul_pp		REG_SKYLIGHT.rgb, REG_SKY_RADIANCE, REG_SKY_TEMP
+
+
+mul_pp		REG_SKYLIGHT.rgb, REG_SKYLIGHT, REG_TERRAIN_COLOR
+
+// multiply sky light contribution with sky light color
+mul_pp		REG_SKYLIGHT.rgb, REG_SKYLIGHT, CP_SKYLIGHT
+
+
+
+// multiply semi-occluded sun light with detailed terrain color texture and add sky light contribution
+mad_pp		OUTPUT_REG.rgb, REG_TERRAIN_COLOR, REG_SUNLIGHT, REG_SKYLIGHT
+
+// just make alpa opaque here (paired instruction)
+mov_pp		OUTPUT_REG.a, CP_SUNCOLOR
+
+// write output
+mov_pp		oC0, OUTPUT_REG

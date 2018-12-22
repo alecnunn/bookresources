@@ -1,0 +1,20 @@
+#include "sph.cg"
+
+void main(float index : TEXCOORD0,
+		  uniform samplerRECT dens_rect      : TEXUNIT0,
+		  uniform samplerRECT neighbour_rect : TEXUNIT1,
+		  uniform int len,
+		  uniform float poly6_coef,	
+		  out float3 result : COLOR)
+{
+	float density = 0.0;
+//	int len_n = f1texRECT(neighbour_rect, float2(0, coord));
+	//density = 0;f1texRECT(dens_rect, float2(coord, N_ATTR));
+	for (int i = 0; i < len; i++)
+	{
+		float2 pair_index = f2texRECT(neighbour_rect, float2(i, index));
+		density += f1texRECT(dens_rect, pair_index);//coord + float2(i, 0));
+	}
+	density *= poly6_coef;
+	result = float3(1.0/density, 1.5f*(density - 1000.0f), 0);
+}

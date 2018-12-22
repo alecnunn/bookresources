@@ -1,0 +1,29 @@
+/************************************************************************
+BlurBlit.nvp
+
+Simple pixel shader that samples all 4 texture stages, averages these
+samples and outputs the result.
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+
+; Declare pixel shader version
+ps.1.1
+
+; define constants
+def c0, 0.25f, 0.25f, 0.25f, 0.25f
+
+; get colors from all 4 texture stages
+tex t0
+tex t1
+tex t2
+tex t3
+
+; and average them according to weights in constant mem:
+; r0 = 0.25*t0 + 0.25*t1 + 0.25*t2 + 0.25*t3
+mul r0, c0, t0
+mad r0, c0, t1, r0
+mad r0, c0, t2, r0
+mad r0, c0, t3, r0
+

@@ -1,0 +1,150 @@
+<html>
+<head>
+<title> The Internet MahJong Server </title>
+<center>
+<h1> The Internet MahJong Server (0.21) </h1>
+Copyright &#169 1996 
+<a href="http://www.math.princeton.edu/~ztfeng/">Thomas Zuwei Feng</a>
+<p>
+This server provided to you courtesy of:
+<h2>
+<a href="http://your.site.here">Your Company Name</a>
+</h2>
+Maintained by:
+<a href="http://your.home.page">Your Name</a>
+</center>
+</head>
+<body>
+<h3> Under Construction </h3>
+This page, the MahJong Server, and the client applet are all under construction.
+Please report bugs!
+<ul>
+<li> IMS Documentation:
+	<ul>
+	<li> <a href="copyright.html">COPYRIGHT, LICENSE, and DISCLAIMER</a>
+	<li> <a href="mj_ims.html">Introduction to IMS</a>
+		<img src="images/new.gif">
+	<li> <a href="mj_rules.html">MahJong Rules</a> 
+		<img src="images/new.gif">
+		<ul>
+		<li> <a href="mj_rules.html#Scoring">IMS Scoring System</a>
+			<img src="images/new.gif">
+		</ul>
+	<li> <a href="mj_new.html">New Features and Change Log</a>
+		<img src="images/new.gif">
+	</ul>
+<li> <a href="#Connect">Connect to the server</a>
+<li> <a href="#Troubles">Troubleshooting</a>
+<li> <a href="#FAQ">Frequently Asked Questions</a>
+</ul>
+<hr>
+<a name="Connect"></a>
+<center>
+<applet	CODE="client.Greeting.class" 
+	WIDTH=200
+	HEIGHT=50>
+<param	NAME="ServerHost"
+	VALUE="yuma.princeton.edu:128.112.128.14">
+<param	NAME="ServerPort"
+	VALUE="5656">
+<param	NAME="DocBase"
+	VALUE="http://www.math.princeton.edu/~ztfeng/">
+(***Java-capable browser required***)
+</applet>
+</center>
+<hr>
+<h3> <a name="Troubles">Troubleshooting</a> </h3>
+<ul>
+<li>	No "<B>Connect NOW!</B>" button?
+	<ul>
+	<li>	It takes a while (10 seconds to a minute depending on your
+	hardware and network connection) to load the applet.  You should be
+	seeing descriptive messages at the buttom of your Web browser
+	window while the applet is loading.
+	<li>	If the applet doesn't seem to be loading, and you see the
+	text string "***Java-capable browser required***", then you aren't
+	running a Web browser that understands Java.  
+	<br>	I suggest getting the
+	<a href="http://www.netscape.com/comprod/mirror/index.html">
+	Netscape Navigator</a>.
+	<li>	Does your Web browser support Java 1.0 beta/final API?  
+	If you are running Sun's HotJava browser, it currently only supports 
+	1.0 alpha API, which is incompatible with IMS.  A future version
+	of HotJava that supports 1.0 final API will be released soon by
+	<a href="http://java.sun.com/">Sun Microsystems</a>.  Meanwhile, you
+	can get the 
+	<a href="http://www.netscape.com/comprod/mirror/index.html">
+	Netscape Navigator</a>.
+	<li>	Is your Web browser configured correctly for Java?  
+	Try running some other Java applets at the 
+	<a href="http://www.gamelan.com/">Gamelan site</a>.
+	Make sure you didn't turn Java off as a security measure.
+	Also make sure you installed the Java class library file that comes
+	with your browser.
+	</ul>
+<li>	I press "<B>Connect NOW!</B>", but it doesn't give me the login
+	window, and the button changes to "<B>Connect again</B>".
+	<ul>
+	<li>	Are you behind a firewall?  Some Web browsers don't work well
+	behind a firewall.  Your system administrator might also have
+	configured the firewall to disallow Java class files through.  Check
+	with your system administrators.
+	<li>	Is your local DNS (Domain Name Server) configured correctly
+	to recognize the name of the server machine?  To see this, try to
+	<B>telnet</B> to the server machine and see if you can connect.  If
+	your system cannot recognize the hostname, contact your system
+	administrator.
+	<li>	Perhaps the server is down at this moment.  Try again later!
+	<li> 	Bring up the "Java Console" window (or the equivalent) on your
+	browser.  Do you see error messages?  Some error messages exactly
+	describe problems mentioned above.  If you think you see weird error
+	messages, please report them along with your machine type, OS version,
+	and name of the web browser you use.
+	</ul>
+<li>	I press "<B>Connect NOW!</B>" and login, but the desktop window
+	immediately goes away.
+<br>	Most likely there has been a server upgrade since you last connected.
+	Try reloading this page.  This will reload the applet and you should
+	have no more problems.  For some Web browsers however, applet code
+	are cached, and they are persistent unless you clear the entire
+	disk cache, or restart the browser altogether.
+</ul>
+<h3> <a name="FAQ">Frequently Asked Questions</a> </h3>
+<ul>
+<li> What software do I need to play?
+<br>
+	You need a Web browser that supports 1.0 final Java API.
+	For example, you can get the
+	<a href="http://www.netscape.com/comprod/mirror/index.html">
+	Netscape Navigator</a>.
+	Note that Sun's HotJava browser only handles 1.0 alpha API,
+	therefore it is not compatible.
+<br>
+	You can also run <B>appletviewer</B> in Sun's
+	<a href="http://java.sun.com/devcorner.html">JDK 1.0</a>.
+	However, you won't be able to see the contents of this page.
+<p>
+<li> I can't see all the buttons on my screen, what's wrong?
+<br>
+	Most likely you are running at small screen size.  The IMS client
+	in its default configuration needs 1024x768 pixels to run comfortably.
+<br>
+	You can however try to configure your client by using smaller fonts,
+	or fewer rows and columns for the player list, table list, or message
+	windows.  You can do these from the <B>Preferences</B> menu.  After
+	you get a comfortable configuration, don't forget to save it on the
+	server so you don't have to do the whole thing all over again the
+	next time you login!
+<p>
+</ul>
+<hr>
+</body>
+<center>
+|<a href="http://www.math.princeton.edu/~ztfeng/mj_servers.html">Meta-Server</a>
+|<a href="copyright.html">Copyright</a>
+|<a href="mj_ims.html">Introduction</a>
+|<a href="mj_rules.html">MahJong Rules</a>
+|<a href="mj_new.html">What's New</a>
+|
+</center>
+</html>

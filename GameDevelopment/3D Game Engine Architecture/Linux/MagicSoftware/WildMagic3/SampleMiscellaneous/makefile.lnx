@@ -1,0 +1,27 @@
+build :
+	make build -f makeall.lnx CONFIG=Debug APP=Boolean2D
+	make build -f makeall.lnx CONFIG=Debug APP=BSplineLeastSquares
+	make build -f makeall.lnx CONFIG=Debug APP=ClodPolyline
+	make build -f makeall.lnx CONFIG=Debug APP=DrawImplicitSurface
+	make build -f makeall.lnx CONFIG=Debug APP=MapTextureToQuad
+	make build -f makeall.lnx CONFIG=Debug APP=Triangulation
+	make build -f makeall.lnx CONFIG=Release APP=Boolean2D
+	make build -f makeall.lnx CONFIG=Release APP=BSplineLeastSquares
+	make build -f makeall.lnx CONFIG=Release APP=ClodPolyline
+	make build -f makeall.lnx CONFIG=Release APP=DrawImplicitSurface
+	make build -f makeall.lnx CONFIG=Release APP=MapTextureToQuad
+	make build -f makeall.lnx CONFIG=Release APP=Triangulation
+
+clean :
+	make clean -f makeall.lnx CONFIG=Debug APP=Boolean2D
+	make clean -f makeall.lnx CONFIG=Debug APP=BSplineLeastSquares
+	make clean -f makeall.lnx CONFIG=Debug APP=ClodPolyline
+	make clean -f makeall.lnx CONFIG=Debug APP=DrawImplicitSurface
+	make clean -f makeall.lnx CONFIG=Debug APP=MapTextureToQuad
+	make clean -f makeall.lnx CONFIG=Debug APP=Triangulation
+	make clean -f makeall.lnx CONFIG=Release APP=Boolean2D
+	make clean -f makeall.lnx CONFIG=Release APP=BSplineLeastSquares
+	make clean -f makeall.lnx CONFIG=Release APP=ClodPolyline
+	make clean -f makeall.lnx CONFIG=Release APP=DrawImplicitSurface
+	make clean -f makeall.lnx CONFIG=Release APP=MapTextureToQuad
+	make clean -f makeall.lnx CONFIG=Release APP=Triangulation

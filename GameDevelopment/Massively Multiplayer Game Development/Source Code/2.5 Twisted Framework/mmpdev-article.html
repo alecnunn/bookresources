@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+<title>MMP Gems Article: Using the Twisted Framework for MMP Service
+Integration</title>
+
+</head>
+
+<body>
+<h1>Using the Twisted Framework for MMP Service Integration</h1>
+
+<h2>A Brief Description of the Problem</h2>
+
+<p>Massively multiplayer games are among the most complex software systems in
+the world.  Allowing thousands of people to run around in the same space at the
+same time, fighting the same enemies and exhausting the same resources, is a
+pretty major challenge.  There is another important challenge that these games
+must face, though, which is often ignored and deferred to ad-hoc implementation
+later by a Live Team.  Integrating external services into an MMP virtual world
+is difficult, and will increase in importance as MMP games make their way
+further towards the mainstream gaming audience and the stakes for keeping
+subscribers get higher.</p>
+
+<p>There are some obvious bits of functionality that a game will need that
+external tools can help with.  Games need a chat system; if for nothing else,
+to interact with your customers and provide support inside the game.
+Third-party messaging systems can implement that.  External reporting tools can
+extract game data from a relational database and provide reports to marketing
+personnel and executives.</p>
+
+<p>Once the game's core functionality is already designed, it may be tempting
+to ignore integrating extra stuff.  Why bother integrating an external chat
+system when you've got a perfectly clear design for one?  The organizational
+effort, both political and technical, of providing mechanisms for third-party
+integration is substantial, and it's a common decision to forego it for
+schedule-related reasons.</p>
+
+<p>Looking at only these initial problems, the call is difficult to make.
+Integration provides some benefits, but may not be worth the effort.  Once you
+start looking out towards the horizon of a game's lifetime, though, it becomes
+clear that integration is unavoidable: the best you can do is prepare for
+it. </p>
+
+<p>For example, let's say that as it inevitably happens, there is a bug in some
+version of the client software that a group of player figures out how to
+exploit to crash other people out of the game.  If there is only one mechanism
+for accessing the game world -- the release game client (perhaps with
+game-master extensions for trusted users) -- then there is no recourse for
+support personnel to access the game world and correct potential problems
+caused by this flaw until it is corrected by developers; this may take days or
+even weeks, depending on the severity or complexity of the problem.</p>
+
+<p>The complexity of simple additions, such as chat, is often underestimated.
+For example, players who find the in-game chat system too restrictive or
+limiting will resort to using other, external programs that better suit their
+needs.  Your support staff may find themselves responding to reports of players
+being harassed by other players on chat services like internet relay chat, on
+servers that they cannot even log in to, let alone get log files and
+administrator access.</p>
+
+<p>The benefits of integrating with a relational database for data storage
+rather than doing one's own ad-hoc data storage mechanism are more widely
+understood: writing your own data storage layer means you need to write all of
+your own reporting and extraction tools as well, not to mention the difficulty
+of getting storage management done right in the first place!</p>
+
+<p>This may all seem like a long-winded appeal to the well-worn object-oriented
+<q>software reuse</q> rhetoric.  It's not the same, though; integrating with
+existing, working, proven solutions is better than writing your own, in cases
+where the problem is not your business's core area of competency.  Even if your
+organization is capable of making fantastic re-use of code developed
+internally, it's not as good as never having to do that development at all.</p>
+
+<p>In other words, do you <em>really</em> want to be developing yet another
+technical support ticket-tracking system this year, or do you want to be
+writing a game that's compelling and fun? </p>
+
+<h2>The Problems with Doing It Yourself</h2>
+
+<p>Questions of integration and extensibility work their way into every layer
+of a system.  Making a robust, extensible infrastructure is a very challenging
+problem.  It's also a totally different problem than making a simple, playable,
+shippable game.  In fact, as the Extreme Programming methodology indicates, it
+is a waste of resources to prematurely plan for extensibility; the only way to
+really determine if a particular mechanism for extension is necessary is to
+find a use-case for it.</p>
+
+<p>This doesn't mean that you'll never need extensibility.  It means that the
+only way to build an extensible system is to have it hammered on over a long
+period of time by a large base of users with diverse interests, to expose where
+it really needs to be extended, improved, and stabilized. </p>
+
+<p>Purpose-built frameworks do not integrate different services well, precisely
+because their audience is limited and their time of development is often short.
+It is difficult to anticipate the hooks you will need later in development to
+provide unexpected functionality, and guessing wrong will take time away from
+important core features to implement potentially useless extensions.  Building
+an infrastructure that works great for your gameplay may end up being a serious
+liability for your customer support.</p>
+
+<p>Finally, if you build an infrastructure yourself from top to bottom, even if
+it is brilliant and wonderful and extensible, what third-party developers will
+be able to add features, either for free or in commercial bundles, that you
+would find useful?  Even the best-designed modular integration package isn't
+useful if knowledge about how to build modules for it is limited to a small
+group. </p>
+
+<h2>The Problems with Paying Somebody to Do It For You</h2>
+
+<p>Existing <q>turnkey</q> MMP solutions have surprisingly similar problems.
+While they provide a lot more tools <q>out of the box</q>, their extremely high
+cost keeps third-party developers from creating any additional tools.  At best,
+you will be in a situation where you can price different components of
+infrastructure from the same vendor separately, and that model is still
+unusual.  Restrictive licensing agreements make development of open-source
+components for these systems difficult if not impossible.  As more and more
+games turn to BSD and Linux servers, using open-source components internally
+like Python and Lua, the importance of these robust back-end tools is
+increasingly obvious.</p>
+
+<p>Packaged MMP solutions are also sometimes flexible in the wrong areas.  They
+will provide a complete implementation of game-world infrastructure, limiting
+the possibilities for unusual gameplay, but they will not provide external
+tools that are not interesting for game developers to experiment with.</p>
+
+<p>Outside of the game industry, other kinds of general networking, distributed
+computing, and data-storage infrastructure exist.  This category comprises
+things like implementations of the J2EE API. From their product descriptions,
+these might sound appropriate starting-points for game infrastructure.</p>
+
+<p>Unfortunately, most of these products are highly expensive middleware
+targeted at batch transaction processing.  Games involve a dynamic, event-based
+interactions.  Infrastructure that cannot respond to player actions in soft
+real-time can't be made to work for the most basic operations in the game
+world, regardless of suitability for any other integration tasks.</p>
+
+<h2>A Summary of the Problem</h2>
+
+<p>In order to allow for the flexibility necessary to economically run a
+massively multiplayer game, it's important to use an infrastructure for
+development which allows for the event-based nature of multiplayer games,
+provides enough services to make any additional training expenses worthwhile,
+and provides public programming interfaces so that more than one group's
+expertise can be brought to bear on the very different problem domains that
+make a complete MMP solution. </p>
+
+<h2>Framing a Solution</h2>
+
+<p>The Twisted Network Framework is one such solution.  Although it is a
+completely generic network applications platform, already in use in several
+different application domains, it was designed from the beginning with support
+for massively multiplayer games as a design goal.  As Open Source software,
+there is a large and enthusiastic community.  It is also an event-based
+networking platform with support both for high-level programming (in Python)
+and speed-critical extensions (in C and C++). </p>
+
+<p>Twisted may not be appropriate for everyone.  If for some reason the
+specific implementations described in this article are inappropriate for your
+specific needs, keep in mind that the problems remain, and similar approaches
+to the solution are probably a good idea.</p>
+
+<p>In providing code examples, I will assume a familiarity both with the basics
+of network programming and Python.  I'll be discussing these tools in the
+context of a hypothetical game called <q>Metamorphosis Online</q>, in which the
+players are clinically depressed insects. </p>
+
+<h2>A Gentle Introduction: Generalized Deferred Execution</h2>
+
+<p>One of the most basic ways in which Twisted allows network applications to
+be integrated is that it specifies a general mechanism for wrapping potentially
+blocking activities.</p>
+
+<p>In many asynchronous networking frameworks, the primary way that blocking
+activities are represented are as callbacks.  Objects conforming to a specific
+interface must be passed in as an argument to any function which needs to wait
+for a blocking operation. These interfaces often differ for different types of
+blocking operations, which creates two problems.  One, passing additional
+arguments to the callbacks may be unwieldy.  Two, since the interfaces are
+different, any two blocking systems that want to communicate must have specific
+glue code between them, and often present a third, different public
+interface. </p>
+
+<p>Twisted eliminates these problems with the
+<code>twisted.internet.defer</code> module.  <em>All</em> functions which may
+wait on a blocking operation will result return <code>Deferred</code>
+instances.  A <code>Deferred</code> acts as two logical chains of functions;
+one for errors and one for results.  When the result of a Deferred becomes
+available, it passes it to the first callback in the chain, then passes the
+result of that callback to the second.  If there is ever an error, the
+error-handling callback is invoked instead. This was inspired in part by the
+"Eventually" operator in the E language and has most of its deadlock-avoidance
+properties.</p>
+
+<p>Also, because <code>Deferred</code> will accept any function which takes one
+argument and returns one result, many python standard library functions will
+work fine. </p>
+
+<p>Here are some examples of how Deferred is used.</p>
+
+<a href="defer-examples.py" class="py-listing">Deferred Examples</a>
+
+<p>Now that you've seen a basic introduction, let's look a little deeper into
+what makes that <code>callRemote</code> work.</p>
+
+<h2>High Level Network Services: Perspective Broker</h2>
+
+<p>One of the most powerful tools that Twisted provides to the network
+application developer is its own multi-purpose remote method invocation
+protocol, Perspective Broker, affectionately known as PB.  PB was designed from
+the ground up with several integration-minded goals.
+
+<ul>
+  
+  <li>PB operates over a single transport connection, allowing both
+  client/server (untrusted, widely distributed) and server/server (trusted,
+  locally clustered) communication.  This can reduce the total amount of
+  communication code your system needs.</li>
+  
+  <li>PB is highly customizable, and provides hooks at all three layers of
+  decoding: (un)marshalling, (de)serializing, and message routing.  This allows
+  PB to remain very generic and compatible, but still be very responsive to the
+  needs of your specific application.</li>
+
+  <li>PB provides object-to-object, not process-to-process communication. This
+  allows multiple services to be transparently multiplexed over one connection,
+  which in turn allows independent functionality to be integrated into existing
+  servers and clients.</li>
+
+  <li>PB uses dynamic method lookup and method routing.  This allows upgrade
+  transitions from one client/server version to the next to be smooth; your
+  choice of how long to maintain support for legacy clients is not made by
+  fragile technology. </li>
+
+  <li>PB provides for secure, robust authentication at the protocol level.
+  </li>
+
+</ul>
+</p>
+
+<p>Many of these features are interesting and useful, but most critical is the
+ability to integrate independently-developed services over the same network
+connection without time-consuming integration work on disparate code-bases.
+This is useful both externally -- making use of code available from third-party
+vendors and volunteers -- as well as internally.  Using PB or a technology like
+it will allow you to parallelize your server-side development process, by
+allowing teams working on abstractly un-related features like <q>chat</q> and
+<q>inventory</q> to be completely independent of each other. </p>
+
+<p>Authentication, too, is an important part of this puzzle.  Regardless of the
+type of service being accessed, the user will need to be authenticated with
+some service in order to verify that they have the authority to use that
+service.</p>
+
+<p>Twisted uses its authentication model, <code>twisted.cred</code>, to unify
+services in Perspective Broker.</p>
+
+<h3>An Interlude with <code>twisted.cred</code></h3>
+
+<p>Twisted Cred breaks down authentication into four major abstractions:
+<code>twisted.cred.service.Service</code>,
+<code>twisted.cred.perspective.Perspective</code>,
+<code>twisted.cred.authorizer.Authorizer</code>, and
+<code>twisted.cred.identity.Identity</code>.  The first two are specific to
+your application, and the second two are specific to authorization.</p>
+
+<p>A <code>Service</code> is an over-arching abstraction that represents the
+whole service you want to provide.  This object performs a role similar to the
+Manager design pattern, for whatever objects need to be <q>globally</q> tracked
+in a particular subsystem.  A <code>Service</code> should contain all the state
+related to one logical service.  In the average application, you will end up
+writing at least one subclass of <code>Service</code>, and probably two or
+three.</p>
+
+<p>The primary objects that your <code>Service</code> will be managing are
+<code>Perspective</code> instances.  For each <code>Service</code> subclass
+there will generally be a corresponding <code>Perspective</code> subclass, and
+the <code>Service</code> will only manage <code>Perspective</code> instances
+that it instantiated itself.  A <code>Perspective</code> represents the state
+of a user with respect to a given Service.  It is the contact point between the
+user's persona and the functionality that they are working with in the
+<code>Service</code>.  Each <code>Perspective</code> has a name.</p>
+
+<p>The object which manages authentication is an Authorizer.  In the average
+Twisted application, you will not need to implement an Authorizer, because you
+can use an existing one.  You can authenticate out of a file, a database, or a
+table in memory.  Depending on where you want to store your authentication, it
+may be necessary to implement your own Authorizer to load and save account
+information.</p>
+
+<p>An Authorizer is essentially a persistent collection of Identity instances.
+Each Identity generally represents one real person who has access to the game
+system.  The only reason you would ever need to implement a new variety of
+Identity is to implement a new style of authorization.  Twisted comes with
+Identity implementations that can use plain password and challenge-response
+authentication.  A secure-shell public-key cryptographic authorization
+mechanism is also implemented for use with secure shell clients.  An Identity
+maintains not only the credentials that the user must present, but information
+about what Perspective instances that user has access to, once validated.</p>
+
+<p><code>twisted.cred</code> interfaces very tightly with Perspective
+Broker.</p>
+
+<p>The examples here will be covering the use of built in authentication
+mechanisms, and creating new services.  Let's take some of these basic building
+blocks and explore an example of their use in a real-world situation.</p>
+
+<h3>A Simple Example: Fritz and Franz go to the Psychologist</h3>
+
+<p>In our initial <q>Day in the Life</q> for <u>Metamorphosis Online</u>, two
+players, Joe and Bob, log in to play their characters, Franz and Fritz.  Franz
+and Fritz need to meet each other for group therapy at the psychologist's
+office. </p>
+
+<p>In this example, Franz and Fritz first coordinate with each other by talking
+about the appointment on their cell phones, then negotiating the game world's
+hazards and finally arriving on time to the office.</p>
+
+<p>While the game simulation is difficult to factor into separate Services, the
+notion of globally addressing the player (with all the attendant concerns for
+feature-completeness, like logging, auditing, message throttling, obscenity
+filtering, and so on) is definitely separable.</p>
+
+<p>For this example we will be implementing our own simple <q>cell phone</q>
+based chat system.  In a more realistic situation it would probably be
+advisable to use the integrated <code>twisted.words</code> chat package and
+attendant utilities.</p>
+
+<h4> About the Code Listings</h4>
+
+<p>The following code examples are each meant to be in one source file.  These
+listings, plus a Twisted installation, should make a complete (although small)
+application.</p>
+
+<a href="cellphone.py" class="py-listing">Cell Phone Service </a>
+
+<p>In this first listing, we have a cell-phone service which is usable on its
+own, not specific to any game.  Each player is represented to this service as a
+<code>Cellphone</code> instance, uniquely identified by a phone number, which
+serves as the name of this perspective.  Note the methods whose names begin
+with <code>perspective_</code>; those can be called directly by a network
+client of this service.</p>
+
+<a href="metamorph.py" class="py-listing">
+<u>Metamorphosis</u> Game module
+</a>
+
+<p>In this second listing, we define an extremely simple game.  This provides
+an additional class for the simulation beyond the Perspective and Service (the
+Psychologist), to demonstrate mediated communication between perspectives.
+Again, <code>perspective_</code> methods comprise the remote interface
+between clients and servers for this game.</p>
+
+<p>We have now implemented two modules which are complete, but completely
+unrelated. The way in which they've been implemented is important, however.
+Their parallel structure, imposed by Perspective Broker, allows us to integrate
+them into a single server with just one short file. </p>
+
+<a href="fritz-franz-setup.py" class="py-listing">
+Account Manipulation Example
+</a>
+
+<p>Finally, we unify these services by creating accounts for Bob and Joe.  The
+real meat of this example is the makeAccount method, which produces Identity
+instances that have the correct Perspectives attached.</p>
+
+<p>By modifying this one file, we can add arbitrary additional services.  There
+are three steps to this process:
+
+<ol>
+  
+  <li>Instantiate the new <code>Service</code> (in the section "Create our
+  services...")</li>
+  
+  
+  <li>Call our service's <code>createPerspective</code> method to generate a
+  new perspective.</li>
+
+  <li>Add a key for that perspective to the appropriate <code>Identity</code>
+object, declaring that a user who presents credentials to that
+<code>Identity</code> is permitted access to it.</li>
+
+</ol>
+</p>
+
+<p>Now, how do Joe and Bob actually get into the game?  A full-blown,
+interactive client could be the subject of another article, but here is a
+simple example that will log into <u>Metamorphosis</u> and play it for 5
+seconds.</p>
+
+<a href="metaclient.py" class="py-listing">
+Client Code Example
+</a>
+
+<p>The primary responsibility of client code is to provide client objects for
+each Perspective that exists on the server, to receive notifications that the
+server may send.  A few lines of glue code are required to get those
+client-side instances hooked up to server-side perspectives, but these are
+mostly using glue code provided by the server.</p>
+
+<div align="center">
+<img src="login-sequence.png" /> <br />
+Figure 1 - Login Sequence
+</div>
+
+<p>Figure 1 is a visual explanation of the login sequence that PB applications
+require.  There are 8 basic steps to the interaction that client and server go
+through in order to get a working session set up, represented by the numbered
+arrows.</p>
+
+<ol>
+  <li>The client contacts the authorizer and requests to log in.</li>
+  
+  <li>The client provides a username and password through a challenge/response
+  conversation, ensuring that the password is secure even on un-encrypted
+  connections.</li>
+  
+  <li>The challenge/response process locates an Identity object and validates
+  against it.</li>
+  
+  <li>The client is then given a remote reference object which points at the
+  Identity. </li>
+  
+  <li>The client makes a request for some perspective using a service name /
+  perspective name pair, and specifying a 'client' object to connect to the
+  perspective once located.  This is the <code>attach</code> method in the
+  Identity's interface.</li>
+  
+  <li>If the identity has a key for that service/perspective name pair, the
+  Identity looks up the appropriate service.
+  </li>
+  
+  <li>The service then loads the perspective from its persistent storage and
+  returns it, calling the attached method on the loaded perspective.</li>
+  
+  <li>The perspectives are returned to the client and associated with
+  client-side objects.  Communication from client objects begins.</li>
+  
+</ol>
+
+<h3>Emergent Features</h3>
+
+<p><u>Metamorphosis</u> was a very simple example of the application of
+Twisted, but it nevertheless applies a number of very useful technologies.  The
+most immediately obvious benefit of the example is that extremely simple
+clients such as this one can be very helpful for server load-testing.  The
+ability to access the game server with alternate, simplified clients can be
+indispensable for support personnel, as both a defense against potential
+instabilities in portions of the official client code and as a mechanism for
+automation of simple frequently-performed tasks.</p>
+
+<p>You also benefit from the lower-level networking architecture in Twisted.
+After generating an encryption key, you can secure the PB connection using the
+industry standard Secure Sockets Layer.  This is as simple as replacing the
+server's call to <code>listenTCP</code> with <code>listenSSL</code>.</p>
+
+<p>One of the other advantages of this approach is that it has good security
+properties.  Often you will want to provide certain convenience functionality
+for game-masters in the distributed client, but you don't want users to be able
+to access it.  In <code>twisted.cred</code>, you can encapsulate this risky
+functionality in a separate Perspective and never even give player Identity
+objects a key to access a Perspective of that type.  This reduces the need for
+writing access checks in methods; by avoiding the need for these checks, you
+can't forget to put such a check in - by default, insecure functionality just
+won't be available.</p>
+
+<h2>Web-Based Tools</h2>
+
+<p>Any discussion of integration of network technologies in this increasingly
+web-driven era has to include some mention of HTTP or legacy protocol support.
+Twisted includes a robust, flexible web-server, which can function both as a
+stand-alone server and as a framework for publishing other Twisted objects on
+the web. </p>
+
+<p>Web browsers are ubiquitous, robust clients.  The web can serve as a
+convenient mechanism for statistics reporting, an administrative front-end for
+support technicians, a place to display persistent laddering information for
+bragging rights, even a minimal game-client for users.</p>
+
+<p>In addition to a web server, Twisted provides a templating and application
+framework for browser-based applications.  Taken together, the working title
+for these tools is WebMVC.  WebMVC takes a slightly unusual approach to the
+problem of building web applications.  Many web-specific languages and server
+APIs treat a relational database as the integration point between the web and
+your application, and assume that your whole application is being written for
+the web alone. Twisted instead assumes that you have existing application
+components that you'll want to put on web pages, and therefore hooks those
+objects directly to the web.</p>
+
+<p>To put it more simply, WebMVC treats the web more like a GUI toolkit in the
+Model/View/Controller pattern than a batch output format.  It is designed for
+real-time, web-based interaction with a running system. </p>
+
+<p>In that spirit of publishing existing objects on the web, let's take the
+example from above and integrate some simple web functionality with it, by
+displaying a listing of all players.</p>
+
+<p>First, we will create an HTML template which specifies our intent.</p>
+
+<a href="metaweb.html" class="html-listing">Rankings Web Template</a>
+
+<p>WebMVC expects all template files to be well-formed XML.  If you're familiar
+with HTML already, but not XML, this just means you need to put a
+<code>/</code> before the <code>&gt;</code> in any tag which does not close,
+such as HR and BR.</p>
+
+<p>This file is <em>only</em> a template.  It does not specify any presentation
+logic or data, only what the output ought to look like.  Notice that we are
+notating certain parts of the document for use by the code, with attributes
+such as <code>view</code>, <code>rowOf</code> and <code>columnOf</code>.</p>
+
+<a href="metaweb.py" class="py-listing">Presentation Logic Module</a>
+
+<p>After creating a template, we create a presentation logic module, where we
+retrieve and format the data using the WWW Consortium (W3C) standard Document
+Object Model (DOM) API. Presentation logic in WebMVC is evaluated in roughly
+four steps.
+
+<ol>
+  <li>The template is read in to a DOM tree.</li>
+
+  <li>Particular nodes (those with <code>view</code> attributes) are found in a
+  depth-first search.</li>
+  
+  <li>Methods named <code>factory_<i>[view attribute]</i></code> are invoked
+  with those nodes.  These methods modify the nodes in the parsed XML tree that
+  resulted from the template.</li>
+
+  <li>The tree, thus manipulated, is sent to the web browser as a stream of
+  XHTML text.</li>
+</ol>
+</p>
+
+<p>We now need a way to test this code.  This will require going back to the
+earlier example, <code>fritz-franz-setup.py</code> and modifying our server to
+also run an HTTP server in addition to a PB server.  Add the following snippet
+to that file, before the <code>app.run()</code> line.</p>
+
+<a href="add-web.py" class="py-listing">Additions to make Metamorphosis a Web server.</a>
+
+<p>This creates a webserver that serves files out of the same directory where
+the server is running.  It also specifies a type of file which is to be
+interpreted as dynamic content: any file with the extension <code>.rpy</code>
+is a <code>ResourceScript</code>, which means it is a Python file which is
+evaluated to produce an instance of a web resource.</p>
+
+<p>As a final step, we must create a <code>.rpy</code> file which specifies the
+Model of the web application.  This  </p>
+
+<a href="metaweb.rpy" class="py-listing">Resource Loader File</a>
+
+<p>Since <code>fritz-franz-setup.py</code> is the <code>__main__</code> module
+of this program, we can locate the BuggyWorld service that we instantiated
+there.</p>
+
+<p>The game is now running its own web server, which is both a full-featured,
+secure, file-system web server, and a dynamic window into the game world.</p>
+
+<p>Of course, there's also the simple question of the corporate web-site for
+the game.  Twisted Web provides direct support for the Zope application server,
+which is rapidly becoming an industry standard for content management.  While
+the development of a corporate website is outside the scope of this article, Zope
+integration makes it easy to take the components described above and put them
+into a website with news updates, message boards, and all the amenities of a
+portal site with a few clicks on a management interface. </p>
+
+<h2>Integrating Independent Objects</h2>
+
+<p>Object-Oriented Programming techniques have long been touted as a solution
+to integration problems.  As any experienced software developer should know,
+there is some truth to this claim, but it has been endlessly exaggerated by
+software development tool companies.  The hit-and-miss nature of OOP can mostly
+be traced to 2 factors: an overly broad definition of what is and is not
+<q>Object Oriented</q>, and an institutional unwillingness to separate the
+techniques used in OOP into <q>good</q> and <q>bad</q> categories.</p>
+
+<p>So far, we have discussed how to make use of Twisted's services to
+facilitate integrating with external tools.  Now we will touch on how it is
+that Twisted can provide such a diverse array of services internally without
+suffering from an entanglement of dependencies.</p>
+
+<p>The chief concept governing Twisted's design in this regard is
+<em>separability</em>.  The easier it is to separately instantiate two
+different classes and have them perform their function, the less likely it is
+that changes in one will destabilize the other.  Also, the less a new user
+needs to know in order to use one of the classes.</p>
+
+<p>Since separate instances are considered a good thing in general, Twisted
+avoids inheritance in most cases, using it only where two classes must be very
+tightly coupled, or the base class is very simple and provides only utility
+functionality.</p>
+
+<p>Again, this approach has good security properties.  When some objects are
+network accessible, it is important to carefully separate out sensitive
+operations and make sure they are far from a potential source of access. If
+most functions are factored into separate classes, that separation guards
+against mistakes in access control. </p>
+
+<p>This is an old idea.  In fact, it was in some ways the origin of
+object-oriented programming, stemming from the Actor model of simulation.  The
+Actor model is still mainly of interest for the reasons mentioned above;
+networking and security.  This is also a new idea.  Most of the substance of
+the craze over various "component architectures" can be boiled down to one
+simple feature. Such architectures force objects to separate their
+functionality into discrete, separately usable packages. </p>
+
+<p>Twisted has such a boiled down component architecture in
+<code>twisted.python.components</code>.  This is based heavily on the Zope3
+component architecture.  While it does offer some advanced features, it is in
+general a very simple system. It is almost entirely based around one feature,
+which is the Adapter.</p>
+
+<p>This listing shows the basic use of an Adapter.  Strictly speaking, an
+Adapter is simply a class that takes one argument to its constructor.  Adapters
+are registered to represent another class in contexts where a certain interface
+is required, so Adapters will always implement at least one interface.</p>
+
+<a href="component-example.py"
+class="py-listing"><code>twisted.python.components</code> example</a>
+
+<p>The component system in Twisted has been presented here as a way to
+integrate external game services.  Much of the "behind the scenes" work
+involved in the examples, especially the WebMVC examples, was being done by
+Adapters.  The same properties that make it useful to develop a Web-publishing
+system agnostic to the objects being published make it useful for other sorts
+of separation.  For example, a Magic system agnostic to world geometry
+representation.</p>
+
+<h2>Low Level Integration: Protocols and Networking</h2>
+
+<p>The lowest level of the Twisted infrastructure is
+<code>twisted.internet</code>.  This portion of Twisted is the bedrock upon
+which the rest of it is built.  Mostly, <code>twisted.internet</code> is a
+networking core implemented in the style of the Reactor event-response
+pattern.</p>
+
+<p>Part of Twisted's design is that it is pluggable at every level, from the
+highest-level message abstraction to the bits and bytes being sent on the wire.
+This follows directly from Twisted's original MMP focus: this allows your
+Twisted application to satisfy diverse requirements for efficiency and
+flexibility depending on your exact needs. </p>
+
+<p>The previous examples have already used the twisted.internet APIs in order
+to connect Web and PB servers to the internet.  Here we will show how to write
+your own kind of server.  The simplest example of how to extend Twisted at this
+level is an echo server.</p>
+
+<a href="echoserver.py" class="py-listing"> Echo Server </a>
+
+<p>This small Python script is a fully functional, asynchronous, multiplexing
+server using Twisted as a library.  This would be a good basic example to begin
+working with in order to build a server-side processing system that needs to
+interact with a non-standard legacy protocol in an existing multiplayer
+infrastructure.</p>
+
+<p>It is often desirable to implement alternative clients for such servers to
+automate frequently-performed tasks, or to perform load-testing.  Twisted also
+provides complete client-side support, intentionally designed to mirror the
+server-side support as closely as possible.</p>
+
+<a href="shoutclient.py" class="py-listing"> Shout Client </a>
+
+<p>Notice that both the client and server examples end with
+<code>reactor.run()</code>.  The same Reactor object is used on both client and
+server.  In fact, any number of clients and/or servers can be run within the
+same process.  </p>
+
+<h2>Development Community</h2>
+
+<p>Twisted provides many other protocols which may be of use.  Currently it
+supports more than 10 RFCs, including internet mail protocols, asynchronous
+database access, domain name servers and clients, and internet relay chat.</p>
+
+<p>More interesting than the additional tools which already exist, though, is
+the potential for future development.  A developer community with sustained
+interest and investment in your platform of choice is important to assure that
+support does not disappear overnight.  Also, the ability to collaborate with
+and get support from an existing community can potentially vastly reduce the
+amount of time it takes to develop a feature that does not yet exist. </p>
+
+<p>A large and lively support community like Twisted's can arise from projects
+which are not open-source, such as Java.  Such a community, however, is
+indispensable to the reliability of a framework.</p>
+
+<p>As an added bonus, open-source development communities tend to be interested
+in obscure and difficult problems which are tricky to get right, but not really
+a competitive advantage for anyone.  People who are working on tools like
+Twisted for their own use are very concerned about stability, and the
+collective focus of many diverse organizations on one project amplifies its
+robustness considerably </p>
+
+<h2>Summary</h2>
+
+<p>When you are developing an MMP game, it's not just a game.  It's an entire
+small universe of infrastructure.  You need tools for continuing development,
+marketing, and support.  The problems required to provide those tools are
+complex, deep, and not much fun to solve if you are concerned with games.</p>
+
+<p>Using an existing solution is a good idea, if the solution is suitable.
+It's difficult to find suitable solutions, though, and many of them are missing
+some useful, if not critical, qualifications.</p>
+
+<p>Twisted can be a useful solution for many games.  It provides many different
+network access mechanisms, including a flexible, general client-server protocol
+and web publishing.  Spanning these protocols are useful abstractions like
+authentication.</p>
+
+<p>Twisted was designed with security in mind.  It is important to the
+development team to keep it secure and stable, since it is used to run the
+twistedmatrix.com domain.</p>
+
+<p>Twisted is extensible at many levels.  If the functionality you need doesn't
+exist, the hook to build it probably does.  A large and diverse development
+community ensures that this will continue to be the case. </p>
+
+<p>Very few people will need all of what Twisted has to offer, but it's still
+not hard to apply only some of it, by providing only one or two ancillary game
+services from a Twisted server.  Evaluating an infrastructure decision is very
+important.</p>
+
+<div style="padding:1em;background-color:#eeeeee;border:thin #cccccc solid">
+
+<h2>References</h2>
+
+<ol>
+  
+<li><u>Manager Design Pattern</u> Event Helix, Inc. <a
+href="http://www.eventhelix.com/RealtimeMantra/ManagerDesignPattern.htm"
+>http://www.eventhelix.com/RealtimeMantra/ManagerDesignPattern.htm</a></li>
+
+<li><u>Writing Servers in Twisted</u>, Moshe Zadka. <a
+href="http://twistedmatrix.com/documents/howto/servers"
+>http://twistedmatrix.com/documents/howto/servers</a></li>
+
+<li><u>E in a Walnut</u>, Marc Steigler. <a
+href="http://www.skyhunter.com/marcs/ewalnut.html"
+>http://www.skyhunter.com/marcs/ewalnut.html</a></li>
+
+<li><u>And Then Came Zope...</u>, Larry O'Brien. <a
+href="http://www.sdtimes.com/cols/webwatch_023.htm"
+>http://www.sdtimes.com/cols/webwatch_023.htm</a></li>
+
+<li><u>Proto Patterns</u>, Ward Cunningham Et. Al. <a href="http://www.c2.com/cgi/wiki?ProtoPatterns"
+>http://www.c2.com/cgi/wiki?ProtoPatterns</a></li>
+
+<li><u>Reactor -- An Object Behavioral Pattern for Event Demultiplexing and
+Event Handler Dispatching</u>, Douglas C. Schmidt. <a
+href="http://www.cs.wustl.edu/~schmidt/PDF/reactor-siemens.pdf"
+>http://www.cs.wustl.edu/~schmidt/PDF/reactor-siemens.pdf</a></li>
+
+<li><u>Model-View-Controller</u>, Dean Helman. <a
+href="http://ootips.org/mvc-pattern.html"
+>http://ootips.org/mvc-pattern.html</a></li>
+
+<li><u>W3C Document Object Model</u>, World Wide Web Consortium Document Object
+Model Working Group. <a href="http://www.w3.org/DOM/"
+>http://www.w3.org/DOM/</a></li>
+
+<li><u>The Metamorphosis</u>, Franz Kafka.  <a
+href="http://www.kafka.org/transl/english/metamorphosis.htm"
+>http://www.kafka.org/transl/english/metamorphosis.htm</a></li>
+
+<li><u>The Java&trade; White Paper</u>, Sun Microsystems.  <a
+href="http://sunsite.kth.se/javacorner/sunsites/whitepaper/java-whitepaper-5.html"
+>http://sunsite.kth.se/javacorner/sunsites/whitepaper/java-whitepaper-5.html</a></li>
+
+<li><u>Towards a Method of Object-Oriented Concurrent Programming</u>, Denis
+Caromel.  <a href="http://citeseer.nj.nec.com/300829.html"
+>http://citeseer.nj.nec.com/300829.html</a></li>
+
+</ol>
+</div>
+</body> </html>

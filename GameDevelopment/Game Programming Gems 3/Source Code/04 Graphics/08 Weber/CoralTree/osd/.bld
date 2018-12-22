@@ -1,0 +1,44 @@
+# OSD
+set MODULE = osd
+if (!$(CORALHOME))
+{
+	cd ..
+	set CORALHOME = `pwd`
+	cd $(MODULE)
+}
+include $(CORALHOME)/meta/coral.bld
+
+set MODULES =
+
+set FILES = 	dir 		\
+				scandir 	\
+				getopt 		\
+				input 		\
+				mutex 		\
+				vsscanf 	\
+				thread 		\
+				msg 		\
+				shm 		\
+				sem 		\
+				sysdata 	\
+				error 		\
+				output 		\
+				file 		\
+				vsprintf 	\
+				"system"	\
+				time 		\
+				log
+
+set PROGRAMS = 	xosd$(EXE) bogomark$(EXE)
+
+set TARGETS = $(LIBRARY) $(PROGRAMS)
+
+# This is C so override exe rule
+#(x[^.]+)$(EXE)$:
+#{
+#	if ([$(LIBRARY) "$(1).h" "$(1)$(OBJ)"])
+#	{
+#		$(CC) "$(OUTPUT)$(0)" $(CPPFLAGS) $(CCFLAGS) "$(1).c" $(LDFLAGS) $(LIBRARY) $(CORALLIBS) $(OSLIBS)
+#	}
+#}
+

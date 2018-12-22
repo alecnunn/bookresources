@@ -1,0 +1,360 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GridCtrl - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP37.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/GridCtrl.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\mythos\gpg4_sample\GridCtrl\BtnDataBase.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\CheckComboBox.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridBtnCell.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridBtnCellBase.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridBtnCellCombo.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridCell.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridCellBase.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridCellCheck.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridCellCheckCombo.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridCellCombo.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridCellDateTime.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridCellNumeric.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridCtrl.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridDropTarget.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\GridURLCell.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\InPlaceEdit.cpp"
+"C:\mythos\gpg4_sample\GridCtrl\TitleTip.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP37.tmp" 
+Creating temporary file "C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP38.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/GridCtrl.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\mythos\gpg4_sample\GridCtrl\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP38.tmp" 
+Creating temporary file "C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP39.tmp" with contents
+[
+/nologo /out:"Release\GridCtrl.lib" 
+.\Release\BtnDataBase.obj
+.\Release\CheckComboBox.obj
+.\Release\GridBtnCell.obj
+.\Release\GridBtnCellBase.obj
+.\Release\GridBtnCellCombo.obj
+.\Release\GridCell.obj
+.\Release\GridCellBase.obj
+.\Release\GridCellCheck.obj
+.\Release\GridCellCheckCombo.obj
+.\Release\GridCellCombo.obj
+.\Release\GridCellDateTime.obj
+.\Release\GridCellNumeric.obj
+.\Release\GridCtrl.obj
+.\Release\GridDropTarget.obj
+.\Release\GridURLCell.obj
+.\Release\InPlaceEdit.obj
+.\Release\StdAfx.obj
+.\Release\TitleTip.obj
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP39.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Spawn Time 0:01.3
+Compiling...
+BtnDataBase.cpp
+CheckComboBox.cpp
+GridBtnCell.cpp
+GridBtnCellBase.cpp
+GridBtnCellCombo.cpp
+GridCell.cpp
+GridCellBase.cpp
+GridCellCheck.cpp
+GridCellCheckCombo.cpp
+GridCellCombo.cpp
+GridCellDateTime.cpp
+GridCellNumeric.cpp
+GridCtrl.cpp
+GridDropTarget.cpp
+GridURLCell.cpp
+InPlaceEdit.cpp
+TitleTip.cpp
+Generating Code...
+Spawn Time 0:10.5
+Creating library...
+Spawn Time 0:00.0
+<h3>
+--------------------Configuration: RTTIProps - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x40c /fo"Release/RTTIProps.res" /d "NDEBUG" "C:\mythos\gpg4_sample\RTTIProps.rc"" 
+Creating temporary file "C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP3C.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /I ".\core" /I ".\dialogs" /I ".\engine" /I ".\PropSystem" /I ".\rendering" /I ".\editor" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/RTTIProps.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\mythos\gpg4_sample\Core\DirC.cpp"
+"C:\mythos\gpg4_sample\Core\ErrorAfxMsg.cpp"
+"C:\mythos\gpg4_sample\Core\FileC.cpp"
+"C:\mythos\gpg4_sample\Core\FindFileC.cpp"
+"C:\mythos\gpg4_sample\Core\Logger.cpp"
+"C:\mythos\gpg4_sample\Core\MemC.cpp"
+"C:\mythos\gpg4_sample\Core\MyAssert.cpp"
+"C:\mythos\gpg4_sample\Core\Quaternion.cpp"
+"C:\mythos\gpg4_sample\Core\RefCount.cpp"
+"C:\mythos\gpg4_sample\Core\StringC.cpp"
+"C:\mythos\gpg4_sample\Core\TexIoTGA.cpp"
+"C:\mythos\gpg4_sample\Core\TextureIO.cpp"
+"C:\mythos\gpg4_sample\Core\VectorMatrix.cpp"
+"C:\mythos\gpg4_sample\Dialogs\DlgChooseMaterial.cpp"
+"C:\mythos\gpg4_sample\Dialogs\DlgChooseTexture.cpp"
+"C:\mythos\gpg4_sample\Dialogs\DlgEditBox.cpp"
+"C:\mythos\gpg4_sample\Dialogs\DlgEditCamera.cpp"
+"C:\mythos\gpg4_sample\Dialogs\DlgEditSphere.cpp"
+"C:\mythos\gpg4_sample\Dialogs\DlgItemName.cpp"
+"C:\mythos\gpg4_sample\Dialogs\DlgRotation.cpp"
+"C:\mythos\gpg4_sample\3DView.cpp"
+"C:\mythos\gpg4_sample\CommandView.cpp"
+"C:\mythos\gpg4_sample\LogReportView.cpp"
+"C:\mythos\gpg4_sample\PropView.cpp"
+"C:\mythos\gpg4_sample\SceneView.cpp"
+"C:\mythos\gpg4_sample\ColoredStatusBar.cpp"
+"C:\mythos\gpg4_sample\FixedSplitter.cpp"
+"C:\mythos\gpg4_sample\TreeCtrlEx.cpp"
+"C:\mythos\gpg4_sample\ChildFrm.cpp"
+"C:\mythos\gpg4_sample\MainFrm.cpp"
+"C:\mythos\gpg4_sample\RTTIProps.cpp"
+"C:\mythos\gpg4_sample\RTTIPropsDoc.cpp"
+"C:\mythos\gpg4_sample\PropSystem\ExtraData.cpp"
+"C:\mythos\gpg4_sample\PropSystem\ExtraProp.cpp"
+"C:\mythos\gpg4_sample\PropSystem\LevelFiles.cpp"
+"C:\mythos\gpg4_sample\PropSystem\Persistent.cpp"
+"C:\mythos\gpg4_sample\PropSystem\PropDescMap.cpp"
+"C:\mythos\gpg4_sample\PropSystem\Properties.cpp"
+"C:\mythos\gpg4_sample\PropSystem\Property.cpp"
+"C:\mythos\gpg4_sample\PropSystem\PropList.cpp"
+"C:\mythos\gpg4_sample\PropSystem\PropListLoad.cpp"
+"C:\mythos\gpg4_sample\Engine\Engine.cpp"
+"C:\mythos\gpg4_sample\Engine\EngineBox.cpp"
+"C:\mythos\gpg4_sample\Engine\EngineCamera.cpp"
+"C:\mythos\gpg4_sample\Engine\EngineMaterial.cpp"
+"C:\mythos\gpg4_sample\Engine\EngineMesh.cpp"
+"C:\mythos\gpg4_sample\Engine\EngineNode.cpp"
+"C:\mythos\gpg4_sample\Engine\EngineObj.cpp"
+"C:\mythos\gpg4_sample\Engine\EngineSphere.cpp"
+"C:\mythos\gpg4_sample\Engine\EngineTexture.cpp"
+"C:\mythos\gpg4_sample\Engine\ListObj.cpp"
+"C:\mythos\gpg4_sample\Rendering\IBuffer.cpp"
+"C:\mythos\gpg4_sample\Rendering\IBufferDX8.cpp"
+"C:\mythos\gpg4_sample\Rendering\MeshDX8.cpp"
+"C:\mythos\gpg4_sample\Rendering\Renderer.cpp"
+"C:\mythos\gpg4_sample\Rendering\RendererDX8.cpp"
+"C:\mythos\gpg4_sample\Rendering\SwapChain.cpp"
+"C:\mythos\gpg4_sample\Rendering\SwapChainDX8.cpp"
+"C:\mythos\gpg4_sample\Rendering\TextureDX8.cpp"
+"C:\mythos\gpg4_sample\Rendering\VBuffer.cpp"
+"C:\mythos\gpg4_sample\Rendering\VBufferDX8.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorBox.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorCamera.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorFolder.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorMaterial.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorNode.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorObj.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorScene.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorSceneItem.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorSphere.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorTexture.cpp"
+"C:\mythos\gpg4_sample\Editor\EditorTool.cpp"
+"C:\mythos\gpg4_sample\Editor\ImgMenu.cpp"
+"C:\mythos\gpg4_sample\Editor\MoveCameraTool.cpp"
+"C:\mythos\gpg4_sample\Editor\MoveSelectionTool.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP3C.tmp" 
+Creating temporary file "C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP3D.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /I ".\core" /I ".\dialogs" /I ".\engine" /I ".\PropSystem" /I ".\rendering" /I ".\editor" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/RTTIProps.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\mythos\gpg4_sample\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP3D.tmp" 
+Creating temporary file "C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP3E.tmp" with contents
+[
+gridctrl.lib d3d8.lib d3dx8.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/RTTIProps.pdb" /machine:I386 /out:"Release/RTTIProps.exe" /libpath:"./gridctrl/release" 
+.\Release\DirC.obj
+.\Release\ErrorAfxMsg.obj
+.\Release\FileC.obj
+.\Release\FindFileC.obj
+.\Release\Logger.obj
+.\Release\MemC.obj
+.\Release\MyAssert.obj
+.\Release\Quaternion.obj
+.\Release\RefCount.obj
+.\Release\StringC.obj
+.\Release\TexIoTGA.obj
+.\Release\TextureIO.obj
+.\Release\VectorMatrix.obj
+.\Release\DlgChooseMaterial.obj
+.\Release\DlgChooseTexture.obj
+.\Release\DlgEditBox.obj
+.\Release\DlgEditCamera.obj
+.\Release\DlgEditSphere.obj
+.\Release\DlgItemName.obj
+.\Release\DlgRotation.obj
+.\Release\3DView.obj
+.\Release\CommandView.obj
+.\Release\LogReportView.obj
+.\Release\PropView.obj
+.\Release\SceneView.obj
+.\Release\ColoredStatusBar.obj
+.\Release\FixedSplitter.obj
+.\Release\TreeCtrlEx.obj
+.\Release\ChildFrm.obj
+.\Release\MainFrm.obj
+.\Release\RTTIProps.obj
+.\Release\RTTIPropsDoc.obj
+.\Release\StdAfx.obj
+.\Release\ExtraData.obj
+.\Release\ExtraProp.obj
+.\Release\LevelFiles.obj
+.\Release\Persistent.obj
+.\Release\PropDescMap.obj
+.\Release\Properties.obj
+.\Release\Property.obj
+.\Release\PropList.obj
+.\Release\PropListLoad.obj
+.\Release\Engine.obj
+.\Release\EngineBox.obj
+.\Release\EngineCamera.obj
+.\Release\EngineMaterial.obj
+.\Release\EngineMesh.obj
+.\Release\EngineNode.obj
+.\Release\EngineObj.obj
+.\Release\EngineSphere.obj
+.\Release\EngineTexture.obj
+.\Release\ListObj.obj
+.\Release\IBuffer.obj
+.\Release\IBufferDX8.obj
+.\Release\MeshDX8.obj
+.\Release\Renderer.obj
+.\Release\RendererDX8.obj
+.\Release\SwapChain.obj
+.\Release\SwapChainDX8.obj
+.\Release\TextureDX8.obj
+.\Release\VBuffer.obj
+.\Release\VBufferDX8.obj
+.\Release\EditorBox.obj
+.\Release\EditorCamera.obj
+.\Release\EditorFolder.obj
+.\Release\EditorMaterial.obj
+.\Release\EditorNode.obj
+.\Release\EditorObj.obj
+.\Release\EditorScene.obj
+.\Release\EditorSceneItem.obj
+.\Release\EditorSphere.obj
+.\Release\EditorTexture.obj
+.\Release\EditorTool.obj
+.\Release\ImgMenu.obj
+.\Release\MoveCameraTool.obj
+.\Release\MoveSelectionTool.obj
+.\Release\RTTIProps.res
+.\GridCtrl\Release\GridCtrl.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\mythos\LOCALS~1\Temp\RSP3E.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Spawn Time 0:00.1
+Compiling...
+StdAfx.cpp
+Spawn Time 0:00.9
+Compiling...
+DirC.cpp
+ErrorAfxMsg.cpp
+FileC.cpp
+FindFileC.cpp
+Logger.cpp
+MemC.cpp
+MyAssert.cpp
+Quaternion.cpp
+RefCount.cpp
+StringC.cpp
+TexIoTGA.cpp
+TextureIO.cpp
+VectorMatrix.cpp
+DlgChooseMaterial.cpp
+DlgChooseTexture.cpp
+DlgEditBox.cpp
+DlgEditCamera.cpp
+DlgEditSphere.cpp
+DlgItemName.cpp
+DlgRotation.cpp
+Generating Code...
+Compiling...
+3DView.cpp
+CommandView.cpp
+LogReportView.cpp
+PropView.cpp
+SceneView.cpp
+ColoredStatusBar.cpp
+FixedSplitter.cpp
+TreeCtrlEx.cpp
+ChildFrm.cpp
+MainFrm.cpp
+RTTIProps.cpp
+RTTIPropsDoc.cpp
+ExtraData.cpp
+ExtraProp.cpp
+LevelFiles.cpp
+Persistent.cpp
+PropDescMap.cpp
+Properties.cpp
+Property.cpp
+PropList.cpp
+Generating Code...
+Compiling...
+PropListLoad.cpp
+Engine.cpp
+EngineBox.cpp
+EngineCamera.cpp
+EngineMaterial.cpp
+EngineMesh.cpp
+EngineNode.cpp
+EngineObj.cpp
+EngineSphere.cpp
+EngineTexture.cpp
+ListObj.cpp
+IBuffer.cpp
+IBufferDX8.cpp
+MeshDX8.cpp
+Renderer.cpp
+RendererDX8.cpp
+SwapChain.cpp
+SwapChainDX8.cpp
+TextureDX8.cpp
+VBuffer.cpp
+Generating Code...
+Compiling...
+VBufferDX8.cpp
+EditorBox.cpp
+EditorCamera.cpp
+EditorFolder.cpp
+EditorMaterial.cpp
+EditorNode.cpp
+EditorObj.cpp
+EditorScene.cpp
+EditorSceneItem.cpp
+EditorSphere.cpp
+EditorTexture.cpp
+EditorTool.cpp
+ImgMenu.cpp
+MoveCameraTool.cpp
+MoveSelectionTool.cpp
+Generating Code...
+Spawn Time 0:42.2
+Linking...
+Spawn Time 0:00.6
+
+
+
+<h3>Results</h3>
+RTTIProps.exe - 0 error(s), 0 warning(s)
+Build Time 0:56.3
+</pre>
+</body>
+</html>

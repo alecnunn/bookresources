@@ -1,0 +1,15 @@
+ps.1.1
+
+;Needed for the complement
+def c0, 1.0, 1.0, 1.0, 1.0
+
+;This is the light texture
+tex t0
+
+;This is the same texture, but this shader only uses the
+;alpha channel
+tex t1
+
+sub r0, c0, t0
+sub r0, r0, t1.a
+mul r0, r0, v0

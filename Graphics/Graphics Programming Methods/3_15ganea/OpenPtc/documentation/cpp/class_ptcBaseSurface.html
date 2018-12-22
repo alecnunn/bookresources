@@ -1,0 +1,428 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::BaseSurface  Class Reference</h1>Surface interface. 
+<a href="#_details">More...</a>
+<p>
+<p>Class diagram for ptc::BaseSurface:
+<p><center><img src="class_ptcBaseSurface.gif" usemap="#ptc::BaseSurface_map" border="0"></center>
+<map name="ptc::BaseSurface_map"><p>
+<area href="class_ptcSurface.html" ALT="ptc::Surface" shape="rect" coords="0,56,109,80">
+<area href="class_ptcBaseConsole.html" ALT="ptc::BaseConsole" shape="rect" coords="119,56,228,80">
+<area href="class_ptcConsole.html" ALT="ptc::Console" shape="rect" coords="119,112,228,136">
+</MAP></P>
+<a href="class_ptcBaseSurface-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li>virtual <a class="el" href="class_ptcBaseSurface.html#a0">~BaseSurface</a> ()
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a1">copy</a> (BaseSurface &amp;surface) = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a2">copy</a> (BaseSurface &amp;surface,const Area &amp;source,const Area &amp;destination) = 0
+<li>virtual void* <a class="el" href="class_ptcBaseSurface.html#a3">lock</a> () = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a4">unlock</a> () = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a5">load</a> (const void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette) = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a6">load</a> (const void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette,const Area &amp;source,const Area &amp;destination) = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a7">save</a> (void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette) = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a8">save</a> (void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette,const Area &amp;source,const Area &amp;destination) = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a9">clear</a> () = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a10">clear</a> (const Color &amp;color) = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a11">clear</a> (const Color &amp;color,const Area &amp;area) = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a12">palette</a> (const Palette &amp;palette) = 0
+<li>virtual const Palette&amp; <a class="el" href="class_ptcBaseSurface.html#a13">palette</a> () const = 0
+<li>virtual void <a class="el" href="class_ptcBaseSurface.html#a14">clip</a> (const Area &amp;area)
+<li>virtual int <a class="el" href="class_ptcBaseSurface.html#a15">width</a> () const = 0
+<li>virtual int <a class="el" href="class_ptcBaseSurface.html#a16">height</a> () const = 0
+<li>virtual int <a class="el" href="class_ptcBaseSurface.html#a17">pitch</a> () const = 0
+<li>virtual const Area&amp; <a class="el" href="class_ptcBaseSurface.html#a18">area</a> () const = 0
+<li>virtual const Area&amp; <a class="el" href="class_ptcBaseSurface.html#a19">clip</a> () const = 0
+<li>virtual const Format&amp; <a class="el" href="class_ptcBaseSurface.html#a20">format</a> () const = 0
+<li>virtual bool <a class="el" href="class_ptcBaseSurface.html#a21">option</a> (const char option[]) = 0
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Surface interface.
+<p>
+This class provides the interface for manipulating an array of pixels.
+<p>
+The ptc::Surface and ptc::Console classes are concrete implementations of this interface. <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::BaseSurface::~BaseSurface"></a>virtual ptc::BaseSurface::~BaseSurface ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Virtual destructor. </div>
+
+<h3><a name="a1" doxytag="ptc::BaseSurface::copy"></a>virtual void ptc::BaseSurface::copy (BaseSurface &amp; <em>surface</em>)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Copies the entire contents of this surface to the other surface specified in the <em>surface</em> parameter.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>surface</em> -  the destination surface. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a2">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a16">ptc::Console</a>.</div>
+
+<h3><a name="a2" doxytag="ptc::BaseSurface::copy"></a>virtual void ptc::BaseSurface::copy (BaseSurface &amp; <em>surface</em>, const Area &amp; <em>source</em>, const Area &amp; <em>destination</em>)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Copies an area of this surface to an area of the other surface specified in the <em>surface</em> parameter.
+<p>
+The source and destination areas are clipped to the clip areas of both surfaces.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>surface</em> -  the destination surface. <dd>
+<em>source</em> -  the source area. <dd>
+<em>destination</em> -  the destination area. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a3">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a17">ptc::Console</a>.</div>
+
+<h3><a name="a3" doxytag="ptc::BaseSurface::lock"></a>virtual void * ptc::BaseSurface::lock ()<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Locks the surface and returns a pointer to the locked surface pixel memory.
+<p>
+Every successful lock must be followed by a call to <a class="el" href="class_ptcBaseSurface.html#a4">BaseSurface::unlock</a>(). Call unlock once you are finished with the surface memory.
+<p>
+Only one lock per surface object is permitted at any one time.
+<p>
+If the surface is already locked a ptc::Error exception will be thrown.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+A pointer to the surface pixel memory. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a4">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a18">ptc::Console</a>.</div>
+
+<h3><a name="a4" doxytag="ptc::BaseSurface::unlock"></a>virtual void ptc::BaseSurface::unlock ()<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Unlocks the surface memory after it was locked by a call to <a class="el" href="class_ptcBaseSurface.html#a3">BaseSurface::lock</a>().
+<p>
+The pointer to the pixel memory retrieved during lock becomes invalid upon return from this function. If you need to access pixel memory again, you must lock the surface again with <a class="el" href="class_ptcBaseSurface.html#a3">BaseSurface::lock</a>().
+<p>
+If the surface was not locked then a ptc::Error exception will be thrown.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+A pointer to the surface pixel memory. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a5">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a19">ptc::Console</a>.</div>
+
+<h3><a name="a5" doxytag="ptc::BaseSurface::load"></a>virtual void ptc::BaseSurface::load (const void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Loads pixels from the pixel array <em>pixels</em> to the surface.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>pixels</em> -  the pixel data to be loaded. <dd>
+<em>width</em> -  the width of the pixel data in pixels. <dd>
+<em>height</em> -  the height of the pixel data in pixels. <dd>
+<em>pitch</em> -  the pitch of the pixel data in bytes. <dd>
+<em>format</em> -  the format of the pixel data. <dd>
+<em>palette</em> -  the palette of the pixel data (ignored in direct color). </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a6">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a20">ptc::Console</a>.</div>
+
+<h3><a name="a6" doxytag="ptc::BaseSurface::load"></a>virtual void ptc::BaseSurface::load (const void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>, const Area &amp; <em>source</em>, const Area &amp; <em>destination</em>)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Loads an area of pixels from the pixel array <em>pixels</em> to an area of the surface.
+<p>
+The source and destination areas are clipped to the surface clip area and the dimensions of the pixel data.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>pixels</em> -  the pixel data to be loaded. <dd>
+<em>width</em> -  the width of the pixel data in pixels. <dd>
+<em>height</em> -  the height of the pixel data in pixels. <dd>
+<em>pitch</em> -  the pitch of the pixel data in bytes. <dd>
+<em>format</em> -  the format of the pixel data. <dd>
+<em>palette</em> -  the palette of the pixel data (ignored in direct color). <dd>
+<em>source</em> -  the source area of pixels to be loaded. <dd>
+<em>destination</em> -  the destination area where pixels will be loaded on the surface. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a7">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a21">ptc::Console</a>.</div>
+
+<h3><a name="a7" doxytag="ptc::BaseSurface::save"></a>virtual void ptc::BaseSurface::save (void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Saves the surface pixels to the pixel array <em>pixels.</em>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>pixels</em> -  the destination pixel data. <dd>
+<em>width</em> -  the width of the pixel data in pixels. <dd>
+<em>height</em> -  the height of the pixel data in pixels. <dd>
+<em>pitch</em> -  the pitch of the pixel data in bytes. <dd>
+<em>format</em> -  the format of the pixel data. <dd>
+<em>palette</em> -  the palette of the pixel data (ignored in direct color). </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a8">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a22">ptc::Console</a>.</div>
+
+<h3><a name="a8" doxytag="ptc::BaseSurface::save"></a>virtual void ptc::BaseSurface::save (void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>, const Area &amp; <em>source</em>, const Area &amp; <em>destination</em>)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Saves an area of the surface pixels to an area of the pixel data array <em>pixels.</em>
+<p>
+The source and destination areas are clipped to the surface clip area and the dimensions of the pixel data.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>pixels</em> -  the destination pixel data. <dd>
+<em>width</em> -  the width of the pixel data in pixels. <dd>
+<em>height</em> -  the height of the pixel data in pixels. <dd>
+<em>pitch</em> -  the pitch of the pixel data in bytes. <dd>
+<em>format</em> -  the format of the pixel data. <dd>
+<em>palette</em> -  the palette of the pixel data (ignored in direct color). <dd>
+<em>source</em> -  the source area of pixels to be saved. <dd>
+<em>destination</em> -  the destination area where pixels will be saved to the pixel data array. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a9">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a23">ptc::Console</a>.</div>
+
+<h3><a name="a9" doxytag="ptc::BaseSurface::clear"></a>virtual void ptc::BaseSurface::clear ()<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Clears the entire contents of the surface to black in direct color and index zero in indexed color.
+<p>
+<dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a10">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a24">ptc::Console</a>.</div>
+
+<h3><a name="a10" doxytag="ptc::BaseSurface::clear"></a>virtual void ptc::BaseSurface::clear (const Color &amp; <em>color</em>)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Clears the entire contents of the surface to the color specified in the <em>color</em> parameter.
+<p>
+If the surface pixels are direct color format then the color parameter must specify a direct color r,g,b,a value.
+<p>
+Conversely, if the surface pixels are indexed color then the color parameter must specify a color index value.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>color</em> -  the clear color. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a11">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a25">ptc::Console</a>.</div>
+
+<h3><a name="a11" doxytag="ptc::BaseSurface::clear"></a>virtual void ptc::BaseSurface::clear (const Color &amp; <em>color</em>, const Area &amp; <em>area</em>)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Clears the area of pixels of the surface specified by the <em>area</em> parameter to the color specified in the <em>color</em> parameter.
+<p>
+If the surface pixels are direct color format then the color parameter must specify a direct color r,g,b,a value.
+<p>
+Conversely if the surface pixels are indexed color then the color parameter must specify a color index value.
+<p>
+The clear area is clipped to the surface clip area.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>color</em> -  the clear color. <dd>
+<em>area</em> -  the clear area. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a12">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a26">ptc::Console</a>.</div>
+
+<h3><a name="a12" doxytag="ptc::BaseSurface::palette"></a>virtual void ptc::BaseSurface::palette (const Palette &amp; <em>palette</em>)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Sets the surface palette to the palette specified in the <em>palette</em> parameter.
+<p>
+Setting the surface palette in direct color will not cause an error to be thrown even though it has no effect.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>palette</em> -  the palette data. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a13">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a27">ptc::Console</a>.</div>
+
+<h3><a name="a13" doxytag="ptc::BaseSurface::palette"></a>virtual const Palette &amp; ptc::BaseSurface::palette () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the surface palette object.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The surface palette object. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a14">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a28">ptc::Console</a>.</div>
+
+<h3><a name="a14" doxytag="ptc::BaseSurface::clip"></a>virtual void ptc::BaseSurface::clip (const Area &amp; <em>area</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Sets the surface clip area to the area specified by the <em>area</em> parameter.
+<p>
+Before the clip area is set it is clipped against the surface area (0,0,width,height).
+<p>
+This ensures that the clip area is always contained within the boundaries of the surface.
+<p>
+<dl compact><dt>
+<b>See also:</b><dd>
+<a class="el" href="class_ptcBaseSurface.html#a19">BaseSurface::clip</a>()
+<p>
+</dl><dl compact><dt>
+<b>Parameters: </b><dd>
+<em>area</em> -  the clip area. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a15">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a29">ptc::Console</a>.</div>
+
+<h3><a name="a15" doxytag="ptc::BaseSurface::width"></a>virtual int ptc::BaseSurface::width () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the width of the surface in pixels.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The width of the surface. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a16">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a30">ptc::Console</a>.</div>
+
+<h3><a name="a16" doxytag="ptc::BaseSurface::height"></a>virtual int ptc::BaseSurface::height () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the height of the surface in pixels.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The height of the surface. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a17">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a31">ptc::Console</a>.</div>
+
+<h3><a name="a17" doxytag="ptc::BaseSurface::pitch"></a>virtual int ptc::BaseSurface::pitch () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the pitch of the surface in bytes.
+<p>
+The pitch is the number of bytes between the start of each horizonal line of pixel memory.
+<p>
+The pitch may be any value - <em>even</em> <em>negative!</em>
+<p>
+Do not make any assumptions about the layout of BaseSurface pixel memory, <b>always</b> <b>check</b> <b>the</b> <b>pitch!</b>
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The pitch of the surface. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a18">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a33">ptc::Console</a>.</div>
+
+<h3><a name="a18" doxytag="ptc::BaseSurface::area"></a>virtual const Area &amp; ptc::BaseSurface::area () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the area of the surface.
+<p>
+The surface area is calculated as Area( 0, 0, <em>surface.width(),</em> <em>surface.height()</em> ).
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The area of the surface. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a19">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a34">ptc::Console</a>.</div>
+
+<h3><a name="a19" doxytag="ptc::BaseSurface::clip"></a>virtual const Area &amp; ptc::BaseSurface::clip () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the clip area of the surface.
+<p>
+The surface clip area is used during clipping areas to the surface.
+<p>
+The clip area is initially set to (0,0,width,height) but may be changed with <a class="el" href="class_ptcBaseSurface.html#a14">BaseSurface::clip</a>(const Area &amp;area).
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The area of the surface. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a20">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a35">ptc::Console</a>.</div>
+
+<h3><a name="a20" doxytag="ptc::BaseSurface::format"></a>virtual const Format &amp; ptc::BaseSurface::format () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the pixel format of the surface.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The pixel format of the surface. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a21">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a36">ptc::Console</a>.</div>
+
+<h3><a name="a21" doxytag="ptc::BaseSurface::option"></a>virtual bool ptc::BaseSurface::option (const char option[])<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Passes an implementation specific option string to the surface.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+<em>true</em> if the option string is recognized, <em>false</em> otherwise. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcSurface.html#a22">ptc::Surface</a>, and <a class="el" href="class_ptcConsole.html#a3">ptc::Console</a>.</div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

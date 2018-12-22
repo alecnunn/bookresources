@@ -1,0 +1,60 @@
+import java.awt.*;
+import java.util.*;
+
+
+/////////////////////////////////////////////////////////////////
+//
+// ContainerSprite: Container class for sprites
+//
+/////////////////////////////////////////////////////////////////
+
+public class ContainerSprite extends Sprite {
+  // vector of the constituent sprites
+  protected Vector sprites;
+
+/////////////////////////////////////////////////////////////////
+// constructor
+/////////////////////////////////////////////////////////////////
+
+  public ContainerSprite() {
+    sprites = new Vector();
+  }
+
+/////////////////////////////////////////////////////////////////
+// add a new sprite
+/////////////////////////////////////////////////////////////////
+
+  public void addSprite(Sprite s) {
+    sprites.addElement(s);
+  }
+
+/////////////////////////////////////////////////////////////////
+// paint each constituent sprite in sprites vector
+/////////////////////////////////////////////////////////////////
+
+  public void paint(Graphics g) {
+    if (isVisible()) {
+      Enumeration e;
+      e = sprites.elements();
+      while (e.hasMoreElements()) {
+	Sprite s = (Sprite) e.nextElement();
+	s.paint(g);
+      }
+    }
+  }
+
+/////////////////////////////////////////////////////////////////
+// update each constituent sprite in sprites vector  
+/////////////////////////////////////////////////////////////////
+
+  public void update() {
+    if (isActive()) {
+      Enumeration e;
+      e = sprites.elements();
+      while (e.hasMoreElements()) {
+	Sprite s = (Sprite) e.nextElement();
+	s.update();
+      }
+    }
+  }
+}

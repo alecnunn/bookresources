@@ -1,0 +1,5 @@
+import flash.events.EventDispatcher;
+function gotoMain(event:Event):void {
+	this.gotoAndPlay("main menu");
+}
+main_btn.addEventListener(MouseEvent.CLICK,gotoMain);

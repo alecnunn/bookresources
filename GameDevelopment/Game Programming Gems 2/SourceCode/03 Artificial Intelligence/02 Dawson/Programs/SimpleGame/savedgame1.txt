@@ -1,0 +1,37 @@
+# At the top level all blocks have a name, an equals sign, and then a
+# brace delimited block.
+# Within each block the are label which are followed by an equals sign
+# and then data. The data format for each label is label defined. The
+# labels must be in a fixed order because I don't feel like writing
+# a more complicated parser. The data for each label must not contain
+# carriage returns new lines, or null characters. DOS EOF characters
+# (Ctrl+Z) are probably a bad idea also.
+# The standard blocks filled in by the input system are StartupData
+# and FrameData.
+# StartupData contains the random seed and any application specified
+# custom data, in numbered blocks.
+# FrameData contains the frame number (redundant, but handy for checking
+StartupData =
+{
+	RandomSeed = 12341234
+	CustomData = 
+}
+FrameData =
+{
+	FrameNumber = 0
+	MouseButtons = 3
+	MousePos = 30, 29
+	KeysPressed = 17, 19, 103
+	CustomData =
+	{
+		CreateObject= "Something"
+		ObjectPositions = {10, 30, 14, 12, 8, 4}
+	}
+}
+FrameData =
+{
+	FrameNumber = 0
+	MouseButtons = 3
+	MousePos = 30, 29
+	KeysPressed = 17, 19, 103
+}

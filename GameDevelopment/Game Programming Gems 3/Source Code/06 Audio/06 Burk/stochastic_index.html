@@ -1,0 +1,69 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.77 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <title>Stochastic Synthesis of Complex Sounds</title>
+</head>
+<body>
+
+<center>
+<h1>
+Stochastic Synthesis of Complex Sounds</h1></center>
+
+<center>
+<h2>
+for Game Gems III</h2></center>
+
+<center>
+<p><br>(C) 2000 Phil Burk, <a href="http://www.softsynth.com/">http://www.softsynth.com/</a></center>
+
+<p>This C++ software was written to accompany two chapters in the book
+Game Gems III.
+<h2>
+Running the Demo</h2>
+An executable file have been provided for computers running Windows.
+<p>This demonstrate the use of stochastic (random) synthesis to generate
+several complex sounds. To hear the demo, double click on <b>"StochasticDemo.exe"</b>.
+<p>Hit the '?' key to see the menu. You can turn the various sounds on
+and off. For the rain, you can increase the number of raindrops per second
+by hitting 'R' and decrease the rate by hitting 'r'.
+<h2>
+Compiling the Demo</h2>
+In the win32 folder, you will find a GameGems.dsw Visual C++ workspace.
+Double click on that and then compile the project. The executable will
+be placed in the win32 folder.
+<p>These demos use the PortAudio library for audio I/O. This is a free
+open-source cross platform audio API that runs on Windows, Macintosh and
+Unix. You should be able to compile the software with little or no modification
+for those platforms. I have provided source code for the Windows MME implementation.
+For serious development, or to compile on non-windows platforms, you should
+download the latest PortAudio source code from:
+<p>&nbsp;&nbsp;&nbsp; <a href="http://www.portaudio.com/">http://www.portaudio.com/</a>
+<p>The PortAudio web site has documentation and tutorials that explain
+how to use it on diffeent platforms.
+<h2>
+Software Design</h2>
+The software is based on a unit generator architecture. Each unit generator
+creates or processes sound. The output of a unit can be pass to another
+for processing. Complex circuits can be built from smaller units or circuits.
+<p>The units and circuits have a gen() method that generates the outputs
+samples using whatever function is specific to the unit. A Unit_Add, for
+example, simply adds its inputs together to make an output.
+<p>The audio synthesis is normally done in small blocks instead of one
+sample at a time. The output samples are written to the outputs array.
+This is more efficient for the CPU. Some units, however, create very slow
+signals and only need to be generate one sample per block. They have a
+gen1() method that only generates one sample and writes it to outputs[0].
+<p>The calculations are done using 32 bit float data types defined as GGSynthFloat.
+This is faster than doubles and is plenty accurate enough for game synthesis.
+<p>Before using this software in a game, please check the web site for
+bug fixes or updates:
+<p>&nbsp;&nbsp;&nbsp; <a href="http://www.softsynth.com/gamegems/">http://www.softsynth.com/gamegems/</a>
+<p>I hope you find this software useful in your projects.
+<p>Phil Burk
+<br><a href="mailto:philburk@softsynth.com">philburk@softsynth.com</a>
+<p>2/15/2002
+</body>
+</html>

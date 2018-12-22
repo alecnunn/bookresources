@@ -1,0 +1,129 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc Namespace Reference</h1>OpenPTC C++ namespace. 
+<a href="#_details">More...</a>
+<p>
+<h2>Compounds</h2>
+<ul>
+<li>class <a class="el" href="class_ptcKey.html">Key</a>
+<li>class <a class="el" href="class_ptcArea.html">Area</a>
+<li>class <a class="el" href="class_ptcCopy.html">Copy</a>
+<li>class <a class="el" href="class_ptcMode.html">Mode</a>
+<li>class <a class="el" href="class_ptcClear.html">Clear</a>
+<li>class <a class="el" href="class_ptcColor.html">Color</a>
+<li>class <a class="el" href="class_ptcError.html">Error</a>
+<li>class <a class="el" href="class_ptcTimer.html">Timer</a>
+<li>class <a class="el" href="class_ptcFormat.html">Format</a>
+<li>class <a class="el" href="class_ptcClipper.html">Clipper</a>
+<li>class <a class="el" href="class_ptcPalette.html">Palette</a>
+<li>class <a class="el" href="class_ptcSurface.html">Surface</a>
+<li>class <a class="el" href="class_ptcConsole.html">Console</a>
+<li>class <a class="el" href="class_ptcBaseSurface.html">BaseSurface</a>
+<li>class <a class="el" href="class_ptcBaseConsole.html">BaseConsole</a>
+</ul>
+<h2>Typedefs</h2>
+<ul>
+<li>typedef unsigned char <a class="el" href="namespace_ptc.html#a0">char8</a>
+<li>typedef unsigned short <a class="el" href="namespace_ptc.html#a1">short16</a>
+<li>typedef unsigned int <a class="el" href="namespace_ptc.html#a2">int32</a>
+</ul>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+OpenPTC C++ namespace.
+<p>
+Including "ptc" will bring in the newest ANSI C++ standard interface with namespaces, and including "<a class="el" href="ptc.h.html">ptc.h</a>" will bring all classes and typedefs into the global namespace.
+<p>
+ANSI C++ compilers may use the "ptc" namespace:
+<p>
+<div class="fragment"><pre>
+
+    #include "ptc"
+
+    using ptc::Error;
+    using ptc::Format;
+    using ptc::Surface;
+    using ptc::Console;
+
+    int main()
+    {
+        try
+        {
+            // create format
+            Format format(32,0x00FF0000,0x0000FF00,0x000000FF);
+
+            // create surface
+            Surface surface(320,200,format);
+
+            // create console
+            Console console;
+
+            // open console
+            console.open("Example program",320,200,format);
+
+            // ...
+        }
+        catch (Error &amp;error)
+        {
+            // report error
+            error.report();
+        }
+    }</pre></div>
+<p>
+However, older compilers that do not support namespaces have to work in the global namespace:
+<p>
+<div class="fragment"><pre>
+
+    #include "<a class="el" href="ptc.h.html">ptc.h</a>"
+
+    int main()
+    {
+        try
+        {
+            // create format
+            Format format(32,0x00FF0000,0x0000FF00,0x000000FF);
+
+            // create surface
+            Surface surface(320,200,format);
+
+            // create console
+            Console console;
+
+            // open console
+            console.open("Example program",320,200,format);
+
+            // ...
+        }
+        catch (Error &amp;error)
+        {
+            // report error
+            error.report();
+        }
+    }</pre></div> 
+<p>
+<hr><h2>Typedef Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::char8"></a>ptc::char8</h3>
+<div class="in">
+
+<p>
+An unsigned 8 bit value. </div>
+
+<h3><a name="a1" doxytag="ptc::short16"></a>ptc::short16</h3>
+<div class="in">
+
+<p>
+An unsigned 16 bit value. </div>
+
+<h3><a name="a2" doxytag="ptc::int32"></a>ptc::int32</h3>
+<div class="in">
+
+<p>
+An unsigned 32 bit value. </div>
+<HR>
+
+</BODY>
+</HTML>

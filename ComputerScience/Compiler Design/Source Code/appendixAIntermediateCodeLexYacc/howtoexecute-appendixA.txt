@@ -1,0 +1,7 @@
+In windows platform
+$ make
+$ ./cexe.exe test_C_filename 
+
+In Linux Platform
+$ make
+$ ./cexe test_C_filename

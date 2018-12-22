@@ -1,0 +1,14 @@
+#include "sph.cg"
+void main(float2 coord : TEXCOORD0,
+		  uniform samplerRECT rect : TEXUNIT0,
+		  uniform samplerRECT attr_rect : TEXUNIT1,
+		  uniform int len,
+		  out float3 result : COLOR)
+{
+	result = float3(0, 0, 0);
+	float2 dp = f2texRECT(attr_rect, float2(coord.y, GPU_ATTR_DP));
+	for (int i = 1; i < len; i++)
+		result += f3texRECT(rect, coord + float2(i, 0));
+	result *= dp.x;///= dp.x;
+	result += f3texRECT(rect, coord);
+}

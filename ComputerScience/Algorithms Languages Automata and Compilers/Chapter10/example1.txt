@@ -1,0 +1,29 @@
+1
+8
+0
+aaabbbccc
+1 a 1 a R
+1 b 1 b R
+1 c 1 c R
+1 _ 2 < L
+2 a 2 a L
+2 b 2 b L
+2 c 2 c L
+2 > 3 > R
+3 _ 3 _ R
+3 < 8 < H
+3 a 4 _ R
+4 a 4 a R
+4 _ 4 _ R
+4 b 5 _ R
+5 b 5 b R
+5 _ 5 _ R
+5 c 6 _ R
+6 c 6 c R
+6 _ 6 _ R
+6 < 7 < L
+7 a 7 a L
+7 b 7 b L
+7 c 7 c L
+7 _ 7 _ L
+7 > 3 > R

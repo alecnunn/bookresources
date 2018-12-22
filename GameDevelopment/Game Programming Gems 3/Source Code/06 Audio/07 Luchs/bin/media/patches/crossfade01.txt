@@ -1,0 +1,99 @@
+
+
+CGAPatch "Crossfade"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.25;
+	}
+
+	CGASineOscillator VCO1
+	{
+		Frequency = 200;
+	}
+
+	CGASineOscillator VCO2
+	{
+		Frequency = 400;
+	}
+
+
+	CGACrossFade2 Fade
+	{
+	
+	}
+
+	Connection = LFO1,Fade, SampleOut, Balance;
+	Connection = VCO1,Fade, SampleOut, SampleIn1;
+	Connection = VCO2,Fade, SampleOut, SampleIn2;
+
+}
+
+CGAPatch "Crossfade 3 channels, Sine"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.2;
+	}
+
+	CGASineOscillator VCO1
+	{
+		Frequency = 200;
+	}
+
+	CGASineOscillator VCO2
+	{
+		Frequency = 400;
+	}
+
+	CGASineOscillator VCO3
+	{
+		Frequency = 600;
+	}
+
+
+	CGACrossFade3 Fade
+	{
+	}
+
+	Connection = LFO1,Fade, SampleOut, Balance;
+	Connection = VCO1,Fade, SampleOut, SampleIn1;
+	Connection = VCO2,Fade, SampleOut, SampleIn2;
+	Connection = VCO3,Fade, SampleOut, SampleIn3;
+
+}
+
+CGAPatch "Crossfade 3 channels, Sawtooth"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.2;
+	}
+
+	CGASawtoothOscBLIT VCO1
+	{
+		Frequency = 100;
+	}
+
+	CGASawtoothOscBLIT VCO2
+	{
+		Frequency = 400;
+	}
+
+	CGASawtoothOscBLIT VCO3
+	{
+		Frequency = 800;
+	}
+
+
+	CGACrossFade3 Fade
+	{
+	}
+
+	Connection = LFO1,Fade, SampleOut, Balance;
+	Connection = VCO1,Fade, SampleOut, SampleIn1;
+	Connection = VCO2,Fade, SampleOut, SampleIn2;
+	Connection = VCO3,Fade, SampleOut, SampleIn3;
+
+}
+

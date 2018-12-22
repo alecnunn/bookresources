@@ -1,0 +1,4405 @@
+<xml>
+
+<engine_root obj='scene root' addr='0x16CC220'/>
+
+<editor_root obj='scene root' addr='0x16CB4F0'/>
+
+<data class='CEditorSceneItem' id='0x16CB4F0'>
+  scene root
+  false
+  true
+  
+  0x16CB250
+  5
+  0x16CB0E0
+  0x16CCD20
+  0x16CCAA0
+  0x16CC7C0
+  0x16CE8F0
+</data>
+
+<data class='CEditorNode' id='0x16CB250'>
+  scene root
+  false
+  false
+  true
+  true
+  true
+  0x16CC220
+</data>
+
+<data class='CEditorSceneItem' id='0x16CB0E0'>
+  maze
+  false
+  false
+  
+  0x16CEEB0
+  6
+  0x16CEDA0
+  0x16CEC40
+  0x16CEAE0
+  0x16CE980
+  0x16CE820
+  0x16CE6C0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CCD20'>
+  materials
+  false
+  true
+  
+  0x16CE500
+  6
+  0x16CE3F0
+  0x16CE290
+  0x16CE130
+  0x16CCB20
+  0x16ED070
+  0x16C6460
+</data>
+
+<data class='CEditorSceneItem' id='0x16CCAA0'>
+  cameras
+  false
+  true
+  
+  0x16CFFC0
+  6
+  0x16CFEB0
+  0x16CFD50
+  0x16CFBF0
+  0x16CFA90
+  0x16C2AA0
+  0x16D0C60
+</data>
+
+<data class='CEditorSceneItem' id='0x16CC7C0'>
+  characters
+  false
+  true
+  
+  0x16CF990
+  5
+  0x16CF880
+  0x16CF720
+  0x16CF5C0
+  0x16C6860
+  0x16CAD70
+</data>
+
+<data class='CEditorSceneItem' id='0x16CE8F0'>
+  gems
+  false
+  false
+  
+  0x16C9E80
+  31
+  0x16C7B60
+  0x16D44A0
+  0x16D0E30
+  0x16D6500
+  0x16D5C80
+  0x16D28A0
+  0x16D63A0
+  0x16C5F20
+  0x16C6F90
+  0x16D9AA0
+  0x16E0E00
+  0x16ED160
+  0x16EC8D0
+  0x16EE0B0
+  0x16EDDB0
+  0x16F0D50
+  0x16F0E50
+  0x16F0340
+  0x16F1DA0
+  0x16F8D50
+  0x16F8E10
+  0x16F95E0
+  0x16FA780
+  0x16FBEB0
+  0x16FBBD0
+  0x16FB650
+  0x16FB0D0
+  0x16FCB10
+  0x16FC5B0
+  0x16FDBB0
+  0x16FD630
+</data>
+
+<data class='CEngineNode' id='0x16CC220'>
+  scene root
+  false
+  10
+  0x16CF3F0
+  0x16D0980
+  0x16C7A10
+  0x16D2EF0
+  0x16D0B20
+  0x16D0EC0
+  0x16D0CF0
+  0x16D0750
+  0x16C2930
+  0x16D7030
+  0; 0; 0; 1
+  0; 0; 0
+  1; 1; 1
+  true
+  true
+</data>
+
+<data class='CEditorFolder' id='0x16CEEB0'>
+  maze
+  false
+  false
+  true
+  true
+  true
+  0x0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CEDA0'>
+  floor
+  false
+  false
+  
+  0x16D6FA0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CEC40'>
+  N wall
+  false
+  false
+  
+  0x16D6E70
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CEAE0'>
+  S wall
+  false
+  false
+  
+  0x16D6D40
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CE980'>
+  W wall
+  false
+  false
+  
+  0x16D6C10
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CE820'>
+  E wall
+  false
+  false
+  
+  0x16D6AE0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CE6C0'>
+  inner walls
+  false
+  true
+  
+  0x16D69D0
+  2
+  0x16D68C0
+  0x16D6460
+</data>
+
+<data class='CEditorFolder' id='0x16CE500'>
+  materials
+  false
+  false
+  true
+  true
+  true
+  0x0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CE3F0'>
+  mat green
+  false
+  false
+  
+  0x16D7620
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CE290'>
+  mat grey
+  false
+  false
+  
+  0x16D7510
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CE130'>
+  mat vampire
+  false
+  true
+  
+  0x16D7400
+  1
+  0x16D7290
+</data>
+
+<data class='CEditorSceneItem' id='0x16CCB20'>
+  mat pacman
+  false
+  true
+  
+  0x16CF8F0
+  1
+  0x16C68D0
+</data>
+
+<data class='CEditorSceneItem' id='0x16ED070'>
+  mat author
+  false
+  true
+  
+  0x16EE790
+  1
+  0x16CEBB0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C6460'>
+  mat gold
+  false
+  false
+  
+  0x16C6620
+  0
+</data>
+
+<data class='CEditorFolder' id='0x16CFFC0'>
+  cameras
+  false
+  false
+  true
+  true
+  true
+  0x0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CFEB0'>
+  default camera
+  false
+  false
+  scene root
+  0x16C7130
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CFD50'>
+  top
+  false
+  false
+  
+  0x16D8F70
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CFBF0'>
+  left
+  false
+  false
+  
+  0x16D8E10
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CFA90'>
+  vampire camera
+  false
+  false
+  
+  0x16D8CB0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C2AA0'>
+  pacman camera
+  false
+  false
+  
+  0x16C2B10
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D0C60'>
+  author
+  false
+  false
+  
+  0x16D2AC0
+  0
+</data>
+
+<data class='CEditorFolder' id='0x16CF990'>
+  characters
+  false
+  false
+  true
+  true
+  true
+  0x0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CF880'>
+  vamp1
+  false
+  false
+  
+  0x16D8B80
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CF720'>
+  vamp2
+  false
+  false
+  
+  0x16D8A50
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CF5C0'>
+  vamp3
+  false
+  false
+  
+  0x16D8920
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C6860'>
+  vamp4
+  false
+  false
+  
+  0x16C4400
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CAD70'>
+  pacman
+  false
+  false
+  
+  0x16CBA40
+  0
+</data>
+
+<data class='CEditorFolder' id='0x16C9E80'>
+  gems
+  false
+  false
+  true
+  true
+  true
+  0x0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C7B60'>
+  gem01
+  false
+  false
+  
+  0x16C7BD0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D44A0'>
+  gem02
+  false
+  false
+  
+  0x16D02D0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D0E30'>
+  gem03
+  false
+  false
+  
+  0x16D3860
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D6500'>
+  gem04
+  false
+  false
+  
+  0x16D3260
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D5C80'>
+  gem05
+  false
+  false
+  
+  0x16D4240
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D28A0'>
+  gem06
+  false
+  false
+  
+  0x16D22F0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D63A0'>
+  gem07
+  false
+  false
+  
+  0x16D7330
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C5F20'>
+  gem08
+  false
+  false
+  
+  0x16C6780
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C6F90'>
+  gem09
+  false
+  false
+  
+  0x16C4040
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D9AA0'>
+  gem10
+  false
+  false
+  
+  0x16DE9E0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16E0E00'>
+  gem11
+  false
+  false
+  
+  0x16E06C0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16ED160'>
+  gem12
+  false
+  false
+  
+  0x16ECEB0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16EC8D0'>
+  gem13
+  false
+  false
+  
+  0x16EC940
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16EE0B0'>
+  gem14
+  false
+  false
+  
+  0x16EE120
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16EDDB0'>
+  gem15
+  false
+  false
+  
+  0x16ED0E0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16F0D50'>
+  gem16
+  false
+  false
+  
+  0x16F0F30
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16F0E50'>
+  gem17
+  false
+  false
+  
+  0x16F0BA0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16F0340'>
+  gem18
+  false
+  false
+  
+  0x16F0B40
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16F1DA0'>
+  gem19
+  false
+  false
+  
+  0x16F0880
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16F8D50'>
+  gem20
+  false
+  false
+  
+  0x16F8F30
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16F8E10'>
+  gem21
+  false
+  false
+  
+  0x16F8BA0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16F95E0'>
+  gem22
+  false
+  false
+  
+  0x16F8600
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16FA780'>
+  gem23
+  false
+  false
+  
+  0x16FADA0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16FBEB0'>
+  gem24
+  false
+  false
+  
+  0x16FA150
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16FBBD0'>
+  gem25
+  false
+  false
+  
+  0x16FB920
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16FB650'>
+  gem26
+  false
+  false
+  
+  0x16FB3A0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16FB0D0'>
+  gem27
+  false
+  false
+  
+  0x16FCE00
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16FCB10'>
+  gem28
+  false
+  false
+  
+  0x16FC880
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16FC5B0'>
+  gem29
+  false
+  false
+  
+  0x16FC2C0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16FDBB0'>
+  gem30
+  false
+  false
+  
+  0x16FDD70
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16FD630'>
+  gem31
+  false
+  false
+  
+  0x16FD7F0
+  0
+</data>
+
+<data class='CEngineBox' id='0x16CF3F0'>
+  floor
+  false
+  9
+  0x16D8740
+  0x16D8540
+  0x16D8340
+  0x16D8140
+  0x16D9EF0
+  0x16D9D30
+  0x16D5910
+  0x16CB3C0
+  0x16CC690
+  0; 0; 0; 1
+  0; -0.05; 0
+  1; 1; 1
+  true
+  true
+  32; 0.1; 24
+  0x16D9BE0
+</data>
+
+<data class='CEngineBox' id='0x16D0980'>
+  wall0001
+  false
+  51
+  0x16D05B0
+  0x16D03B0
+  0x16D01B0
+  0x16D1EF0
+  0x16D1D90
+  0x16D1B90
+  0x16D1990
+  0x16D1790
+  0x16D1590
+  0x16D1390
+  0x16D1190
+  0x16D2D70
+  0x16D2B70
+  0x16D2970
+  0x16D2570
+  0x16D2370
+  0x16D2170
+  0x16D3D50
+  0x16D3950
+  0x16D3550
+  0x16D3150
+  0x16D4EF0
+  0x16D4D30
+  0x16D4B30
+  0x16D4930
+  0x16D4730
+  0x16D4530
+  0x16D4330
+  0x16D4130
+  0x16D5D10
+  0x16D5B10
+  0x16D5510
+  0x16D5310
+  0x16D5110
+  0x16EC100
+  0x16EEAD0
+  0x16EFA10
+  0x16EF460
+  0x16CCDE0
+  0x16C9EC0
+  0x16C9950
+  0x16C9350
+  0x16C7020
+  0x16C4480
+  0x16CBEF0
+  0x16CAC60
+  0x16CA070
+  0x16C8980
+  0x16C8420
+  0x16CDE50
+  0x16CD8A0
+  0; 0; 0; 1
+  -11.5; 0.5; -9.5
+  1; 1; 1
+  true
+  true
+  5; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineSphere' id='0x16C7A10'>
+  gem01
+  false
+  30
+  0x16D6790
+  0x16D6570
+  0x16D7DE0
+  0x16D7BC0
+  0x16D78D0
+  0x16D6190
+  0x16C61E0
+  0x16C6D20
+  0x16DE020
+  0x16E3360
+  0x16EF330
+  0x16EE4A0
+  0x16EDE20
+  0x16ED890
+  0x16F0C00
+  0x16F0640
+  0x16F00B0
+  0x16F1B50
+  0x16F8C00
+  0x16F8680
+  0x16FA660
+  0x16FA1B0
+  0x16FBC60
+  0x16FB6C0
+  0x16FB140
+  0x16FCB80
+  0x16FC620
+  0x16FC060
+  0x16FDAA0
+  0x16FD520
+  0; 0; 0; 1
+  -13.5; 0.5; -8.5
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineBox' id='0x16D2EF0'>
+  block0001
+  false
+  13
+  0x16D2770
+  0x16D3EF0
+  0x16D3B50
+  0x16D3750
+  0x16D3350
+  0x16D5EF0
+  0x16D5710
+  0x16C5B40
+  0x16C5660
+  0x16C5090
+  0x16C7460
+  0x16CB7D0
+  0x16CA6A0
+  0.707107; 0; 0; 0.707107
+  -10; 0.5; 4.5
+  1; 1; 1
+  true
+  true
+  4; 3; 1
+  0x16ED1D0
+</data>
+
+<data class='CEngineCamera' id='0x16D0B20'>
+  default camera
+  false
+  0
+  0.312058; -0.0040749; -0.00133845; 0.950053
+  0.20247; 21.8963; 29.431
+  1; 1; 1
+  true
+  true
+  20.647; -87.2528; -100.049
+  -0.00508642; 0.805236; -0.592933
+  0; 1; 0
+  1.0472
+  1.33333
+  1
+  1000
+  true
+  10
+  true
+  true
+</data>
+
+<data class='CEngineCamera' id='0x16D0EC0'>
+  top
+  false
+  0
+  0.707107; 0; 0; 0.707107
+  0.2; 31.6; -0.200001
+  1; 1; 1
+  true
+  true
+  31.1; -42.7881; -12.7
+  0; 0; -1
+  0; 1; 0
+  1.0472
+  1.33333
+  1
+  1000
+  false
+  29.0337
+  true
+  true
+</data>
+
+<data class='CEngineCamera' id='0x16D0CF0'>
+  left
+  false
+  0
+  0; 0.707107; 0; 0.707107
+  -37.6; 7.7; 0.0500016
+  1; 1; 1
+  true
+  true
+  64.0956; 6.45; 25.1
+  0; 1; 0
+  0; 1; 0
+  1.0472
+  1.33333
+  1
+  1000
+  true
+  10
+  true
+  true
+</data>
+
+<data class='CEngineCamera' id='0x16D0750'>
+  vampire camera
+  false
+  0
+  0.707107; 0; 0; 0.707107
+  -13.8; 10; -10.3
+  1; 1; 1
+  true
+  true
+  -2.3; -8.18474; -0.8
+  0; 0; -1
+  0; 1; 0
+  1.0472
+  1.33333
+  1
+  1000
+  true
+  10
+  true
+  true
+</data>
+
+<data class='CEngineCamera' id='0x16C2930'>
+  pacman camera
+  false
+  0
+  0.707107; 0; 0; 0.707107
+  14.45; 5.6; 3.45
+  1; 1; 1
+  true
+  true
+  14.45; -4.4; 3.45
+  0; 0; -1
+  0; 1; 0
+  1.0472
+  1.33333
+  1
+  1000
+  true
+  10
+  true
+  true
+</data>
+
+<data class='CEngineCamera' id='0x16D7030'>
+  author
+  false
+  0
+  0.707107; 0; 0; 0.707107
+  -10; 6.4; 4.95
+  1; 1; 1
+  true
+  true
+  3.5; -12.6674; 13.45
+  0; 0; -1
+  0; 1; 0
+  1.0472
+  1.33333
+  1
+  1000
+  true
+  10
+  true
+  true
+</data>
+
+<data class='CEditorBox' id='0x16D6FA0'>
+  floor
+  false
+  false
+  true
+  true
+  true
+  0x16CF3F0
+</data>
+
+<data class='CEditorBox' id='0x16D6E70'>
+  N wall
+  false
+  false
+  true
+  true
+  true
+  0x16D8740
+</data>
+
+<data class='CEditorBox' id='0x16D6D40'>
+  S wall
+  false
+  false
+  true
+  true
+  true
+  0x16D8540
+</data>
+
+<data class='CEditorBox' id='0x16D6C10'>
+  W wall
+  false
+  false
+  true
+  true
+  true
+  0x16D8340
+</data>
+
+<data class='CEditorBox' id='0x16D6AE0'>
+  E wall
+  false
+  false
+  true
+  true
+  true
+  0x16D8140
+</data>
+
+<data class='CEditorFolder' id='0x16D69D0'>
+  inner walls
+  false
+  false
+  true
+  true
+  true
+  0x0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D68C0'>
+  blocks
+  false
+  true
+  
+  0x16D9930
+  14
+  0x16D9820
+  0x16D96C0
+  0x16D9560
+  0x16D9400
+  0x16D92A0
+  0x16D9140
+  0x16DAF90
+  0x16DAE70
+  0x16C5D30
+  0x16C5DF0
+  0x16C5570
+  0x16C7650
+  0x16CB9C0
+  0x16CA7F0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D6460'>
+  walls
+  false
+  false
+  
+  0x16DAD70
+  52
+  0x16DAC60
+  0x16DAB00
+  0x16DA9A0
+  0x16DA840
+  0x16DA6E0
+  0x16DA580
+  0x16DA420
+  0x16DA2C0
+  0x16DA160
+  0x16DBF90
+  0x16DBE90
+  0x16DBD30
+  0x16DBBD0
+  0x16DBA70
+  0x16DB910
+  0x16DB7B0
+  0x16DB650
+  0x16DB4F0
+  0x16DB390
+  0x16DB230
+  0x16DB0D0
+  0x16DCF60
+  0x16DCE00
+  0x16DCCA0
+  0x16DCB40
+  0x16DC9E0
+  0x16DC880
+  0x16DC720
+  0x16DC5C0
+  0x16DC460
+  0x16DC300
+  0x16DC1A0
+  0x16DC040
+  0x16DDEC0
+  0x16DDD60
+  0x16EC250
+  0x16EC030
+  0x16EEA20
+  0x16EF940
+  0x16CCF90
+  0x16CC8E0
+  0x16C9E10
+  0x16C94A0
+  0x16C1100
+  0x16C4620
+  0x16CB300
+  0x16CAE50
+  0x16CA1C0
+  0x16C8A90
+  0x16C8530
+  0x16CDF60
+  0x16CD9B0
+</data>
+
+<data class='CEditorMaterial' id='0x16D7620'>
+  mat green
+  false
+  false
+  true
+  true
+  true
+  0x16D9BE0
+</data>
+
+<data class='CEditorMaterial' id='0x16D7510'>
+  mat grey
+  false
+  false
+  true
+  true
+  true
+  0x16D9B10
+</data>
+
+<data class='CEditorMaterial' id='0x16D7400'>
+  mat vampire
+  false
+  false
+  true
+  true
+  true
+  0x16D9A40
+</data>
+
+<data class='CEditorSceneItem' id='0x16D7290'>
+  tex vampire
+  false
+  false
+  
+  0x16DDC60
+  0
+</data>
+
+<data class='CEditorMaterial' id='0x16CF8F0'>
+  mat pacman
+  false
+  false
+  true
+  true
+  true
+  0x16CA620
+</data>
+
+<data class='CEditorSceneItem' id='0x16C68D0'>
+  tex pacman
+  false
+  false
+  
+  0x16C6720
+  0
+</data>
+
+<data class='CEditorMaterial' id='0x16EE790'>
+  mat author
+  false
+  false
+  true
+  true
+  true
+  0x16ED1D0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CEBB0'>
+  tex author
+  false
+  false
+  
+  0x16C9290
+  0
+</data>
+
+<data class='CEditorMaterial' id='0x16C6620'>
+  mat gold
+  false
+  false
+  true
+  true
+  true
+  0x16C6320
+</data>
+
+<data class='CEditorCamera' id='0x16C7130'>
+  default camera
+  false
+  false
+  true
+  true
+  false
+  0x16D0B20
+</data>
+
+<data class='CEditorCamera' id='0x16D8F70'>
+  top
+  false
+  false
+  true
+  true
+  true
+  0x16D0EC0
+</data>
+
+<data class='CEditorCamera' id='0x16D8E10'>
+  left
+  false
+  false
+  true
+  true
+  true
+  0x16D0CF0
+</data>
+
+<data class='CEditorCamera' id='0x16D8CB0'>
+  vampire camera
+  false
+  false
+  true
+  true
+  true
+  0x16D0750
+</data>
+
+<data class='CEditorCamera' id='0x16C2B10'>
+  pacman camera
+  false
+  false
+  true
+  true
+  true
+  0x16C2930
+</data>
+
+<data class='CEditorCamera' id='0x16D2AC0'>
+  author
+  false
+  false
+  true
+  true
+  true
+  0x16D7030
+</data>
+
+<data class='CEditorSphere' id='0x16D8B80'>
+  vamp1
+  false
+  false
+  true
+  true
+  true
+  0x16D9EF0
+</data>
+
+<data class='CEditorSphere' id='0x16D8A50'>
+  vamp2
+  false
+  false
+  true
+  true
+  true
+  0x16D9D30
+</data>
+
+<data class='CEditorSphere' id='0x16D8920'>
+  vamp3
+  false
+  false
+  true
+  true
+  true
+  0x16D5910
+</data>
+
+<data class='CEditorSphere' id='0x16C4400'>
+  vamp4
+  false
+  false
+  true
+  true
+  true
+  0x16CB3C0
+</data>
+
+<data class='CEditorSphere' id='0x16CBA40'>
+  pacman
+  false
+  false
+  true
+  true
+  true
+  0x16CC690
+</data>
+
+<data class='CEditorSphere' id='0x16C7BD0'>
+  gem01
+  false
+  false
+  true
+  true
+  true
+  0x16C7A10
+</data>
+
+<data class='CEditorSphere' id='0x16D02D0'>
+  gem02
+  false
+  false
+  true
+  true
+  true
+  0x16D6790
+</data>
+
+<data class='CEditorSphere' id='0x16D3860'>
+  gem03
+  false
+  false
+  true
+  true
+  true
+  0x16D6570
+</data>
+
+<data class='CEditorSphere' id='0x16D3260'>
+  gem04
+  false
+  false
+  true
+  true
+  true
+  0x16D7DE0
+</data>
+
+<data class='CEditorSphere' id='0x16D4240'>
+  gem05
+  false
+  false
+  true
+  true
+  true
+  0x16D7BC0
+</data>
+
+<data class='CEditorSphere' id='0x16D22F0'>
+  gem06
+  false
+  false
+  true
+  true
+  true
+  0x16D78D0
+</data>
+
+<data class='CEditorSphere' id='0x16D7330'>
+  gem07
+  false
+  false
+  true
+  true
+  true
+  0x16D6190
+</data>
+
+<data class='CEditorSphere' id='0x16C6780'>
+  gem08
+  false
+  false
+  true
+  true
+  true
+  0x16C61E0
+</data>
+
+<data class='CEditorSphere' id='0x16C4040'>
+  gem09
+  false
+  false
+  true
+  true
+  true
+  0x16C6D20
+</data>
+
+<data class='CEditorSphere' id='0x16DE9E0'>
+  gem10
+  false
+  false
+  true
+  true
+  true
+  0x16DE020
+</data>
+
+<data class='CEditorSphere' id='0x16E06C0'>
+  gem11
+  false
+  false
+  true
+  true
+  true
+  0x16E3360
+</data>
+
+<data class='CEditorSphere' id='0x16ECEB0'>
+  gem12
+  false
+  false
+  true
+  true
+  true
+  0x16EF330
+</data>
+
+<data class='CEditorSphere' id='0x16EC940'>
+  gem13
+  false
+  false
+  true
+  true
+  true
+  0x16EE4A0
+</data>
+
+<data class='CEditorSphere' id='0x16EE120'>
+  gem14
+  false
+  false
+  true
+  true
+  true
+  0x16EDE20
+</data>
+
+<data class='CEditorSphere' id='0x16ED0E0'>
+  gem15
+  false
+  false
+  true
+  true
+  true
+  0x16ED890
+</data>
+
+<data class='CEditorSphere' id='0x16F0F30'>
+  gem16
+  false
+  false
+  true
+  true
+  true
+  0x16F0C00
+</data>
+
+<data class='CEditorSphere' id='0x16F0BA0'>
+  gem17
+  false
+  false
+  true
+  true
+  true
+  0x16F0640
+</data>
+
+<data class='CEditorSphere' id='0x16F0B40'>
+  gem18
+  false
+  false
+  true
+  true
+  true
+  0x16F00B0
+</data>
+
+<data class='CEditorSphere' id='0x16F0880'>
+  gem19
+  false
+  false
+  true
+  true
+  true
+  0x16F1B50
+</data>
+
+<data class='CEditorSphere' id='0x16F8F30'>
+  gem20
+  false
+  false
+  true
+  true
+  true
+  0x16F8C00
+</data>
+
+<data class='CEditorSphere' id='0x16F8BA0'>
+  gem21
+  false
+  false
+  true
+  true
+  true
+  0x16F8680
+</data>
+
+<data class='CEditorSphere' id='0x16F8600'>
+  gem22
+  false
+  false
+  true
+  true
+  true
+  0x16FA660
+</data>
+
+<data class='CEditorSphere' id='0x16FADA0'>
+  gem23
+  false
+  false
+  true
+  true
+  true
+  0x16FA1B0
+</data>
+
+<data class='CEditorSphere' id='0x16FA150'>
+  gem24
+  false
+  false
+  true
+  true
+  true
+  0x16FBC60
+</data>
+
+<data class='CEditorSphere' id='0x16FB920'>
+  gem25
+  false
+  false
+  true
+  true
+  true
+  0x16FB6C0
+</data>
+
+<data class='CEditorSphere' id='0x16FB3A0'>
+  gem26
+  false
+  false
+  true
+  true
+  true
+  0x16FB140
+</data>
+
+<data class='CEditorSphere' id='0x16FCE00'>
+  gem27
+  false
+  false
+  true
+  true
+  true
+  0x16FCB80
+</data>
+
+<data class='CEditorSphere' id='0x16FC880'>
+  gem28
+  false
+  false
+  true
+  true
+  true
+  0x16FC620
+</data>
+
+<data class='CEditorSphere' id='0x16FC2C0'>
+  gem29
+  false
+  false
+  true
+  true
+  true
+  0x16FC060
+</data>
+
+<data class='CEditorSphere' id='0x16FDD70'>
+  gem30
+  false
+  false
+  true
+  true
+  true
+  0x16FDAA0
+</data>
+
+<data class='CEditorSphere' id='0x16FD7F0'>
+  gem31
+  false
+  false
+  true
+  true
+  true
+  0x16FD520
+</data>
+
+<data class='CEngineBox' id='0x16D8740'>
+  N wall
+  false
+  0
+  0; 0; 0; 1
+  0; 0.55; -11.5
+  1; 1; 1
+  true
+  true
+  32; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D8540'>
+  S wall
+  false
+  0
+  0; 0; 0; 1
+  0; 0.55; 11.5
+  1; 1; 1
+  true
+  true
+  32; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D8340'>
+  W wall
+  false
+  0
+  0; 0; 0; 1
+  -15.5; 0.55; 0
+  1; 1; 1
+  true
+  true
+  1; 1; 22
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D8140'>
+  E wall
+  false
+  0
+  0; 0; 0; 1
+  15.5; 0.55; 0
+  1; 1; 1
+  true
+  true
+  1; 1; 22
+  0x16D9B10
+</data>
+
+<data class='CEngineSphere' id='0x16D9EF0'>
+  vamp1
+  false
+  0
+  0.5; 0.5; -0.5; 0.5
+  -14.5; 0.55; -10.5
+  1; 1; 1
+  true
+  true
+  0.5
+  16
+  0x16D9A40
+</data>
+
+<data class='CEngineSphere' id='0x16D9D30'>
+  vamp2
+  false
+  0
+  0.5; 0.5; -0.5; 0.5
+  -12.5; 0.55; 6.5
+  1; 1; 1
+  true
+  true
+  0.5
+  16
+  0x16D9A40
+</data>
+
+<data class='CEngineSphere' id='0x16D5910'>
+  vamp3
+  false
+  0
+  0.5; 0.5; -0.5; 0.5
+  -0.5; 0.55; 0.5
+  1; 1; 1
+  true
+  true
+  0.5
+  16
+  0x16D9A40
+</data>
+
+<data class='CEngineSphere' id='0x16CB3C0'>
+  vamp4
+  false
+  0
+  0.5; 0.5; -0.5; 0.5
+  12.5; 0.55; -8.5
+  1; 1; 1
+  true
+  true
+  0.5
+  16
+  0x16D9A40
+</data>
+
+<data class='CEngineSphere' id='0x16CC690'>
+  pacman
+  false
+  0
+  0.5; 0.5; -0.5; 0.5
+  14.5; 0.55; 3.5
+  1; 1; 1
+  true
+  true
+  0.5
+  16
+  0x16CA620
+</data>
+
+<data class='CEngineMaterial' id='0x16D9BE0'>
+  mat green
+  false
+  0.2; 0.8; 0.2; 1
+  true
+  true
+  true
+  0x0
+  0x0
+  0
+  0
+</data>
+
+<data class='CEngineBox' id='0x16D05B0'>
+  wall0002
+  false
+  0
+  0; 0; 0; 1
+  -2; 0; 3.5
+  1; 1; 1
+  true
+  true
+  1; 1; 4
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D03B0'>
+  wall0003
+  false
+  0
+  0; 0; 0; 1
+  -1.5; 0; 7
+  1; 1; 1
+  true
+  true
+  4; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D01B0'>
+  wall0004
+  false
+  0
+  0; 0; 0; 1
+  -2; 0; 9.5
+  1; 1; 1
+  true
+  true
+  1; 1; 4
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D1EF0'>
+  wall0005
+  false
+  0
+  0; 0; 0; 1
+  -2; 0; 14.5
+  1; 1; 1
+  true
+  true
+  1; 1; 4
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D1D90'>
+  wall0006
+  false
+  0
+  0; 0; 0; 1
+  -2; 0; 18.5
+  1; 1; 1
+  true
+  true
+  1; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D1B90'>
+  wall0007
+  false
+  0
+  0; 0; 0; 1
+  0; 0; 2
+  1; 1; 1
+  true
+  true
+  1; 1; 3
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D1990'>
+  wall0008
+  false
+  0
+  0; 0; 0; 1
+  -1; 0; 5
+  1; 1; 1
+  true
+  true
+  1; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D1790'>
+  wall0009
+  false
+  0
+  0; 0; 0; 1
+  1; 0; 5
+  1; 1; 1
+  true
+  true
+  1; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D1590'>
+  wall0010
+  false
+  0
+  0; 0; 0; 0.999999
+  2; -9.53674e-007; 5.5
+  1; 1; 1
+  true
+  true
+  1; 1; 8
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D1390'>
+  wall0011
+  false
+  0
+  0; 0; 0; 1
+  0; 0; 9
+  1; 1; 1
+  true
+  true
+  1; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D1190'>
+  wall0012
+  false
+  0
+  0; 0; 0; 1
+  3; 0; 11
+  1; 1; 1
+  true
+  true
+  7; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D2D70'>
+  wall0013
+  false
+  0
+  0; 0; 0; 1
+  0; 0; 18
+  1; 1; 1
+  true
+  true
+  1; 1; 3
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D2B70'>
+  wall0014
+  false
+  0
+  0; 0; 0; 1
+  2; 0; 17
+  1; 1; 1
+  true
+  true
+  3; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D2970'>
+  wall0015
+  false
+  0
+  0; 0; 0; 1
+  2; 0; 19.5
+  1; 1; 1
+  true
+  true
+  1; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D2570'>
+  wall0016
+  false
+  0
+  0; 0; 0; 1
+  5; 0; 14.5
+  1; 1; 1
+  true
+  true
+  1; 1; 4
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D2370'>
+  wall0017
+  false
+  0
+  0; 0; 0; 1
+  4; 0; 0.5
+  1; 1; 1
+  true
+  true
+  1; 1; 4
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D2170'>
+  wall0018
+  false
+  0
+  0; 0; 0; 1
+  3.5; 0; 4
+  1; 1; 1
+  true
+  true
+  2; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D3D50'>
+  wall0019
+  false
+  0
+  0; 0; 0; 1
+  6; 0; 3.5
+  1; 1; 1
+  true
+  true
+  1; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D3950'>
+  wall0020
+  false
+  0
+  0; 0; 0; 1
+  5; 0; 9
+  1; 1; 1
+  true
+  true
+  3; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D3550'>
+  wall0021
+  false
+  0
+  0; 0; 0; 1
+  8; 0; 10.5
+  1; 1; 1
+  true
+  true
+  1; 1; 4
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D3150'>
+  wall0022
+  false
+  0
+  0; 0; 0; 1
+  8; 0; 17.5
+  1; 1; 1
+  true
+  true
+  1; 1; 4
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D4EF0'>
+  wall0023
+  false
+  0
+  0; 0; 0; 1
+  11; 0; -0.5
+  1; 1; 1
+  true
+  true
+  1; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D4D30'>
+  wall0024
+  false
+  0
+  0; 0; 0; 1
+  11; 0; 4.5
+  1; 1; 1
+  true
+  true
+  1; 1; 6
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D4B30'>
+  wall0025
+  false
+  0
+  0; 0; 0; 1
+  10; 0; 10
+  1; 1; 1
+  true
+  true
+  1; 1; 3
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D4930'>
+  wall0026
+  false
+  0
+  0; 0; 0; 1
+  12; 0; 11
+  1; 1; 1
+  true
+  true
+  3; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D4730'>
+  wall0027
+  false
+  0
+  0; 0; 0; 1
+  16; 0; 11
+  1; 1; 1
+  true
+  true
+  3; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D4530'>
+  wall0028
+  false
+  0
+  0; 0; 0; 1
+  18; 0; 10
+  1; 1; 1
+  true
+  true
+  1; 1; 3
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D4330'>
+  wall0029
+  false
+  0
+  0; 0; 0; 1
+  14; 0; 9
+  1; 1; 1
+  true
+  true
+  7; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D4130'>
+  wall0030
+  false
+  0
+  0; 0; 0; 1
+  10; 0; 19.5
+  1; 1; 1
+  true
+  true
+  1; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D5D10'>
+  wall0031
+  false
+  0
+  0; 0; 0; 1
+  9; 0; 16.5
+  1; 1; 1
+  true
+  true
+  1; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D5B10'>
+  wall0032
+  false
+  0
+  0; 0; 0; 1
+  11.5; 0; 16
+  1; 1; 1
+  true
+  true
+  2; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D5510'>
+  wall0033
+  false
+  0
+  0; 0; 0; 1
+  15.5; 0; 16
+  1; 1; 1
+  true
+  true
+  4; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D5310'>
+  wall0034
+  false
+  0
+  0; 0; 0; 1
+  18; 0; 16
+  1; 1; 1
+  true
+  true
+  1; 1; 7
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D5110'>
+  wall0035
+  false
+  0
+  0; 0; 0; 1
+  16; 0; 19
+  1; 1; 1
+  true
+  true
+  1; 1; 3
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16EC100'>
+  wall0036
+  false
+  0
+  0; 0; 0; 1
+  19; 0; 0
+  1; 1; 1
+  true
+  true
+  13; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16EEAD0'>
+  wall0037
+  false
+  0
+  0; 0; 0; 1
+  13; 0; 4
+  1; 1; 1
+  true
+  true
+  1; 1; 7
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16EFA10'>
+  wall0038
+  false
+  0
+  0; 0; 0; 1
+  25; 0; 4
+  1; 1; 1
+  true
+  true
+  1; 1; 7
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16EF460'>
+  wall0039
+  false
+  0
+  0; 0; 0; 1
+  19; 0; 7
+  1; 1; 1
+  true
+  true
+  9; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16CCDE0'>
+  wall0040
+  false
+  0
+  0; 0; 0; 1
+  15; 0; 5.5
+  1; 1; 1
+  true
+  true
+  1; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C9EC0'>
+  wall0041
+  false
+  0
+  0; 0; 0; 1
+  17.5; 0; 5
+  1; 1; 1
+  true
+  true
+  2; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C9950'>
+  wall0042
+  false
+  0
+  0; 0; 0; 1
+  20.5; 0; 5
+  1; 1; 1
+  true
+  true
+  2; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C9350'>
+  wall0043
+  false
+  0
+  0; 0; 0; 1
+  23; 0; 5.5
+  1; 1; 1
+  true
+  true
+  1; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C7020'>
+  wall0044
+  false
+  0
+  0; 0; 0; 1
+  20; 0; 8.5
+  1; 1; 1
+  true
+  true
+  1; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C4480'>
+  wall0045
+  false
+  0
+  0; 0; 0; 1
+  20; 0; 12
+  1; 1; 1
+  true
+  true
+  1; 1; 3
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16CBEF0'>
+  wall0046
+  false
+  0
+  0; 0; 0; 1
+  26; 0; 10.5
+  1; 1; 1
+  true
+  true
+  1; 1; 4
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16CAC60'>
+  wall0047
+  false
+  0
+  0; 0; 0; 1
+  21; 0; 13
+  1; 1; 1
+  true
+  true
+  1; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16CA070'>
+  wall0048
+  false
+  0
+  0; 0; 0; 1
+  24; 0; 16
+  1; 1; 1
+  true
+  true
+  3; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C8980'>
+  wall0049
+  false
+  0
+  0; 0; 0; 1
+  22.5; 0; 18
+  1; 1; 1
+  true
+  true
+  6; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C8420'>
+  wall0050
+  false
+  0
+  0; 0; 0; 1
+  20; 0; 20
+  1; 1; 1
+  true
+  true
+  1; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16CDE50'>
+  wall0051
+  false
+  0
+  0; 0; 0; 1
+  22; 0; 19
+  1; 1; 1
+  true
+  true
+  1; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16CD8A0'>
+  wall0052
+  false
+  0
+  0; 0; 0; 1
+  24.5; 0; 20
+  1; 1; 1
+  true
+  true
+  2; 1; 1
+  0x16D9B10
+</data>
+
+<data class='CEngineMaterial' id='0x16D9B10'>
+  mat grey
+  false
+  0.75; 0.75; 0.75; 1
+  true
+  true
+  true
+  0x0
+  0x0
+  0
+  0
+</data>
+
+<data class='CEngineSphere' id='0x16D6790'>
+  gem02
+  false
+  0
+  0; 0; 0; 1
+  -1; 0; 4
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16D6570'>
+  gem03
+  false
+  0
+  0; 0; 0; 1
+  2; 0; 5
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16D7DE0'>
+  gem04
+  false
+  0
+  0; 0; 0; 1
+  3; 0; 2
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16D7BC0'>
+  gem05
+  false
+  0
+  0; 0; 0; 1
+  2; 0; -2
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16D78D0'>
+  gem06
+  false
+  0
+  0; 0; 0; 1
+  5; 0; 0
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16D6190'>
+  gem07
+  false
+  0
+  0; 0; 0; 1
+  3; 0; 9
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16C61E0'>
+  gem08
+  false
+  0
+  0; 0; 0; 1
+  0; 0; 11
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16C6D20'>
+  gem09
+  false
+  0
+  0; 0; 0; 1
+  -1; 0; 7
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16DE020'>
+  gem10
+  false
+  0
+  0; 0; 0; 1
+  -1; 0; 15
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16E3360'>
+  gem11
+  false
+  0
+  0; 0; 0; 1
+  3; 0; 17
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16EF330'>
+  gem12
+  false
+  0
+  0; 0; 0; 1
+  6; 0; 11
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16EE4A0'>
+  gem13
+  false
+  0
+  0; 0; 0; 1
+  6; 0; 16
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16EDE20'>
+  gem14
+  false
+  0
+  0; 0; 0; 1
+  10; 0; 19
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16ED890'>
+  gem15
+  false
+  0
+  0; 0; 0; 1
+  11; 0; 14
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16F0C00'>
+  gem16
+  false
+  0
+  0; 0; 0; 1
+  9; 0; 8
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16F0640'>
+  gem17
+  false
+  0
+  0; 0; 0; 1
+  9; 0; 2
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16F00B0'>
+  gem18
+  false
+  0
+  0; 0; 0; 1
+  21; 0; -2
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16F1B50'>
+  gem19
+  false
+  0
+  0; 0; 0; 1
+  16; 0; 0
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16F8C00'>
+  gem20
+  false
+  0
+  0; 0; 0; 1
+  14; 0; 4
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16F8680'>
+  gem21
+  false
+  0
+  0; 0; 0; 1
+  19; 0; 9
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16FA660'>
+  gem22
+  false
+  0
+  0; 0; 0; 1
+  19; 0; 14
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16FA1B0'>
+  gem23
+  false
+  0
+  0; 0; 0; 1
+  13; 0; 19
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16FBC60'>
+  gem24
+  false
+  0
+  0; 0; 0; 1
+  23; 0; 2
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16FB6C0'>
+  gem25
+  false
+  0
+  0; 0; 0; 1
+  20; 0; 5
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16FB140'>
+  gem26
+  false
+  0
+  0; 0; 0; 1
+  28; 0; 3
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16FCB80'>
+  gem27
+  false
+  0
+  0; 0; 0; 1
+  23; 0; 11
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16FC620'>
+  gem28
+  false
+  0
+  0; 0; 0; 1
+  19; 0; 18
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16FC060'>
+  gem29
+  false
+  0
+  0; 0; 0; 1
+  24; 0; 16
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16FDAA0'>
+  gem30
+  false
+  0
+  0; 0; 0; 1
+  23; 0; 19
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineSphere' id='0x16FD520'>
+  gem31
+  false
+  0
+  0; 0; 0; 1
+  28; 0; 19
+  1; 1; 1
+  true
+  true
+  0.4
+  4
+  0x16C6320
+</data>
+
+<data class='CEngineMaterial' id='0x16C6320'>
+  mat gold
+  false
+  1; 1; 0; 1
+  true
+  true
+  true
+  0x0
+  0x0
+  0
+  0
+</data>
+
+<data class='CEngineBox' id='0x16D2770'>
+  block0002
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  3.5; -4.5; 0
+  1; 1; 1
+  true
+  true
+  3; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D3EF0'>
+  block0003
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  6; 13.5; 0
+  1; 1; 1
+  true
+  true
+  4; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D3B50'>
+  block0004
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  5; 7.5; 0
+  1; 1; 1
+  true
+  true
+  6; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D3750'>
+  block0005
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  7; 10.5; 0
+  1; 1; 1
+  true
+  true
+  2; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D3350'>
+  block0006
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  7.5; 0.5; 0
+  1; 1; 1
+  true
+  true
+  5; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D5EF0'>
+  block0007
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  11; -4.5; 0
+  1; 1; 1
+  true
+  true
+  4; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16D5710'>
+  block0008
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  13; 0.5; 0
+  1; 1; 1
+  true
+  true
+  4; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C5B40'>
+  block0009
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  14; 11.5; 0
+  1; 1; 1
+  true
+  true
+  2; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C5660'>
+  block0010
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  17.5; 11.5; 0
+  1; 1; 1
+  true
+  true
+  3; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C5090'>
+  block0011
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  21; 11.5; 0
+  1; 1; 1
+  true
+  true
+  2; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16C7460'>
+  block0012
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  21.5; 4; 0
+  1; 1; 1
+  true
+  true
+  3; 1; 3
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16CB7D0'>
+  block0013
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  22.5; 0.5; 0
+  1; 1; 1
+  true
+  true
+  3; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineBox' id='0x16CA6A0'>
+  block0014
+  false
+  0
+  -0.707107; 0; 0; 0.707107
+  19; -1.5; 0
+  1; 1; 1
+  true
+  true
+  2; 1; 2
+  0x16D9B10
+</data>
+
+<data class='CEngineMaterial' id='0x16ED1D0'>
+  mat author
+  false
+  1; 1; 1; 1
+  false
+  true
+  true
+  0x16CEA30
+  0x0
+  1
+  0
+</data>
+
+<data class='CEditorFolder' id='0x16D9930'>
+  blocks
+  false
+  false
+  true
+  true
+  true
+  0x0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D9820'>
+  block0001
+  false
+  false
+  inner walls
+  0x16DDA30
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D96C0'>
+  block0002
+  false
+  false
+  inner walls
+  0x16DD900
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D9560'>
+  block0003
+  false
+  false
+  
+  0x16DD7D0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D9400'>
+  block0004
+  false
+  false
+  
+  0x16DD6A0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D92A0'>
+  block0005
+  false
+  false
+  
+  0x16DD570
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16D9140'>
+  block0006
+  false
+  false
+  
+  0x16DD440
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DAF90'>
+  block0007
+  false
+  false
+  
+  0x16DD310
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DAE70'>
+  block0008
+  false
+  false
+  
+  0x16DD1E0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C5D30'>
+  block0009
+  false
+  false
+  
+  0x16C4AD0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C5DF0'>
+  block0010
+  false
+  false
+  
+  0x16C5CB0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C5570'>
+  block0011
+  false
+  false
+  
+  0x16C55E0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C7650'>
+  block0012
+  false
+  false
+  
+  0x16C4830
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CB9C0'>
+  block0013
+  false
+  false
+  
+  0x16CCBC0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CA7F0'>
+  block0014
+  false
+  false
+  
+  0x16CA860
+  0
+</data>
+
+<data class='CEditorFolder' id='0x16DAD70'>
+  walls
+  false
+  false
+  true
+  true
+  true
+  0x0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DAC60'>
+  wall0001
+  false
+  true
+  materials
+  0x16DD0B0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DAB00'>
+  wall0002
+  false
+  false
+  inner walls
+  0x16DEF70
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DA9A0'>
+  wall0003
+  false
+  false
+  inner walls
+  0x16DEE40
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DA840'>
+  wall0004
+  false
+  false
+  inner walls
+  0x16DED10
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DA6E0'>
+  wall0005
+  false
+  false
+  inner walls
+  0x16DEBE0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DA580'>
+  wall0006
+  false
+  false
+  inner walls
+  0x16DEAB0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DA420'>
+  wall0007
+  false
+  false
+  inner walls
+  0x16DE980
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DA2C0'>
+  wall0008
+  false
+  false
+  wall0001
+  0x16DE850
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DA160'>
+  wall0009
+  false
+  false
+  inner walls
+  0x16DE720
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DBF90'>
+  wall0010
+  false
+  false
+  inner walls
+  0x16DE5F0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DBE90'>
+  wall0011
+  false
+  false
+  inner walls
+  0x16DE4C0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DBD30'>
+  wall0012
+  false
+  false
+  inner walls
+  0x16DE390
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DBBD0'>
+  wall0013
+  false
+  false
+  inner walls
+  0x16DE260
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DBA70'>
+  wall0014
+  false
+  false
+  inner walls
+  0x16DE130
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DB910'>
+  wall0015
+  false
+  false
+  inner walls
+  0x16DFFA0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DB7B0'>
+  wall0016
+  false
+  false
+  
+  0x16DFEB0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DB650'>
+  wall0017
+  false
+  false
+  
+  0x16DFD80
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DB4F0'>
+  wall0018
+  false
+  false
+  
+  0x16DFC50
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DB390'>
+  wall0019
+  false
+  false
+  
+  0x16DFB20
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DB230'>
+  wall0020
+  false
+  false
+  
+  0x16DF9F0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DB0D0'>
+  wall0021
+  false
+  false
+  
+  0x16DF8C0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DCF60'>
+  wall0022
+  false
+  false
+  
+  0x16DF790
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DCE00'>
+  wall0023
+  false
+  false
+  
+  0x16DF660
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DCCA0'>
+  wall0024
+  false
+  false
+  
+  0x16DF530
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DCB40'>
+  wall0025
+  false
+  false
+  
+  0x16DF400
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DC9E0'>
+  wall0026
+  false
+  false
+  
+  0x16DF2D0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DC880'>
+  wall0027
+  false
+  false
+  
+  0x16D7170
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DC720'>
+  wall0028
+  false
+  false
+  
+  0x16E0FA0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DC5C0'>
+  wall0029
+  false
+  false
+  
+  0x16E0E70
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DC460'>
+  wall0030
+  false
+  false
+  
+  0x16E0D40
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DC300'>
+  wall0031
+  false
+  false
+  
+  0x16E0C10
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DC1A0'>
+  wall0032
+  false
+  false
+  
+  0x16E0AE0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DC040'>
+  wall0033
+  false
+  false
+  
+  0x16E09B0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DDEC0'>
+  wall0034
+  false
+  false
+  
+  0x16E0880
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16DDD60'>
+  wall0035
+  false
+  false
+  
+  0x16E0750
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16EC250'>
+  wall0036
+  false
+  false
+  
+  0x16EE360
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16EC030'>
+  wall0037
+  false
+  false
+  
+  0x16EEFA0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16EEA20'>
+  wall0038
+  false
+  false
+  
+  0x16EC3C0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16EF940'>
+  wall0039
+  false
+  false
+  
+  0x16EF9B0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CCF90'>
+  wall0040
+  false
+  false
+  
+  0x16CF930
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CC8E0'>
+  wall0041
+  false
+  false
+  
+  0x16CEE50
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C9E10'>
+  wall0042
+  false
+  false
+  
+  0x16CC9A0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C94A0'>
+  wall0043
+  false
+  false
+  
+  0x16CF370
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C1100'>
+  wall0044
+  false
+  false
+  
+  0x16C4B30
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C4620'>
+  wall0045
+  false
+  false
+  
+  0x16C75D0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CB300'>
+  wall0046
+  false
+  false
+  
+  0x16CB060
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CAE50'>
+  wall0047
+  false
+  false
+  
+  0x16CC060
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CA1C0'>
+  wall0048
+  false
+  false
+  
+  0x16CA230
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C8A90'>
+  wall0049
+  false
+  false
+  
+  0x16C8B00
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16C8530'>
+  wall0050
+  false
+  false
+  
+  0x16C8920
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CDF60'>
+  wall0051
+  false
+  false
+  
+  0x16C83C0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CD9B0'>
+  wall0052
+  false
+  false
+  
+  0x16CDDF0
+  0
+</data>
+
+<data class='CEngineMaterial' id='0x16D9A40'>
+  mat vampire
+  false
+  1; 1; 1; 1
+  true
+  true
+  true
+  0x16DDB00
+  0x0
+  1
+  0
+</data>
+
+<data class='CEditorTexture' id='0x16DDC60'>
+  tex vampire
+  false
+  false
+  true
+  true
+  true
+  0x16DDB00
+</data>
+
+<data class='CEngineMaterial' id='0x16CA620'>
+  mat pacman
+  false
+  1; 1; 1; 1
+  true
+  true
+  true
+  0x16C76E0
+  0x0
+  1
+  0
+</data>
+
+<data class='CEditorTexture' id='0x16C6720'>
+  tex pacman
+  false
+  false
+  true
+  true
+  true
+  0x16C76E0
+</data>
+
+<data class='CEditorTexture' id='0x16C9290'>
+  tex author
+  false
+  false
+  true
+  true
+  true
+  0x16CEA30
+</data>
+
+<data class='CEngineTexture' id='0x16CEA30'>
+  GGB139.TGA
+  false
+  GGB139.TGA
+</data>
+
+<data class='CEditorBox' id='0x16DDA30'>
+  block0001
+  false
+  false
+  true
+  true
+  true
+  0x16D2EF0
+</data>
+
+<data class='CEditorBox' id='0x16DD900'>
+  block0002
+  false
+  false
+  true
+  true
+  true
+  0x16D2770
+</data>
+
+<data class='CEditorBox' id='0x16DD7D0'>
+  block0003
+  false
+  false
+  true
+  true
+  true
+  0x16D3EF0
+</data>
+
+<data class='CEditorBox' id='0x16DD6A0'>
+  block0004
+  false
+  false
+  true
+  true
+  true
+  0x16D3B50
+</data>
+
+<data class='CEditorBox' id='0x16DD570'>
+  block0005
+  false
+  false
+  true
+  true
+  true
+  0x16D3750
+</data>
+
+<data class='CEditorBox' id='0x16DD440'>
+  block0006
+  false
+  false
+  true
+  true
+  true
+  0x16D3350
+</data>
+
+<data class='CEditorBox' id='0x16DD310'>
+  block0007
+  false
+  false
+  true
+  true
+  true
+  0x16D5EF0
+</data>
+
+<data class='CEditorBox' id='0x16DD1E0'>
+  block0008
+  false
+  false
+  true
+  true
+  true
+  0x16D5710
+</data>
+
+<data class='CEditorBox' id='0x16C4AD0'>
+  block0009
+  false
+  false
+  true
+  true
+  true
+  0x16C5B40
+</data>
+
+<data class='CEditorBox' id='0x16C5CB0'>
+  block0010
+  false
+  false
+  true
+  true
+  true
+  0x16C5660
+</data>
+
+<data class='CEditorBox' id='0x16C55E0'>
+  block0011
+  false
+  false
+  true
+  true
+  true
+  0x16C5090
+</data>
+
+<data class='CEditorBox' id='0x16C4830'>
+  block0012
+  false
+  false
+  true
+  true
+  true
+  0x16C7460
+</data>
+
+<data class='CEditorBox' id='0x16CCBC0'>
+  block0013
+  false
+  false
+  true
+  true
+  true
+  0x16CB7D0
+</data>
+
+<data class='CEditorBox' id='0x16CA860'>
+  block0014
+  false
+  false
+  true
+  true
+  true
+  0x16CA6A0
+</data>
+
+<data class='CEditorBox' id='0x16DD0B0'>
+  wall0001
+  false
+  false
+  true
+  true
+  true
+  0x16D0980
+</data>
+
+<data class='CEditorBox' id='0x16DEF70'>
+  wall0002
+  false
+  false
+  true
+  true
+  true
+  0x16D05B0
+</data>
+
+<data class='CEditorBox' id='0x16DEE40'>
+  wall0003
+  false
+  false
+  true
+  true
+  true
+  0x16D03B0
+</data>
+
+<data class='CEditorBox' id='0x16DED10'>
+  wall0004
+  false
+  false
+  true
+  true
+  true
+  0x16D01B0
+</data>
+
+<data class='CEditorBox' id='0x16DEBE0'>
+  wall0005
+  false
+  false
+  true
+  true
+  true
+  0x16D1EF0
+</data>
+
+<data class='CEditorBox' id='0x16DEAB0'>
+  wall0006
+  false
+  false
+  true
+  true
+  true
+  0x16D1D90
+</data>
+
+<data class='CEditorBox' id='0x16DE980'>
+  wall0007
+  false
+  false
+  true
+  true
+  true
+  0x16D1B90
+</data>
+
+<data class='CEditorBox' id='0x16DE850'>
+  wall0008
+  false
+  false
+  true
+  true
+  true
+  0x16D1990
+</data>
+
+<data class='CEditorBox' id='0x16DE720'>
+  wall0009
+  false
+  false
+  true
+  true
+  true
+  0x16D1790
+</data>
+
+<data class='CEditorBox' id='0x16DE5F0'>
+  wall0010
+  false
+  false
+  true
+  true
+  true
+  0x16D1590
+</data>
+
+<data class='CEditorBox' id='0x16DE4C0'>
+  wall0011
+  false
+  false
+  true
+  true
+  true
+  0x16D1390
+</data>
+
+<data class='CEditorBox' id='0x16DE390'>
+  wall0012
+  false
+  false
+  true
+  true
+  true
+  0x16D1190
+</data>
+
+<data class='CEditorBox' id='0x16DE260'>
+  wall0013
+  false
+  false
+  true
+  true
+  true
+  0x16D2D70
+</data>
+
+<data class='CEditorBox' id='0x16DE130'>
+  wall0014
+  false
+  false
+  true
+  true
+  true
+  0x16D2B70
+</data>
+
+<data class='CEditorBox' id='0x16DFFA0'>
+  wall0015
+  false
+  false
+  true
+  true
+  true
+  0x16D2970
+</data>
+
+<data class='CEditorBox' id='0x16DFEB0'>
+  wall0016
+  false
+  false
+  true
+  true
+  true
+  0x16D2570
+</data>
+
+<data class='CEditorBox' id='0x16DFD80'>
+  wall0017
+  false
+  false
+  true
+  true
+  true
+  0x16D2370
+</data>
+
+<data class='CEditorBox' id='0x16DFC50'>
+  wall0018
+  false
+  false
+  true
+  true
+  true
+  0x16D2170
+</data>
+
+<data class='CEditorBox' id='0x16DFB20'>
+  wall0019
+  false
+  false
+  true
+  true
+  true
+  0x16D3D50
+</data>
+
+<data class='CEditorBox' id='0x16DF9F0'>
+  wall0020
+  false
+  false
+  true
+  true
+  true
+  0x16D3950
+</data>
+
+<data class='CEditorBox' id='0x16DF8C0'>
+  wall0021
+  false
+  false
+  true
+  true
+  true
+  0x16D3550
+</data>
+
+<data class='CEditorBox' id='0x16DF790'>
+  wall0022
+  false
+  false
+  true
+  true
+  true
+  0x16D3150
+</data>
+
+<data class='CEditorBox' id='0x16DF660'>
+  wall0023
+  false
+  false
+  true
+  true
+  true
+  0x16D4EF0
+</data>
+
+<data class='CEditorBox' id='0x16DF530'>
+  wall0024
+  false
+  false
+  true
+  true
+  true
+  0x16D4D30
+</data>
+
+<data class='CEditorBox' id='0x16DF400'>
+  wall0025
+  false
+  false
+  true
+  true
+  true
+  0x16D4B30
+</data>
+
+<data class='CEditorBox' id='0x16DF2D0'>
+  wall0026
+  false
+  false
+  true
+  true
+  true
+  0x16D4930
+</data>
+
+<data class='CEditorBox' id='0x16D7170'>
+  wall0027
+  false
+  false
+  true
+  true
+  true
+  0x16D4730
+</data>
+
+<data class='CEditorBox' id='0x16E0FA0'>
+  wall0028
+  false
+  false
+  true
+  true
+  true
+  0x16D4530
+</data>
+
+<data class='CEditorBox' id='0x16E0E70'>
+  wall0029
+  false
+  false
+  true
+  true
+  true
+  0x16D4330
+</data>
+
+<data class='CEditorBox' id='0x16E0D40'>
+  wall0030
+  false
+  false
+  true
+  true
+  true
+  0x16D4130
+</data>
+
+<data class='CEditorBox' id='0x16E0C10'>
+  wall0031
+  false
+  false
+  true
+  true
+  true
+  0x16D5D10
+</data>
+
+<data class='CEditorBox' id='0x16E0AE0'>
+  wall0032
+  false
+  false
+  true
+  true
+  true
+  0x16D5B10
+</data>
+
+<data class='CEditorBox' id='0x16E09B0'>
+  wall0033
+  false
+  false
+  true
+  true
+  true
+  0x16D5510
+</data>
+
+<data class='CEditorBox' id='0x16E0880'>
+  wall0034
+  false
+  false
+  true
+  true
+  true
+  0x16D5310
+</data>
+
+<data class='CEditorBox' id='0x16E0750'>
+  wall0035
+  false
+  false
+  true
+  true
+  true
+  0x16D5110
+</data>
+
+<data class='CEditorBox' id='0x16EE360'>
+  wall0036
+  false
+  false
+  true
+  true
+  true
+  0x16EC100
+</data>
+
+<data class='CEditorBox' id='0x16EEFA0'>
+  wall0037
+  false
+  false
+  true
+  true
+  true
+  0x16EEAD0
+</data>
+
+<data class='CEditorBox' id='0x16EC3C0'>
+  wall0038
+  false
+  false
+  true
+  true
+  true
+  0x16EFA10
+</data>
+
+<data class='CEditorBox' id='0x16EF9B0'>
+  wall0039
+  false
+  false
+  true
+  true
+  true
+  0x16EF460
+</data>
+
+<data class='CEditorBox' id='0x16CF930'>
+  wall0040
+  false
+  false
+  true
+  true
+  true
+  0x16CCDE0
+</data>
+
+<data class='CEditorBox' id='0x16CEE50'>
+  wall0041
+  false
+  false
+  true
+  true
+  true
+  0x16C9EC0
+</data>
+
+<data class='CEditorBox' id='0x16CC9A0'>
+  wall0042
+  false
+  false
+  true
+  true
+  true
+  0x16C9950
+</data>
+
+<data class='CEditorBox' id='0x16CF370'>
+  wall0043
+  false
+  false
+  true
+  true
+  true
+  0x16C9350
+</data>
+
+<data class='CEditorBox' id='0x16C4B30'>
+  wall0044
+  false
+  false
+  true
+  true
+  true
+  0x16C7020
+</data>
+
+<data class='CEditorBox' id='0x16C75D0'>
+  wall0045
+  false
+  false
+  true
+  true
+  true
+  0x16C4480
+</data>
+
+<data class='CEditorBox' id='0x16CB060'>
+  wall0046
+  false
+  false
+  true
+  true
+  true
+  0x16CBEF0
+</data>
+
+<data class='CEditorBox' id='0x16CC060'>
+  wall0047
+  false
+  false
+  true
+  true
+  true
+  0x16CAC60
+</data>
+
+<data class='CEditorBox' id='0x16CA230'>
+  wall0048
+  false
+  false
+  true
+  true
+  true
+  0x16CA070
+</data>
+
+<data class='CEditorBox' id='0x16C8B00'>
+  wall0049
+  false
+  false
+  true
+  true
+  true
+  0x16C8980
+</data>
+
+<data class='CEditorBox' id='0x16C8920'>
+  wall0050
+  false
+  false
+  true
+  true
+  true
+  0x16C8420
+</data>
+
+<data class='CEditorBox' id='0x16C83C0'>
+  wall0051
+  false
+  false
+  true
+  true
+  true
+  0x16CDE50
+</data>
+
+<data class='CEditorBox' id='0x16CDDF0'>
+  wall0052
+  false
+  false
+  true
+  true
+  true
+  0x16CD8A0
+</data>
+
+<data class='CEngineTexture' id='0x16DDB00'>
+  VAMPIRE.TGA
+  false
+  VAMPIRE.TGA
+</data>
+
+<data class='CEngineTexture' id='0x16C76E0'>
+  PACMAN.TGA
+  false
+  PACMAN.TGA
+</data>
+
+</xml>

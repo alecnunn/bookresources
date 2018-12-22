@@ -1,0 +1,1 @@
+bcc32 test.c ElbyECC.lib

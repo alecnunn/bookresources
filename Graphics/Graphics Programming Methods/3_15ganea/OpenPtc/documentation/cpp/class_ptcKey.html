@@ -1,0 +1,709 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Key  Class Reference</h1>Describes a key press. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcKey-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li>enum <a class="el" href="class_ptcKey.html#a121">Code</a> { <a class="el" href="class_ptcKey.html#a12">ENTER</a>, 
+<a class="el" href="class_ptcKey.html#a13">BACKSPACE</a>, 
+<a class="el" href="class_ptcKey.html#a14">TAB</a>, 
+<a class="el" href="class_ptcKey.html#a15">CANCEL</a>, 
+<a class="el" href="class_ptcKey.html#a16">CLEAR</a>, 
+<a class="el" href="class_ptcKey.html#a17">SHIFT</a>, 
+<a class="el" href="class_ptcKey.html#a18">CONTROL</a>, 
+<a class="el" href="class_ptcKey.html#a19">ALT</a>, 
+<a class="el" href="class_ptcKey.html#a20">PAUSE</a>, 
+<a class="el" href="class_ptcKey.html#a21">CAPSLOCK</a>, 
+<a class="el" href="class_ptcKey.html#a22">ESCAPE</a>, 
+<a class="el" href="class_ptcKey.html#a23">SPACE</a>, 
+<a class="el" href="class_ptcKey.html#a24">PAGEUP</a>, 
+<a class="el" href="class_ptcKey.html#a25">PAGEDOWN</a>, 
+<a class="el" href="class_ptcKey.html#a26">END</a>, 
+<a class="el" href="class_ptcKey.html#a27">HOME</a>, 
+<a class="el" href="class_ptcKey.html#a28">LEFT</a>, 
+<a class="el" href="class_ptcKey.html#a29">UP</a>, 
+<a class="el" href="class_ptcKey.html#a30">RIGHT</a>, 
+<a class="el" href="class_ptcKey.html#a31">DOWN</a>, 
+<a class="el" href="class_ptcKey.html#a32">COMMA</a>, 
+<a class="el" href="class_ptcKey.html#a33">PERIOD</a>, 
+<a class="el" href="class_ptcKey.html#a34">SLASH</a>, 
+<a class="el" href="class_ptcKey.html#a35">ZERO</a>, 
+<a class="el" href="class_ptcKey.html#a36">ONE</a>, 
+<a class="el" href="class_ptcKey.html#a37">TWO</a>, 
+<a class="el" href="class_ptcKey.html#a38">THREE</a>, 
+<a class="el" href="class_ptcKey.html#a39">FOUR</a>, 
+<a class="el" href="class_ptcKey.html#a40">FIVE</a>, 
+<a class="el" href="class_ptcKey.html#a41">SIX</a>, 
+<a class="el" href="class_ptcKey.html#a42">SEVEN</a>, 
+<a class="el" href="class_ptcKey.html#a43">EIGHT</a>, 
+<a class="el" href="class_ptcKey.html#a44">NINE</a>, 
+<a class="el" href="class_ptcKey.html#a45">SEMICOLON</a>, 
+<a class="el" href="class_ptcKey.html#a46">EQUALS</a>, 
+<a class="el" href="class_ptcKey.html#a47">A</a>, 
+<a class="el" href="class_ptcKey.html#a48">B</a>, 
+<a class="el" href="class_ptcKey.html#a49">C</a>, 
+<a class="el" href="class_ptcKey.html#a50">D</a>, 
+<a class="el" href="class_ptcKey.html#a51">E</a>, 
+<a class="el" href="class_ptcKey.html#a52">F</a>, 
+<a class="el" href="class_ptcKey.html#a53">G</a>, 
+<a class="el" href="class_ptcKey.html#a54">H</a>, 
+<a class="el" href="class_ptcKey.html#a55">I</a>, 
+<a class="el" href="class_ptcKey.html#a56">J</a>, 
+<a class="el" href="class_ptcKey.html#a57">K</a>, 
+<a class="el" href="class_ptcKey.html#a58">L</a>, 
+<a class="el" href="class_ptcKey.html#a59">M</a>, 
+<a class="el" href="class_ptcKey.html#a60">N</a>, 
+<a class="el" href="class_ptcKey.html#a61">O</a>, 
+<a class="el" href="class_ptcKey.html#a62">P</a>, 
+<a class="el" href="class_ptcKey.html#a63">Q</a>, 
+<a class="el" href="class_ptcKey.html#a64">R</a>, 
+<a class="el" href="class_ptcKey.html#a65">S</a>, 
+<a class="el" href="class_ptcKey.html#a66">T</a>, 
+<a class="el" href="class_ptcKey.html#a67">U</a>, 
+<a class="el" href="class_ptcKey.html#a68">V</a>, 
+<a class="el" href="class_ptcKey.html#a69">W</a>, 
+<a class="el" href="class_ptcKey.html#a70">X</a>, 
+<a class="el" href="class_ptcKey.html#a71">Y</a>, 
+<a class="el" href="class_ptcKey.html#a72">Z</a>, 
+<a class="el" href="class_ptcKey.html#a73">OPENBRACKET</a>, 
+<a class="el" href="class_ptcKey.html#a74">BACKSLASH</a>, 
+<a class="el" href="class_ptcKey.html#a75">CLOSEBRACKET</a>, 
+<a class="el" href="class_ptcKey.html#a76">NUMPAD0</a>, 
+<a class="el" href="class_ptcKey.html#a77">NUMPAD1</a>, 
+<a class="el" href="class_ptcKey.html#a78">NUMPAD2</a>, 
+<a class="el" href="class_ptcKey.html#a79">NUMPAD3</a>, 
+<a class="el" href="class_ptcKey.html#a80">NUMPAD4</a>, 
+<a class="el" href="class_ptcKey.html#a81">NUMPAD5</a>, 
+<a class="el" href="class_ptcKey.html#a82">NUMPAD6</a>, 
+<a class="el" href="class_ptcKey.html#a83">NUMPAD7</a>, 
+<a class="el" href="class_ptcKey.html#a84">NUMPAD8</a>, 
+<a class="el" href="class_ptcKey.html#a85">NUMPAD9</a>, 
+<a class="el" href="class_ptcKey.html#a86">MULTIPLY</a>, 
+<a class="el" href="class_ptcKey.html#a87">ADD</a>, 
+<a class="el" href="class_ptcKey.html#a88">SEPARATOR</a>, 
+<a class="el" href="class_ptcKey.html#a89">SUBTRACT</a>, 
+<a class="el" href="class_ptcKey.html#a90">DECIMAL</a>, 
+<a class="el" href="class_ptcKey.html#a91">DIVIDE</a>, 
+<a class="el" href="class_ptcKey.html#a92">F1</a>, 
+<a class="el" href="class_ptcKey.html#a93">F2</a>, 
+<a class="el" href="class_ptcKey.html#a94">F3</a>, 
+<a class="el" href="class_ptcKey.html#a95">F4</a>, 
+<a class="el" href="class_ptcKey.html#a96">F5</a>, 
+<a class="el" href="class_ptcKey.html#a97">F6</a>, 
+<a class="el" href="class_ptcKey.html#a98">F7</a>, 
+<a class="el" href="class_ptcKey.html#a99">F8</a>, 
+<a class="el" href="class_ptcKey.html#a100">F9</a>, 
+<a class="el" href="class_ptcKey.html#a101">F10</a>, 
+<a class="el" href="class_ptcKey.html#a102">F11</a>, 
+<a class="el" href="class_ptcKey.html#a103">F12</a>, 
+<a class="el" href="class_ptcKey.html#a104">DELETE</a>, 
+<a class="el" href="class_ptcKey.html#a105">NUMLOCK</a>, 
+<a class="el" href="class_ptcKey.html#a106">SCROLLLOCK</a>, 
+<a class="el" href="class_ptcKey.html#a107">PRINTSCREEN</a>, 
+<a class="el" href="class_ptcKey.html#a108">INSERT</a>, 
+<a class="el" href="class_ptcKey.html#a109">HELP</a>, 
+<a class="el" href="class_ptcKey.html#a110">META</a>, 
+<a class="el" href="class_ptcKey.html#a111">BACKQUOTE</a>, 
+<a class="el" href="class_ptcKey.html#a112">QUOTE</a>, 
+<a class="el" href="class_ptcKey.html#a113">FINAL</a>, 
+<a class="el" href="class_ptcKey.html#a114">CONVERT</a>, 
+<a class="el" href="class_ptcKey.html#a115">NONCONVERT</a>, 
+<a class="el" href="class_ptcKey.html#a116">ACCEPT</a>, 
+<a class="el" href="class_ptcKey.html#a117">MODECHANGE</a>, 
+<a class="el" href="class_ptcKey.html#a118">KANA</a>, 
+<a class="el" href="class_ptcKey.html#a119">KANJI</a>, 
+<a class="el" href="class_ptcKey.html#a120">UNDEFINED</a>
+ }
+<li><a class="el" href="class_ptcKey.html#a0">Key</a> ()
+<li><a class="el" href="class_ptcKey.html#a1">Key</a> (int code)
+<li><a class="el" href="class_ptcKey.html#a2">Key</a> (int code,bool alt,bool shift,bool control)
+<li><a class="el" href="class_ptcKey.html#a3">Key</a> (const Key &amp;key)
+<li><a class="el" href="class_ptcKey.html#a4">~Key</a> ()
+<li>int <a class="el" href="class_ptcKey.html#a5">code</a> () const
+<li>bool <a class="el" href="class_ptcKey.html#a6">alt</a> () const
+<li>bool <a class="el" href="class_ptcKey.html#a7">shift</a> () const
+<li>bool <a class="el" href="class_ptcKey.html#a8">control</a> () const
+<li>Key&amp; <a class="el" href="class_ptcKey.html#a9">operator=</a> (const Key &amp;key)
+<li>bool <a class="el" href="class_ptcKey.html#a10">operator==</a> (const Key &amp;key) const
+<li>bool <a class="el" href="class_ptcKey.html#a11">operator!=</a> (const Key &amp;key) const
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Describes a key press.
+<p>
+The key object represents a single key press.
+<p>
+Each key press consists of a key <em>code</em> that identifies the key pressed, and three modifier flags: <em>alt,</em> <em>shift</em> and <em>control</em> that indicate whether or not the alt, shift or control keys were held while the key was pressed.
+<p>
+Key objects are stored in a fifo queue internally inside the console class when a key is pressed and can be read using the <a class="el" href="class_ptcConsole.html#a14">Console::key</a>() and <a class="el" href="class_ptcConsole.html#a15">Console::read</a>() functions. <hr><h2>Member Enumeration Documentation</h2>
+
+<h3><a name="a121" doxytag="ptc::Key::Code"></a>enum ptc::Key::Code</h3>
+<div class="in">
+
+<p>
+Key code values.
+<p>
+The integer value of each key code is guaranteed to be identical on all platforms.
+<p>
+<dl compact><dt>
+<b>Warning: </b><dd>
+Not all platforms are capable of generating all key codes. </dl>
+<p>
+<b>Enumeration values:</b><ul>
+<a name="a12" doxytag="ENTER"></a><li><b>ENTER</b>
+<p>
+
+<p>
+<a name="a13" doxytag="BACKSPACE"></a><li><b>BACKSPACE</b>
+<p>
+
+<p>
+<a name="a14" doxytag="TAB"></a><li><b>TAB</b>
+<p>
+
+<p>
+<a name="a15" doxytag="CANCEL"></a><li><b>CANCEL</b>
+<p>
+
+<p>
+<a name="a16" doxytag="CLEAR"></a><li><b>CLEAR</b>
+<p>
+
+<p>
+<a name="a17" doxytag="SHIFT"></a><li><b>SHIFT</b>
+<p>
+
+<p>
+<a name="a18" doxytag="CONTROL"></a><li><b>CONTROL</b>
+<p>
+
+<p>
+<a name="a19" doxytag="ALT"></a><li><b>ALT</b>
+<p>
+
+<p>
+<a name="a20" doxytag="PAUSE"></a><li><b>PAUSE</b>
+<p>
+
+<p>
+<a name="a21" doxytag="CAPSLOCK"></a><li><b>CAPSLOCK</b>
+<p>
+
+<p>
+<a name="a22" doxytag="ESCAPE"></a><li><b>ESCAPE</b>
+<p>
+
+<p>
+<a name="a23" doxytag="SPACE"></a><li><b>SPACE</b>
+<p>
+
+<p>
+<a name="a24" doxytag="PAGEUP"></a><li><b>PAGEUP</b>
+<p>
+
+<p>
+<a name="a25" doxytag="PAGEDOWN"></a><li><b>PAGEDOWN</b>
+<p>
+
+<p>
+<a name="a26" doxytag="END"></a><li><b>END</b>
+<p>
+
+<p>
+<a name="a27" doxytag="HOME"></a><li><b>HOME</b>
+<p>
+
+<p>
+<a name="a28" doxytag="LEFT"></a><li><b>LEFT</b>
+<p>
+
+<p>
+<a name="a29" doxytag="UP"></a><li><b>UP</b>
+<p>
+
+<p>
+<a name="a30" doxytag="RIGHT"></a><li><b>RIGHT</b>
+<p>
+
+<p>
+<a name="a31" doxytag="DOWN"></a><li><b>DOWN</b>
+<p>
+
+<p>
+<a name="a32" doxytag="COMMA"></a><li><b>COMMA</b>
+<p>
+
+<p>
+<a name="a33" doxytag="PERIOD"></a><li><b>PERIOD</b>
+<p>
+
+<p>
+<a name="a34" doxytag="SLASH"></a><li><b>SLASH</b>
+<p>
+
+<p>
+<a name="a35" doxytag="ZERO"></a><li><b>ZERO</b>
+<p>
+
+<p>
+<a name="a36" doxytag="ONE"></a><li><b>ONE</b>
+<p>
+
+<p>
+<a name="a37" doxytag="TWO"></a><li><b>TWO</b>
+<p>
+
+<p>
+<a name="a38" doxytag="THREE"></a><li><b>THREE</b>
+<p>
+
+<p>
+<a name="a39" doxytag="FOUR"></a><li><b>FOUR</b>
+<p>
+
+<p>
+<a name="a40" doxytag="FIVE"></a><li><b>FIVE</b>
+<p>
+
+<p>
+<a name="a41" doxytag="SIX"></a><li><b>SIX</b>
+<p>
+
+<p>
+<a name="a42" doxytag="SEVEN"></a><li><b>SEVEN</b>
+<p>
+
+<p>
+<a name="a43" doxytag="EIGHT"></a><li><b>EIGHT</b>
+<p>
+
+<p>
+<a name="a44" doxytag="NINE"></a><li><b>NINE</b>
+<p>
+
+<p>
+<a name="a45" doxytag="SEMICOLON"></a><li><b>SEMICOLON</b>
+<p>
+
+<p>
+<a name="a46" doxytag="EQUALS"></a><li><b>EQUALS</b>
+<p>
+
+<p>
+<a name="a47" doxytag="A"></a><li><b>A</b>
+<p>
+
+<p>
+<a name="a48" doxytag="B"></a><li><b>B</b>
+<p>
+
+<p>
+<a name="a49" doxytag="C"></a><li><b>C</b>
+<p>
+
+<p>
+<a name="a50" doxytag="D"></a><li><b>D</b>
+<p>
+
+<p>
+<a name="a51" doxytag="E"></a><li><b>E</b>
+<p>
+
+<p>
+<a name="a52" doxytag="F"></a><li><b>F</b>
+<p>
+
+<p>
+<a name="a53" doxytag="G"></a><li><b>G</b>
+<p>
+
+<p>
+<a name="a54" doxytag="H"></a><li><b>H</b>
+<p>
+
+<p>
+<a name="a55" doxytag="I"></a><li><b>I</b>
+<p>
+
+<p>
+<a name="a56" doxytag="J"></a><li><b>J</b>
+<p>
+
+<p>
+<a name="a57" doxytag="K"></a><li><b>K</b>
+<p>
+
+<p>
+<a name="a58" doxytag="L"></a><li><b>L</b>
+<p>
+
+<p>
+<a name="a59" doxytag="M"></a><li><b>M</b>
+<p>
+
+<p>
+<a name="a60" doxytag="N"></a><li><b>N</b>
+<p>
+
+<p>
+<a name="a61" doxytag="O"></a><li><b>O</b>
+<p>
+
+<p>
+<a name="a62" doxytag="P"></a><li><b>P</b>
+<p>
+
+<p>
+<a name="a63" doxytag="Q"></a><li><b>Q</b>
+<p>
+
+<p>
+<a name="a64" doxytag="R"></a><li><b>R</b>
+<p>
+
+<p>
+<a name="a65" doxytag="S"></a><li><b>S</b>
+<p>
+
+<p>
+<a name="a66" doxytag="T"></a><li><b>T</b>
+<p>
+
+<p>
+<a name="a67" doxytag="U"></a><li><b>U</b>
+<p>
+
+<p>
+<a name="a68" doxytag="V"></a><li><b>V</b>
+<p>
+
+<p>
+<a name="a69" doxytag="W"></a><li><b>W</b>
+<p>
+
+<p>
+<a name="a70" doxytag="X"></a><li><b>X</b>
+<p>
+
+<p>
+<a name="a71" doxytag="Y"></a><li><b>Y</b>
+<p>
+
+<p>
+<a name="a72" doxytag="Z"></a><li><b>Z</b>
+<p>
+
+<p>
+<a name="a73" doxytag="OPENBRACKET"></a><li><b>OPENBRACKET</b>
+<p>
+
+<p>
+<a name="a74" doxytag="BACKSLASH"></a><li><b>BACKSLASH</b>
+<p>
+
+<p>
+<a name="a75" doxytag="CLOSEBRACKET"></a><li><b>CLOSEBRACKET</b>
+<p>
+
+<p>
+<a name="a76" doxytag="NUMPAD0"></a><li><b>NUMPAD0</b>
+<p>
+
+<p>
+<a name="a77" doxytag="NUMPAD1"></a><li><b>NUMPAD1</b>
+<p>
+
+<p>
+<a name="a78" doxytag="NUMPAD2"></a><li><b>NUMPAD2</b>
+<p>
+
+<p>
+<a name="a79" doxytag="NUMPAD3"></a><li><b>NUMPAD3</b>
+<p>
+
+<p>
+<a name="a80" doxytag="NUMPAD4"></a><li><b>NUMPAD4</b>
+<p>
+
+<p>
+<a name="a81" doxytag="NUMPAD5"></a><li><b>NUMPAD5</b>
+<p>
+
+<p>
+<a name="a82" doxytag="NUMPAD6"></a><li><b>NUMPAD6</b>
+<p>
+
+<p>
+<a name="a83" doxytag="NUMPAD7"></a><li><b>NUMPAD7</b>
+<p>
+
+<p>
+<a name="a84" doxytag="NUMPAD8"></a><li><b>NUMPAD8</b>
+<p>
+
+<p>
+<a name="a85" doxytag="NUMPAD9"></a><li><b>NUMPAD9</b>
+<p>
+
+<p>
+<a name="a86" doxytag="MULTIPLY"></a><li><b>MULTIPLY</b>
+<p>
+
+<p>
+<a name="a87" doxytag="ADD"></a><li><b>ADD</b>
+<p>
+
+<p>
+<a name="a88" doxytag="SEPARATOR"></a><li><b>SEPARATOR</b>
+<p>
+
+<p>
+<a name="a89" doxytag="SUBTRACT"></a><li><b>SUBTRACT</b>
+<p>
+
+<p>
+<a name="a90" doxytag="DECIMAL"></a><li><b>DECIMAL</b>
+<p>
+
+<p>
+<a name="a91" doxytag="DIVIDE"></a><li><b>DIVIDE</b>
+<p>
+
+<p>
+<a name="a92" doxytag="F1"></a><li><b>F1</b>
+<p>
+
+<p>
+<a name="a93" doxytag="F2"></a><li><b>F2</b>
+<p>
+
+<p>
+<a name="a94" doxytag="F3"></a><li><b>F3</b>
+<p>
+
+<p>
+<a name="a95" doxytag="F4"></a><li><b>F4</b>
+<p>
+
+<p>
+<a name="a96" doxytag="F5"></a><li><b>F5</b>
+<p>
+
+<p>
+<a name="a97" doxytag="F6"></a><li><b>F6</b>
+<p>
+
+<p>
+<a name="a98" doxytag="F7"></a><li><b>F7</b>
+<p>
+
+<p>
+<a name="a99" doxytag="F8"></a><li><b>F8</b>
+<p>
+
+<p>
+<a name="a100" doxytag="F9"></a><li><b>F9</b>
+<p>
+
+<p>
+<a name="a101" doxytag="F10"></a><li><b>F10</b>
+<p>
+
+<p>
+<a name="a102" doxytag="F11"></a><li><b>F11</b>
+<p>
+
+<p>
+<a name="a103" doxytag="F12"></a><li><b>F12</b>
+<p>
+
+<p>
+<a name="a104" doxytag="DELETE"></a><li><b>DELETE</b>
+<p>
+
+<p>
+<a name="a105" doxytag="NUMLOCK"></a><li><b>NUMLOCK</b>
+<p>
+
+<p>
+<a name="a106" doxytag="SCROLLLOCK"></a><li><b>SCROLLLOCK</b>
+<p>
+
+<p>
+<a name="a107" doxytag="PRINTSCREEN"></a><li><b>PRINTSCREEN</b>
+<p>
+
+<p>
+<a name="a108" doxytag="INSERT"></a><li><b>INSERT</b>
+<p>
+
+<p>
+<a name="a109" doxytag="HELP"></a><li><b>HELP</b>
+<p>
+
+<p>
+<a name="a110" doxytag="META"></a><li><b>META</b>
+<p>
+
+<p>
+<a name="a111" doxytag="BACKQUOTE"></a><li><b>BACKQUOTE</b>
+<p>
+
+<p>
+<a name="a112" doxytag="QUOTE"></a><li><b>QUOTE</b>
+<p>
+
+<p>
+<a name="a113" doxytag="FINAL"></a><li><b>FINAL</b>
+<p>
+
+<p>
+<a name="a114" doxytag="CONVERT"></a><li><b>CONVERT</b>
+<p>
+
+<p>
+<a name="a115" doxytag="NONCONVERT"></a><li><b>NONCONVERT</b>
+<p>
+
+<p>
+<a name="a116" doxytag="ACCEPT"></a><li><b>ACCEPT</b>
+<p>
+
+<p>
+<a name="a117" doxytag="MODECHANGE"></a><li><b>MODECHANGE</b>
+<p>
+
+<p>
+<a name="a118" doxytag="KANA"></a><li><b>KANA</b>
+<p>
+
+<p>
+<a name="a119" doxytag="KANJI"></a><li><b>KANJI</b>
+<p>
+
+<p>
+<a name="a120" doxytag="UNDEFINED"></a><li><b>UNDEFINED</b>
+<p>
+
+<p>
+</ul>
+
+</div>
+<hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Key::Key"></a>ptc::Key::Key ()</h3>
+<div class="in">
+
+<p>
+Default constructor.
+<p>
+<em>code</em> is set to UNDEFINED and <em>alt,</em> <em>shift</em> and <em>control</em> are set to false. </div>
+
+<h3><a name="a1" doxytag="ptc::Key::Key"></a>ptc::Key::Key (int <em>code</em>)</h3>
+<div class="in">
+
+<p>
+Creates a key object with the key code set to <em>code.</em>
+<p>
+<em>alt,</em> <em>shift</em> and <em>control</em> are set to false.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>code</em> -  the key code. </dl></div>
+
+<h3><a name="a2" doxytag="ptc::Key::Key"></a>ptc::Key::Key (int <em>code</em>, bool <em>alt</em>, bool <em>shift</em>, bool <em>control</em>)</h3>
+<div class="in">
+
+<p>
+Creates a key object with the key code set to <em>code</em> and the <em>alt,</em> <em>shift</em> and <em>control</em> modifiers set.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>code</em> -  the key code <dd>
+<em>alt</em> -  the alt key modifier <dd>
+<em>shift</em> -  the shift key modifier <dd>
+<em>control</em> -  the control key modifier </dl></div>
+
+<h3><a name="a3" doxytag="ptc::Key::Key"></a>ptc::Key::Key (const Key &amp; <em>key</em>)</h3>
+<div class="in">
+
+<p>
+Copy constructor. </div>
+
+<h3><a name="a4" doxytag="ptc::Key::~Key"></a>ptc::Key::~Key ()</h3>
+<div class="in">
+
+<p>
+Destructor. </div>
+
+<h3><a name="a5" doxytag="ptc::Key::code"></a>int ptc::Key::code () const</h3>
+<div class="in">
+
+<p>
+Gets the key code.
+<p>
+See <a class="el" href="class_ptcKey.html#a121">Key::Code</a> for a list of valid key codes.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The key code. </dl></div>
+
+<h3><a name="a6" doxytag="ptc::Key::alt"></a>bool ptc::Key::alt () const</h3>
+<div class="in">
+
+<p>
+Gets the alt key modifier.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+<em>true</em> if the alt key is pressed, <em>false</em> otherwise. </dl></div>
+
+<h3><a name="a7" doxytag="ptc::Key::shift"></a>bool ptc::Key::shift () const</h3>
+<div class="in">
+
+<p>
+Gets the shift key modifier.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+<em>true</em> if the shift key is pressed, <em>false</em> otherwise. </dl></div>
+
+<h3><a name="a8" doxytag="ptc::Key::control"></a>bool ptc::Key::control () const</h3>
+<div class="in">
+
+<p>
+Gets the control key modifier.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+<em>true</em> if the control key is pressed, <em>false</em> otherwise. </dl></div>
+
+<h3><a name="a9" doxytag="ptc::Key::operator="></a>Key &amp; ptc::Key::operator= (const Key &amp; <em>key</em>)</h3>
+<div class="in">
+
+<p>
+Assignment operator. </div>
+
+<h3><a name="a10" doxytag="ptc::Key::operator=="></a>bool ptc::Key::operator== (const Key &amp; <em>key</em>) const</h3>
+<div class="in">
+
+<p>
+Equality operator. </div>
+
+<h3><a name="a11" doxytag="ptc::Key::operator!="></a>bool ptc::Key::operator!= (const Key &amp; <em>key</em>) const</h3>
+<div class="in">
+
+<p>
+Inequality operator. </div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,737 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - ic.y</h2>
+<p>%{<br>
+  #include &quot;ic.h&quot;<br>
+  Quad *quadTable=NULL;<br>
+  BBlock *bblockTable=NULL;<br>
+  Label *labelTable=NULL;<br>
+  char str[10];<br>
+  int i;<br>
+  char *ptr;<br>
+  int numDim;<br>
+  char labelpending[10];<br>
+  char tempvar[10];<br>
+  char tempLabel[10];<br>
+  char switchExpResult[10];<br>
+  char switchFlagName[10];<br>
+  short int dataType;<br>
+  short int signType;<br>
+  short int storeType;<br>
+  short int qualifierType;<br>
+  short int dataSize;<br>
+  int dimArray[DIMSIZE+1];<br>
+  int totArrayElements;<br>
+  extern int lineNo;<br>
+  extern LNode* findSymbolHash(char*);<br>
+  LNode* L;<br>
+  Attr opnd1,opnd2,result;<br>
+  Attr noAttr, tempAttr,constAttr,constAttr1,constAttr2,constAttr3;<br>
+  Attr attr1,tempAttr1,tempAttr2,tempAttr3;<br>
+  short int noDimensions;<br>
+  typedef struct TFLABEL<br>
+  { <br>
+char trueLabel[10];<br>
+char falseLabel[10];<br>
+}TFLABEL;<br>
+TFLABEL tflabel;<br>
+%}<br>
+%union<br>
+{<br>
+char name[NAMESIZE];<br>
+int no;<br>
+Attr attr;<br>
+<br>
+/*Label label;*/<br>
+struct tfLabel<br>
+{ <br>
+char trueLabel[10];<br>
+char falseLabel[10];<br>
+}tflabel;<br>
+struct ForLabel<br>
+{<br>
+char cond2Label[10];<br>
+char cond3Label[10];<br>
+char cond2TestLabel[10];<br>
+char nextStmtLabel[10];<br>
+}forLabel;<br>
+};</p>
+<p>%left _or<br>
+  %left _and<br>
+  %left _eq _ne<br>
+  %left _lt _le _gt _ge<br>
+  %left _minus _plus<br>
+  %left _mul _div _modulo<br>
+  %nonassoc _uminus <br>
+  %token _char _int _float  _double  _const  _signed  _unsigned  _short _long<br>
+  %token _goto _else _switch _break _continue _case _struct<br>
+  %token _union _typedef _main _assign _default<br>
+  %token _leftb _rightb _leftp _rightp _leftsp _rightsp _comma _semicolon _colon<br>
+  %token _void _auto _register _static _extern _volatile <br>
+  %token _eofile<br>
+  %token &lt;attr&gt; _id<br>
+  %token &lt;attr&gt; _charcons<br>
+  %token  &lt;attr&gt; _num<br>
+  %token  &lt;attr&gt; _dnum<br>
+  %type &lt;attr&gt; cons<br>
+  %type &lt;attr&gt; LValue<br>
+  %type &lt;attr&gt; assignExpr<br>
+  %type &lt;attr&gt; Expr<br>
+  %type &lt;attr&gt; arrayDims<br>
+  %type &lt;attr&gt; condition<br>
+  %token &lt;tflabel&gt; _if<br>
+  %token &lt;tflabel&gt; _while<br>
+  %token &lt;tflabel&gt; _do<br>
+  %token &lt;forLabel&gt; _for<br>
+  %type &lt;no&gt; dType<br>
+  %type &lt;no&gt; sType<br>
+  %type &lt;no&gt; qType<br>
+  %type &lt;no&gt; sign<br>
+  %%<br>
+  Pgm     : _main{<br>
+  initHash(HASHSIZE);<br>
+  createQuadList(&amp;quadTable);<br>
+  createBBlockList(&amp;bblockTable);<br>
+  createLabelsListHeader(&amp;labelTable);<br>
+  strcpy(labelpending,&quot; &quot;);<br>
+  } <br>
+  _leftp _rightp _leftb Stmts _rightb _eofile <br>
+  {<br>
+  if(errCount == 0)<br>
+  {<br>
+  printCode(quadTable);<br>
+  split2BB(quadTable,&amp;bblockTable);<br>
+  printBB(bblockTable);<br>
+  constructFlowGraph(bblockTable);<br>
+  printFlowGraph(bblockTable);<br>
+  printLabelsList(labelTable);<br>
+  printf(&quot;\n&quot;);<br>
+  //dispSymbolTableHash();<br>
+  }<br>
+  destroySymbolTable(HASHSIZE);<br>
+  return;<br>
+  }</p>
+<p>Stmts   : Stmts Stmt | Stmt <br>
+  ;</p>
+<p>Stmt    : dStmt|eStmt<br>
+  ;</p>
+<p>eStmt	: assignStmt <br>
+  | ifStmt<br>
+  | whileStmt <br>
+  | doStmt <br>
+  | forStmt <br>
+  | breakStmt <br>
+  | continueStmt<br>
+  | switchStmt<br>
+  | gotoStmt<br>
+  ;</p>
+<p>dStmt   : sType qType sign dType varList _semicolon<br>
+  ;</p>
+<p>varList : varList _comma id <br>
+  |id<br>
+  ;<br>
+  id:	_id 			{<br>
+  sym.nameLen = strlen($1.name);<br>
+  sym.name = malloc(sym.nameLen+1);<br>
+  strcpy(sym.name,$1.name);<br>
+  sym.storage = storeType;<br>
+  sym.qualifier = qualifierType;<br>
+  sym.sign=signType;<br>
+  sym.subtype = BASIC; <br>
+  sym.datatype = dataType; <br>
+  sym.type = ID;<br>
+  sym.width = dataSize; <br>
+  sym.relAddr=relAddr;<br>
+  relAddr = relAddr + sym.width;<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | _id dimList<br>
+  {<br>
+  sym.nameLen = strlen($1.name);<br>
+  sym.name = malloc(sym.nameLen+1);<br>
+  strcpy(sym.name,$1.name);<br>
+  sym.storage = storeType;<br>
+  sym.qualifier = qualifierType;<br>
+  sym.sign=signType;<br>
+  sym.type = ID;<br>
+  sym.subtype = ARRAY; <br>
+  sym.datatype = dataType; <br>
+  sym.width = dataSize; <br>
+  totArrayElements = 1;<br>
+  if(sym.type == ARRAY)<br>
+  sym.dimArray = malloc(sizeof(int) * (dimArray[0]+1));<br>
+  totArrayElements = 1;<br>
+  for(i = 1;i &lt;= dimArray[0];i++)<br>
+  totArrayElements *= dimArray[i];<br>
+  sym.relAddr = relAddr;<br>
+  sym.dimArray = malloc((dimArray[0]+1)*sizeof(int));<br>
+  memcpy(sym.dimArray,dimArray,(dimArray[0]+1) * sizeof(int));<br>
+  relAddr=relAddr+totArrayElements * sym.width;<br>
+  addSymbolHash(sym);<br>
+  numDim = 0;<br>
+  }<br>
+  ;<br>
+  dimList	: dimList _leftsp _num _rightsp 	{ <br>
+  dimArray[0]=++numDim;<br>
+  dimArray[numDim] = $3.value.iVal;// atoi($3.name);<br>
+  }<br>
+  |_leftsp _num _rightsp	{<br>
+  dimArray[0]=++numDim;<br>
+  dimArray[numDim] = $2.value.iVal;//atoi($2.name);<br>
+  }<br>
+  ; <br>
+  dType   : <br>
+  _char			{<br>
+  dataType = CHAR;<br>
+  dataSize=sizeof(char);<br>
+  } <br>
+  | _short		{<br>
+  dataType = SHORT;<br>
+  dataSize=sizeof(short int);<br>
+  }<br>
+  | _int 			{<br>
+  dataType  = INT;<br>
+  dataSize=sizeof(int);<br>
+  }<br>
+  | _long			{<br>
+  dataType  = LONG;<br>
+  dataSize=sizeof(long int);<br>
+  }<br>
+  | _float 		{<br>
+  dataType  = FLOAT;<br>
+  dataSize=sizeof(float);<br>
+  }<br>
+  | _double		{<br>
+  dataType  = DOUBLE;<br>
+  dataSize = sizeof(double);<br>
+  }<br>
+  ;<br>
+  sign: 				{<br>
+  signType = DEFAULT;<br>
+  }<br>
+  | _signed 		{<br>
+  signType = SIGNED;<br>
+  }<br>
+  | _unsigned 		{<br>
+  signType = UNSIGNED;<br>
+  }</p>
+<p>sType	:			{<br>
+  storeType = DEFAULT;<br>
+  }<br>
+  | _auto 		{<br>
+  storeType = AUTO;<br>
+  }<br>
+  |_register		{<br>
+  storeType = REGISTER;<br>
+  }<br>
+  |_static		{<br>
+  storeType = STATIC;<br>
+  }<br>
+  |_extern		{<br>
+  storeType = EXTERN;<br>
+  }<br>
+  |_typedef		{<br>
+  storeType = TYPEDEF;<br>
+  }<br>
+  ;<br>
+  qType	:			{<br>
+  qualifierType = DEFAULT;<br>
+  } <br>
+  |_const			{<br>
+  qualifierType = CONST;<br>
+  }<br>
+  | _volatile		{<br>
+  qualifierType = VOLATILE;<br>
+  }<br>
+  ;<br>
+  assignExpr: LValue  _assign  Expr {<br>
+  $$ = $1;<br>
+  opnd2.type = NOP;<br>
+  if($1.subtype==BASIC)<br>
+  {<br>
+  addCode(quadTable,labelpending,ASSIGN,$3,opnd2,$1); <br>
+  }<br>
+  else if($1.subtype == ARRAY || $1.subtype == OFFSET) //we have clarify how to differentiate bw ARRAY and OFFSET<br>
+  {<br>
+  opnd2 = $1;<br>
+  strcpy(opnd2.name,$1.offsetName);<br>
+  opnd2.type = TID;<br>
+  //opnd2.subtype = BASIC;<br>
+  result = $1;<br>
+  strcpy(result.name,$1.name);<br>
+  result.type = TID;<br>
+  result.subtype = BASIC;<br>
+  addCode(quadTable,labelpending,LASSIGN,$3,opnd2,result); <br>
+  //format:  []= 'rightside value' 'offset' 'baseaddr'<br>
+  }<br>
+  <br>
+  }<br>
+  | LValue _assign assignExpr { <br>
+  $$=$1;<br>
+  opnd2.type = NOP;<br>
+  if(strcmp($1.offsetName,&quot;&quot;)==0)<br>
+  {<br>
+  addCode(quadTable,labelpending,ASSIGN,$3,opnd2,$1); <br>
+  }<br>
+  else<br>
+  {<br>
+  addCode(quadTable,labelpending,LASSIGN,$1,$3,$1); <br>
+  }<br>
+  }</p>
+<p> ;</p>
+<p>assignStmt: assignExpr _semicolon<br>
+  ;</p>
+<p>LValue	: _id { <br>
+  if(findSymbolHash($1.name) == NULL)<br>
+  {<br>
+  printf(&quot;%s: %d:Error %s: Undeclared Identifier\n&quot;,srcFileName,lineNo-1,$1.name);<br>
+  errCount++;<br>
+  }<br>
+  $$=$1;<br>
+  $$.subtype = BASIC;<br>
+  strcpy($$.offsetName,&quot;&quot;);<br>
+  }<br>
+  | arrayDims {<br>
+  L = findSymbolHash($1.name);  //$1.name holds the lexeme of _id<br>
+  if(L == NULL)<br>
+  {<br>
+  printf(&quot;%s: %d:Error %s: Undeclared Identifier\n&quot;,srcFileName,lineNo-1,$1.name);<br>
+  errCount++;<br>
+  }</p>
+<p> $$.type = TID;<br>
+  $$.subtype = ARRAY;<br>
+  $$.datatype = $1.datatype;</p>
+<p> opnd2.type = CONST;			//opnd2 holds the multiplier<br>
+  opnd2.subtype = BASIC;<br>
+  opnd2.datatype = INT;<br>
+  opnd2.value.iVal = L-&gt;symbol.width;</p>
+<p> createTemp(result.name);		//result holds the displacement expr<br>
+  result.type = TID;<br>
+  result.subtype = BASIC;<br>
+  result.datatype = INT;<br>
+  strcpy($$.offsetName,result.name); </p>
+<p> addCode(quadTable,labelpending,MUL,$1,opnd2,result);<br>
+  copyAttr2Symbol(result,&amp;sym);<br>
+  addSymbolHash(sym);<br>
+  <br>
+  opnd1.type = CONST;			//opnd1 holds the base address from symbol table<br>
+  opnd1.subtype = BASIC; <br>
+  opnd1.datatype = LONG; <br>
+  opnd1.value.lVal = L-&gt;symbol.relAddr;</p>
+<p> opnd2.type=NOP;<br>
+    <br>
+  createTemp(result.name);		//base address from opnd1 is stored in temp id (result)<br>
+  result.type = TID;<br>
+  result.subtype = BASIC;<br>
+  result.datatype = INT;<br>
+  addCode(quadTable,labelpending,ASSIGN,opnd1,opnd2,result);<br>
+  <br>
+  sym = initSymbol();<br>
+  copyAttr2Symbol(result,&amp;sym);<br>
+  addSymbolHash(sym);</p>
+<p> strcpy($$.name,result.name); <br>
+  }<br>
+  <br>
+  ; <br>
+  arrayDims	: arrayDims _leftsp Expr _rightsp <br>
+  { <br>
+  noDimensions += 1;<br>
+  createTemp($$.offsetName);<br>
+  strcpy($$.name,$1.name);<br>
+  $$.type = $1.type;<br>
+  //$$.subtype = ARRAY;<br>
+  $$.subtype = OFFSET;<br>
+  $$.datatype = $1.datatype;<br>
+  L = findSymbolHash($1.name);<br>
+  if(L == NULL)<br>
+  {<br>
+  printf(&quot;%s: %d:Error %s: Undeclared Identifier\n&quot;,srcFileName,lineNo-1,$1.name);<br>
+  errCount++;<br>
+  }<br>
+  createTemp(opnd2.name);<br>
+  opnd2.type = CONST;<br>
+  opnd2.datatype = INT;<br>
+  opnd2.value.iVal=L-&gt;symbol.dimArray[noDimensions];<br>
+  addCode(quadTable,labelpending,MUL,$1,opnd2,$$);<br>
+  addCode(quadTable,labelpending,PLUS,$$,$3,$$);<br>
+  }<br>
+  |_id _leftsp Expr _rightsp<br>
+  {<br>
+  strcpy($$.name,$1.name);   //to propagate the id name<br>
+  //createTemp($$.offsetName); <br>
+  $$.type=$1.type;<br>
+  $$.subtype=OFFSET;<br>
+  $$.datatype=$1.datatype;<br>
+  strcpy($$.offsetName,$3.name);<br>
+  opnd2.type = NOP;<br>
+  noDimensions = 1;<br>
+  }<br>
+  ; </p>
+<p>Expr	: Expr _plus Expr 	{<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,PLUS,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | Expr _minus Expr	{<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,MINUS,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  <br>
+  | Expr _mul Expr 	{<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,MUL,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | Expr _div Expr 	{<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,DIV,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | Expr _modulo Expr 	{<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,MOD,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | _uminus Expr 		{<br>
+  createTemp($$.name);<br>
+  opnd2.type = NOP;<br>
+  addCode(quadTable,labelpending,UMINUS,$2,opnd2, $$);<br>
+  $$.type = TID;<br>
+  sym=copySymbol($2,$$.name);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | Expr _lt Expr 	{<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,LT,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  <br>
+  | Expr _le Expr 	{<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,LE,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | Expr _ge Expr 	{ <br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,GE,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | Expr _gt Expr 	{<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,GT,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | Expr _eq Expr 	{ <br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,EQ,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | Expr _ne Expr  	{<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,NE,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  } <br>
+  | Expr _or Expr 	{<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,OR,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | Expr _and Expr 	{ <br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,AND,$1,$3,$$);<br>
+  $$.type = TID;<br>
+  sym=createTempSymbolWithType($1,$3,$$);<br>
+  addSymbolHash(sym);<br>
+  }<br>
+  | _leftp  Expr _rightp 	{<br>
+  $$ = $2;<br>
+  $$.type = TID;<br>
+  }<br>
+  | LValue 		{<br>
+  if($1.subtype==BASIC)<br>
+  $$=$1;<br>
+  else if($1.subtype == ARRAY)<br>
+  {<br>
+  opnd1 = $1;			//opnd1 is the base address of array<br>
+  strcpy(opnd1.name,$1.name);<br>
+  opnd1.type = TID;<br>
+  opnd1.subtype = BASIC;<br>
+  opnd1.datatype = $1.datatype;</p>
+<p> opnd2 = $1;		       //opnd2 is the displacement of array<br>
+  strcpy(opnd2.name,$1.offsetName);<br>
+  opnd2.type = TID;<br>
+  opnd2.subtype = BASIC;<br>
+  opnd2.datatype = $1.datatype;</p>
+<p> $$ = $1;<br>
+  createTemp($$.name);<br>
+  $$.type=TID;<br>
+  $$.subtype=ARRAY;<br>
+  $$.datatype=$1.datatype;<br>
+  printf(&quot;RASSIGN = %d\n&quot;,RASSIGN);<br>
+  addCode(quadTable,labelpending,RASSIGN,opnd1,opnd2,$$);<br>
+  sym = initSymbol();<br>
+  copyAttr2Symbol($$,&amp;sym);<br>
+  addSymbolHash(sym);<br>
+  <br>
+  }<br>
+  }<br>
+  | _num 			{<br>
+  $$ = $1;<br>
+  } <br>
+  | _dnum 		{<br>
+  $$=$1;<br>
+  } <br>
+  ;</p>
+<p>condition: Expr 		{<br>
+  $$ = $1;<br>
+  }<br>
+  | assignExpr		{<br>
+  $$ = $1;<br>
+  }<br>
+  ;</p>
+<p>ifStmt  : _if _leftp condition	{<br>
+  createLabel($1.falseLabel);<br>
+  opnd2.type = CONST;<br>
+  opnd2.datatype = INT;<br>
+  opnd2.value.iVal = 0;<br>
+  createTemp(result.name);<br>
+  //					result.type = CONST;<br>
+  result.type = LABEL;<br>
+  strcpy(result.name,$1.falseLabel);<br>
+  //result.datatype = FALSE;<br>
+  //					result.value.string = malloc(strlen($1.falseLabel)+1);<br>
+  addCode(quadTable,labelpending,IFEQ,$3,opnd2,result);<br>
+  } <br>
+  _rightp Stmtlist 	{<br>
+  strcpy(labelpending,$1.falseLabel);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  result.type=NOP;<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  }<br>
+  ;</p>
+<p>whileStmt: _while		{ <br>
+  createLabel($1.trueLabel); <br>
+  printf(&quot;In while-&gt;%s: ....\n&quot;,$1.trueLabel);<br>
+  strcpy(labelpending,$1.trueLabel);<br>
+  }<br>
+  _leftp condition	{<br>
+  createLabel($1.falseLabel);<br>
+  printf(&quot;In while-&gt;%s: ....\n&quot;,$1.falseLabel);<br>
+  opnd2.type = CONST;<br>
+  opnd2.datatype = INT;<br>
+  opnd2.value.iVal = 0;<br>
+  createTemp(result.name);<br>
+  result.type = LABEL;<br>
+  strcpy(result.name,$1.falseLabel);<br>
+  addCode(quadTable,labelpending,IFEQ,$4,opnd2,result);<br>
+  }<br>
+  _rightp Stmtlist	{<br>
+  opnd1.type = NOP;<br>
+  opnd2.type = NOP;<br>
+  result.type = LABEL;<br>
+  strcpy(result.name,$1.trueLabel);<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1, opnd2,result);<br>
+  strcpy(labelpending,$1.falseLabel);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  result.type=NOP;<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  }<br>
+  ;</p>
+<p>doStmt  : _do 			{<br>
+  createLabel($1.trueLabel);<br>
+  strcpy(labelpending, $1.trueLabel);<br>
+  }<br>
+  Stmtlist _while _leftp condition <br>
+  {<br>
+  createLabel($1.falseLabel);<br>
+  opnd2.type = CONST;<br>
+  opnd2.datatype = INT;<br>
+  opnd2.value.iVal = 0;<br>
+  createTemp(result.name);<br>
+  //result.type = CONST;<br>
+  result.type = LABEL;<br>
+  //result.datatype = FALSE;<br>
+  strcpy(result.name,$1.falseLabel);<br>
+  addCode(quadTable,labelpending,IFEQ,$6,opnd2,result);<br>
+  opnd1.type = NOP;<br>
+  opnd2.type = NOP;<br>
+  createTemp(result.name);<br>
+  //result.type = CONST;<br>
+  result.type = LABEL;<br>
+  //result.datatype = TRUE;<br>
+  strcpy(result.name,$1.trueLabel);<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);<br>
+  strcpy(labelpending,$1.falseLabel);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  result.type=NOP;<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  }<br>
+  _rightp _semicolon<br>
+  ;</p>
+<p>forStmt : _for			{<br>
+  createLabel($1.cond2Label);<br>
+  createLabel($1.cond3Label);<br>
+  createLabel($1.cond2TestLabel);<br>
+  createLabel($1.nextStmtLabel);<br>
+  } <br>
+  _leftp condition _semicolon 	{ <br>
+  strcpy(labelpending,$1.cond2Label);<br>
+  } <br>
+  condition _semicolon 	{<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.cond2TestLabel);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);<br>
+  //addCode(quadTable,&quot; &quot;,GOTO,&quot; &quot;,&quot; &quot;,$1.cond2TestLabel);<br>
+  strcpy(labelpending,$1.cond3Label);<br>
+  } <br>
+  condition _rightp 	{<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.cond2Label);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);<br>
+  strcpy(labelpending,$1.cond2TestLabel);<br>
+  opnd2.type = CONST;<br>
+  opnd2.datatype = INT;<br>
+  opnd2.value.iVal = 0;<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.nextStmtLabel);<br>
+  addCode(quadTable,labelpending,IFEQ,$7,opnd2,result);<br>
+  } <br>
+  Stmtlist 		{<br>
+  opnd1.type = NOP;<br>
+  opnd2.type = NOP;<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.cond3Label);<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result); <br>
+  strcpy(labelpending,$1.nextStmtLabel);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  result.type=NOP;<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  } <br>
+  ;</p>
+<p>breakStmt: _break _semicolon<br>
+  ;</p>
+<p>continueStmt: _continue _semicolon<br>
+  ;</p>
+<p>switchStmt: _switch _leftp condition 	{<br>
+  createTemp(switchFlagName);<br>
+  strcpy(switchExpResult,$3.name); <br>
+  result.type=LABEL;<br>
+  strcpy(result.name,switchFlagName);<br>
+  opnd1.type = CONST;<br>
+  opnd1.datatype = INT;<br>
+  opnd1.value.iVal = 0;<br>
+  opnd2.type = NOP;<br>
+  addCode(quadTable,&quot; &quot;,EQ,opnd1,opnd2,result);<br>
+  }<br>
+  _rightp _leftb caseStmts _rightb<br>
+  ;</p>
+<p>caseStmtPrefix: _case cons 	{<br>
+  createTemp(result.name);<br>
+  result.type = TID;<br>
+  opnd2.type = CONST;<br>
+  opnd2.datatype = INT;<br>
+  opnd2.value.iVal = $2.value.iVal;<br>
+  strcpy(opnd1.name,switchExpResult);<br>
+  opnd1.type = TID;<br>
+  addCode(quadTable,labelpending,NE,opnd1,opnd2,result);<br>
+  createTemp(result.name); //str);<br>
+  result.type = TID;<br>
+  createTemp(opnd1.name); //str);<br>
+  opnd1.type = TID;<br>
+  strcpy(opnd1.name,switchFlagName); <br>
+  addCode(quadTable,labelpending,OR,opnd1,opnd2,result); <br>
+  createLabel(tempLabel);<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,tempLabel);<br>
+  opnd2.type = CONST;<br>
+  opnd2.datatype = INT;<br>
+  opnd2.value.iVal = 0;<br>
+  addCode(quadTable,labelpending,IFEQ,opnd1,opnd2,result);<br>
+  }<br>
+  _colon Stmtlist 	{ <br>
+  createTemp(result.name);<br>
+  result.type = TID;<br>
+  strcpy(result.name,switchFlagName); <br>
+  opnd1.type = CONST;<br>
+  opnd1.datatype = INT;<br>
+  opnd1.value.iVal = 1;<br>
+  opnd2.type=NOP;<br>
+  addCode(quadTable,&quot; &quot;,EQ,opnd1,opnd2,result);<br>
+  strcpy(labelpending,tempLabel);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  result.type=NOP;<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  }<br>
+  ;</p>
+<p>caseStmts: caseStmtPrefix caseStmts <br>
+  |<br>
+  ;</p>
+<p>cons	: _num 			{<br>
+  $$ = $1;<br>
+  }<br>
+  | _charcons 		{<br>
+  $$ = $1;<br>
+  }<br>
+  | _default 		{<br>
+  $$.type = CONST;<br>
+  $$.datatype = INT;<br>
+  $$.value.iVal=999;<br>
+  }<br>
+  ;</p>
+<p>Stmtlist: _leftb Stmts _rightb <br>
+  | Stmt <br>
+  | _semicolon<br>
+  ;</p>
+<p>gotoStmt: _goto _id _semicolon<br>
+  ; </p>
+<p>%%</p>
+<p>int yyerror(char *errmsg)<br>
+  {<br>
+  printf(&quot;Error has occurred\n&quot;,errmsg);<br>
+  exit(-1);<br>
+  }</p>
+<p></p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+</body>
+</html>

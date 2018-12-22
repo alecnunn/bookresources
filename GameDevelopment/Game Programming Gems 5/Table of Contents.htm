@@ -1,0 +1,2008 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="Table%20of%20Contents_files/filelist.xml">
+<link rel=Edit-Time-Data href="Table%20of%20Contents_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Multithreaded Audio Programming Techniques</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place" downloadurl="http://www.5iantlavalamp.com/"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="State"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Mark DeLoura</o:Author>
+  <o:LastAuthor>kpallist</o:LastAuthor>
+  <o:Revision>29</o:Revision>
+  <o:TotalTime>4902</o:TotalTime>
+  <o:Created>2004-10-31T08:10:00Z</o:Created>
+  <o:LastSaved>2005-01-21T15:46:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>3112</o:Words>
+  <o:Characters>17745</o:Characters>
+  <o:Lines>147</o:Lines>
+  <o:Paragraphs>41</o:Paragraphs>
+  <o:CharactersWithSpaces>20816</o:CharactersWithSpaces>
+  <o:Version>11.6360</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>80</w:Zoom>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-font-kerning:16.0pt;
+	mso-fareast-language:EN-US;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-indent:28.35pt;
+	line-height:200%;
+	mso-pagination:none;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	mso-ansi-language:DE;
+	mso-fareast-language:DE;
+	mso-bidi-font-weight:normal;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#606420;
+	text-decoration:underline;
+	text-underline:single;}
+span.GPGNormalChar
+	{mso-style-name:"GPG Normal Char";
+	mso-style-locked:yes;
+	mso-style-link:"GPG Normal";
+	mso-ansi-font-size:11.0pt;
+	mso-bidi-font-size:11.0pt;
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;
+	mso-bidi-language:AR-SA;}
+p.GPGNormal, li.GPGNormal, div.GPGNormal
+	{mso-style-name:"GPG Normal";
+	mso-style-link:"GPG Normal Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-language:EN-US;}
+p.GPGTitle, li.GPGTitle, div.GPGTitle
+	{mso-style-name:"GPG Title";
+	mso-style-parent:"GPG Normal";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:widow-orphan;
+	font-size:20.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	mso-fareast-language:EN-US;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.GPGByline, li.GPGByline, div.GPGByline
+	{mso-style-name:"GPG Byline";
+	mso-style-parent:"GPG Normal";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	mso-fareast-language:EN-US;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.GPGemail, li.GPGemail, div.GPGemail
+	{mso-style-name:"GPG email";
+	mso-style-parent:"GPG Normal";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	mso-fareast-language:EN-US;}
+p.DocumentTitle, li.DocumentTitle, div.DocumentTitle
+	{mso-style-name:"Document Title";
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:center;
+	text-indent:28.35pt;
+	line-height:200%;
+	mso-pagination:none;
+	font-size:24.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"MS Mincho";
+	mso-ansi-language:DE;
+	mso-fareast-language:DE;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+span.Gems4Italic
+	{mso-style-name:"Gems4 Italic";
+	font-style:italic;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="8194"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink="#606420" style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=GPGNormal align=center style='text-align:center'><span
+style='font-size:28.0pt;font-family:Arial'>Game Programming Gems 5<o:p></o:p></span></p>
+
+<p class=GPGNormal align=center style='text-align:center'><span
+style='font-size:24.0pt;font-family:Arial'>Accompanying CD-ROM<o:p></o:p></span></p>
+
+<p class=GPGNormal align=center style='text-align:center'><span lang=PT-BR
+style='font-size:24.0pt;font-family:Arial;mso-ansi-language:PT-BR'>Kim
+Pallister, Editor<o:p></o:p></span></p>
+
+<p class=GPGNormal align=center style='text-align:center'><span lang=PT-BR
+style='font-size:24.0pt;font-family:Arial;mso-ansi-language:PT-BR'>Mark
+DeLoura, Series Editor<o:p></o:p></span></p>
+
+<p class=GPGNormal><span lang=PT-BR style='font-family:Arial;mso-ansi-language:
+PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span lang=PT-BR style='font-family:Arial;mso-ansi-language:
+PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>Here are links to sample
+code, demos, and videos located on the CD.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>Be sure to read the legal
+information in <a href="README.rtf">README.RTF</a>.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0in 0in 1.0pt 0in'>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
+mso-border-bottom-alt:solid windowtext .75pt;padding:0in 0in 1.0pt 0in'>
+
+<p class=GPGNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 1.0pt 0in'><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</div>
+
+<p class=GPGNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=GPGNormal><b style='mso-bidi-font-weight:normal'><u><span
+style='font-family:Arial'>INDEX<o:p></o:p></span></u></b></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Section 1: General Programming<o:p></o:p></span></b></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.1
+<a href="#_1.1_Context-Sensitive_HUDs_for_Edit">Context-Sensitive HUDs for Editors</a>
+- <span class=Gems4Italic><span style='mso-bidi-font-style:normal'>Adam Martin,
+Grex Games</span></span></span><span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.2
+<a href="#_1.2_Parsing_Text_Data_in_Games">Parsing Text Data in Games</a> - <span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Aurelio Reis</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.3
+<a href="#_1.3_Component_Based_Object_Manageme">Component Based Object
+Management</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:normal'>Bjarne
+Rene, Circle Studio, ltd</span></span></span><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.4
+<a href="#_1.4_Using_Templates_for_Reflection_">Using Templates for Reflection
+in C++</a> - <st1:city w:st="on"><st1:place w:st="on"><st1:City w:st="on"><span
+  class=Gems4Italic><span style='mso-bidi-font-style:normal'>Domenic Filion</st1:city></span></span></st1:City><span
+ class=Gems4Italic><span style='mso-bidi-font-style:normal'>, <st1:state w:st="on"><st1:State
+ w:st="on">DC</st1:state></st1:State></span></span></st1:place><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'> Studios<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.5
+<a href="#_1.5_Sphere_Trees_for_Speedy_BSPs">Sphere Trees for Speedy BSPs</a> -
+<span class=Gems4Italic><span style='mso-bidi-font-style:normal'>Dominic Filion,
+DC Studios<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span lang=PT-BR style='font-family:
+Arial;mso-ansi-language:PT-BR'>1.6 <a href="#_1.6_Improved_Frustum_Culling">Improved
+Frustum Culling</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Frank Puig Placeres<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+lang=PT-BR style='font-family:Arial;mso-ansi-language:PT-BR;mso-bidi-font-style:
+normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span lang=PT-BR style='font-family:
+Arial;mso-ansi-language:PT-BR'>1.7 <a href="#_1.7_Generic_Pager">Generic Pager</a>
+- <span class=Gems4Italic><span style='mso-bidi-font-style:normal'>Ignacio
+Incera Cruz<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal><span lang=PT-BR style='mso-ansi-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.8
+<a href="#_1.8_Large-Scale_Stack-Based_State_M">Large-Scale Stack-Based State</a>
+Machines - <span class=Gems4Italic><span style='mso-bidi-font-style:normal'>James
+Boer</span></span></span><span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.9
+<a href="#_1.9_CSG_Construction_Using_BSP_Tree">CSG Construction Using BSP
+Trees</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:normal'>Octavian
+Chincisan</span></span></span><span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.10
+<a href="#_1.10_Building_Lua_into_Games">Building Lua into Games</a> - <span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Matthew Harmon, eV
+Interactive Corporation</span></span></span><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.11
+<a href="#_1.11_Improving_Freelists_with_Polic">Improving Freelists with Policy
+Based Design</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Nathan Mefford<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.12
+<a href="#_1.12_A_Real-time_Remote_Debug_Messa">A Real-time Remote Debug
+Message Logger</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Patrick Duquette <o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.13
+<a href="#_1.13_A_Transparent_Class_Saving_and">A Transparent Class Saving and
+Loading Trick</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Patrick Meehan</span></span></span><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.14
+<a href="#_1.14_An_Effective_Cache-Oblivious_I">An Effective Cache-Oblivious
+Implementation of the ABT Tree</a> </span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Sebastien Schertenleib, Swiss Federal Institute of Technology</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.15
+<a href="#_1.15_Visual_Design_of_State_Machine">Visual Design of State Machines</a>
+- <span class=Gems4Italic><span style='mso-bidi-font-style:normal'>Scott Jacobs</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.16
+<a href="#_1.16_A_Generic_Component_Library">A Generic Component Library</a> - <span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Warrick Buchanan,
+Argonaut<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>1.17
+<a href="#_1.17_Choose_Your_Path_–_A_Menu_Syst">Choose Your Path – A Menu
+System</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:normal'>Wendy
+Jones<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=GPGNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Section 2: Mathematics<o:p></o:p></span></b></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>2.3
+<a href="#_2.3_Spline-Based_Time_Control_for_A">Spline-Based Time Control for
+Animation</a> <o:p></o:p></span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>James M Van Verth, Red Storm Entertainment</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>2.4
+<a href="#_2.4_Faster_Quaternion_Interpolation">Faster Quaternion Interpolation
+Using Approximations</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Andy Thomason</span></span></span><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>2.6
+<a href="#_2.6_Oblique_View_Frustums_for_Mirro">Oblique View Frustums for
+Mirrors and Portals</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Eric Lengyel</span></span></span><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Section 3: Artificial Intelligence</span><o:p></o:p></b></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>3.2
+<a href="#_3.2_Fast_Target_Ranking_Using_an_Ar">Fast Target Ranking Using an
+Artificial Potential Field</a> </span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Markus Breyer, Factor 5</span></span></span><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>3.8
+<a href="#_3.8_Advanced_Path-Finding_with_Mini">Advanced Path-Finding with
+Minimal Re-Planning Cost: Dynamic A* (D*)</a> </span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Marco Tombesi</span></span></span><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Section 4: Physics</span><o:p></o:p></b></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>4.1
+<a href="#_4.1_Back_of_the_Envelope_Aerodynami">Back of the Envelope
+Aerodynamics for Game Physics</a> <o:p></o:p></span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Graham Rhodes, Applied Research Associates</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>4.2
+<a href="#_4.2_Dynamic_Grass_Simulation_and_Ot">Dyamic Grass Simulation and
+Other Natural Effects</a> <o:p></o:p></span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- Rishi Ramraj, <st1:place w:st="on"><st1:PlaceType
+ w:st="on">University</st1:PlaceType> of <st1:PlaceName w:st="on">Waterloo</st1:PlaceName></st1:place></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>4.4
+<a href="#_4.4_Practical_Animation_of_Soft_Bod">Practical Animation of Soft
+Bodies for Game Development</a> <o:p></o:p></span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>– <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Maciej Matyka, <st1:placetype w:st="on">University</st1:placetype> of <st1:placename w:st="on">Wroclaw</st1:placename></span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>4.5
+<a href="#_4.5_Adding_Life_to_Ragdoll_Simulati">Adding Life to Ragdoll
+Simulation Using Feedback Control Systems</a> <o:p></o:p></span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>– <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Michael Mande, Apple Computer</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>4.6
+<a href="#_4.6_Designing_a_Prescripted_Physics">Designing a Prescripted Physics
+System</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:normal'>Daniel
+Higgins</span></span></span><span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>4.8
+<a href="#_4.8_Realistic_Camera_Movement_in_a_">Realistic Camera Movement in a
+3D Car Simulator</a> </span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Barnabas Aszodi, Szobolcs Czuczor, </span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><st1:placename w:st="on"><span
+class=Gems4Italic><span style='font-family:Arial;mso-bidi-font-style:normal'>Budapest</st1:placename>
+<st1:placetype w:st="on">University</st1:placetype> of Technology and Economics</span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Section 5: Graphics<o:p></o:p></span></b></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>5.1
+<a href="#_5.1_Realistic_Cloud_Rendering_on_Mo">Realistic Cloud Rendering on
+Modern GPUs</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Jean-Francois Dube, Ubisoft<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>5.3
+<a href="#_5.3_Widgets:_Rendering_Fast_and_Per">Widgets: Rendering Fast and
+Persistent Foliage</a> - <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Martin Brownlow<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>5.4
+<a href="#_5.4_Dimensional_Impostors_for_Reali">Dimensional Impostors for
+Realistic Trees and Forests</a> – <i style='mso-bidi-font-style:normal'>Gabor
+Szijarto<span class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></i></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>5.5
+<a href="#_5.5_Gridless_Controllable_Fire">Gridless Controllable Fire</a> </span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Neeharika Adabala, Charles E Hughes, <st1:city w:st="on">University of
+Central</st1:city> <st1:state w:st="on">Florida</st1:state></span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>5.6
+<a href="#_5.6_Powerful_Explosion_Effects_Usin">Powerful Explosion Effects
+Using Billboard Particles</a> <o:p></o:p></span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Steve Rabin Nintendo of America Inc.</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>5.7
+A <a href="#_5.7_A_Simple_Method_for_Rendering_G">Simple Method for Rendering
+Gemstones</a> <o:p></o:p></span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Thorsten Scheuermann, ATI Research</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>5.8
+<a href="#_5.8_Volumetric_Post-Processing">Volumetric Post-Processing</a> - <span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Dominic Filion, DC
+Studios<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>5.9
+<a href="#_5.9_Procedural_Level_Generation">Procedural Level Generation</a> </span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Timothy Roden and Ian Parberry, <st1:city w:st="on">University of North</st1:city>
+<st1:state w:st="on">Texas</st1:state></span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Section 6: Networking and Multi-player</span><o:p></o:p></b></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>6.4
+<a href="#_6.4_Fast_and_Efficient_Implementati">Fast and Efficient Implementation
+of a Remote Procedure Calls System</a> <o:p></o:p></span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Bae Hyun-jik</span></span></span><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>6.5
+<a href="#_6.5_Overcoming_Network_Address_Tran">Overcoming Network Address
+Translation in Peer-to-Peer Communications</a> </span></p>
+
+<p class=GPGNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial'>- <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Jon Watte</span></span></span><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>6.7
+<a href="#_6.7_Safe_Random_Number_Systems">Safe Random Number Systems</a> - <span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Shekhar Dhupelia<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Section 7: Audio<o:p></o:p></span></b></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='mso-bidi-font-size:
+18.0pt;font-family:Arial'>7.1 <a href="#_7.1_MultiThreaded_Audio_Programming">MultiThreaded
+Audio Programming Techniques</a> – <i style='mso-bidi-font-style:normal'>James
+Boer</i></span><i style='mso-bidi-font-style:normal'><span style='font-family:
+Arial'><o:p></o:p></span></i></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='mso-bidi-font-size:
+18.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='mso-bidi-font-size:
+18.0pt;font-family:Arial'>7.3 <a href="#_7.3_Using_3D_Surfaces_as_Audio_Emit">Using
+3D Surfaces as Audio Emitters</a> - </span><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'>Sami Hamlaoui<o:p></o:p></span></i></p>
+
+<p class=GPGNormal style='text-indent:.5in'><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'><o:p>&nbsp;</o:p></span></i></p>
+
+<p class=GPGNormal style='margin-left:.5in'><span style='mso-bidi-font-size:
+18.0pt;font-family:Arial'>7.4 <a href="#_7.4_Fast_Environmental_Reverb_Based">Fast
+Environmental Reverb Based on Feedback Delay</a> – </span><i style='mso-bidi-font-style:
+normal'><span style='font-family:Arial'>Christian Sch</span>üler<o:p></o:p></i></p>
+
+<p class=GPGNormal><span style='mso-bidi-font-size:16.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='mso-bidi-font-size:
+18.0pt;font-family:Arial'>7.5 <a href="#_7.5_Introduction_to_Single-Speaker_">Introduction
+to Single-Speaker Speech Recognition</a> - </span><i style='mso-bidi-font-style:
+normal'><span style='font-family:Arial'>Julien Hamaide <o:p></o:p></span></i></p>
+
+<p class=GPGNormal><span style='mso-bidi-font-size:18.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<span style='font-size:11.0pt;mso-bidi-font-size:18.0pt;font-family:Arial;
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=GPGNormal><span style='mso-bidi-font-size:18.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_1.1_Context-Sensitive_HUDs_for_Edit"></a>1.1 Context-Sensitive
+HUDs for Editors</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Adam Martin, Grex Games<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:350.25pt;
+ height:233.25pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image001.jpg" o:title="HUDEditor"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=311
+src="Table%20of%20Contents_files/image002.jpg" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>Adam’s sample application
+can be found <a
+href="Section1-Gen_Programming/1.01-ContextSensitiveHUDs-Martin/HeadsUpEditing-v2.jar">here</a>.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source can be found \\<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Section1-Gen_Programming\1.01-ContextSensitiveHUDs-Martin</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_1.2_Parsing_Text_Data_in_Games"></a>1.2 Parsing Text Data in
+Games</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Aurelio Reis<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>Auralio’s sample application
+can be found <a
+href="Section1-Gen_Programming/1.02-ParsingTextData-Reis/TokenizerExample/TokenizerExample.exe">here</a>.</span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files can be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section1-Gen_Programming\1.02-ParsingTextData-Reis</span></span>.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<h1><a name="_1.3_Component_Based_Object_Manageme"></a>1.3 Component Based
+Object Management</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Bjarne Rene, Circle
+Studio, ltd<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>Bjarne’s sample application,
+“GDCQuest” can be found <a
+href="Section1-Gen_Programming/1.03-ComponentBasedObjectMgmt-Rene/GDCQuest.exe">here</a>.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files can be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section1-Gen_Programming\1.03-ComponentBasedObjectMgmt-Rene</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_1.4_Using_Templates_for_Reflection_"></a>1.4 Using Templates for
+Reflection in C++<o:p></o:p></h1>
+
+<p class=GPGNormal style='text-indent:.5in'><st1:city w:st="on"><span
+class=Gems4Italic><span style='font-family:Arial;mso-bidi-font-style:normal'>Domenic
+Filion</st1:city>, <st1:state w:st="on">DC</st1:state> Studios<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>\\<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Section1-Gen_Programming\1.04-UsingTemplatesforReflectioninCpp-Filion<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code and
+executable for Domenic’s application can be found in: \\<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Section1-Gen_Programming\1.04-UsingTemplatesforReflectioninCpp-Filion</span></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The project requires use of
+the Xtreme Toolkit Pro by CodeJock Software. An evaluation version is provided
+in the same directory.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_1.5_Sphere_Trees_for_Speedy_BSPs"></a>1.5 Sphere Trees for Speedy
+BSPs</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Dominic Filion, DC Studios<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial;
+mso-bidi-font-style:italic'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+ type="#_x0000_t75" style='width:350.25pt;height:413.25pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image003.jpg" o:title="BSPGem"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=551
+src="Table%20of%20Contents_files/image004.jpg" v:shapes="_x0000_i1026"><![endif]></span><span
+class=Gems4Italic><span style='font-family:Arial;mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The executable for Domenic’s
+demo can be found <a
+href="Section1-Gen_Programming/1.05-SphereTreesforSpeedyBSPs-Filion/Release/BSPGem.exe">here</a>.</span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section1-Gen_Programming\1.05-SphereTreesforSpeedyBSPs-Filion</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_1.6_Improved_Frustum_Culling"></a>1.6 Improved Frustum Culling</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Frank Puig Placeres<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1027" type="#_x0000_t75" style='width:350.25pt;height:374.25pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image005.jpg" o:title="FrustumCull"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=499
+src="Table%20of%20Contents_files/image006.jpg" v:shapes="_x0000_i1027"><![endif]></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The executable for Frank’s
+demo can be found <a
+href="Section1-Gen_Programming/1.06-ImprovedFrustumCulling-Placeres/frustum.exe">here</a>.
+<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section1-Gen_Programming\1.06-ImprovedFrustumCulling-Placeres</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_1.7_Generic_Pager"></a><span lang=PT-BR style='mso-ansi-language:
+PT-BR'>1.7 Generic Pager<o:p></o:p></span></h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+lang=PT-BR style='font-family:Arial;mso-ansi-language:PT-BR;mso-bidi-font-style:
+normal'>Ignacio Incera Cruz<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span lang=NL style='font-family:
+Arial;mso-ansi-language:NL'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span lang=NL style='font-family:
+Arial;mso-ansi-language:NL'><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+ type="#_x0000_t75" style='width:350.25pt;height:174.75pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image007.jpg" o:title="GenericPager"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=233
+src="Table%20of%20Contents_files/image008.jpg" v:shapes="_x0000_i1028"><![endif]></span><span
+lang=PT-BR style='mso-ansi-language:PT-BR'><o:p></o:p></span></p>
+
+<p class=GPGNormal><span lang=PT-BR style='font-family:Arial;mso-ansi-language:
+PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The executable for Ignacio’s
+demo can be found <a
+href="Section1-Gen_Programming/1.07-GenericPager-Cruz/GP/GPG5_GenericPagerTest.exe">here</a>.
+<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section1-Gen_Programming\1.07-GenericPager-Cruz</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_1.8_Large-Scale_Stack-Based_State_M"></a>1.8 Large-Scale
+Stack-Based State Machines</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>James Boer<o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source and header files
+discussed in James’ gem can be found in \\<span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'>Section1-Gen_Programming\1.08-LargeScaleStackBasedStateMachine-Boer</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_1.9_CSG_Construction_Using_BSP_Tree"></a>1.9 CSG Construction
+Using BSP Trees</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Octavian Chincisan<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1029" type="#_x0000_t75" style='width:350.25pt;height:336pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image009.jpg" o:title="csg"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=448
+src="Table%20of%20Contents_files/image010.jpg" v:shapes="_x0000_i1029"><![endif]></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The executable for
+Octavian’s demo can be found <a
+href="Section1-Gen_Programming/1.09-CSGUsingBSP-Chincisan/Release/csg_using_bsp.exe">here</a>.
+<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section1-Gen_Programming\1.09-CSGUsingBSP-Chincisan</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_1.10_Building_Lua_into_Games"></a>1.10 Building Lua into Games</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Matthew Harmon, eV
+Interactive Corporation<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The executable for Matthew’s
+demo can be found (and should be run from) <i style='mso-bidi-font-style:normal'>\\Section1-Gen_Programming\1.10-BuldingLuaIntoGames-Harmon\Bin<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></i></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section1-Gen_Programming\1.10-BuldingLuaIntoGames-Harmon\LuaManager</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_1.11_Improving_Freelists_with_Polic"></a>1.11 Improving Freelists
+with Policy Based Design</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Nathan Mefford<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>\\<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Section1-Gen_Programming\<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The executable for Nathan’s
+demo can be found in \\<i style='mso-bidi-font-style:normal'>Section1-Gen_Programming\1.11-ImprovingFreelistsWithPolicyBasedDesign-Mefford
+</i><span class=Gems4Italic><span style='font-style:normal'><o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>You will need to pipe the output
+to a file, or look at a sample of the output <a
+href="Section1-Gen_Programming/1.11-ImprovingFreelistsWithPolicyBasedDesign-Mefford/GPGFreeListExampleOutput.txt">here</a>.
+<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section1-Gen_Programming\</span></span> <span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'>1.11-ImprovingFreelistsWithPolicyBasedDesign-Mefford</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_1.12_A_Real-time_Remote_Debug_Messa"></a>1.12 A Real-time Remote
+Debug Message Logger</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Patrick Duquette, Microids
+Canada Inc.<o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The solution files for this
+project can be found in the following directories:<o:p></o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>\\<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Section1-Gen_Programming\1.12-RemoteDebugConsole-Duquette\RemoteLoggerConsole</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>\\<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Section1-Gen_Programming\1.12-RemoteDebugConsole-Duquette\RemoteLoggerGameModule<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>\\<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Section1-Gen_Programming\1.12-RemoteDebugConsole-Duquette\TestProgram<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_1.13_A_Transparent_Class_Saving_and"></a>1.13 A Transparent Class
+Saving and Loading Trick</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Patrick Meehan<o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The solution files for
+Patrick’s gem can be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section1-Gen_Programming\1.13-TransparentClassSavingandLoadingTrick-Meehan</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_1.14_An_Effective_Cache-Oblivious_I"></a>1.14 An Effective
+Cache-Oblivious Implementation of the ABT Tree</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Sebastien Schertenleib,
+Swiss Federal Institute of Technology, VR Lab<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The executable for
+Sebastien’s demo can be found <a
+href="Section1-Gen_Programming/1.14-CacheObliviousImplementationoftheABTTree-Schertenleib/vhdABTTree.exe">here</a>.
+</span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section1-Gen_Programming\1.14-CacheObliviousImplementationoftheABTTree-Schertenleib</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_1.15_Visual_Design_of_State_Machine"></a>1.15 Visual Design of
+State Machines</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Scott Jacobs<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The solution files for
+Scott’s gem can be found in <i style='mso-bidi-font-style:normal'>\\Section1-Gen_Programming\1.15-VisualDesignOfStateMachines-Jacobs</i><span
+class=Gems4Italic><span style='font-style:normal'><o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal><span class=Gems4Italic><span style='font-family:Arial;
+mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_1.16_A_Generic_Component_Library"></a>1.16 A Generic Component Library</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Warrick Buchanan, Argonaut<o:p></o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The solution files for
+Patrick’s gem can be found in
+Section1-Gen_Programming\1.16-ComponentLibraryFramework-Buchanan<a
+name="_1.17_Choose_Your_Path_–_A_Menu_Syst"></a><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><o:p>&nbsp;</o:p></p>
+
+<h1>1.17 Choose Your Path – A Menu System</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Wendy Jones<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1030" type="#_x0000_t75" style='width:350.25pt;height:263.25pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image011.jpg" o:title="MenuSystem"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=351
+src="Table%20of%20Contents_files/image012.jpg" v:shapes="_x0000_i1030"><![endif]><o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The executable for Wendy’s demo,
+as well as source code project files be found in \\<span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'>Section1-Gen_Programming\1.17-ChooseYourPath_AMenuingSystem-Jones</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><u>Section 2: Mathematics<o:p></o:p></u></h1>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_2.3_Spline-Based_Time_Control_for_A"></a>2.3 Spline-Based Time
+Control for Animation</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>James M Van Verth, Red
+Storm Entertainment<o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source files accompanying
+James’ gem can be found in <i style='mso-bidi-font-style:normal'>\\Section2-Mathematics\2.03-SplineBasedControlForAnimation-VanVerth</i></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_2.4_Faster_Quaternion_Interpolation"></a>2.4 Faster Quaternion
+Interpolation Using Approximations</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Andy Thomason<o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The solution files for
+Andy’s gem can be found in <i style='mso-bidi-font-style:normal'>\\Section2-Mathematics\2.04-FastQuaternionBlendingWithoutTrig-Thomason<o:p></o:p></i></span></p>
+
+<p class=GPGNormal><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'><o:p>&nbsp;</o:p></span></i></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The executable for his gem
+can be found <a
+href="Section2-Mathematics/2.04-FastQuaternionBlendingWithoutTrig-Thomason/SlerpApprox.exe">here</a>.</span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_2.6_Oblique_View_Frustums_for_Mirro"></a>2.6 Oblique View
+Frustums for Mirrors and Portals</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Eric Lengyel<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The Direct3D and OpenGL
+versions of Eric’s gem can be found in <i style='mso-bidi-font-style:normal'>\\Section2-Mathematics\2.06-ObliqueViewFrustums-Lengyel<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></i></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><u>Section 3: Artificial Intelligence<o:p></o:p></u></h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_3.2_Fast_Target_Ranking_Using_an_Ar"></a>3.2 Fast Target Ranking
+Using an Artificial Potential Field </h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Markus Breyer, Factor 5<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The sample code for Markus’
+gem can be found in <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>//Section3-Artificial_Intelligence/3.02-PotentialFieldTargeter-Breyer</span></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>3.4 Implementing Practical
+Planning for Game AI </span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Jamie Cheng, Relic
+Entertainment</span></span><span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Finnegan Southey, <st1:placetype w:st="on">University</st1:placetype>
+of <st1:placename w:st="on">Alberta</st1:placename><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>3.5 Optimizing a Decision Tree
+Query Algorithm for Multithreaded Architectures </span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Chuck DeSylva, Intel
+Corporation</span></span><span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>3.6 Parallel AI Development
+with PVM </span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Michael Ramsey, 2015 Inc</span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>3.7 Beyond A* </span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Mario Grimani, Xtreme
+Strategy Games</span></span><span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_3.8_Advanced_Path-Finding_with_Mini"></a>3.8 Advanced
+Path-Finding with Minimal Re-Planning Cost: Dynamic A* (D*) </h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+lang=FR style='font-family:Arial;mso-ansi-language:FR;mso-bidi-font-style:normal'>Marco
+Tombesi<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+lang=FR style='font-family:Arial;mso-ansi-language:FR;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span lang=FR style='font-family:
+Arial;mso-ansi-language:FR;mso-bidi-font-style:italic'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1031" type="#_x0000_t75" style='width:350.25pt;height:419.25pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image013.jpg" o:title="PathDemo"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=559
+src="Table%20of%20Contents_files/image014.jpg" v:shapes="_x0000_i1031"><![endif]></span><span
+class=Gems4Italic><span lang=FR style='font-family:Arial;mso-ansi-language:
+FR;mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The sample code to Marco’s
+gem can be found in <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>//Section3-Artificial_Intelligence/3.08-AdvancedPathFinding-Tombesi</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><span class=Gems4Italic><span style='font-family:Arial;
+mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span class=Gems4Italic><span style='font-family:Arial;
+font-style:normal'>The sample application can be run from <a
+href="Section3-Artificial_Intelligence/3.08-AdvancedPathFinding-Tombesi/DstarViewer.exe">here</a>.</span></span><span
+class=Gems4Italic><span style='font-family:Arial;font-style:normal;mso-bidi-font-style:
+italic'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><u>Section 4: Physics<o:p></o:p></u></h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_4.1_Back_of_the_Envelope_Aerodynami"></a>4.1 Back of the Envelope
+Aerodynamics for Game Physics </h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Graham Rhodes, Applied
+Research Associates<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1032" type="#_x0000_t75" style='width:350.25pt;height:356.25pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image015.jpg" o:title="AerodynamicsDemo"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=475
+src="Table%20of%20Contents_files/image016.jpg" v:shapes="_x0000_i1032"><![endif]></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal align=left style='text-align:left'><span style='font-family:
+Arial'>Graham’s Sample code can be found in <i style='mso-bidi-font-style:normal'>\\Section4-Physics\4.01-BackOfTheEnvelopeAerodynamics-Rhodes\</i><o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>View his Windstorm
+application <a
+href="Section4-Physics/4.01-BackOfTheEnvelopeAerodynamics-Rhodes/WindStorm/WindStorm.exe">here</a>.
+The instructions for use can be found <a
+href="Section4-Physics/4.01-BackOfTheEnvelopeAerodynamics-Rhodes/WindStorm/readme.txt">here</a>.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>View his Curveball
+application <a
+href="Section4-Physics/4.01-BackOfTheEnvelopeAerodynamics-Rhodes/CurveBall/CurveBall.exe">here</a>.
+The instructions for use can be found <a
+href="Section4-Physics/4.01-BackOfTheEnvelopeAerodynamics-Rhodes/CurveBall/readme.txt">here</a>.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>View his Airplane
+application <a
+href="Section4-Physics/4.01-BackOfTheEnvelopeAerodynamics-Rhodes/Airplane/Airplane.exe">here</a>.
+The instructions for use can be found <a
+href="Section4-Physics/4.01-BackOfTheEnvelopeAerodynamics-Rhodes/Airplane/readme.txt">here</a>.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_4.2_Dynamic_Grass_Simulation_and_Ot"></a>4.2 Dynamic Grass
+Simulation and Other Natural Effects</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Rishi Ramraj, <st1:placetype w:st="on"><st1:place
+w:st="on"><st1:PlaceType w:st="on">University</st1:placetype></st1:PlaceType></st1:place>
+of <st1:placename w:st="on"><st1:PlaceName w:st="on">Waterloo</st1:placename></st1:PlaceName><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1033" type="#_x0000_t75"
+ style='width:6in;height:335.25pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image029.jpg" o:title="DynamicGrass"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=447
+src="Table%20of%20Contents_files/image030.jpg" v:shapes="_x0000_i1033"><![endif]><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></span></i></p>
+
+<p class=GPGNormal align=left style='text-align:left'><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal align=left style='text-align:left'><span style='font-family:
+Arial'>Rishi’s Sample code can be found in <i style='mso-bidi-font-style:normal'>\\Section4-Physics\4.02-DyanmicGrass\</i><o:p></o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_4.4_Practical_Animation_of_Soft_Bod"></a>4.4 Practical Animation
+of Soft Bodies for Game Development </h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Maciej Matyka, <st1:placetype w:st="on">University</st1:placetype>
+of <st1:placename w:st="on">Wroclaw</st1:placename><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial;
+mso-bidi-font-style:italic'><!--[if gte vml 1]><v:shape id="_x0000_i1034"
+ type="#_x0000_t75" style='width:350.25pt;height:363.75pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image017.jpg" o:title="Soft_Bodies"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=485
+src="Table%20of%20Contents_files/image018.jpg" v:shapes="_x0000_i1034"><![endif]></span><span
+class=Gems4Italic><span style='font-family:Arial;mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span class=Gems4Italic><span style='font-family:Arial;
+font-style:normal'>Maciej’s </span></span><span style='font-family:Arial'>sample
+code can be found in <i style='mso-bidi-font-style:normal'>\\Section4-Physics\4.04-SoftBody-Matyka<o:p></o:p></i></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>Two sample applications can
+be found in the same directory and run from there.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_4.5_Adding_Life_to_Ragdoll_Simulati"></a>4.5 Adding Life to
+Ragdoll Simulation Using Feedback Control Systems</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Michael Mande, Apple
+Computer<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial;
+mso-bidi-font-style:italic'><!--[if gte vml 1]><v:shape id="_x0000_i1035"
+ type="#_x0000_t75" style='width:350.25pt;height:306pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image019.jpg" o:title="PhysicalController"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=408
+src="Table%20of%20Contents_files/image020.jpg" v:shapes="_x0000_i1035"><![endif]></span><span
+class=Gems4Italic><span style='font-family:Arial;mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The sample application for
+this gem can be found in <span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>//Section4-Physics /4.05-ControllerDemo-Mandel/</span></span><span
+class=Gems4Italic><span style='font-style:normal'> or accessed by clicking <a
+href="Section4-Physics/4.05-ControllerDemo-Mandel/ControllerDemo.exe">here</a>.</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_4.6_Designing_a_Prescripted_Physics"></a>4.6 Designing a
+Prescripted Physics System</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Daniel Higgins<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code for this gem
+can be found in <span class=Gems4Italic><span style='mso-bidi-font-style:normal'>//Section4-Physics
+/4.06-PrescriptedPhysics-Higgins/<o:p></o:p></span></span></span></p>
+
+<p class=GPGNormal><span class=Gems4Italic><span style='font-family:Arial;
+mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_4.8_Realistic_Camera_Movement_in_a_"></a>4.8 Realistic Camera
+Movement in a 3D Car Simulator</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Barnabas Aszodi, Szobolcs
+Czuczor, <st1:placename w:st="on">Budapest</st1:placename> <st1:placetype w:st="on">University</st1:placetype>
+of Technology and Economics<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial;
+mso-bidi-font-style:italic'><!--[if gte vml 1]><v:shape id="_x0000_i1036"
+ type="#_x0000_t75" style='width:350.25pt;height:285pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image021.jpg" o:title="carcamera"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=380
+src="Table%20of%20Contents_files/image022.jpg" v:shapes="_x0000_i1036"><![endif]></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span class=Gems4Italic><span style='font-family:Arial;
+font-style:normal'>Barnabas and Szobolcs’<span style='mso-spacerun:yes'> 
+</span></span></span><span class=Gems4Italic><span style='font-family:Arial;
+mso-bidi-font-style:normal'>sample</span></span><span style='font-family:Arial'>
+code can be found in <i style='mso-bidi-font-style:normal'>\\Section4-Physics\4.08-RealisticCarCamera_Aszodi<o:p></o:p></i></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The sample application can
+be run from <a
+href="Section4-Physics/4.08-RealisticCarCamera_Aszodi/shakecam.exe">here</a>.
+Be sure to read the <a
+href="Section4-Physics/4.08-RealisticCarCamera_Aszodi/ReadMe.txt">README</a>
+file<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><u>Section 5: Graphics<o:p></o:p></u></h1>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_5.1_Realistic_Cloud_Rendering_on_Mo"></a>5.1 Realistic Cloud
+Rendering on Modern GPUs</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Jean-Francois Dube,
+Ubisoft<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span lang=PT-BR style='font-family:
+Arial;mso-ansi-language:PT-BR;mso-bidi-font-style:italic'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1037" type="#_x0000_t75" style='width:350.25pt;height:233.25pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image023.jpg" o:title="Dube_Clouds_image"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=311
+src="Table%20of%20Contents_files/image024.jpg" v:shapes="_x0000_i1037"><![endif]></span><span
+class=Gems4Italic><span lang=PT-BR style='font-family:Arial;mso-ansi-language:
+PT-BR;mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+
+<p class=GPGNormal><span style='font-family:Arial'>The CD contains 3 videos of
+Jean-Francois’ technique, as well as an executable. The demo requires hardware that
+supports Shader Model 3.0 Hardware &amp; DirectX 9.0c.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.01-Clouds_Dube/Videos/TestSky01_HighRes.avi"><span
+lang=PT-BR style='mso-ansi-language:PT-BR'>Video 1</span></a></span><span
+lang=PT-BR style='font-family:Arial;mso-ansi-language:PT-BR'><o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.01-Clouds_Dube/Videos/TestSky02_HighRes.avi"><span
+lang=PT-BR style='mso-ansi-language:PT-BR'>Video 2</span></a></span><span
+lang=PT-BR style='font-family:Arial;mso-ansi-language:PT-BR'><o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.01-Clouds_Dube/Videos/TestSky03_HighRes.avi"><span
+lang=PT-BR style='mso-ansi-language:PT-BR'>Video 3</span></a></span><span
+lang=PT-BR style='font-family:Arial;mso-ansi-language:PT-BR'><o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span lang=PT-BR style='font-family:Arial;mso-ansi-language:
+PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.01-Clouds_Dube/Demo/testsky.exe"><span lang=PT-BR
+style='mso-ansi-language:PT-BR'>Demo</span></a></span><span lang=PT-BR
+style='font-family:Arial;mso-ansi-language:PT-BR'><o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.01-Clouds_Dube/Demo/Controls.txt"><span lang=PT-BR
+style='mso-ansi-language:PT-BR'>Demo Instructions</span></a></span><a
+name="_5.3_Widgets:_Rendering_Fast_and_Per"></a><span lang=PT-BR
+style='font-family:Arial;mso-ansi-language:PT-BR'><o:p></o:p></span></p>
+
+<h1><span lang=PT-BR style='mso-ansi-language:PT-BR'><o:p>&nbsp;</o:p></span></h1>
+
+<h1>5.3 Widgets: Rendering Fast and Persistent Foliage</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Martin Brownlow<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The CD contains a demo
+executable as well as the source code to that demo in an MS VC project. </span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.03-Widgets_Brownlow/bin/FoliageDemo.exe">Demo</a> – Warning:
+This demo requires a fairly capable 3D graphics card to run.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.03-Widgets_Brownlow/FoliageDemo.dsw">Demo Source Code</a><o:p></o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_5.5_Gridless_Controllable_Fire"></a><a
+name="_5.4_Dimensional_Impostors_for_Reali"></a>5.4 Dimensional Impostors for
+Realistic Trees and Forests</h1>
+
+<p class=MsoNormal style='text-indent:.5in'><i style='mso-bidi-font-style:normal'>Gabor
+Szijarto<o:p></o:p></i></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The CD contains a sample project in
+\Section5-Graphics\5.04-DimensionalImpostors-Szijarto\</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1>5.5 Gridless Controllable Fire</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Neeharika Adabala, <st1:city w:st="on">University
+of Central</st1:city> <st1:state w:st="on">Florida</st1:state></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Charles E Hughes, <st1:city w:st="on">University
+of Central</st1:city> <st1:state w:st="on">Florida</st1:state><o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The CD contains source code
+located in <span class=Gems4Italic><span style='mso-bidi-font-style:normal'>\Section5-Graphics\5.05-GridlessFire_Adabala</span></span><span
+class=Gems4Italic><span style='font-style:normal'>. You will need to have
+OpenGL, GLUT, and the Nvidia SDK installed in order to build this.</span></span><o:p></o:p></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<h1><a name="_5.6_Powerful_Explosion_Effects_Usin"></a>5.6 Powerful Explosion
+Effects Using Billboard Particles</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Steve Rabin – Nintendo of
+America Inc.<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><!--[if gte vml 1]><v:shape id="_x0000_i1038"
+ type="#_x0000_t75" style='width:350.25pt;height:263.25pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image025.jpg" o:title="explosion"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=351
+src="Table%20of%20Contents_files/image026.jpg" v:shapes="_x0000_i1038"><![endif]></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>This CD contains a collection
+of videos showing components of this effect, as well as the composite final
+result<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.06-Explosions_Rabin/justcore.mpg">Video 1</a> – Just
+Core<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.06-Explosions_Rabin/justdebris.mpg">Video 2</a> –
+Just Debris<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.06-Explosions_Rabin/justfireball.mpg">Video 3</a> –
+Just Fireball<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.06-Explosions_Rabin/justflares.mpg">Video 4</a> –
+Just Flares<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.06-Explosions_Rabin/justflash.mpg">Video 5</a> – Just
+Flash<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.06-Explosions_Rabin/justsmoke.mpg">Video 6</a> – Just
+Smoke<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.06-Explosions_Rabin/explosion1.mpg">Video 7</a> –
+Final Explosion 1<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.06-Explosions_Rabin/explosion2.mpg">Video 8</a> –
+Final Explosion 1<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><a
+href="Section5-Graphics/5.06-Explosions_Rabin/sidebyside.mpg">Video 9</a> –
+Side-by-side comparison<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_5.7_A_Simple_Method_for_Rendering_G"></a>5.7 A Simple Method for
+Rendering Gemstones</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Thorsten Scheuermann, ATI
+Research<o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The CD includes a video of
+Thorsten’s gem, <a
+href="Section5-Graphics/5.07-RenderingGemstones-Scheuermann/GemVideo.mov">here</a>.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_5.8_Volumetric_Post-Processing"></a>5.8 Volumetric
+Post-Processing</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Dominic Filion, DC Studios<o:p></o:p></span></span></p>
+
+<p class=GPGNormal>The CD<span class=Gems4Italic><span style='font-family:Arial;
+font-style:normal'> contains a sample project The project can be found in</span></span><span
+class=Gems4Italic><span style='font-family:Arial;mso-bidi-font-style:normal'>
+\Section5-Graphics\5.08-VolumetricPostProcessing-Filion</span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_5.9_Procedural_Level_Generation"></a>5.9 Procedural Level
+Generation</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Timothy Roden and Ian
+Parberry, <st1:city w:st="on">University of North</st1:city> <st1:state w:st="on">Texas</st1:state><o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><span style='mso-tab-count:
+5'>                                                            </span><o:p></o:p></span></span></p>
+
+<p class=GPGNormal>The CD<span class=Gems4Italic><span style='font-family:Arial;
+font-style:normal'> contains a sample project to procedurally create level
+data. The project can be found in</span></span><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>
+\Section5-Graphics\5.09-ProceduralLevelGeneration-Rode</span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>n<o:p></o:p></span></span></p>
+
+<p class=GPGNormal><span class=Gems4Italic><b><span style='font-family:Arial;
+mso-bidi-font-family:"Times New Roman";font-style:normal'><o:p>&nbsp;</o:p></span></b></span></p>
+
+<h1><u>Section 6: Networking and Multi-player<o:p></o:p></u></h1>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_6.4_Fast_and_Efficient_Implementati"></a>6.4 Fast and Efficient
+Implementation of a Remote Procedure Calls System</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Bae Hyun-jik<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>Hyun-jik’s gem contains a number
+of different samples, with source, executable, and readme files included. They
+can be found in the sub-directories under \\<i style='mso-bidi-font-style:normal'>Section6-Audio\Section6-<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>6.04-FastRPCforOnlineGames-Bae<o:p></o:p></span></span></i></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<h1><a name="_6.5_Overcoming_Network_Address_Tran"></a>6.5 Overcoming Network
+Address Translation in Peer-to-Peer Communications</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Jon Watte<o:p></o:p></span></span></p>
+
+<p class=GPGNormal><o:p>&nbsp;</o:p></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>Sample code for Jon’s gem
+can be found in <i style='mso-bidi-font-style:normal'>\\Section6-Networking<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>\6.05-OvercomingNetworkAddressTranslation-Watte</span></span></i></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<h1><a name="_6.7_Safe_Random_Number_Systems"></a>6.7 Safe Random Number
+Systems</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'>Shekhar Dhupelia<o:p></o:p></span></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span class=Gems4Italic><span
+style='font-family:Arial;mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></span></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>Sample code for Shekhar’s
+random number gem can be found in <i style='mso-bidi-font-style:normal'>\\Section6-Networking\6.07-SafeRandomNumberSystems-Dhupelia</i></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The demo can be <a
+href="Section6-Networking/6.07-SafeRandomNumberSystems-Dhupelia/release/RandomPools.exe">here</a>.
+<o:p></o:p></span></p>
+
+<p class=GPGNormal><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'><o:p>&nbsp;</o:p></span></i></p>
+
+<h1><u>Section 7: Audio<o:p></o:p></u></h1>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_7.1_MultiThreaded_Audio_Programming"></a>7.1 MultiThreaded Audio
+Programming Techniques</h1>
+
+<p class=GPGNormal><span style='font-family:Arial'><span style='mso-tab-count:
+1'>            </span><i style='mso-bidi-font-style:normal'>James Boer<o:p></o:p></i></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>Sample code for James
+MultiThreaded Audio gem can be found in <i style='mso-bidi-font-style:normal'>\\Section7-Audio\7.01-MultiThreadedAudio-Boer</i></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The demo can be <a
+href="Section7-Audio/7.01-MultiThreadedAudio-Boer/Multithreaded.exe">here</a>. <o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_7.3_Using_3D_Surfaces_as_Audio_Emit"></a>7.3 Using 3D Surfaces as
+Audio Emitters</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'>Sami Hamlaoui<o:p></o:p></span></i></p>
+
+<p class=GPGNormal style='text-indent:.5in'><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'><o:p>&nbsp;</o:p></span></i></p>
+
+<p class=GPGNormal style='text-indent:.5in'><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1039" type="#_x0000_t75"
+ style='width:350.25pt;height:353.25pt'>
+ <v:imagedata src="Table%20of%20Contents_files/image027.jpg" o:title="AudioEmitters"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=471
+src="Table%20of%20Contents_files/image028.jpg" v:shapes="_x0000_i1039"><![endif]><o:p></o:p></span></i></p>
+
+<p class=GPGNormal><span style='mso-bidi-font-size:16.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files be found in <o:p></o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>\\<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Section7-Audio\</span></span></span><i
+style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+font-family:Arial'>7.03-Using3DSurfacesasAudioEmitters-Hamlaoui<o:p></o:p></span></i></p>
+
+<p class=GPGNormal><span style='mso-bidi-font-size:16.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='mso-bidi-font-size:16.0pt;font-family:Arial'>The
+demo can be found in the same directory, and run from there.<o:p></o:p></span></p>
+
+<p class=GPGNormal><span style='mso-bidi-font-size:16.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_7.4_Fast_Environmental_Reverb_Based"></a>7.4 Fast Environmental
+Reverb Based on Feedback Delay Networks</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'>Christian Sch</span>üler</i><i style='mso-bidi-font-style:
+normal'><span style='font-family:Arial'> <o:p></o:p></span></i></p>
+
+<p class=GPGNormal style='text-indent:.5in'><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'><o:p>&nbsp;</o:p></span></i></p>
+
+<p class=GPGNormal style='text-indent:.5in'><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1040" type="#_x0000_t75"
+ style='width:350.25pt;height:5in'>
+ <v:imagedata src="Table%20of%20Contents_files/image031.jpg" o:title="ReverbDemo"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=480
+src="Table%20of%20Contents_files/image032.jpg" v:shapes="_x0000_i1040"><![endif]><o:p></o:p></span></i></p>
+
+<p class=GPGNormal><span style='mso-bidi-font-size:18.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files be found in <o:p></o:p></span></p>
+
+<p class=GPGNormal style='text-indent:.5in'><span style='font-family:Arial'>\\<span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'>Section7-Audio\7.04-FastEnvironmentalReverb-Schuler</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-justify:inter-ideograph'><span
+style='font-size:11.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-justify:inter-ideograph'><span
+style='font-size:11.0pt;font-family:Arial'>A demo built from the source code is
+included as well.<o:p></o:p></span></p>
+
+<h1><a name="_7.5_Introduction_to_Single-Speaker_"></a><o:p>&nbsp;</o:p></h1>
+
+<h1>7.5 Introduction to Single-Speaker Speech Recognition</h1>
+
+<p class=GPGNormal style='text-indent:.5in'><i style='mso-bidi-font-style:normal'><span
+style='font-family:Arial'>Julien Hamaide <o:p></o:p></span></i></p>
+
+<p class=GPGNormal><span style='mso-bidi-font-size:18.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+<p class=GPGNormal><span style='font-family:Arial'>The source code project
+files be found in \\<span class=Gems4Italic><span style='mso-bidi-font-style:
+normal'>Section7-Audio\7.05-SingleSpeakerSpeechRecognition-Hamaide</span></span></span><span
+class=Gems4Italic><span style='mso-bidi-font-style:normal'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-justify:inter-ideograph'><span
+style='font-size:11.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-justify:inter-ideograph'><span
+style='font-size:11.0pt;font-family:Arial'>A demo built from the source code is
+included as well, but must be run from the command line, as explained in the <a
+href="Section7-Audio/7.05-SingleSpeakerSpeechRecognition-Hamaide/ReadMe.txt">readme</a>.
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-justify:inter-ideograph'><span
+style='font-size:11.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

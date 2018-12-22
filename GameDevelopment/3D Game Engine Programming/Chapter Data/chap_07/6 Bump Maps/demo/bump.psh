@@ -1,0 +1,6 @@
+ps.1.1                 
+tex t0 
+tex t1                
+dp3 r1, t1_bx2, v0_bx2      
+mul r0, t0, r1
+

@@ -1,0 +1,16 @@
+ps.1.1
+
+;Ambient light
+def c0, 0.01, 0.01, 0.01, 0.0
+
+;Light Intensity
+def c1, 0.5, 0.5, 0.5, 0.0
+
+;This is the normal map
+tex t0
+
+;Get the dot product of the diffuse and the normal map
+dp3_sat r0, t0_bx2, v0_bx2
+
+;Multiply by the intensity and add the ambient
+mad_sat r0, r0, c1, c0

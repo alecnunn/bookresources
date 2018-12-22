@@ -1,0 +1,78 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Clear  Class Reference</h1>Routines for clearing pixels. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcClear-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcClear.html#a0">Clear</a> ()
+<li><a class="el" href="class_ptcClear.html#a1">~Clear</a> ()
+<li>void <a class="el" href="class_ptcClear.html#a2">request</a> (const Format &amp;format)
+<li>void <a class="el" href="class_ptcClear.html#a3">clear</a> (void *pixels,int x,int y,int width,int height,int pitch,const Color &amp;color)
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Routines for clearing pixels.
+<p>
+This class is an interface to low level pixel clearing routines.
+<p>
+Before using the clear class take a look at the high level <a class="el" href="class_ptcSurface.html#a12">Surface::clear</a>() and <a class="el" href="class_ptcConsole.html#a26">Console::clear</a>() functions.
+<p>
+Typically the only time the clear class is required is when you are managing your own pixel buffers. <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Clear::Clear"></a>ptc::Clear::Clear ()</h3>
+<div class="in">
+
+<p>
+Default constructor. </div>
+
+<h3><a name="a1" doxytag="ptc::Clear::~Clear"></a>ptc::Clear::~Clear ()</h3>
+<div class="in">
+
+<p>
+Destructor. </div>
+
+<h3><a name="a2" doxytag="ptc::Clear::request"></a>void ptc::Clear::request (const Format &amp; <em>format</em>)</h3>
+<div class="in">
+
+<p>
+Request a clear routine for the specified pixel format <em>format.</em>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>format</em> -  the pixel format. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl></div>
+
+<h3><a name="a3" doxytag="ptc::Clear::clear"></a>void ptc::Clear::clear (void * <em>pixels</em>, int <em>x</em>, int <em>y</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Color &amp; <em>color</em>)</h3>
+<div class="in">
+
+<p>
+Clear an area of the pixel array <em>pixels</em> to the specified color <em>color.</em>
+<p>
+<dl compact><dt>
+<b>Warning: </b><dd>
+You must first call <a class="el" href="class_ptcClear.html#a2">Clear::request</a>() to initialize the pixel format.
+<p>
+</dl><dl compact><dt>
+<b>Parameters: </b><dd>
+<em>pixels</em> -  the pixel array. <dd>
+<em>x</em> -  the x coordinate of the top-left corner of the clear area. <dd>
+<em>y</em> -  the y coordinate of the top-left corner of the clear area. <dd>
+<em>width</em> -  the width of the clear area in pixels. <dd>
+<em>height</em> -  the height of the clear area in pixels. <dd>
+<em>pitch</em> -  the pitch of the pixel array in bytes. <dd>
+<em>color</em> -  the clear color. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl></div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

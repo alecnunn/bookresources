@@ -1,0 +1,9 @@
+#begin
+
+frequency   float  10.0
+radius      float  0.0
+
+object      string Gun1.txt
+object_path string ./Assets/Spawners/Gun1/
+
+#end

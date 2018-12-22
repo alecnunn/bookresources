@@ -1,0 +1,164 @@
+num_nodes: 51
+max_level: 6
+adjacency: 4
+min_nodes: 50
+max_nodes: 100
+percent_vertical_connects: 0
+percent_sloping_horizontal_connects: 25
+random_type: 0
+random_start_seed: 1414424055
+random_end_seed: 1147554317
+
+Node: 0
+  location (x,y,z): 0,0,0
+  connected to nodes: 1(S) 
+Node: 1
+  location (x,y,z): 0,1,-1
+  connected to nodes: 0(N) 2(S) 4(E) 
+Node: 2
+  location (x,y,z): 0,1,-2
+  connected to nodes: 1(N) 3(S) 6(W) 
+Node: 3
+  location (x,y,z): 0,2,-3
+  connected to nodes: 2(N) 
+Node: 4
+  location (x,y,z): 1,1,-1
+  connected to nodes: 34(N) 5(S) 8(E) 1(W) 
+Node: 5
+  location (x,y,z): 1,1,-2
+  connected to nodes: 4(N) 12(S) 7(E) 
+Node: 6
+  location (x,y,z): -1,2,-2
+  connected to nodes: 11(N) 13(S) 2(E) 9(W) 
+Node: 7
+  location (x,y,z): 2,1,-2
+  connected to nodes: 8(N) 21(S) 5(W) 
+Node: 8
+  location (x,y,z): 2,1,-1
+  connected to nodes: 7(S) 4(W) 
+Node: 9
+  location (x,y,z): -2,3,-2
+  connected to nodes: 10(S) 6(E) 
+Node: 10
+  location (x,y,z): -2,3,-3
+  connected to nodes: 9(N) 30(S) 43(E) 18(W) 
+Node: 11
+  location (x,y,z): -1,3,-1
+  connected to nodes: 14(N) 6(S) 15(W) 
+Node: 12
+  location (x,y,z): 1,1,-3
+  connected to nodes: 5(N) 17(S) 21(E) 
+Node: 13
+  location (x,y,z): -1,2,-3
+  connected to nodes: 6(N) 
+Node: 14
+  location (x,y,z): -1,3,0
+  connected to nodes: 20(N) 11(S) 19(E) 16(W) 
+Node: 15
+  location (x,y,z): -2,3,-1
+  connected to nodes: 11(E) 
+Node: 16
+  location (x,y,z): -2,3,0
+  connected to nodes: 14(E) 
+Node: 17
+  location (x,y,z): 1,1,-4
+  connected to nodes: 12(N) 42(S) 31(E) 
+Node: 18
+  location (x,y,z): -3,4,-3
+  connected to nodes: 38(N) 24(S) 10(E) 26(W) 
+Node: 19
+  location (x,y,z): 0,3,0
+  connected to nodes: 14(W) 
+Node: 20
+  location (x,y,z): -1,3,1
+  connected to nodes: 22(N) 14(S) 32(W) 
+Node: 21
+  location (x,y,z): 2,1,-3
+  connected to nodes: 7(N) 31(S) 23(E) 12(W) 
+Node: 22
+  location (x,y,z): -1,3,2
+  connected to nodes: 28(N) 20(S) 27(E) 36(W) 
+Node: 23
+  location (x,y,z): 3,1,-3
+  connected to nodes: 48(S) 39(E) 21(W) 
+Node: 24
+  location (x,y,z): -3,4,-4
+  connected to nodes: 18(N) 41(E) 25(W) 
+Node: 25
+  location (x,y,z): -4,5,-4
+  connected to nodes: 24(E) 45(W) 
+Node: 26
+  location (x,y,z): -4,4,-3
+  connected to nodes: 18(E) 
+Node: 27
+  location (x,y,z): 0,3,2
+  connected to nodes: 22(W) 
+Node: 28
+  location (x,y,z): -1,4,3
+  connected to nodes: 33(N) 22(S) 29(E) 
+Node: 29
+  location (x,y,z): 0,4,3
+  connected to nodes: 28(W) 
+Node: 30
+  location (x,y,z): -2,3,-4
+  connected to nodes: 10(N) 
+Node: 31
+  location (x,y,z): 2,1,-4
+  connected to nodes: 21(N) 17(W) 
+Node: 32
+  location (x,y,z): -2,3,1
+  connected to nodes: 20(E) 
+Node: 33
+  location (x,y,z): -1,5,4
+  connected to nodes: 37(N) 28(S) 40(W) 
+Node: 34
+  location (x,y,z): 1,1,0
+  connected to nodes: 4(S) 35(E) 
+Node: 35
+  location (x,y,z): 2,1,0
+  connected to nodes: 44(N) 34(W) 
+Node: 36
+  location (x,y,z): -2,3,2
+  connected to nodes: 22(E) 47(W) 
+Node: 37
+  location (x,y,z): -1,5,5
+  connected to nodes: 50(N) 33(S) 
+Node: 38
+  location (x,y,z): -3,4,-2
+  connected to nodes: 18(S) 
+Node: 39
+  location (x,y,z): 4,1,-3
+  connected to nodes: 23(W) 
+Node: 40
+  location (x,y,z): -2,5,4
+  connected to nodes: 49(S) 33(E) 
+Node: 41
+  location (x,y,z): -2,5,-4
+  connected to nodes: 24(W) 
+Node: 42
+  location (x,y,z): 1,1,-5
+  connected to nodes: 17(N) 
+Node: 43
+  location (x,y,z): -1,4,-3
+  connected to nodes: 46(N) 10(W) 
+Node: 44
+  location (x,y,z): 2,1,1
+  connected to nodes: 35(S) 
+Node: 45
+  location (x,y,z): -5,5,-4
+  connected to nodes: 25(E) 
+Node: 46
+  location (x,y,z): -1,4,-2
+  connected to nodes: 43(S) 
+Node: 47
+  location (x,y,z): -3,3,2
+  connected to nodes: 36(E) 
+Node: 48
+  location (x,y,z): 3,1,-4
+  connected to nodes: 23(N) 
+Node: 49
+  location (x,y,z): -2,6,3
+  connected to nodes: 40(N) 
+Node: 50
+  location (x,y,z): -1,5,6
+  connected to nodes: 37(S) 

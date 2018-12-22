@@ -1,0 +1,17 @@
+// pixel shader for image blending
+// 2001 - Greg Snook
+
+ps.1.0
+
+// read from the offset texture
+// to get the start of our sample group as t0
+tex t0
+
+// make a copy of the color values in t0
+
+// Use texbem to offset the sample value in t1 by the group offset in t0
+texbem t1, t0
+
+// output the color
+mov r0, t1
+

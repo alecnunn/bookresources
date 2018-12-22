@@ -1,0 +1,178 @@
+<HTML>
+<HEAD>
+<TITLE>-= Combat Machines 96 =-</TITLE>
+</HEAD>
+<BODY>
+
+<HR>
+<applet code="cmApplet.class" width=400 height=400>
+<param name=cmApplet_gridSize                    value=20>
+<param name=cmApplet_viewDistance                value=100>
+<param name=cmApplet_viewAngle                   value=1.1>
+
+
+<param name=cmFesseTank_polyhedronFile           value="f3d/cmFesseTank.f3d">
+<param name=cmFesseTank_sizeX                    value=1.5>
+<param name=cmFesseTank_sizeY                    value=0.75>
+<param name=cmFesseTank_sizeZ                    value=2>
+<param name=cmFesseTank_turningRate              value=1>
+<param name=cmFesseTank_acceleration             value=3>
+<param name=cmFesseTank_brakeRate                value=10>
+<param name=cmFesseTank_maxVelocity              value=10>
+<param name=cmFesseTank_fragmentsWhenDead        value=10>
+<param name=cmFesseTank_fragmentSpeed            value=25>
+<param name=cmFesseTank_fragmentSpread           value=2>
+<param name=cmFesseTank_fragmentSize             value=1>
+<param name=cmFesseTank_fragmentGenerations      value=1>
+<param name=cmFesseTank_ourHealth                value=5>
+
+<param name=cmFesseTankRemains_ourDefaultPolyehdron value="f3d/cmFesseTankRemains.f3d">
+<param name=cmFesseTankRemains_scalex             value=1.5>
+<param name=cmFesseTankRemains_scaley             value=0.23>
+<param name=cmFesseTankRemains_scalez             value=2>
+<param name=cmFesseTankRemains_ourSpeedUp         value=20>
+<param name=cmFesseTankRemains_ourRandRot         value=3>
+
+<param name=cmAntiTankCannon_polyhedronFile           value="f3d/antitank1.f3d">
+<param name=cmAntiTankCannon_sizeX                    value=1>
+<param name=cmAntiTankCannon_sizeY                    value=1>
+<param name=cmAntiTankCannon_sizeZ                    value=2>
+<param name=cmAntiTankCannon_turningRate              value=4>
+<param name=cmAntiTankCannon_fragmentsWhenDead        value=10>
+<param name=cmAntiTankCannon_fragmentSpeed            value=25>
+<param name=cmAntiTankCannon_fragmentSpread           value=2>
+<param name=cmAntiTankCannon_fragmentSize             value=3>
+<param name=cmAntiTankCannon_fragmentGenerations      value=1>
+<param name=cmAntiTankCannon_ourHealth                value=6>
+
+<param name=cmGlider_polyhedronFile         value="f3d/b2.f3d">
+<param name=cmGlider_sizeX                  value=8>
+<param name=cmGlider_sizeY                  value=1>
+<param name=cmGlider_sizeZ                  value=4>
+<param name=cmGlider_ourHealth              value=2>
+<param name=cmGlider_turningRate            value=0.6>
+<param name=cmGlider_pitchRate              value=0.5>
+<param name=cmGlider_acceleration           value=3>
+<param name=cmGlider_brakeRate              value=3>
+<param name=cmGlider_maxVelocity            value=20>
+<param name=cmGlider_climbRate              value=3>
+<param name=cmGlider_decentRate             value=4>
+<param name=cmGlider_fragmentsWhenDead      value=15>
+<param name=cmGlider_fragmentSpeed          value=7>
+<param name=cmGlider_fragmentSpread         value=1>
+<param name=cmGlider_fragmentSize           value=2>
+<param name=cmGlider_fragmentGenerations    value=1>
+
+<param name=cmGliderRemains_ourDefaultPolyehdron value="f3d/cmGliderRemains.f3d">
+<param name=cmGliderRemains_scalex             value=8>
+<param name=cmGliderRemains_scaley             value=0.2>
+<param name=cmGliderRemains_scalez             value=4>
+<param name=cmGliderRemains_ourRandRot         value=1>
+
+<param name=cmGenericMissile_polyhedronFile      value="f3d/missile.f3d">
+<param name=cmGenericMissile_scalex              value=0.25>
+<param name=cmGenericMissile_scaley              value=0.25>
+<param name=cmGenericMissile_scalez              value=1.5>
+<param name=cmGenericMissile_acceleration        value=30>
+<param name=cmGenericMissile_maxVelocity         value=50>
+<param name=cmGenericMissile_impactDamage        value=20>
+<param name=cmGenericMissile_fragmentsWhenDead   value=15>
+<param name=cmGenericMissile_fragmentSpeed       value=7>
+<param name=cmGenericMissile_fragmentSpread      value=1>
+<param name=cmGenericMissile_fragmentSize        value=2>
+<param name=cmGenericMissile_fragmentGenerations value=1>
+
+<param name=cmMinicannon_loadingtime             value=0.4>
+<param name=cmMinicannon_defaultammo             value=50>
+<param name=cmMinicannon_name                    value=1-Minicannon>
+
+<param name=cmMissileLauncher_loadingtime        value=2>
+<param name=cmMissileLauncher_defaultammo        value=5>
+<param name=cmMissileLauncher_name               value=2-Missile>
+
+<param name=cmBombBay_loadingtime                value=0.5>
+<param name=cmBombBay_defaultammo                value=10>
+<param name=cmBombBay_name                       value=3-Bomb>
+
+<param name=cmMinicannonRound_polyhedronFile     value="f3d/bullet.f3d">
+<param name=cmMinicannonRound_scalex             value=0.1>
+<param name=cmMinicannonRound_scaley             value=0.1>
+<param name=cmMinicannonRound_scalez             value=0.5>
+<param name=cmMinicannonRound_lifeTime           value=3>
+<param name=cmMinicannonRound_maxVelocity        value=20>
+<param name=cmMinicannonRound_impactDamage       value=1>
+<param name=cmMinicannonRound_fragmentsWhenDead  value=1>
+<param name=cmMinicannonRound_fragmentSpeed      value=2>
+<param name=cmMinicannonRound_fragmentSpread     value=2>
+<param name=cmMinicannonRound_fragmentSize       value=1>
+<param name=cmMinicannonRound_fragmentGenerations value=1>
+<param name=cmMinicannonRound_fragmentRotation   value=3>
+
+<param name=cmMinicannonShell_polyhedronFile     value="f3d/shell.f3d">
+<param name=cmMinicannonShell_scalex             value=0.1>
+<param name=cmMinicannonShell_scaley             value=0.1>
+<param name=cmMinicannonShell_scalez             value=0.2>
+<param name=cmMinicannonShell_angleX      	 value=2>
+<param name=cmMinicannonShell_angleY      	 value=2>
+<param name=cmMinicannonShell_angleZ      	 value=2>
+<param name=cmMinicannonShell_speed              value=3>
+<param name=cmMinicannonShell_spread             value=1>
+<param name=cmMinicannonShell_rotation           value=2>
+<param name=cmMinicannonShell_lifeTime           value=1.5>
+
+<param name=cmGenericBuilding_polyhedronFile     value="f3d/build2.f3d">
+<param name=cmGenericBuilding_relFragsWhenDead   value=1>
+<param name=cmGenericBuilding_relFragSpeed       value=2>
+<param name=cmGenericBuilding_relFragSpread      value=1>
+<param name=cmGenericBuilding_relFragSize        value=0.6>
+<param name=cmGenericBuilding_relFragGens        value=0.01>
+<param name=cmGenericBuilding_relFragRot         value=0.2>
+<param name=cmGenericBuilding_ourHealth          value=20>
+
+<param name=cmGenericBuildingRuin_polyhedronFile value="f3d/build2re.f3d">
+
+<param name=cmGenericTower_polyhedronFile     value="f3d/build2.f3d">
+<param name=cmGenericTower_relFragsWhenDead   value=1>
+<param name=cmGenericTower_relFragSpeed       value=2>
+<param name=cmGenericTower_relFragSpread      value=1>
+<param name=cmGenericTower_relFragSize        value=0.6>
+<param name=cmGenericTower_relFragGens        value=0.01>
+<param name=cmGenericTower_relFragRot         value=0.2>
+<param name=cmGenericTower_ourHealth          value=20>
+
+<param name=cmGenericTowerRuin_polyhedronFile value="f3d/build2re.f3d">
+
+<param name=cmGenericFragment_polyhedronFile     value="f3d/fragment.f3d">
+<param name=cmGenericFragment_velYfactor         value=3>
+
+<param name=cmGenericExplosion_polyhedronFile    value="f3d/expl1.f3d">
+<param name=cmGenericExplosion_lifeTime          value=3>
+<param name=cmGenericExplosion_nbrOfFragments    value=1>
+<param name=cmGenericExplosion_fragmentsSpeed    value=1>
+<param name=cmGenericExplosion_fragmentsSize     value=0.2>
+<param name=cmGenericExplosion_fragmentsRotation value=0.3>
+
+<param name=cmGenericBomb_polyhedronFile         value="f3d/bomb1.f3d">
+<param name=cmGenericBomb_scaleX                 value=0.5>
+<param name=cmGenericBomb_scaleY                 value=0.5>
+<param name=cmGenericBomb_scaleZ                 value=1>
+<param name=cmGenericBomb_randStartAngle         value=1>
+<param name=cmGenericBomb_randRotation           value=3>
+
+<param name=cmMainGate_polyhedronFile            value=f3d/door2.f3d>
+<param name=cmMainGate_SpeedUp                   value=10>
+<param name=cmMainGate_SpeedDown                 value=10>
+<param name=cmMainGate_WaitTimeUp                value=3>
+<param name=cmMainGate_maxHeight                 value=10>
+<param name=cmMainGate_sizeX                     value=8>
+<param name=cmMainGate_sizeY                     value=5>
+<param name=cmMainGate_sizeZ                     value=2>
+
+<param name=cmGenericWall_polyhedronFile            value=f3d/wall1.f3d>
+<param name=cmGenericPillar_polyhedronFile          value=f3d/pillar1.f3d>
+
+</applet>
+<HR>
+</center>
+</BODY>
+</HTML>

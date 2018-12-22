@@ -1,0 +1,391 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>Windows Options</title>
+</head>
+
+<body TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#824250" VLINK="#51188E" ALINK="#FF0000"
+BACKGROUND="white.gif">
+
+<h1 align="left"><font face="Arial" size="7">Windows Options</font></h1>
+
+<h3><br>
+<font face="Arial">Introduction</font></h3>
+
+<p>Options strings give users of an OpenPTC distribution control over aspects of specific
+internal details that cannot be expressed in the platform independent OpenPTC API. For
+example, one platform may introduce an option string of &quot;windowed output&quot; which
+would force the console to output in a window instead of fullscreen.</p>
+
+<p>You can pass option strings to both consoles and surfaces. Most options apply to
+consoles only, some apply to both surfaces and consoles. A few options apply to several
+implementations of OpenPTC, but most apply to only a specific implementation.<br>
+<br>
+To pass an option to a surface or a console you do the following:</p>
+
+<blockquote>
+  <pre>// set surface option
+surface.option(&quot;enable dithering&quot;);
+
+// set console option
+console.option(&quot;windowed output&quot;);</pre>
+</blockquote>
+
+<p>Remember that option strings are case independent, and that its safe to pass an option
+string that is not supported by the implementation (the option function just returns
+false). </p>
+
+<p>For your convenience every implementation of OpenPTC reads console options from the
+file &quot;ptc.cfg&quot; in the current dir, if it exists, when a console is created. This
+lets you, and your users pass options strings easily without having to recompile.
+&quot;ptc.cfg&quot; is just a plain text file in which each line is passed to the console
+as an option string.<br>
+<br>
+<strong>NOTE:</strong> options in a merged distribution behave in a slightly different way
+to normal. If you want to pass options before the console is opened, you have to manually
+specify which console the options are directed to. In the case of this distribution, you
+have to choose &quot;DirectX&quot; for the console options listed below like this:</p>
+
+<blockquote>
+  <pre>// create console
+Console console;
+
+// set console options
+console.option(&quot;DirectX&quot;);  // this is required!
+console.option(&quot;fullscreen output&quot;);
+console.option(&quot;default width 640&quot;);
+console.option(&quot;default height 480&quot;);</pre>
+  <pre>// open console
+console.open(...);</pre>
+</blockquote>
+
+<h3><br>
+<font face="Arial">Options that apply to both surfaces and consoles</font></h3>
+
+<h4><font face="Arial">&quot;enable dithering&quot;</font></h4>
+
+<ul>
+  <li>Enables dithering when copying from this surface or console to another surface.</li>
+  <li>Dithering is disabled by default because it is generally slower than pixel format
+    conversion without dithering.</li>
+  <li>This option is only a hint, dithering will be enabled if it is implemented for this
+    conversion and dithering makes sense in this case (ie. 32 bit to 16 bit makes sense, but
+    16 bit to 32 bit does not).</li>
+  <li>This option is supported on most implementations of OpenPTC thanks to the <a
+    href="http://hermes.terminal.at">HERMES</a> library.</li>
+</ul>
+
+<h4><font face="Arial">&quot;disable dithering&quot;</font></h4>
+
+<ul>
+  <li>Disables dithering when copying from this surface or console to another surface.</li>
+  <li>Dithering is disabled by default because it is generally slower than pixel format
+    conversion without dithering.</li>
+  <li>This option is supported on most implementations of OpenPTC thanks to the <a
+    href="http://hermes.terminal.at">HERMES</a> library.</li>
+</ul>
+
+<h3><font face="Arial"><br>
+Options that apply to consoles only</font></h3>
+
+<h4><font face="Arial">&quot;default output&quot;</font></h4>
+
+<ul>
+  <li>Tells the console to use the default output mode, which normally involves attempting
+    fullscreen first (if applicable) then falling back down to windowed output if fullscreen
+    is not possible. </li>
+  <li>This option is set by default. However, in debug build, PTC for Win32 has &quot;windowed
+    output&quot; set initially instead of &quot;default output&quot;. This is because
+    fullscreen output is next to impossible to debug under DirectX.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;windowed output&quot;</font></h4>
+
+<ul>
+  <li>This forces the console to open the display in windowed output instead of first trying
+    fullscreen, then falling back to windowed.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;default output&quot;</font></h4>
+
+<ul>
+  <li>This forces the console to open the display in fullscreen mode and if fullscreen is not
+    possible, it fails immediately instead of falling back to windowed output.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;default width [n]&quot;</font></h4>
+
+<ul>
+  <li>This option sets the default width to be used in calls to Console::open when a width is
+    not specified in the parameters.</li>
+  <li>To set your own default width pass an option like this: &quot;default width 640&quot;.</li>
+  <li>The parameter 'n' is optional, if it is omitted, the width is set back to the original
+    default width: &quot;default width&quot;.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;default height [n]&quot;</font></h4>
+
+<ul>
+  <li>This option sets the default height to be used in calls to Console::open when a height
+    is not specified in the parameters.</li>
+  <li>To set your own default height pass an option like this: &quot;default height 640&quot;.</li>
+  <li>The parameter 'n' is optional, if it is omitted, the height is set back to the original
+    default height: &quot;default height&quot;.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;default bits [n]&quot;</font></h4>
+
+<ul>
+  <li>This option provides coarse control over the default pixel format that is used when a
+    format is not specified in the parameters to Console::open.</li>
+  <li>Valid values for 'n' are 8,16,24 and 32. When '8' is passed, the format is set to an
+    8bit indexed format (256 color palette). When 16bit is set, the format is RGB565. When
+    24bit is set RGB888, and when 32bit is set, the format is 32bit RGB888 (with 8 bits spare
+    at the top of the integer).</li>
+  <li>To set your own default format pass an option like this: &quot;default bits 32&quot;.<br>
+    The parameter 'n' is optional, if it is omitted, the format is set back to the original
+    default format. ie. &quot;default bits&quot;</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;frequency [n]&quot;</font></h4>
+
+<ul>
+  <li>This option sets the frequency of the display mode to be opened.</li>
+  <li>The frequency is only a hint, if the requested frequency does not exist an error may be
+    thrown, or it may be ignored by the driver.</li>
+  <li>The parameter 'n' is frequency in hertz. To open a display with 60hz refresh rates, use
+    the option &quot;frequency 60&quot;.</li>
+  <li>Omitting the parameter 'n' sets the frequency back to default.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;resizable window&quot;</font></h4>
+
+<ul>
+  <li>This makes the window created in console open resizable when the console is opened in
+    windowed output. This is set by default.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;fixed window&quot;</font></h4>
+
+<ul>
+  <li>This makes the window created in console open fixed size (non-resizable) when the
+    console is opened in windowed output.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;center window&quot;</font></h4>
+
+<ul>
+  <li>This option turns window centering on for windowed output.</li>
+  <li>It has no effect on fullscreen output.</li>
+  <li>Warning! It will not center an already open console, to do this use the Console::window
+    extension to get the HWND and use SetWindowPos to move the window to the center.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;default window position&quot;</font></h4>
+
+<ul>
+  <li>This option turns window centering off, letting windows decide what the best position
+    for the window is. </li>
+  <li>This is set by default.</li>
+  <li>This option and the &quot;center window&quot; option cancel each other out.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;windowed primary direct&quot;</font></h4>
+
+<ul>
+  <li>This option sets up direct writing to the primary surface in windowed output.</li>
+  <li>Use this option with care! Writing directly to the primary surface in windowed output
+    can cause problems!</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;windowed primary secondary&quot;</font></h4>
+
+<ul>
+  <li>This option sets up a secondary surface to be written to and then copied to the primary
+    surface.</li>
+  <li>This fixes problems with direct primary writes in windowed mode.</li>
+  <li>It is set by default because its the best way to write to the primary in windowed
+    output.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;fullscreen primary direct&quot;</font></h4>
+
+<ul>
+  <li>This option sets up direct writing to the primary surface in fullscreen output.</li>
+  <li>This is set by default as it is typically the best way to write to the primary surface
+    in fullscreen output.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;fullscreen primary secondary&quot;</font></h4>
+
+<ul>
+  <li>This options sets up a secondary surface to be written to and then copied to the primary
+    surface on each update.</li>
+  <li>This option is not set by default, only enable it if for some reason you want to force
+    the console to create a secondary surface.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;synchronized update&quot;</font></h4>
+
+<ul>
+  <li>This option hints that the Console::update should attempt to synchronize the to the
+    vertical retrace. </li>
+  <li>This is set by default.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;unsynchronized update&quot;</font></h4>
+
+<ul>
+  <li>This option hints that the Console::update should not synchronize to the vertical
+    retrace.</li>
+  <li>It is only a hint, and in many cases synchronization to the vertical retrace is always
+    enabled (fullscreen output with flip is always synchronized), and in some other cases,
+    synchronization is not supported (often sync is not supported for windowed output).</li>
+  <li>The only place where this option currently has effect is in windowed output where a
+    secondary surface is blitted to the primary. It determines whether or not that blt is
+    scheduled to occur during retrace.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;default nearest&quot;</font></h4>
+
+<ul>
+  <li>This option sets the nearest mode matching method to the default, which currently is
+    centering.</li>
+  <li>This is set by default.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;center nearest&quot;</font></h4>
+
+<ul>
+  <li>This option setes the nearest mode matching method to centering.</li>
+  <li>Centering is more likely to be supported by hardware, and is usually much faster than
+    stretching.</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;stretch nearest&quot;</font></h4>
+
+<ul>
+  <li>This option setes the nearest mode matching method to stretching.</li>
+  <li>Stretching is not always supported in hardware, and if you force stretching when the
+    hardware does not support it, it will be very slow! beware!</li>
+  <li>This option affects subsequent calls to Console::open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;default cursor&quot;</font></h4>
+
+<ul>
+  <li>This option sets the cursor mode to default. This means that the cursor will be hidden
+    in fullscreen and shown in windowed output.</li>
+  <li>This is set by default.</li>
+  <li>This option affects subsequent calls to Console::open, and as of version 1.0.18 may be
+    used to control the cursor of an open console.</li>
+</ul>
+
+<h4><font face="Arial">&quot;show cursor&quot;</font></h4>
+
+<ul>
+  <li>This option forces the cursor to be shown in both fullscreen and windowed output.</li>
+  <li>This option affects subsequent calls to Console::open, and as of version 1.0.18 may be
+    used to control the cursor of an open console.</li>
+</ul>
+
+<h4><font face="Arial">&quot;hide cursor&quot;</font></h4>
+
+<ul>
+  <li>This option forces the cursor to be hidden in both fullscreen and windowed output.</li>
+  <li>This option affects subsequent calls to Console::open, and as of version 1.0.18 may be
+    used to control the cursor of an open console.</li>
+</ul>
+
+<h4><font face="Arial">&quot;enable key buffering&quot;</font></h4>
+
+<ul>
+  <li>This option enables buffering of keyboard events that come in to the console via
+    WM_KEYDOWN.</li>
+  <li>Buffering of keyboard events is required for the correct operation of Console::key and
+    Console::read.</li>
+  <li>This option is set by default.</li>
+  <li>You may only set this option while the console is open, it will have no effect if the
+    console is closed.</li>
+</ul>
+
+<h4><font face="Arial">&quot;disable key buffering&quot;</font></h4>
+
+<ul>
+  <li>This option disables buffering of keyboard events that come in to the console via
+    WM_KEYDOWN.</li>
+  <li>Buffering of keyboard events is required for the correct operation of Console::key and
+    Console::read, however in some circumstances these functions are not required, for
+    instance when you are managing your own HWND you typically dont need key buffering because
+    you can access WM_KEYDOWN directly.</li>
+  <li>See the &quot;WndProc&quot; example in the &quot;Extensions&quot; directory for an
+    example of disabling key buffering.</li>
+  <li>This option is not set by default.</li>
+  <li>You may only set this option while the console is open, it will have no effect if the
+    console is closed.</li>
+</ul>
+
+<h4><font face="Arial">&quot;enable logging&quot;</font></h4>
+
+<ul>
+  <li>This option enables logging of all internal messages and errors thrown during execution.</li>
+  <li>Useful for debugging, it is enabled by default in debug build, disabled in release
+    build.</li>
+  <li>All data is logged to the file 'ptc.log' in the current working directory when logging
+    is enabled.</li>
+  <li>Note that sometimes errors are thrown and caught in normal program flow. Dont be worried
+    if the ptc.log has errors in it, that does not mean there are bugs :)</li>
+  <li>This option may be called at any time, whether or not the console is open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;disable logging&quot;</font></h4>
+
+<ul>
+  <li>This option disables error logging.</li>
+  <li>By default error logging is disabled in release build, and enabled in debug build.</li>
+  <li>You can set this option at any time, whether or not the console is open.</li>
+</ul>
+
+<h4><font face="Arial">&quot;enable blocking&quot;</font></h4>
+
+<ul>
+  <li>Enables blocking when the application looses focus.</li>
+  <li>Blocking is enabled by default in fullscreen output, and direct to primary windowed
+    output (rare).</li>
+  <li>In normal windowed output, blocking has been disabled so that rendering continues when
+    the application loses focus.</li>
+  <li>You may only set this option while the console is open, it will have no effect if the
+    console is closed.</li>
+</ul>
+
+<h4><font face="Arial">&quot;disable blocking&quot;</font></h4>
+
+<ul>
+  <li>Disables console blocking when an application loses focus.</li>
+  <li>Use this option only if you <u>really</u> know what you are doing. </li>
+  <li>Blocking is required for correct operation of fullscreen output and direct primary
+    output in windowed mode.</li>
+  <li>Set this option while the console is open.</li>
+</ul>
+</body>
+</html>

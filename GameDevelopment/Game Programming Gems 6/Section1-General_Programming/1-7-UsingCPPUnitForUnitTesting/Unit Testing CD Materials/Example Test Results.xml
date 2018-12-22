@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding='ISO-8859-1' standalone='yes' ?>
+<?xml-stylesheet type="text/xsl" href="report.xsl"?>
+<TestRun>
+  <FailedTests>
+    <FailedTest id="1">
+      <Name>LoadModelTest::TestInvalidHeaderNullValue</Name>
+      <FailureType>Assertion</FailureType>
+      <Location>
+        <File>c:\documents and settings\bmadden\my documents\projects\src\unittesting\unittesting.cpp</File>
+        <Line>21</Line>
+      </Location>
+      <Message>assertion failed
+- Expected exception: model_invalid_header not thrown.
+</Message>
+    </FailedTest>
+    <FailedTest id="3">
+      <Name>LoadModelTest::TestInvalidHeaderInvalidVersionSection</Name>
+      <FailureType>Assertion</FailureType>
+      <Location>
+        <File>c:\documents and settings\bmadden\my documents\projects\src\unittesting\unittesting.cpp</File>
+        <Line>47</Line>
+      </Location>
+      <Message>assertion failed
+- Expected exception: model_invalid_version not thrown.
+</Message>
+    </FailedTest>
+    <FailedTest id="4">
+      <Name>LoadModelTest::TestInvalidValidHeader</Name>
+      <FailureType>Assertion</FailureType>
+      <Location>
+        <File>c:\documents and settings\bmadden\my documents\projects\src\unittesting\unittesting.cpp</File>
+        <Line>81</Line>
+      </Location>
+      <Message>assertion failed
+- Expression: strcmp(my_model.get_author(), &quot;Blake Madden&quot;) == 0
+</Message>
+    </FailedTest>
+    <FailedTest id="5">
+      <Name>HeapAllocatorTest::TestAllocation</Name>
+      <FailureType>Assertion</FailureType>
+      <Location>
+        <File>c:\documents and settings\bmadden\my documents\projects\src\unittesting\unittesting.cpp</File>
+        <Line>146</Line>
+      </Location>
+      <Message>assertion failed
+- Second allocation&apos;s data is corrupt. Allocations may overlap.
+</Message>
+    </FailedTest>
+    <FailedTest id="7">
+      <Name>HeapAllocatorTest::TestDellocationFromUnmanagedPointer</Name>
+      <FailureType>Assertion</FailureType>
+      <Location>
+        <File>c:\documents and settings\bmadden\my documents\projects\src\unittesting\unittesting.cpp</File>
+        <Line>195</Line>
+      </Location>
+      <Message>assertion failed
+- Allocation larger than managed heap wasn&apos;t deallocated.
+</Message>
+    </FailedTest>
+  </FailedTests>
+  <SuccessfulTests>
+    <Test id="2">
+      <Name>LoadModelTest::TestInvalidHeaderIllFormatted</Name>
+    </Test>
+    <Test id="6">
+      <Name>HeapAllocatorTest::TestDellocationFromFreeStorage</Name>
+    </Test>
+  </SuccessfulTests>
+  <Statistics>
+    <Tests>7</Tests>
+    <FailuresTotal>5</FailuresTotal>
+    <Errors>0</Errors>
+    <Failures>5</Failures>
+  </Statistics>
+</TestRun>

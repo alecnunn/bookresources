@@ -1,0 +1,269 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - st</h2>
+<p>#include &quot;cic.h&quot;<br>
+  void initHash(ST* st,int size)<br>
+  {<br>
+  int ii;<br>
+  hsize = size;<br>
+  st-&gt;HashTable = (List*)malloc(sizeof(List) * hsize);</p>
+<p> if(st-&gt;HashTable == NULL)<br>
+  {<br>
+  printf(&quot;Memory allocation problem\n&quot;);<br>
+  exit(-1);<br>
+  }<br>
+  for(ii=0;ii&lt;hsize;ii++)<br>
+  {<br>
+  st-&gt;HashTable[ii]=(LNode*)malloc(sizeof(LNode));<br>
+  if(st-&gt;HashTable[ii] == NULL)<br>
+  {<br>
+  printf(&quot;error in memory allocation for hash table\n&quot;);<br>
+  exit(-1);<br>
+  }<br>
+  st-&gt;HashTable[ii]-&gt;next = NULL;<br>
+  st-&gt;HashTable[ii]-&gt;symbol.name=NULL;<br>
+  st-&gt;HashTable[ii]-&gt;symbol.nameLen = 0;<br>
+  st-&gt;HashTable[ii]-&gt;symbol.storage = DEFAULT;<br>
+  st-&gt;HashTable[ii]-&gt;symbol.qualifier = DEFAULT;<br>
+  st-&gt;HashTable[ii]-&gt;symbol.sign = DEFAULT;<br>
+  st-&gt;HashTable[ii]-&gt;symbol.type = DEFAULT;<br>
+  st-&gt;HashTable[ii]-&gt;symbol.subtype = DEFAULT;<br>
+  st-&gt;HashTable[ii]-&gt;symbol.width = 0;<br>
+  }<br>
+  }</p>
+<p>void destroySymbolTable(ST* st,int size)<br>
+  {<br>
+  int ii;<br>
+  List L,tmp;<br>
+  for(ii = 0;ii&lt;size;ii++)<br>
+  {<br>
+  L = st-&gt;HashTable[ii];<br>
+  while (L != NULL)<br>
+  {<br>
+  tmp = L;<br>
+  L = L-&gt;next;<br>
+  free(L);<br>
+  }<br>
+  }<br>
+  }</p>
+<p>void dispSymbolTableHash(ST* st)<br>
+  {<br>
+  List L;<br>
+  int ii;<br>
+  printf(&quot;Name\tType\tsubtype\tWidth\n&quot;);<br>
+  for(ii=0;ii&lt;hsize;ii++)<br>
+  {<br>
+  L = st-&gt;HashTable[ii];<br>
+  while(L-&gt;next != NULL)<br>
+  {<br>
+  dispNodeHash(L-&gt;next);<br>
+  L = L-&gt;next;<br>
+  }<br>
+  }<br>
+  }</p>
+<p>void dispNodeHash(LNode *p)<br>
+  {<br>
+  printf(&quot;%s\t%s\t%s\t%d\n&quot;,p-&gt;symbol.name,types1[p-&gt;symbol.type],types[p-&gt;symbol.subtype],p-&gt;symbol.width);<br>
+  printf(&quot;\n&quot;);<br>
+  }</p>
+<p>LNode* findSymbolHash(ST* st,char *name)<br>
+  {<br>
+  List L;<br>
+  int idx;</p>
+<p> idx = findHash(name);<br>
+  L = st-&gt;HashTable[idx];<br>
+  while(L-&gt;next != NULL)<br>
+  {<br>
+  if(strcmp(name,L-&gt;next-&gt;symbol.name) == 0)<br>
+  return L-&gt;next;<br>
+  L = L-&gt;next;<br>
+  }<br>
+  return NULL;<br>
+  }<br>
+</p>
+<p>int findHash(char *name)<br>
+  {<br>
+  int hashVal = 0;<br>
+  int ret;<br>
+  while(*name != '\0')<br>
+  hashVal += *name++;<br>
+  ret= hashVal % HASHSIZE;<br>
+  return ret;<br>
+  }</p>
+<p>int addSymbolHash(ST* st,Symbol symbol)<br>
+  {<br>
+  LNode *p,*sp;<br>
+  int ret,idx;<br>
+  char *str=NULL;<br>
+  if(symbol.type==CONST)<br>
+  return 1;<br>
+  idx = findHash(symbol.name);<br>
+  p = st-&gt;HashTable[idx];<br>
+  while(p-&gt;next != NULL)<br>
+  {<br>
+  //printf(&quot;%s..%s\n&quot;,symbol.name,p-&gt;next-&gt;symbol.name);<br>
+  ret = strcmp(symbol.name,p-&gt;next-&gt;symbol.name);<br>
+  if(ret == 0)<br>
+  {<br>
+  printf(&quot;%s: %d: Error: %s is redefined\n&quot;,srcFileName,lineNo,symbol.name);<br>
+  return -1;<br>
+  }<br>
+  p = p-&gt;next;<br>
+  }<br>
+  sp = malloc(sizeof(LNode));<br>
+  if(sp==NULL)<br>
+  {<br>
+  printf(&quot;Error in memory allocations\n&quot;);<br>
+  exit(-1);<br>
+  }<br>
+  sp-&gt;symbol.type = symbol.type;<br>
+  sp-&gt;symbol.qualifier = symbol.qualifier;<br>
+  sp-&gt;symbol.storage = symbol.storage;<br>
+  sp-&gt;symbol.sign = symbol.sign;<br>
+  sp-&gt;symbol.type = symbol.type;<br>
+  sp-&gt;symbol.subtype = symbol.subtype;<br>
+  sp-&gt;symbol.width = symbol.width;<br>
+  sp-&gt;symbol.name = malloc(strlen(symbol.name)+1);<br>
+  sp-&gt;symbol.nameLen=symbol.nameLen;<br>
+  strcpy(sp-&gt;symbol.name,symbol.name);<br>
+  sp-&gt;next = NULL;<br>
+  p-&gt;next = sp;<br>
+  noElements = noElements + 1;<br>
+  return 1;<br>
+  }</p>
+<p>short int findDType(ST* st,Attr attr)<br>
+  {<br>
+  short int sType;<br>
+  LNode *L;<br>
+  if(attr.type==CONST)<br>
+  return attr.subtype;<br>
+  L = findSymbolHash(st,attr.name);<br>
+  if(L == NULL)<br>
+  {<br>
+  // printf(&quot;%s: not available in the Symbol Table\n&quot;,attr.name);<br>
+  return -1;<br>
+  }<br>
+  return L-&gt;symbol.subtype;<br>
+  }</p>
+<p>//Create a symbol record for the name and copy the information of attr.name to it<br>
+  Symbol copySymbol(ST* st,Attr attr, char name[NAMESIZE])<br>
+  {<br>
+  char *ptr;<br>
+  ST *cst;<br>
+  Symbol sym;<br>
+  LNode *L;<br>
+  short int found=FALSE;<br>
+  if(attr.type==CONST)<br>
+  {<br>
+  sym.nameLen = strlen(name);<br>
+  sym.name = malloc(strlen(name)+1);<br>
+  strcpy(sym.name,name);<br>
+  sym.storage = DEFAULT;<br>
+  sym.qualifier = DEFAULT;<br>
+  sym.sign=DEFAULT;<br>
+  sym.type = BASIC;  //In any case the resultant expression is an identifier<br>
+  sym.subtype = attr.subtype;<br>
+  sym.width = sizes[attr.subtype];<br>
+  sym.relAddr=relAddr;<br>
+  relAddr = relAddr + sym.width;<br>
+  }<br>
+  else <br>
+  {<br>
+  cst = st;<br>
+  while(cst != NULL)<br>
+  {<br>
+  L = findSymbolHash(cst,attr.name);<br>
+  if(L != NULL)<br>
+  {<br>
+  found=TRUE;<br>
+  break;<br>
+  }<br>
+  else<br>
+  {<br>
+  cst=cst-&gt;prevst;<br>
+  }<br>
+  }<br>
+  if(found == FALSE)<br>
+  {<br>
+  printf(&quot;....%s: %d:Error %s: Undeclared Identifier\n&quot;,srcFileName,lineNo-1,attr.name);<br>
+  errCount++;<br>
+  sym.type=ERROR;<br>
+  return sym;<br>
+  }<br>
+  else<br>
+  {<br>
+  sym.nameLen = strlen(name);<br>
+  sym.name = malloc(strlen(name)+1);<br>
+  strcpy(sym.name,name);<br>
+  sym.storage = L-&gt;symbol.storage;<br>
+  sym.qualifier = L-&gt;symbol.qualifier;<br>
+  sym.sign=L-&gt;symbol.sign;<br>
+  sym.type = BASIC;//L-&gt;symbol.type;  //In any case the resultant expression is an identifier<br>
+  sym.subtype = L-&gt;symbol.subtype;<br>
+  sym.width = L-&gt;symbol.width;<br>
+  sym.relAddr=relAddr;<br>
+  relAddr = relAddr + sym.width;<br>
+  }<br>
+  }<br>
+  return sym;<br>
+  }</p>
+<p>Symbol createTempSymbolWithType(ST* st,Attr attr1,Attr attr2, Attr attr3)<br>
+  {<br>
+  Symbol tSym;<br>
+  short stype1,stype2,dType1,dType2,dType3;<br>
+  <br>
+  int found = FALSE; </p>
+<p> cst = st;<br>
+  while(cst != NULL)<br>
+  {<br>
+  dType1 = findDType(cst,attr1);<br>
+  if(dType1 != -1)<br>
+  {<br>
+  found=TRUE;<br>
+  break;<br>
+  }<br>
+  else<br>
+  {<br>
+  cst=cst-&gt;prevst;<br>
+  }<br>
+  }<br>
+  if(found == FALSE)<br>
+  {<br>
+  printf(&quot;....%s: %d:Error %s: Undeclared Identifier\n&quot;,srcFileName,lineNo-1,attr1.name);<br>
+  errCount++; <br>
+  }<br>
+  cst = st;</p>
+<p> while(cst != NULL)<br>
+  {<br>
+  dType2 = findDType(cst,attr2);<br>
+  if(dType2 != -1)<br>
+  {<br>
+  found=TRUE;<br>
+  break;<br>
+  }<br>
+  else<br>
+  {<br>
+  cst=cst-&gt;prevst;<br>
+  }<br>
+  }<br>
+  if(found == FALSE)<br>
+  {<br>
+  printf(&quot;....%s: %d:Error %s: Undeclared Identifier\n&quot;,srcFileName,lineNo-1,attr2.name);<br>
+  errCount++;<br>
+  }<br>
+  <br>
+  //dType2 = findDType(st,attr2);<br>
+  dType3 = sizes[dType1] &gt; sizes[dType2]? dType1:dType2;</p>
+<p> if(dType3 == dType1)<br>
+  tSym=copySymbol(st,attr1,attr3.name);<br>
+  else<br>
+  tSym=copySymbol(st,attr2,attr3.name);</p>
+<p>//printf(&quot;%s\t%s\t%s\n&quot;,attr1.name,attr2.name,attr3.name);<br>
+  //printf(&quot;%d\t%d\t%d\n&quot;,dType1,dType2,dType3);<br>
+  return tSym;<br>
+  }<br>
+</p>
+</body>
+</html>

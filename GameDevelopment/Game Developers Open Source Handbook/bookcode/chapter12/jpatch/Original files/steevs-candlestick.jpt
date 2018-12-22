@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+	<name>New Model</name>
+	<material>
+		<name>Default Material</name>
+		<color r="1.0" g="1.0" b="1.0"/>
+	</material>
+	<mesh>
+		<curve>
+			<cp x="-0.24048893" y="17.562702" z="3.6227725"/>
+			<cp x="0.021832207" y="19.812843" z="2.106671"/>
+			<cp x="0.31883985" y="36.963943" z="1.9751331" mode="peak"/>
+			<cp x="0.2913019" y="38.260433" z="2.1668909" mode="peak"/>
+			<cp x="0.4050497" y="39.686573" z="1.9222019" mode="peak"/>
+			<cp x="0.3895431" y="41.50166" z="2.117763" mode="peak"/>
+			<cp x="0.50655276" y="43.316746" z="1.8941522"/>
+			<cp x="0.48257133" y="48.24341" z="3.0523896"/>
+		</curve>
+		<curve>
+			<cp attach="5" mode="peak"/>
+			<cp x="0.3895431" y="41.50166" z="2.117763" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="4" mode="peak"/>
+			<cp x="0.4050497" y="39.686573" z="1.9222019" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="3" mode="peak"/>
+			<cp x="0.2913019" y="38.260433" z="2.1668909" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="2" mode="peak"/>
+			<cp x="0.31883985" y="36.963943" z="1.9751331" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="1"/>
+			<cp x="0.021832207" y="19.812843" z="2.106671"/>
+		</curve>
+		<curve>
+			<cp attach="32" mode="peak"/>
+			<cp x="1.6456153" y="39.686573" z="1.0727885" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="29"/>
+			<cp x="1.5050792" y="19.812843" z="1.4742038"/>
+		</curve>
+		<curve>
+			<cp attach="30" mode="peak"/>
+			<cp x="1.6220838" y="36.963943" z="1.1711762" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="31" mode="peak"/>
+			<cp x="1.7382048" y="38.260433" z="1.3262417" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="33" mode="peak"/>
+			<cp x="1.7729332" y="41.50166" z="1.2220361" mode="peak"/>
+		</curve>
+		<curve>
+			<cp x="2.3916354" y="17.562702" z="2.731738"/>
+			<cp x="1.5050792" y="19.812843" z="1.4742038"/>
+			<cp x="1.6220838" y="36.963943" z="1.1711762" mode="peak"/>
+			<cp x="1.7382048" y="38.260433" z="1.3262417" mode="peak"/>
+			<cp x="1.6456153" y="39.686573" z="1.0727885" mode="peak"/>
+			<cp x="1.7729332" y="41.50166" z="1.2220361" mode="peak"/>
+			<cp x="1.6975546" y="43.316746" z="0.9811809"/>
+			<cp x="2.4995947" y="48.24341" z="1.8171359"/>
+		</curve>
+		<curve>
+			<cp attach="50" mode="peak"/>
+			<cp x="1.9222019" y="39.686573" z="-0.4050498" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="47"/>
+			<cp x="2.106671" y="19.812843" z="-0.021832298"/>
+		</curve>
+		<curve>
+			<cp attach="48" mode="peak"/>
+			<cp x="1.9751331" y="36.963943" z="-0.3188399" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="49" mode="peak"/>
+			<cp x="2.1668909" y="38.260433" z="-0.29130203" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="51" mode="peak"/>
+			<cp x="2.117763" y="41.50166" z="-0.38954318" mode="peak"/>
+		</curve>
+		<curve>
+			<cp x="3.6227725" y="17.562702" z="0.24048877"/>
+			<cp x="2.106671" y="19.812843" z="-0.021832298"/>
+			<cp x="1.9751331" y="36.963943" z="-0.3188399" mode="peak"/>
+			<cp x="2.1668909" y="38.260433" z="-0.29130203" mode="peak"/>
+			<cp x="1.9222019" y="39.686573" z="-0.4050498" mode="peak"/>
+			<cp x="2.117763" y="41.50166" z="-0.38954318" mode="peak"/>
+			<cp x="1.8941522" y="43.316746" z="-0.5065528"/>
+			<cp x="3.0523896" y="48.24341" z="-0.48257145"/>
+		</curve>
+		<curve>
+			<cp attach="68" mode="peak"/>
+			<cp x="1.0727885" y="39.686573" z="-1.6456153" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="65"/>
+			<cp x="1.4742038" y="19.812843" z="-1.5050792"/>
+		</curve>
+		<curve>
+			<cp attach="66" mode="peak"/>
+			<cp x="1.1711762" y="36.963943" z="-1.6220838" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="67" mode="peak"/>
+			<cp x="1.3262417" y="38.260433" z="-1.7382048" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="69" mode="peak"/>
+			<cp x="1.2220361" y="41.50166" z="-1.7729332" mode="peak"/>
+		</curve>
+		<curve>
+			<cp x="2.731738" y="17.562702" z="-2.3916354"/>
+			<cp x="1.4742038" y="19.812843" z="-1.5050792"/>
+			<cp x="1.1711762" y="36.963943" z="-1.6220838" mode="peak"/>
+			<cp x="1.3262417" y="38.260433" z="-1.7382048" mode="peak"/>
+			<cp x="1.0727885" y="39.686573" z="-1.6456153" mode="peak"/>
+			<cp x="1.2220361" y="41.50166" z="-1.7729332" mode="peak"/>
+			<cp x="0.9811809" y="43.316746" z="-1.6975546"/>
+			<cp x="1.8171359" y="48.24341" z="-2.4995947"/>
+		</curve>
+		<curve>
+			<cp attach="86" mode="peak"/>
+			<cp x="-0.4050499" y="39.686573" z="-1.9222019" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="83"/>
+			<cp x="-0.021832392" y="19.812843" z="-2.106671"/>
+		</curve>
+		<curve>
+			<cp attach="84" mode="peak"/>
+			<cp x="-0.31884003" y="36.963943" z="-1.9751331" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="85" mode="peak"/>
+			<cp x="-0.29130208" y="38.260433" z="-2.1668909" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="87" mode="peak"/>
+			<cp x="-0.38954324" y="41.50166" z="-2.117763" mode="peak"/>
+		</curve>
+		<curve>
+			<cp x="0.24048862" y="17.562702" z="-3.6227725"/>
+			<cp x="-0.021832392" y="19.812843" z="-2.106671"/>
+			<cp x="-0.31884003" y="36.963943" z="-1.9751331" mode="peak"/>
+			<cp x="-0.29130208" y="38.260433" z="-2.1668909" mode="peak"/>
+			<cp x="-0.4050499" y="39.686573" z="-1.9222019" mode="peak"/>
+			<cp x="-0.38954324" y="41.50166" z="-2.117763" mode="peak"/>
+			<cp x="-0.50655293" y="43.316746" z="-1.8941522"/>
+			<cp x="-0.4825716" y="48.24341" z="-3.0523896"/>
+		</curve>
+		<curve>
+			<cp attach="104" mode="peak"/>
+			<cp x="-1.6456156" y="39.686573" z="-1.0727884" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="101"/>
+			<cp x="-1.5050793" y="19.812843" z="-1.4742036"/>
+		</curve>
+		<curve>
+			<cp attach="102" mode="peak"/>
+			<cp x="-1.622084" y="36.963943" z="-1.171176" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="103" mode="peak"/>
+			<cp x="-1.7382051" y="38.260433" z="-1.3262414" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="105" mode="peak"/>
+			<cp x="-1.7729335" y="41.50166" z="-1.2220358" mode="peak"/>
+		</curve>
+		<curve>
+			<cp x="-2.391636" y="17.562702" z="-2.7317379"/>
+			<cp x="-1.5050793" y="19.812843" z="-1.4742036"/>
+			<cp x="-1.622084" y="36.963943" z="-1.171176" mode="peak"/>
+			<cp x="-1.7382051" y="38.260433" z="-1.3262414" mode="peak"/>
+			<cp x="-1.6456156" y="39.686573" z="-1.0727884" mode="peak"/>
+			<cp x="-1.7729335" y="41.50166" z="-1.2220358" mode="peak"/>
+			<cp x="-1.6975548" y="43.316746" z="-0.9811806"/>
+			<cp x="-2.499595" y="48.24341" z="-1.8171355"/>
+		</curve>
+		<curve>
+			<cp attach="122" mode="peak"/>
+			<cp x="-1.9222019" y="39.686573" z="0.40504977" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="119"/>
+			<cp x="-2.106671" y="19.812843" z="0.021832233"/>
+		</curve>
+		<curve>
+			<cp attach="120" mode="peak"/>
+			<cp x="-1.9751331" y="36.963943" z="0.31883988" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="121" mode="peak"/>
+			<cp x="-2.1668909" y="38.260433" z="0.29130194" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="123" mode="peak"/>
+			<cp x="-2.117763" y="41.50166" z="0.38954312" mode="peak"/>
+		</curve>
+		<curve>
+			<cp x="-3.6227725" y="17.562702" z="-0.24048889"/>
+			<cp x="-2.106671" y="19.812843" z="0.021832233"/>
+			<cp x="-1.9751331" y="36.963943" z="0.31883988" mode="peak"/>
+			<cp x="-2.1668909" y="38.260433" z="0.29130194" mode="peak"/>
+			<cp x="-1.9222019" y="39.686573" z="0.40504977" mode="peak"/>
+			<cp x="-2.117763" y="41.50166" z="0.38954312" mode="peak"/>
+			<cp x="-1.8941522" y="43.316746" z="0.5065528"/>
+			<cp x="-3.0523896" y="48.24341" z="0.48257136"/>
+		</curve>
+		<curve>
+			<cp attach="140" mode="peak"/>
+			<cp x="-1.072788" y="39.686573" z="1.6456157" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="137"/>
+			<cp x="-1.4742032" y="19.812843" z="1.5050795"/>
+		</curve>
+		<curve>
+			<cp attach="138" mode="peak"/>
+			<cp x="-1.1711755" y="36.963943" z="1.6220841" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="139" mode="peak"/>
+			<cp x="-1.326241" y="38.260433" z="1.7382052" mode="peak"/>
+		</curve>
+		<curve>
+			<cp attach="141" mode="peak"/>
+			<cp x="-1.2220355" y="41.50166" z="1.7729336" mode="peak"/>
+		</curve>
+		<curve>
+			<cp x="-2.7317374" y="17.562702" z="2.3916361"/>
+			<cp x="-1.4742032" y="19.812843" z="1.5050795"/>
+			<cp x="-1.1711755" y="36.963943" z="1.6220841" mode="peak"/>
+			<cp x="-1.326241" y="38.260433" z="1.7382052" mode="peak"/>
+			<cp x="-1.072788" y="39.686573" z="1.6456157" mode="peak"/>
+			<cp x="-1.2220355" y="41.50166" z="1.7729336" mode="peak"/>
+			<cp x="-0.9811803" y="43.316746" z="1.697555"/>
+			<cp x="-1.8171352" y="48.24341" z="2.4995954"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="8" magnitude="1.1246068"/>
+			<cp attach="26" magnitude="1.1246068"/>
+			<cp attach="44" magnitude="1.1246068"/>
+			<cp attach="62" magnitude="1.1246068"/>
+			<cp attach="80" magnitude="1.1246068"/>
+			<cp attach="98" magnitude="1.1246068"/>
+			<cp attach="116" magnitude="1.1246068"/>
+			<cp attach="134" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="7" magnitude="1.1246068"/>
+			<cp attach="35" magnitude="1.1246068"/>
+			<cp attach="53" magnitude="1.1246068"/>
+			<cp attach="71" magnitude="1.1246068"/>
+			<cp attach="89" magnitude="1.1246068"/>
+			<cp attach="107" magnitude="1.1246068"/>
+			<cp attach="125" magnitude="1.1246068"/>
+			<cp attach="143" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="12" magnitude="1.1246068"/>
+			<cp attach="24" magnitude="1.1246068"/>
+			<cp attach="42" magnitude="1.1246068"/>
+			<cp attach="60" magnitude="1.1246068"/>
+			<cp attach="78" magnitude="1.1246068"/>
+			<cp attach="96" magnitude="1.1246068"/>
+			<cp attach="114" magnitude="1.1246068"/>
+			<cp attach="132" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="13" magnitude="1.1246068"/>
+			<cp attach="25" magnitude="1.1246068"/>
+			<cp attach="43" magnitude="1.1246068"/>
+			<cp attach="61" magnitude="1.1246068"/>
+			<cp attach="79" magnitude="1.1246068"/>
+			<cp attach="97" magnitude="1.1246068"/>
+			<cp attach="115" magnitude="1.1246068"/>
+			<cp attach="133" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="16" magnitude="1.1246068"/>
+			<cp attach="20" magnitude="1.1246068"/>
+			<cp attach="38" magnitude="1.1246068"/>
+			<cp attach="56" magnitude="1.1246068"/>
+			<cp attach="74" magnitude="1.1246068"/>
+			<cp attach="92" magnitude="1.1246068"/>
+			<cp attach="110" magnitude="1.1246068"/>
+			<cp attach="128" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="17" magnitude="1.1246068"/>
+			<cp attach="21" magnitude="1.1246068"/>
+			<cp attach="39" magnitude="1.1246068"/>
+			<cp attach="57" magnitude="1.1246068"/>
+			<cp attach="75" magnitude="1.1246068"/>
+			<cp attach="93" magnitude="1.1246068"/>
+			<cp attach="111" magnitude="1.1246068"/>
+			<cp attach="129" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="15" magnitude="1.1246068"/>
+			<cp attach="23" magnitude="1.1246068"/>
+			<cp attach="41" magnitude="1.1246068"/>
+			<cp attach="59" magnitude="1.1246068"/>
+			<cp attach="77" magnitude="1.1246068"/>
+			<cp attach="95" magnitude="1.1246068"/>
+			<cp attach="113" magnitude="1.1246068"/>
+			<cp attach="131" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="10" magnitude="1.1246068"/>
+			<cp attach="18" magnitude="1.1246068"/>
+			<cp attach="36" magnitude="1.1246068"/>
+			<cp attach="54" magnitude="1.1246068"/>
+			<cp attach="72" magnitude="1.1246068"/>
+			<cp attach="90" magnitude="1.1246068"/>
+			<cp attach="108" magnitude="1.1246068"/>
+			<cp attach="126" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="9" magnitude="1.1246068"/>
+			<cp attach="27" magnitude="1.1246068"/>
+			<cp attach="45" magnitude="1.1246068"/>
+			<cp attach="63" magnitude="1.1246068"/>
+			<cp attach="81" magnitude="1.1246068"/>
+			<cp attach="99" magnitude="1.1246068"/>
+			<cp attach="117" magnitude="1.1246068"/>
+			<cp attach="135" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="14" magnitude="1.1246068"/>
+			<cp attach="22" magnitude="1.1246068"/>
+			<cp attach="40" magnitude="1.1246068"/>
+			<cp attach="58" magnitude="1.1246068"/>
+			<cp attach="76" magnitude="1.1246068"/>
+			<cp attach="94" magnitude="1.1246068"/>
+			<cp attach="112" magnitude="1.1246068"/>
+			<cp attach="130" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="6" magnitude="1.1246068"/>
+			<cp attach="34" magnitude="1.1246068"/>
+			<cp attach="52" magnitude="1.1246068"/>
+			<cp attach="70" magnitude="1.1246068"/>
+			<cp attach="88" magnitude="1.1246068"/>
+			<cp attach="106" magnitude="1.1246068"/>
+			<cp attach="124" magnitude="1.1246068"/>
+			<cp attach="142" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="0" magnitude="1.1246068"/>
+			<cp attach="28" magnitude="1.1246068"/>
+			<cp attach="46" magnitude="1.1246068"/>
+			<cp attach="64" magnitude="1.1246068"/>
+			<cp attach="82" magnitude="1.1246068"/>
+			<cp attach="100" magnitude="1.1246068"/>
+			<cp attach="118" magnitude="1.1246068"/>
+			<cp attach="136" magnitude="1.1246068"/>
+		</curve>
+		<curve closed="true">
+			<cp attach="11" magnitude="1.1246068"/>
+			<cp attach="19" magnitude="1.1246068"/>
+			<cp attach="37" magnitude="1.1246068"/>
+			<cp attach="55" magnitude="1.1246068"/>
+			<cp attach="73" magnitude="1.1246068"/>
+			<cp attach="91" magnitude="1.1246068"/>
+			<cp attach="109" magnitude="1.1246068"/>
+			<cp attach="127" magnitude="1.1246068"/>
+		</curve>
+		<patch material="0">
+			<points>0,1,176,177,29,28,233,232</points>
+		</patch>
+		<patch material="0">
+			<points>0,1,176,183,137,136,239,232</points>
+		</patch>
+		<patch material="0">
+			<points>1,2,216,217,30,29,177,176</points>
+		</patch>
+		<patch material="0">
+			<points>1,2,216,223,138,137,183,176</points>
+		</patch>
+		<patch material="0">
+			<points>16,17,184,185,21,20,177,176</points>
+		</patch>
+		<patch material="0">
+			<points>16,17,184,191,129,128,183,176</points>
+		</patch>
+		<patch material="0">
+			<points>2,3,160,161,31,30,217,216</points>
+		</patch>
+		<patch material="0">
+			<points>2,3,160,167,139,138,223,216</points>
+		</patch>
+		<patch material="0">
+			<points>14,15,192,193,23,22,217,216</points>
+		</patch>
+		<patch material="0">
+			<points>14,15,192,199,131,130,223,216</points>
+		</patch>
+		<patch material="0">
+			<points>3,4,200,201,32,31,161,160</points>
+		</patch>
+		<patch material="0">
+			<points>3,4,200,207,140,139,167,160</points>
+		</patch>
+		<patch material="0">
+			<points>12,13,168,169,25,24,161,160</points>
+		</patch>
+		<patch material="0">
+			<points>12,13,168,175,133,132,167,160</points>
+		</patch>
+		<patch material="0">
+			<points>4,5,144,145,33,32,201,200</points>
+		</patch>
+		<patch material="0">
+			<points>4,5,144,151,141,140,207,200</points>
+		</patch>
+		<patch material="0">
+			<points>10,11,240,241,19,18,201,200</points>
+		</patch>
+		<patch material="0">
+			<points>10,11,240,247,127,126,207,200</points>
+		</patch>
+		<patch material="0">
+			<points>5,6,224,225,34,33,145,144</points>
+		</patch>
+		<patch material="0">
+			<points>5,6,224,231,142,141,151,144</points>
+		</patch>
+		<patch material="0">
+			<points>8,9,208,209,27,26,145,144</points>
+		</patch>
+		<patch material="0">
+			<points>8,9,208,215,135,134,151,144</points>
+		</patch>
+		<patch material="0">
+			<points>6,7,152,153,35,34,225,224</points>
+		</patch>
+		<patch material="0">
+			<points>6,7,152,159,143,142,231,224</points>
+		</patch>
+		<patch material="0">
+			<points>19,18,201,202,36,37,242,241</points>
+		</patch>
+		<patch material="0">
+			<points>21,20,177,178,38,39,186,185</points>
+		</patch>
+		<patch material="0">
+			<points>23,22,217,218,40,41,194,193</points>
+		</patch>
+		<patch material="0">
+			<points>25,24,161,162,42,43,170,169</points>
+		</patch>
+		<patch material="0">
+			<points>27,26,145,146,44,45,210,209</points>
+		</patch>
+		<patch material="0">
+			<points>28,29,177,178,47,46,234,233</points>
+		</patch>
+		<patch material="0">
+			<points>29,30,217,218,48,47,178,177</points>
+		</patch>
+		<patch material="0">
+			<points>30,31,161,162,49,48,218,217</points>
+		</patch>
+		<patch material="0">
+			<points>31,32,201,202,50,49,162,161</points>
+		</patch>
+		<patch material="0">
+			<points>32,33,145,146,51,50,202,201</points>
+		</patch>
+		<patch material="0">
+			<points>33,34,225,226,52,51,146,145</points>
+		</patch>
+		<patch material="0">
+			<points>34,35,153,154,53,52,226,225</points>
+		</patch>
+		<patch material="0">
+			<points>37,36,202,203,54,55,243,242</points>
+		</patch>
+		<patch material="0">
+			<points>39,38,178,179,56,57,187,186</points>
+		</patch>
+		<patch material="0">
+			<points>41,40,218,219,58,59,195,194</points>
+		</patch>
+		<patch material="0">
+			<points>43,42,162,163,60,61,171,170</points>
+		</patch>
+		<patch material="0">
+			<points>45,44,146,147,62,63,211,210</points>
+		</patch>
+		<patch material="0">
+			<points>46,47,178,179,65,64,235,234</points>
+		</patch>
+		<patch material="0">
+			<points>47,48,218,219,66,65,179,178</points>
+		</patch>
+		<patch material="0">
+			<points>48,49,162,163,67,66,219,218</points>
+		</patch>
+		<patch material="0">
+			<points>49,50,202,203,68,67,163,162</points>
+		</patch>
+		<patch material="0">
+			<points>50,51,146,147,69,68,203,202</points>
+		</patch>
+		<patch material="0">
+			<points>51,52,226,227,70,69,147,146</points>
+		</patch>
+		<patch material="0">
+			<points>52,53,154,155,71,70,227,226</points>
+		</patch>
+		<patch material="0">
+			<points>55,54,203,204,72,73,244,243</points>
+		</patch>
+		<patch material="0">
+			<points>57,56,179,180,74,75,188,187</points>
+		</patch>
+		<patch material="0">
+			<points>59,58,219,220,76,77,196,195</points>
+		</patch>
+		<patch material="0">
+			<points>61,60,163,164,78,79,172,171</points>
+		</patch>
+		<patch material="0">
+			<points>63,62,147,148,80,81,212,211</points>
+		</patch>
+		<patch material="0">
+			<points>64,65,179,180,83,82,236,235</points>
+		</patch>
+		<patch material="0">
+			<points>65,66,219,220,84,83,180,179</points>
+		</patch>
+		<patch material="0">
+			<points>66,67,163,164,85,84,220,219</points>
+		</patch>
+		<patch material="0">
+			<points>67,68,203,204,86,85,164,163</points>
+		</patch>
+		<patch material="0">
+			<points>68,69,147,148,87,86,204,203</points>
+		</patch>
+		<patch material="0">
+			<points>69,70,227,228,88,87,148,147</points>
+		</patch>
+		<patch material="0">
+			<points>70,71,155,156,89,88,228,227</points>
+		</patch>
+		<patch material="0">
+			<points>73,72,204,205,90,91,245,244</points>
+		</patch>
+		<patch material="0">
+			<points>75,74,180,181,92,93,189,188</points>
+		</patch>
+		<patch material="0">
+			<points>77,76,220,221,94,95,197,196</points>
+		</patch>
+		<patch material="0">
+			<points>79,78,164,165,96,97,173,172</points>
+		</patch>
+		<patch material="0">
+			<points>81,80,148,149,98,99,213,212</points>
+		</patch>
+		<patch material="0">
+			<points>82,83,180,181,101,100,237,236</points>
+		</patch>
+		<patch material="0">
+			<points>83,84,220,221,102,101,181,180</points>
+		</patch>
+		<patch material="0">
+			<points>84,85,164,165,103,102,221,220</points>
+		</patch>
+		<patch material="0">
+			<points>85,86,204,205,104,103,165,164</points>
+		</patch>
+		<patch material="0">
+			<points>86,87,148,149,105,104,205,204</points>
+		</patch>
+		<patch material="0">
+			<points>87,88,228,229,106,105,149,148</points>
+		</patch>
+		<patch material="0">
+			<points>88,89,156,157,107,106,229,228</points>
+		</patch>
+		<patch material="0">
+			<points>91,90,205,206,108,109,246,245</points>
+		</patch>
+		<patch material="0">
+			<points>93,92,181,182,110,111,190,189</points>
+		</patch>
+		<patch material="0">
+			<points>95,94,221,222,112,113,198,197</points>
+		</patch>
+		<patch material="0">
+			<points>97,96,165,166,114,115,174,173</points>
+		</patch>
+		<patch material="0">
+			<points>99,98,149,150,116,117,214,213</points>
+		</patch>
+		<patch material="0">
+			<points>100,101,181,182,119,118,238,237</points>
+		</patch>
+		<patch material="0">
+			<points>101,102,221,222,120,119,182,181</points>
+		</patch>
+		<patch material="0">
+			<points>102,103,165,166,121,120,222,221</points>
+		</patch>
+		<patch material="0">
+			<points>103,104,205,206,122,121,166,165</points>
+		</patch>
+		<patch material="0">
+			<points>104,105,149,150,123,122,206,205</points>
+		</patch>
+		<patch material="0">
+			<points>105,106,229,230,124,123,150,149</points>
+		</patch>
+		<patch material="0">
+			<points>106,107,157,158,125,124,230,229</points>
+		</patch>
+		<patch material="0">
+			<points>109,108,206,207,126,127,247,246</points>
+		</patch>
+		<patch material="0">
+			<points>111,110,182,183,128,129,191,190</points>
+		</patch>
+		<patch material="0">
+			<points>113,112,222,223,130,131,199,198</points>
+		</patch>
+		<patch material="0">
+			<points>115,114,166,167,132,133,175,174</points>
+		</patch>
+		<patch material="0">
+			<points>117,116,150,151,134,135,215,214</points>
+		</patch>
+		<patch material="0">
+			<points>118,119,182,183,137,136,239,238</points>
+		</patch>
+		<patch material="0">
+			<points>119,120,222,223,138,137,183,182</points>
+		</patch>
+		<patch material="0">
+			<points>120,121,166,167,139,138,223,222</points>
+		</patch>
+		<patch material="0">
+			<points>121,122,206,207,140,139,167,166</points>
+		</patch>
+		<patch material="0">
+			<points>122,123,150,151,141,140,207,206</points>
+		</patch>
+		<patch material="0">
+			<points>123,124,230,231,142,141,151,150</points>
+		</patch>
+		<patch material="0">
+			<points>124,125,158,159,143,142,231,230</points>
+		</patch>
+	</mesh>
+	<selection name="lathe #6">136,30,19,50,100,129,31,137,119,73,84,48,89,109,115,47,81,68,118,35,61,79,142,87,0,51,103,77,121,69,63,3,34,86,66,101,70,95,91,120,41,11,117,7,82,45,13,1,143,29,85,99,39,67,138,97,52,141,64,83,106,25,37,133,127,33,49,105,32,111,125,107,123,55,4,104,139,23,27,75,53,59,122,93,21,17,43,28,102,2,57,124,71,5,88,113,140,131,15,65,9,6,135,46</selection>
+</model>

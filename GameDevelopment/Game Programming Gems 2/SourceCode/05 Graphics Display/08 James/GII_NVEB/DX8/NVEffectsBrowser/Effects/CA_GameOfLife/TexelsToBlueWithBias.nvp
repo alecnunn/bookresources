@@ -1,0 +1,39 @@
+/*********************************************************************NVMH2****
+Path:  C:\Dev\devrel\Nv_sdk_4\Dx8\NVEffectsBrowser\Effects\CA_GameOfLife
+File:  TexelsToBlueWithBias.nvp
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+This file is provided without support, instruction, or implied warranty of any
+kind.  NVIDIA makes no guarantee of its fitness for a particular purpose and is
+not liable under any circumstances for any damages or loss whatsoever arising
+from the use or inability to use this file or items derived from it.
+
+Comments:
+
+Renders tex0 * ( RGB = 0,0,1 ) + (0x00, 0x06, 0x06) to destination
+
+The 0x06 are to offset the green & blue components by a small amount 
+   for a later dependent green-blue texture fetch
+
+******************************************************************************/
+
+
+#include "PixelConstants.h"
+
+
+// Declare pixel shader version
+ps.1.1
+
+//  Multiplicative factor to isolate blue
+//   RGBA
+def  c0, 0.0, 0.0, 1.0, 0.0
+
+// Additive factor to bias the green-blue slightly
+def  c1, 0.0, 0.0234, 0.0234, 0.0
+
+
+// get color from tex0
+tex t0
+
+mad r0, t0, c0, c1		// select blue only & add bias
+

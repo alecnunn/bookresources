@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SimpleTerrain - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/winmain.res" /d "_DEBUG" "C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\02 Snook\winmain.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPA010.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I ".\common\include" /I "..\common\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\02 Snook\Common\src\d3dapp.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\02 Snook\Common\src\d3dfont.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\02 Snook\Common\src\d3dutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\02 Snook\Common\src\dxutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\02 Snook\SimpleTerrain.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPA010.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPA011.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dx8dt.lib d3d8.lib winmm.lib dxguid.lib d3dxof.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/SimpleTerrain.pdb" /debug /machine:I386 /out:"Debug/SimpleTerrain.exe" /pdbtype:sept 
+".\Debug\d3dapp.obj"
+".\Debug\d3dfont.obj"
+".\Debug\d3dutil.obj"
+".\Debug\dxutil.obj"
+".\Debug\SimpleTerrain.obj"
+".\Debug\winmain.res"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPA011.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+d3dapp.cpp
+d3dfont.cpp
+d3dutil.cpp
+dxutil.cpp
+SimpleTerrain.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SimpleTerrain.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

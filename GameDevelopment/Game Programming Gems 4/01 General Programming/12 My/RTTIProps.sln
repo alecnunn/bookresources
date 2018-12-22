@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RTTIProps", "RTTIProps.vcproj", "{E161402F-10BD-4E5D-926F-EB163A527A19}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GridCtrl", "GridCtrl\GridCtrl.vcproj", "{66573DDD-4D9B-49EB-ADE7-7B9B0070EFBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{E161402F-10BD-4E5D-926F-EB163A527A19}.0 = {66573DDD-4D9B-49EB-ADE7-7B9B0070EFBD}
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E161402F-10BD-4E5D-926F-EB163A527A19}.Debug.ActiveCfg = Debug|Win32
+		{E161402F-10BD-4E5D-926F-EB163A527A19}.Debug.Build.0 = Debug|Win32
+		{E161402F-10BD-4E5D-926F-EB163A527A19}.Release.ActiveCfg = Release|Win32
+		{E161402F-10BD-4E5D-926F-EB163A527A19}.Release.Build.0 = Release|Win32
+		{66573DDD-4D9B-49EB-ADE7-7B9B0070EFBD}.Debug.ActiveCfg = Debug|Win32
+		{66573DDD-4D9B-49EB-ADE7-7B9B0070EFBD}.Debug.Build.0 = Debug|Win32
+		{66573DDD-4D9B-49EB-ADE7-7B9B0070EFBD}.Release.ActiveCfg = Release|Win32
+		{66573DDD-4D9B-49EB-ADE7-7B9B0070EFBD}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

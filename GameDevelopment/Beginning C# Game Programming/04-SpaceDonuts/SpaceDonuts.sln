@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceDonuts", "SpaceDonuts.csproj", "{C48F07AB-3EAB-4F4D-8662-D83E75073853}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{C48F07AB-3EAB-4F4D-8662-D83E75073853}.Debug.ActiveCfg = Debug|.NET
+		{C48F07AB-3EAB-4F4D-8662-D83E75073853}.Debug.Build.0 = Debug|.NET
+		{C48F07AB-3EAB-4F4D-8662-D83E75073853}.Release.ActiveCfg = Release|.NET
+		{C48F07AB-3EAB-4F4D-8662-D83E75073853}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,5 @@
+Both in Linux and Windown (Cygwin environment)
+Steps:
+$cc bit.c -o bit
+$./bit
+

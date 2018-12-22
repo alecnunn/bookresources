@@ -1,0 +1,6 @@
+//
+// Prefix header for all source files of the 'NormalMapCreator' target in the 'NormalMapCreator' project.
+//
+
+#include <Carbon/Carbon.h>
+#define _MAC 1

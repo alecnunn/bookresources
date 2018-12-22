@@ -1,0 +1,1 @@
+The ThreadDemo program cannot be compiled until you install the Posix Threads library into yoru compiler's folder. The .\pthread folder contains the headers, libs, and DLLs for the pthread library. Refer to the chapter 10 text for further instructions.

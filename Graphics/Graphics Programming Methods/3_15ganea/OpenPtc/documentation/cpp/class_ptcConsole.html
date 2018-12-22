@@ -1,0 +1,388 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Console  Class Reference</h1>The display frame buffer. 
+<a href="#_details">More...</a>
+<p>
+<p>Class diagram for ptc::Console:
+<p><center><img src="class_ptcConsole.gif" usemap="#ptc::Console_map" border="0"></center>
+<map name="ptc::Console_map"><p>
+<area href="class_ptcBaseConsole.html" ALT="ptc::BaseConsole" shape="rect" coords="0,56,109,80">
+<area href="class_ptcBaseSurface.html" ALT="ptc::BaseSurface" shape="rect" coords="0,0,109,24">
+</MAP></P>
+<a href="class_ptcConsole-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcConsole.html#a0">Console</a> ()
+<li><a class="el" href="class_ptcConsole.html#a1">~Console</a> ()
+<li>virtual void <a class="el" href="class_ptcConsole.html#a2">configure</a> (const char file[])
+<li>virtual bool <a class="el" href="class_ptcConsole.html#a3">option</a> (const char option[])
+<li>virtual const Mode* <a class="el" href="class_ptcConsole.html#a4">modes</a> ()
+<li>virtual void <a class="el" href="class_ptcConsole.html#a5">open</a> (const char title[],int pages = 0)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a6">open</a> (const char title[],const Format &amp;format,int pages = 0)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a7">open</a> (const char title[],int width,int height,const Format &amp;format,int pages = 0)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a8">open</a> (const char title[],const Mode &amp;mode,int pages = 0)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a9">close</a> ()
+<li>virtual void <a class="el" href="class_ptcConsole.html#a10">flush</a> ()
+<li>virtual void <a class="el" href="class_ptcConsole.html#a11">finish</a> ()
+<li>virtual void <a class="el" href="class_ptcConsole.html#a12">update</a> ()
+<li>virtual void <a class="el" href="class_ptcConsole.html#a13">update</a> (const Area &amp;area)
+<li>virtual bool <a class="el" href="class_ptcConsole.html#a14">key</a> ()
+<li>virtual Key <a class="el" href="class_ptcConsole.html#a15">read</a> ()
+<li>virtual void <a class="el" href="class_ptcConsole.html#a16">copy</a> (BaseSurface &amp;surface)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a17">copy</a> (BaseSurface &amp;surface,const Area &amp;source,const Area &amp;destination)
+<li>virtual void* <a class="el" href="class_ptcConsole.html#a18">lock</a> ()
+<li>virtual void <a class="el" href="class_ptcConsole.html#a19">unlock</a> ()
+<li>virtual void <a class="el" href="class_ptcConsole.html#a20">load</a> (const void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a21">load</a> (const void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette,const Area &amp;source,const Area &amp;destination)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a22">save</a> (void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a23">save</a> (void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette,const Area &amp;source,const Area &amp;destination)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a24">clear</a> ()
+<li>virtual void <a class="el" href="class_ptcConsole.html#a25">clear</a> (const Color &amp;color)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a26">clear</a> (const Color &amp;color,const Area &amp;area)
+<li>virtual void <a class="el" href="class_ptcConsole.html#a27">palette</a> (const Palette &amp;palette)
+<li>virtual const Palette&amp; <a class="el" href="class_ptcConsole.html#a28">palette</a> () const
+<li>virtual void <a class="el" href="class_ptcConsole.html#a29">clip</a> (const Area &amp;area)
+<li>virtual int <a class="el" href="class_ptcConsole.html#a30">width</a> () const
+<li>virtual int <a class="el" href="class_ptcConsole.html#a31">height</a> () const
+<li>virtual int <a class="el" href="class_ptcConsole.html#a32">pages</a> () const
+<li>virtual int <a class="el" href="class_ptcConsole.html#a33">pitch</a> () const
+<li>virtual const Area&amp; <a class="el" href="class_ptcConsole.html#a34">area</a> () const
+<li>virtual const Area&amp; <a class="el" href="class_ptcConsole.html#a35">clip</a> () const
+<li>virtual const Format&amp; <a class="el" href="class_ptcConsole.html#a36">format</a> () const
+<li>virtual const char* <a class="el" href="class_ptcConsole.html#a37">name</a> () const
+<li>virtual const char* <a class="el" href="class_ptcConsole.html#a38">title</a> () const
+<li>virtual const char* <a class="el" href="class_ptcConsole.html#a39">information</a> () const
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+The display frame buffer.
+<p>
+The console represents the display frame buffer and provides routines to open and close display modes, access the frame buffer like a surface, and some basic keyboard input routines.
+<p>
+The PTC Console can be thought of as the graphical equivalent of a POSIX text console. <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Console::Console"></a>ptc::Console::Console ()</h3>
+<div class="in">
+
+<p>
+</div>
+
+<h3><a name="a1" doxytag="ptc::Console::~Console"></a>ptc::Console::~Console ()</h3>
+<div class="in">
+
+<p>
+</div>
+
+<h3><a name="a2" doxytag="ptc::Console::configure"></a>virtual void ptc::Console::configure (const char file[])<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a1">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a3" doxytag="ptc::Console::option"></a>virtual bool ptc::Console::option (const char option[])<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a21">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a4" doxytag="ptc::Console::modes"></a>virtual const Mode * ptc::Console::modes ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a2">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a5" doxytag="ptc::Console::open"></a>virtual void ptc::Console::open (const char title[], int <em>pages</em> = 0)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a3">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a6" doxytag="ptc::Console::open"></a>virtual void ptc::Console::open (const char title[], const Format &amp; <em>format</em>, int <em>pages</em> = 0)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a4">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a7" doxytag="ptc::Console::open"></a>virtual void ptc::Console::open (const char title[], int <em>width</em>, int <em>height</em>, const Format &amp; <em>format</em>, int <em>pages</em> = 0)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a5">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a8" doxytag="ptc::Console::open"></a>virtual void ptc::Console::open (const char title[], const Mode &amp; <em>mode</em>, int <em>pages</em> = 0)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a6">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a9" doxytag="ptc::Console::close"></a>virtual void ptc::Console::close ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a7">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a10" doxytag="ptc::Console::flush"></a>virtual void ptc::Console::flush ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a8">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a11" doxytag="ptc::Console::finish"></a>virtual void ptc::Console::finish ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a9">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a12" doxytag="ptc::Console::update"></a>virtual void ptc::Console::update ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a10">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a13" doxytag="ptc::Console::update"></a>virtual void ptc::Console::update (const Area &amp; <em>area</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a11">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a14" doxytag="ptc::Console::key"></a>virtual bool ptc::Console::key ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a12">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a15" doxytag="ptc::Console::read"></a>virtual Key ptc::Console::read ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a13">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a16" doxytag="ptc::Console::copy"></a>virtual void ptc::Console::copy (BaseSurface &amp; <em>surface</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a1">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a17" doxytag="ptc::Console::copy"></a>virtual void ptc::Console::copy (BaseSurface &amp; <em>surface</em>, const Area &amp; <em>source</em>, const Area &amp; <em>destination</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a2">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a18" doxytag="ptc::Console::lock"></a>virtual void * ptc::Console::lock ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a3">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a19" doxytag="ptc::Console::unlock"></a>virtual void ptc::Console::unlock ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a4">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a20" doxytag="ptc::Console::load"></a>virtual void ptc::Console::load (const void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a5">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a21" doxytag="ptc::Console::load"></a>virtual void ptc::Console::load (const void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>, const Area &amp; <em>source</em>, const Area &amp; <em>destination</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a6">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a22" doxytag="ptc::Console::save"></a>virtual void ptc::Console::save (void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a7">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a23" doxytag="ptc::Console::save"></a>virtual void ptc::Console::save (void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>, const Area &amp; <em>source</em>, const Area &amp; <em>destination</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a8">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a24" doxytag="ptc::Console::clear"></a>virtual void ptc::Console::clear ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a9">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a25" doxytag="ptc::Console::clear"></a>virtual void ptc::Console::clear (const Color &amp; <em>color</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a10">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a26" doxytag="ptc::Console::clear"></a>virtual void ptc::Console::clear (const Color &amp; <em>color</em>, const Area &amp; <em>area</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a11">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a27" doxytag="ptc::Console::palette"></a>virtual void ptc::Console::palette (const Palette &amp; <em>palette</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a12">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a28" doxytag="ptc::Console::palette"></a>virtual const Palette &amp; ptc::Console::palette () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a13">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a29" doxytag="ptc::Console::clip"></a>virtual void ptc::Console::clip (const Area &amp; <em>area</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a14">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a30" doxytag="ptc::Console::width"></a>virtual int ptc::Console::width () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a15">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a31" doxytag="ptc::Console::height"></a>virtual int ptc::Console::height () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a16">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a32" doxytag="ptc::Console::pages"></a>virtual int ptc::Console::pages () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a14">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a33" doxytag="ptc::Console::pitch"></a>virtual int ptc::Console::pitch () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a17">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a34" doxytag="ptc::Console::area"></a>virtual const Area &amp; ptc::Console::area () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a18">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a35" doxytag="ptc::Console::clip"></a>virtual const Area &amp; ptc::Console::clip () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a19">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a36" doxytag="ptc::Console::format"></a>virtual const Format &amp; ptc::Console::format () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a20">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a37" doxytag="ptc::Console::name"></a>virtual const char * ptc::Console::name () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a15">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a38" doxytag="ptc::Console::title"></a>virtual const char * ptc::Console::title () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a16">ptc::BaseConsole</a>.</div>
+
+<h3><a name="a39" doxytag="ptc::Console::information"></a>virtual const char * ptc::Console::information () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseConsole.html#a17">ptc::BaseConsole</a>.</div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

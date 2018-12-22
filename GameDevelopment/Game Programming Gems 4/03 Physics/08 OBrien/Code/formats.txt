@@ -1,0 +1,159 @@
+ModeDef Data Formats
+Kris Hauser
+3/17/03
+
+
+*****Object Data Format*****
+Suffix: .model 
+Format:
+
+//eigenvalues
+int #EV: Number of eigenvalues.
+int LEN: Eigenvector length ( = # vertex nodes*3).
+float EVAL [#EV]: Eigenvalues.
+float EVEC [#EV][LEN]: Eigenvectors.
+float REST [LEN]: Rest positions.
+
+
+//mesh data
+int #V, #N, #T, #F, #M, #G: number of vertices, normals, texcoords, faces, materials, and mesh groups, respectively.
+for(1 to #V)
+   vector3 V: vertex.
+for(1 to #N)
+   vector3 N: normal.
+for(1 to #T)
+   float2 T: texcoords.
+for(1 to #F)    //faces
+{
+   int V1, N1, T1: vertex 1 of this face.
+   int V2, N2, T2: vertex 2 of this face.
+   int V3, N3, T3: vertex 3 of this face.
+}
+for(1 to #M)    //materials
+{
+   float4 A: ambient color.
+   float4 D: diffuse color.
+   float4 S: specular color.
+   float4 E: emissive color.
+   float SS: specular strength.
+}
+for(1 to #G)	//material groups
+{
+   int FSTART, FEND, MAT: face start, face end, and material of this group.
+}
+
+
+
+//tetrahedra
+int #TET: number of tetrahedra
+for(1 to #TET)
+{
+   int4 VERTS: the vertex nodes of this tetrahedron
+}
+
+
+
+//carton data
+bool ISCARTON: true if a carton is used for the mesh deformation.
+if(ISCARTON)
+{
+   int #V: num vertices (must be same as mesh #V)
+   for(1 to #V)
+   {
+      int TET, float4 BARY: tetrahedron index and barycentric coords of this mesh vertex.
+   }
+}
+
+
+
+
+
+
+
+
+
+*****Material Properties Format*****
+Suffix: .prop
+Format:
+
+string MODELFILE: use this model (.obj) file.
+
+bool RB, DEFORM: true if its rigid-body movement is simulated, true if deformation is simulated, respectively.
+float MASS: object mass.
+
+vector3 COM: center of mass.
+
+matrix3 INERTIA: inertia tensor
+
+float X, LAME, A1, A2: X is unused.  The rest are material parameters: lame scale, 2 damping parameters.
+
+float SCALE: object scale;
+float X: unused.
+
+float KP, KV, KB: penalty method spring constants.  KP is stiffness constant, KV is damping coefficient inward, KB is damping coefficient outward.
+
+
+
+
+
+
+*****Scene State Format*****
+Suffix: .state
+Format:
+
+int FPS: frames per second.
+int USEPENALTY: true if penalty method is to be used.
+vector3 GRAV: gravity vector.
+
+float KF: friction coefficient.
+float MAXPEN, float CLUSFAC, float CLUSRAD: max penetration before rollback, cluster factor, cluster radius.
+
+int #OBJ: number of objects
+for(1 to #OBJ)
+{
+  string NAME (optional a): object's name.  If a is specified, ANIM is true)
+  vector3 POS: initial position.
+  quaternion ROT: initial rotation.
+  vector3 VEL: initial velocity.
+  vector3 AVEL: initial angular velocity.
+  float TBIRTH, TDEATH: birth and death times.  (< 0 if always alive)
+  if(ANIM)
+	string ANIMPATH: file name of the animation path file.
+}
+
+int #PLANES: number of planes.
+for(1 to #PLANES)
+{
+  vector3 N: plane normal.
+  vector3 P: point on the plane.
+}
+
+int #CONS: number of joint constraints.
+for(1 to #CONS)
+{
+  int B1,B2: bodies to connect by the joint (B1 may be -1 to do a static joint)
+  vector3 P: point in world space to connect.
+}
+
+
+
+
+*****Animation Path Format*****
+Suffix: .path
+Format:
+
+int #T, int #R: number of translation and rotation keys.
+
+for(1 to #T)
+{
+  float TIME: key time.
+  vector3 POS: position.
+}
+
+for(1 to #R)
+{
+  float TIME: key time.
+  vector3 ROT: rotation, in euler angles.
+}
+
+

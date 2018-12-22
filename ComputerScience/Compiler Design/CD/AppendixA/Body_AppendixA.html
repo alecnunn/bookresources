@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Mission</title>
+<script type="text/javascript">
+function myLoad()
+{
+	var x=window.location+"";
+	var y=x.indexOf("=",0)+1;
+	var z=x.slice(y,x.length);
+	var srcfr=document.getElementById("src_id");
+	srcfr.src=z+".html";
+	//srcfra.src=z+".html";
+	alert(srcfra.src);
+}	
+function loadTest(file)
+{
+// alert(file);
+ var testfr=document.getElementById("testpgm_id");
+ var opfr=document.getElementById("oppgm_id");
+ testfr.src=file+"_test.html";
+ opfr.src=file+"_op.html";
+}
+</script>
+<style type="text/css">
+.exec
+{
+ position:absolute;
+ left:640px;
+ top:405px;
+}
+.test
+{
+ position:absolute;
+ left:640px;
+ top:520px;
+}
+.op
+{
+ position:absolute;
+ left:640px;
+ top:1050px;
+}
+</style>
+</head>
+<body onLoad="myLoad();" bgcolor="#FFFFFF">
+<div style="height:250px; overflow:scroll">
+<h2 align="center">This section deals with the generation of the intermediate code for C language, which is described in Appendix-A.</h2>
+<h3 align="left"><br>
+  In order to generate the intermediate code, the lexical specification file and syntax specification file have to be prepared. The commands for producing the scanner code and parser code are available in makefile.<br><br>
+Run the make command either in MS cygwin prompt or Linux prompt in the appropriate folder. 
+</h3><h3>
+The different modules involved are</h3>
+<blockquote>
+  <h4 align="left">
+    1.	Scanner (cic.l)  - cic stands for C language intermediate code<br>
+    2.	Parser  (cic.y)  - cic.y has the syntax specicication along with the semantic actions called. The routines for these the semantic actions are avaialble in quadruple genration file and symbol table file.<br>
+    3.	Symbol table  (st.c)<br>
+    4.	Quadruple generation (cicprocess.c)<br>
+    5.  op.h, def.h, cic.h are the header files holding the necessary data declaration for the operators, macro definition, symbol table manipulation and quadruple generation
+  </h4>
+</blockquote>
+</div>
+<hr>
+<h3 align="center">Select TestProgram</h3>
+<h4>
+<table width="649" border="0" align="center">
+  <tr>
+    <th width="56"><a onClick="loadTest('for')" href="#">for</a></th>
+ 
+    <th width="52"><a onClick="loadTest('if')" href="#">if</a></th>
+
+    <th width="112"><a onClick="loadTest('switch1')" href="#">switch1</a></th>
+
+    <th width="92"><a onClick="loadTest('alltst')" href="#">alltst</a></th>
+  
+    <th width="168"><a onClick="loadTest('ifforwhile')" href="#">ifforwhile</a></th>
+ 
+    <th width="75"><a onClick="loadTest('tst1')" href="#">tst1</a></th>
+  </tr>
+</table>
+</h4>
+<hr>
+<!-- <iframe align="middle" frameborder="0" width="1000px" src="TestPgm.php" scrolling="no" ></iframe><br> -->
+<iframe id="src_id"  frameborder="1" height="860px" width="600px" scrolling="yes" ></iframe>
+<iframe class="exec" id="howtoexec"  frameborder="1" height="100px" width="400px" src="HowToExec.html" ></iframe>
+<iframe class="test" id="testpgm_id"  frameborder="1" height="500px" width="400px" scrolling="yes" ></iframe>
+<iframe class="op" id="oppgm_id"  frameborder="1" height="200px" width="400px" scrolling="yes" ></iframe>
+</body>
+</html>

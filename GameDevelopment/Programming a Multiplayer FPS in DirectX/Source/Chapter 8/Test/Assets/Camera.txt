@@ -1,0 +1,7 @@
+#begin
+
+pos vector -50.0 50.0 -150.0
+at  vector 0.0 0.0 0.0
+up  vector 0.0 1.0 0.0
+
+#end

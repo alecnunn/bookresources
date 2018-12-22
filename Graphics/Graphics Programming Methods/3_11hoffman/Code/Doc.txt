@@ -1,0 +1,84 @@
+
+Notes on Vertex Shader:
+
+beta1:  scattering coefficient (rayliegh)
+beta1(theta): angular scattering coeff (rayleigh)
+beta2:  scattering coefficient (mie)
+beta2(theta) : angular scattering coeff (mie)
+s:  the distance between eye and point viewed.
+theta: angle of scattering (the angle between view direction and sun
+       direction) 
+
+
+Extinction = exp(-beta1.s). exp(-beta2.s)
+Inscattering = A * B / C where 
+   A = beta1(theta) + beta2(theta)
+   B = 1 - exp(-beta1.s).exp(-beta2.s)
+   C = beta1 + beta2.
+
+beta1(theta), the angular scattering coefficent can be written as 
+beta'1 * phase1(theta) where phase(theta) is the phase function
+describing the directional nature of scattering.
+
+phase1(theta) is calculated as 1+cos^2(theta).
+phase2(theta) is (1-g^2)/(1+g^2-2g*cos(theta))^(3/2) where g is factor
+from HG function. g = 1 means strongly forward.
+
+beta1, beta'1, beta2, beta'2 and g are sent in as vertex shader
+constants along with sun direction, intensity.
+
+Extinction and Inscattering values are setup in the output color
+registers, which gets interpolated and sent to the pixel shader.
+------------------------------------------------
+Notes on Terrain Pixel Shader.
+
+Inputs are 
+v0: extinction 
+v1: inscattering
+
+surface color = (N.L) * terrain_color * self_shadow * clouds_shadow
+final color = surface color * extinction + inscattering.
+
+N obtained from normal map.
+Self_shadows obtained from horizon angle stored in alpha channel of normal
+map.
+Two normal maps are thus used, one when sun is in east and one for
+west.
+
+Clouds_shadow and terrain colors are rgb textures.
+
+---------------------------------------------------------------
+Notes on Sky pixel shader
+
+Very easy.
+Sky color = inscattering
+
+---------------------------------------------------------------
+
+Results:
+Clear blue sky seen when mie scattering is absent.
+Very hazy over cast picture when mie scattering is present and sun is
+more towards zenith.
+Yellow colors seen when sun is close to horizon and more along the
+viewing direction
+---------------------------------------------------------------
+
+Rendering:
+The sky is rendered as a hemisphere, that is centered at the camera
+and moves as the camera moves. 
+Note that the size of this hemisphere also determines the color of the
+sky because of amount of inscatering. Hence its advisable to have the
+sky only as far as the farthest mountain so that the distant mountain
+blends with the sky color.
+
+Since the sky moves with the camera, the sky could sometimes intersect
+the terrain. Thus we render the sky first with zwrite turned off.
+
+g_Device->SetRenderState( D3DRS_ZWRITEENABLE, false);
+m_pSky->Render(1);---------
+
+g_Device->SetRenderState( D3DRS_ZWRITEENABLE, true);
+m_pTerrain->Render();
+
+-----------------------------------------------------------------
+

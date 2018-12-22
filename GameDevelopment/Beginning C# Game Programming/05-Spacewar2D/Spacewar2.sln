@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spacewar2", "Spacewar2.csproj", "{747A57B1-88CF-4E87-99FD-021160A7DF35}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{747A57B1-88CF-4E87-99FD-021160A7DF35}.Debug.ActiveCfg = Debug|.NET
+		{747A57B1-88CF-4E87-99FD-021160A7DF35}.Debug.Build.0 = Debug|.NET
+		{747A57B1-88CF-4E87-99FD-021160A7DF35}.Release.ActiveCfg = Release|.NET
+		{747A57B1-88CF-4E87-99FD-021160A7DF35}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

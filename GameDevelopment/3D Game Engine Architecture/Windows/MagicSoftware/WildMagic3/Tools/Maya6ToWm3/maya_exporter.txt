@@ -1,0 +1,364 @@
+General Usage:
+=============
+1) Copy the .mll file to a Maya plugin directory.
+   ("C:\Program Files\Alias\Maya6.0\bin\plug-ins\" is probably the most
+   likely one)
+2) Copy the .mel file to a Maya script directory.
+   ("My Documents\maya\scripts" will work).
+3) Start Maya
+4) Load the plugin.  From the script editor
+   (Window->General Editors->Script Editor), use the command
+   "loadPlugin MayaToWmof.mll" or directly load it from the Plugin Manager
+   (Window->Settings/Preferences->Plugin Manager).
+5) To export, go to File->Export All or File->Export Selection.  The box
+   next to the name will pop up a dialogue box with extra options.  As a
+   note, these options will save from one Maya instance to the next, and so
+   if you pick export with options, quit and then restart Maya, then
+   finally export without picking options, it will use the options you
+   used last time.
+
+Export Details:
+==============
+In this section I will list in detail everything that is exported from Maya.
+This is a listing by category in the attribute editor of which attributes are
+converted.  Everything else is assumed to be defaults or is ignored.
+
+Camera Objects
+	Camera Attributes
+		-Angle of View
+		-Near clip plane
+		-Far clip plane
+		(i.e. any of the WM camera parameters)
+	Object Display
+		-Visibility
+Transform Objects
+	Transform Attributes
+		-Translate [Keyable*]
+		-Rotate [Keyable*]
+		-Scale [Keyable*]
+		-Rotate Order
+		-Rotate Axis
+		-Inherits Transform
+	Local Space
+		-Local Rotate Pivot
+		-Local Scale Pivot
+	World Space
+		-World Rotate Pivot
+		-World Scale Pivot
+	Object Display
+		-Visibility
+	Drawing Overrides
+		-Enable Overrides
+		-Playback
+		-Visible
+Joint Objects
+	Transform Attributes
+		-Translate [Keyable*]
+		-Rotate [Keyable*]
+		-Scale [Keyable*]
+		-Rotate Order
+		-Rotate Axis
+		-Inherits Transform
+	Drawing Overrides
+		-Enable Overrides
+		-Playback
+		-Visible
+	Object Display
+		-Visibility
+Mesh Objects
+	Vertex/Triangle/UV info will be extracted
+	Object Display
+		-Visibility
+Lambert Shader
+	Common Material Attributes
+		-Color [connection to File Texture or Layered Texture ok]
+		-Transparency
+		-Ambient Color
+		-Bump Mapping
+		-Diffuse
+Blinn Shader
+	Common Material Attributes
+		-Color [connection to File Texture or Layered Texture ok]
+		-Transparency
+		-Ambient Color
+		-Incandescence
+		-Bump Mapping
+		-Diffuse
+	Specular Shading
+		-Eccentricity (shininess)
+		-Specular Color
+File Texture Object
+	File Attributes
+		-Image Name
+Layered Textured Shader
+	Layered Texture Attributes
+		Color [connection to File Texture ok]
+		Alpha
+		Blend Mode (all but difference, lighten, darken)
+Ambient Light Object
+	Ambient Light Attributes
+		-Color
+		-Intensity
+	Object Display
+		-Visibility
+Point Light Object
+	Point Light Attributes
+		-Color
+		-Intensity
+		-Emit Ambient
+		-Emit Diffuse
+		-Decay Rate
+	Object Display
+		-Visibility
+Directional Light Object
+	Directional Light Attributes
+		-Color
+		-Intensity
+		-Emit Ambient
+		-Emit Diffuse
+	Object Display
+		-Visibility
+Spot Light Object
+	Spot Light Attributes
+		-Color
+		-Intensity
+		-Emit Ambient
+		-Emit Diffuse
+		-Decay Rate
+		-Cone Angle
+		-Dropoff
+	Object Display
+		-Visibility	
+Skin Cluster Object
+	Smooth Skin Attributes
+		-Normalize Weights
+General Options
+	Animation Options
+		Playback
+			-Looping (Once, Oscillate, Continuous)
+
+* - Transform/Joint attributes that are keyable can be attached to an animation node directly or through a chain of character (and subcharacter) nodes to an animation node.  None of the other properties of the character node, such as keyed object visibility or source, scheduled, or blending clips will be exported as WildMagic cannot support those (easily) at this time.
+
+Export Option Details:
+=====================
+-Export Object File
+	If this option is selected, it will create a .wmof file containing the
+	scene graph.
+-Export Dag Text File
+	If this option is selected, it will create a .txt file (of the same name
+	as the .wmof file that might also be created) containing the DAG
+	hierarchy.  If neither object or dag text file is selected, then nothing
+	will be exported.
+-Quiet
+	If this option is selected, it will suppress (most) info and warning
+	messages.  Error messages will still be printed.
+-Export Cameras
+	Only if this option is selected will cameras be attached to the scene
+	graph.
+-Export Invisible
+	If this option is selected, then objects which would have been ignored
+	because they were invisible will be still be attached.
+-Export Lights
+	If this option is not selected, then all lights (and bumpmaps) will be
+	ignored.
+-Export Textures
+	If this option is not selected, then no textures (and also no bumpmaps)
+	will be included in the scenegraph.
+-Export Bumpmaps
+	If this option is not selected, then bumpmaps will be ignored.
+-Export Keyframes
+	If this option is not selected, then the current frame will be statically
+	exported.
+-Export Skin Controllers
+	If this option is not selected, then the "Export Bind Pose" option will
+	determine how meshes with skin controllers will be exported.
+-Export Bind Pose
+	If Export Skin Controllers is selected, then this option is ignored.  If
+	it is not and this option is selected, meshes with skin controllers will
+	be statically exported in bind pose.  If it is not selected, then meshes
+	with skin controllers will be statically exported in whatever
+	transformation they have at the current time.
+
+General Notes:
+=============
+
+Image loading:
+-------------
+I tried to get Maya to give me back image data, but I couldn't manage to get
+it.  So, in order to use a texture or a bumpmap, the user needs to convert it
+externally to a .wmif file.  The filename should be the exact same as the
+original file, but with a .wmif extension instead.  Maya will search both
+the directory that the image was in originally as well as the output
+directory for the .wmif file.  If it doesn't find it, it will throw an error.
+Bumpmapping is done by interpreting the red channel of the image as a height
+map.
+
+Lights and Bumpmaps:
+-------------------
+Creating a bumpmap requires knowledge of exactly one (non-ambient) light that
+is illuminating it.  Maya allows for multiple lights to illuminate a bumpmap
+and thus has no method of specifying a single light.  The code for picking
+the light that a bumpmap will use is this: by default, it will use the first
+non-ambient light that it finds in a depth-first search of the scene graph.
+However, if a light has the object name (this is the "shape" name and not
+the "poly" name) as a suffix (i.e. pointLightShape1_pPlaneShape1) then it
+will use that light first.  If there are multiple lights that fulfill that
+criteria, then it will use the first that it finds in a depth-first search of
+the scene graph.   If no lights can be found, the bumpmap will not be created
+and an error will be thrown to the user.
+
+Layered Shader vs. Layered Texture:
+----------------------------------
+There are two ways to do multi-texturing in Maya, but only one of these ways
+is supported in the exporter (the other gives an informative warning).
+Layered Shaders (the unsupported way) allows you to create multiple shaders
+and attach textures to the color on each layer.  It's a lot more flexible
+(for shaders) but is much less flexible for texture compositing.  The only
+supported way to do multi-texturing is to do a Layered Texture.  This is 
+done by attaching the color attribute of a shader (blinn or lambert) to a
+Layered Texture (as opposed to just a File Texture, which you would do for
+single texturing).
+
+Layered Texture Details:
+-----------------------
+Maya allows for a multitexture to have a layer that is just a color.  Because
+this isn't possible to do with Wild Magic, if a user has a layer that is just
+a color, the exporter creates a one pixel by one pixel image and uses that.
+The other difference between the way Maya and Wild Magic do multitexturing is
+that Maya gives the user the ability to set an arbitrary alpha for each
+layer.  To support this, some of the blending modes "bake" the alpha
+permanently into the texture itself (with a warning to the user).  Thus,
+there is no getting back to the original texture, but the texture itself will
+have the right transparency.
+
+Object Visibility:
+-----------------
+Any object in Maya can be flagged as invisible (also the drawing override
+visibility flag can be thrown too.  For the exporter, they are semantically
+equal).  Transform objects flagged as invisible will (as in Maya) have their
+entire subtree invisible as well.  Invisible non-node spatial objects will
+not be added into the tree.  However, nodes will be always attached even if
+they are invisible (because they could be joints or parents of joints).
+Using the "Export Invisible Objects" flag in the export options will override
+the default behavior and always attach invisible objects.
+
+Keyframes and Time:
+------------------
+Wild Magic uses seconds as the unit for keyframe animation data.  Maya has
+its timeline in arbitrary units (by default 24 fps).  If you go to
+Window->Settings/Preferences->Preferences->Settings->Working Units you can
+change the Time option to whatever unit it should be in.  Because the
+exporter reads time in units of seconds, it is dependent on this option.
+Also, in the Animation Options section of preferences, you can change the
+looping nature (once, oscillate, continuous) of the timeline.  Wild Magic
+allows each controller to have its own looping behavior--Maya has one setting
+for all controllers.
+
+Skin Clusters and Bind Poses:
+----------------------------
+If an object has a skin cluster (Maya's word for skin controller) attached
+to it, then the exporter will by default export the object in its bind pose.
+If the user wants to statically export the object at the current time without
+the skin controller, then in the export options they need to turn off the
+skin controller flag and the bind pose flag.  As a note, "bind pose" is not
+entirely precise.  It is not exactly the mesh that was used when the joints
+were attached to the skin.  Instead, it is the mesh that is used as input to
+the skin controller when it the output mesh needs to be calculated.  Due to
+the fact that the original mesh can be changed after bind time, some of those
+changes leak into what Maya calls a tweak node, which stands as an
+intermediate converter between the bind pose mesh and the input to the skin
+controller, and then this edited mesh is passed along to the skin controller.
+It is this edited mesh that gets output to Wild Magic when the bind pose is
+called for.
+
+Asserts, Info, Warnings, and Errors:
+-----------------------------------
+Just as a general rule, the only asserts in the code are things that should
+be thrown because there's a programming error or something unexpected from
+Maya.  Nearly every Maya command comes with a status flag and so the code is
+littered with asserts.  I generally spit out Info to point out which object
+I'm converting or if I'm doing something particular with it.  Warnings are
+for slightly non-supported things, but that won't stop a particular object
+from being exported.  Generally errors are for those things that cause an
+object in whole to not be exported (skin controllers not being able to find
+joints, bumpmaps not being able to find lights, textures not being able to
+find a converted .wmif file, etc...).  The quiet option turns off info and
+warnings to the script editor, but it will always spit out errors.
+
+A Short Guide to Adding More Export Options:
+===========================================
+/*
+I thought it might be helpful to include some boilerplate code for exporting 
+particular options in Maya.  I know there are plenty of other references, but
+I figure this is the bare minimum needed to quickly export most attributes.
+ This doesn't take into account plugs with children or elements.
+
+Assume there exists object in the scene graph from which I want to get some
+arbitrary attribute.  This attribute (otherwise known as a plug in Maya) has
+a some arbitrary String name.  This name can be found in Maya via the
+"listAttr" command or by changing the attribute in the attribute editor or
+via a tool and then viewing the Script Editor.  The script editor list the
+attribute name and command that you just did.  Also, a search in Maya help
+for "objecttype node" will give you a page with a full listing
+(i.e. "transform node").
+*/
+
+MFnDependencyNode kObj;
+MStatus kStatus;
+
+MPlug kPlug = kObj.findPlug("plugName",&kStatus);
+assert(kStatus);
+
+/*
+Plugs without input connections store their value in the node itself: they
+are just a member variable.  A plug with an input connection gets its value
+from some other node.  Thus, if this is the case, you need to follow the
+connection.
+*/
+
+bool isConnected = kPlug.isConnected(&kStatus);
+assert(kStatus);
+
+if (!isConnected)
+{
+	// There are similar getValue functions for other data types
+	float fValue;
+	kPlug.getValue(fValue);
+	return;
+}
+
+/*
+If an attribute is connected, then we need to get the object that is
+connected to it.  This is done by getting an array of plugs (which should be
+of size zero [not connected] or one [connected] if we are only looking for
+input plugs).  This object can then be cast into whatever type of object it
+should be.
+*/
+
+MPlugArray kPlugArray;
+// The first boolean is "get input connections" and the second boolean is 
+// "get output connections"
+kPlug.connectedTo(kPlugArray,true,false,&kStatus);
+assert(kStatus);
+assert(kPlugArray.length() == 1);
+
+MPlug kInputPlug = kPlugArray[0];
+
+/*
+If you want to cast a node to a specific kind of object, then you can check
+the API type of the input plug and then cast.  All of Maya's MFnObjects take
+an object (what .node() returns) in their constructor.  The status will
+return false if the construction fails.  For example:
+*/
+
+if (kInputPlug.node().apiType() == MFn::kTransform)
+{
+	MFnTransform kTrans(kInputPlug.node(),&kStatus);
+	assert(kStatus);
+}
+
+/*
+This input plug may in turn be attached to something else, and you may want
+to check if it is connected, and what it might be connected to, following the
+example above.
+*/

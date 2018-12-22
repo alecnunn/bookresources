@@ -1,0 +1,83 @@
+;
+; Transforms a vertex to homogenoeous clip space,
+; copies texture coordinates, and lights it.
+;
+;
+; MEMORY MAP
+;
+;	Each vertex ultimately needs to write the following output registers:
+;	oPos	-- the vertex's clip-space coordinates
+;	oT0     -- the vertex's uv-coordinates
+;	oD0		-- the vertex's diffuse color
+;
+;	Each vertex comes into the vertex shader with the following read-only data:
+;	v0 -- vertex's model space coordinates are in x, y, z;
+;	      w defaults to 1.0	
+;   v1 -- vertex's normal in model-space in x, y, z;
+;	      w defaults to 1.0	
+;	v2 -- vertex's u, v coordinates are in x, y
+;	      z defaults to 0.0	
+;	      w defaults to 1.0	
+;
+;	Constant memory is set in Quad.cpp to contain:
+;	c0-c3 -- contains matrix to take model-space 
+;			 coordinates to clip-space coordinates
+;	c4    -- contains normalized light vector in model-space coordinates;
+;			 the vector points towards the light 
+;   c5    -- contains normalized halfway vector in model-space coordinates;
+;            the vector points halfway between the eye and the light
+;   c6    -- contains the material color 
+;   c7    -- contains constants (0.0f, 10.0f, 50.0f, 100.0f);
+;			 use to get specular power constant, but do not use zero as a specular power
+;   c8    -- contains the normailized vector that points to the eye in 
+;			 model-space coordinates
+;   c10   -- contains the color of the light
+
+
+vs.1.0
+
+; Transform position to clip space
+dp4 oPos.x, v0, c0
+dp4 oPos.y, v0, c1
+dp4 oPos.z, v0, c2
+dp4 oPos.w, v0, c3
+
+; if the vertex is back-facing; then make it black!
+dp3 r5, v1, c8
+sge r5, -r5, -c7.x        ; make it 0 for negative and zero values (1 for others
+
+mul oD0, r5, c6
+
+
+; Output texture coordinates
+mov oT0, v2
+
+; compute modified material color that includes back-face cull
+mul r5, r5, c6
+
+; compute DIFFUSE part:
+; Dot normal with light direction in model space
+dp3 r0, v1, c4
+max r0, r0, c7.x        ; zero out negative values
+
+; multiply diffuse component by material color and store
+mul r0, r0.x, r5
+
+; compute SPECULAR part
+; Dot normal with halfway vector
+dp3 r1, v1, c5
+max r1, r1, c7.x        ; zero out negative values
+
+; raise it to the specular index
+mov r1.w, c7.z
+lit r2, r1
+
+; multiply specular component by material color and 
+; add the diffuse color
+mad r1, r2.z, r5, r0
+
+; multiply light color with material color
+mul oD0, r1, c10
+
+
+

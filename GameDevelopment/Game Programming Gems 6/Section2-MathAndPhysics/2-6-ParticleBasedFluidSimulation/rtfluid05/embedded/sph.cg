@@ -1,0 +1,11 @@
+#define GPU_ATTR_POS   0
+#define GPU_ATTR_VEL   1
+#define GPU_ATTR_ACC   2
+#define GPU_ATTR_EXACC 3
+#define GPU_ATTR_DP    4
+#define GPU_ATTR_PUSHPOS 5
+
+const float MASS = 0.00020543;
+const float SMOOTHING_LENGTH = 0.01;
+const float VISCOSITY = 0.1;
+//const float REPULSIVE

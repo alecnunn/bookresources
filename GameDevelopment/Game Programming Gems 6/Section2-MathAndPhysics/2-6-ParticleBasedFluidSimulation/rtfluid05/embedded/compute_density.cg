@@ -1,0 +1,41 @@
+#include "kernel.cg"
+#include "sph.cg"
+
+void main(fixed2 sn_coord : TEXCOORD0,
+		  /**
+		  y  : subject particle index
+		  xy : neighbour particle index
+		  **/
+
+		  uniform samplerRECT attr_rect      : TEXUNIT0,
+		  uniform samplerRECT neighbour_rect : TEXUNIT1,
+		  //uniform float smoothlen,
+		  //uniform float mass,
+		  //uniform float mu,
+		  out float result : COLOR // density pressure
+		  )
+{
+	float h = SMOOTHING_LENGTH;
+	//float m = MASS;//mass;
+	
+	float neighbour_index = f1texRECT(neighbour_rect, sn_coord);
+
+	float3 pos_i = f3texRECT(attr_rect, float2(sn_coord.y, GPU_ATTR_POS));
+	float3 pos_j = f3texRECT(attr_rect, float2(neighbour_index, GPU_ATTR_POS));
+
+	float3 diff = pos_i - pos_j;
+
+	//float density = poly6_kernel(dot(diff, diff), h, MASS);
+//	float h2_r2;
+//	h2_r2 = max(h*h -dot(diff, diff), 0.0);
+
+	float h2_r2;
+	h2_r2 = h*h -dot(diff, diff);
+	if (h2_r2 > 0.0)
+		result = MASS*315.0f/(64.0f*PI*h*h*h*h*h*h*h*h*h)*pow(h2_r2, 3);
+	else result = 0.0;
+
+		//result = MASS*315.0f/(64.0f*PI*h*h*h*h*h*h*h*h*h)*h2_r2*h2_r2*h2_r2;
+//		k = 315.0f/(64.0f*PI*pow(h, 9))*h2_r2*h2_r2*h2_r2;
+	//else result = 0.0f;
+}

@@ -1,0 +1,1 @@
+gcc -o xosd.exe -I/mnt/zip/jpweber/CoralTree -I/usr/X11R6/include -DCORAL_BUILDID="CoralBuildID 1.4.1.0 jpweber@debacle x86_linux_2 gnu debug  static osd20020312205029" -g -Wall xosd.c -L/mnt/zip/jpweber/CoralTree/lib /mnt/zip/jpweber/CoralTree/lib/libosd.a -lm -lcrypt

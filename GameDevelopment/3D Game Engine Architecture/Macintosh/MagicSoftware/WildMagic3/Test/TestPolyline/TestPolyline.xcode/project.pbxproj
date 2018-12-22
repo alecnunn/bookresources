@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 39;
+	objects = {
+		3C65F95307104492003D4CD0 = {
+			children = (
+				3C65F98A0710451C003D4CD0,
+				3C65F98707104517003D4CD0,
+				3C65F98407104513003D4CD0,
+				3C65F9640710449C003D4CD0,
+			);
+			isa = PBXGroup;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C65F95507104492003D4CD0 = {
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			isa = PBXBuildStyle;
+			name = Development;
+		};
+		3C65F95607104492003D4CD0 = {
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			isa = PBXBuildStyle;
+			name = Deployment;
+		};
+		3C65F95707104492003D4CD0 = {
+			buildSettings = {
+			};
+			buildStyles = (
+				3C65F95507104492003D4CD0,
+				3C65F95607104492003D4CD0,
+			);
+			hasScannedForEncodings = 0;
+			isa = PBXProject;
+			mainGroup = 3C65F95307104492003D4CD0;
+			productRefGroup = 3C65F9640710449C003D4CD0;
+			projectDirPath = "";
+			targets = (
+				3C65F9620710449C003D4CD0,
+				3C65F979071044A5003D4CD0,
+			);
+		};
+		3C65F95D0710449C003D4CD0 = {
+			buildActionMask = 2147483647;
+			files = (
+				3C65F99007104527003D4CD0,
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C65F95E0710449C003D4CD0 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXResourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C65F95F0710449C003D4CD0 = {
+			buildActionMask = 2147483647;
+			files = (
+				3C65F98F07104527003D4CD0,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C65F9600710449C003D4CD0 = {
+			buildActionMask = 2147483647;
+			files = (
+				3C65F9960710453A003D4CD0,
+				3C65F99B0710454D003D4CD0,
+				3C65F9A00710455C003D4CD0,
+				3C75629C0715A6E500B55102,
+				3C75629D0715A6E500B55102,
+				3C75629E0715A6E500B55102,
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C65F9610710449C003D4CD0 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C65F9620710449C003D4CD0 = {
+			buildPhases = (
+				3C65F95D0710449C003D4CD0,
+				3C65F95E0710449C003D4CD0,
+				3C65F95F0710449C003D4CD0,
+				3C65F9600710449C003D4CD0,
+				3C65F9610710449C003D4CD0,
+			);
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../Include\"";
+				LIBRARY_SEARCH_PATHS = "\"${SRCROOT}/../../Library/Debug\"";
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "-D_DEBUG";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = TestPolylineDebug;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+				WRAPPER_EXTENSION = app;
+			};
+			dependencies = (
+			);
+			isa = PBXApplicationTarget;
+			name = Debug;
+			productInstallPath = "$(USER_APPS_DIR)";
+			productName = Debug;
+			productReference = 3C65F9630710449C003D4CD0;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>TestPolylineDebug</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string></string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string></string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>0.0.1d1</string>
+</dict>
+</plist>
+";
+		};
+		3C65F9630710449C003D4CD0 = {
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			isa = PBXFileReference;
+			path = TestPolylineDebug.app;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C65F9640710449C003D4CD0 = {
+			children = (
+				3C65F9630710449C003D4CD0,
+				3C65F97A071044A5003D4CD0,
+			);
+			isa = PBXGroup;
+			name = Products;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C65F974071044A5003D4CD0 = {
+			buildActionMask = 2147483647;
+			files = (
+				3C65F99207104527003D4CD0,
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C65F975071044A5003D4CD0 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXResourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C65F976071044A5003D4CD0 = {
+			buildActionMask = 2147483647;
+			files = (
+				3C65F99107104527003D4CD0,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C65F977071044A5003D4CD0 = {
+			buildActionMask = 2147483647;
+			files = (
+				3C65F9970710453A003D4CD0,
+				3C65F99C0710454D003D4CD0,
+				3C65F9A10710455C003D4CD0,
+				3C7562930715A6DA00B55102,
+				3C7562940715A6DA00B55102,
+				3C7562950715A6DA00B55102,
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C65F978071044A5003D4CD0 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C65F979071044A5003D4CD0 = {
+			buildPhases = (
+				3C65F974071044A5003D4CD0,
+				3C65F975071044A5003D4CD0,
+				3C65F976071044A5003D4CD0,
+				3C65F977071044A5003D4CD0,
+				3C65F978071044A5003D4CD0,
+			);
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../Include\"";
+				LIBRARY_SEARCH_PATHS = "\"${SRCROOT}/../../Library/Release\"";
+				OTHER_CFLAGS = "-DNDEBUG";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = TestPolylineRelease;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+				WRAPPER_EXTENSION = app;
+			};
+			dependencies = (
+			);
+			isa = PBXApplicationTarget;
+			name = Release;
+			productInstallPath = "$(USER_APPS_DIR)";
+			productName = Release;
+			productReference = 3C65F97A071044A5003D4CD0;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>TestPolylineRelease</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string></string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string></string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>0.0.1d1</string>
+</dict>
+</plist>
+";
+		};
+		3C65F97A071044A5003D4CD0 = {
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			isa = PBXFileReference;
+			path = TestPolylineRelease.app;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C65F98407104513003D4CD0 = {
+			children = (
+				3C7562980715A6E500B55102,
+				3C75628F0715A6DA00B55102,
+			);
+			isa = PBXGroup;
+			name = Library;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C65F98707104517003D4CD0 = {
+			children = (
+				3C65F99F0710455C003D4CD0,
+				3C65F99A0710454D003D4CD0,
+				3C65F9950710453A003D4CD0,
+			);
+			isa = PBXGroup;
+			name = Frameworks;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C65F98A0710451C003D4CD0 = {
+			children = (
+				3C65F98D07104527003D4CD0,
+				3C65F98E07104527003D4CD0,
+			);
+			isa = PBXGroup;
+			name = Source;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C65F98D07104527003D4CD0 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = TestPolyline.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C65F98E07104527003D4CD0 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = TestPolyline.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C65F98F07104527003D4CD0 = {
+			fileRef = 3C65F98D07104527003D4CD0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C65F99007104527003D4CD0 = {
+			fileRef = 3C65F98E07104527003D4CD0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C65F99107104527003D4CD0 = {
+			fileRef = 3C65F98D07104527003D4CD0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C65F99207104527003D4CD0 = {
+			fileRef = 3C65F98E07104527003D4CD0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C65F9950710453A003D4CD0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = Cocoa.framework;
+			path = /System/Library/Frameworks/Cocoa.framework;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		3C65F9960710453A003D4CD0 = {
+			fileRef = 3C65F9950710453A003D4CD0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C65F9970710453A003D4CD0 = {
+			fileRef = 3C65F9950710453A003D4CD0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C65F99A0710454D003D4CD0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = GLUT.framework;
+			path = /System/Library/Frameworks/GLUT.framework;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		3C65F99B0710454D003D4CD0 = {
+			fileRef = 3C65F99A0710454D003D4CD0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C65F99C0710454D003D4CD0 = {
+			fileRef = 3C65F99A0710454D003D4CD0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C65F99F0710455C003D4CD0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = OpenGL.framework;
+			path = /System/Library/Frameworks/OpenGL.framework;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		3C65F9A00710455C003D4CD0 = {
+			fileRef = 3C65F99F0710455C003D4CD0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C65F9A10710455C003D4CD0 = {
+			fileRef = 3C65F99F0710455C003D4CD0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C75628F0715A6DA00B55102 = {
+			children = (
+				3C7562900715A6DA00B55102,
+				3C7562910715A6DA00B55102,
+				3C7562920715A6DA00B55102,
+			);
+			isa = PBXGroup;
+			name = Release;
+			path = /Users/eberly/Desktop/MagicSoftware/WildMagic3/Library/Release;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		3C7562900715A6DA00B55102 = {
+			isa = PBXFileReference;
+			lastKnownFileType = archive.ar;
+			path = libApplication.a;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7562910715A6DA00B55102 = {
+			isa = PBXFileReference;
+			lastKnownFileType = archive.ar;
+			path = libOpenGLRenderer.a;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7562920715A6DA00B55102 = {
+			isa = PBXFileReference;
+			lastKnownFileType = archive.ar;
+			path = libWildMagic3.a;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7562930715A6DA00B55102 = {
+			fileRef = 3C7562900715A6DA00B55102;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7562940715A6DA00B55102 = {
+			fileRef = 3C7562910715A6DA00B55102;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7562950715A6DA00B55102 = {
+			fileRef = 3C7562920715A6DA00B55102;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7562980715A6E500B55102 = {
+			children = (
+				3C7562990715A6E500B55102,
+				3C75629A0715A6E500B55102,
+				3C75629B0715A6E500B55102,
+			);
+			isa = PBXGroup;
+			name = Debug;
+			path = /Users/eberly/Desktop/MagicSoftware/WildMagic3/Library/Debug;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		3C7562990715A6E500B55102 = {
+			isa = PBXFileReference;
+			lastKnownFileType = archive.ar;
+			path = libApplication.a;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C75629A0715A6E500B55102 = {
+			isa = PBXFileReference;
+			lastKnownFileType = archive.ar;
+			path = libOpenGLRenderer.a;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C75629B0715A6E500B55102 = {
+			isa = PBXFileReference;
+			lastKnownFileType = archive.ar;
+			path = libWildMagic3.a;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C75629C0715A6E500B55102 = {
+			fileRef = 3C7562990715A6E500B55102;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C75629D0715A6E500B55102 = {
+			fileRef = 3C75629A0715A6E500B55102;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C75629E0715A6E500B55102 = {
+			fileRef = 3C75629B0715A6E500B55102;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+	};
+	rootObject = 3C65F95707104492003D4CD0;
+}

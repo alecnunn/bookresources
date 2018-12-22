@@ -1,0 +1,54 @@
+# EW
+set MODULE = ew
+
+if (!$(CORALHOME))
+{
+	cd ..
+	if($(BLD_OSTYPE) == unix)
+	{
+		set CORALHOME = `pwd`
+	}
+	else
+	{
+		set CORALHOME = `CD`
+	}
+	cd $(MODULE)
+}
+
+include $(CORALHOME)/meta/coral.bld
+
+set MODULES =	wba 			\
+				gpl 			\
+				osd
+
+set LIBRARY = 	$(LIBPRE)$(MODULE)$(WI)$(GI)$(LIBSUFF)
+
+set FILES =		clip 		\
+				cursor 		\
+				estring 	\
+				event 		\
+				eventcxt 	\
+				ew_error 	\
+				gfx 		\
+				loop 		\
+				node 		\
+				region 		\
+				resize 		\
+				tablet 		\
+				text 		\
+				util 		\
+				wba_ew 		\
+				widget 		\
+				window 		\
+				xdbuf 		\
+				xpm
+
+set PROGRAMS =
+
+set TARGETS = $(LIBRARY)
+
+if ($(ALLOC))
+{
+	set ROOT.CPPFLAGS += "-DEW_TRACE_ALLOCATED"
+}
+

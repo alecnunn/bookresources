@@ -1,0 +1,5 @@
+
+DESCRIPTION "Atomos - GameAudio System"
+
+EXPORTS
+		GetSystem	@1

@@ -1,0 +1,449 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{747A57B1-88CF-4E87-99FD-021160A7DF35}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "Spacewar2"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "WinExe"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "Spacewar2"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = ".\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "system"
+                    AssemblyName = "System"
+                    HintPath = "..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\system.dll"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "System.Windows.Forms"
+                    AssemblyName = "System.Windows.Forms"
+                    HintPath = "..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
+                />
+                <Reference
+                    Name = "Microsoft.DirectX"
+                    AssemblyName = "Microsoft.DirectX"
+                    HintPath = "..\..\..\WINDOWS\Microsoft.NET\Managed DirectX\v9.00.0900\Microsoft.DirectX.dll"
+                    AssemblyFolderKey = "hklm\managed directx 9.0"
+                />
+                <Reference
+                    Name = "Microsoft.DirectX.DirectDraw"
+                    AssemblyName = "Microsoft.DirectX.DirectDraw"
+                    HintPath = "..\..\..\WINDOWS\Microsoft.NET\Managed DirectX\v9.00.0900\Microsoft.DirectX.DirectDraw.dll"
+                    AssemblyFolderKey = "hklm\managed directx 9.0"
+                />
+                <Reference
+                    Name = "Microsoft.DirectX.DirectInput"
+                    AssemblyName = "Microsoft.DirectX.DirectInput"
+                    HintPath = "..\..\..\WINDOWS\Microsoft.NET\Managed DirectX\v9.00.0900\Microsoft.DirectX.DirectInput.dll"
+                    AssemblyFolderKey = "hklm\managed directx 9.0"
+                />
+                <Reference
+                    Name = "Microsoft.DirectX.DirectSound"
+                    AssemblyName = "Microsoft.DirectX.DirectSound"
+                    HintPath = "..\..\..\WINDOWS\Microsoft.NET\Managed DirectX\v9.00.0900\Microsoft.DirectX.DirectSound.dll"
+                    AssemblyFolderKey = "hklm\managed directx 9.0"
+                />
+                <Reference
+                    Name = "Microsoft.DirectX.AudioVideoPlayback"
+                    AssemblyName = "Microsoft.DirectX.AudioVideoPlayback"
+                    HintPath = "..\..\..\WINDOWS\Microsoft.NET\Managed DirectX\v9.00.0900\Microsoft.DirectX.AudioVideoPlayback.dll"
+                    AssemblyFolderKey = "hklm\managed directx 9.0"
+                />
+                <Reference
+                    Name = "Microsoft.DirectX.DirectPlay"
+                    AssemblyName = "Microsoft.DirectX.DirectPlay"
+                    HintPath = "..\..\..\WINDOWS\Microsoft.NET\Managed DirectX\v9.00.0900\Microsoft.DirectX.DirectPlay.dll"
+                    AssemblyFolderKey = "hklm\managed directx 9.0"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Constants.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "dinput.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "dplay.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DPlayConnect.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DPlayConnect_AddressForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DPlayConnect_AddressForm.resx"
+                    DependentUpon = "DPlayConnect_AddressForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "DPlayConnect_CreateForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DPlayConnect_CreateForm.resx"
+                    DependentUpon = "DPlayConnect_CreateForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "DPlayConnect_JoinForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DPlayConnect_JoinForm.resx"
+                    DependentUpon = "DPlayConnect_JoinForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "DPlayConnect_ServiceProviderForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DPlayConnect_ServiceProviderForm.resx"
+                    DependentUpon = "DPlayConnect_ServiceProviderForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "DXUtil.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "font.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FontDraw.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "GameClass.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "GameParamUpdateStruct.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "GameSettings.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "GameSettings.resx"
+                    DependentUpon = "GameSettings.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "GameStates.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HelpScreen.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HelpScreen.resx"
+                    DependentUpon = "HelpScreen.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Letter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "LetterVector.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Line.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "LocalPlayerStruct.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "main.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "main.resx"
+                    DependentUpon = "main.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "MessageType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "MyPointF.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "PlayerUpdateStruct.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "RemotePlayer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "RotatableShape.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Shape.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Ship.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ShipState.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Shot.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Shots.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ShotUpdateStruct.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "SoundBuffer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "SoundHandler.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Sounds.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "SplashScreen.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "SplashScreen.resx"
+                    DependentUpon = "SplashScreen.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Star.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Stars.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Sun.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Word.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Media\dude_quest1.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\dude_quest2.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\dude_quest3.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\dude_quest4.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\dude_quest5.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\dude_quest6.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\engine.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\engine_other.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\explode.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\explode_other.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\Haha.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\Help.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\hypercharge.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\laser2.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\laser2_other.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\sci fi bass.wav"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Media\splash.png"
+                    BuildAction = "EmbeddedResource"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

@@ -1,0 +1,169 @@
+
+CGAPatch "NumPad Test"
+{
+	CGANumPadController KEYB
+	{
+		
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 200;
+		FMAttenuation = 0.3;
+	}
+
+	Connection = KEYB,OSC1, SampleOut, Frequency;
+
+}
+
+CGAPatch "NumPad Test with Glide"
+{
+	CGANumPadController KEYB
+	{
+		
+	}
+
+	CGAGlide Glide
+	{
+		Time = 0.9998f;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 200;
+		FMAttenuation = 0.8;
+	}
+
+
+
+	Connection = KEYB,Glide, SampleOut, SampleIn;
+	Connection = Glide,OSC1, SampleOut, Frequency;
+
+}
+
+
+CGAPatch "Delta Glide"
+{
+	CGANumPadController KEYB
+	{
+		
+	}
+
+	CGAGlide Glide
+	{
+		Time = 0.9998f;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 200;
+		FMAttenuation = 0.3;
+	}
+
+	CGASineOscillator OSC2
+	{
+		Frequency = 200;
+		FMAttenuation = 0.3;
+	}
+
+	CGABalance Mix1
+	{
+	}
+
+	Connection = KEYB,Glide, SampleOut, SampleIn;
+	Connection = Glide,OSC1, SampleOut, Frequency;
+	Connection = Glide,OSC2, DeltaOut, Frequency;
+	Connection = OSC1,Mix1, SampleOut, SampleIn1;
+	Connection = OSC2,Mix1, SampleOut, SampleIn2;
+
+}
+
+
+CGASignal  Intake1
+{
+	File = "m_intake01.wav";
+}
+
+CGASignal  Impulse1
+{
+	File = "m_impulse01.wav";
+}
+
+CGASignal  Exhaust1
+{
+	File = "m_exhaust02.wav";
+}
+
+CGAPatch "NumPad Interactive Power Stroke"
+{
+	CGANumPadController KEYB
+	{
+		
+	}
+
+	CGAGlide Glide
+	{
+		Time = 0.99997f;
+	}
+
+	CGAImpulseGenerator TRIG1
+	{
+		Frequency = 60.0;
+		FMAttenuation = 0.2;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		Frequency = 1.0;
+		Amplitude = 0.6;
+		FMAttenuation = 0.2;
+		WaveTable = Intake1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		Frequency = 0.8;
+		FMAttenuation = 0.2;
+		WaveTable = Impulse1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV3
+	{
+		Frequency = 1.0;
+		FMAttenuation = 0.2;
+		WaveTable = Exhaust1;
+		Repeat = 1;
+	}
+
+	CGASelector SEL1
+	{
+		Selection = 15;
+	}
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 0.01;
+	}
+
+	Connection = KEYB,Glide, SampleOut, SampleIn;
+	Connection = Glide,LPF1, SampleOut, FM);
+	Connection = Glide,TRIG1, SampleOut, FM);
+	Connection = TRIG1,WAV1, SampleOut, TRIG);
+	Connection = TRIG1,WAV2, SampleOut, TRIG);
+	Connection = TRIG1,WAV3, SampleOut, TRIG);
+	Connection = TRIG1,SEL1, SampleOut, TRIG);	
+	Connection = WAV1,SEL1, SampleOut, SampleIn1);
+	Connection = WAV2,SEL1, SampleOut, SampleIn3);
+	Connection = WAV3,SEL1, SampleOut, SampleIn4);
+
+	Connection = SEL1,LPF1, SampleOut, SampleIn);
+
+}
+	
+
+
+
+

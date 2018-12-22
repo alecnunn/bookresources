@@ -1,0 +1,438 @@
+////////////////////////////////////////////////////////////
+//
+//  HELIOS.RC - Radiosity Renderer for MS-Windows Resource
+//              Script
+//
+//  Version:    1.03B
+//
+//  History:    94/08/23 - Version 1.00A release.
+//              94/09/23 - Added ABORTCALC dialog box.
+//              94/09/27 - Changed OK button in SETCAMERA
+//                         and SETVIEW dialog boxes to
+//                         Update.
+//                       - Revised SETENTITYDIR dialog box
+//                         layout.
+//              94/10/02 - Changed SETCAMERA and SETVIEW
+//                         dialog box styles.
+//              94/10/03 - Changed SETCONVERGE and
+//                         SETDISPLAY menu item mnemonics.
+//              94/10/12 - Revised SETDISPLAY dialog box to
+//                         include intensity and contrast
+//                         controls.
+//              94/10/14 - General revision of dialog box
+//                         layouts.
+//              94/12/04 - Added RENDERMSG dialog box.
+//              94/12/06 - Added Update button to SETDISPLAY
+//                         dialog box.
+//              94/12/08 - Added Help menu items and Help
+//                         buttons to dialog boxes.
+//              94/12/14 - Removed "View" and "Display" menu
+//                         items.
+//                       - Changed "Specify View" menu item
+//                         to "Set View" and moved to
+//                         "Camera".
+//                       - Moved "Set Display" menu item to
+//                         "Options".
+//                       - Changed "Directories" menu item
+//                         to "Entities".
+//              94/12/16 - Version 1.01A release.
+//              94/12/24 - Revised SETCAMERA dialog box to
+//                         include projection type and
+//                         window scaling factor.
+//              95/02/05 - Version 1.02A release.
+//              95/03/26 - Added QUANTIZEMSG dialog box.
+//                       - Renamed ABORTCALC dialog box as
+//                         ABORTRAD.
+//                       - Added ABORTRENDER dialog box.
+//              95/03/27 - Added SETCOLOR dialog box.
+//                       - Modified SETDISPLAY dialog box
+//                         to add antialiasing support and
+//                         to remove display color options.
+//                       - Added "Set Color" menu item.
+//              95/06/28 - Revised ABORTRENDER layout.
+//              95/07/21 - Version 1.02B release.
+//              96/02/06 - Updated ABOUTBOX copyright
+//                         notice.
+//              96/02/14 - Version 1.02C release.
+//              96/03/30 - Added "Default View", "Dolly",
+//                         "Orbit", "Pan", "Rotate", "Tilt"
+//                         and "Zoom' menu items.
+//                       - Added "Focus Position" to
+//                         SETVIEW dialog box.
+//                       - Added "Camera Tilt" to SETCAMERA
+//                         dialog box.
+//                       - Deleted "View Direction" and
+//                         "View-Up Vector" from SETVIEW
+//                         dialog box.
+//                       - Added Statistics menu item.
+//                       - Added DISPLAYSTATS dialog box.
+//                       - Updated ABOUTBOX copyright
+//                         notice.
+//              96/04/01 - Version 1.03A release.
+//              97/03/28 - Updated ABOUTBOX copyright
+//                         notice.
+//              97/04/01 - Version 1.03B release.
+//
+//  Compilers:  Microsoft Visual C/C++ Professional V5.0
+//              Borland C++ Version 5.0
+//
+//  Author:     Ian Ashdown, P.Eng.
+//              byHeart Consultants Limited
+//              620 Ballantree Road
+//              West Vancouver, B.C.
+//              Canada V7S 1W3
+//              Tel. (604) 922-6148
+//              Fax. (604) 987-7621
+//
+//  Copyright 1994-2003 byHeart Consultants Limited
+//
+//  The following source code has been derived from:
+//
+//    Ashdown, I. 1994. Radiosity: A Programmer's
+//    Perspective. New York, NY: John Wiley & Sons.
+//
+//  It may be freely copied, redistributed, and/or modified
+//  for personal use ONLY, as long as the copyright notice
+//  is included with all source code files.
+//
+////////////////////////////////////////////////////////////
+
+#include <windows.h>
+#include "resource.h"
+
+#if defined(_CUBIC_TETRA)
+HELIOS_C    ICON    "HELIOS_C.ICO"
+#elif defined(_HEMI_CUBE)
+HELIOS_H    ICON    "HELIOS_H.ICO"
+#elif defined(_RAY_CAST)
+HELIOS_R    ICON    "HELIOS_R.ICO"
+#else
+HELIOS_S    ICON    "HELIOS_S.ICO"
+#endif
+
+HELIOSMENU MENU DISCARDABLE 
+BEGIN
+  POPUP "&File"
+  BEGIN
+    MENUITEM "&Open...",            IDM_FILEOPEN
+    MENUITEM "&Save As...",         IDM_SAVEAS, GRAYED
+    MENUITEM SEPARATOR          
+    MENUITEM "&Entities...",        IDM_DIRECTORY
+    MENUITEM SEPARATOR          
+    MENUITEM "S&tatistics",         IDM_STATISTICS, GRAYED
+    MENUITEM SEPARATOR
+    MENUITEM "&Exit",               IDM_EXIT
+  END
+  POPUP "&Camera"
+  BEGIN
+    MENUITEM "Set &Camera...",      IDM_SETCAMERA
+    MENUITEM "Set &View...",        IDM_SETVIEW
+    MENUITEM SEPARATOR
+    MENUITEM "&Default View",       IDM_DEFVIEW
+    MENUITEM SEPARATOR
+    POPUP "&Interactive"
+    BEGIN
+      MENUITEM "&Dolly",            IDM_SETDOLLY
+      MENUITEM "&Orbit",            IDM_SETORBIT
+      MENUITEM "&Pan",              IDM_SETPAN
+      MENUITEM "&Rotate",           IDM_SETROTATE
+      MENUITEM "&Tilt",             IDM_SETTILT
+      MENUITEM "&Zoom",             IDM_SETZOOM
+    END
+  END
+  POPUP "&Render"
+  BEGIN
+    MENUITEM "&Wireframe",          IDM_WIREFRAME, GRAYED
+    MENUITEM "&Shaded",             IDM_SHADED, GRAYED
+    MENUITEM "&Rendering",          IDM_RENDER, GRAYED
+    MENUITEM "Re&display",          IDM_REDISPLAY, GRAYED
+  END
+  POPUP "&Options"
+  BEGIN
+    MENUITEM "Set &Display...",     IDM_SETDISPLAY
+    MENUITEM "Set Color...",        IDM_SETCOLOR
+    MENUITEM "Set &Convergence...", IDM_SETCONVERGE
+  END
+  POPUP "&Help"
+  BEGIN
+    MENUITEM "&Contents",           IDM_HELP_CONTENTS
+    MENUITEM "Using &Help",         IDM_HELP_HELP
+    MENUITEM SEPARATOR
+    MENUITEM "&Read This Book!",    IDM_HELP_BOOK
+    MENUITEM SEPARATOR
+    MENUITEM "&About HELIOS...",    IDM_ABOUT
+  END
+END
+
+SETENTITYDIR DIALOG DISCARDABLE  0, 0, 252, 64
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Entities Directory"
+FONT 8, "MS Sans Serif"
+BEGIN
+  LTEXT         "Entities File Path:",IDC_STATIC,6,12,60,8
+  EDITTEXT      IDC_ENTITY,71,10,118,12,ES_AUTOHSCROLL
+  DEFPUSHBUTTON "OK",IDOK,196,6,50,14
+  PUSHBUTTON    "Cancel",IDCANCEL,196,24,50,14
+  PUSHBUTTON    "Help",IDC_HELP_SETDIR,196,42,50,14
+END
+
+SETCAMERA DIALOG DISCARDABLE  0, 0, 216, 186
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION |
+    WS_SYSMENU
+CAPTION "Camera Parameters"
+FONT 8, "MS Sans Serif"
+BEGIN
+  GROUPBOX        "Camera Distances",IDC_STATIC,6,6,112,72
+  LTEXT           "View:",IDC_STATIC,12,22,50,8
+  EDITTEXT        IDC_VDIST,68,20,42,12,ES_AUTOHSCROLL
+  LTEXT           "Front Plane:",IDC_STATIC,12,42,50,8
+  EDITTEXT        IDC_FDIST,68,40,42,12,ES_AUTOHSCROLL
+  LTEXT           "Back Plane:",IDC_STATIC,12,62,50,8
+  EDITTEXT        IDC_BDIST,68,60,42,12,ES_AUTOHSCROLL
+  GROUPBOX        "Window Scale",IDC_STATIC,6,84,112,34
+  LTEXT           "Scaling Factor:",IDC_STATIC,12,100,50,8
+  EDITTEXT        IDC_SCALE,68,98,42,12,ES_AUTOHSCROLL
+  GROUPBOX        "Window Dimensions",IDC_STATIC,6,124,112,
+                  54
+  LTEXT           "Horizontal Pixels:",IDC_STATIC,12,140,72,
+                  8
+  EDITTEXT        IDC_HPIXSZ,90,138,20,12,ES_AUTOHSCROLL
+  LTEXT           "Vertical Pixels:",IDC_STATIC,12,160,72,8
+  EDITTEXT        IDC_VPIXSZ,90,158,20,12,ES_AUTOHSCROLL
+  GROUPBOX        "Camera Tilt",IDC_STATIC,126,84,82,34
+  EDITTEXT        IDC_CAMTILT,132,98,38,12,ES_AUTOHSCROLL
+  LTEXT           "Degrees",IDC_STATIC,176,100,28,8
+  GROUPBOX        "Projection",IDC_STATIC,126,124,82,54
+  CONTROL         "Perspective",IDC_PERSPECT,"Button",
+                  BS_AUTORADIOBUTTON,132,140,54,10
+  CONTROL         "Parallel",IDC_PARALLEL,"Button",
+                  BS_AUTORADIOBUTTON,132,156,54,10
+  DEFPUSHBUTTON   "OK",IDOK,158,6,50,14
+  PUSHBUTTON      "Cancel",IDCANCEL,158,24,50,14
+  PUSHBUTTON      "Update",IDC_UPDATE,158,42,50,14
+  PUSHBUTTON      "Help",IDC_HELP_SETCAMERA,158,60,50,14
+END
+
+SETVIEW DIALOG DISCARDABLE  0, 0, 248, 88
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION |
+    WS_SYSMENU
+CAPTION "View Parameters"
+FONT 8, "MS Sans Serif"
+BEGIN
+  GROUPBOX      "Eye Position",IDC_STATIC,6,6,84,74
+  LTEXT         "X-Axis:",IDC_STATIC,12,22,24,8
+  EDITTEXT      IDC_EYE_X,40,20,42,12,ES_AUTOHSCROLL
+  LTEXT         "Y-Axis:",IDC_STATIC,12,42,24,8
+  EDITTEXT      IDC_EYE_Y,40,40,42,12,ES_AUTOHSCROLL
+  LTEXT         "Z-Axis:",IDC_STATIC,12,62,24,8
+  EDITTEXT      IDC_EYE_Z,40,60,42,12,ES_AUTOHSCROLL
+  GROUPBOX      "Focus Position",IDC_STATIC,98,6,84,74
+  LTEXT         "X-Axis:",IDC_STATIC,104,22,24,8
+  EDITTEXT      IDC_FOCUS_X,132,20,42,12,ES_AUTOHSCROLL
+  LTEXT         "Y-Axis:",IDC_STATIC,104,42,24,8
+  EDITTEXT      IDC_FOCUS_Y,132,40,42,12,ES_AUTOHSCROLL
+  LTEXT         "Z-Axis:",IDC_STATIC,104,62,24,8
+  EDITTEXT      IDC_FOCUS_Z,132,60,42,12,ES_AUTOHSCROLL
+  DEFPUSHBUTTON "OK",IDOK,190,6,50,14
+  PUSHBUTTON    "Cancel",IDCANCEL,190,24,50,14
+  PUSHBUTTON    "Update",IDC_UPDATE,190,42,50,14
+  PUSHBUTTON    "Help",IDC_HELP_SETVIEW,190,60,50,14
+END
+
+#ifdef _RAY_CAST
+SETCONVERGE DIALOG DISCARDABLE  0, 0, 176, 66
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Convergence Parameters"
+FONT 8, "MS Sans Serif"
+BEGIN
+  LTEXT         "Maximum Steps:",IDC_STATIC,6,12,69,8
+  EDITTEXT      IDC_MSTEP,78,10,32,12,ES_AUTOHSCROLL
+  LTEXT         "Stopping Criterion:",IDC_STATIC,6,32,69,8
+  EDITTEXT      IDC_STOPC,78,30,32,12,ES_AUTOHSCROLL
+  CONTROL       "Ambient Exitance",IDC_AMBIENT_EN,"Button",
+                BS_AUTOCHECKBOX | WS_TABSTOP,6,52,80,10
+  DEFPUSHBUTTON "OK",IDOK,118,6,50,14
+  PUSHBUTTON    "Cancel",IDCANCEL,118,24,50,14
+  PUSHBUTTON    "Help",IDC_HELP_SETCONVERGE,118,42,50,14
+END
+#else
+SETCONVERGE DIALOG DISCARDABLE  0, 0, 176, 88
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Convergence Parameters"
+FONT 8, "MS Sans Serif"
+BEGIN
+  LTEXT         "Maximum Steps:",IDC_STATIC,6,12,69,8
+  EDITTEXT      IDC_MSTEP,78,10,32,12,ES_AUTOHSCROLL
+  LTEXT         "Stopping Criterion:",IDC_STATIC,6,32,69,8
+  EDITTEXT      IDC_STOPC,78,30,32,12,ES_AUTOHSCROLL
+  CONTROL       "Ambient Exitance",IDC_AMBIENT_EN,"Button",
+                BS_AUTOCHECKBOX | WS_TABSTOP,6,52,80,10
+  CONTROL       "Positive Overshoot",IDC_OVER_EN,"Button",
+                BS_AUTOCHECKBOX | WS_TABSTOP,6,72,80,10
+  DEFPUSHBUTTON "OK",IDOK,118,6,50,14
+  PUSHBUTTON    "Cancel",IDCANCEL,118,24,50,14
+  PUSHBUTTON    "Help",IDC_HELP_SETCONVERGE,118,42,50,14
+END
+#endif
+
+SETDISPLAY DIALOG DISCARDABLE  0, 0, 260, 158
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION |
+    WS_SYSMENU
+CAPTION "Display Parameters"
+FONT 8, "MS Sans Serif"
+BEGIN
+  GROUPBOX      "Intensity",IDC_STATIC,6,6,90,48
+  LTEXT         "Factor:",IDC_STATIC,12,22,33,8
+  EDITTEXT      IDC_INTENS,46,20,42,12,ES_AUTOHSCROLL
+  CONTROL       "Enabled",IDC_INTENS_EN,"Button",
+                BS_AUTOCHECKBOX | WS_TABSTOP,12,38,40,10
+  GROUPBOX      "Contrast",IDC_STATIC,106,6,90,48
+  LTEXT         "Factor:",IDC_STATIC,112,22,33,8
+  EDITTEXT      IDC_CONTRAST,146,20,42,12,ES_AUTOHSCROLL
+  CONTROL       "Enabled",IDC_CONTRAST_EN,"Button",
+                BS_AUTOCHECKBOX | WS_TABSTOP,112,38,40,10
+  GROUPBOX      "Gamma",IDC_STATIC,6,60,90,48
+  LTEXT         "Factor:",IDC_STATIC,12,76,33,8
+  EDITTEXT      IDC_GAMMA,46,74,42,12,ES_AUTOHSCROLL
+  CONTROL       "Enabled",IDC_GAMMA_EN,"Button",
+                BS_AUTOCHECKBOX | WS_TABSTOP,12,92,40,10
+  GROUPBOX      "Color Reduction",IDC_STATIC,106,60,90,48
+  LTEXT         "Noise Level:",IDC_STATIC,112,76,50,8
+  EDITTEXT      IDC_JITTER,176,74,12,12,ES_AUTOHSCROLL
+  CONTROL       "Enabled",IDC_JITTER_EN,"Button",
+                BS_AUTOCHECKBOX | WS_TABSTOP,112,92,40,10
+  GROUPBOX      "Antialiasing",IDC_STATIC,6,116,90,34
+  LTEXT         "Resolution:",IDC_STATIC,12,132,36,8
+  COMBOBOX      IDC_FILTERSEL,56,130,32,48,
+                CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+  DEFPUSHBUTTON "OK",IDOK,204,6,50,14
+  PUSHBUTTON    "Cancel",IDCANCEL,204,24,50,14
+  PUSHBUTTON    "Update",IDC_UPDATE,204,42,50,14
+  PUSHBUTTON    "Help",IDC_HELP_SETDISPLAY,204,60,50,14
+END
+
+SETCOLOR DIALOG DISCARDABLE  0, 0, 160, 140
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION |
+    WS_SYSMENU
+CAPTION "Color Parameters"
+FONT 8, "MS Sans Serif"
+BEGIN
+  GROUPBOX      "Color Display",IDC_STATIC,6,6,90,68
+  CONTROL       "RGB Color",IDC_RGB,"Button",
+                BS_AUTORADIOBUTTON | WS_GROUP,12,22,70,10
+  CONTROL       "Grayscale",IDC_MONO,"Button",
+                BS_AUTORADIOBUTTON,12,38,70,10
+  CONTROL       "Pseudocolor",IDC_PSEUDO,"Button",
+                BS_AUTORADIOBUTTON,12,54,70,10
+  GROUPBOX      "Color Resolution",IDC_STATIC,6,80,90,52
+  CONTROL       "16.7 Million Colors",IDC_COLRES_24,"Button",
+                BS_AUTORADIOBUTTON | WS_GROUP,12,96,80,10
+  CONTROL       "256 Colors",IDC_COLRES_8,"Button",
+                BS_AUTORADIOBUTTON,12,112,80,10
+  DEFPUSHBUTTON "OK",IDOK,104,6,50,14
+  PUSHBUTTON    "Cancel",IDCANCEL,104,24,50,14
+  PUSHBUTTON    "Update",IDC_UPDATE,104,42,50,14
+  PUSHBUTTON    "Help",IDC_HELP_SETCOLOR,104,60,50,14
+END
+
+DISPLAYSTATS DIALOG DISCARDABLE  0, 0, 154, 78
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION |
+    WS_SYSMENU
+CAPTION "Environment Statistics"
+FONT 8, "MS Sans Serif"
+BEGIN
+  LTEXT         "Instances:",IDC_STATIC,6,8,36,8
+  LTEXT         "Surfaces:",IDC_STATIC,6,22,36,8
+  LTEXT         "Patches:",IDC_STATIC,6,36,36,8
+  LTEXT         "Elements:",IDC_STATIC,82,8,36,8
+  LTEXT         "Vertices:",IDC_STATIC,82,22,36,8
+  RTEXT         "",IDC_NUM_INSTANCES,46,8,24,8
+  RTEXT         "",IDC_NUM_SURFACES,46,22,24,8
+  RTEXT         "",IDC_NUM_PATCHES,46,36,24,8
+  RTEXT         "",IDC_NUM_ELEMENTS,122,8,24,8
+  RTEXT         "",IDC_NUM_VERTICES,122,22,24,8
+  DEFPUSHBUTTON "OK",IDOK,52,54,50,14
+END
+
+ABORTRAD DIALOG DISCARDABLE  0, 0, 190, 74
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION |
+    WS_SYSMENU
+CAPTION "Radiosity Calculations"
+FONT 8, "MS Sans Serif"
+BEGIN
+  LTEXT         "Number of Steps:",IDC_STATIC,6,8,60,8
+  RTEXT         "0",IDC_NUMSTEP,70,8,32,8
+  LTEXT         "Convergence:",IDC_STATIC,6,22,60,8
+  RTEXT         "1.00000",IDC_CONVERGE,70,22,32,8
+  LTEXT         "Elapsed Time:",IDC_STATIC,6,36,60,8
+  RTEXT         "0:00:00",IDC_ELAPSED,70,36,32,8,
+  LTEXT         "Maximum:",IDC_STATIC,110,8,36,8
+  RTEXT         "",IDC_MAXSTEP,150,8,32,8
+  LTEXT         "Minimum:",IDC_STATIC,110,22,36,8
+  RTEXT         "",IDC_MINSTOP,150,22,32,8
+  PUSHBUTTON    "Stop",IDCANCEL,70,54,50,14
+END
+
+ABORTRENDER DIALOG DISCARDABLE  0, 0, 124, 74
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Rendering Calculations"
+FONT 8, "MS Sans Serif"
+BEGIN
+  LTEXT         "Antialiasing Filter:",IDC_STATIC,6,8,64,8
+  RTEXT         "",IDC_FILTERTYPE,74,8,42,8
+  LTEXT         "Number of Passes:",IDC_STATIC,6,22,64,8
+  RTEXT         "",IDC_NUMPASS,104,22,12,8
+  LTEXT         "Maximum:",IDC_STATIC,6,36,36,8
+  RTEXT         "",IDC_MAXPASS,104,36,12,8
+  PUSHBUTTON    "Stop",IDCANCEL,37,54,50,14
+END
+
+QUANTIZEMSG DIALOG DISCARDABLE  0, 0, 142, 22
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Rendering Calculations"
+FONT 8, "MS Sans Serif"
+BEGIN
+  CTEXT         "Color quantization in progress ...",
+                IDC_STATIC,0,6,142,8
+END
+
+RENDERMSG DIALOG DISCARDABLE  0, 0, 142, 22
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Rendering Calculations"
+FONT 8, "MS Sans Serif"
+BEGIN
+  CTEXT         "Polygon rendering in progress ...",
+                IDC_STATIC,0,6,142,8
+END
+
+ABOUTBOX DIALOG DISCARDABLE  0, 0, 222, 62
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About HELIOS"
+FONT 8, "MS Sans Serif"
+BEGIN
+  LTEXT         "HELIOS Radiosity Renderer (TM)",IDC_STATIC,
+                36,6,120,8
+#if defined(_HEMI_CUBE)
+  LTEXT         "Version 1.03B/HC",IDC_STATIC,36,20,96,8
+#elif defined(_CUBIC_TETRA)
+  LTEXT         "Version 1.03B/CT",IDC_STATIC,36,20,96,8
+#elif defined(_RAY_CAST)
+  LTEXT         "Version 1.03B/RC",IDC_STATIC,36,20,96,8
+#else
+  LTEXT         "Version 1.03B/SH",IDC_STATIC,36,20,96,8
+#endif
+  LTEXT         "Copyright 1994-2003 byHeart Consultants Limited",
+                IDC_STATIC,36,34,160,8
+  LTEXT         "All Rights Reserved",IDC_STATIC,36,48,70,8
+#if defined(_CUBIC_TETRA)
+  ICON  "HELIOS_C"      IDC_STATIC,10,6,18,20
+#elif defined(_HEMI_CUBE)
+  ICON  "HELIOS_H"      IDC_STATIC,10,6,18,20
+#elif defined(_RAY_CAST)
+  ICON  "HELIOS_R"      IDC_STATIC,10,6,18,20
+#else
+  ICON  "HELIOS_S"      IDC_STATIC,10,6,18,20
+#endif
+  DEFPUSHBUTTON "OK",IDOK,166,6,50,14
+END
+

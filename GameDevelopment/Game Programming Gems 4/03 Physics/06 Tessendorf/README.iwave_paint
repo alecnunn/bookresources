@@ -1,0 +1,56 @@
+//------------------------------------------------
+//
+//  iwave_paint
+//
+//
+//  iwave_paint is an interactive paint program
+//  in which the user paints on a water surface and
+//  the waves evolve and react with obstructions
+//  in the water.
+//
+//  There are two paint modes.  Typing 'o' puts the
+//  program in obstruction painting mode. When you
+//  hold down the left mouse button and paint, you
+//  will see a black obstruction painted.  This 
+//  obstruction may be any shape.
+//
+//  Typing 's' puts the program in source painting 
+//  mode.  Now painting with the left mouse button
+//  down generates a source disturbance on the water
+//  surface.  The waves it produces evolve if as you
+//  continue to paint.  The waves bounce of off any
+//  obstructions that have been painted or are
+//  subsequently painted.
+//
+//  Typing 'b' clears all obstructions and waves.
+//
+//  Typing '=' and '-' brightens and darkens the display
+//  of the waves.
+//
+//  Pressing the spacebar starts and stops the wave
+//  evolution. While the evolution is stopped, you
+//  can continue painting obstructions.
+//
+//  This code was written and runs under Linux. The
+//  compile command is
+//
+//  g++ iwave_paint.C -O2 -o iwave_paint -lglut -lGL
+//
+//  The default size of the grid in the simulation
+//  is 100x100.  This size runs at a reasonable speed
+//  on a 500 MHz P3.  For larger grids, change the
+//  line
+//
+//  iwidth = iheight = 100;
+//
+//  in main() to a larger size.  For example, a grid
+//  size of 200x200 ( iwidth = iheight = 200; ) runs
+//  well on a 2.8 GHz P4.  
+//
+//
+//  author: Jerry Tessendorf
+//  August, 2003
+//
+//  This software is in the public domain.
+//-------------------------------------------------
+

@@ -1,0 +1,35 @@
+#include "kShaderSharedParams.h"
+
+sampler ColorMap;
+sampler ShadeMap;
+float4 Time;
+
+struct VS_INPUT
+{
+    float3 position : POSITION;
+    float2 texcoord : TEXCOORD0;
+    float4 diffuse : COLOR0;
+};
+
+struct VS_OUTPUT
+{
+    float4 position : POSITION;
+    float2 texcoord : TEXCOORD0;
+    float4 diffuse : COLOR0;
+};
+
+VS_OUTPUT VertexShader(const VS_INPUT v)
+{
+    VS_OUTPUT o = (VS_OUTPUT)0;
+    o.position = mul(float4(v.position.xyz, 1.0f), mWorldViewProj);
+    o.texcoord = v.texcoord;
+    o.diffuse = v.diffuse;
+    return o;
+}
+
+float4 PixelShader(const VS_OUTPUT v) : COLOR
+{
+	float4 color = tex2D(ColorMap, v.texcoord);
+	float4 shade = tex2D(ShadeMap, v.texcoord);
+    return float4(shade.r, shade.g, shade.b + (0.5-v.diffuse.a*0.5), color.r * v.diffuse.a);
+}

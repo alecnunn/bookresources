@@ -1,0 +1,936 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Lantern-Lua Style</title>
+<base target="_self">
+</head>
+
+<body>
+
+<h1 align="center"><font color="#800080">Lantern-<a name="LUA Scripting API for J5Chess">LUA
+Style Guide</a></font></h1>
+
+<p class="MsoNormal" align="center"><font face="Courier New" color="#ff0000">last updated: <!--webbot
+bot="Timestamp" startspan S-Type="EDITED" S-Format="%m/%d/%Y" -->02/15/2005<!--webbot
+bot="Timestamp" i-CheckSum="12578" endspan -->
+</font></p>
+<h2>Introduction</h2>
+<h3>Purpose</h3>
+<p>The purpose of this document is to define the Lua scripting standard used in software development.  This standard is to be applied to all
+Lua scripts written for all the software projects by Magic Lantern.</p>
+<p>The fundamental purpose of the standard is twofold: to ensure a high quality product
+and to promote software maintainability.  The standard aids in the accomplishment of these two goals by helping produce
+scripts that are readable, understandable, testable and portable.&nbsp;</p>
+<h3>Philosophy</h3>
+<p>This standard is intended to provide a baseline for software development.  It is not intended be burdensome and counterproductive by defining the format of
+a script down to the very last detail.  Following the standard will produce uniform
+scripts that are easy for developers to read and understand.  Thus it will be of benefit internally as engineers
+and designers review each other's scripts and move between projects.  However, additional definition and expansion may be useful.  Individuals and project groups are  encouraged to continue to come up with new ideas that assist with elements of their projects.  These types of additions serve the overall purpose of the
+scripting standard.</p>
+<h3>Adherence to the Standard</h3>
+<p>A scripting standard is only useful if it is followed.  It is the responsibility of each
+developer writing script (whether software engineer or designer) to follow the coding standard.  Moreover, adherence to the standard should be part of the criteria in the code
+and project review process.</p>
+<h3>Basic guidelines</h3>
+<ul>
+  <li><i>Keep it simple.</i> Break 
+  down complex modules into simpler pieces.&nbsp; 
+  <li><i>Be explicit.</i> Avoid 
+  implicit or obscure features of the language.&nbsp; 
+  <li><i>Be consistent.</i> Use the 
+  same rules as broadly as possible. 
+  <li><i>Write comments.</i>  Provide ample comments so that the next person who reads the
+    script will be able to understand its operation.  Clearly comment in adequate detail all complex sections of
+    script.</li>
+</ul>
+<h2>Version of Lua</h2>
+<p>We are currently using Lua 5.0.</p>
+<h2>Location of Files</h2>
+<p>Scripts files will be maintained in SourceSafe, under a Scripts folder under
+each project. Each project shall maintain a local Scripts folder.</p>
+<h2>General Syntax</h2>
+<p>Do NOT use a semicolon (;) at the end of a line.</p>
+<h3>Indentation</h3>
+<p>Each indentation shall be one tab stop or 4 spaces. Avoid deep nesting of statements, parentheses and structures.
+Indent the lines under a control structure. Indent the lines within a function.</p>
+<p>Examples:</p>
+<p><font face="Courier New">if isNegative ~= 0 then<br>&nbsp;&nbsp;&nbsp; newString =
+   string.format("%d", -1*aNumber)<br>
+		else<br>
+&nbsp;&nbsp;&nbsp; newString = baseString<br>
+		end</font></p>
+<p><font face="Courier New">function ColorMultiText(localID, r, g, b, a)<br>
+&nbsp;&nbsp;&nbsp; linesCount = multiTextLines[localID];<br>
+&nbsp;&nbsp;&nbsp; for indx = 1, linesCount do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ItemCommand(localID, "SetColor",r,g,b,a)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localID =
+   localID + 1<br>
+&nbsp;&nbsp;&nbsp; end<br>
+end</font></p>
+<h3>Commenting</h3>
+<p>Keep code and comments visually separate.</p>
+<p>Use header comments for all files. The header at the top of a script file contains the standard copyright and legal information block, file name, author's name, date of the file's creation, and a description of the contents of the file.&nbsp;</p>
+<p>Example:</p>
+<dl>
+  <dt><font face="Courier New">--=======================================<br>
+    -- (c)  copyright 2004, Lantern Learning, LLC</font>
+  <dt><font face="Courier New">-- <span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">All
+    Rights Reserved.<span style="mso-spacerun: yes">&nbsp; </span>U.S.A.</span></font>
+  <dt><font face="Courier New"><span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">--=======================================</span></font>
+  <dt><font face="Courier New"><span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">--
+    filename:&nbsp; GUI_Esape.lua</span><br>
+    -- author:&nbsp;&nbsp;&nbsp; Chris Listello</font>
+  <dt><font face="Courier New">-- created:&nbsp;&nbsp; April 4, 2004<br>
+    -- descrip:&nbsp;&nbsp; Escape key InGame menu</font>
+  <dt><font face="Courier New">--=======================================</font></dt>
+</dl>
+<p>Within a file with multiple functions, each function is preceded by a header block that contains the function name, author's name, date of the function's creation, return values, and a description.&nbsp;</p>
+<p>Example:</p>
+<dl>
+  <dt><font face="Courier New">--=======================================</font>
+  <dt><font face="Courier New">-- function:&nbsp; CreateMultText</font>
+  <dt><font face="Courier New">-- author:&nbsp;&nbsp;&nbsp; Paul Schuytema</font>
+  <dt><font face="Courier New">-- created:&nbsp;&nbsp; April 1, 2004</font>
+  <dt><font face="Courier New">-- returns:&nbsp;&nbsp; nothing (process)</font>
+  <dt><font face="Courier New">--=======================================</font>
+  <dt><font face="Courier New">function CreateMultiText(localID, x, y, lines, charWIDTH)</font></dt>
+</dl>
+<p>Update the author name if the functionality changes significantly; but don't append names as the file/function is changed.  The creation date should not be changed.</p>
+<p>Comment at the end of a line for things such as button ids or key presses, if
+the context isn't obvious.</p>
+<p>Example:</p>
+<p><font face="Courier New">if id ==   GUI_VIEW + 300 then&nbsp; --&nbsp; Save
+button</font></p>
+<p>Comment to the right of an "end" statement if it isn't clear what
+the matching control structure is.</p>
+<p>Example:</p>
+<p><font face="Courier New">end&nbsp; --&nbsp; EVENT_BUTTON_UP&nbsp;</font></p>
+<h3>Conditionals</h3>
+<p>Use "~=" for "does not equal.</p>
+<p>Example:</p>
+<p><font face="Courier New">if hitValue ~= 0 then</font></p>
+<p>Nest conditional tests within parentheses when using "and" or
+"or."</p>
+<p>Example:</p>
+<p><font face="Courier New">if (eventCode == GUI_REENTER_INTERFACE)  or (eventCode == GUI_ENTER_INTERFACE) then</font></p>
+<h2>Naming Conventions</h2>
+<p><span style="FONT-FAMILY: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">File,
+v</span><span style="FONT-FAMILY: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">ariable,
+constant and function names shall have a clear meaning that can be easily
+understood.</span></p>
+<h3>File Names</h3>
+<p>Lua files shall use the format "FileName.lua." The initial letter
+of each word should be capitalized and the "lua" extension should be
+all lowercase.</p>
+<p>Lua files that are GUI files should have "GUI_" at the start of
+their filename.</p>
+<p>Example:</p>
+<p><font face="Courier New">LuaSupport.lua</font></p>
+<p><font face="Courier New">GUI_InGame.lua</font></p>
+<h3>Variables</h3>
+<p><span style="FONT-FAMILY: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">Local
+variable names shall use the format<i style="mso-bidi-font-style: normal"> </i>“variableName.”<span style="FONT-FAMILY: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes">&nbsp;
+</span>With the exception of the first word, each word is separated with an
+initial capital.<span style="FONT-FAMILY: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes">&nbsp;
+</span>Use mixed case and no underscores.</span></p>
+<p><span style="FONT-FAMILY: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes">Example:</span></p>
+<p><span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes"><font face="Courier New">hitList</font></span></p>
+<p><span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes"><font face="Courier New">currentScore</font></span></p>
+<p><span style="FONT-FAMILY: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes">Global
+variable names shall use the format "gVariableName."</span></p>
+<p><span style="FONT-FAMILY: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes">Example:</span></p>
+<p><span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes"><font face="Courier New">gNextDebate</font></span></p>
+<p><span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes"><font face="Courier New">gNumPlayers</font></span></p>
+<h3>Contants</h3>
+<p>Constant names shall be upper case, with words separated by an underscore.</p>
+<p>Example:</p>
+<p><font face="Courier New">TIME_TICK</font></p>
+<p><font face="Courier New">VOTER_WIGGLE</font></p>
+<h3>Function Names</h3>
+<p><span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">Function
+names shall be mixed case with no underscores.<span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes">&nbsp;
+</span>The first letter is upper case.<span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes">&nbsp;
+</span>Each word is separated with an initial capital.<span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-spacerun: yes">&nbsp;
+</span>In general, related groups of functions should conform to the same naming
+format, such as “VerbNoun” or “LayerVerbNoun” or “AdjectiveNoun.”</span></p>
+<p><span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">Example:</span></p>
+<p><span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><font face="Courier New">function
+GetScores()</font></span></p>
+<p><span style="mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><font face="Courier New">function
+DisplayState(myState)</font></span></p>
+<h2>GUI</h2>
+<h3>Layout of GUI file</h3>
+<p>GUI files should be set up the same way from file to file, to make it as easy
+as possible to find elements of an interface down the road. GUI files should
+follow this basic structure:</p>
+<dl>
+  <dt><font face="Courier New">--=======================================<br>
+    -- (c)  copyright 2004, Lantern Learning, LLC</font>
+  <dt><font face="Courier New">-- <span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">All
+    Rights Reserved.<span style="mso-spacerun: yes">&nbsp; </span>U.S.A.</span></font>
+  <dt><font face="Courier New"><span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">--=======================================</span></font>
+  <dt><font face="Courier New"><span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">--
+    filename:&nbsp; GUI_Esape.lua</span><br>
+    -- author:&nbsp;&nbsp;&nbsp; Chris Listello</font>
+  <dt><font face="Courier New">-- created:&nbsp;&nbsp; April 4, 2004<br>
+    -- descrip:&nbsp;&nbsp; Escape key InGame menu</font>
+  <dt><font face="Courier New">--=======================================</font></dt>
+</dl>
+<p><font face="Courier New">-- first steps<br>
+SetCoordTrans(800, 600);<br>
+PlaceConsole(0, 0, 0.5, 0.45);<br>
+<br>
+--dofile calls for sub-GUIs<br>
+<br>
+<br>
+--100s Sprites<br>
+<br>
+<br>
+--200s Text items<br>
+<br>
+<br>
+--300s Buttons<br>
+<br>
+<br>
+--400s Check Boxes and Radio buttons<br>
+<br>
+<br>
+--500s List objects</font></p>
+<p><font face="Courier New"><br>
+<br>
+--600s Special objects (bar, chart, sprite ring, etc.)<br>
+</font></p>
+<p><font face="Courier New"><br>
+--functions related to this GUI (not used anywhere else)<br>
+<br>
+<br>
+--first run calls<br>
+<br>
+SetEventHandler(&quot;EscapeEvent&quot;)<br>
+<br>
+<br>
+--event handler<br>
+function EscapeGameEvent(id, eventCode)<br>
+<br>
+</font></p>
+<h3>ID Number Ranges</h3>
+<p>ID number ranges should follow the table below based on the type of the GUI
+object. To facilitate sub-GUIs, and the rapid clearing of an interface, the GUI
+objects for an interface should occupy more more than a single 1000 number id
+range.</p>
+<p>GUI objects should be defined with an offset constant, that is defined in
+StartGUI.lus (see below).</p>
+<p>Example:</p>
+<dl>
+  <dt><font face="Courier New">--from StartGUI.lua</font>
+  <dt><font face="Courier New">--Define GUI ID offsets<br>
+    GUI_INGAME = 0<br>
+    GUI_VIEW = 1000<br>
+    GUI_STUDIO = 2000</font>
+  <dd>
+  <dt><font face="Courier New">--from GUI_InGame.lua</font>
+  <dt><font face="Courier New">--100s Sprites<br>
+    CreateItem(GUI_INGAME + 100, "Sprite", &quot;ui_corner_base_ps.tga&quot;)<br>
+    SetItemPosition(GUI_INGAME + 100, 6, 417, 159, 176)</font></dt>
+</dl>
+<p>Using this approach allows us to clear or enable entire ranges of GUI objects
+with these functions (best placed in LuaSupport:</p>
+<dl>
+  <dt><font face="Courier New">function ClearGUI(id)<br>
+    &nbsp;&nbsp;&nbsp; for indx = 1,1000 do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EnableObject(id + indx, 0, 0);<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    end<br>
+    <br>
+    <br>
+    function RestoreGUI(id)<br>
+    &nbsp;&nbsp;&nbsp; for indx = 1,1000 do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EnableObject(id + indx, 1, 1);<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    end</font></dt>
+</dl>
+<div align="left">
+  <table border="1" cellspacing="1" width="70%">
+    <tr>
+      <td width="17%"><b>id ranges</b></td>
+      <td width="83%"><b>GUI items</b></td>
+    </tr>
+    <tr>
+      <td width="17%">100-199</td>
+      <td width="83%">Sprites</td>
+    </tr>
+    <tr>
+      <td width="17%">200-299</td>
+      <td width="83%">Text Items</td>
+    </tr>
+    <tr>
+      <td width="17%">300-399</td>
+      <td width="83%">Buttons</td>
+    </tr>
+    <tr>
+      <td width="17%">400-499</td>
+      <td width="83%">Check boxes and radio buttons</td>
+    </tr>
+    <tr>
+      <td width="17%">500-599</td>
+      <td width="83%">List objects</td>
+    </tr>
+    <tr>
+      <td width="17%">600-699</td>
+      <td width="83%">Special objects (bar, chart, sprite ring, etc.)</td>
+    </tr>
+  </table>
+</div>
+<h3>GUI Graphic Image File Conventions</h3>
+<h4>Prefixes</h4>
+<div align="left">
+  <table border="1" cellspacing="1" width="70%">
+    <tr>
+      <td width="16%"><b>Prefix</b></td>
+      <td width="84%"><b>Context</b></td>
+    </tr>
+    <tr>
+      <td width="16%"><font face="Courier New">ui_</font></td>
+      <td width="84%">     	general interface prefix (for sprites)</td>
+    </tr>
+    <tr>
+      <td width="16%"><font face="Courier New">ui_bg_</font></td>
+      <td width="84%">		background for interface screen</td>
+    </tr>
+    <tr>
+      <td width="16%"><font face="Courier New">uib_</font></td>
+      <td width="84%">		3 state hover button</td>
+    </tr>
+    <tr>
+      <td width="16%"><font face="Courier New">uir_</font></td>
+      <td width="84%">		radio button</td>
+    </tr>
+  </table>
+</div>
+<h4>Suffixes</h4>
+<table border="1" cellspacing="1" width="70%">
+  <tr>
+    <td width="16%"><b>Suffix</b></td>
+    <td width="84%"><b>Context</b></td>
+  </tr>
+  <tr>
+    <td width="16%"><font face="Courier New">_up</font></td>
+    <td width="84%">		3 state button's regular state</td>
+  </tr>
+  <tr>
+    <td width="16%"><font face="Courier New">_hv</font></td>
+    <td width="84%">		3 state button's mouseover state</td>
+  </tr>
+  <tr>
+    <td width="16%"><font face="Courier New">_dn</font></td>
+    <td width="84%">		3 state button's mouseclick state</td>
+  </tr>
+  <tr>
+    <td width="16%"><font face="Courier New">_window</font></td>
+    <td width="84%">		background image for an interface window that is less than fullscreen</td>
+  </tr>
+</table>
+<h4>Check boxes format</h4>
+<p>&quot;CheckBox&quot;, "unselected regular state", "selected regular state",<br>
+			"unselected mouseover state", "selected mouseover state",<br>
+			"unselected mouseclick state", "selected mouseclick state");<br>
+</p>
+<h3>Text Objects</h3>
+<p>Text objects should not have their text defined explicitly, but rather it
+should pull text from the textTable, either directly, with GetText(id) or
+indirectly via a defining function.</p>
+<p>Example:</p>
+<p><font face="Courier New">CreateItem(GUI_INGAME + 220,&quot;TextField&quot;);<br>
+SetItemPosition(GUI_INGAME + 220, 646, 566, 136, 20);<br>
+SetFont(GUI_INGAME + 220, "Arial", 24);<br>
+ItemCommand(GUI_INGAME + 220, &quot;SetColor&quot;, 255,255,255,255);<br>
+ItemCommand(GUI_INGAME + 220, &quot;SetString&quot;, GetText(GUI_INGAME + 220));</font></p>
+<h3>GUI Event Function</h3>
+<h2>Common Lua Files</h2>
+<p>Projects share many of the same "foundation" files. Below, we
+explore these files and how to standardize them to achieve maximum constancy and
+performance.</p>
+<h3>Text</h3>
+<p>The Text.lua file is a Lua file that holds all text strings used by the game.
+The file can be organized into blocks freely, just comment liberally. The table
+shall be named &quot;textTable&quot; and will be retrieved using the GetText(id)
+function. TextTable indexes should match GUI ids. If text is to be used for
+another purpose, it should have its own constant offset.</p>
+<p>Example:</p>
+<dl>
+  <dt><font face="Courier New">--=======================================<br>
+    -- (c)  copyright 2004, Magic Lantern, Inc.</font>
+  <dt><font face="Courier New">-- <span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">All
+    Rights Reserved.<span style="mso-spacerun: yes">&nbsp; </span>U.S.A.</span></font>
+  <dt><font face="Courier New"><span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">--=======================================</span></font>
+  <dt><font face="Courier New"><span style="mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">--
+    filename:&nbsp; Text.lua</span><br>
+    -- author:&nbsp;&nbsp;&nbsp; Paul Schuytema</font>
+  <dt><font face="Courier New">-- created:&nbsp;&nbsp; April 10, 2004<br>
+    -- descrip:&nbsp;&nbsp; Text file for Tycoon</font>
+  <dt><font face="Courier New">--=======================================</font>
+  <dd>
+  <dt><font face="Courier New">--define empty table</font>
+  <dt><font face="Courier New">textTable = {}</font>
+  <dd>
+  <dt><font face="Courier New">--Stats text</font>
+  <dt><font face="Courier New">textTable[GUI_INGAME + 201] = "Art:"</font>
+  <dt><font face="Courier New">textTable[GUI_INGAME + 202] = "Code:"</font>
+  <dt><font face="Courier New">textTable[GUI_INGAME + 203] = "Level:"</font>
+  <dt><font face="Courier New">textTable[GUI_INGAME + 204] = "Test:"</font></dt>
+</dl>
+<dl>
+  <dt><font face="Courier New">--=======================================</font>
+  <dt><font face="Courier New">-- function:&nbsp; GetText</font>
+  <dt><font face="Courier New">-- author:&nbsp;&nbsp;&nbsp; Paul Schuytema</font>
+  <dt><font face="Courier New">-- created:&nbsp;&nbsp; April 10, 2004</font>
+  <dt><font face="Courier New">-- returns:&nbsp;&nbsp; string in textTable
+    indexed by id</font>
+  <dt><font face="Courier New">--=======================================</font>
+  <dt><font face="Courier New">function GetText(localID)</font>
+  <dt><font face="Courier New">&nbsp;&nbsp;&nbsp; return textTable[localID]</font>
+  <dt><font face="Courier New">end</font></dt>
+</dl>
+<h3>Loading</h3>
+<p>The GUI_Loading.lua file presents the player with a loading screen, and also
+allows us to load the most time-intensive interface at runtime.</p>
+<p>Example:</p>
+<dl>
+  <dt><font face="Courier New">--=======================================<br>
+    -- (c) copyright 2004, Magic Lantern, Inc<br>
+    -- All Rights Reserved.  U.S.A.<br>
+    --=======================================--<br>
+    --  filename: Loading.lua<br>
+    --  author: Paul Schuytema<br>
+    --  created: February 23, 2004<br>
+    --  descrip: Loading GUI for VGT<br>
+    --=========================================--</font></dt>
+  <dd>
+  <dt><font face="Courier New">-- first steps<br>
+    SetCoordTrans(800,600)</font>
+  <dd>
+  <dt><font face="Courier New">--100s Sprites</font>
+  <dt><font face="Courier New">CreateItem(100, "Sprite", "new_loading.bmp")<br>
+    SetItemPosition(100, 144, 0, 512, 512)<br>
+    <br>
+    CreateItem(200,&quot;TextField")<br>
+    SetItemPosition(200, 300, 0, 250, 26)<br>
+    SetFont(200, "Arial", 20)<br>
+    ItemCommand(200, "SetColor", 255,0,0,255)<br>
+    ItemCommand(200, "SetString", "Version 0.7 (080904)")<br>
+    <br>
+    CreateItem(202,&quot;TextField")<br>
+    SetItemPosition(202, 295, 575, 250, 14)<br>
+    SetFont(202, "Arial", 16)<br>
+    ItemCommand(202, "SetColor", 255,0,0,255)<br>
+    ItemCommand(202, "SetString", "Copyright 2004, Aspyr Media, Inc.")<br>
+    <br>
+    loadString = "."<br>
+    periodCount = 1<br>
+    <br>
+    CreateItem(203,&quot;TextField")<br>
+    SetItemPosition(203, 260, 520, 350, 26)<br>
+    SetFont(203, "Arial", 48)<br>
+    ItemCommand(203, "SetColor", 0,255,0,255)<br>
+    ItemCommand(203, "SetString", loadString)<br>
+    </font>
+  <dt><font face="Courier New">--first run calls<br>
+    <br>
+    HideCursor()<br>
+    SetEventHandler(&quot;LoadingMenuEvent&quot;)<br>
+    StartTimer(0.25)</font>
+  <dd>
+  <dt><font face="Courier New">--event handler<br>
+    function LoadingMenuEvent(id, eventCode)<br>
+    </font></dt>
+  <dt><font face="Courier New">&nbsp;&nbsp;&nbsp; if eventCode == GUI_TIMER_EXPIRED then<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if periodCount &lt; 10 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if periodCount ==
+    1 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    AddModelToCache(&quot;dev1.mlm&quot;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if periodCount ==
+    2 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if periodCount ==
+    3 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    AddModelToCache(&quot;dev2.mlm&quot;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if periodCount ==
+    4 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if periodCount ==
+    5 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    AddModelToCache(&quot;dev3.mlm&quot;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if periodCount ==
+    6 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if periodCount ==
+    7 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    AddModelToCache(&quot;dev4.mlm&quot;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if periodCount ==
+    8 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if periodCount ==
+    9 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    AddModelToCache(&quot;dev5.mlm&quot;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loadString = string.format("%s%s", loadString, ".")<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ItemCommand(203, "SetString", loadString)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; periodCount = periodCount + 1<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    StartTimer(0.15)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    RunGUI(&quot;GUIMainMenu.lua&quot;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ShowCursor()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PlayMusic("VGT
+    Menu.wav&quot;,1)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp; end</font><font face="Courier New"><br>
+    end&nbsp; -- event handler</font></dt>
+</dl>
+<h3>Events</h3>
+<p>The Events.lua file serves to link the application code with the scripting
+code by means of signals known as events. Each event is assigned an identity (eventCode)
+in the StartGUI.lua file that is used throughout the Events.lua file as a way of
+alerting the scripts to occurrences in the application.</p>
+<p>Example:</p>
+<dl>
+  <dt><font face="Courier New">--=======================================<br>
+    -- (c) copyright 2004, Magic Lantern, Inc<br>
+    -- All Rights Reserved.  U.S.A.<br>
+    --=======================================<br>
+    --  filename: Events.lua<br>
+    --  author: Mark Manyen<br>
+    --  created: October 1, 2004<br>
+    -- descrip: Poker game events<br>
+    --=========================================--<br>
+    </font></dt>
+  <dt><font face="Courier New">-- Game Events<br>
+    EVENT_INITIAL_DEAL      = 1000<br>
+    EVENT_ EVENT_BET_REQUEST         = 1001<br>
+    <br>
+    -- Tell the code the name of the event handler<br>
+    SetGameEventHandler(&quot;GameEvents&quot;);<br>
+    <br>
+    -- The event handler itself<br>
+    function GameEvents(EventCode, ...)<br>
+    &nbsp;&nbsp;&nbsp; -- arg[1] - arg[n] are defined by lua for the arguments.<br>
+    &nbsp;&nbsp;&nbsp; -- the variable nature of these arguments makes it possible to<br>
+    &nbsp;&nbsp;&nbsp; -- send strings or other types of Lua data to events instead of just floats<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; if EventCode ==  EVENT_INITIAL_DEAL then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddTextToConsole(&quot;Initial Deal")<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SearchPlayersCashReserve()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ClearCardModels()<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    </font></dt>
+  <dt><font face="Courier New">&nbsp;&nbsp;&nbsp; if EventCode == EVENT_BET_REQUEST then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; playerNum = arg[1]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pressure = arg[2]</font></dt>
+</dl>
+<p>&nbsp;&nbsp;&nbsp;<font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if GetPlayerType(playerNum) == PLAYER_TYPE_LOCAL then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ClearAICards()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+&nbsp;&nbsp;&nbsp; end<br>
+</font><font face="Courier New">end -- event handler</font></p>
+<h3>StartGUI</h3>
+<p>The StartGUI.lua file initiates the scripting portion of the program. It
+defines the ID ranges of GUI offsets as well as constants used for screen
+resolution, sound, bit depth, 3D world lighting, and similar startup tasks. In
+addition, StartGUI.lua loads scripts that are needed throughout the game,
+manipulates the cursor, sets initial flag states, and runs the loading screen.</p>
+<p>Example:</p>
+<p><font face="Courier New">--=======================================<br>
+-- (c) copyright 2003, Magic Lantern, Inc<br>
+-- All Rights Reserved.  U.S.A.<br>
+--=======================================<br>
+--  filename: StartGUI.lua<br>
+--  author: Mark Manyen<br>
+--  created: May 6, 2004<br>
+-- descrip: Defines constants and globals<br>
+--=========================================--</font></p>
+<p><font face="Courier New">-- Standard LuaGUI event codes<br>
+GUI_EVENT_BUTTON_UP = 0;<br>
+GUI_EVENT_BUTTON_DOWN = 1;<br>
+GUI_EVENT_SELECTION_CHANGED = 2;<br>
+GUI_EVENT_TEXTFIELD_CLICKED = 3;<br>
+GUI_KEY_PRESS = 4;<br>
+GUI_REENTER_INTERFACE = 5;<br>
+GUI_TIMER_EXPIRED = 6;<br>
+GUI_ENTER_INTERFACE = 7<br>
+GUI_TEXT_SCROLL_END = 8<br>
+<br>
+-- Define screen res values<br>
+RES640 = 0;<br>
+RES800 = 1;<br>
+RES1024 = 2;<br>
+RES1600 = 3;<br>
+<br>
+-- Define audio volume levels<br>
+AUDIO_VOLUME_OFF   = 0;<br>
+AUDIO_VOLUME_LOW   = 1;<br>
+AUDIO_VOLUME_MED   = 2;<br>
+AUDIO_VOLUME_HIGH  = 3;<br>
+<br>
+-- Define Light types<br>
+LIGHT_DIRECTIONAL  = 0;<br>
+LIGHT_POINT        = 1;<br>
+LIGHT_SPOT         = 2;<br>
+LIGHT_AMBIENT      = 3 ;<br>
+<br>
+-- Define GUI ID offsets<br>
+GUI_INGAME = 0<br>
+GUI_SELECT_PLAYER = 1000<br>
+GUI_CREATE_PLAYER = 2000<br>
+GUI_OPTIONS = 3000<br>
+GUI_EXIT = 4000<br>
+GUI_CREDITS = 5000<br>
+GUI_LOAN = 6000<br>
+GUI_ESC = 7000<br>
+GUI_PAYTABLE = 8000<br>
+<br>
+-- coin values for various casinos<br>
+gCoinSize = {0.01, 0.05, 0.1, 0.25, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0}<br>
+<br>
+-- init the event handler<br>
+RunScript("Scripts/Events.lua");<br>
+<br>
+-- load in special scripts<br>
+dofile(&quot;Scripts\\Text.Lua&quot;)<br>
+dofile(&quot;Scripts\\LuaSupport.Lua&quot;)<br>
+RunScript(&quot;CasinoTextures.lua&quot;)<br>
+<br>
+SetCursorImage(&quot;Cursor.tga&quot;)<br>
+SetProfiler(0)<br>
+RunGUI(&quot;Loading.lua&quot;)</font></p>
+<h3>LuaSupport</h3>
+<p>The LuaSupport.lua file exists to house functions that apply to more than one
+script. Since this file is executed during StartGUI.lua, its functions can be
+called by any subsequent script. Each function within LuaSupport.lua also
+has&nbsp; its own header comment.</p>
+<p>Example:</p>
+<dl>
+  <dt><font face="Courier New">--=======================================<br>
+    -- (c) copyright 2004, Magic Lantern, Inc<br>
+    -- All Rights Reserved.  U.S.A.<br>
+    --=======================================--<br>
+    --  filename: LuaSupport.lua<br>
+    --  author: Paul Schuytema<br>
+    --  created: November 17, 2003<br>
+    --  descrip: Any functiopn that are required are defined here.<br>
+    --           Do NOT define functions in scenario files as they are<br>
+    --           not re-run when loading a saved game.<br>
+    --=========================================--</font><font face="Courier New"><br>
+    <br>
+    --=======================================<br>
+    -- function:  ResetTime()<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   May 27, 2004<br>
+    -- returns:   nothing (process)<br>
+    -- descrip:   resets time for a new day<br>
+    --=======================================<br>
+    function ResetTime()<br>
+    &nbsp;&nbsp;&nbsp; gAMPM = 0<br>
+    &nbsp;&nbsp;&nbsp; gHour = 8<br>
+    end<br>
+    <br>
+    --=======================================<br>
+    -- function:  UpdateTime()<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   April 26, 2004<br>
+    -- returns:   nothing (process)<br>
+    -- descrip:   draws the time on screen<br>
+    --=======================================<br>
+    function UpdateTime()<br>
+    &nbsp;&nbsp;&nbsp; ItemCommand(CLOCK, "SetString", gTime)<br>
+    end</font></dt>
+</dl>
+<h2>Common Lua Functions</h2>
+<p>The following functions are valuable because they are useful in almost any
+application.</p>
+<dl>
+  <dt><font face="Courier New">--=======================================<br>
+    -- function:  GetMin(theTable)<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   February 7, 2005<br>
+    -- returns:   the minimum entry in a table<br>
+    -- descrip:   uses ipairs to build a string that loads the value into the math.min function<br>
+    --=======================================<br>
+    function GetMin(theTable)<br>
+    &nbsp;&nbsp;&nbsp; myString = "myValue = math.min("<br>
+    &nbsp;&nbsp;&nbsp; for index,value in ipairs(theTable) do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myString = string.format("%s%d%s", myString, value, ",")<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp; --remove final comma<br>
+    &nbsp;&nbsp;&nbsp; myString = string.sub (myString, 1, string.len(myString) - 1)<br>
+    &nbsp;&nbsp;&nbsp; myString = string.format("%s%s", myString, ")")<br>
+    &nbsp;&nbsp;&nbsp; loadstring(myString)() --run the chunk<br>
+    &nbsp;&nbsp;&nbsp; print(myString) -- see the string<br>
+    &nbsp;&nbsp;&nbsp; print(myValue) --see the result<br>
+    &nbsp;&nbsp;&nbsp; return myValue<br>
+    end<br>
+    <br>
+    --=======================================<br>
+    -- function:  GetMax(theTable)<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   February 7, 2005<br>
+    -- returns:   the maximum entry in a table<br>
+    -- descrip:   uses ipairs to build a string that loads the value into the math.max function<br>
+    --=======================================<br>
+    function GetMax(theTable)<br>
+    &nbsp;&nbsp;&nbsp; myString = "myValue = math.max("<br>
+    &nbsp;&nbsp;&nbsp; for index,value in ipairs(theTable) do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myString = string.format("%s%d%s", myString, value, ",")<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp; --remove final comma<br>
+    &nbsp;&nbsp;&nbsp; myString = string.sub (myString, 1, string.len(myString) - 1)<br>
+    &nbsp;&nbsp;&nbsp; myString = string.format("%s%s", myString, ")")<br>
+    &nbsp;&nbsp;&nbsp; loadstring(myString)() --run the chunk<br>
+    &nbsp;&nbsp;&nbsp; print(myString) -- see the string<br>
+    &nbsp;&nbsp;&nbsp; print(myValue) --see the result<br>
+    &nbsp;&nbsp;&nbsp; return myValue<br>
+    end<br>
+    <br>
+    --=======================================<br>
+    -- function:  Sort(theTable, direction)<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   February 7, 2005<br>
+    -- returns:   nothing (process)<br>
+    -- descrip:   sorts a table up or down<br>
+    --=======================================<br>
+    function Sort(theTable, direction)<br>
+    &nbsp;&nbsp;&nbsp; if direction ~= 1 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; table.sort(theTable)<br>
+    &nbsp;&nbsp;&nbsp; else<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function Reverse(a, b)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if a &lt; b then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    return false<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    return true<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp; table.sort(theTable, Reverse)<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    end</font></dt>
+  <dt><font face="Courier New"><br>
+    --=======================================<br>
+    -- function: CommaFormatBigInteger(aNumber)<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   February 1, 2004<br>
+    -- returns:   newString<br>
+    -- descrip: punctuates a string and makes it a number<br>
+    --=======================================<br>
+    function CommaFormatBigInteger(aNumber)<br>
+    &nbsp;&nbsp;&nbsp; isNegative = 0<br>
+    &nbsp;&nbsp;&nbsp; if aNumber &lt; 0 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; isNegative = 1<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aNumber = -1*aNumber<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp; baseString = string.format(&quot;%d&quot;, aNumber)<br>
+    &nbsp;&nbsp;&nbsp; baseLength = string.len(baseString)<br>
+    &nbsp;&nbsp;&nbsp; numBlocks = math.floor(baseLength/3)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp; if numBlocks == 0 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if isNegative ~= 0 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; newString =
+    string.format(&quot;%d&quot;, -1*aNumber)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; newString = baseString<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp; else<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if isNegative ~= 0 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; newString = "-"<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; newString = ""<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; numLeaders = baseLength - 3*numBlocks<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if numLeaders > 0 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; newString = newString .. string.sub
+    (baseString, 1 , numLeaders) .. ","<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for i = 1,numBlocks do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; newString = newString .. string.sub
+    (baseString, numLeaders+1+(i-1)*3 , numLeaders+i*3) .. ","<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; newLength = string.len(newString)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; newString = string.sub(newString, 1, newLength-1); -- strip off final comma<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp; return newString<br>
+    end<br>
+    <br>
+    --=======================================<br>
+    -- function: FormatStringToNumber(aString)<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   February 1, 2004<br>
+    -- returns: aNumber<br>
+    -- descrip: removes punctuation from a string and makes it a number<br>
+    --=======================================<br>
+    function FormatStringToNumber(aString)<br>
+    &nbsp;&nbsp;&nbsp;    if aString ~= nil then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       local length = string.len(aString)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       local num = string.sub(aString,1,1)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       local isNegative = "NO"<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       if num == "-" then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           isNegative = "YES"<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           aString = string.sub(aString,2,length)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       local aNumber =
+    string.gsub(aString,&quot;%D&quot;,&quot;&quot;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       if isNegative == "YES" then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           aNumber =
+    string.format(&quot;%s%s&quot;,&quot;-&quot;,aNumber)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       return tonumber(aNumber)<br>
+    &nbsp;&nbsp;&nbsp;    end<br>
+    end<br>
+    </font></dt>
+  <dt><font face="Courier New">--=======================================</font><font face="Courier New"><br>
+    -- multiline text object<br>
+    multiTextWIDTH = {}<br>
+    multiTextLINES = {}<br>
+    -- must be present to run the CreateMultiText() function<br>
+    --=======================================<br>
+    <br>
+    --=======================================<br>
+    -- function: CreateMultiText(localID, x, y, lines, charWIDTH, fontsize)<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   February 1, 2004<br>
+    -- returns:   nothing (process)<br>
+    -- descrip:   creates a multiline text object<br>
+    --=======================================<br>
+    function CreateMultiText(localID, x, y, lines, charWIDTH, fontsize)<br>
+    &nbsp;&nbsp;&nbsp; multiTextWIDTH[localID] = charWIDTH<br>
+    &nbsp;&nbsp;&nbsp; multiTextLINES[localID] = lines<br>
+    &nbsp;&nbsp;&nbsp; for indx = 1,lines do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    CreateItem(localID,&quot;TextField&quot;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SetItemPosition(localID, x, y, charWIDTH * 20, fontsize + 2)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SetFont(localID, "Courier12",
+    fontsize)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --need to have this as an arguement too<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ItemCommand(localID, &quot;SetColor&quot;,1,1,1,255)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localID = localID + 1<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y = y + fontsize + 2<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    end<br>
+    <br>
+    --=======================================<br>
+    -- function: ColorMultiText(localID, r, g, b, a)<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   February 1, 2004<br>
+    -- returns:   nothing (process)<br>
+    -- descrip: sets color to multi text<br>
+    --=======================================<br>
+    function ColorMultiText(localID, r, g, b, a)<br>
+    &nbsp;&nbsp;&nbsp; linesCount = multiTextLINES[localID]<br>
+    &nbsp;&nbsp;&nbsp; for indx = 1, linesCount do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ItemCommand(localID, &quot;SetColor&quot;,r,g,b,a)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localID = localID + 1<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    end<br>
+    <br>
+    --=======================================<br>
+    -- function: SetMultiText(localID, myString)<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   February 1, 2004<br>
+    -- returns:   nothing (process)<br>
+    -- descrip: sets the string content of the multi text<br>
+    --=======================================<br>
+    function SetMultiText(localID, myString)<br>
+    &nbsp;&nbsp;&nbsp; baseID = localID<br>
+    &nbsp;&nbsp;&nbsp; linesCount = multiTextLINES[localID]<br>
+    &nbsp;&nbsp;&nbsp; strTable = {}<br>
+    &nbsp;&nbsp;&nbsp; lenTable = {}<br>
+    &nbsp;&nbsp;&nbsp; --zero out the table of string lengths<br>
+    &nbsp;&nbsp;&nbsp; for indx = 1, 255 do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lenTable[indx] = 0<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp; indx = 0<br>
+    &nbsp;&nbsp;&nbsp; for w in string.gfind(myString, "%S+") do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; indx = indx + 1<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; strTable[indx] = w<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lenTable[indx] = string.len(w) + 1<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp; runningCount = 0<br>
+    &nbsp;&nbsp;&nbsp; startCount = 1<br>
+    &nbsp;&nbsp;&nbsp; endCount = 1<br>
+    &nbsp;&nbsp;&nbsp; for boo = 1, linesCount do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count = startCount<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; runningCount = 0<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done = "no"<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while ((runningCount &lt;=
+    multiTextWIDTH[baseID]) and (done == "no")) do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+    lenTable[count] == 0 then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    done = "yes"<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    runningCount = runningCount + lenTable[count]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    count = count + 1<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endCount = count - 1<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myLine = ""<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for lineCount = startCount, endCount do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myLine =
+    string.format(&quot;%s%s%s&quot;, myLine, " ", strTable[lineCount])<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ItemCommand(localID, &quot;SetString&quot;,
+    myLine)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localID = localID + 1<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; startCount = endCount + 1<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    end<br>
+    </font></dt>
+  <dt><font face="Courier New">--=======================================<br>
+    -- function: ClearGUI(id)<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   February 1, 2004<br>
+    -- returns: nothing (process)<br>
+    -- descrip: disables all GUI of a specific interface<br>
+    --=======================================<br>
+    function ClearGUI(id)<br>
+    &nbsp;&nbsp;&nbsp; for indx = 1,1000 do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EnableObject(id + indx, 0, 0)<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    end<br>
+    <br>
+    --=======================================<br>
+    -- function: RestoreGUI(id)<br>
+    -- author:    Paul Schuytema<br>
+    -- created:   February 1, 2004<br>
+    -- returns: nothing (process)<br>
+    -- descrip: enables all GUI of a specific interface<br>
+    --=======================================<br>
+    function RestoreGUI(id)<br>
+    &nbsp;&nbsp;&nbsp; for indx = 1,1000 do<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EnableObject(id + indx, 1, 1)<br>
+    &nbsp;&nbsp;&nbsp; end<br>
+    end<br>
+    </font></dt>
+</dl>
+
+</body>
+
+</html>

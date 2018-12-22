@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Mission</title>
+<script type="text/javascript">
+function myLoad()
+{
+//alert("amma");
+	var x=window.location+"";
+	//alert("amma"+x);
+	var y=x.indexOf("=",0)+1;
+	var z=x.slice(y,x.length);
+	var fname=document.getElementById("eg");
+	fname.innerHTML="<h3>"+z+"</h3>";
+	var srcfr=document.getElementById("eg_id");
+	srcfr.src="pdf/"+z+".pdf";
+	//alert(srcfr.src);
+	//srcfra.src=z+".html";
+	//alert(srcfr.src);
+}	
+function loadTest(file)
+{
+// alert(file);
+ var testfr=document.getElementById("testpgm_id");
+ var opfr=document.getElementById("oppgm_id");
+ testfr.src=file+"_test.html";
+ opfr.src=file+"_op.html";
+}
+</script>
+<style type="text/css">
+.exec
+{
+	position:absolute;
+	left:640px;
+	top:570px;
+	height: 125px;
+}
+.test
+{
+ position:absolute;
+ left:640px;
+ top:710px;
+}
+.op
+{
+	position:absolute;
+	left:641px;
+	top:1225px;
+	height: 173px;
+}
+.style1 {color: #000000}
+</style>
+</head>
+<body onLoad="myLoad();" bgcolor="#FFFFFF">
+<h2 align="center" class="style1">Lab Exercises.</h2>
+
+<hr>
+<div id="eg" align="center"></div>
+<iframe align="middle" id="eg_id"  frameborder="1" width="1000px" height="500px" scrolling="yes" src="pdf/Note.pdf"></iframe>
+
+</body>
+</html>

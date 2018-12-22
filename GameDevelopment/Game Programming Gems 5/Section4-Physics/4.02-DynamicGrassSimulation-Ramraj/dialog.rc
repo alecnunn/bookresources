@@ -1,0 +1,140 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INIT DIALOGEX 0, 0, 307, 208
+STYLE DS_SYSMODAL | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE
+CAPTION "Natural Effects"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,237,180,51,11
+    PUSHBUTTON      "Cancel",IDCANCEL,237,194,51,11
+    CONTROL         107,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,3,3,218,
+                    202
+    GROUPBOX        "Resolution",IDC_STATIC,227,62,76,80
+    CONTROL         "&800 x 600",IDC_RES_800_600,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,231,71,49,8
+    CONTROL         "&1024 x 768",IDC_RES_1024_768,"Button",
+                    BS_AUTORADIOBUTTON,231,82,56,8
+    CONTROL         "&Custom",IDC_RES_CUSTOM,"Button",BS_AUTORADIOBUTTON,231,
+                    93,55,8
+    GROUPBOX        "Custom",IDC_STAT_CUSTOM,231,101,68,38
+    LTEXT           "width:",IDC_STATIC,236,111,20,8
+    LTEXT           "height:",IDC_STATIC,237,124,22,8
+    EDITTEXT        IDC_CUS_WIDTH,261,109,34,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CUS_HEIGHT,261,123,34,12,ES_AUTOHSCROLL
+    GROUPBOX        "Bits Per Pixel",IDC_STATIC,227,154,76,22
+    CONTROL         "16",IDC_BPP_16,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    237,164,23,8
+    CONTROL         "32",IDC_BPP_32,"Button",BS_AUTORADIOBUTTON,270,164,23,8
+    CONTROL         "Fullscreen",IDC_FULLSCREEN,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,241,143,48,10
+    GROUPBOX        "Controls",IDC_STATIC,227,3,76,58
+    LTEXT           "View: Mouse",IDC_STATIC,232,12,42,8
+    LTEXT           "Zoom: Up/Down",IDC_STATIC,232,21,54,8
+    LTEXT           "arrow keys",IDC_STATIC,253,30,35,8
+    LTEXT           "Exit: Esc",IDC_STATIC,232,39,28,8
+    LTEXT           "Toggle fullscreen: F1",IDC_STATIC,232,48,67,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_INIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 304
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 205
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_SCREENSHOT          BITMAP  DISCARDABLE     "Screenshot.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON                ICON    DISCARDABLE     "icon_32.ico"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

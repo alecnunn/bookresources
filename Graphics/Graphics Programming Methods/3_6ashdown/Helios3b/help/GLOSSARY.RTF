@@ -1,0 +1,125 @@
+{\rtf1\ansi \deff0\deflang1033{\fonttbl{\f0\froman\fcharset0\fprq2 Tms Rmn{\*\falt Times New Roman};}{\f9\fswiss\fcharset0\fprq2 Helvetica;}{\f203\fmodern\fcharset0\fprq0 pica;}}{\colortbl;\red0\green0\blue0;
+\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;
+\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\fs20 \snext0 Normal;}{\*\cs10 \additive Default Paragraph Font;}{\*\cs15 \additive\super \sbasedon10 endnote reference;}{\*\cs16 \additive\super 
+\sbasedon10 footnote reference;}}{\info{\author Dan Davids}{\creatim\yr2137\mo8\dy7}{\revtim\yr2137\mo8\dy16}{\version1}{\edmins1}{\nofpages0}{\nofwords0}{\nofchars0}{\vern49197}}\ftnbj\aenddoc\hyphcaps0 \fet0\sectd \linex576\endnhere {\*\pnseclvl1
+\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5
+\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang
+{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \sa120 \fs20 {\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_ambient_lighting}}${\footnote \pard\plain \fs20 {
+\cs16\super $}{\f203\fs24  ambient lighting}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  ambient lighting}}}{\b\f9 ambient lighting}{\f9 
+\par }\pard {\i\f9 Ambient lighting}{\f9  is light that evenly illuminates every surface in an environment. It can be used to approximate the effect of the unabsorbed light left over after the radiosity}{\i\f9  }{\f9 calculations have been completed.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_back_plane_distance}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  back plane distance}}K{\footnote \pard\plain \fs20 {\cs16\super K}{
+\f203\fs24  back plane distance}}}{\b\f9 back plane distance}{\f9 
+\par }\pard {\f9 The}{\i\f9  back plane distance}{\f9  specifies the distance from the view window, beyond which all instances (i.e., objects) or portions thereof are clipped from the camera's field of view. (See also }{\i\f9 clipping plane}{\f9 .)
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_clipping_plane}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  clipping plane}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24 
+ clipping plane}}}{\b\f9 clipping plane}{\f9   
+\par }\pard {\f9 The synthetic camera has a }{\i\f9 front}{\f9  clipping plane and a }{\i\f9 back}{\f9  clipping plane. Both of these planes are perpendicular to the view direction vector, and must be in front of the eye position. Only
+ those instances (i.e., objects) or portions thereof between these two planes are visible to the camera; the remainder are }{\i\f9 clipped}{\f9  from the camera's field of view.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_color_quantization}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  color quantization}}K{\footnote \pard\plain \fs20 {\cs16\super K}{
+\f203\fs24  color quantization}}}{\b\f9 color quantization}{\f9 
+\par }\pard {\f9 A 24-bit color bitmap image cannot be displayed directly on a computer system that is capable of displaying only 256 colors. }{\i\f9 Color quantization}{\f9 
+ finds the 256 commonest colors in the original image and then creates an equivalent 8-bit color bitmap image where all the other colors are mapped to the nearest of these common colors.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_convergence}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  convergence}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24 
+ convergence}}}{\b\f9 convergence}{\f9 
+\par }\pard {\f9 The radiosity calculations }{\i\f9 converge}{\f9 
+ to a solution by more accurately modeling the illuminated environment with each successive step. (More intuitively, the total amount of unabsorbed light in the environment decreases with each step.)
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_dolly}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  dolly}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  dolly}}}{\b\f9 
+dolly}{\f9 
+\par }\pard {\f9 The camera }{\i\f9 eye position}{\f9  and }{\i\f9 focus position}{\f9  are shifted forward or backward along the camera's }{\i\f9 view direction}{\f9 .
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_element}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  element, surface}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24 
+ element, surface}}}{\b\f9 element, surface}{\f9 
+\par }\pard {\f9 Radiosity models the transfer of light between surfaces by dividing each surface into a mesh of }{\i\f9 elements}{\f9 . The light is then transferred between pairs of elements. (See also }{\i\f9 patch}{\f9 .)
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_emittance}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  emittance}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  emittance}
+}}{\b\f9 emittance}{\f9 
+\par }\pard {\i\f9 Emittance }{\f9 is the initial amount of light that leaves a point on a surface in all directions. Only light sources have non-zero emittance. (See also }{\i\f9 exitance}{\f9 .)
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_entity}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  entity}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  entity}}}{\b\f9 
+entity}{\f9 
+\par An }{\i\f9 entity}{\f9  is an object, such as a chair or window, that is defined by an entity (*.ENT) file. There can be more than one }{\i\f9 instance}{\f9  of the entity in the environment, as determined by the environment (*.WLD) file.
+\par }{\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_environment}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  environment}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  environment}}}{
+\b\f9 environment}{\f9 
+\par }\pard {\f9 An }{\i\f9 environment}{\f9  consists of one or more instances of }{\i\f9 entities}{\f9  (i.e., objects), as described by an environment (*.WLD) file.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_eye_position}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  eye position}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24 
+ eye position}}}{\b\f9 eye position}{\f9 
+\par }\pard {\f9 The }{\i\f9 eye position}{\f9  is the point in three-dimensional space where the observer's eye is located.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_exitance}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  exitance}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  exitance}}}{
+\b\f9 exitance}{\f9 
+\par }\pard {\i\f9 Exitance }{\f9 is the total amount of light that leaves a point on a surface in all directions. (See also }{\i\f9 luminance}{\f9 .)
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_field_of_view}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  field of view}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24 
+ field of view}}}{\b\f9 field of view}{\f9 
+\par The }{\i\f9 field of view}{\f9  is an imaginary pyramid with its apex at the eye position. Only those instances (i.e., objects) or portions thereof within this pyramid are visible to the camera. (See also }{\i\f9 clipping plane}{\f9 .)}{\f9\fs24 \page }{
+\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_focus_position}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  focus position}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  focus position}}}{\b\f9 
+focus position}{\f9 
+\par }\pard {\f9 The }{\i\f9 focus position}{\f9  is the point in three-dimensional space where the observer's eye is focused.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_front_plane_distance}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  front plane distance}}K{\footnote \pard\plain \fs20 {\cs16\super K}{
+\f203\fs24  front plane distance}}}{\b\f9 front plane distance}{\f9 
+\par }\pard {\f9 The}{\i\f9  front plane distance}{\f9  specifies the distance from the view window, in front of which all instances (i.e., objects) or portions thereof are clipped from the camera's field of view. (See also }{\i\f9 clipping plane}{\f9 .)
+
+\par }{\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_gamma}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  gamma}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  gamma}}}{\b\f9 gamma}{\f9 
+
+\par Most computer displays exhibit a nonlinear relation between the voltage applied to the display screen and the amount of light emitted by the screen. A }{\i\f9 gamma correction factor}{\f9  is usually needed to counteract this nonlinearity.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_instance}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  instance}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  instance}}}{
+\b\f9 instance}{\f9 
+\par An }{\i\f9 instance}{\f9  is a single object in an environment, such as a chair or window, that is defined by an entity (*.ENT) file. There can be more than one }{\i\f9 instance}{\f9  of the entity in the environment, as determined by the environmen
+t (*.WLD) file.}{\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_jitter}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  jitter}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  jitter}}}{
+\b\f9 jittering}{\f9 
+\par }\pard {\i\f9 Jittering}{\f9  the RGB color value of a bitmap pixel adds a small random value to each color component. The visual effect is similar to that of a grainy photographic image.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_luminance}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  luminance}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  luminance}
+}}{\b\f9 luminance}{\f9 
+\par }{\i\f9 Luminance }{\f9 (or }{\i\f9 photometric brightness}{\f9 ) is the amount of light that leaves a point on a surface in a specific direction. (See also }{\i\f9 exitance}{\f9 .)}{\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super 
+#}{\f203\fs24  term_orbit}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  orbit}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  orbit}}}{\b\f9 orbit}{\f9 
+\par }\pard {\f9 The camera }{\i\f9 eye position}{\f9  is rotated about the }{\i\f9 focus position}{\f9 , with the camera's line of sight remaining fixed on the focus position.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_pan}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  pan}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  pan}}}{\b\f9 pan}{\f9 
+
+\par }\pard {\f9 The camera }{\i\f9 eye position}{\f9  and }{\i\f9 focus position}{\f9  are shifted horizontally and vertically perpendicular to the camera's }{\i\f9 view direction}{\f9 .
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_patch}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  patch, surface}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24 
+ patch, surface}}}{\b\f9 patch, surface}{\f9 
+\par }\pard {\f9 A surface may be divided into a mesh of }{\i\f9 patches}{\f9 , with each patch being subdivided into a mesh of }{\i\f9 elements}{\f9 . (See also }{\i\f9 element}{\f9 .) Radiosity models the transfer of light from elements to patches (which a
+re groups of elements.)
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_positive_overshooting}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  positive overshooting}}K{\footnote \pard\plain \fs20 {\cs16\super K
+}{\f203\fs24  positive overshooting
+\par }}}{\b\f9 positive overshooting}{\f9 
+\par }\pard {\i\f9 Positive overshooting}{\f9 
+ is a mathematical technique that is used to accelerate the convergence of the radiosity calculations for an environment. Enabling positive overshooting usually (but not always) results in fewer radiosity calculation steps being needed.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_radiosity_calculations}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  radiosity calculations}}K{\footnote \pard\plain \fs20 {
+\cs16\super K}{\f203\fs24  radiosity calculations}}}{\b\f9 radiosity calculations}{\f9 
+\par The radiosity calculations for an environment begin by finding the surface element that is emitting the most amount of light. This light is distributed to every other surface element in the environment that is visible to it. This is referred to as one }{
+\i\f9 step}{\f9  of the calculation process.
+\par Each of these elements absorbs some of the light and reflects the rest back into the environment. The process is repeated with the surface element that is emitting and/or reflecting the most amount of light. With each such step, there is less and
+ less light remaining in the environment.
+\par The calculations }{\i\f9 converge}{\f9  to a solution when the amount of light remaining in the environment is some small fraction of the initial amount.
+\par }\pard {\f9 The total amount of light reflected from each element determines its calculated exitance and luminance.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_rotate}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  rotate}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  rotate}}}{\b\f9 
+rotate}{\f9 
+\par }\pard {\f9 The camera }{\i\f9 view direction}{\f9  and }{\i\f9 focus position}{\f9  are rotated horizontally and vertically about the }{\i\f9 eye position}{\f9 .
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_step}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  step}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  step}}}{\b\f9 step}{
+\f9 
+\par }\pard {\f9 A }{\i\f9 step}{\f9  in the radiosity calculation process consists of distributing the light emitted by or reflected from a surface element to all other elements that are visible to it.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_stopping_criterion}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  stopping criterion}}K{\footnote \pard\plain \fs20 {\cs16\super K}{
+\f203\fs24  stopping criterion}}}{\b\f9 stopping criterion}{\f9 
+\par }\pard {\f9 The amount of light remaining in the environment decreases with each step. The }{\i\f9 stopping criterion }{\f9 
+specifies that the radiosity calculations are to terminate when this remaining amount is less than a given fraction of the initial amount of light in the environment.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_synthetic_camera}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  synthetic camera}}K{\footnote \pard\plain \fs20 {\cs16\super K}{
+\f203\fs24  synthetic camera}}}{\b\f9 synthetic camera}{\f9 
+\par }\pard {\f9 The }{\i\f9 synthetic camera}{\f9 
+ models a photographic camera. You can continuously change the field of view by varying the view distance. This is equivalent to using lenses with different focal lengths on a camera. You can also position and orient the camera in three-dimensional space.
+
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_tilt}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  tilt}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  tilt}}}{\b\f9 tilt}{
+\f9 
+\par }\pard {\f9 The camera }{\i\f9 view-up vector}{\f9  is tilted (rotated) relative to its default vertical orientation by the specified tilt angle.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_view_direction}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  view direction}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24 
+ view direction}}}{\b\f9 view direction}{\f9 
+\par }\pard {\f9 The }{\i\f9 view direction}{\f9  specifies the direction in which the synthetic camera is pointed. It corresponds to the line-of-sight for an observer at the eye position.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_view_distance}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  view distance}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24 
+ view distance}}}{\b\f9 view distance}{\f9 
+\par }\pard {\f9 The synthetic camera can be imagined as an observer located at the eye position and looking through a view window that is centered on and perpendicular to the observer's line of sight (the view direction). The }{\i\f9 view distance}{\f9 
+ is the distance from the observer to the center of the view window. Increasing or decreasing this distance narrows or widens the field of view of the synthetic camera.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_view_window}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  view window}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24 
+ view window}}}{\b\f9 view window}{\f9 
+\par }\pard {\f9 The synthetic camera can be imagined as an observer located at the eye position and looking through a }{\i\f9 view window}{\f9  that is centered on and perpendicular to the observer's line of sight (the view direction).
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_viewup_vector}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  view-up vector}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24 
+ view-up vector}}}{\b\f9 view-up vector}{\f9 
+\par }\pard {\f9 The }{\i\f9 view-up vector }{\f9 specifies the "up" direction of the synthetic camera.
+\par }\pard \sa120 {\f9\fs24 \page }{\cs16\super #{\footnote \pard\plain \fs20 {\cs16\super #}{\f203\fs24  term_zoom}}${\footnote \pard\plain \fs20 {\cs16\super $}{\f203\fs24  zoom}}K{\footnote \pard\plain \fs20 {\cs16\super K}{\f203\fs24  zoom}}}{\b\f9 zoom}{
+\f9 
+\par }\pard {\f9 The camera }{\i\f9 view distance}{\f9  is decreased or increased, resulting in a larger or smaller }{\i\f9 field of view}{\f9 .
+\par }{\f9\fs24 \page }
+\par }

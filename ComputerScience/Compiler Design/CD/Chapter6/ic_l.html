@@ -1,0 +1,117 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - ic.l</h2>
+<p>%{<br>
+  #include&lt;string.h&gt;<br>
+  #include&lt;stdlib.h&gt;<br>
+  #include&quot;ic.h&quot;<br>
+  #include &quot;ic.tab.h&quot;<br>
+  %}<br>
+  %start BM<br>
+  %%<br>
+  [ \t]		;<br>
+  [\n] 		{BEGIN 0; lineNo++;}<br>
+  &quot;auto&quot;		{BEGIN 0; return _auto;}<br>
+  &quot;break&quot;		{BEGIN 0;return _break;}<br>
+  &quot;case&quot;		{BEGIN 0;return _case;}<br>
+  &quot;char&quot;		{BEGIN 0;return _char;}<br>
+  &quot;const&quot;		{BEGIN 0;return _const;}<br>
+  &quot;continue&quot;	{BEGIN 0;return _continue;}<br>
+  &quot;default&quot;	{BEGIN 0;return _default;}<br>
+  &quot;do&quot;		{BEGIN 0;return _do;}<br>
+  &quot;double&quot;	{BEGIN 0;return _double;}<br>
+  &quot;else&quot;		{BEGIN 0;return _else;}<br>
+  &quot;extern&quot;	{BEGIN 0;return _extern;}<br>
+  &quot;float&quot;		{BEGIN 0;return _float;}<br>
+  &quot;for&quot;		{BEGIN 0;return _for;}<br>
+  &quot;goto&quot;		{BEGIN 0;return _goto;}<br>
+  &quot;if&quot;		{BEGIN 0;return _if;}<br>
+  &quot;int&quot;		{BEGIN 0;return _int;}<br>
+  &quot;long&quot;		{BEGIN 0;return _long;}<br>
+  &quot;main&quot;		{BEGIN 0;return _main;}<br>
+  &quot;register&quot;	{BEGIN 0;return _register;}<br>
+  &quot;signed&quot;	{BEGIN 0;return _signed;}<br>
+  &quot;short&quot;		{BEGIN 0;return _short;}<br>
+  &quot;static&quot;	{BEGIN 0;return _static;}<br>
+  &quot;struct&quot;	{BEGIN 0;return _struct;}<br>
+  &quot;switch&quot;	{BEGIN 0;return _switch;}<br>
+  &quot;typedef&quot;	{BEGIN 0;return _typedef;}<br>
+  &quot;union&quot;		{BEGIN 0;return _union;}<br>
+  &quot;unsigned&quot;	{BEGIN 0;return _unsigned;}<br>
+  &quot;void&quot;		{BEGIN 0;return _void;}<br>
+  &quot;volatile&quot;	{BEGIN 0;return _volatile;}<br>
+  &quot;while&quot;		{BEGIN 0;return _while;}<br>
+  &quot;,&quot;		{BEGIN 0;return _comma;}<br>
+  &quot;=&quot;		{BEGIN 0;return _assign;}<br>
+  &quot;;&quot;		{BEGIN 0;return _semicolon;}<br>
+  &quot;:&quot;		{BEGIN 0;return _colon;}<br>
+  &quot;{&quot;		{BEGIN 0;return _leftb;}<br>
+  &quot;}&quot;		{BEGIN 0;return _rightb;}<br>
+  &quot;[&quot;		{BEGIN 0;return _leftsp;}<br>
+  &quot;]&quot;		{BEGIN BM;return _rightsp;}<br>
+  &quot;(&quot;		{BEGIN 0;return _leftp;}<br>
+  &quot;)&quot;		{BEGIN BM;return _rightp;}<br>
+  &quot;+&quot;		{BEGIN 0;return _plus;}<br>
+  &lt;BM&gt;&quot;-&quot;		{BEGIN 0;return _minus;}<br>
+  &quot;-&quot;		{return _uminus;}<br>
+  &quot;*&quot;		{BEGIN 0;return _mul;}<br>
+  &quot;/&quot;		{BEGIN 0;return _div;}<br>
+  &quot;%&quot;		{BEGIN 0;return _modulo;}<br>
+  &quot;&gt;&quot;		{BEGIN 0;return _gt;}<br>
+  &quot;&gt;=&quot;		{BEGIN 0;return _ge;}<br>
+  &quot;&lt;&quot;		{BEGIN 0;return _lt;}<br>
+  &quot;&lt;=&quot;		{BEGIN 0;return _le;}<br>
+  &quot;==&quot;		{BEGIN 0;return _eq;}<br>
+  &quot;!=&quot;		{BEGIN 0;return _ne;}<br>
+  &quot;&amp;&amp;&quot;		{BEGIN 0;return _and;}<br>
+&quot;||&quot;		{BEGIN 0;return _or;}</p>
+<p>[a-zA-Z][a-zA-Z0-9]*	{<br>
+  BEGIN BM;<br>
+  strcpy(yylval.attr.name,yytext);<br>
+  yylval.attr.type=ID;<br>
+  return _id;<br>
+  }<br>
+  [0-9]+		{<br>
+  BEGIN BM;<br>
+  strcpy(yylval.attr.name,yytext); <br>
+  yylval.attr.type=CONST; <br>
+  yylval.attr.datatype=INT; <br>
+  yylval.attr.value.iVal=atoi(yytext);<br>
+  return _num;<br>
+  }<br>
+  (([0-9]*[.][0-9]+)|([0-9]+[.][0-9]*))([eE][+-]?[0-9]+)?	{<br>
+  BEGIN BM;<br>
+  //strcpy(yylval.attr.name,yytext); <br>
+  yylval.attr.type=CONST; <br>
+  yylval.attr.datatype=DOUBLE; <br>
+  yylval.attr.value.dVal=atof(yytext);<br>
+  return _dnum;<br>
+  }<br>
+  ['].[']		{<br>
+  BEGIN BM; <br>
+  //yylval.attr.name[0]=yytext[1]; <br>
+  //yylval.attr.name[1]='\0';<br>
+  yylval.attr.type=CONST; <br>
+  yylval.attr.datatype=CHAR; <br>
+  yylval.attr.value.cVal=yytext[0]; <br>
+  return _charcons;<br>
+  }<br>
+  &lt;&lt;EOF&gt;&gt;		{<br>
+  return _eofile;<br>
+  }<br>
+  %%</p>
+<p>int yywrap()<br>
+  {<br>
+  return 1;<br>
+  }<br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+</body>
+</html>

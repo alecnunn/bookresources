@@ -1,0 +1,26 @@
+# WBA
+set MODULE = wba
+if (!$(CORALHOME))
+{
+	cd ..
+	set CORALHOME = `pwd`
+	cd $(MODULE)
+}
+include $(CORALHOME)/meta/coral.bld
+
+set MODULES = 	gpl 		\
+				osd
+
+set FILES = 	shell 		\
+				lineint		\
+				daemon		\
+				app			\
+				executor	\
+				log			\
+				env			\
+				argument
+
+set PROGRAMS = xwba$(EXE)
+
+set TARGETS = $(LIBRARY) $(PROGRAMS)
+

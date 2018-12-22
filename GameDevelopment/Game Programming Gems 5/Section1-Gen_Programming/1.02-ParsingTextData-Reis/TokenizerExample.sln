@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TokenizerExample", "TokenizerExample\TokenizerExample.vcproj", "{D04C0BA2-7C37-48CD-9FC9-7F4C8385487E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D04C0BA2-7C37-48CD-9FC9-7F4C8385487E}.Debug.ActiveCfg = Debug|Win32
+		{D04C0BA2-7C37-48CD-9FC9-7F4C8385487E}.Debug.Build.0 = Debug|Win32
+		{D04C0BA2-7C37-48CD-9FC9-7F4C8385487E}.Release.ActiveCfg = Release|Win32
+		{D04C0BA2-7C37-48CD-9FC9-7F4C8385487E}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

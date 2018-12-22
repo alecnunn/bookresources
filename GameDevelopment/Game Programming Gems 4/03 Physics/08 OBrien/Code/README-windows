@@ -1,0 +1,33 @@
+
+These suggestions are from Graham Rhodes (grhodes@nc.rr.com) for
+compiling the code under Windows using gcc.  The default is that
+everything is set to compile for Linux (Readhat 7.3, gcc 2.96, i686).
+
+
+---------------------------------------------------------------
+
+
+1) In the Makefile, on the LIBS line, replace "GL" with "opengl32" and
+replace "glut" with "glut32"
+
+2) make sure that you have a matched glut32.dll and libglut32.a
+pair. To do this, download the prebuilt glut for Win32 from
+http://www.xmission.com/~nate/glut.html. This install provides two
+things, glut.def and glut32.dll, that can be used to make libglut32.a.
+Next, use dlltool (part of the Cygwin install of gcc on Windows) to
+create a matching libglut32.a as follows:
+
+dlltool -d glut.def -D glut32.dll -l libglut32.a -k
+
+Modify the Makefile to use the glut headers from the above download,
+and to link to this newly built libglut32.a instead of the one that is
+installed with Cygwin. The provided glut32.dll also should be in the
+path when you run the simulate application.
+
+
+3) You may also want to set CC = gcc-2 (this will use the 2.95.3
+version of gcc, since gcc 3.x seems to give far more compile
+errors/warnings than the 2.9x version. Gcc 2.95.3 must be installed
+for this to work.)
+
+

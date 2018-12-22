@@ -1,0 +1,45 @@
+/******************************************************************************
+
+******************************************************************************/
+
+// define inputs from application
+struct appin
+{
+    float3 Pos			: POSITION;
+    float3 Normal		: NORMAL;
+    float3 Col			: COLOR0;
+};
+
+// define outputs from vertex shader
+struct vertout
+{
+    float4 Pos			: POSITION;
+    float4 Col			: COLOR0;
+};
+
+vertout main(appin IN,
+             uniform float4x4 ModelViewProj,
+             uniform float4 blockPos)
+{
+    vertout OUT;
+
+	float4 pos;
+
+	float diff	= max(IN.Normal.y, 0);
+	
+	pos			= IN.Pos.xyzz;
+	pos.w		= 1;
+	
+	pos			= mul( pos, ModelViewProj);
+	pos			/= pos.w;
+	
+	pos.xy		+= blockPos.xy;
+	pos.xy		*= blockPos.w;
+
+    OUT.Pos		= pos;
+	OUT.Col.rgb	= IN.Col * (diff*0.3+0.7);
+	
+	OUT.Col.a	= pos.z;
+	
+	return OUT;
+}

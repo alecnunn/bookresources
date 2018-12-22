@@ -1,0 +1,26 @@
+Spacewar3D is a head to head space battle.  When the game starts, you configure your network settings and either choose to host a new game, or join a game that is already in session.
+
+Hosting a game:
+1) Start the game and select ‘Network Play’.
+2) Enter your user name, and the network service you wish to use.
+3) Click on ‘Create’ on the ‘Join or Create session screen’.
+4) Enter a session name and select ‘OK’.
+5) Wait for others to join your game.  The computer will fly the other ship in a circle until your opponent joins
+
+Joining a game in session:
+1) Start the game and select ‘Network Play’.
+2) Enter your user name, and the network service you wish to use.
+3) Click on ‘Start Search’ on the ‘Join or Create session screen’.
+4) If you know the name of the computer hosting the session, enter it in the ‘Hostname’ box and press OK.  If you don’t know the computer name, leave the ‘Hostname’ box blank and press OK to scan for all Spacewar sessions.
+5) Highlight the session, and click on ‘Join’.
+6) The game will start.
+
+Controls:
+The mouse controls the ship yaw and pitch.  The farther the mouse pointer is from the center of the screen, the greater the angle.
+
+Esc			-	Exit
+W or Up Arrow		-	Thrust forward
+Spacebar		-	Hyperspace
+C			-	Change camera view
+F5			-	Taunt
+F6-F10			-	Dude!

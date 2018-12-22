@@ -1,0 +1,55 @@
+/*********************************************************************NVMH2****
+Path:  C:\Dev\devrel\Nv_sdk_4\Dx8\NVEffectsBrowser\Effects\Dot3Bump_Dynamic
+File:  ApplyVelocityShader.nvp
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+This file is provided without support, instruction, or implied warranty of any
+kind.  NVIDIA makes no guarantee of its fitness for a particular purpose and is
+not liable under any circumstances for any damages or loss whatsoever arising
+from the use or inability to use this file or items derived from it.
+
+Comments:
+
+This shader samples t1, biases its value to a signed number, and applies this
+value multiplied by a scale factor to the t0 sample.
+
+This is used to apply a "velocity" texture value to a "height" state texture
+for nearest-neighbor height-based water simulations.  The output pixel is
+the new "height" value to replace the t0 sample in rendering to a new 
+texture which will replace the texture selected into t0.
+
+A nearlty identical shader using a different scaling constant is used to
+apply the "force" value to the "velocity" texture at each texel.
+
+t1 comes in the range [0,1] but needs to hold signed values, so a value of
+0.5 in t1 represents zero velocity.  This is biased to a signed value in 
+computing the new position.
+
+
+******************************************************************************/
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+; t0 = height field
+; t1 = velocity          
+
+
+tex t0      // previous position
+tex t1      // velocity at texel being updated
+
+
+; Bias the force/velocity to a signed value so we can subtract from
+;   the t0 position sample.
+
+; New height = velocity * scale factor + old height
+
+mad  r0, t1_bias, c[PCN_MULTFACTOR_1], t0
+
+
+

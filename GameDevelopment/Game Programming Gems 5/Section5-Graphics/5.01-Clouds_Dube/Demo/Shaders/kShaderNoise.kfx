@@ -1,0 +1,62 @@
+#include "kShaderSharedParams.h"
+
+sampler Texture0;
+sampler Texture1;
+sampler Texture2;
+sampler Texture3;
+sampler Texture4;
+sampler Texture5;
+sampler Texture6;
+sampler Texture7;
+float4 OctavesScales0;
+float4 OctavesScales1;
+float4 OctavesWeights0;
+float4 OctavesWeights1;
+float4 CloudsParams; // x = cover, y = sharpness, z = pixoffset, w = ambient
+float4 WindOffset;
+float4 SunPos;
+float4 SunColor;
+
+#define fCloudsCover        CloudsParams.x
+#define fCloudsSharpness    CloudsParams.y
+#define fCloudsPixOffset    CloudsParams.z
+#define fCloudsAmbient		CloudsParams.w
+
+struct VS_INPUT
+{
+    float3 position : POSITION;
+    float2 texcoord : TEXCOORD0;
+    float4 diffuse : COLOR0;
+};
+
+struct VS_OUTPUT
+{
+    float4 position : POSITION;
+    float2 texcoord : TEXCOORD0;
+    float4 diffuse : COLOR0;
+};
+
+VS_OUTPUT VertexShader(const VS_INPUT v)
+{
+    VS_OUTPUT o = (VS_OUTPUT)0;
+    o.position = mul(float4(v.position.xyz, 1.0f), mWorldViewProj);
+    o.texcoord = v.texcoord + WindOffset.xy;
+    o.diffuse = v.diffuse;
+    return o;
+}
+
+float4 PixelShader(const VS_OUTPUT v) : COLOR
+{
+	float4 tex = (tex2D(Texture0, v.texcoord * OctavesScales0.x) - fCloudsPixOffset) * OctavesWeights0.x;
+	tex += (tex2D(Texture1, v.texcoord * OctavesScales0.y) - fCloudsPixOffset) * OctavesWeights0.y;
+	tex += (tex2D(Texture2, v.texcoord * OctavesScales0.z) - fCloudsPixOffset) * OctavesWeights0.z;
+	tex += (tex2D(Texture3, v.texcoord * OctavesScales0.w) - fCloudsPixOffset) * OctavesWeights0.w;
+	//tex += (tex2D(Texture4, v.texcoord * OctavesScales1.x) - fCloudsPixOffset) * OctavesWeights1.x;
+	//tex += (tex2D(Texture4, v.texcoord * OctavesScales1.y) - fCloudsPixOffset) * OctavesWeights1.y;
+	//tex += (tex2D(Texture5, v.texcoord * OctavesScales1.z) - fCloudsPixOffset) * OctavesWeights1.z;
+	//tex += (tex2D(Texture5, v.texcoord * OctavesScales1.w) - fCloudsPixOffset) * OctavesWeights1.w;
+
+    float4 cloud_cover = tex2D(Texture7, v.texcoord) * 255.0f;
+	tex = max(tex + 128.0f - cloud_cover, 0.0f) / 255.0f;
+    return float4(tex.r, tex.r, tex.r, 1.0f);
+}

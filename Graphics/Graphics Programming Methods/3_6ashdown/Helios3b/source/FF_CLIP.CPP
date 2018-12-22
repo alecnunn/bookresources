@@ -1,0 +1,160 @@
+////////////////////////////////////////////////////////////
+//
+//  FF_CLIP.CPP - Form Factor Polygon Clipper Class
+//
+//  Version:    1.03B
+//
+//  History:    94/08/23 - Version 1.00A release.
+//              94/12/16 - Version 1.01A release.
+//              95/02/05 - Version 1.02A release.
+//              95/07/21 - Version 1.02B release.
+//              96/02/14 - Version 1.02C release.
+//              96/04/01 - Version 1.03A release.
+//              97/04/01 - Version 1.03B release.
+//
+//  Compilers:  Microsoft Visual C/C++ Professional V5.0
+//              Borland C++ Version 5.0
+//
+//  Author:     Ian Ashdown, P.Eng.
+//              byHeart Consultants Limited
+//              620 Ballantree Road
+//              West Vancouver, B.C.
+//              Canada V7S 1W3
+//              Tel. (604) 922-6148
+//              Fax. (604) 987-7621
+//
+//  Copyright 1994-2003 byHeart Consultants Limited
+//
+//  The following source code has been derived from:
+//
+//    Ashdown, I. 1994. Radiosity: A Programmer's
+//    Perspective. New York, NY: John Wiley & Sons.
+//
+//    (Available on CD-ROM from www.helios32.com.)
+//
+//  It may be freely copied, redistributed, and/or modified
+//  for personal use ONLY, as long as the copyright notice
+//  is included with all source code files.
+//
+////////////////////////////////////////////////////////////
+
+#include "ff_clip.h"
+
+// Clip element
+int FormClip::Clip( Element3 *pelem, FormPoly &out, WORD
+    poly_id )
+{
+  int i;            // Loop index
+  int num_vert;     // Number of vertices
+  Vertex3 *pvert;   // 3-D world space vertex pointer
+  Vector4 hv;       // 4-D homogeneous co-ord vertex
+
+  out.Reset(poly_id);   // Reset output polygon
+
+  num_vert = pelem->GetNumVert();
+  for (i = 0; i < num_vert; i++)
+  {
+    // Get world space vertex position pointer
+    pvert = pelem->GetVertexPtr(i);
+
+    // Set homogeneous co-ordinates vertex
+    hv.ProjTransform(pvert->GetPosn(), vtm);
+
+    pclip->Clip(hv, out);       // Clip polygon edge
+  }
+
+  pclip->Close(out);    // Close polygon
+      
+  return out.GetNumVert();
+}
+
+// Output view space vertex
+void FormClipEdge::Output( Vector4 &v, FormPoly &out )
+{
+  if (pnext != NULL)    // More planes ?
+    pnext->Clip(v, out);
+  else
+    out.AddVertex(v);
+}
+
+// Calculate intersection vertex
+Vector4 FormClipEdge::Intersect( Vector4 &s, Vector4 &e )
+{
+  double d, t;  // Temporary variables
+  Vector4 r;    // Temporary vector
+
+  // Calculate parameter
+  r = (e - s);
+  d = Dot(normal, r);
+
+  if (fabs(d) > MIN_VALUE)
+    t = -Dot(normal, s) / d;
+  else
+    t = 1.0;
+
+  if (t < 0.0)  // Ensure lower limit
+    t = 0.0;
+
+  if (t > 1.0)  // Ensure upper limit
+    t = 1.0;
+
+  // Calculate intersection vertex co-ordinates
+  r *= t;
+
+  return (s + r);
+}
+
+// Clip polygon edge
+void FormClipEdge::Clip( Vector4 &current, FormPoly &out )
+{
+  BOOL curr_inside;     // Current point inside flag
+  Vector4 isect;        // Intersection vertex
+
+  // Determine vertex visibility
+  curr_inside = IsInside(current);
+
+  if (first_flag == FALSE)      // First vertex seen ?
+  {
+    first = current;
+    first_inside = curr_inside;
+    first_flag = TRUE;
+  }
+  else
+  {
+    // Does edge intersect plane ?
+    if (start_inside ^ curr_inside)
+    {
+      isect = Intersect(start, current);
+      Output(isect, out);
+    }
+  }
+
+  if (curr_inside == TRUE)
+    Output(current, out);
+
+  start = current;
+  start_inside = curr_inside;
+}
+
+// Close polygon
+void FormClipEdge::Close( FormPoly &out )
+{
+  Vector4 isect;        // Intersection vertex
+
+  if (first_flag == TRUE)
+  {
+    // Does edge intersect plane ?
+    if (start_inside ^ first_inside)
+    {
+      isect = Intersect(start, first);
+      Output(isect, out);
+    }
+
+    if (pnext != NULL)  // More planes ?
+      pnext->Close(out);
+
+    // Reset first vertex seen flag
+    first_flag = FALSE;
+  }
+}
+

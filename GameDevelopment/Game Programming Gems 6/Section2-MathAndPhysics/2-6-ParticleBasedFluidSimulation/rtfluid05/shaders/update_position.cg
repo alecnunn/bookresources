@@ -1,0 +1,34 @@
+#include "sph.cg"
+
+void main(float index : TEXCOORD0,
+		  uniform samplerRECT attr_rect : TEXUNIT0,
+		  uniform float timestep,
+		  out float3 result : COLOR)
+{
+	float3 pos = f3texRECT(attr_rect, float2(index, GPU_ATTR_POS));
+	float3 vel_half = f3texRECT(attr_rect, float2(index,  GPU_ATTR_VELHALF));
+	//float3 acc = f3texRECT(attr_rect, float2(index, GPU_ATTR_ACC));
+	//float3 exacc = f3texRECT(attr_rect, float2(index, GPU_ATTR_EXACC));
+	//float3 gravity = float3(0.0, 0.0, -9.8);
+//	float3 gravity = float3(0.0, 0.0, -4.9);
+/*
+	float3 final_acc = (acc  + gravity - 1.1f*vel);
+	float3 mid_acc = 0.5*(final_acc + f3texRECT(attr_rect, float2(index, GPU_ATTR_PUSHACC)));
+
+	float3 new_v = vel + timestep*mid_acc;
+
+	float3 mid_v = 0.5f*(vel + new_v);
+	 
+	result = pos + timestep*mid_v;
+*/
+	
+	result = pos + timestep*vel_half;
+	/*
+	float3 final_acc = (acc  + gravity - 0.0f*vel);
+
+	float3 new_v = vel + timestep*final_acc;
+
+	float3 mid_v = 0.5f*(vel + new_v);
+	 
+	result = pos + timestep*mid_v;*/
+}

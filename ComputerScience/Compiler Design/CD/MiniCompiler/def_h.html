@@ -1,0 +1,47 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - def.h</h2>
+<p>#define FALSE 1<br>
+  #define TRUE 2<br>
+  #define ID 5<br>
+  #define CONST 6<br>
+  #define LABEL 7<br>
+  #define DEFAULT 0<br>
+  static char *types[] = {&quot;int&quot;,&quot;void&quot;,&quot;char&quot;,&quot;int&quot;,&quot;float&quot;,&quot;double&quot;,&quot;short&quot;,&quot;long&quot;,&quot;signed&quot;,&quot;unsigned&quot;,&quot;bool&quot;,&quot;complex&quot;,&quot;structorunion&quot;,&quot;string&quot;,&quot;unknown&quot;};<br>
+  static char *types1[] = {&quot;basic&quot;,&quot;basic&quot;,&quot;array&quot;,&quot;struct&quot;,&quot;union&quot;};<br>
+  static int sizes[] = {sizeof(int),0,sizeof(char),sizeof(int),sizeof(float),sizeof(double),sizeof(short),sizeof(long),sizeof(signed),sizeof(unsigned),1,2*sizeof(int),sizeof(int),sizeof(int),-1};<br>
+  //Data types<br>
+  #define VOID 1<br>
+  #define  CHAR 2<br>
+  #define  INT 3<br>
+  #define  FLOAT 4<br>
+  #define  DOUBLE 5<br>
+  #define SHORT 6 <br>
+  #define LONG 7<br>
+  #define SIGNED 8<br>
+  #define UNSIGNED 9<br>
+  #define BOOL 10<br>
+  #define COMPLEX 11<br>
+  #define STRUCTORUNION 12<br>
+  #define  STRING 13<br>
+  #define  UNKNOWN 14<br>
+  //Storage Type<br>
+  #define AUTO 1<br>
+  #define REGISTER 2<br>
+  #define STATIC 3<br>
+  #define EXTERN 4<br>
+  #define TYPEDEF 5<br>
+  #define ENUM 6<br>
+  //Qualifier type<br>
+  #define RESTRICT 2<br>
+  #define VOLATILE 3<br>
+  //Basic data or derived datatypes<br>
+  #define BASIC 1<br>
+  #define ARRAY 2<br>
+  #define STRUCT 3<br>
+#define UNION 4</p>
+<p></p>
+</body>
+</html>

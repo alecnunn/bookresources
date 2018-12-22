@@ -1,0 +1,14 @@
+CC = g++ -Wall -ansi
+
+all:
+	$(CC) -c ../../../source/OpenGLLinux.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/OpenGL.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/TGA.cpp -I /usr/include -I ../../../source
+
+
+clean:
+	@echo Cleaning up...
+	@rm OpenGLLinux
+	@rm OpenGL
+	@rm TGA
+	@echo Done.

@@ -1,0 +1,69 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GameGems - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/GameGems.res" /d "_DEBUG" "C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\GameGems.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPE165.TMP" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/GameGems.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\ChildView.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\FSMclass.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\FSMstate.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\FuSMclass.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\FuSMstate.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\GameGems.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\MainFrm.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\TestFSMDlg.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\TestFuSMDlg.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPE165.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPE166.TMP" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/GameGems.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\12 Dybsand\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPE166.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPE167.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/GameGems.pdb" /debug /machine:I386 /out:"Debug/GameGems.exe" /pdbtype:sept 
+".\Debug\ChildView.obj"
+".\Debug\FSMclass.obj"
+".\Debug\FSMstate.obj"
+".\Debug\FuSMclass.obj"
+".\Debug\FuSMstate.obj"
+".\Debug\GameGems.obj"
+".\Debug\MainFrm.obj"
+".\Debug\StdAfx.obj"
+".\Debug\TestFSMDlg.obj"
+".\Debug\TestFuSMDlg.obj"
+".\Debug\GameGems.res"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPE167.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+ChildView.cpp
+FSMclass.cpp
+FSMstate.cpp
+FuSMclass.cpp
+FuSMstate.cpp
+GameGems.cpp
+MainFrm.cpp
+TestFSMDlg.cpp
+TestFuSMDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+GameGems.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,81 @@
+REGISTERING TYPES.
+
+MAKING FRUIT LIST.
+Constructing a Banana
+Constructing a Papaya
+Constructing a Blueberry
+
+TESTING PRINTER CLASS FILE.
+Thawing a Banana
+Thawing a Papaya
+Thawing a Blueberry
+Serialized data for Banana.
+Serialized data for Papaya.
+Serialized data for Blueberry.
+Banana::Print()
+Papaya::Print()
+Blueberry::Print()
+
+APPENDING TRIPLE MANGO (IN EDIT MODE).
+Constructing a Mango
+Constructing a Mango
+Constructing a Mango
+Constructing a TripleMango
+Thawing a Banana
+Thawing a Papaya
+Thawing a Blueberry
+Serialized data for Banana.
+Serialized data for Papaya.
+Serialized data for Blueberry.
+
+TESTING PRINTER CLASS FILE.
+Thawing a Mango
+Thawing a Mango
+Thawing a Mango
+Thawing a TripleMango
+Thawing a Banana
+Thawing a Papaya
+Thawing a Blueberry
+Serialized data for TripleMango.
+Serialized data for Mango.
+Serialized data for Mango.
+Serialized data for Mango.
+Serialized data for Banana.
+Serialized data for Papaya.
+Serialized data for Blueberry.
+TripleMango::Print()
+Banana::Print()
+Papaya::Print()
+Blueberry::Print()
+
+MAKING FRUIT BOWL.
+Constructing a Banana
+Constructing a Papaya
+Constructing a Blueberry
+Constructing a Mango
+Constructing a Mango
+Constructing a Mango
+Constructing a TripleMango
+Constructing a FruitBowl
+
+TESTING FRUIT BOWL.
+Thawing a Banana
+Thawing a Papaya
+Thawing a Blueberry
+Thawing a Mango
+Thawing a Mango
+Thawing a Mango
+Thawing a TripleMango
+Serialized data for Banana.
+Serialized data for Papaya.
+Serialized data for Blueberry.
+Serialized data for TripleMango.
+Serialized data for Mango.
+Serialized data for Mango.
+Serialized data for Mango.
+Fruit Bowl::Print()
+Banana::Print()
+Papaya::Print()
+Blueberry::Print()
+TripleMango::Print()
+

@@ -1,0 +1,74 @@
+CGAPatch "Simple Sawtooth, mono"
+{
+	CGASawtoothOscillator VCO
+	{
+		Frequency = 100;
+	}
+
+}
+
+CGAPatch "Simple Oscillator with LFO Modulation, mono"
+{
+	CGAPulseOscillator LFO
+	{
+		Frequency = 1.0;
+		
+	}
+
+	CGASineOscillator VCO
+	{
+		Frequency = 200;
+		FMGain = 0.125;
+	}
+
+	Connection = 0,1, SampleOut, FM;
+}
+
+
+
+
+
+CGAPatch "Simple Noise, mono"
+{
+	CGANoiseGenerator Noise
+	{
+		
+	}
+}
+
+CGAPatch "Pulse Osc, mono"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 0.15;
+	}
+
+	CGAPulseOscillator VCO1
+	{
+		Frequency = 80;
+	}
+
+	CGADelay Delay
+	{
+		Delay = 12;
+	}
+
+	CGAPulseOscillator VCO1
+	{
+		Frequency = 40.01;
+	}
+
+	CGABalance Mix
+	{
+		
+	}
+
+	Connection = 0,1, SampleOut, PulseWidth;
+	Connection = 0,2, SampleOut, SampleIn;
+	Connection = 2,3, SampleOut, PulseWidth;
+	Connection = 1,4, SampleOut, SampleIn1;
+	Connection = 3,4, SampleOut, SampleIn2;
+
+}
+
+

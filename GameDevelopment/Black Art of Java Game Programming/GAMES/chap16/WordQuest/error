@@ -1,0 +1,412 @@
+C:\internet\javafiles\WordQuest\WordQuest.java:6: Class Terrain not found in import.
+import Terrain;
+^
+C:\internet\javafiles\WordQuest\WordQuest.java:7: Class StarField not found in import.
+import StarField;                  
+^
+C:\internet\javafiles\WordQuest\WordQuest.java:8: Class Sprite not found in import.
+import Sprite;
+^
+C:\internet\javafiles\WordQuest\WordQuest.java:9: Class userSprite not found in import.
+import userSprite;
+^
+C:\internet\javafiles\WordQuest\WordQuest.java:10: Class syncSprite not found in import.
+import syncSprite;
+^
+C:\internet\javafiles\WordQuest\WordQuest.java:15: Class StarField not found in type declaration.
+StarField SF=null;                         
+            ^
+C:\internet\javafiles\WordQuest\WordQuest.java:16: Class Terrain not found in type declaration.
+Terrain T=null;
+         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:17: Class statusBar not found in type declaration.
+statusBar bar;
+             ^
+C:\internet\javafiles\WordQuest\WordQuest.java:18: Class userSprite not found in type declaration.
+userSprite user;
+               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:41: Undefined variable: Sprite
+	Sprite.theG = getGraphics().create();
+	^
+C:\internet\javafiles\WordQuest\WordQuest.java:47: Class statusBar not found in new.
+	bar = new statusBar(everything, "statusbar");
+	      ^
+C:\internet\javafiles\WordQuest\WordQuest.java:48: Class statusBar not found in void init().
+	bar.setBounds( statRect );
+	             ^
+C:\internet\javafiles\WordQuest\WordQuest.java:49: Class statusBar not found in void init().
+	bar.im = createImage( statRect.width, statRect.height );
+	   ^
+C:\internet\javafiles\WordQuest\WordQuest.java:50: Class statusBar not found in void init().
+	bar.setPriority(Thread.MIN_PRIORITY);
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:51: Class statusBar not found in void init().
+	bar.start();
+	         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:68: Class StarField not found in new.
+		SF = new StarField(100, SFrect, createImage(SFrect.width, SFrect.height), everything, "sf");
+		     ^
+C:\internet\javafiles\WordQuest\WordQuest.java:69: Class StarField not found in void initUser().
+		SF.setBounds( SFrect );
+		            ^
+C:\internet\javafiles\WordQuest\WordQuest.java:70: Class StarField not found in void initUser().
+		SF.setSpeed(2,0);
+		           ^
+C:\internet\javafiles\WordQuest\WordQuest.java:71: Class StarField not found in void initUser().
+		SF.start();
+		        ^
+C:\internet\javafiles\WordQuest\WordQuest.java:73: Class Terrain not found in void initUser().
+	if( T == null || !T.isAlive()) {
+	                           ^
+C:\internet\javafiles\WordQuest\WordQuest.java:74: Class Terrain not found in new.
+               		T = new Terrain(50,Trect,getGraphics());
+               		    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:75: Class Terrain not found in void initUser().
+		T.start();
+		       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:76: Class Terrain not found in void initUser().
+		T.suspend();
+		         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:78: Class userSprite not found in void initUser().
+	if( user != null && user.isAlive() ) user.stop();
+	                                ^
+C:\internet\javafiles\WordQuest\WordQuest.java:78: Class userSprite not found in void initUser().
+	if( user != null && user.isAlive() ) user.stop();
+	                                              ^
+C:\internet\javafiles\WordQuest\WordQuest.java:79: Class userSprite not found in new.
+	user = new userSprite(everything, "user");
+	       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:80: Undefined variable: Sprite
+	user.setID( Sprite.USER );
+	            ^
+C:\internet\javafiles\WordQuest\WordQuest.java:81: Class userSprite not found in void initUser().
+	user.setXY( 50, (int)(SFrect.height/2) );
+	          ^
+C:\internet\javafiles\WordQuest\WordQuest.java:82: Class userSprite not found in void initUser().
+	user.im = createImage( user.WIDTH, user.HEIGHT );
+	    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:82: Class userSprite not found in void initUser().
+	user.im = createImage( user.WIDTH, user.HEIGHT );
+	                           ^
+C:\internet\javafiles\WordQuest\WordQuest.java:82: Class userSprite not found in void initUser().
+	user.im = createImage( user.WIDTH, user.HEIGHT );
+	                                       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:83: Class userSprite not found in void initUser().
+	user.setSpeed(0);
+	             ^
+C:\internet\javafiles\WordQuest\WordQuest.java:84: Class userSprite not found in void initUser().
+	user.start();
+	          ^
+C:\internet\javafiles\WordQuest\WordQuest.java:128: Class StarField not found in void run().
+try{ 	while(SF.flag) kicker.sleep(100); } catch(Exception e);
+     	        ^
+C:\internet\javafiles\WordQuest\WordQuest.java:129: Class StarField not found in void run().
+	offScreenG.drawImage(SF.currentImage(),SF.x,SF.y,null); //} catch(Exception e);
+	                                    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:129: Class StarField not found in void run().
+	offScreenG.drawImage(SF.currentImage(),SF.x,SF.y,null); //} catch(Exception e);
+	                                         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:129: Class StarField not found in void run().
+	offScreenG.drawImage(SF.currentImage(),SF.x,SF.y,null); //} catch(Exception e);
+	                                              ^
+C:\internet\javafiles\WordQuest\WordQuest.java:131: Class Sprite not found in type declaration.
+	Sprite s[]=new Sprite[everything.activeCount()];
+	^
+C:\internet\javafiles\WordQuest\WordQuest.java:132: Class Sprite not found in void run().
+	everything.enumerate( s );
+	                    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:134: Class Sprite not found in !=.
+		if( s[i] != SF )
+		         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:136: Class Sprite not found in void run().
+			offScreenG.drawImage(s[i].currentImage(),s[i].x,s[i].y,null);
+			                                      ^
+C:\internet\javafiles\WordQuest\WordQuest.java:136: Class Sprite not found in void run().
+			offScreenG.drawImage(s[i].currentImage(),s[i].x,s[i].y,null);
+			                                             ^
+C:\internet\javafiles\WordQuest\WordQuest.java:136: Class Sprite not found in void run().
+			offScreenG.drawImage(s[i].currentImage(),s[i].x,s[i].y,null);
+			                                                    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:151: Class Terrain not found in void run().
+		T.resume();
+		        ^
+C:\internet\javafiles\WordQuest\WordQuest.java:165: Class Sprite not found in type declaration.
+Sprite sprites[]=new Sprite[group.activeCount()],bul[]=new Sprite[bullets.activeCount()];
+^
+C:\internet\javafiles\WordQuest\WordQuest.java:167: Class Sprite not found in void doCheck().
+group.enumerate( sprites );
+               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:168: Class Sprite not found in void doCheck().
+bullets.enumerate( bul );
+                 ^
+C:\internet\javafiles\WordQuest\WordQuest.java:172: Class userSprite not found in void doCheck().
+if( !user.isAlive() ) {
+                 ^
+C:\internet\javafiles\WordQuest\WordQuest.java:174: Class statusBar not found in void doCheck().
+	bar.addScore(-10);
+	            ^
+C:\internet\javafiles\WordQuest\WordQuest.java:175: Class statusBar not found in void doCheck().
+	bar.addLives(-1);
+	            ^
+C:\internet\javafiles\WordQuest\WordQuest.java:177: Class Terrain not found in void doCheck().
+	T.suspend();
+	         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:178: Class statusBar not found in void doCheck().
+	if( bar.lives==0) {
+	       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:180: Class statusBar not found in void doCheck().
+		PF.HS.addScore(name,bar.score,null,null);
+		                       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:190: Class Sprite not found in void doCheck().
+sprites[x].suspend();
+                  ^
+C:\internet\javafiles\WordQuest\WordQuest.java:191: Class Sprite not found in void doCheck().
+	if( !sprites[x].intersects( SFrect ) )
+	                          ^
+C:\internet\javafiles\WordQuest\WordQuest.java:192: Class Sprite not found in void doCheck().
+		sprites[x].stop();
+		               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:194: Class Sprite not found in void doCheck().
+	if( user.intersects( sprites[x].bounds )) {
+	                               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:195: Class userSprite not found in void doCheck().
+		user.collision( user.id * sprites[x].id );
+		              ^
+C:\internet\javafiles\WordQuest\WordQuest.java:195: Class userSprite not found in void doCheck().
+		user.collision( user.id * sprites[x].id );
+		                    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:195: Class Sprite not found in void doCheck().
+		user.collision( user.id * sprites[x].id );
+		                                    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:196: Class Sprite not found in void doCheck().
+		sprites[x].collision( user.id * sprites[x].id );
+		                    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:196: Class userSprite not found in void doCheck().
+		sprites[x].collision( user.id * sprites[x].id );
+		                          ^
+C:\internet\javafiles\WordQuest\WordQuest.java:196: Class Sprite not found in void doCheck().
+		sprites[x].collision( user.id * sprites[x].id );
+		                                          ^
+C:\internet\javafiles\WordQuest\WordQuest.java:199: Class Sprite not found in type declaration.
+	Sprite bullet = bul[y];
+	^
+C:\internet\javafiles\WordQuest\WordQuest.java:200: Class Sprite not found in void doCheck().
+	bullet.suspend();
+	              ^
+C:\internet\javafiles\WordQuest\WordQuest.java:201: Class Sprite not found in void doCheck().
+		if( ! bullet.intersects( SFrect ) || bullet.getSpeed() == 0 )
+		                       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:201: Class Sprite not found in void doCheck().
+		if( ! bullet.intersects( SFrect ) || bullet.getSpeed() == 0 )
+		                                                    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:202: Class Sprite not found in void doCheck().
+			bullet.stop();
+			           ^
+C:\internet\javafiles\WordQuest\WordQuest.java:204: Class userSprite not found in void doCheck().
+		if( bullet.intersects(user.bounds) ) {
+		                          ^
+C:\internet\javafiles\WordQuest\WordQuest.java:205: Class userSprite not found in void doCheck().
+			user.stop();
+			         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:206: Class Sprite not found in void doCheck().
+			bullet.stop();
+			           ^
+C:\internet\javafiles\WordQuest\WordQuest.java:208: Class Sprite not found in void doCheck().
+		if( sprites[x].intersects( bullet.bounds ) ) 
+		                                 ^
+C:\internet\javafiles\WordQuest\WordQuest.java:209: Class Sprite not found in void doCheck().
+			if( currentQ.correct.equals( sprites[x].data ) ) {
+			                                       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:210: Class Sprite not found in void doCheck().
+				sprites[x].stop();
+				               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:211: Class Sprite not found in void doCheck().
+				bullet.stop();
+				           ^
+C:\internet\javafiles\WordQuest\WordQuest.java:212: Class statusBar not found in void doCheck().
+				bar.addScore(50);
+				            ^
+C:\internet\javafiles\WordQuest\WordQuest.java:214: Class Sprite not found in void doCheck().
+				bullet.setSpeed( - bullet.getSpeed(),0 );
+				               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:214: Class Sprite not found in void doCheck().
+				bullet.setSpeed( - bullet.getSpeed(),0 );
+				                                  ^
+C:\internet\javafiles\WordQuest\WordQuest.java:215: Class Sprite not found in void doCheck().
+		bullet.resume();
+		             ^
+C:\internet\javafiles\WordQuest\WordQuest.java:217: Class Sprite not found in void doCheck().
+		sprites[x].resume();	
+		                 ^
+C:\internet\javafiles\WordQuest\WordQuest.java:227: Class Sprite not found in type declaration.
+Sprite b= newBullet(user.x,user.y);
+^
+C:\internet\javafiles\WordQuest\WordQuest.java:227: Class userSprite not found in boolean mouseDown(java.awt.Event, int, int).
+Sprite b= newBullet(user.x,user.y);
+                        ^
+C:\internet\javafiles\WordQuest\WordQuest.java:227: Class userSprite not found in boolean mouseDown(java.awt.Event, int, int).
+Sprite b= newBullet(user.x,user.y);
+                               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:229: Class Sprite not found in boolean mouseDown(java.awt.Event, int, int).
+b.setSpeed(x-user.bounds.x,y-user.bounds.y);
+          ^
+C:\internet\javafiles\WordQuest\WordQuest.java:229: Class userSprite not found in boolean mouseDown(java.awt.Event, int, int).
+b.setSpeed(x-user.bounds.x,y-user.bounds.y);
+                 ^
+C:\internet\javafiles\WordQuest\WordQuest.java:229: Class userSprite not found in boolean mouseDown(java.awt.Event, int, int).
+b.setSpeed(x-user.bounds.x,y-user.bounds.y);
+                                 ^
+C:\internet\javafiles\WordQuest\WordQuest.java:230: Class Sprite not found in boolean mouseDown(java.awt.Event, int, int).
+b.start();
+       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:236: Class Sprite not found in type declaration.
+public Sprite newBullet(int x, int y) {
+              ^
+C:\internet\javafiles\WordQuest\WordQuest.java:237: Class Sprite not found in type declaration.
+Sprite b;
+^
+C:\internet\javafiles\WordQuest\WordQuest.java:238: Class userSprite not found in Sprite newBullet(int, int).
+Rectangle temp = new Rectangle( x+user.bounds.width+5, y+(int)(user.bounds.width/2), 15,3 );
+                                      ^
+C:\internet\javafiles\WordQuest\WordQuest.java:238: Class userSprite not found in Sprite newBullet(int, int).
+Rectangle temp = new Rectangle( x+user.bounds.width+5, y+(int)(user.bounds.width/2), 15,3 );
+                                                                   ^
+C:\internet\javafiles\WordQuest\WordQuest.java:240: Class Sprite not found in new.
+	b = new Sprite(bullets,"bang");
+	    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:241: Class Sprite not found in Sprite newBullet(int, int).
+	b.setBounds( temp );
+	           ^
+C:\internet\javafiles\WordQuest\WordQuest.java:242: Class Sprite not found in Sprite newBullet(int, int).
+	b.im = createImage(temp.width, temp.height);
+	 ^
+C:\internet\javafiles\WordQuest\WordQuest.java:243: Class Sprite not found in Sprite newBullet(int, int).
+	b.setSpeed(25,0);
+	          ^
+C:\internet\javafiles\WordQuest\WordQuest.java:244: Class Sprite not found in Sprite newBullet(int, int).
+	b.setID( Sprite.BULLET );
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:245: Class statusBar not found in Sprite newBullet(int, int).
+bar.addScore(-1);
+            ^
+C:\internet\javafiles\WordQuest\WordQuest.java:255: Class Sprite not found in boolean keyUp(java.awt.Event, int).
+	Sprite.warp=1;
+	      ^
+C:\internet\javafiles\WordQuest\WordQuest.java:278: Class Sprite not found in boolean keyDown(java.awt.Event, int).
+	Sprite.warp= 5;
+	      ^
+C:\internet\javafiles\WordQuest\WordQuest.java:290: Class Sprite not found in type declaration.
+	Sprite b=newBullet(user.x,user.y);
+	^
+C:\internet\javafiles\WordQuest\WordQuest.java:290: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	Sprite b=newBullet(user.x,user.y);
+	                       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:290: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	Sprite b=newBullet(user.x,user.y);
+	                              ^
+C:\internet\javafiles\WordQuest\WordQuest.java:292: Class Sprite not found in boolean keyDown(java.awt.Event, int).
+	b.start();
+	       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:302: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x,user.y-5);
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:302: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x,user.y-5);
+	                      ^
+C:\internet\javafiles\WordQuest\WordQuest.java:312: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x,user.y+5);
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:312: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x,user.y+5);
+	                      ^
+C:\internet\javafiles\WordQuest\WordQuest.java:322: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x-5,user.y);
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:322: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x-5,user.y);
+	                        ^
+C:\internet\javafiles\WordQuest\WordQuest.java:330: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x+5,user.y);
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:330: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x+5,user.y);
+	                        ^
+C:\internet\javafiles\WordQuest\WordQuest.java:338: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x-5,user.y+5);
+	         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:338: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x-5,user.y+5);
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:338: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x-5,user.y+5);
+	                        ^
+C:\internet\javafiles\WordQuest\WordQuest.java:346: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x+5,user.y+5);
+	         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:346: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x+5,user.y+5);
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:346: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x+5,user.y+5);
+	                        ^
+C:\internet\javafiles\WordQuest\WordQuest.java:354: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x-5,user.y-5);
+	         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:354: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x-5,user.y-5);
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:354: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x-5,user.y-5);
+	                        ^
+C:\internet\javafiles\WordQuest\WordQuest.java:362: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x+5,user.y-5);
+	         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:362: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x+5,user.y-5);
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:362: Class userSprite not found in boolean keyDown(java.awt.Event, int).
+	user.move( user.x+5,user.y-5);
+	                        ^
+C:\internet\javafiles\WordQuest\WordQuest.java:422: Class statusBar not found in void nextQuestion().
+bar.setQuestion( currentQ.question );
+               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:472: Class statusBar not found in void nextQuestion().
+spdX = 20*Math.random()+5*bar.level;
+                             ^
+C:\internet\javafiles\WordQuest\WordQuest.java:476: Class Sprite not found in type declaration.
+Sprite s;
+^
+C:\internet\javafiles\WordQuest\WordQuest.java:480: Class syncSprite not found in new.
+s = new syncSprite( group, dataArray[x] );
+    ^
+C:\internet\javafiles\WordQuest\WordQuest.java:482: Class Sprite not found in void nextQuestion().
+s.HEIGHT=h;
+ ^
+C:\internet\javafiles\WordQuest\WordQuest.java:484: Class Sprite not found in void nextQuestion().
+s.setXY( SFrect.width+SFrect.x-25, SFrect.y+(h*x));
+       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:486: Class Sprite not found in void nextQuestion().
+	s.setSpeed( -spdX, 0);
+	          ^
+C:\internet\javafiles\WordQuest\WordQuest.java:488: Class Sprite not found in void nextQuestion().
+	s.setID( Sprite.ENEMY );
+	               ^
+C:\internet\javafiles\WordQuest\WordQuest.java:490: Class Sprite not found in void nextQuestion().
+s.im=createImage(s.WIDTH,s.HEIGHT);
+ ^
+C:\internet\javafiles\WordQuest\WordQuest.java:490: Class Sprite not found in void nextQuestion().
+s.im=createImage(s.WIDTH,s.HEIGHT);
+                  ^
+C:\internet\javafiles\WordQuest\WordQuest.java:490: Class Sprite not found in void nextQuestion().
+s.im=createImage(s.WIDTH,s.HEIGHT);
+                          ^
+C:\internet\javafiles\WordQuest\WordQuest.java:492: Class Sprite not found in void nextQuestion().
+s.start();
+       ^
+C:\internet\javafiles\WordQuest\WordQuest.java:494: Class Sprite not found in void nextQuestion().
+s.suspend();
+         ^
+C:\internet\javafiles\WordQuest\WordQuest.java:500: Class Terrain not found in void nextQuestion().
+T.resume();
+        ^
+137 errors

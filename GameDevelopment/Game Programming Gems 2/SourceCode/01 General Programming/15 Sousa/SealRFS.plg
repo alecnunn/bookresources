@@ -1,0 +1,29 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SealRFS - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPA1A5.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "Include" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /FR"Debug/" /Fp"Debug/SealRFS.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\15 Sousa\Src\slCLump.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\15 Sousa\Src\slCResourceFile.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPA1A5.TMP" 
+Creating command line "link.exe -lib /nologo /out:"Lib/SealRFS-Debug.lib"  ".\Debug\slCLump.obj" ".\Debug\slCResourceFile.obj" "
+<h3>Output Window</h3>
+Compiling...
+slCLump.cpp
+slCResourceFile.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+SealRFS-Debug.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

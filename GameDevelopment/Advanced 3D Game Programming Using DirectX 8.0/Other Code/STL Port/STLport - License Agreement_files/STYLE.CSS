@@ -1,0 +1,33 @@
+BODY {
+	BACKGROUND: white; COLOR: black; FONT-FAMILY: Arial, Helvetica, helv, sans-serif; MARGIN: 0px
+}
+H1 {
+	COLOR: navy; FONT-FAMILY: Times New Roman, times, tms, serif; FONT-SIZE: 160%
+}
+H2 {
+	COLOR: navy; FONT-FAMILY: Times New Roman, times, tms, serif; FONT-SIZE: 140%
+}
+H3 {
+	COLOR: navy; FONT-SIZE: 110%
+}
+H4 {
+	COLOR: navy; FONT-SIZE: 100%; FONT-WEIGHT: bold
+}
+A:link {
+	COLOR: navy
+}
+A:visited {
+	COLOR: #606060
+}
+.FOOTNOTE {
+	FONT-FAMILY: Arial, Helvetica, helv, sans-serif; FONT-SIZE: 75%; FONT-STYLE: italic
+}
+.FOOTER {
+	COLOR: navy; FONT-FAMILY: Arial, Helvetica, helv, sans-serif; FONT-SIZE: 75%
+}
+.CONTENTS {
+	FONT-FAMILY: Arial, Helvetica, helv, sans-serif; FONT-SIZE: 75%
+}
+.ADHEAD {
+	BACKGROUND: #99ccff; COLOR: navy; FONT-FAMILY: Times New Roman, times, tms, serif; FONT-WEIGHT: bold
+}

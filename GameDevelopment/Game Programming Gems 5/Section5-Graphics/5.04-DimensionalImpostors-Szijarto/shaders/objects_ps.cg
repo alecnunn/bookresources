@@ -1,0 +1,12 @@
+struct vertout
+{
+    float4 Pos			: POSITION;
+    float4 Color		: COLOR0;
+    float4 uv			: TEXCOORD0;
+};
+
+void main(	vertout IN, 
+			out float4 color : COLOR)
+{
+	color			= IN.Color;
+}

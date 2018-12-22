@@ -1,0 +1,10 @@
+#begin
+
+type           number 0
+name           string Gun
+ellipse_radius vector 1.0 1.0 1.0
+
+mesh           string Gun.x
+mesh_path      string ./Assets/Gun/
+
+#end

@@ -1,0 +1,21 @@
+
+This directory contains the implementation of
+a program that demostrates the algorithm prsented in
+"Gridless Controllable Fire"
+
+To Make and execute program:
+
+1) Set SDKROOT in the Makefile to the root directory where
+the SDK (directory structure of SDK is assumed to be
+as in nVidia) for the graphics card is installed.
+
+2) make
+
+3) execute  by typing
+
+./GLFireDemo
+
+on command line
+
+typing 'h' key when the program is running gives a
+help on the possible actions.

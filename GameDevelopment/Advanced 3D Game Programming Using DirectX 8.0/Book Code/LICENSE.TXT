@@ -1,0 +1,22 @@
+License information
+
+*******************************************************
+*****Advanced 3D Game Programming with DirectX 8.0*****
+*******************************************************
+
+Peter A Walsh
+Adrian Perez
+=======
+
+This file contains the license information for the code written for this book, specifically all of the source files in the directory "Book Code".  
+
+Peter A Walsh, Adrian Perez and Dan Royer, the authors of said source code*, henceforth provide you the customer with full rights to the code.  You may use it in your own projects, commercial or not, completely free of charge.  If you use the code to do something exceedingly cool, we would love to hear about it**.  However we would also request that if you using a lot of the code that you give us some credit.  You must acquire permission before re-distributing the source code.
+
+Happy Coding!
+
+(*) Two particular files used in the 'gamelib' projects, wavread.cpp and wavread.h, are part of the DirectX SDK.  Therefore they do not fall under this license.
+
+(**) 
+Peter's email is mrzen@msn.com
+Adrian's email is cuban@cubonics.com.  
+Dan's email is aggravated@bigfoot.com.

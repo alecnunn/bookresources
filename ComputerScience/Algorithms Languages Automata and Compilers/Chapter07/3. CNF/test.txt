@@ -1,0 +1,5 @@
+S aS
+S bN
+S ~
+N bN
+N ~

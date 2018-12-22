@@ -1,0 +1,32 @@
+;
+; DependentGB.nvp
+;
+; Pixel shader for doing the logic of the Game of Life
+;  based on the accumulated neighbor and source texel
+;  information accumulated in the green and blue color
+;  channels on a previous pass.
+;
+; Set t0 to source field of averaged pixel values
+;   which is the accumulation of neighbor & source pixel info
+;
+; Set t1 to "rules" texture which determines the resulting
+;   pixel
+
+
+#include "PixelConstants.h"
+
+
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+; get colors from all 4 texture stages
+tex t0                   ; source texture
+texreg2gb t1, t0         ; looup into t1 based on t0 green and blue
+
+
+; move result of dependent lookup into output
+mov r0, t1
+

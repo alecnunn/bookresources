@@ -1,0 +1,67 @@
+<xml>
+
+<class name='CRefCount' base=''>
+</class>
+
+<class name='CPersistent' base='CRefCount'>
+  <prop name='Name' type='String'/>
+</class>
+
+<class name='CEditorSceneItem' base='CPersistent'>
+  <prop name='Deleted' type='Bool'/>
+  <prop name='Expanded' type='Bool'/>
+  <prop name='Prev Parent' type='String'/>
+  <prop name='EditorObj' type='SP'/>
+  <prop name='Subitems' type='Fct'/>
+</class>
+
+<class name='CEditorObj' base='CPersistent'>
+  <prop name='Selected' type='Bool'/>
+  <prop name='Deletable' type='Bool'/>
+  <prop name='Draggable' type='Bool'/>
+  <prop name='DropTarget' type='Bool'/>
+  <prop name='Renamable' type='Bool'/>
+  <prop name='EngineObj' type='SP'/>
+</class>
+
+<class name='CEditorNode' base='CEditorObj'>
+</class>
+
+<class name='CEngineObj' base='CPersistent'>
+</class>
+
+<class name='CEngineNode' base='CEngineObj'>
+  <prop name='Subnodes' type='Fct'/>
+  <prop name='Rotation' type='Vect4D'/>
+  <prop name='Position' type='Vect3D'/>
+  <prop name='Draw Node' type='Bool'/>
+  <prop name='Collide' type='Bool'/>
+</class>
+
+<class name='CEditorCamera' base='CEditorNode'>
+</class>
+
+<class name='CEditorSphere' base='CEditorNode'>
+</class>
+
+<class name='CEngineCamera' base='CEngineNode'>
+  <prop name='Target' type='Vect3D'/>
+  <prop name='Up' type='Vect3D'/>
+  <prop name='Initial Up' type='Vect3D'/>
+  <prop name='FOV' type='Float'/>
+  <prop name='Ratio' type='Float'/>
+  <prop name='Near' type='Float'/>
+  <prop name='Far' type='Float'/>
+  <prop name='Perspective' type='Bool'/>
+  <prop name='Scale Ortho' type='Float'/>
+  <prop name='Rotations' type='Bool'/>
+  <prop name='PerspAllow' type='Bool'/>
+</class>
+
+<class name='CEngineSphere' base='CEngineNode'>
+  <prop name='Radius' type='Float'/>
+  <prop name='Section Pts' type='U32'/>
+  <prop name='Material' type='Fct'/>
+</class>
+
+</xml>

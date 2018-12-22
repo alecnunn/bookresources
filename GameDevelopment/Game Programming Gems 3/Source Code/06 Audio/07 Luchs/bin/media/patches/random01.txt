@@ -1,0 +1,191 @@
+
+CGASignal Shot1
+{
+	File = "m_shot01.wav";
+}
+
+CGASignal Shot2
+{
+	File = "m_shot02.wav";
+}
+
+CGASignal Shot3
+{
+	File = "m_shot03.wav";
+}
+
+
+CGAPatch "Random and Threshold <no sound, clicks only>"
+{
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGAThreshold THRESH1
+	{
+		LowerLevel = 0.99;
+		UpperLevel = 1.0;
+	}
+
+	Connection = RAND1,THRESH1, SampleOut, SampleIn;
+}
+
+CGAPatch "Random and Threshold single sample"
+{
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGAThreshold THRESH1
+	{
+		LowerLevel = 0.99;
+		UpperLevel = 1.0;
+	}
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = Shot2;
+		FMAttenuation = 0.1;
+		Repeat = 1;
+	}
+
+	Connection = RAND1,THRESH1, SampleOut, SampleIn;
+	Connection = THRESH1,WAV1, SampleOut, TRIG;
+
+}
+
+CGASignal  Envelope
+{
+	File = "m_env01.wav";
+}
+
+
+CGAPatch "Random and Threshold single sample, env pitch"
+{
+
+	CGAWavetableOscillator ENV1
+	{
+		WaveTable = Envelope;
+		Frequency = 0.0001;
+	}
+
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGAThreshold THRESH1
+	{
+		LowerLevel = 0.99;
+		UpperLevel = 1.0;
+	}
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = Shot2;
+		FMAttenuation = 0.1;
+		Repeat = 1;
+	}
+
+	Connection = ENV1,WAV1, SampleOut, FM;
+	Connection = RAND1,THRESH1, SampleOut, SampleIn;
+	Connection = THRESH1,WAV1, SampleOut, TRIG;
+
+}
+
+
+CGAPatch "Random and Threshold selected sample"
+{
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGAThreshold THRESH1
+	{
+		LowerLevel = 0.99;
+		UpperLevel = 1.0;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = Shot1;
+		FMAttenuation = 0.1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		WaveTable = Shot2;
+		FMAttenuation = 0.1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV3
+	{
+		WaveTable = Shot3;
+		FMAttenuation = 0.1;
+		Repeat = 1;
+	}
+
+	CGASelector SEL1
+	{
+		Selection = 7;
+	}
+
+	Connection = RAND1,THRESH1, SampleOut, SampleIn;
+	Connection = THRESH1,WAV1, SampleOut, TRIG;
+	Connection = THRESH1,WAV2, SampleOut, TRIG;
+	Connection = THRESH1,WAV3, SampleOut, TRIG;
+	Connection = THRESH1,SEL1, SampleOut, TRIG;
+
+	Connection = WAV1,SEL1, SampleOut, SampleIn1;
+	Connection = WAV2,SEL1, SampleOut, SampleIn2;
+	Connection = WAV3,SEL1, SampleOut, SampleIn3;
+
+
+}
+
+
+CGAPatch "Random and Threshold trigger ENV"
+{
+
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGAAverager AVG1
+	{
+		Duration = 0.000001;
+	}
+	
+	CGAThreshold THRESH1
+	{
+		LowerLevel = 0.91;
+		UpperLevel = 1.0;
+	}
+
+
+	CGAHalfCosineEnvelope ENV1
+	{
+		Duration = 0.3;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 2000;
+		FMAttenuation = 0.3;
+	}
+
+	Connection = RAND1, AVG1,SampleOut, SampleIn;
+	Connection = AVG1, OSC1,SampleOut, FM;
+	Connection = AVG1, ENV1,SampleOut, Duration;
+	Connection = RAND1,THRESH1, SampleOut, SampleIn;
+	Connection = THRESH1,ENV1, SampleOut, TRIG;
+	Connection = ENV1,OSC1, SampleOut, Amplitude;
+
+}

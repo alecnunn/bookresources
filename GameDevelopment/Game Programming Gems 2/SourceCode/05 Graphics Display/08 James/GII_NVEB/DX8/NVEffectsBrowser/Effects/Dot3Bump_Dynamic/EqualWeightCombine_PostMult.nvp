@@ -1,0 +1,60 @@
+/*********************************************************************NVMH2****
+Path:  C:\Dev\devrel\Nv_sdk_4\Dx8\NVEffectsBrowser\Effects\Dot3Bump_Dynamic
+File:  EqualWeightCombine_PostMult.nvp
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+This file is provided without support, instruction, or implied warranty of any
+kind.  NVIDIA makes no guarantee of its fitness for a particular purpose and is
+not liable under any circumstances for any damages or loss whatsoever arising
+from the use or inability to use this file or items derived from it.
+
+Comments:
+
+Simple pixel shader that samples all 4 texture stages, averages these
+samples and outputs the result.  Offset each texture stage's iterated
+coordinates by various amounts to sample a texels neighbors & blur.
+
+*************************************************************************/
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+def c7, 0.5, 0.5, 0.5, 1.0
+
+
+; get colors from all 4 texture stages
+tex t0		// 1st neighbor
+tex t1		// 2nd neighbor
+tex t2		// etc.
+tex t3
+
+
+; and average them according to weights in constant mem:
+; r0 = fac * t0 + fac * t1 + fac * t2 + fac * t3
+; We could to this:
+// mul r0, c[PCN_MULTFACTOR], t0
+// mad r1, c[PCN_MULTFACTOR], t1, r0
+// mad r0, c[PCN_MULTFACTOR], t2, r1
+// mad r0, c[PCN_MULTFACTOR], t3, r0
+; But that would loose low bits of precision, so instead
+;  we bias to 9 bit signed components and operate on those,
+;  shifting the end result back to the [0,1] unsigned range
+
+
+add_d2  r0, t0_bias, t1_bias
+add_d2  r1, t2_bias, t3_bias
+
+add_d2  r0, r0, r1
+
+// bring back to the range [0,1]
+add     r0, r0, c7
+
+
+
+
+

@@ -1,0 +1,441 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>glpng</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h2 align="center">PNG loader library for OpenGL v1.42 (1/3/2000)</h2>
+
+<p align="center">Ben Wyatt <a
+href="mailto:ben@wyatt100.freeserve.co.uk">ben@wyatt100.freeserve.co.uk</a></p>
+
+<h3>Introduction</h3>
+
+<p>This is a library for OpenGL to load PNG graphics files as an
+OpenGL texture as easily as possible. It also has a number of
+options for generating the alpha channel and mipmaps. It is
+implemented using modified versions of the LibPNG 1.0.2 and ZLib
+1.1.3 libraries.</p>
+
+<p>This software is provided 'as-is', without any express or
+implied warranty. In no event will the author be held liable for
+any damages arising from the use of this software.</p>
+
+<p>Permission is hereby granted to use, copy, modify, and
+distribute this source code, or portions hereof, for any purpose,
+without fee, subject to the following restrictions:</p>
+
+<ol>
+    <li>The origin of this source code must not be misrepresented.
+        You must not claim that you wrote the original software.
+        If you use this software in a product, an acknowledgment
+        in the product documentation would be appreciated but is
+        not required.</li>
+    <li>Altered versions must be plainly marked as such and must
+        not be misrepresented as being the original source.</li>
+    <li>This notice must not be removed or altered from any
+        source distribution.</li>
+</ol>
+
+<h3>Installation for Visual C++</h3>
+
+<p>Copy glpng.h to your include/GL folder and glpng.lib to your
+lib folder. Then just do #include &lt;GL/glpng.h&gt; and with a
+bit of luck, Visual C++ will automatically link with glpng.lib.</p>
+
+<h3>Installation for Any Other Compiler</h3>
+
+<p>Copy glpng.h to your include/gl folder. Then you'll have to
+build the library yourself with the included source code.
+Included are makefiles for Linux and SGI. If you need to modify
+the source code to make it work on your system, please get in
+contact so I can make future versions compatible.</p>
+
+<h3>Compiling with LibPNG or ZLib</h3>
+
+<p>If you are using LibPNG or ZLib in your project there may be
+problems if you link with the glpng library. To solve this,
+include glpng.c in your project and, if you're using Visual C++,
+modify glpng.h to not automatically link with glpng.lib.</p>
+
+<h3>OpenGL DLL Dynamic Loading using glsetup</h3>
+
+<p>To use glpng with glsetup, include glpng.c, LibPNG and ZLib in
+your project. In glpng.c, change #include &lt;GL/gl.h&gt; to
+include the glsetup include and modify glpng.h to not
+automatically link with glpng.lib.</p>
+
+<h3>Functions</h3>
+
+<ul>
+    <li><a href="#pngLoad">pngLoad</a></li>
+    <li><a href="#pngLoadF">pngLoadF</a></li>
+    <li><a href="#pngBind">pngBind</a></li>
+    <li><a href="#pngBindF">pngBindF</a></li>
+    <li><a href="#pngLoadRaw">pngLoadRaw</a></li>
+    <li><a href="#pngLoadRawF">pngLoadRawF</a></li>
+    <li><a href="#SetStencil">pngSetStencil</a></li>
+    <li><a href="#pngSetAlphaCallback">pngSetAlphaCallback</a></li>
+    <li><a href="#pngSetViewingGamma">pngSetViewingGamma</a></li>
+    <li><a href="#pngSetStandardOrientation">pngSetStandardOrientation</a></li>
+</ul>
+
+<pre><a name="pngLoad"><strong>success = pngLoad(filename, mipmap, trans, info)</strong></a></pre>
+
+<blockquote>
+    <table border="1">
+        <tr>
+            <td valign="top">filename</td>
+            <td>Filename of PNG file, including &quot;.png&quot;</td>
+        </tr>
+        <tr>
+            <td valign="top">mipmap</td>
+            <td>Mipmapping parameter:<ul>
+                <li>0 or PNG_NOMIPMAP if no mipmap or for the
+                    base mipmap level</li>
+                <li>1,2,3... for mipmap detail level</li>
+                <li>PNG_BUILDMIPMAPS to call a clone of gluBuild2DMipmaps
+                    (box filter)</li>
+                <li>PNG_SIMPLEMIPMAPS to generate mipmaps without
+                    filtering (uses upper-left of each 2x2 box)</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">trans</td>
+            <td>Transparency setting:<ul>
+                <li>PNG_ALPHA to use alpha channel in PNG file,
+                    if there is one</li>
+                <li>PNG_SOLID for no transparency</li>
+                <li><a name="PNG_STENCIL">PNG_STENCIL</a> to set
+                    pixels of a certain value to alpha 0,
+                    otherwise 1 (see <a href="#SetStencil">pngSetStencil</a>)</li>
+                <li>PNG_BLEND1 to set alpha to r+g+b</li>
+                <li>PNG_BLEND2 to set alpha to (r+g+b)/2</li>
+                <li>PNG_BLEND3 to set alpha to (r+g+b)/3</li>
+                <li>PNG_BLEND4 to set alpha to r<sup>2</sup>+g<sup>2</sup>+b<sup>2</sup></li>
+                <li>PNG_BLEND5 to set alpha to (r<sup>2</sup>+g<sup>2</sup>+b<sup>2</sup>)/2</li>
+                <li>PNG_BLEND6 to set alpha to (r<sup>2</sup>+g<sup>2</sup>+b<sup>2</sup>)/3</li>
+                <li>PNG_BLEND7 to set alpha to (r<sup>2</sup>+g<sup>2</sup>+b<sup>2</sup>)/4</li>
+                <li>PNG_BLEND8 to set alpha to sqrt(r<sup>2</sup>+g<sup>2</sup>+b<sup>2</sup>)</li>
+                <li><a name="PNG_CALLBACK">PNG_CALLBACK</a> to
+                    use the callback function defined by <a
+                    href="#pngSetAlphaCallback">pngSetAlphaCallback</a>.</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">info</td>
+            <td>Pointer to a pngInfo structure to store texture
+            info or NULL if you don't care. The pngInfo fields
+            are:<ul>
+                <li>Width - width of the original image in pixels</li>
+                <li>Height - height of the original image in
+                    pixels</li>
+                <li>Depth - depth of the original image, where
+                    colours = 2<sup>Depth</sup></li>
+                <li>Alpha - the number of bits used for the alpha
+                    channel (0 if no alpha channel)</li>
+            </ul>
+            </td>
+        </tr>
+    </table>
+    <p>Loads a PNG file and calls glTexImage2D with appropriate
+    parameters. The texture will be resized if the dimensions are
+    not powers of 2 or over the maximum texture size. Should be
+    able to load all colour depths (except 64-bit) and alpha
+    channels if available. It converts them to an appropriate
+    format and gives them to glTexImage2D. The OpenGL paletted
+    texture extension is used if available.</p>
+    <p>Returns 1 on success or 0 if file could not be loaded.</p>
+</blockquote>
+
+<pre><a name="pngLoadF"><strong>success = pngLoadF(file, mipmap, trans, info)</strong></a></pre>
+
+<blockquote>
+    <table border="1">
+        <tr>
+            <td valign="top">file</td>
+            <td>FILE opened with fopen(&quot;something.png&quot;,
+            &quot;rb&quot;)</td>
+        </tr>
+    </table>
+    <p>This is used to load a PNG from an already opened file.
+    Handy if you want to batch all your data and textures into
+    one big data file.</p>
+</blockquote>
+
+<pre><a name="pngBind"><strong>id = pngBind(filename, mipmap, trans, info, wrapst, minfilter, magfilter)</strong></a><strong>
+</strong><a name="pngBindF"><strong>id = pngBindF(file, mipmap, trans, info, wrapst, minfilter, magfilter)</strong></a></pre>
+
+<blockquote>
+    <table border="1">
+        <tr>
+            <td valign="top">wrapst</td>
+            <td>GL_CLAMP or GL_REPEAT (look up glTexParameter)</td>
+        </tr>
+        <tr>
+            <td valign="top">minfilter</td>
+            <td>Minification function for filtering (look up
+            glTexParameter)</td>
+        </tr>
+        <tr>
+            <td valign="top">magfilter</td>
+            <td>Magnification function for filtering (look up
+            glTexParamter)</td>
+        </tr>
+    </table>
+    <p>Automates the process further - loads a PNG file, sets the
+    OpenGL parameters, binds it to an OpenGL texture and returns
+    it's ID, or 0 if the file couldn't be loaded.</p>
+</blockquote>
+
+<pre><a name="pngLoadRaw"><strong>success = pngLoadRaw(filename, rawinfo)</strong></a><strong>
+</strong><a name="pngLoadRawF"><strong>success = pngLoadRawF(file, rawinfo)</strong></a></pre>
+
+<blockquote>
+    <table border="1">
+        <tr>
+            <td valign="top">rawinfo</td>
+            <td>Pointer to a pngRawInfo structure in which to
+            store the PNG data. The pngRawInfo has these fields:<ul>
+                <li>Width, Height, Depth, Alpha - as in pngInfo</li>
+                <li>Components - number of colour components (1,
+                    2, 3 or 4)</li>
+                <li>Data - pointer to image data stored as RGBRGB...
+                    or RGBARGBA... or indices to the palette
+                    table. Must be freed manually using free()</li>
+                <li>Palette - pointer to palette table stored as
+                    RGBRGB... or RGBARGBA... Will be NULL if
+                    there is no palette table. Must be freed
+                    manually using free()</li>
+            </ul>
+            </td>
+        </tr>
+    </table>
+</blockquote>
+
+<pre><a name="SetStencil"><strong>pngSetStencil(red, green, blue)</strong></a></pre>
+
+<blockquote>
+    <table border="1">
+        <tr>
+            <td valign="top">red,green,blue</td>
+            <td>The colour to stencil out when using the <a
+            href="#PNG_STENCIL">PNG_STENCIL</a> option</td>
+        </tr>
+    </table>
+</blockquote>
+
+<blockquote>
+    <p>This selects the colour to stencil out when using <a
+    href="#PNG_STENCIL">PNG_STENCIL</a>. The parameters are 0 to
+    255. By default the colour is 0,0,0 (pure black).</p>
+</blockquote>
+
+<pre><a name="pngSetAlphaCallback"><strong>pngSetAlphaCallback(function)</strong></a></pre>
+
+<blockquote>
+    <table border="1">
+        <tr>
+            <td valign="top">function</td>
+            <td>Pointer to a function taking three unsigned char
+            parameters (red, green, blue) and returning an
+            unsigned char (alpha)</td>
+        </tr>
+    </table>
+</blockquote>
+
+<blockquote>
+    <p>This sets the function to be called when using <a
+    href="#PNG_CALLBACK">PNG_CALLBACK</a>. During the alpha
+    channel generation process, this function will be called for
+    every pixel, with the appropriate RGB values, and will use
+    the result for the alpha value. The RGB and alpha values all
+    range from 0 to 255. The default callback function simply
+    returns 255.</p>
+</blockquote>
+
+<pre><a name="pngSetViewingGamma"><strong>pngSetViewingGamma(gamma)</strong></a></pre>
+
+<blockquote>
+    <table border="1">
+        <tr>
+            <td valign="top">gamma</td>
+            <td>New gamma correction value</td>
+        </tr>
+    </table>
+    <p>By default, gamma correction is set to 1.0 for Windows, 1.7
+    for SGI and 1.45 for Macs. If the VIEWING_GAMMA environmental
+    variable is set, that is used instead. You can override both
+    of these values using pngSetViewingGamma().</p>
+</blockquote>
+
+<pre><a name="pngSetStandardOrientation"><strong>pngSetStandardOrientation(standardorientation)</strong></a></pre>
+
+<blockquote>
+    <table border="1">
+        <tr>
+            <td>standardorientation</td>
+            <td>If to use the standard orientation (0 is default)</td>
+        </tr>
+    </table>
+    <p>By default, the image is loaded so that texture
+    coordinates 0,0 represent the top-left - a result of me not
+    knowing the OpenGL spec :-). If you wish to use the standard
+    OpenGL representation where 0,0 is the bottom-left, set this
+    to 1.</p>
+</blockquote>
+
+<h3>Examples</h3>
+
+<p>Here's an example of pngLoad(), to load &quot;Texture.png&quot;
+with nearest filter, clamping on and no mipmaps or alpha channels...</p>
+
+<blockquote>
+    <pre>pngInfo info;
+GLuint id;</pre>
+    <pre>glGenTextures(1, &amp;id);
+glBindTexture(GL_TEXTURE_2D, id);</pre>
+    <pre>glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);</pre>
+    <pre>if (pngLoad(&quot;Texture.png&quot;, PNG_NOMIPMAP, PNG_SOLID, &amp;info)) {
+   puts(&quot;Loaded Texture.png with resounding success&quot;);
+   printf(&quot;Size=%i,%i Depth=%i Alpha=%i\n&quot;, info.Width, info.Height, info.Depth, info.Alpha);
+}
+else {
+   puts(&quot;Can't load Texture.png&quot;);
+   exit(1);
+}</pre>
+</blockquote>
+
+<p>And here's an example to load the same texture with the same
+options using pngBind()...</p>
+
+<blockquote>
+    <pre>pngInfo info;
+GLuint id = pngBind(&quot;Texture.png&quot;, PNG_NOMIPMAP, PNG_SOLID, &amp;info, GL_CLAMP, GL_NEAREST, GL_NEAREST);</pre>
+    <pre>if (id != 0) {
+   puts(&quot;Loaded Texture.png with resounding success&quot;);
+   printf(&quot;Size=%i,%i Depth=%i Alpha=%i\n&quot;, info.Width, info.Height, info.Depth, info.Alpha);
+}
+else {
+   puts(&quot;Can't load Texture.png&quot;);
+   exit(1);
+}</pre>
+</blockquote>
+
+<p>If those two examples don't make sense, try the included full
+source example (which needs <a
+href="http://reality.sgi.com/opengl/glut3/glut3.html">GLUT</a>).</p>
+
+<h3>Bugs</h3>
+
+<ul>
+    <li>Some paletted PNGs, that aren't 256 colours, cause a
+        crash. Might be a bug in LibPNG, but then again, it could
+        be a bug in glpng.</li>
+    <li>64-bit PNGs can't be loaded (missing LibPNG feature as
+        far as I can tell). </li>
+    <li>The paletted textures extension doesn't work on the
+        current 3dfx OpenGL beta driver - this is checked for and
+        ignored. The paletted textures extension is enabled on
+        the more recent 3dfx Quake3 drivers but this has not been
+        tested.</li>
+    <li>In debug builds in Visual C++, you may get errors such as
+        <em>libc.lib(crt0dat.obj) : error LNK2005: _exit already
+        defined in msvcrtd.lib(MSVCRTD.dll)</em> or <em>LINK :
+        warning LNK4098: defaultlib &quot;msvcrtd.lib&quot;
+        conflicts with use of other libs; use /NODEFAULTLIB:library</em>.
+        Don't know how to fix this - how do other libraries avoid
+        these errors? The hacky solution is for you to always do
+        a Release build and/or link to the MSDEV Release libs
+        instead of the Debug libs.</li>
+</ul>
+
+<h3>Possible Future Developments</h3>
+
+<ul>
+    <li>Better attempts could be made to find the optimal texture
+        format for OpenGL. At the moment, it converts everything
+        to 24 or 32 bit, or uses the paletted texture extension
+        in certain (easy to handle) cases.</li>
+    <li>Other mipmap generating algorithms could be implemented (wavelet
+        stuff?). Source donations are welcome.</li>
+    <li>Saving the frame buffer to a PNG file.</li>
+    <li>Support for GL_INTENSITY, GL_LUMINANCE_ALPHA and others.</li>
+</ul>
+
+<h3>History</h3>
+
+<table border="0">
+    <tr>
+        <td valign="top" width="100" nowrap>1.33 (20/5/99)</td>
+        <td valign="top">First public release.</td>
+    </tr>
+    <tr>
+        <td valign="top" width="100" nowrap>1.34 (27/5/99)</td>
+        <td valign="top">Optimised alpha channel generating,
+        added Alpha property to the pngInfo structure, illegal
+        texture sizes are resized.</td>
+    </tr>
+    <tr>
+        <td valign="top" width="100" nowrap>1.35 (4/6/99)</td>
+        <td valign="top">Added pngLoadRaw and pngLoadRawF
+        functions.</td>
+    </tr>
+    <tr>
+        <td valign="top" width="100" nowrap>1.36 (9/6/99)</td>
+        <td valign="top">Fixed problem causing linking warnings/errors
+        (I think) and reduced the size of the library
+        considerably.</td>
+    </tr>
+    <tr>
+        <td valign="top" width="100" nowrap>1.37 (13/6/99)</td>
+        <td valign="top">Added alpha channel generation callback
+        function.</td>
+    </tr>
+    <tr>
+        <td valign="top" width="100" nowrap>1.38 (22/6/99)</td>
+        <td valign="top">Stopped it from disabling texturing on
+        calls to pngBind and pngBindF.</td>
+    </tr>
+    <tr>
+        <td valign="top" width="100" nowrap>1.39 (8/7/99)</td>
+        <td valign="top">Fixed a bug in the extensions reading
+        code, which caused some machines to crash.</td>
+    </tr>
+    <tr>
+        <td valign="top" width="100" nowrap>1.40 (27/9/99)</td>
+        <td valign="top">Added support for SGI, Linux, and gamma
+        correction (thanks to Mark B. Allan!). Fixed bug in raw
+        reading of gray textures (thanks to Johann Scholtz!).
+        Removed all use of GLU functions to make it easier to
+        dynamically load opengl32.dll or 3dfxvgl.dll or whatever.
+        Added simple mipmap generator.</td>
+    </tr>
+    <tr>
+        <td valign="top" width="100" nowrap>1.41 (20/10/99)</td>
+        <td valign="top">Made a small optimisation and improved
+        documentation. Remembered to include the makefiles for
+        Linux and SGI in the zip (!).</td>
+    </tr>
+    <tr>
+        <td valign="top" width="100" nowrap>1.42 (01/03/00)</td>
+        <td valign="top">Fixed problems with compiling on SGI (thanks
+        to Thomas Sondergaard!). Added pngSetStandardOrientation
+        (thanks to Scott Franke!).</td>
+    </tr>
+</table>
+
+<p>Get the latest version from <a
+href="http://www.wyatt100.freeserve.co.uk/download.htm">http://www.wyatt100.freeserve.co.uk/download.htm</a></p>
+</body>
+</html>

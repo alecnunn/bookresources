@@ -1,0 +1,86 @@
+; This shader does the per-vertex dot3 work.
+; It transforms the light vector by the basis vectors
+; passed into the shader.
+; The basis vectors only need to change if the model's
+; shape changes.
+; The output vector is stored in the diffuse channel
+; (use the menu to look at the generated light vector)
+
+#include "blinn_reflect.h"
+ 
+#define V_POSITION v0
+#define V_NORMAL v1
+#define V_DIFFUSE v2
+#define V_TEXTURE v3
+#define V_SxT v4        ;  as an alternative SxT may be computed on the fly
+#define V_S v5
+#define V_T v6
+
+#define WORLD_VERTEX	r0
+#define SxT             r1
+#define S               r2
+#define T               r3
+#define EYE_VECTOR      r4
+
+
+vs.1.0
+
+; Transform position to clip space and output it
+dp4 oPos.x, V_POSITION, c[CV_WORLDVIEWPROJ_0]
+dp4 oPos.y, V_POSITION, c[CV_WORLDVIEWPROJ_1]
+dp4 oPos.z, V_POSITION, c[CV_WORLDVIEWPROJ_2]
+dp4 oPos.w, V_POSITION, c[CV_WORLDVIEWPROJ_3]
+
+; Normalize S and T
+dp3 S.w, V_S, V_S
+rsq S.w, S.w
+mul S, V_S, S.w
+
+dp3 T.w, V_T, V_T
+rsq T.w, T.w
+mul T, V_T, T.w
+
+; here we compute SxT (if V_SxT is available, then this is unnecessary, of course)
+mul SxT, S.zxyw, T.yzxw           ; 2 instruction cross product
+mad SxT, S.yzxw, T.zxyw, -SxT
+
+dp3 SxT.w, SxT, SxT                 ; and 3 instruction normalization
+rsq SxT.w, SxT.w
+mul SxT.xyz, SxT, SxT.w
+
+; Scale the bumps
+mul S, S, c[CV_BUMPSCALE].w
+mul T, T, c[CV_BUMPSCALE].w
+
+; Rotate the basis vectors by the world transform to put them into world space
+dp3 oT1.x, S,  c[CV_BASISTRANSFORM_0]
+dp3 oT1.y, T,  c[CV_BASISTRANSFORM_0]
+dp3 oT1.z, SxT, c[CV_BASISTRANSFORM_0]
+
+dp3 oT2.x, S,  c[CV_BASISTRANSFORM_1]
+dp3 oT2.y, T,  c[CV_BASISTRANSFORM_1]
+dp3 oT2.z, SxT, c[CV_BASISTRANSFORM_1]
+
+dp3 oT3.x, S,  c[CV_BASISTRANSFORM_2]
+dp3 oT3.y, T,  c[CV_BASISTRANSFORM_2]
+dp3 oT3.z, SxT, c[CV_BASISTRANSFORM_2]
+
+; Calculate the eye vector in world space
+dp3 WORLD_VERTEX.x, V_POSITION, c[CV_WORLD_0]
+dp3 WORLD_VERTEX.y, V_POSITION, c[CV_WORLD_1]
+dp3 WORLD_VERTEX.zw, V_POSITION, c[CV_WORLD_2]
+add EYE_VECTOR, -WORLD_VERTEX, c[CV_EYE_WORLD]
+
+; store the eye vector in the texture coordinate w for
+; the pixel shader
+mov oT1.w, EYE_VECTOR.x
+mov oT2.w, EYE_VECTOR.y
+mov oT3.w, EYE_VECTOR.z
+
+mov oD0, c[CV_ONE]
+
+mov oT0.xy, V_TEXTURE
+
+
+
+

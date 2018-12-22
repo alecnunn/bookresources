@@ -1,0 +1,16 @@
+CC = g++ -Wall -ansi
+
+all:
+	$(CC) -c ../../../source/Archive.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/Endian.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/File.cpp -I /usr/include -I ../../../source
+	$(CC) -c ../../../source/TimerLinux.cpp -I /usr/include -I ../../../source
+
+
+clean:
+	@echo Cleaning up...
+	@rm Archive
+	@rm Endian
+	@rm File
+	@rm TimerLinux
+	@echo Done.

@@ -1,0 +1,85 @@
+/************************************************************************
+Tetrahedron.nvv
+
+This vertex shader does the usual vertex transform and lights with
+a directional and ambient light.  At the end, however, it computes
+vertex to camera distance in view-space and stores that result as a 
+texture coordinate (to look up into a Depth-of-Field table.)
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+#include "Constants.h"
+
+#define R_NORMAL        r0
+#define R_DIFFUSE       r1
+#define R_DIST			r2
+#define ZERO			c[CV_LIGHT_DIFFUSE].w
+#define ONE				c[CV_MINMAX_DIST].w
+#define TWO 			c[CV_MINMAX_DIST].z
+
+
+vs.1.1
+
+; Transform position to clip space and output it
+dp4 oPos.x, v0, c[CV_WORLDVIEWPROJ_0]
+dp4 oPos.y, v0, c[CV_WORLDVIEWPROJ_1]
+dp4 oPos.z, v0, c[CV_WORLDVIEWPROJ_2]
+dp4 oPos.w, v0, c[CV_WORLDVIEWPROJ_3]
+
+; copy texture coordinates 
+mov oT0.xy, v2
+
+; Transform normal to world space (no need to renormalize after that)
+dp3 R_NORMAL.x, v1, c[CV_WORLDVIEWIT_0]
+dp3 R_NORMAL.y, v1, c[CV_WORLDVIEWIT_1]
+dp3 R_NORMAL.z, v1, c[CV_WORLDVIEWIT_2]
+
+; Dot normal with light vector (yields intensity of the diffuse component)
+dp3 R_DIFFUSE.w, R_NORMAL, c[CV_LIGHT_DIRECTION]
+max R_DIFFUSE.w, ZERO, R_DIFFUSE.w
+
+; Multiply with light-color
+mul R_DIFFUSE.xyz, R_DIFFUSE.w, c[CV_LIGHT_DIFFUSE]
+ 
+; add ambient base term 
+add R_DIFFUSE.xyz, R_DIFFUSE, c[CV_AMBIENT_LIGHT]
+; multiply total light with material color and output
+mul oD0.xyz, R_DIFFUSE, c[CV_MATERIAL]
+
+; The following computes the (correct) radial distance:
+; Move vertex to view-space
+;dp4 R_DIST.x, v0, c[CV_WORLDVIEW_0]
+;dp4 R_DIST.y, v0, c[CV_WORLDVIEW_1]
+;dp4 R_DIST.z, v0, c[CV_WORLDVIEW_2]
+;dp4 R_DIST.w, v0, c[CV_WORLDVIEW_3]
+
+; do homogenous divide
+;rcp R_DIST.w,   R_DIST.w
+;mul R_DIST.xyz, R_DIST, R_DIST.w
+
+; camera is at 0,0,0, thus length of R_DIST is the distance
+;dp3 R_DIST.xy,  R_DIST, R_DIST
+;rsq R_DIST.y,   R_DIST.y
+;mul R_DIST.z,   R_DIST.x, R_DIST.y  
+
+; computing the radial distance (as above) takes 9 instructions
+; (6 if the homogenous divide is a no-op, as it likely is)  
+; Using a simple z-linear distance looks just as good and only takes 
+; 4 instructions (1 if the homogenous divide is a no-op, as it likely 
+; is):
+dp4 R_DIST.z, v0, c[CV_WORLDVIEW_2]
+;dp4 R_DIST.w, v0, c[CV_WORLDVIEW_3]
+;rcp R_DIST.w, R_DIST.w
+;mul R_DIST.z, R_DIST.z, R_DIST.w
+
+; substract mMinDistance and divide by maxDistance-minDistance
+; since c[CV_MINMAX_DIST].x = mMinDistance/(mMaxDistance-mMinDistance)
+; and   c[CV_MINMAX_DIST].y =     1.0f    /(mMaxDistance-mMinDistance)
+; we can do the following mad instead
+; Note: min/max clamping first is unnecessary: the tex-addr unit does it for us
+mad oT1.x,    R_DIST.z, c[CV_MINMAX_DIST].y, - c[CV_MINMAX_DIST].x 
+
+; copy the current focus distance and focal length from constant memory 
+; to texture coord
+mov oT1.yz,   c[CV_FOCUS_CONST].xxyy

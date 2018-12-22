@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>Erstellungsprotokoll</h1>
+<h3>
+--------------------Konfiguration: ShadowsDemo - Win32 Release--------------------
+</h3>
+<h3>Befehlszeilen</h3>
+Erstellen der temporären Datei  "C:\DOKUME~1\ADMINI~1\LOKALE~1\Temp\RSP278.tmp" mit Inhalten
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"Release/ShadowsDemo.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\Eigene Artikel\Game Programming Gems 4\Combined Depth and ID-Based Shadow Buffers\FINALs\Combined_Shadow_Buffers_Demo\Code\WinMain\StdAfx.cpp"
+"D:\Eigene Artikel\Game Programming Gems 4\Combined Depth and ID-Based Shadow Buffers\FINALs\Combined_Shadow_Buffers_Demo\Code\WinMain\WinMain.cpp"
+"D:\Eigene Artikel\Game Programming Gems 4\Combined Depth and ID-Based Shadow Buffers\FINALs\Combined_Shadow_Buffers_Demo\Code\Demo\ShadowTechniques\ReducedCombinedBufferTec\ReducedCombinedBufferTec.cpp"
+"D:\Eigene Artikel\Game Programming Gems 4\Combined Depth and ID-Based Shadow Buffers\FINALs\Combined_Shadow_Buffers_Demo\Code\Demo\ShadowTechniques\CompleteCombinedBufferTec\CompleteCombinedBufferTec.cpp"
+"D:\Eigene Artikel\Game Programming Gems 4\Combined Depth and ID-Based Shadow Buffers\FINALs\Combined_Shadow_Buffers_Demo\Code\Demo\Camera.cpp"
+"D:\Eigene Artikel\Game Programming Gems 4\Combined Depth and ID-Based Shadow Buffers\FINALs\Combined_Shadow_Buffers_Demo\Code\Demo\DemoFrame.cpp"
+"D:\Eigene Artikel\Game Programming Gems 4\Combined Depth and ID-Based Shadow Buffers\FINALs\Combined_Shadow_Buffers_Demo\Code\Demo\Scene.cpp"
+]
+Creating command line "cl.exe @C:\DOKUME~1\ADMINI~1\LOKALE~1\Temp\RSP278.tmp" 
+Erstellen der temporären Datei  "C:\DOKUME~1\ADMINI~1\LOKALE~1\Temp\RSP279.tmp" mit Inhalten
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dx8.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/ShadowsDemo.pdb" /machine:I386 /out:"Release/ShadowsDemo.exe" 
+".\Release\StdAfx.obj"
+".\Release\WinMain.obj"
+".\Release\ReducedCombinedBufferTec.obj"
+".\Release\CompleteCombinedBufferTec.obj"
+".\Release\Camera.obj"
+".\Release\DemoFrame.obj"
+".\Release\Scene.obj"
+]
+Erstellen der Befehlzeile "link.exe @C:\DOKUME~1\ADMINI~1\LOKALE~1\Temp\RSP279.tmp"
+<h3>Ausgabefenster</h3>
+Kompilierung läuft...
+StdAfx.cpp
+WinMain.cpp
+ReducedCombinedBufferTec.cpp
+CompleteCombinedBufferTec.cpp
+Camera.cpp
+DemoFrame.cpp
+Scene.cpp
+Linker-Vorgang läuft...
+link: executing 'e:\DEVELO~1\MICROS~1\VC98\Bin\link.exe'
+
+
+
+<h3>Ergebnisse</h3>
+ShadowsDemo.exe - 0 Fehler, 0 Warnung(en)
+</pre>
+</body>
+</html>

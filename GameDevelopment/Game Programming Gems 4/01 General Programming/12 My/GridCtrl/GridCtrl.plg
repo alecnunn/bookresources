@@ -1,0 +1,94 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GridCtrl - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPE1C0.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/GridCtrl.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\mythos\GPG4\GridCtrl\BtnDataBase.cpp"
+"D:\mythos\GPG4\GridCtrl\CheckComboBox.cpp"
+"D:\mythos\GPG4\GridCtrl\GridBtnCell.cpp"
+"D:\mythos\GPG4\GridCtrl\GridBtnCellBase.cpp"
+"D:\mythos\GPG4\GridCtrl\GridBtnCellCombo.cpp"
+"D:\mythos\GPG4\GridCtrl\GridCell.cpp"
+"D:\mythos\GPG4\GridCtrl\GridCellBase.cpp"
+"D:\mythos\GPG4\GridCtrl\GridCellCheck.cpp"
+"D:\mythos\GPG4\GridCtrl\GridCellCheckCombo.cpp"
+"D:\mythos\GPG4\GridCtrl\GridCellCombo.cpp"
+"D:\mythos\GPG4\GridCtrl\GridCellDateTime.cpp"
+"D:\mythos\GPG4\GridCtrl\GridCellNumeric.cpp"
+"D:\mythos\GPG4\GridCtrl\GridCtrl.cpp"
+"D:\mythos\GPG4\GridCtrl\GridDropTarget.cpp"
+"D:\mythos\GPG4\GridCtrl\GridURLCell.cpp"
+"D:\mythos\GPG4\GridCtrl\InPlaceEdit.cpp"
+"D:\mythos\GPG4\GridCtrl\TitleTip.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPE1C0.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPE1C1.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/GridCtrl.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\mythos\GPG4\GridCtrl\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPE1C1.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPE1C2.TMP" with contents
+[
+/nologo /out:"Debug\GridCtrld.lib" 
+.\Debug\BtnDataBase.obj
+.\Debug\CheckComboBox.obj
+.\Debug\GridBtnCell.obj
+.\Debug\GridBtnCellBase.obj
+.\Debug\GridBtnCellCombo.obj
+.\Debug\GridCell.obj
+.\Debug\GridCellBase.obj
+.\Debug\GridCellCheck.obj
+.\Debug\GridCellCheckCombo.obj
+.\Debug\GridCellCombo.obj
+.\Debug\GridCellDateTime.obj
+.\Debug\GridCellNumeric.obj
+.\Debug\GridCtrl.obj
+.\Debug\GridDropTarget.obj
+.\Debug\GridURLCell.obj
+.\Debug\InPlaceEdit.obj
+.\Debug\StdAfx.obj
+.\Debug\TitleTip.obj
+]
+Creating command line "link.exe -lib @C:\WINDOWS\TEMP\RSPE1C2.TMP"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Spawn Time 0:05.3
+Compiling...
+BtnDataBase.cpp
+CheckComboBox.cpp
+GridBtnCell.cpp
+GridBtnCellBase.cpp
+GridBtnCellCombo.cpp
+GridCell.cpp
+GridCellBase.cpp
+GridCellCheck.cpp
+GridCellCheckCombo.cpp
+GridCellCombo.cpp
+GridCellDateTime.cpp
+GridCellNumeric.cpp
+GridCtrl.cpp
+GridDropTarget.cpp
+GridURLCell.cpp
+InPlaceEdit.cpp
+TitleTip.cpp
+Generating Code...
+Spawn Time 0:56.5
+Creating library...
+Spawn Time 0:01.8
+
+
+
+<h3>Results</h3>
+GridCtrld.lib - 0 error(s), 0 warning(s)
+Build Time 1:06.1
+</pre>
+</body>
+</html>

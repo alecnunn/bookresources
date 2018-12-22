@@ -1,0 +1,384 @@
+# Microsoft Developer Studio Generated NMAKE File, Based on EfficientSky.dsp
+!IF "$(CFG)" == ""
+CFG=EfficientSky - Win64 Debug
+!MESSAGE No configuration specified. Defaulting to EfficientSky - Win64 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "EfficientSky - Win64 Debug" && "$(CFG)" != "EfficientSky - Win64 Release" && "$(CFG)" != "EfficientSky - Win64 Profile"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "makefile.x64" CFG="EfficientSky - Win64 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "EfficientSky - Win64 Debug" (based on "Win64 (x64) Application")
+!MESSAGE "EfficientSky - Win64 Release" (based on "Win64 (x64) Application")
+!MESSAGE "EfficientSky - Win64 Profile" (based on "Win64 (x64) Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+!IF  "$(CFG)" == "EfficientSky - Win64 Debug"
+
+OUTDIR=.\Debug
+INTDIR=.\Debug
+# Begin Custom Macros
+OutDir=.\Debug
+# End Custom Macros
+
+ALL : "$(OUTDIR)\EfficientSky.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\dxstdafx.obj"
+	-@erase "$(INTDIR)\dxut.obj"
+	-@erase "$(INTDIR)\dxutenum.obj"
+	-@erase "$(INTDIR)\dxutmisc.obj"
+	-@erase "$(INTDIR)\EfficientSky.obj"
+	-@erase "$(INTDIR)\EfficientSky.res"
+	-@erase "$(INTDIR)\EfficientSky.pch"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\EfficientSky.pdb"
+	-@erase "$(OUTDIR)\EfficientSky.exe"
+	-@erase "$(OUTDIR)\EfficientSky.ilk"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /Gm /EHsc /GS /ZI /Od /I "Common" /D "WIN64" /D "_DEBUG" /D "_WINDOWS" /D "PROFILE" /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\EfficientSky.pch" /Yu"dxstdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\EfficientSky.res" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\EfficientSky.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=bufferoverflowu.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib dxerr9.lib dxguid.lib d3dx9d.lib d3d9.lib winmm.lib comctl32.lib /nologo /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\EfficientSky.pdb" /debug /machine:amd64 /out:"$(OUTDIR)\EfficientSky.exe" /pdbtype:sept /IGNORE:4089 
+LINK32_OBJS= \
+	"$(INTDIR)\dxstdafx.obj" \
+	"$(INTDIR)\dxut.obj" \
+	"$(INTDIR)\dxutenum.obj" \
+	"$(INTDIR)\dxutmisc.obj" \
+	"$(INTDIR)\EfficientSky.obj" \
+	"$(INTDIR)\EfficientSky.res"
+
+"$(OUTDIR)\EfficientSky.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "EfficientSky - Win64 Release"
+
+OUTDIR=.\Release
+INTDIR=.\Release
+# Begin Custom Macros
+OutDir=.\Release
+# End Custom Macros
+
+ALL : "$(OUTDIR)\EfficientSky.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\dxstdafx.obj"
+	-@erase "$(INTDIR)\dxut.obj"
+	-@erase "$(INTDIR)\dxutenum.obj"
+	-@erase "$(INTDIR)\dxutmisc.obj"
+	-@erase "$(INTDIR)\EfficientSky.obj"
+	-@erase "$(INTDIR)\EfficientSky.res"
+	-@erase "$(INTDIR)\EfficientSky.pch"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\EfficientSky.exe"
+	-@erase "$(OUTDIR)\EfficientSky.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /EHsc /GS /Zi /O2 /I "Common" /D "WIN64" /D "NDEBUG" /D "_WINDOWS" /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\EfficientSky.pch" /Yu"dxstdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /GF /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\EfficientSky.res" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\EfficientSky.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=bufferoverflowu.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib dxerr9.lib dxguid.lib d3dx9.lib d3d9.lib winmm.lib comctl32.lib /nologo /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\EfficientSky.pdb" /debug /machine:amd64 /out:"$(OUTDIR)\EfficientSky.exe" /pdbtype:sept /opt:ref /opt:icf /IGNORE:4089 
+LINK32_OBJS= \
+	"$(INTDIR)\dxstdafx.obj" \
+	"$(INTDIR)\dxut.obj" \
+	"$(INTDIR)\dxutenum.obj" \
+	"$(INTDIR)\dxutmisc.obj" \
+	"$(INTDIR)\EfficientSky.obj" \
+	"$(INTDIR)\EfficientSky.res"
+
+"$(OUTDIR)\EfficientSky.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "EfficientSky - Win64 Profile"
+
+OUTDIR=.\Profile
+INTDIR=.\Profile
+# Begin Custom Macros
+OutDir=.\Profile
+# End Custom Macros
+
+ALL : "$(OUTDIR)\EfficientSky.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\dxstdafx.obj"
+	-@erase "$(INTDIR)\dxut.obj"
+	-@erase "$(INTDIR)\dxutenum.obj"
+	-@erase "$(INTDIR)\dxutmisc.obj"
+	-@erase "$(INTDIR)\EfficientSky.obj"
+	-@erase "$(INTDIR)\EfficientSky.res"
+	-@erase "$(INTDIR)\EfficientSky.pch"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\EfficientSky.exe"
+	-@erase "$(OUTDIR)\EfficientSky.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /EHsc /GS /Zi /O2 /I "Common" /D "WIN64" /D "NDEBUG" /D "_WINDOWS" /D "PROFILE" /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\EfficientSky.pch" /Yu"dxstdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /GF /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\EfficientSky.res" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\EfficientSky.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=bufferoverflowu.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib dxerr9.lib dxguid.lib d3dx9.lib d3d9.lib winmm.lib comctl32.lib /nologo /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\EfficientSky.pdb" /debug /machine:amd64 /out:"$(OUTDIR)\EfficientSky.exe" /pdbtype:sept /opt:ref /opt:icf /IGNORE:4089 
+LINK32_OBJS= \
+	"$(INTDIR)\dxstdafx.obj" \
+	"$(INTDIR)\dxut.obj" \
+	"$(INTDIR)\dxutenum.obj" \
+	"$(INTDIR)\dxutmisc.obj" \
+	"$(INTDIR)\EfficientSky.obj" \
+	"$(INTDIR)\EfficientSky.res"
+
+"$(OUTDIR)\EfficientSky.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("EfficientSky.dep")
+!INCLUDE "EfficientSky.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "EfficientSky.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "EfficientSky - Win64 Debug" || "$(CFG)" == "EfficientSky - Win64 Release" || "$(CFG)" == "EfficientSky - Win64 Profile"
+SOURCE=EfficientSky.rc
+
+"$(INTDIR)\EfficientSky.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) $(RSC_PROJ) $(SOURCE)
+
+
+SOURCE=Common\dxstdafx.cpp
+
+!IF  "$(CFG)" == "EfficientSky - Win64 Debug"
+
+CPP_SWITCHES=/nologo /MTd /W4 /Gm /EHsc /GS /ZI /Od /I "Common" /D "WIN64" /D "_DEBUG" /D "_WINDOWS" /D "PROFILE" /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\EfficientSky.pch" /Yc"dxstdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\"  /c 
+
+"$(INTDIR)\dxstdafx.obj"	"$(INTDIR)\EfficientSky.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "EfficientSky - Win64 Release"
+
+CPP_SWITCHES=/nologo /MT /W4 /EHsc /GS /Zi /O2 /I "Common" /D "WIN64" /D "NDEBUG" /D "_WINDOWS" /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\EfficientSky.pch" /Yc"dxstdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /GF /c 
+
+"$(INTDIR)\dxstdafx.obj"	"$(INTDIR)\EfficientSky.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "EfficientSky - Win64 Profile"
+
+CPP_SWITCHES=/nologo /MT /W4 /EHsc /GS /Zi /O2 /I "Common" /D "WIN64" /D "NDEBUG" /D "_WINDOWS" /D "PROFILE" /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\EfficientSky.pch" /Yc"dxstdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /GF /c 
+
+"$(INTDIR)\dxstdafx.obj"	"$(INTDIR)\EfficientSky.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=Common\dxut.cpp
+
+"$(INTDIR)\dxut.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\EfficientSky.pch"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=Common\dxutenum.cpp
+
+"$(INTDIR)\dxutenum.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\EfficientSky.pch"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=Common\dxutmisc.cpp
+
+"$(INTDIR)\dxutmisc.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\EfficientSky.pch"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=EfficientSky.cpp
+
+!IF  "$(CFG)" == "EfficientSky - Win64 Debug"
+
+CPP_SWITCHES=/nologo /MTd /W4 /Gm /EHsc /GS /ZI /Od /I "Common" /D "WIN64" /D "_DEBUG" /D "_WINDOWS" /D "PROFILE" /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\EfficientSky.pch" /Yu"dxstdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /c 
+
+"$(INTDIR)\EfficientSky.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\EfficientSky.pch"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "EfficientSky - Win64 Release"
+
+CPP_SWITCHES=/nologo /MT /W4 /EHsc /GS /Zi /O2 /I "Common" /D "WIN64" /D "NDEBUG" /D "_WINDOWS" /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\EfficientSky.pch" /Yu"dxstdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /GF /c 
+
+"$(INTDIR)\EfficientSky.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\EfficientSky.pch"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "EfficientSky - Win64 Profile"
+
+CPP_SWITCHES=/nologo /MT /W4 /EHsc /GS /Zi /O2 /I "Common" /D "WIN64" /D "NDEBUG" /D "_WINDOWS" /D "PROFILE" /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\EfficientSky.pch" /Yu"dxstdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /GF /c 
+
+"$(INTDIR)\EfficientSky.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\EfficientSky.pch"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+
+!ENDIF 
+

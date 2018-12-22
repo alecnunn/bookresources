@@ -1,0 +1,1146 @@
+<?xml version="1.0"?>
+
+<schema 
+  xmlns="http://www.w3.org/1999/XMLSchema" 
+  targetNamespace="http://www.piemenu.com/piemenuxmlschema-1.0.xsd" 
+  xmlns:pie="http://www.piemenu.com/piemenuxmlschema-1.0.xsd"
+  elementFormDefault="qualified" 
+  version="July 8 2001">
+
+  <annotation>
+
+    <documentation>
+      A Schema for Pie Menus - by Don Hopkins
+    </documentation>
+
+    <documentation source="http://www.piemenu.com">
+      Pie Menus are a naturally efficient user interface technique:
+      directional selection of pie slice shaped targets. The cursor
+      starts out in the center of the pie, so all targets are large,
+      nearby, and in different directions. Fitts' Law explains the
+      advantages of pie menus, relating fast selection speed and low
+      error rate to large target size and small distance. Pie menus are
+      easy for novice users, who just follow the directions, and
+      efficient for experienced users, who can quickly &quot;mouse
+      ahead&quot; once they know the way.
+    </documentation>
+
+  </annotation>
+
+  <complexType
+    name="html"
+    content="mixed">
+
+    <annotation>
+      <documentation>
+        The html element contains XHTML (HTML in XML syntax),
+	that is used for the pie menu presentation,
+	contained in both piemenu and item elements. 
+      </documentation>
+    </annotation>
+
+    <any/>
+
+  </complexType>
+
+  <complexType
+    name="piemenu"
+    content="elementOnly"
+    pie:label="PieMenu">
+
+    <annotation>
+      <documentation>
+        The piemenu element contains a pie menu definition,
+	including an optional html element,
+	followed by any number of item elements.
+      </documentation>
+    </annotation>
+
+    <sequence
+      minOccurs='1'
+      maxOccurs='1'>
+
+      <element
+        name="html"
+	type="pie:html"
+	minOccurs='0'
+	maxOccurs='1'
+	pie:type="element"
+	pie:var="html"
+	pie:label="HTML">
+
+	<annotation>
+	  <documentation>
+            HTML Element Content in Center of Pie Menu.
+	    If empty, the piemenu Name is shown instead.
+	  </documentation>
+	</annotation>
+
+      </element>
+
+
+      <element
+        name="item"
+	type="pie:item"
+	minOccurs='0'
+	maxOccurs='unbounded'
+	pie:hidden="true"
+	pie:type="element"
+	pie:var="item"
+	pie:label="Item">
+
+	<annotation>
+	  <documentation>
+	    The piemenu element may contain any number of item elements.
+	  </documentation>
+	</annotation>
+
+      </element>
+
+    </sequence>
+
+    <attribute
+      name="piemenuview"
+      type="string"
+      use="default"
+      value=""
+      pie:type="widget"
+      pie:label="View"
+      pie:var="piemenuview"
+      pie:widget="PieMenuView">
+
+      <annotation>
+        <documentation>
+          Pie Menu View.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="id"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="ID"
+      pie:var="id">
+
+      <annotation>
+        <documentation>
+          Pie Menu Unique ID.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="name"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="Name"
+      pie:var="name">
+
+      <annotation>
+        <documentation>
+          Pie Menu Name, shown if the HTML Content is empty.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="clockwise"
+      type="boolean"
+      use="default"
+      value="true"
+      pie:type="boolean"
+      pie:label="Clockwise"
+      pie:var="clockwise">
+
+      <annotation>
+        <documentation>
+          Clockwise Layout Direction (false for CCW).
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="initialangle"
+      type="float"
+      use="default"
+      value="90"
+      pie:type="float"
+      pie:label="Initial Angle"
+      pie:var="initialAngle">
+
+      <annotation>
+        <documentation>
+          Initial Angle for Pie Menu Layout. 0 is right, 90 is up, 180 is left, 270 is down.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="fixedradius"
+      type="float"
+      use="default"
+      value="0"
+      pie:type="float"
+      pie:label="Fixed Radius"
+      pie:var="fixedRadius">
+
+      <annotation>
+        <documentation>
+          Fixed Radius for Pie Item Layout (0 to Disable). Overrides calculated radius.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="minradius"
+      type="float"
+      use="default"
+      value="20"
+      pie:type="float"
+      pie:label="Minimum Radius"
+      pie:var="minRadius">
+
+      <annotation>
+        <documentation>
+          Minimum Radius for Pie Item Layout. Overridden by non-zero Fixed Radius.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="extraradius"
+      type="float"
+      use="default"
+      value="20"
+      pie:type="float"
+      pie:label="Extra Radius"
+      pie:var="extraRadius">
+
+      <annotation>
+        <documentation>
+          Extra Radius for Pie Item Layout. Overridden by non-zero Fixed Radius.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="inactiveradius"
+      type="float"
+      use="default"
+      value="8"
+      pie:type="float"
+      pie:label="Inactive Radius"
+      pie:var="inactiveRadius">
+
+      <annotation>
+        <documentation>
+          Inactive Radius of Pie Menu Center, where no item is selected.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="radiusnotch"
+      type="float"
+      use="default"
+      value="2"
+      pie:type="float"
+      pie:label="Radius Notch"
+      pie:var="radiusNotch">
+
+      <annotation>
+        <documentation>
+          Radius Notch for Pie Item Layout. Overridden by non-zero Fixed Radius.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="border"
+      type="float"
+      use="default"
+      value="2"
+      pie:type="float"
+      pie:label="Border"
+      pie:var="border">
+
+      <annotation>
+        <documentation>
+          Border around Menu for Pie Item Layout.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="maxpieitems"
+      type="int"
+      use="default"
+      value="8"
+      pie:type="int"
+      pie:label="Max Pie Items"
+      pie:var="maxPieItems">
+
+      <annotation>
+        <documentation>
+          Maximum Number of Pie Items. Extra items are treated as Linear.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="pagedpieitems"
+      type="int"
+      use="default"
+      value="0"
+      pie:type="int"
+      pie:label="Paged Pie Items"
+      pie:var="pagedPieItems">
+
+      <annotation>
+        <documentation>
+          Number of Pie Items Paged. Previous items are treated as Linear.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="linear"
+      type="boolean"
+      use="default"
+      value="false"
+      pie:type="boolean"
+      pie:label="Linear"
+      pie:var="linear">
+
+      <annotation>
+        <documentation>
+          Pie Menu Linear Flag. Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="lineardirection"
+      type="string"
+      use="default"
+      value="down"
+      pie:type="enum"
+      pie:label="Linear Direction"
+      pie:var="linearDirection">
+
+      <annotation>
+        <documentation>
+          Direction of Linear Item Layout. Default for all items.
+        </documentation>
+      </annotation>
+
+      <enumeration
+        name="up"/>
+      <enumeration
+        name="down"/>
+      <enumeration
+        name="left"/>
+      <enumeration
+        name="right"/>
+      <enumeration
+        name="center"/>
+
+    </attribute>
+
+    <attribute
+      name="linearorderreversed"
+      type="boolean"
+      use="default"
+      value="false"
+      pie:type="boolean"
+      pie:label="Linear Order Reversed"
+      pie:var="linearOrderReversed">
+
+      <annotation>
+        <documentation>
+          Reversed Linear Order Layout Flag. Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="transparentitems"
+      type="boolean"
+      use="default"
+      value="true"
+      pie:type="boolean"
+      pie:label="Transparent Items"
+      pie:var="transparentItems">
+
+      <annotation>
+        <documentation>
+          Make Unselected Items Transparent During Tracking.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="itemborder"
+      type="float"
+      use="default"
+      value="2"
+      pie:type="float"
+      pie:label="Item Border"
+      pie:var="itemBorder">
+
+      <annotation>
+        <documentation>
+          Border Around Items for Pie Item Layout. Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="itemmargin"
+      type="float"
+      use="default"
+      value="2"
+      pie:type="float"
+      pie:label="Item Margin"
+      pie:var="itemMargin">
+
+      <annotation>
+        <documentation>
+          Margin Inside Items for Pie Item Layout. Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="itemwidth"
+      type="float"
+      use="default"
+      value="0"
+      pie:type="float"
+      pie:label="Item Width"
+      pie:var="itemWidth">
+
+      <annotation>
+        <documentation>
+          Fixed Item Width for Pie Item Layout (0 for Measured). Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="itemheight"
+      type="float"
+      use="default"
+      value="0"
+      pie:type="float"
+      pie:label="Item Height"
+      pie:var="itemHeight">
+
+      <annotation>
+        <documentation>
+          Fixed Item Height for Pie Item Layout (0 for Measured). Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="itemnormalbackground"
+      type="string"
+      use="default"
+      value="buttonface"
+      pie:type="color"
+      pie:label="Item Normal Background Color"
+      pie:var="itemNormalBackground">
+
+      <annotation>
+        <documentation>
+          Item Normal Background Color. Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="itemselectedbackground"
+      type="string"
+      use="default"
+      value="buttonhighlight"
+      pie:type="color"
+      pie:label="Item Selected Background Color"
+      pie:var="itemSelectedBackground">
+
+      <annotation>
+        <documentation>
+          Item Selected Background Color. Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="centerbackground"
+      type="string"
+      use="default"
+      value="buttonface"
+      pie:type="color"
+      pie:label="Center Background Color"
+      pie:var="centerBackground">
+
+      <annotation>
+        <documentation>
+          Pie Menu Center Background Color.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="centermargin"
+      type="float"
+      use="default"
+      value="16"
+      pie:type="float"
+      pie:label="Center Margin"
+      pie:var="centerMargin">
+
+      <annotation>
+        <documentation>
+          Pie Menu Center Margin.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="centerborderwidth"
+      type="float"
+      use="default"
+      value="2"
+      pie:type="float"
+      pie:label="Center Border Width"
+      pie:var="centerBorderWidth">
+
+      <annotation>
+        <documentation>
+          Pie Menu Center Border Width.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="centervisible"
+      type="boolean"
+      use="default"
+      value="1"
+      pie:type="boolean"
+      pie:label="Center Visible"
+      pie:var="centerVisible">
+
+      <annotation>
+        <documentation>
+          Pie Menu Center Visibility Flag.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="url"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="URL"
+      pie:var="url">
+
+      <annotation>
+        <documentation>
+          URL for Pie Menu Selection. Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="action"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="Action"
+      pie:var="action">
+
+      <annotation>
+        <documentation>
+          Action for Pie Menu Item Selection. Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="onselect"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="On Select"
+      pie:var="onselect">
+
+      <annotation>
+        <documentation>
+          Handler for Pie Menu Item Selection (Called After Selection). Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="onchange"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="On Change"
+      pie:var="onchange">
+
+      <annotation>
+        <documentation>
+          Handler for Pie Menu Item Change (Called Before Selection). Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="onpreview"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="On Preview"
+      pie:var="onpreview">
+
+      <annotation>
+        <documentation>
+          Handler for Pie Menu Item Preview (Called After Mouse Movement). Default for all items.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+  </complexType>
+
+  <complexType
+    name="item"
+    content="elementOnly"
+    pie:label="PieItem">
+
+    <annotation>
+      <documentation>
+        The item element contains a pie menu item definition,
+	including an optional html element,
+	followed by an optional piemenu element.
+      </documentation>
+    </annotation>
+
+    <sequence
+      minOccurs='1'
+      maxOccurs='1'>
+
+      <element
+        name="html"
+	type="pie:html"
+	minOccurs='0'
+	maxOccurs='1'
+	pie:type="element"
+	pie:var="html"
+	pie:label="HTML">
+
+	<annotation>
+	  <documentation>
+            HTML Element Content in Pie Menu Item.
+	    If empty, the item Name is shown instead.
+	  </documentation>
+	</annotation>
+
+      </element>
+
+      <element
+        name="piemenu"
+	type="pie:piemenu"
+	minOccurs='0'
+	maxOccurs='1'
+	pie:hidden="true"
+	pie:type="element"
+	pie:var="piemenu"
+	pie:label="Pie Menu">
+
+	<annotation>
+	  <documentation>
+	    The item element may contain an optional piemenu element.
+	  </documentation>
+	</annotation>
+
+      </element>
+
+    </sequence>
+
+    <attribute
+      name="pieitemview"
+      type="string"
+      use="default"
+      value=""
+      pie:type="widget"
+      pie:label="View"
+      pie:var="pieitemview"
+      pie:widget="PieItemView">
+
+      <annotation>
+        <documentation>
+          Pie Item View.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="id"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="ID"
+      pie:var="id">
+
+      <annotation>
+        <documentation>
+          Pie Menu Item Unique ID.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="name"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="Name"
+      pie:var="name">
+
+      <annotation>
+        <documentation>
+          Pie Menu Item Name, shown if the HTML Content is empty.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="linear"
+      type="boolean"
+      use="default"
+      value="0"
+      pie:type="boolean"
+      pie:label="Linear"
+      pie:var="linear">
+
+      <annotation>
+        <documentation>
+          Pie Menu Item Linear Flag.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="fixedradius"
+      type="float"
+      use="default"
+      value="0"
+      pie:type="float"
+      pie:label="Fixed Radius"
+      pie:var="fixedRadius">
+
+      <annotation>
+        <documentation>
+          Fixed Radius for Pie Item Layout (0 to Disable).
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="itemwidth"
+      type="float"
+      use="default"
+      value="0"
+      pie:type="float"
+      pie:label="Item Width"
+      pie:var="itemWidth">
+
+      <annotation>
+        <documentation>
+          Fixed Item Width for Pie Item Layout (0 for Measured).
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="itemheight"
+      type="float"
+      use="default"
+      value="0"
+      pie:type="float"
+      pie:label="Item Height"
+      pie:var="itemHeight">
+
+      <annotation>
+        <documentation>
+          Fixed Item Height for Pie Item Layout (0 for Measured).
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="itemnormalbackground"
+      type="string"
+      use="default"
+      value="buttonface"
+      pie:type="color"
+      pie:label="Item Normal Background Color"
+      pie:var="itemNormalBackground">
+
+      <annotation>
+        <documentation>
+          Item Normal Background Color.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="itemselectedbackground"
+      type="string"
+      use="default"
+      value="buttonhighlight"
+      pie:type="color"
+      pie:label="Item Selected Background Color"
+      pie:var="itemSelectedBackground">
+
+      <annotation>
+        <documentation>
+          Item Selected Background Color.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="lineardirection"
+      type="string"
+      use="default"
+      value="down"
+      pie:type="enum"
+      pie:label="Linear Direction"
+      pie:var="linearDirection">
+
+      <annotation>
+        <documentation>
+          Direction of Linear Item Layout.
+        </documentation>
+      </annotation>
+
+      <enumeration
+        name="up"/>
+      <enumeration
+        name="down"/>
+      <enumeration
+        name="left"/>
+      <enumeration
+        name="right"/>
+      <enumeration
+        name="center"/>
+
+    </attribute>
+
+    <attribute
+      name="linearorderreversed"
+      type="boolean"
+      use="default"
+      value="0"
+      pie:type="boolean"
+      pie:label="Linear Order Reversed"
+      pie:var="linearOrderReversed">
+
+      <annotation>
+        <documentation>
+          Reversed Linear Order Layout Flag.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="url"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="URL"
+      pie:var="url">
+
+      <annotation>
+        <documentation>
+          URL for Pie Menu Item Selection.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="action"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="Action"
+      pie:var="action">
+
+      <annotation>
+        <documentation>
+          Action for Pie Menu Item Selection.
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="onselect"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="On Select"
+      pie:var="onselect">
+
+      <annotation>
+        <documentation>
+          Handler for Pie Menu Item Selection (Called After Selection).
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="onchange"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="On Change"
+      pie:var="onchange">
+
+      <annotation>
+        <documentation>
+          Handler for Pie Menu Item Change (Called Before Selection).
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+    <attribute
+      name="onpreview"
+      type="string"
+      use="default"
+      value=""
+      pie:type="string"
+      pie:label="On Preview"
+      pie:var="onpreview">
+
+      <annotation>
+        <documentation>
+          Handler for Pie Menu Item Preview (Called After Mouse Movement).
+        </documentation>
+      </annotation>
+
+    </attribute>
+
+  </complexType>
+
+  <element
+    name="piemenu"
+    type="pie:piemenu"
+    minOccurs="1"
+    maxOccurs="1">
+
+    <annotation>
+      <documentation>
+        The top level piemenu element contains a pie menu definition,
+	including an optional html element,
+	followed by any number of item elements.
+      </documentation>
+    </annotation>
+
+  </element>
+
+  <annotation>
+    <appinfo>
+
+      <xhtmltemplates>
+	<DIV
+	  id="EDITOR_ID_PieMenuPropsDiv"
+	  STYLE="display:none;border:3 outset;width:100%">
+	  <TABLE STYLE="width:100%">
+	    <TR>
+	      <TD>
+		<DIV id="EDITOR_ID_PieMenuPinnedProps">
+		  [Pie Menu Pinned Props]
+		</DIV>
+		<INPUT id="EDITOR_ID_PieMenuPropPinButton"
+		  STYLE="float:right"
+		  TYPE="BUTTON"
+		  VALUE="Pin"
+		  ONCLICK="TARGET_ID.PinPieMenuProp(TARGET_ID.curpiemenuprop);"/>
+		<DIV>
+		  <B>Edit piemenu Property:</B>
+		  <SPAN
+		    id="EDITOR_ID_PieMenuPropSelectorDiv">
+		    [Pie Menu Prop Selector]
+		  </SPAN>
+		</DIV>
+		<DIV>
+		  <B>Description:</B>
+		  <SPAN
+		    id="EDITOR_ID_PieMenuPropDescription">
+		    [Pie Menu Prop Description]
+		  </SPAN>
+		</DIV>
+	      </TD>
+	    </TR>
+	    <TR>
+	      <TD>
+		<DIV id="EDITOR_ID_PieMenuPropEditor">
+		  [Pie Menu Prop Editor]
+		</DIV>
+	      </TD>
+	    </TR>
+	  </TABLE>
+	</DIV>
+
+	<DIV
+	  id="EDITOR_ID_PieItemPropsDiv"
+	  STYLE="display:none;border:3 outset;width:100%">
+	  <TABLE STYLE="width:100%">
+	    <TR id="EDITOR_ID_PieItemPropsRow1">
+	      <TD>
+		<DIV id="EDITOR_ID_PieItemPinnedProps">
+		  [Pie Item Pinned Props]
+		</DIV>
+		<INPUT id="EDITOR_ID_PieItemPropPinButton"
+		  STYLE="float:right"
+		  TYPE="BUTTON"
+		  VALUE="Pin"
+		  ONCLICK="TARGET_ID.PinPieItemProp(TARGET_ID.curpieitemprop);"/>
+		<DIV>
+		  <B>Edit item Property:</B>
+		  <SPAN
+		    id="EDITOR_ID_PieItemPropSelectorDiv">
+		    [Pie Item Prop Selector]
+		  </SPAN>
+		</DIV>
+		<DIV>
+		  <B>Description:</B>
+		  <SPAN
+		    id="EDITOR_ID_PieItemPropDescription">
+		    [Pie Item Prop Description]
+		  </SPAN>
+		</DIV>
+	      </TD>
+	    </TR>
+	    <TR id="EDITOR_ID_PieItemPropsRow2">
+	      <TD>
+		<DIV id="EDITOR_ID_PieItemPropEditor">
+		  [Pie Menu Prop Editor]
+		</DIV>
+	      </TD>
+	    </TR>
+	    <TR id="EDITOR_ID_PieItemPropsRow3">
+	      <TD>
+	      </TD>
+	    </TR>
+	    <TR id="EDITOR_ID_PieItemPropsRow4">
+	      <TD>
+		<DIV id="EDITOR_ID_PieEditorCommands">
+		  <INPUT
+		    ID="EDITOR_ID_AddPieItemButton"
+		    TYPE="BUTTON"
+		    VALUE="Add Item"
+		    ONCLICK="TARGET_ID.AddPieItem();"
+		  /><INPUT
+		    ID="EDITOR_ID_InsertPieItemButton"
+		    TYPE="BUTTON"
+		    VALUE="Add Item Before"
+		    ONCLICK="TARGET_ID.InsertPieItem();"
+		  /><INPUT
+		    ID="EDITOR_ID_AppendPieItemButton"
+		    TYPE="BUTTON"
+		    VALUE="Add Item After"
+		    ONCLICK="TARGET_ID.AppendPieItem();"
+		  /><INPUT
+		    ID="EDITOR_ID_DeletePieItemButton"
+		    TYPE="BUTTON"
+		    VALUE="Delete Item"
+		    ONCLICK="TARGET_ID.DeletePieItem();"
+		  /><INPUT
+		    ID="EDITOR_ID_AddSubMenuButton"
+		    TYPE="BUTTON"
+		    VALUE="Add Sub Menu"
+		    ONCLICK="TARGET_ID.AddSubMenu();"
+		  /><INPUT
+		    ID="EDITOR_ID_DeleteSubMenuButton"
+		    TYPE="BUTTON"
+		    VALUE="Delete Sub Menu"
+		    ONCLICK="TARGET_ID.DeleteSubMenu();"/>
+		</DIV>
+	      </TD>
+	    </TR>
+	  </TABLE>
+	</DIV>
+      </xhtmltemplates>
+
+    </appinfo>
+
+  </annotation>
+
+</schema>

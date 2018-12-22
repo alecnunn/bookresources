@@ -1,0 +1,6 @@
+LOADLIBES = -lGL -lglut -lMesaGLU -L/usr/X11R6/lib -lX11 \
+	-lXi -lXmu
+
+demolib: demolib.o gpgtext.o mtxlib.o spinner.o vectorcamera.o
+	$(CC) *.o -o demolib $(LOADLIBES)
+

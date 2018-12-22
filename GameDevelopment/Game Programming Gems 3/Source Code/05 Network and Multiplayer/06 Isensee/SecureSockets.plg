@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SecureSockets - Win32 Profile--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Documents and Settings\Dante\Local Settings\Temp\RSPB6.tmp" with contents
+[
+/nologo /Gz /ML /W4 /GX /O2 /Ob2 /D "NDEBUG" /D "_MBCS" /D "WIN32" /D "_CONSOLE" /D _WIN32_WINNT=0x0500 /Fo"Profile/" /Fd"Profile/" /FD /c 
+"C:\temp\Code\Network\Secure_Sockets\Buffer.cpp"
+"C:\temp\Code\Network\Secure_Sockets\Crypto.cpp"
+"C:\temp\Code\Network\Secure_Sockets\Main.cpp"
+"C:\temp\Code\Network\Secure_Sockets\SADatabase.cpp"
+"C:\temp\Code\Network\Secure_Sockets\SecureBuffer.cpp"
+"C:\temp\Code\Network\Secure_Sockets\SecurityAssociation.cpp"
+"C:\temp\Code\Network\Secure_Sockets\TestCrypto.cpp"
+]
+Creating command line "cl.exe @"C:\Documents and Settings\Dante\Local Settings\Temp\RSPB6.tmp"" 
+Creating temporary file "C:\Documents and Settings\Dante\Local Settings\Temp\RSPB7.tmp" with contents
+[
+kernel32.lib user32.lib advapi32.lib ws2_32.lib /nologo /subsystem:console /profile /machine:I386 /out:"Profile/SecureSockets.exe" 
+.\Profile\Buffer.obj
+.\Profile\Crypto.obj
+.\Profile\Main.obj
+.\Profile\SADatabase.obj
+.\Profile\SecureBuffer.obj
+.\Profile\SecurityAssociation.obj
+.\Profile\TestCrypto.obj
+]
+Creating command line "link.exe @"C:\Documents and Settings\Dante\Local Settings\Temp\RSPB7.tmp""
+<h3>Output Window</h3>
+Compiling...
+Buffer.cpp
+Crypto.cpp
+Main.cpp
+SADatabase.cpp
+SecureBuffer.cpp
+SecurityAssociation.cpp
+TestCrypto.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SecureSockets.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

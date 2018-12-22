@@ -1,0 +1,14 @@
+ps.1.1
+
+;This is the tile texture
+tex t0
+
+;This is a little unnecessarily convoluted.
+;The diffuse lighting factor (v1) is multiplied by the
+;smudge factor in the alpha channel of the texture.
+;After that, an ambient lighting value (v0) is added.
+mad r0, v1, t0.a, v0
+
+;Multiply the complete lighting factor by the texture
+;to get the final output (r0)
+mul r0, r0, t0

@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SphereTest - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPB014.TMP" with contents
+[
+/nologo /G5 /Zp1 /ML /W3 /GX /Zi /Ox /Ot /Og /Oi /Oy- /Ob2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /FAs /Fa"Release/" /Fp"Release/SphereTest.pch" /YX /Fo"Release/" /Fd"Release/" /FD /QIfist /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\03 Ratcliff\circle.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\03 Ratcliff\frustum.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\03 Ratcliff\main.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\03 Ratcliff\sphere.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\03 Ratcliff\spherepack.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPB014.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPB015.TMP" with contents
+[
+winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /profile /debug /machine:I386 /out:"Release/SphereTest.exe" 
+".\Release\circle.obj"
+".\Release\frustum.obj"
+".\Release\main.obj"
+".\Release\sphere.obj"
+".\Release\spherepack.obj"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPB015.TMP"
+<h3>Output Window</h3>
+Compiling...
+circle.cpp
+frustum.cpp
+main.cpp
+sphere.cpp
+spherepack.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+SphereTest.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

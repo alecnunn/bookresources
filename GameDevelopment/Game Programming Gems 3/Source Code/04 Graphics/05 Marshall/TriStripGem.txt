@@ -1,0 +1,10 @@
+Triangle Strip Creation, Optimizations, and Rendering Gem
+
+To Load:
+Open File \TSViewer\TSViewer.dsw
+
+Set the TSViewer as your active project.  To do this, right click on TSViewer and
+Select Set as Active Project.
+
+TSGen\TSGen.lib is the library for creating triangle strips
+TSGen\TS.h      is the header file to access funtions in TSGen.lib

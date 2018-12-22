@@ -1,0 +1,135 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Mode  Class Reference</h1>Describes a display mode. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcMode-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcMode.html#a0">Mode</a> ()
+<li><a class="el" href="class_ptcMode.html#a1">Mode</a> (int width,int height,const Format &amp;format)
+<li><a class="el" href="class_ptcMode.html#a2">Mode</a> (const Mode &amp;mode)
+<li><a class="el" href="class_ptcMode.html#a3">~Mode</a> ()
+<li>bool <a class="el" href="class_ptcMode.html#a4">valid</a> () const
+<li>int <a class="el" href="class_ptcMode.html#a5">width</a> () const
+<li>int <a class="el" href="class_ptcMode.html#a6">height</a> () const
+<li>const Format&amp; <a class="el" href="class_ptcMode.html#a7">format</a> () const
+<li>Mode&amp; <a class="el" href="class_ptcMode.html#a8">operator=</a> (const Mode &amp;mode)
+<li>bool <a class="el" href="class_ptcMode.html#a9">operator==</a> (const Mode &amp;mode) const
+<li>bool <a class="el" href="class_ptcMode.html#a10">operator!=</a> (const Mode &amp;mode) const
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Describes a display mode.
+<p>
+The mode class describes a display mode with a specific width, height and pixel format.
+<p>
+Mode objects are typically used with <a class="el" href="class_ptcConsole.html#a4">Console::modes</a>() and <a class="el" href="class_ptcConsole.html#a8">Console::open</a>()(const char title[],const Mode &amp;mode,int pages). <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Mode::Mode"></a>ptc::Mode::Mode ()</h3>
+<div class="in">
+
+<p>
+Default constructor.
+<p>
+The display mode object created by the default constructor is an <em>invalid</em> mode.
+<p>
+See <a class="el" href="class_ptcMode.html#a4">Mode::valid</a>() for details. </div>
+
+<h3><a name="a1" doxytag="ptc::Mode::Mode"></a>ptc::Mode::Mode (int <em>width</em>, int <em>height</em>, const Format &amp; <em>format</em>)</h3>
+<div class="in">
+
+<p>
+Creates a display mode object of dimensions <em>width</em> x <em>height</em> pixels and a pixel format of <em>format.</em>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>width</em> -  the mode width. <dd>
+<em>height</em> -  the mode height. <dd>
+<em>format</em> -  the mode format. </dl></div>
+
+<h3><a name="a2" doxytag="ptc::Mode::Mode"></a>ptc::Mode::Mode (const Mode &amp; <em>mode</em>)</h3>
+<div class="in">
+
+<p>
+Copy constructor. </div>
+
+<h3><a name="a3" doxytag="ptc::Mode::~Mode"></a>ptc::Mode::~Mode ()</h3>
+<div class="in">
+
+<p>
+Destructor. </div>
+
+<h3><a name="a4" doxytag="ptc::Mode::valid"></a>bool ptc::Mode::valid () const</h3>
+<div class="in">
+
+<p>
+Tests whether the mode is valid.
+<p>
+A display mode is invalid when it was created by the default constructor.
+<p>
+Typically this function is used to check for the invalid display mode that terminates the console mode list.
+<p>
+See <a class="el" href="class_ptcBaseConsole.html#a2">BaseConsole::modes</a>() for more information.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+<em>true</em> if the mode is valid, <em>false</em> otherwise. </dl></div>
+
+<h3><a name="a5" doxytag="ptc::Mode::width"></a>int ptc::Mode::width () const</h3>
+<div class="in">
+
+<p>
+Gets the width of the display mode in pixels.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The mode width. </dl></div>
+
+<h3><a name="a6" doxytag="ptc::Mode::height"></a>int ptc::Mode::height () const</h3>
+<div class="in">
+
+<p>
+Gets the height of the display mode in pixels.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The mode height. </dl></div>
+
+<h3><a name="a7" doxytag="ptc::Mode::format"></a>const Format &amp; ptc::Mode::format () const</h3>
+<div class="in">
+
+<p>
+Gets the pixel format of the display mode.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The mode format. </dl></div>
+
+<h3><a name="a8" doxytag="ptc::Mode::operator="></a>Mode &amp; ptc::Mode::operator= (const Mode &amp; <em>mode</em>)</h3>
+<div class="in">
+
+<p>
+Assignment operator. </div>
+
+<h3><a name="a9" doxytag="ptc::Mode::operator=="></a>bool ptc::Mode::operator== (const Mode &amp; <em>mode</em>) const</h3>
+<div class="in">
+
+<p>
+Equality operator. </div>
+
+<h3><a name="a10" doxytag="ptc::Mode::operator!="></a>bool ptc::Mode::operator!= (const Mode &amp; <em>mode</em>) const</h3>
+<div class="in">
+
+<p>
+Inequality operator. </div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

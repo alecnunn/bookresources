@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>Windows Extensions</title>
+</head>
+
+<body TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#824250" VLINK="#51188E" ALINK="#FF0000"
+BACKGROUND="white.gif">
+
+<h1 align="left"><font face="Arial" size="7">Windows Extensions</font></h1>
+
+<h3><br>
+<font face="Arial">Introduction</font></h3>
+
+<p>The core platform independent standard of OpenPTC 1.0 exposes a lot of common
+functionality across a large range of different graphics platforms. However, some things,
+no matter how useful, just dont make any sense in a platform independent standard so they
+had to be left out.<br>
+<br>
+So that users of OpenPTC can still have full access to the underlying graphics platform
+functionality that they need, each distribution implements extensions to the standard.
+These extensions are protected by signature defines for portability.<br>
+<br>
+The signature define of OpenPTC for Windows is __PTC_WIN32__, and the signature define for
+the OpenPTC for Windows extensions is __PTC_WIN32_EXTENSIONS__.<br>
+<br>
+If you choose to use any of the extensions below, you should make sure that you wrap the
+code with #ifdef __PTC_WIN32_EXTENSIONS__ for portability to other platforms.<br>
+<br>
+You can also use the signature define __PTC_WIN32__ to wrap around the WinMain and main so
+that your application is compilable on Win32 and other platforms without any changes.</p>
+
+<h3><br>
+<font face="Arial">Console Extensions</font></h3>
+
+<pre>HWND Console::window()</pre>
+
+<ul>
+  <li>This function returns the current window handle of the console.</li>
+  <li>This handle is only valid between open and close.</li>
+  <li>Be careful what you do with the window handle, as you may cause problems with normal PTC
+    operation if you do not know what you are doing.</li>
+</ul>
+
+<pre>LPDIRECTDRAW Console::lpDD()</pre>
+
+<ul>
+  <li>This function returns a pointer to the current direct draw interface.</li>
+  <li>This interface is only valid between open and close.</li>
+  <li>You should in general use the lpDD, instead use the lpDD2 below.</li>
+  <li>Be careful what you do with this interface, as you may cause problems with normal PTC
+    operation if you do not know what you are doing.</li>
+</ul>
+
+<pre>LPDIRECTDRAW2 Console::lpDD2()</pre>
+
+<ul>
+  <li>This function returns a pointer to the current direct draw 2 interface.</li>
+  <li>This interface is only valid between open and close.</li>
+  <li>You should use the lpDD2 instead of lpDD.</li>
+  <li>Be careful what you do with this interface, as you may cause problems with normal PTC
+    operation if you do not know what you are doing.</li>
+</ul>
+
+<pre>LPDIRECTDRAWSURFACE Console::lpDDS()</pre>
+
+<ul>
+  <li>This function returns a pointer to the back buffer of the current direct draw primary
+    surface, or, if a secondary surface exists, it returns a pointer to that surface instead.</li>
+  <li>This interface is only valid between open and close.</li>
+  <li>Be careful what you do with this interface, as you may cause problems with normal PTC
+    operation if you do not know what you are doing. </li>
+</ul>
+
+<pre>LPDIRECTDRAWSURFACE Console::lpDDS_primary()</pre>
+
+<ul>
+  <li>This function returns a pointer to the primary surface (ie. the actual primary surface,
+    not the back buffer of the primary surface, or the secondary surface).</li>
+  <li>This interface is only valid between open and close. </li>
+  <li>Be careful what you do with this interface, as you may cause problems with normal PTC
+    operation if you do not know what you are doing.</li>
+</ul>
+
+<pre>LPDIRECTDRAWSURFACE Console::lpDDS_secondary()</pre>
+
+<ul>
+  <li>This function returns a pointer to the secondary surface the return value is NULL if a
+    secondary surface does not exist. </li>
+  <li>Typically secondary surfaces exist in windowed output and in some special fullscreen
+    output modes.</li>
+  <li>This interface is only valid between open and close. </li>
+  <li>Be careful what you do with this interface, as you may cause problems with normal PTC
+    operation if you do not know what you are doing.</li>
+</ul>
+
+<pre>void Console::open(HWND window,int pages = 0);
+void Console::open(HWND window,const Format &amp;format,int pages = 0);
+void Console::open(HWND window,int width,int height,const Format &amp;format,int pages = 0);
+void Console::open(HWND window,const Mode &amp;mode,int pages = 0);</pre>
+
+<ul>
+  <li>This group of open functions allow you to create and manage the display window yourself
+    instead of having the ptc console manage the window for you.</li>
+  <li>See the extensions example &quot;WndProc&quot; for an example of how to do this.</li>
+  <li>It is highly recommended that you let the console manage the window for you unless you
+    absolutely need to manage the HWND yourself.</li>
+</ul>
+</body>
+</html>

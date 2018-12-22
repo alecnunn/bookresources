@@ -1,0 +1,3 @@
+[ZFXWSDevice]: online (waiting for initialization call)
+[ZFXWSDevice]: shutting down WinSock
+[ZFXWSDevice]: offline (ok)

@@ -1,0 +1,368 @@
+<html>
+<head>
+<center>
+<title> MahJong Rules </title>
+<h1> MahJong Rules </h1>
+Copyright &#169 1996
+<a href="http://www.math.princeton.edu/~ztfeng/">Thomas Zuwei Feng</a>
+</center>
+<p>
+This document describes MahJong rules and their incarnation on the
+Internet MahJong Server (IMS).
+<ul>
+<li>	<a href="#Tiles">MahJong Tiles</a>
+<li>	<a href="#Sets">Sets of Tiles</a>
+<li>	<a href="#Round">Games and Rounds</a>
+<li>	<a href="#Game">A MahJong Game</a>
+<li>	<a href="#Opts">IMS Table Options</a>
+<li>	<a href="#Scoring">IMS Scoring System</a>
+</ul>
+</head>
+<body>
+<a name="Tiles"></a>
+<h2> MahJong Tiles </h2>
+There are a total of 144 tiles in MahJong, they can be classified into the
+following categories:
+<h3> The Character Suit </h3>
+<img src="tiles/T1.gif">
+<img src="tiles/T2.gif">
+<img src="tiles/T3.gif">
+<img src="tiles/T4.gif">
+<img src="tiles/T5.gif">
+<img src="tiles/T6.gif">
+<img src="tiles/T7.gif">
+<img src="tiles/T8.gif">
+<img src="tiles/T9.gif">
+<h3> The Ball Suit </h3>
+<img src="tiles/T10.gif">
+<img src="tiles/T11.gif">
+<img src="tiles/T12.gif">
+<img src="tiles/T13.gif">
+<img src="tiles/T14.gif">
+<img src="tiles/T15.gif">
+<img src="tiles/T16.gif">
+<img src="tiles/T17.gif">
+<img src="tiles/T18.gif">
+<h3> The Bamboo (or Stick) Suit </h3>
+<img src="tiles/T19.gif">
+<img src="tiles/T20.gif">
+<img src="tiles/T21.gif">
+<img src="tiles/T22.gif">
+<img src="tiles/T23.gif">
+<img src="tiles/T24.gif">
+<img src="tiles/T25.gif">
+<img src="tiles/T26.gif">
+<img src="tiles/T27.gif">
+<p>
+From left to right, the tiles have values 1 to 9.
+There are 4 tiles for each value.
+<a name="Tiles_Words"></a>
+<h3> The Winds and Dragons (collectively called Words) </h3>
+<img src="tiles/T28.gif">
+<img src="tiles/T29.gif">
+<img src="tiles/T30.gif">
+<img src="tiles/T31.gif">
+<img src="tiles/T32.gif">
+<img src="tiles/T33.gif">
+<img src="tiles/T34.gif">
+<p>
+The first 4 are <B>wind tiles</B> that correspond to the 4 directions: 
+<B>East</B>, <B>South</B>, <B>West</B>,
+and <B>North</B>.  There are 4 for each of these tiles.
+This is also the order players' seats are named on the MahJong table:
+starting from the <B>dealer</B> being <B>East</B>, 
+rotating counterclockwise up to <B>North</B>.
+<p>
+The last 3 are <B>dragon tiles</B>, again there are 4 of each.
+<h3> The Flowers </h3>
+<img src="tiles/T35.gif">
+<img src="tiles/T36.gif">
+<img src="tiles/T37.gif">
+<img src="tiles/T38.gif">
+<img src="tiles/T39.gif">
+<img src="tiles/T40.gif">
+<img src="tiles/T41.gif">
+<img src="tiles/T42.gif">
+<p>
+All the flower tiles are distinct.  They are not normal tiles and
+play relatively minor roles in MahJong, mostly to introduce the factor
+of "luck".
+Some versions don't even use them, but we do.
+
+<a name="Sets"></a>
+<h2> Sets of Tiles </h2>
+Here are some terminologies for certain sets of MahJong tiles.
+Various people have various different names for them so beware.
+<ul>
+<a name="Set_Pair"></a>
+<li>	A <B>pair</B> is a set of 2 identical tiles.  
+<br>	For example:
+<img src="tiles/T13.gif"><img src="tiles/T13.gif"> or
+<img src="tiles/T30.gif"><img src="tiles/T30.gif">.
+<a name="Set_Conn"></a>
+<li>	A <B>connection</B> is a set of 3 tiles of the same suit,
+in consecutive values.  
+<br>	For example:
+<img src="tiles/T5.gif"><img src="tiles/T6.gif"><img src="tiles/T7.gif"> or
+<img src="tiles/T10.gif"><img src="tiles/T11.gif"><img src="tiles/T12.gif">.
+Note that you cannot form a connection with word tiles.
+<a name="Set_Trip"></a>
+<li>	A <B>triplet</B> is a set of 3 identical tiles. 
+<br>	For example:
+<img src="tiles/T20.gif"><img src="tiles/T20.gif"><img src="tiles/T20.gif"> or
+<img src="tiles/T33.gif"><img src="tiles/T33.gif"><img src="tiles/T33.gif">.
+<a name="Set_Quad"></a>
+<li>	A <B>quadruplet</B> is a set of 4 identical tiles.  
+<br>	For example:
+<img src="tiles/T28.gif"><img src="tiles/T28.gif"><img
+src="tiles/T28.gif"><img src="tiles/T28.gif">.
+</ul>
+A [normal] <B>winning pattern</B> consists of 5 sets of normal tiles.
+One of the sets must be a <B>pair</B>, the other 4 sets can be
+<B>connections</B>, <B>triplets</B>, or <B>quadruplets</B>.
+You can also have any number (including 0) of <B>flower</B> tiles.
+Here is an example:
+<p>
+<img src="tiles/T1.gif"><img src="tiles/T2.gif"><img src="tiles/T3.gif">
+<img src="tiles/T18.gif"><img src="tiles/T18.gif"><img src="tiles/T18.gif">
+<img src="tiles/T19.gif"><img src="tiles/T19.gif"><img
+src="tiles/T19.gif"><img src="tiles/T19.gif">
+<img src="tiles/T28.gif"><img src="tiles/T28.gif"><img src="tiles/T28.gif">
+<img src="tiles/T34.gif"><img src="tiles/T34.gif">
+
+<a name="Round"></a>
+<h2> Games and Rounds </h2>
+There are 4 players on the table.  A random player is chosen to be the
+<B>dealer</B>.  Each player then gets assigned a <B>seat wind</B>, starting
+from the <B>dealer</B> being <B>East</B>, proceeding counterclockwise in
+the order of the <a href="#Tiles_Words"><B>wind tiles</B></a>.
+There is also a <B>round wind</B> for each game, for the very first game
+it's always <B>East</B>.
+<p>
+If the <B>dealer</B> wins the game or if the game is a draw,
+then he remains the <B>dealer</B> for the next game.
+However, if someone other than the <B>dealer</B> wins the game,
+then the next player in turn (who used to be <B>South</B>) will
+be the <B>dealer</B> for the next game.
+<p>
+When the <B>dealer</B> has rotated a full round back to the very first one,
+the <B>round wind</B> rotates to the next one in the <a href="#Tiles_Words">
+<B>wind tiles</B></a>.
+
+<a name="Game"></a>
+<h2> A MahJong Game </h2>
+In a MahJong game, each player conceals his private hand of tiles and 
+reveals some of them as the game progresses.
+Once some tiles are revealed, the player can no longer touch them.
+There is also a big stockpile of concealed tiles to be drawn from.
+<p>
+To <B>draw</B> a tile, a player takes a tile from the stockpile on the table.
+If it is a <B>flower</B>, he reveals it and keeps drawing until he gets a
+normal tile.
+<B>NB</B>: in normal games, players draw tiles from the beginning or the
+end of the stockpile depending on the situation.  We don't make that
+distinction in IMS.
+<p>
+Initially, each player draws 13 tiles.  The <B>dealer</B> draws a 14th one,
+and the game starts, the <B>dealer</B> having the <B>turn</B>.
+<p>
+<a name="Game_Turn"></a>
+The player in <B>turn</B> has the following options:
+<ul>
+<li>	<B>Discard</B> a tile.  
+<br>	To do this in IMS, click on that tile, and press <B>[Discard]</B>.
+<li>	Form a <a href="#Set_Quad"><B>quadruplet</B></a>
+if he has 4 identical tiles in his private hand.  
+Thus he makes a <B>concealed quadruplet</B>: 
+the set of quadruplet has revealed status, but
+the other players cannot see them until the game ends.
+The player then <B>draw</B>s another tile to compensate for the quadruplet.
+<br>	To do this in IMS, click on one of the 4 tiles, and press
+<B>[Quadruplet]</B>.
+<li>	Form a <a href="#Set_Quad"><B>quadruplet</B></a> 
+if he already has a revealed <a href="#Set_Trip"><B>triplet</B></a> and
+now has a 4th tile of the same kind.  This play may put the player at the
+risk of <B>feed</B>ing another player's winning hand and count as a
+<B>robbing quadruplet</B>.
+If the play is safe, then the player makes a <B>revealed quadruplet</B>,
+and <B>draw</B>s another tile to compensate.
+<br>	To do this in IMS, click on the 4th tile, and press
+<B>[Quadruplet]</B>.
+<li>	Win the game, if he has a winning pattern.
+<br>	To do this in IMS, simply press <B>[MahJong]</B>.
+</ul>
+If the player doesn't win, eventually he has to <B>discard</B> a tile.
+Then the other 3 players make <B>bid</B>s for that tile and the next
+turn to play.
+<p>
+For the <B>immediate successor</B> (in counterclockwise order)
+of the player who just made the <B>discard</B>,
+he has the following choices:
+<ul>
+<li>	<B>Bid</B> to <B>draw</B> another tile.
+<br>	To do this in IMS, press <B>[Draw]</B>.
+<li>	<B>Bid</B> to make a <a href="#Set_Conn"><B>connection</B></a> with
+the discarded tile and 2 other tiles in his private hand.
+<br>	To do this in IMS, press one of the 3 corresponding 
+<B>[Connect]</B> buttons.
+<li>	<B>Bid</B> to make a <a href="#Set_Trip"><B>triplet</B></a> with
+the discarded tile and 2 same tiles in his private hand.
+<br>	To do this in IMS, press <B>[Triplet]</B>.
+<li>	<B>Bid</B> to make a <a href="#Set_Quad"><B>quadruplet</B></a> with
+the discarded tile and 3 same tiles in his private hand.
+<br>	To do this in IMS, press <B>[Quadruplet]</B>.
+<li>	<B>Bid</B> to win the game (with a winning pattern)
+after grabbing the discarded tile.
+<br>	To do this in IMS, press <B>[MahJong]</B>.
+</ul>
+For the other 2 players, they have the following choices:
+<ul>
+<li>	<B>Bid</B> to <B>pass</B>, i.e. do nothing.
+<br>	To do this in IMS, press <B>[Pass]</B>.
+<li>	<B>Bid</B> to make a <a href="#Set_Trip"><B>triplet</B></a> with
+the discarded tile and 2 same tiles in his private hand.
+<br>	To do this in IMS, press <B>[Triplet]</B>.
+<li>	<B>Bid</B> to make a <a href="#Set_Quad"><B>quadruplet</B></a> with
+the discarded tile and 3 same tiles in his private hand.
+<br>	To do this in IMS, press <B>[Quadruplet]</B>.
+<li>	<B>Bid</B> to win the game (with a winning pattern)
+after grabbing the discarded tile.
+<br>	To do this in IMS, press <B>[MahJong]</B>.
+</ul>
+Note that only the <B>immediate successor</B> can make <B>connection</B>s.
+<p>
+<B>Bid</B>s have the following order of precedence:
+<br>
+<B>pass</B> &lt <B>draw</B> &amp <B>connection</B> &lt <B>triplet</B> &amp
+<B>quadruplet</B> &lt <B>MahJong</B>.
+<p>
+If the table allows <B>multiple wins</B>, then all players who claims
+<B>MahJong</B> win the game.
+Otherwise, only the <B>closest successor</B> (in counterclockwise order)
+of the player who just made the <B>discard</B> wins.
+The player who just made the <B>discard</B> is the <B>feed</B>er.
+<p>
+If nobody wins, the player who has the highest <B>bid</B> makes his play:
+<ul>
+<li>	If his bid is <B>draw</B>, he draws a tile from the stockpile.
+The game is declared a draw (i.e. nobody wins) if the stockpile has
+less than 14 tiles.
+<li>	If his bid is <B>connection</B> or <B>triplet</B>, he forms a new
+revealed set with the discarded tile and his 2 other tiles.
+<li>	If his bid is <B>quadruplet</B>, he forms a new revealed set with
+the discarded tile and his 3 other tiles, then draws another tile to
+compensate.
+</ul>
+Then, this player gets the next <a href="#Game_Turn"><B>turn</B></a>.
+<p>
+After someone wins the game, or if the game is a draw,
+the <B>dealer</B>, <B>round wind</B> and <B>seat wind</B>s are rearranged
+(see <a href="#Round">Games and Rounds</a>) and a new game starts.
+
+<a name="Opts"></a>
+<h2> IMS Table Options </h2>
+There are certain options that you can set in IMS to have minor changes
+on the game and scoring.
+They are there mainly because there are literally dozens of different 
+MahJong conventions, and we try to accomodate them within the general
+framework set of IMS.
+<ul>
+<li>	<B>Count Flowers</B>.  This option controls whether or not possession
+	of <B>flower tiles</B> should be rewarded.  The reward is not much
+	(1 point per flower towards the final score), but there are versions
+	of MahJong where flower tiles are not used at all, so turning this
+	option off approximates those conventions.
+<li>	<B>Multiple Wins</B>.  There are rare occasions when one player
+	discards a tile that makes 2 or even all 3 of the other players
+	complete a winning pattern.  In some conventions, only the nearest
+	successor (in counterclockwise order) of that player can win, whereas
+	in other conventions, all the players with a winning pattern can win.
+<li>	<B>Minimum Fan</B>.  This option deals with the
+	<a href="#Scoring">IMS scoring system</a>, which uses the notion
+	<I>fan</I> that roughly measures how "good" a winning pattern is.
+	Some gamblers set a minimum score in order to win.  In IMS, you can
+	impose a minimum <I>fan</I> of 0 or 2.  A minimum <I>fan</I> of 2
+	is pretty restrictive, and some players think it downplays some
+	MahJong strategies.
+</ul>
+	
+<a name="Scoring"></a>
+<h2> IMS Scoring System </h2>
+For each winning hand, we calculate two variables: <I>fan</I> and
+<I>bonus</I>.  <I>Fan</I> is calculated additively from the following rules,
+up to a maximum of 13.
+<p>
+We refer the reader to <a href="#Tiles">MahJong Tiles</a> and
+<a href="#Sets">Sets of Tiles</a> for some
+terminologies used below.
+<ul>
+<li>	Each triplet (or quadruplet) of the player's 
+<a href="#Round"><B>seat wind</B></a> adds 1 <I>fan</I>.
+<li>	Each triplet (or quadruplet) of the current 
+<a href="#Round"><B>round wind</B></a> adds 1 <I>fan</I>.
+<li>	Each triplet (or quadruplet) of the 
+<a href="#Tiles_Words"><B>dragon tiles</B></a> adds 1 <I>fan</I>.
+<li>	Each quadruplet (concealed or revealed) adds 1 <I>fan</I>.
+<li>	"All Connections" (4 sets of connections) adds 1 <I>fan</I>.
+<li>	"3 Sisters" (3 sets of connections in the same values in 
+3 different suits) adds 1 <I>fan</I>.
+<li>	"Snake" (3 sets of connections with values 
+(1 2 3), (4 5 6), (7 8 9) in the same suit).  
+If at least one of these 3 sets is revealed, it's a
+"Revealed Snake", adds 2 <I>fan</I>.  If all of the 3 sets are concealed, it's
+a "Concealed Snake", adds 3 <I>fan</I>.
+<li>	"All Triplets" (4 sets of triplets) adds 3 <I>fan</I>.  If all the
+tiles are word tiles, it's a "Pure Words", adds <I>max fan</I>.
+<li>	"All 1&9" (all non-word sets contain 1 or 9), adds 2 <I>fan</I>.
+<li>	"One Mixed Suit" (Except for 
+<a href="#Tiles_Words">word</a> tiles, all other tiles 
+belong to one suit), adds 3 <I>fan</I>.  If the hand has no word
+tiles, it's a "One Pure Suit", adds 6 <I>fan</I>.
+<li>	"Front Door Clean" (no revealed sets when winning, does not apply to
+special patterns below) adds 1 <I>fan</I>.
+<li>	"All Grabs" (all sets, including the final pair, are formed by
+grabbing) adds 1 <I>fan</I>.
+<li>	"Rob Quadruplet" (winning by grabbing the 4th tile of someone's
+quadruplet) adds 1 <I>fan</I>.
+<li>	"Win on Flower" (winning after drawing a flower tile or after making a
+quadruplet) adds 1 <I>fan</I>.
+</ul>
+Plus the following <B>special patterns</B>:
+<ul>
+<li>	"7 Pairs" (7 sets of pairs) worth 5 <I>fan</I>.  If all the tiles
+belong to one suit or to the words, it's a "Pure 7 Pairs", 
+worth <I>max fan</I>.
+<li>	"13 Individuals" (strictly (1 4 7), (2 5 8), (3 6 9) in 3 different
+suits, plus 3 words and a distinct word pair) worth 6 <I>fan</I>.
+<li>	"13 Orphans" (6 different 1's and 9's plus 7 different words, plus
+another of the above 13) worth <I>max fan</I>.
+</ul>
+The <I>bonus</I> is calculated as follows:
+<ul>
+<li>	If the flag <B>count flowers</B> is on, each flower counts as 1
+<I>bonus</I>. 
+<li>	Each concealed quadruplet counts as 2 <I>bonus</I>.
+<li>	The current dealer gets 5 <I>bonus</I>.
+</ul>
+The <I>score</I> of a hand is calculated by:
+<ul>
+<li>	If <I>fan</I> &lt=4, <I>score</I> = 2 ^ <I>fan</I> + <I>bonus</I>.
+<li>	If <I>fan</I> &gt=4, <I>score</I> = <I>fan</I> ^ 2 + <I>bonus</I>.
+</ul>
+Payment in terms of points is made by:
+<ul>
+<li>	If you self-feed, every player pays you <I>score</I> points.
+<li>	If someone <B>feed</B>s you, he pays you <I>score</I> points.  
+The other 2 players pay you <I>bonus</I> points.
+</ul>
+
+</body>
+<center>
+|<a href="http://www.math.princeton.edu/~ztfeng/mj_servers.html">Meta-Server</a>
+|<a href="copyright.html">Copyright</a>
+|<a href="mj_ims.html">Introduction</a>
+|<a href="mj_rules.html">MahJong Rules</a>
+|<a href="mj_new.html">What's New</a>
+|
+</center>
+</html>

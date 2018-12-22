@@ -1,0 +1,105 @@
+
+
+Source code for article:
+
+"Inverse Dynamic Displacement Constraints in Real-Time Cloth and Soft Body Models."
+by Maciej Matyka, document done: Linkoping 18.III.2003
+University of Wroclaw
+email: maq@panoramix.ift.uni.wroc.pl
+url:   http://panoramix.ift.uni.wroc.pl/~maq
+
+
+Short Description:
+
+	There you can find my source code for Soft Body simulator which base
+	on displacement constrains. It has been prepared especially for GPM
+	book published by Charles River Media publisher.
+
+
+Compatibility:
+
+	Program has been written under Windows operating system and is prepared 
+	for compiling under standard VisualC++ Enviroment. I did not check it
+	under other programming enviroments nor under linux. I suppose that it should
+	work under all operating systems which supports requirements (see Requirements
+	section).
+
+Requirements:
+
+	- C/C++ Compiler
+	- STL Standard Template Library (I use only a little of STL so if somebody want 
+	  it - can cut off some parts of the code, i.e. <iostream> include.
+	- OpenGL and Glut support (standard in present days)
+	
+	And it is all. Not much, so I suppose with a little work it can be compiled
+	everywhere.
+		
+Features:
+
+	- source code provide full simulation of simple particle - mass engine
+	- inverse dynamics constrains implemented
+	- simple euler/midpoint method of numerical integration
+	- OpenGL - "State of The Art" visualization
+		- normal vectors calculation
+		- simple light models
+		- enviroment/texture mapping
+		- different types of soft body object representation
+	- physically correct but simple collision handling & response
+
+
+Comments about the Code:
+	
+	1. Do not learn C/C++ from that code. I am NOT good programmer, I just implement 
+	   my physics ideas.
+
+	2. Be carefull with changing of physical properties of the Enviroment. You can
+	   change everything, but be carefull with that. Some changes can make the simulation
+	   unstable.
+
+	4. Read next section - about most important part of the Code	
+
+
+Most important parts of the code:
+
+	Source code bases on my older program - simple spring - mass system. That is the 
+	reason why I will now focus you - reader on most importan parts of the code. I know
+	that my type of coding can be hard at the beginning state of reading, but: remember that
+	for you most important are:
+
+		1. SoftBody.cpp, SoftBody.h
+			They contains definition and implementation of Ball class which is 
+			very important there (but not most important). It is a huge class
+			which contains of Points, Springs and several methods generally
+			only for that type of simulated objects. There you will also find
+			visualization procedure with different types of visualization. Feel
+			free to change "int SoftBodydrawmode" global parameter. Some types
+			of other visualizations should work. Most important and interesting for 
+			you will be to change: "contrained lenghts" definitions in the code.
+			In provided source code - it is global for all soft bodies, but you can simply
+			implement it in the SotBody class.
+
+		2. Cloth.cpp, Cloth.h
+			Governing class for cloth simulation. As above - class is very similar
+			to SoftBody class in structure - everything which is need to define
+			the Cloth inside of particle - spring engine is included in the Class.
+
+		3. Physics.cpp, Physics.h
+			There you will find most important functions for calculating forces,
+			for implementation of constraints on springs etc.
+		
+		4. Newton.cpp, Newton.h
+			Sipmly - "main" files.
+
+Conclusion:
+	
+	I hope somebody will learn how to construct properly model of 3D physical enviroment.
+	I provide full spring-mass engine, because only CCC function which was described in 
+	my article will be hard to understand and to check without working code. I hope you 
+	will enjoy my style of 3D physically world construction. Feel free to comment my work.
+
+
+
+Additional information:
+	
+	Texture loading/handling part of that code has been done by Michal Staniszewski 
+	(Lodz University in Poland). Thank you Michal.

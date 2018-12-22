@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<TITLE> Comparing Text Face, Size and Alignment   </TITLE>
+</HEAD>
+<BODY>
+<H2> This paragraph will show comparisons of text written in 
+different sizes. </H2>
+<P> <FONT SIZE = "4" >  This is my first paragraph of text. Note the 
+size of font used in this sentence. </FONT>
+<FONT SIZE = "6"> See that the font size is bigger in this sentence 
+where I used font size = 6. </FONT> <FONT SIZE = "7">  This third 
+sentence shows text written even larger than the other two 
+sentences.</FONT>
+
+<H2> This next paragraph will show both different colors and faces 
+used for text.</H2>
+
+<P> <FONT   FACE = "Courier" COLOR = "red">  This sentence uses a 
+courier face and is written in red. </FONT> <FONT   FACE = "Geneva" 
+COLOR = "blue"> This sentence uses a Geneva face and is written in 
+blue. </FONT> <FONT   FACE = "Helvetica" COLOR = "green"> This 
+sentence uses a Helvetica face and is written in green. </FONT> <FONT 
+FACE = "Times" COLOR = "maroon"> This sentence uses a Times face and 
+is written in maroon. </FONT>
+
+<H2> This is the same size heading as the other two. </H2>
+
+<p> This paragraph will focus on the alignment of text. <CENTER> 
+Notice how this sentence is centered.</CENTER> This next sentence is 
+not centered.
+<p>
+<H2> Here is the last heading. I have used the heading tag.</H2>
+
+</BODY>
+<HTML>
+
+
+
+

@@ -1,0 +1,498 @@
+
+
+CGASignal  Turbine1
+{
+	File = "m_turbine01a11025s.wav";
+}
+
+CGASignal  Flap1
+{
+	File = "m_flap03.wav";
+}
+
+CGASignal  Flap2
+{
+	File = "m_flap12.wav";
+}
+
+CGASignal  Propeller1
+{
+	File = "m_propeller01.wav";
+}
+
+
+CGAPatch "Turbine"
+{
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.05;
+	}
+
+	CGAGlide Glide1
+	{
+		Time = 0.99995;
+	}
+	
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Turbine1;
+		FMAttenuation = 0.03;
+	}
+
+
+	Connection = LFO1,Glide1, SampleOut, SampleIn;
+	Connection = Glide1,Wave1, SampleOut, FM;
+
+}
+
+CGAPatch "Sequenced Rotor"
+{
+	CGASinCosOscillator SPEED1
+	{
+		Frequency = 0.05;
+	}
+
+	CGAGlide Glide1
+	{
+		Time = 0.99995;
+	}
+	
+	CGAImpulseGenerator TRIG1
+	{
+		Frequency = 6.0;
+		FMAttenuation = 0.1;
+	}
+
+
+	CGAWavetableOscillator Flap1Wave
+	{
+		Frequency = 1.0;
+		FMAttenuation = 0.1;
+		WaveTable = Flap1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator Flap2Wave
+	{
+		Frequency = 1.0;
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGASelector SEL1
+	{
+		Selection = 3;
+	}
+
+
+	Connection = SPEED1,TRIG1, SampleOut, FM;
+	Connection = TRIG1,Flap1Wave, SampleOut, TRIG;
+	Connection = TRIG1,Flap2Wave, SampleOut, TRIG;
+	Connection = TRIG1,SEL1, SampleOut, TRIG;	
+	Connection = Flap1Wave,SEL1, SampleOut, SampleIn1;
+	Connection = Flap2Wave,SEL1, SampleOut, SampleIn2;
+
+}
+
+
+CGAPatch "Sequenced PropRotor"
+{
+	CGASinCosOscillator SPEED1
+	{
+		Frequency = 0.05;
+	}
+
+	CGAGlide Glide1
+	{
+		Time = 0.99995;
+	}
+	
+	CGAImpulseGenerator TRIG1
+	{
+		Frequency = 6.0;
+		FMAttenuation = 0.1;
+	}
+
+	CGASinCosOscillator LFO2
+	{
+		Frequency = 3.0;
+		FMAttenuation = 0.1;
+	}
+
+	CGAWavetableOscillator PropWave
+	{
+		Frequency = 0.9;
+		WaveTable = Propeller1;
+		FMAttenuation = 0.1;
+	}
+
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 200.0;
+	}
+
+
+	CGAWavetableOscillator Flap1Wave
+	{
+		Frequency = 1.3;
+		FMAttenuation = 0.1;
+		WaveTable = Flap1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator Flap1Wave
+	{
+		Frequency = 1.25;
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGASelector SEL1
+	{
+		Selection = 3;
+	}
+
+	CGAMixer3 MIX1
+	{
+		InputGain1 = 0.8;
+
+	}
+
+	Connection = SPEED1,TRIG1, SampleOut, FM;
+
+	Connection = SPEED1,LFO2, SampleOut, FM;
+	Connection = SPEED1,LPF1, SampleOut, FM;
+
+	Connection = LFO2,PropWave, SampleOut, TRIG;
+	Connection = LFO2,PropWave, SampleOut, FM;
+	Connection = LFO2,LPF1, SampleOut, FM;
+	Connection = PropWave,LPF1, SampleOut, SampleIn;
+
+	Connection = TRIG1,Flap1Wave, SampleOut, TRIG;
+	Connection = TRIG1,Flap2Wave, SampleOut, TRIG;
+	Connection = TRIG1,SEL1, SampleOut, TRIG;	
+	Connection = Flap1Wave,SEL1, SampleOut, SampleIn1;
+	Connection = Flap2Wave,SEL1, SampleOut, SampleIn2;
+
+	Connection = LPF1,MIX1, SampleOut, SampleIn1;
+	Connection = SEL1,MIX1, SampleOut, SampleIn2;
+
+}
+
+
+CGAPatch "Turbine + Rotor"
+{
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.05;
+	}
+
+	CGAGlide Glide1
+	{
+		Time = 0.99995;
+	}
+	
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Turbine1;
+		FMAttenuation = 0.03;
+	}
+
+
+	Connection = LFO1,Glide1, SampleOut, SampleIn;
+	Connection = Glide1,Wave1, SampleOut, FM;
+
+}
+
+
+CGAPatch "Turbine with rotor"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.05;
+	}
+
+	
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Turbine1;
+		FMAttenuation = 0.03;
+	}
+
+
+	Connection = LFO1,Wave1, SampleOut, FM;
+
+
+	CGASineOscillator LFO2
+	{
+		Frequency = 4.0;
+		FMAttenuation = 0.3;
+	}
+
+	CGAWavetableOscillator Wave2
+	{
+		Frequency = 0.9;
+		WaveTable = Propeller1;
+		FMAttenuation = 0.1;
+	}
+
+
+	CGAButterworthLPF LPF1
+	{
+	
+	}
+
+	Connection = LFO1,LFO2, SampleOut, FM;
+
+	Connection = LFO2,Wave2, SampleOut, TRIG;
+	Connection = LFO2,Wave2, SampleOut, FM;
+	Connection = LFO2,LPF1, SampleOut, FM;
+	Connection = Wave2,LPF1, SampleOut, SampleIn;
+
+	CGABalance Mix1
+	{
+		Balance = 0.3;
+	}
+
+	Connection = Wave1,Mix1, SampleOut, SampleIn1;
+	Connection = LPF1,Mix1, SampleOut, SampleIn2;
+
+
+
+}
+
+
+CGAPatch "Helicopter with turbine,rotor and flap fx"
+{
+
+	CGAImpulseGenerator TRG1
+	{
+		Frequency = 0.02;
+	}
+	
+	CGATriangleEnvelope Ramp1
+	{
+		Center = 0.95;
+		Duration = 8.0;
+	}
+
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.02;
+	}
+
+	
+	CGAWavetableOscillator Turbine1
+	{
+		WaveTable = Turbine1;
+		FMAttenuation = 0.03;
+	}
+
+
+	Connection = LFO1,Turbine1, SampleOut, FM;
+
+
+	CGASineOscillator LFO2
+	{
+		Frequency = 4.0;
+		FMAttenuation = 0.3;
+	}
+
+	CGAWavetableOscillator Propeller1
+	{
+		Frequency = 0.9;
+		WaveTable = Propeller1;
+		FMAttenuation = 0.1;
+	}
+
+
+	CGAButterworthLPF LPF1
+	{
+	
+	}
+
+	CGAMixer2 Mix1
+	{
+		Balance = 0.3;
+	}
+
+
+	Connection = TRG1,Ramp1, SampleOut, TRG1;
+	Connection = LFO1,LFO2, SampleOut, FM;
+
+	Connection = LFO2,Propeller1, SampleOut, TRIG;
+	Connection = LFO2,Propeller1, SampleOut, FM;
+	Connection = LFO2,LPF1, SampleOut, FM;
+	Connection = Propeller1,LPF1, SampleOut, SampleIn;
+
+
+	Connection = Turbine1,Mix1, SampleOut, SampleIn1;
+	Connection = LPF1,Mix1, SampleOut, SampleIn2;
+
+
+	CGASineOscillator FlapRandomMod1
+	{
+		Frequency = 0.05;
+	}
+
+	CGARandomGenerator FlapRandom1
+	{
+	}
+
+	CGASineOscillator FlapLFO1
+	{
+		Frequency = 0.02;
+	}
+
+	CGASineOscillator FlapLFO2
+	{
+		Frequency = 0.042;
+	}
+
+	CGABipolarToUnipolar FlapBipUnip1
+	{
+	}
+
+	CGAMixer2 FlapModMix1
+	{
+	}
+
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 4;
+		FMAttenuation = 0.3;
+		
+	}
+	CGAWavetableOscillator FlapWave1
+	{
+		Frequency = 0.9;
+		WaveTable = Flap2;
+		Repeat = 1;
+		FMAttenuation = 0.02;
+	}
+
+	CGADelay FlapDelay1
+	{
+		Delay= 0.004;
+	}
+
+
+	
+	CGAMixer2 FlapMix1
+	{
+	}
+
+
+	CGAMixer2 FinalMix1
+	{
+		Balance = 0.5;
+	}
+
+	Connection = FlapRandomMod1,FlapRandom1, SampleOut, SampleTime;
+	Connection = FlapRandom1,FlapModMix1, SampleOut, SampleIn1;
+	Connection = FlapLFO1,FlapModMix1, SampleOut, SampleIn2;
+	Connection = FlapLFO2,FlapBipUnip1, SampleOut, SampleIn;
+	Connection = FlapBipUnip1,FlapModMix1, SampleOut, Balance;
+	Connection = FlapModMix1,FlapWave1, SampleOut, FM;
+	Connection = FlapModMix1,FlapDelay1, SampleOut, Delay;
+	Connection = LFO1,Trigger1, SampleOut, FM;
+
+	Connection = Ramp1,FinalMix1, SampleOut, BalanceU;
+
+	Connection = Trigger1,FlapWave1, SampleOut, TRIG;
+	Connection = FlapWave1,FlapDelay1, SampleOut, SampleIn;
+	Connection = FlapWave1,FlapMix1, SampleOut, SampleIn1;
+	Connection = FlapDelay1,FlapMix1, SampleOut, SampleIn2;
+
+	Connection = Mix1,FinalMix1, SampleOut, SampleIn1;
+	Connection = FlapMix1,FinalMix1, SampleOut, SampleIn2;
+
+}
+
+
+
+CGAPatch "Turbine controlled by keypad"
+{
+	CGANumPadController KEYB
+	{
+		
+	}
+
+	CGAGlide Glide
+	{
+		Time = 0.99998f;
+	}
+	
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Turbine1;
+		Frequency = 0.5;
+		FMAttenuation = 0.2;
+	}
+
+
+	Connection = KEYB,Glide, SampleOut, SampleIn;
+	Connection = Glide,Wave1, SampleOut, FM;
+
+}
+
+
+CGAPatch "Turbine+Propeller controlled by keypad"
+{
+	CGANumPadController KEYB
+	{
+		
+	}
+
+	CGAGlide Glide
+	{
+		Time = 0.99998f;
+	}
+	
+	CGAWavetableOscillator Turbine
+	{
+		WaveTable = Turbine1;
+		Frequency = 0.5;
+		FMAttenuation = 0.2;
+	}
+
+
+	CGASinCosOscillator Rotations
+	{
+		Frequency = 4.0;
+		FMAttenuation = 0.3;
+	}
+
+	CGAWavetableOscillator Propeller
+	{
+		Frequency = 0.9;
+		WaveTable = Propeller1;
+		FMAttenuation = 0.2;
+	}
+
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 0.01;
+	}
+
+	CGAMixer2 MIX
+	{
+	
+	}
+
+	Connection = KEYB,Glide, SampleOut, SampleIn;
+	Connection = Glide,Turbine, SampleOut, FM;
+
+	Connection = Glide,Rotations, SampleOut, FM;
+
+	Connection = Rotations,Propeller, SampleOut, TRIG;
+	Connection = Rotations,Propeller, SampleOut, FM;
+	Connection = Rotations,LPF1, SampleOut, FM;
+	Connection = Propeller,LPF1, SampleOut, SampleIn;
+
+	Connection = Turbine,MIX, SampleOut, SampleIn1;
+	Connection = LPF1,MIX, SampleOut, SampleIn2;
+
+}

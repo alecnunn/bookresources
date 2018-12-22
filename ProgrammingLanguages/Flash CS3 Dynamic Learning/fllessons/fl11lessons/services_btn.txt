@@ -1,0 +1,4 @@
+function gotoServices(event:Event):void {
+	this.gotoAndPlay("Services");
+}
+services_btn.addEventListener(MouseEvent.CLICK,gotoServices);

@@ -1,0 +1,1 @@
+There are two versions of the same ThreadDemo and NonThreadedDemo projects for this chapter. One version of each uses just the simple game loop, while the second version uses a thread. The performance of the two may be used as a comparison.

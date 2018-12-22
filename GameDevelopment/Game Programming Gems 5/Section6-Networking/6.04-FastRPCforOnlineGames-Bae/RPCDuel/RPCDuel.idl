@@ -1,0 +1,12 @@
+config
+{
+	StartID=100;
+}
+
+// RPC Function definitions
+RPC_Control(BYTE byState);
+RPC_Sync(BYTE byShipType,char cFrame,double dPosX,double dPosY);
+RPC_BlockHit(BYTE byRow,BYTE byCol,BYTE byMask);
+RPC_AddBlock(BYTE byX,BYTE byY);
+RPC_ShipHit(DPID Id);
+RPC_Host(BLOCKS Blocks,SHIPTYPES usedShipTypes);

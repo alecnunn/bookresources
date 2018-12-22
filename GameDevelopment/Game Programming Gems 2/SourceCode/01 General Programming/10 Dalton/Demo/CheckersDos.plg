@@ -1,0 +1,53 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CheckersDos - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/checkers.res" /d "_DEBUG" "C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 ScottBilas\10\Demo\checkers.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP3310.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Debug/" /Fp"Debug/CheckersDos.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 ScottBilas\10\Demo\Board.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 ScottBilas\10\Demo\Checkers.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 ScottBilas\10\Demo\driver.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 ScottBilas\10\Demo\MemoryManager.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 ScottBilas\10\Demo\MovePlayer.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 ScottBilas\10\Demo\MoveTree.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 ScottBilas\10\Demo\Path.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP3310.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP3311.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/Checkers.pdb" /debug /machine:I386 /out:"Debug/Checkers.exe" /pdbtype:sept 
+".\Debug\Board.obj"
+".\Debug\Checkers.obj"
+".\Debug\driver.obj"
+".\Debug\MemoryManager.obj"
+".\Debug\MovePlayer.obj"
+".\Debug\MoveTree.obj"
+".\Debug\Path.obj"
+".\Debug\checkers.res"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP3311.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+Board.cpp
+Checkers.cpp
+driver.cpp
+MemoryManager.cpp
+MovePlayer.cpp
+MoveTree.cpp
+Path.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Checkers.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

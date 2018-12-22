@@ -1,0 +1,13 @@
+#include "global.h"
+
+///////////////////////////////////////////////////////////
+// cSpells function code
+///////////////////////////////////////////////////////////
+BOOL cSpells::SpellSound(long Num)
+{
+  if(m_App != NULL)
+    m_App->PlaySound(Num);
+
+  return TRUE;
+}
+

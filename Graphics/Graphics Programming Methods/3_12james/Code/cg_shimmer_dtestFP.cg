@@ -1,0 +1,33 @@
+// ******** Volumetric Fox  Pixel Shader ***********
+// Rob James 2003
+
+// Stage One
+
+// Used to prime the pbuffer with the visible surface
+// fragment depths (the 2nd depth buffer required for
+// depth peeling)
+
+struct v2f
+{
+	float4 pos		: POSITION; // Not Used
+	float4 Wpos		: WPOS; // Not Used
+	float4 Tex1		: TEXCOORD1;// Vertex Pos in ModelView space
+	float4 Col0		: COLOR0;	// Not Used
+};
+
+fragout_float main(v2f IN)
+{
+	fragout_float OUT; 
+
+	// Set y to the distance to light
+	// Set w to the initial Fragment depth - used in depth peel.
+			
+	OUT.col.xy	= float2(0.0,0.0);// Shadow Count, In Scatter, Light Dist
+	OUT.col.z	= length(IN.Tex1.xyz);
+	OUT.col.w	= 1.0/(IN.Wpos.w*1500.0);
+	
+	return OUT;
+}
+
+
+

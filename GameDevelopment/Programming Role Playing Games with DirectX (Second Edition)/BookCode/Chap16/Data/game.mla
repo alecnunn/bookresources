@@ -1,0 +1,201 @@
+"End Script"
+"Else"
+"EndIf"
+"If flag ~ equals ~ then"
+  INT 0 255
+  BOOL
+"If variable ~ equals ~ then"
+  INT 0 255
+  INT 0 65535
+"Set flag ~ to ~"
+  INT 0 255
+  BOOL
+"Set variable ~ to ~"
+  INT 0 255
+  INT 0 65535
+"Label #~:"
+  INT 0 255
+"Goto label #~"
+  INT 0 255
+"Display message ~"
+  TEXT
+"Add character id=~ definition=~ type=~ at XPos=~ YPos=~ ZPos=~ direction=~"
+  INT 0 65535
+  INT 0 255
+  CHOICE 3
+    "PC"
+    "NPC"
+    "Monster"
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -6.28 6.28
+"Remove character id=~"
+  INT 0 65535
+"Move character id=~ to ~ ~ ~"
+  INT 0 65535
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+"Set character id=~ direction to ~"
+  INT 0 65535
+  FLOAT -6.28 6.28
+"Set character id=~ type to ~"
+  INT 0 65535
+  CHOICE 3
+    "PC"
+    "NPC"
+    "Monster"
+"Set character id=~ AI to ~"
+  INT 0 65535
+  CHOICE 5
+    "Stand"
+    "Wander"
+    "Route"
+    "Follow"
+    "Evade"
+"Set character id=~ target to character id=~"
+  INT 0 65535
+  INT 0 65535
+"Set character id=~ target to NONE"
+  INT 0 65535
+"Set character id=~ bounds to ~ ~ ~, ~ ~ ~"
+  INT 0 65535
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+"Set character id=~ distance to ~"
+  INT 0 65535
+  FLOAT 0 5000
+"Set character id=~ script to ~"
+  INT 0 65535
+  TEXT
+"Display message ~ from character id=~"
+  TEXT
+  INT 0 65535
+"~ character id=~"
+  CHOICE 2
+    "Enable"
+    "Disable"
+  INT 0 65535
+"Create route with ~ points"
+  INT 1 256
+"Set route point ~ to ~ ~ ~"
+  INT 0 255
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+"Assign route to character id=~"
+  INT 0 65535
+"~ ~ ~ points to character id=~"
+  CHOICE 2
+    "Add"
+    "Remove"
+  INT 1 65535
+  CHOICE 2
+    "Health"
+    "Mana"
+  INT 0 65535
+"~ status ailment flags=~ to character id=~"
+  CHOICE 2
+    "Cure"
+    "Cause"
+  INT 1 65535
+  INT 0 65535
+"Character id=~ ~ spell# ~"
+  INT 0 65535
+  CHOICE 2
+    "Learns"
+    "Forgets"
+  INT 0 63
+"Teleport character id=~ to map ~ at ~ ~ ~"
+  INT 0 65535
+  INT 1 65535
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+"Set character id=~ message to ~ for ~ milliseconds"
+  INT 0 65535
+  TEXT
+  INT 1 60000
+"Set character id=~ action to ~ adding ~ milliseconds to cycle"
+  INT 0 65535
+  CHOICE 8
+    "Idle"
+    "Move"
+    "Attack"
+    "Spell"
+    "Item"
+    "Hurt"
+    "Die"
+    "Talk"
+  INT 1 60000
+"If character id=~ exp. level is at least ~ then"
+  INT 0 65535
+  INT 0 65535
+"Barter using ICS ~"
+  TEXT
+"If quantity ~ or more of item# ~ is in character id=~ inventory then"
+  INT 0 255
+  INT 0 1023
+  INT 0 65535
+"Add quantity ~ of item ~ to character id=~ inventory"
+  INT 0 255
+  INT 0 1023
+  INT 0 65535
+"Remove quantity ~ of item# ~ from character id=~ inventory"
+  INT 0 255
+  INT 0 65535
+  INT 0 65535
+"Add triangle barrier id=~ at ~ ~, ~ ~, ~ ~, y=~, height=~"
+  INT 1 65535
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT 0 5000
+"~ barrier id=~"
+  CHOICE 2
+    "Enable"
+    "Disable"
+  INT 1 65535
+"Remove barrier id=~"
+  INT 1 65535
+"Add triangle trigger id=~ at ~ ~, ~ ~, ~ ~, y=~, height=~"
+  INT 1 65535
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+  FLOAT -5000 5000
+"~ trigger id=~"
+  CHOICE 2
+    "Enable"
+    "Disable"
+  INT 1 65535
+"Remove trigger id=~"
+  INT 1 65535
+"Play sound effect ~"
+  INT 0 255
+"Play music ~"
+  INT 0 255
+"Stop music"
+"Win Game"
+" // ~ //"
+  TEXT
+"------------------------------------------------"
+"Wait for ~ milliseconds"
+  INT 1 99999
+"If random number from 0 to ~ is >= ~ then"
+  INT 1 65536
+  INT 0 65535
+"Render a frame"

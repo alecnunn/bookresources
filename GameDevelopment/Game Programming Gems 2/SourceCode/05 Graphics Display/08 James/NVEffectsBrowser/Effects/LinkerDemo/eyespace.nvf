@@ -1,0 +1,107 @@
+vs.1.0
+
+#include "constants.h"
+
+// *** Eye space code ***
+// A fragment to create an eye-space vertex
+#beginfragment create_eyespace_vertex
+dp4 r_eyespace_vertex.x, FIXED_POSITION, c_worldview_0
+dp4 r_eyespace_vertex.y, FIXED_POSITION, c_worldview_1
+dp4 r_eyespace_vertex.z, FIXED_POSITION, c_worldview_2
+dp4 r_eyespace_vertex.w, FIXED_POSITION, c_worldview_3
+#endfragment
+
+// A fragment to create an eye-space normal
+// Transform normal to eye space and normalize it
+#beginfragment create_eyespace_normal
+dp3 r_eyespace_normal.x, v_normal, c_worldviewit_0
+dp3 r_eyespace_normal.y, v_normal, c_worldviewit_1
+dp3 r_eyespace_normal.z, v_normal, c_worldviewit_2
+dp3 r_eyespace_normal.w, r_eyespace_normal, r_eyespace_normal
+rsq r_eyespace_normal.w, r_eyespace_normal.w												
+mul r_eyespace_normal, r_eyespace_normal, r_eyespace_normal.w
+#endfragment
+
+// A fragment to create an eye-space eye vector
+#beginfragment create_eyespace_eyevector_local_viewer
+dp3 r_eyespace_eyevector.w, r_eyespace_vertex, r_eyespace_vertex
+rsq r_eye_distance_rcp.w, r_eyespace_eyevector.w		
+mul r_eyespace_eyevector, -r_eyespace_vertex, r_eye_distance_rcp.w
+#endfragment
+
+// *** Texgen code
+// A fragment to implement CAMERASPACEREFLECTION in DX7 wording
+// Calculate E - 2*(E dot N)*N
+#beginfragment calculate_eyespace_reflection
+dp3 r_dot2, -r_eyespace_eyevector, r_eyespace_normal
+add r_dot2, r_dot2, r_dot2
+mul r_dot2, r_eyespace_normal, r_dot2
+add r_eyereflection_vector, -r_eyespace_eyevector, -r_dot2
+#endfragment
+
+// *** Directional light code
+// Dot normal with light vector
+#beginfragment calculate_eyespace_directionallight_diffuse_intensity
+dp3 r_intensity, r_eyespace_normal, c_dirlight_direction++
+#endfragment
+
+// Generate normalized half vector
+#beginfragment calculate_eyespace_directionallight_diffuse_and_specular_intensity_localviewer
+dp3 r_intensity.x, r_eyespace_normal, c_dirlight_direction  // diffuse intensity caclulation
+add r_halfvector, r_eyespace_eyevector, c_dirlight_direction++ // half-vector calculation
+dp3 r_halfvector.w, r_halfvector, r_halfvector
+rsq r_halfvector.w, r_halfvector.w
+mul r_halfvector, r_halfvector, r_halfvector.w
+dp3 r_intensity.yz, r_eyespace_normal, r_halfvector // specular intensity calculation
+#endfragment
+
+#beginfragment calculate_eyespace_directionallight_diffuse_and_specular_intensity_nonlocalviewer
+dp3 r_intensity.x, r_eyespace_normal, c_dirlight_direction++  // diffuse intensity caclulation
+dp3 r_intensity.yz, r_eyespace_normal, c_dirlight_halfvector++ // specular intensity calculation
+#endfragment
+
+#beginfragment calculate_eyespace_directionallight_diffuse_and_specular_intensity_rdotl
+dp3 r_intensity.x, r_eyespace_normal, c_dirlight_direction				// diffuse intensity caclulation
+dp3 r_intensity.yz, r_eyereflection_vector, c_dirlight_direction++  	// specular intensity calculation
+#endfragment
+
+
+// *** Point light code
+// Generate the vertex to light vector
+#beginfragment calculate_eyespace_pointlight_vector
+add r_vertex_to_pointlight, c_pointlight_position++,-r_eyespace_vertex
+dp3 r_vertex_to_pointlight.w, r_vertex_to_pointlight, r_vertex_to_pointlight	
+rsq r_vertex_to_pointlight.w, r_vertex_to_pointlight.w
+mul r_vertex_to_pointlight, r_vertex_to_pointlight, r_vertex_to_pointlight.w
+#endfragment
+
+// Generate the diffuse intensity
+#beginfragment calculate_eyespace_pointlight_diffuse_intensity
+dp3 r_intensity, r_eyespace_normal, r_vertex_to_pointlight
+#endfragment
+
+// Generate normalized half vector
+#beginfragment calculate_eyespace_pointlight_diffuse_and_specular_intensity_localviewer
+dp3 r_intensity.x, r_eyespace_normal, r_vertex_to_pointlight
+add r_halfvector, r_eyespace_eyevector, r_vertex_to_pointlight
+dp3 r_halfvector.w, r_halfvector, r_halfvector
+rsq r_halfvector.w, r_halfvector.w
+mul r_halfvector, r_halfvector, r_halfvector.w
+dp3 r_intensity.yz, r_eyespace_normal, r_halfvector
+#endfragment
+
+#beginfragment calculate_eyespace_pointlight_diffuse_and_specular_intensity_nonlocalviewer
+dp3 r_intensity.x, r_eyespace_normal, r_vertex_to_pointlight
+add r_halfvector, c_eyespace_eyevector, r_vertex_to_pointlight
+dp3 r_halfvector.w, r_halfvector, r_halfvector
+rsq r_halfvector.w, r_halfvector.w
+mul r_halfvector, r_halfvector, r_halfvector.w
+dp3 r_intensity.yz, r_eyespace_normal, r_halfvector
+#endfragment
+
+#beginfragment calculate_eyespace_pointlight_diffuse_and_specular_intensity_rdotl
+dp3 r_intensity.x, r_eyespace_normal, r_vertex_to_pointlight						// diffuse intensity caclulation
+dp3 r_intensity.yz, r_eyereflection_vector, r_vertex_to_pointlight  	// specular intensity calculation
+#endfragment
+
+

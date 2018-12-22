@@ -1,0 +1,7 @@
+build :
+	make -f makelib.lnx CONFIG=Debug
+	make -f makelib.lnx CONFIG=Release
+
+clean :
+	make clean -f makelib.lnx CONFIG=Debug
+	make clean -f makelib.lnx CONFIG=Release

@@ -1,0 +1,70 @@
+# Project: Advanced2D
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = ./obj/Advanced2D_private.res
+OBJ  = ./obj/Advanced2D.o ./obj/Timer.o ./obj/winmain.o ./obj/Camera.o ./obj/Light.o ./obj/Mesh.o ./obj/Sprite.o ./obj/Texture.o ./obj/Vector3.o ./obj/ParticleEmitter.o ./obj/Input.o ./obj/Audio.o ./obj/Entity.o $(RES)
+LINKOBJ  = ./obj/Advanced2D.o ./obj/Timer.o ./obj/winmain.o ./obj/Camera.o ./obj/Light.o ./obj/Mesh.o ./obj/Sprite.o ./obj/Texture.o ./obj/Vector3.o ./obj/ParticleEmitter.o ./obj/Input.o ./obj/Audio.o ./obj/Entity.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = ../lib/libAdvanced2D.a
+CXXFLAGS = $(CXXINCS)   -fexceptions
+CFLAGS = $(INCS)   -fexceptions
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ../lib/libAdvanced2D.a all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+./obj/Advanced2D.o: ../Advanced2D.cpp
+	$(CPP) -c ../Advanced2D.cpp -o ./obj/Advanced2D.o $(CXXFLAGS)
+
+./obj/Timer.o: ../Timer.cpp
+	$(CPP) -c ../Timer.cpp -o ./obj/Timer.o $(CXXFLAGS)
+
+./obj/winmain.o: ../winmain.cpp
+	$(CPP) -c ../winmain.cpp -o ./obj/winmain.o $(CXXFLAGS)
+
+./obj/Camera.o: ../Camera.cpp
+	$(CPP) -c ../Camera.cpp -o ./obj/Camera.o $(CXXFLAGS)
+
+./obj/Light.o: ../Light.cpp
+	$(CPP) -c ../Light.cpp -o ./obj/Light.o $(CXXFLAGS)
+
+./obj/Mesh.o: ../Mesh.cpp
+	$(CPP) -c ../Mesh.cpp -o ./obj/Mesh.o $(CXXFLAGS)
+
+./obj/Sprite.o: ../Sprite.cpp
+	$(CPP) -c ../Sprite.cpp -o ./obj/Sprite.o $(CXXFLAGS)
+
+./obj/Texture.o: ../Texture.cpp
+	$(CPP) -c ../Texture.cpp -o ./obj/Texture.o $(CXXFLAGS)
+
+./obj/Vector3.o: ../Vector3.cpp
+	$(CPP) -c ../Vector3.cpp -o ./obj/Vector3.o $(CXXFLAGS)
+
+./obj/ParticleEmitter.o: ../ParticleEmitter.cpp
+	$(CPP) -c ../ParticleEmitter.cpp -o ./obj/ParticleEmitter.o $(CXXFLAGS)
+
+./obj/Input.o: ../Input.cpp
+	$(CPP) -c ../Input.cpp -o ./obj/Input.o $(CXXFLAGS)
+
+./obj/Audio.o: ../Audio.cpp
+	$(CPP) -c ../Audio.cpp -o ./obj/Audio.o $(CXXFLAGS)
+
+./obj/Entity.o: ../Entity.cpp
+	$(CPP) -c ../Entity.cpp -o ./obj/Entity.o $(CXXFLAGS)
+
+./obj/Advanced2D_private.res: Advanced2D_private.rc 
+	$(WINDRES) -i Advanced2D_private.rc --input-format=rc -o ./obj/Advanced2D_private.res -O coff 

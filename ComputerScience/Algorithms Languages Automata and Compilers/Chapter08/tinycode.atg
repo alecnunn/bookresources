@@ -1,0 +1,256 @@
+using System.Collections.Generic;
+
+COMPILER TinyCode
+
+class IntVar
+{
+    public int LBound, UBound, Value;
+    public IntVar(int lb, int ub, int v) { LBound = lb; UBound = ub; Value = v; }
+}
+
+class BoolVar
+{
+    public bool Value;
+    public BoolVar(bool v) { Value = v; }
+}
+
+Dictionary<string, BoolVar> bools = new Dictionary<string, BoolVar>();
+Dictionary<string, IntVar> ints = new Dictionary<string, IntVar>();
+List<string> program = new List<string>();
+Dictionary<string, int> labels = new Dictionary<string, int>();
+
+int statementNo = 0;
+int instructionPtr = 0;
+
+string cmd;
+string varName;
+string progName;
+
+bool isBoolValue(string value)
+{
+    return bools.ContainsKey(value) || value == "true" || value == "false";
+}
+
+IntVar getIntValue(string value)
+{
+    if(ints.ContainsKey(value))
+        return ints[value];
+
+    int v = Convert.ToInt32(value);
+    return new IntVar(v - 1, v + 1, v);
+}
+
+BoolVar getBoolValue(string value)
+{
+    if(bools.ContainsKey(value))
+        return bools[value];
+
+	return new BoolVar(Convert.ToBoolean(value));
+}
+
+bool performBoolOperation(string y, string op, string z)
+{
+    switch(op)
+	{
+		case "and": return getBoolValue(y).Value && getBoolValue(z).Value;
+		case "or": return getBoolValue(y).Value || getBoolValue(z).Value;
+		default: return getBoolValue(y).Value;
+	}
+}
+
+int performIntOperation(string y, string op, string z)
+{
+    switch(op)
+	{
+		case "+": return getIntValue(y).Value + getIntValue(z).Value;
+		case "-": return getIntValue(y).Value - getIntValue(z).Value;
+		default: return getIntValue(y).Value;
+	}
+}
+	
+void executeAssignment(string[] v)
+{
+    if(v[2] == "not")   // NOT-assignment (asgn x not y)
+    {
+        bools[v[1]].Value = !(getBoolValue(v[3]).Value); 
+    }
+    else								             // asgn x y [op z]
+    {
+        // x = v[1], y = v[2], op = v[3], z = v[4]
+		string y = v[1];
+		string op = "", z = "";
+		if(v.Length > 3) // assignment with "op z"
+		{
+			op = v[3];
+			z = v[4];
+		}
+			
+		if(bools.ContainsKey(v[1]))
+			bools[v[1]].Value = performBoolOperation(y, op, z);
+		else if(ints.ContainsKey(v[1]))
+		{
+			int val = performIntOperation(y, op, z);
+            if(val < ints[v[1]].LBound || val > ints[v[1]].UBound)
+                throw new Exception("run-time error: value of '" + v[1] + "' is out of bounds!"); 
+            ints[v[1]].Value = val;
+		}
+    }
+    
+    instructionPtr++;
+}
+
+void executeBranching(string[] v)  // v[1] = lhs, v[2] = op, v[3] = rhs
+{
+    string op = v[2];
+    bool result = false;
+
+    if(isBoolValue(v[1]))
+    {
+        bool l = getBoolValue(v[1]).Value, r = getBoolValue(v[3]).Value;
+        result = (op == "=" && l == r) || (op == "<>" && l != r);
+    }
+    else
+    {
+        int l = getIntValue(v[1]).Value, r = getIntValue(v[3]).Value;
+        result = (op == "<" && l < r) || (op == ">" && l > r) ||        
+                 (op == "<=" && l <= r) || (op == ">=" && l >= r) ||
+                 (op == "="  && l == r) || (op == "<>" && l != r);
+    }
+
+    if(result == true)
+        instructionPtr = labels[v[5]];
+    else if(v.Length > 6) 				// else clause
+        instructionPtr = labels[v[7]];
+    else
+        instructionPtr++;
+}
+
+void executeGoto(string[] v)
+{
+	instructionPtr = labels[v[1]];
+}
+
+void executeStatement()
+{
+    string[] v = program[instructionPtr].Split(' ');
+    switch(v[0])
+    {
+        case "asgn": executeAssignment(v); break;
+        case "if": 	 executeBranching(v);  break;
+        case "goto": executeGoto(v); 	   break;
+    }
+}
+
+void writeVariables()
+{
+    Console.WriteLine("variables:");
+    
+	foreach(KeyValuePair<string, BoolVar> e in bools)
+		Console.WriteLine("bool: " + e.Key + " = " + e.Value.Value);
+	
+	foreach(KeyValuePair<string, IntVar> e in ints)
+        Console.WriteLine("int(" + e.Value.LBound + ".." + e.Value.UBound + "): " + e.Key + " = " + e.Value.Value);
+}
+
+void writeLabelsAndCode()
+{
+    Console.WriteLine("\nlabels:");
+    
+	foreach(KeyValuePair<string, int> e in labels)
+		Console.WriteLine(e.Key + ": " + e.Value);
+
+    Console.WriteLine("\nintermediate code:");
+    
+	foreach(string line in program)
+        Console.WriteLine(line);
+}
+
+public void RunProgram()
+{
+	writeVariables();
+	writeLabelsAndCode();
+	
+    Console.WriteLine("\nRunning " + progName);
+    
+	while(program[instructionPtr] != "end")
+        executeStatement();
+
+	Console.WriteLine();
+	writeVariables();
+}
+ 
+CHARACTERS 
+    letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".
+    digit = "0123456789".
+
+TOKENS
+    Identifier  = letter {letter | digit}.
+    Number = digit {digit}.
+    true = "true".
+    false = "false".
+    not = "not".
+
+COMMENTS FROM "//" TO '\n'
+IGNORE '\r' + '\n' + '\t'
+ 
+PRODUCTIONS
+    TinyCode = "program" Identifier   (. progName = t.val; .)           
+               "." ProgramBody.
+
+    ProgramBody = ["var" DeclareVar { DeclareVar }] "begin" 
+	              { Statement } "end."            (. program.Add("end"); .)
+				  .
+
+    DeclareVar = Identifier                     (. varName = t.val; .)
+                  ":" DeclareVarBody.
+    DeclareVarBody = "integer"                
+                     "(" Number            (. int LBound = Convert.ToInt32(t.val); .)
+                     ".." Number           (. int UBound = Convert.ToInt32(t.val); .)
+                     ")" ":=" Number       (. int Value = Convert.ToInt32(t.val); .)
+                     ";"                   (. if(Value < LBound || Value > UBound) 
+                                                  SemErr("value of '" + varName + "' is out of bounds!");
+                                              ints.Add(varName, new IntVar(LBound, UBound, Value)); .)
+                   | "boolean"           
+                     ":=" (true | false)    (. bool Value = Convert.ToBoolean(t.val); .)
+                     ";"                    (. bools.Add(varName, new BoolVar(Value));  .)
+                     .
+    
+    Statement = [Identifier                 (. labels.Add(t.val, statementNo); .)
+                ":"] StatementBody.
+
+    StatementBody = Assignment | Branching | Goto.
+
+    Goto = "goto" Identifier              (. program.Add("goto " + t.val); statementNo++; .)
+           ";".
+
+    Assignment = "let" LValue             (. cmd = "asgn " + t.val + " "; .)
+                 ":=" (RValue             (. cmd += t.val;  .)
+                 [OP                      (. cmd += " " + t.val;  .)
+                 RValue                   (. cmd += " " + t.val;  .)
+                 ] 
+                 | 
+                 not                      (. cmd += "not ";  .)
+                 RValue                   (. cmd += t.val;  .)
+                 ) ";"                    (. program.Add(cmd); statementNo++;  .)
+                 .
+    LValue = Identifier.
+    RValue = Identifier | Number | true | false.
+    OP = '+' | '-' | "and" | "or".
+
+    Branching = "if"         (. cmd = "if "; .)
+           CompareExpr       
+           "goto"            (. cmd += " goto "; .)
+           Identifier        (. cmd += t.val; .)
+           ";" 
+           ["else" "goto"    (. cmd += " elsegoto "; .)
+           Identifier        (. cmd += t.val; .)
+           ";"]              (. program.Add(cmd); statementNo++;  .)
+           .
+
+    CompareExpr = RValue      (. cmd += t.val; .)
+                  CompareOp   (. cmd += " " + t.val + " "; .)
+                  RValue      (. cmd += t.val; .)
+                  .
+    CompareOp = '=' | "<>" | '<' | "<=" | '>' | ">=".
+
+END TinyCode.

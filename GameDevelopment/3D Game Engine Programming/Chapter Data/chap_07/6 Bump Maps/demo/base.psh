@@ -1,0 +1,4 @@
+ps.1.1                 
+tex t0                 
+mul r1, t0, c3        
+mad r0, t0, v0, r1    

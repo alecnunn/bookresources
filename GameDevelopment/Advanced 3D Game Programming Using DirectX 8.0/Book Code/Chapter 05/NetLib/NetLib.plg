@@ -1,0 +1,62 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: NetLib - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "D:\DOCUME~1\ADRIAN~1\LOCALS~1\Temp\RSP23C.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /Fp"Release/NetLib.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"E:\Book\CD\Book Code\Chapter 05\NetLib\cDataPacket.cpp"
+"E:\Book\CD\Book Code\Chapter 05\NetLib\cHost.cpp"
+"E:\Book\CD\Book Code\Chapter 05\NetLib\cMonitor.cpp"
+"E:\Book\CD\Book Code\Chapter 05\NetLib\cNetClock.cpp"
+"E:\Book\CD\Book Code\Chapter 05\NetLib\cNetError.cpp"
+"E:\Book\CD\Book Code\Chapter 05\NetLib\cQueueIn.cpp"
+"E:\Book\CD\Book Code\Chapter 05\NetLib\cQueueOut.cpp"
+"E:\Book\CD\Book Code\Chapter 05\NetLib\cThread.cpp"
+"E:\Book\CD\Book Code\Chapter 05\NetLib\cUnreliableQueueIn.cpp"
+"E:\Book\CD\Book Code\Chapter 05\NetLib\cUnreliableQueueOut.cpp"
+"E:\Book\CD\Book Code\Chapter 05\NetLib\MTUDP.cpp"
+]
+Creating command line "cl.exe @D:\DOCUME~1\ADRIAN~1\LOCALS~1\Temp\RSP23C.tmp" 
+Creating temporary file "D:\DOCUME~1\ADRIAN~1\LOCALS~1\Temp\RSP23D.tmp" with contents
+[
+/nologo /out:"..\lib\NetLib.lib" 
+".\Release\cDataPacket.obj"
+".\Release\cHost.obj"
+".\Release\cMonitor.obj"
+".\Release\cNetClock.obj"
+".\Release\cNetError.obj"
+".\Release\cQueueIn.obj"
+".\Release\cQueueOut.obj"
+".\Release\cThread.obj"
+".\Release\cUnreliableQueueIn.obj"
+".\Release\cUnreliableQueueOut.obj"
+".\Release\MTUDP.obj"
+]
+Creating command line "link.exe -lib @D:\DOCUME~1\ADRIAN~1\LOCALS~1\Temp\RSP23D.tmp"
+<h3>Output Window</h3>
+Compiling...
+cDataPacket.cpp
+cHost.cpp
+cMonitor.cpp
+cNetClock.cpp
+cNetError.cpp
+cQueueIn.cpp
+cQueueOut.cpp
+cThread.cpp
+cUnreliableQueueIn.cpp
+cUnreliableQueueOut.cpp
+MTUDP.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+NetLib.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,131 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "GameLib"=".\GameLib\GameLib.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Radiosity"=".\Radiosity\Radiosity.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name GameLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name math3D
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "SubDiv"=".\SubDiv\SubDiv.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name GameLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name math3D
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Teapot"=".\Teapot\Teapot.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name GameLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name math3D
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "bspline"=".\bspline\bspline.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name GameLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name math3D
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "invKim"=".\invKim\invKim.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name GameLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name math3D
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "math3D"=".\math3D\math3D.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

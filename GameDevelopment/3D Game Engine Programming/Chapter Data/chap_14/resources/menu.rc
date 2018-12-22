@@ -1,0 +1,648 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Deutsch (Deutschland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+PANBOXMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New",                        IDM_FILE_NEW
+        MENUITEM "&Open...",                    IDM_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Save",                       IDM_FILE_SAVE
+        MENUITEM "Save &as...",                 IDM_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Exit",                       IDM_FILE_EXIT
+    END
+    POPUP "&Edit / Select"
+    BEGIN
+        MENUITEM "&Use Grid-Snap",              IDM_EDIT_SNAP, CHECKED
+        MENUITEM "Snap &Vertices To Grid",      IDM_EDIT_SNAPVERTS
+        MENUITEM SEPARATOR
+        MENUITEM "&Merge Polys To Mesh",        IDM_EDIT_MERGE
+        MENUITEM "&Fragment Mesh To Poys",      IDM_EDIT_FRAGMENT
+        MENUITEM "&Turn Insides Out",           IDM_EDIT_INSIDEOUT
+        MENUITEM SEPARATOR
+        MENUITEM "Insert &Copy",                IDM_EDIT_INSERTCOPY
+        POPUP "Rotate Selected Objects..."
+        BEGIN
+            MENUITEM "90 ° on X Axis",              IDM_EDIT_ROTA_X
+            MENUITEM "90 ° on Y Axis",              IDM_EDIT_ROTA_Y
+            MENUITEM "90 ° on Z Axis",              IDM_EDIT_ROTA_Z
+            MENUITEM "Arbritrary",                  IDM_EDIT_ROTA_A
+        END
+        POPUP "Mirror on..."
+        BEGIN
+            MENUITEM "X Axis",                      IDM_EDIT_MIRROR_X
+            MENUITEM "Y Axis",                      IDM_EDIT_MIRROR_Y
+            MENUITEM "Z Axis",                      IDM_EDIT_MIRROR_Z
+        END
+        MENUITEM "&Delete Selected Objects",    IDM_EDIT_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All",                 IDM_EDIT_SELECTALL
+    END
+    POPUP "&Camera"
+    BEGIN
+        MENUITEM "Camera To &Origin",           IDM_CAM_TO_ORIG
+        MENUITEM "Camera To &Selection",        IDM_CAM_TO_SEL
+        MENUITEM "Center Ortho &Views",         IDM_CAM_CENTER
+    END
+    POPUP "View&ports"
+    BEGIN
+        MENUITEM "Show Grid 3D",                IDM_PORTS_GRID3D, CHECKED
+        MENUITEM "Vertices 3D",                 IDM_PORTS_VERTS3D
+        MENUITEM "Wireframe 3D",                IDM_PORTS_WIRE3D
+        MENUITEM "Activate Lighting 3D",        IDM_PORTS_LIGHT
+        POPUP "Show Inactive Sectors 3D"
+        BEGIN
+            MENUITEM "Show 'em",                    IDM_PORTS_INACTIVE3D
+            , CHECKED
+            MENUITEM "Wireframe",                   IDM_PORTS_INACTIVE3DW
+            , CHECKED
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Show Grid Ortho",             IDM_PORTS_GRID, CHECKED
+        MENUITEM "Vertices Ortho",              IDM_PORTS_VERTS, CHECKED
+        MENUITEM "Wireframe Ortho",             IDM_PORTS_WIRE, CHECKED
+        MENUITEM "Show Inactive Sectors",       IDM_PORTS_INACTIVE, CHECKED
+    END
+    POPUP "&?"
+    BEGIN
+        MENUITEM "I&ndex",                      IDM_HELP_INDEX, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Info",                       IDM_HELP_INFO
+    END
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+ICONZFX                 ICON    DISCARDABLE     "icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    "DLGINFOZFX", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 177
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    "DLGNEWSECTOR", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 137
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 61
+    END
+
+    "DLGSECTORATTRIB", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 128
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 191
+    END
+
+    "DLGINSERTSHAPE", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 127
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+
+    "DLGTEXTURE", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 207
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 57
+    END
+
+    "DLGLEVELATTRIB", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 127
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 141
+    END
+
+    "DLGADDSKIN", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 147
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 117
+    END
+
+    "DLGEDITSKIN", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 162
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 146
+    END
+
+    "DLGSECTORAMBIENT", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 127
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    "DLGEDITLIGHT", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 152
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 81
+    END
+
+    "DLGENTITYTYPE", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 117
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+
+    "DlgEditEntDoor", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 122
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 67
+    END
+
+    "DLGROTATE", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 122
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 56
+    END
+
+    "DLGEDITMATERIAL", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 192
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 76
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DLGINFOZFX DIALOG DISCARDABLE  0, 0, 184, 98
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - About..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,130,80,50,14
+    ICON            "ICONZFX",IDC_STATIC,7,7,20,20
+    LTEXT           "PanBox Edit - Version 1.0 \n\nCopyright 2003 by Stefan Zerbst. All rights reserved. No warrenty implied. ZFX is a registered trademark.",
+                    IDC_STATIC,25,7,153,43
+    LTEXT           "Visit us online:  www.zfx.info\nContact e-mail: Stefan.Zerbst@zfx.info",
+                    IDC_STATIC,25,55,135,20
+END
+
+DLGNEWSECTOR DIALOG DISCARDABLE  0, 0, 144, 68
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "PanBox Edit - New Sector"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Please insert a name for the new sector:",IDC_STATIC,8,
+                    5,125,10
+    EDITTEXT        IDC_EDIT,8,25,125,12
+    DEFPUSHBUTTON   "OK",IDOK,17,45,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,77,45,50,14
+END
+
+DLGSECTORATTRIB DIALOG DISCARDABLE  0, 0, 135, 198
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Sector Attributes"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,42,181,50,14
+    LTEXT           "sector name [n/a]",IDC_NAME,5,5,125,12,SS_SUNKEN
+    GROUPBOX        "Sector Stats",IDC_STATIC,5,21,125,85
+    LTEXT           "Total Vertex Count:",IDC_STATIC,10,31,65,10
+    LTEXT           "Total Polygon Count:",IDC_STATIC,10,51,65,10
+    LTEXT           "0",IDC_POLYS,85,51,40,10
+    LTEXT           "0",IDC_VERTS,85,31,40,10
+    LTEXT           "Total Portal Count:",IDC_STATIC,10,71,65,10
+    LTEXT           "0",IDC_PORTS,85,71,40,10
+    LTEXT           "Total Index Count:",IDC_STATIC,10,41,65,10
+    LTEXT           "0",IDC_INDIS,85,41,40,10
+    LTEXT           "Total Mesh Count:",IDC_STATIC,10,61,65,10
+    LTEXT           "0",IDC_MESHS,85,61,40,10
+    GROUPBOX        "Including",IDC_STATIC,5,111,125,65
+    LTEXT           "Vertices in Polygons:",IDC_STATIC,10,121,65,10
+    LTEXT           "0",IDC_VINP,85,121,40,10
+    LTEXT           "Indices in Polygons:",IDC_STATIC,10,131,65,10
+    LTEXT           "0",IDC_IINP,85,131,40,10
+    LTEXT           "Vertices in Meshs:",IDC_STATIC,10,141,65,10
+    LTEXT           "0",IDC_VINM,85,141,40,10
+    LTEXT           "Indices in Meshs:",IDC_STATIC,10,151,65,10
+    LTEXT           "0",IDC_IINM,85,151,40,10
+    LTEXT           "Polygons in Meshs:",IDC_STATIC,10,161,65,10
+    LTEXT           "0",IDC_PINM,85,161,40,10
+    LTEXT           "Total Light Count:",IDC_STATIC,10,81,65,10
+    LTEXT           "0",IDC_LIGHTS,85,81,40,10
+    LTEXT           "Total Entity Count:",IDC_STATIC,10,91,65,10
+    LTEXT           "0",IDC_ENTITIES,85,91,40,10
+END
+
+DLGINSERTSHAPE DIALOGEX 0, 0, 134, 113
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Insert Shape"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,15,95,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,70,95,50,14
+    GROUPBOX        "Size",IDC_STATIC,5,20,65,55
+    LTEXT           "Width:",IDC_STATIC,11,31,25,10,WS_TABSTOP
+    LTEXT           "Height:",IDC_STATIC,10,45,25,10
+    LTEXT           "Depth:",IDC_STATIC,10,60,25,10
+    CONTROL         "Sector Name [n/a]",IDC_SECNAME,"Static",
+                    SS_LEFTNOWORDWRAP | SS_SUNKEN | WS_GROUP,5,5,125,10
+    LTEXT           "0",IDC_WIDTH,40,30,15,10,SS_SUNKEN | WS_TABSTOP
+    CONTROL         "Spin1",IDC_SET_WIDTH,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_HORZ | WS_TABSTOP,55,30,10,10
+    LTEXT           "0",IDC_HEIGHT,40,45,15,10,SS_SUNKEN | WS_TABSTOP,
+                    WS_EX_RTLREADING
+    CONTROL         "Spin2",IDC_SET_HEIGHT,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_HORZ | WS_TABSTOP,55,
+                    45,10,10
+    LTEXT           "0",IDC_DEPTH,40,60,15,10,SS_SUNKEN | WS_TABSTOP
+    CONTROL         "Spin3",IDC_SET_DEPTH,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_HORZ | WS_TABSTOP,55,
+                    60,10,10
+    GROUPBOX        "Position",IDC_STATIC,75,20,55,55
+    LTEXT           "X",IDC_STATIC,80,30,10,10
+    LTEXT           "Y",IDC_STATIC,80,45,10,10
+    LTEXT           "Z",IDC_STATIC,80,60,10,10
+    EDITTEXT        IDC_POSX,90,30,35,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_POSY,90,45,35,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_POSZ,90,60,35,10,ES_AUTOHSCROLL
+    CONTROL         "inverted",IDC_INVERTED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,10,80,50,10
+    CONTROL         "as polygons",IDC_POLYS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,73,80,50,10
+END
+
+DLGTEXTURE DIALOG DISCARDABLE  0, 0, 214, 64
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "PanBox Edit - Set Texture Coordinates"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,150,39,50,14
+    SCROLLBAR       IDC_SCROLLU,59,6,105,8
+    EDITTEXT        IDC_OFFV,169,15,40,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OFFU,169,5,40,10,ES_AUTOHSCROLL
+    SCROLLBAR       IDC_SCROLLV,59,16,105,8
+    LTEXT           "Texture Offset U:",IDC_STATIC,4,6,55,10
+    LTEXT           "Texture Offset V:",IDC_STATIC,4,16,55,10
+    LTEXT           "Texture Repeat U:",IDC_STATIC,5,35,60,10
+    LTEXT           "Texture Repeat V:",IDC_STATIC,5,45,60,10
+    PUSHBUTTON      "<",IDC_REPU_M,70,35,10,10
+    PUSHBUTTON      "<",IDC_REPV_M,70,45,10,10
+    EDITTEXT        IDC_REPU,80,35,40,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REPV,80,45,40,10,ES_AUTOHSCROLL
+    PUSHBUTTON      ">",IDC_REPU_P,120,35,10,10
+    PUSHBUTTON      ">",IDC_REPV_P,120,45,10,10
+END
+
+DLGLEVELATTRIB DIALOG DISCARDABLE  0, 0, 134, 148
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Level Attributes"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,40,130,50,14
+    LTEXT           "level name [n/a]",IDC_NAME,5,5,125,23,SS_SUNKEN
+    GROUPBOX        "Level Stats",IDC_STATIC,5,30,125,96
+    LTEXT           "Total Vertex Count:",IDC_STATIC,10,50,65,10
+    LTEXT           "Total Polygon Count:",IDC_STATIC,10,70,65,10
+    LTEXT           "0",IDC_POLYS,85,70,40,10
+    LTEXT           "0",IDC_VERTS,85,50,40,10
+    LTEXT           "Total Portal Count:",IDC_STATIC,10,90,65,10
+    LTEXT           "0",IDC_PORTS,85,90,40,10
+    LTEXT           "Total Index Count:",IDC_STATIC,10,60,65,10
+    LTEXT           "0",IDC_INDIS,85,60,40,10
+    LTEXT           "Total Mesh Count:",IDC_STATIC,10,80,65,10
+    LTEXT           "0",IDC_MESHS,85,80,40,10
+    LTEXT           "Total Light Count:",IDC_STATIC,10,100,65,10
+    LTEXT           "0",IDC_LIGHTS,85,100,40,10
+    LTEXT           "Total Entity Count:",IDC_STATIC,10,110,65,10
+    LTEXT           "0",IDC_ENTITIES,85,110,40,10
+    LTEXT           "Total Sector Count:",IDC_STATIC,10,40,65,10
+    LTEXT           "0",IDC_SECTORS,85,40,40,10
+END
+
+DLGADDSKIN DIALOG DISCARDABLE  0, 0, 154, 124
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Add New Skin"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,22,105,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,82,105,50,14
+    LISTBOX         IDC_LIST,5,20,140,80,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select base texture for the new material:",IDC_STATIC,5,
+                    5,140,10
+END
+
+DLGEDITSKIN DIALOG DISCARDABLE  0, 0, 169, 153
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Edit Skin"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "base texture name (n/a)",IDC_TEXTURE,5,5,145,12,
+                    SS_SUNKEN
+    LISTBOX         IDC_LIST,5,40,160,75,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "As Bumpmap",IDC_ASBUMP,85,120,50,14
+    DEFPUSHBUTTON   "As Detailmap",IDC_ASDETAIL,30,120,50,14
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,85,137,50,14
+    LTEXT           "bump texture name (n/a)",IDC_BUMP,5,30,145,10
+    LTEXT           "base texture name (n/a)",IDC_DETAIL,5,20,145,10
+    DEFPUSHBUTTON   "Clear Maps",IDC_CLEAR,30,137,50,14
+END
+
+DLGSECTORAMBIENT DIALOG DISCARDABLE  0, 0, 134, 79
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Set Sector Ambient Light"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,80,40,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,80,58,50,14
+    LTEXT           "sector name [n/a]",IDC_NAME,5,5,125,12,SS_SUNKEN
+    GROUPBOX        "",IDC_STATIC,5,30,70,45
+    LTEXT           "Red:",IDC_STATIC,10,40,25,10
+    LTEXT           "Green:",IDC_STATIC,10,50,25,10
+    LTEXT           "Blue:",IDC_STATIC,10,60,25,10
+    EDITTEXT        IDC_RED,35,40,30,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GREEN,35,50,30,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BLUE,35,60,30,10,ES_AUTOHSCROLL
+    LTEXT           "Set values in the range [1.0, 0.0]",IDC_STATIC,5,21,125,
+                    10
+END
+
+DLGEDITLIGHT DIALOG DISCARDABLE  0, 0, 159, 88
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Edit Light"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,90,70,50,14
+    LTEXT           "Set Light Color:",IDC_STATIC,5,15,50,10
+    LTEXT           "Set Light Radius:",IDC_STATIC,5,50,50,10
+    LTEXT           "Red   [0.0f, -1.0f]",IDC_STATIC,85,15,65,10
+    LTEXT           "Green",IDC_STATIC,85,25,65,10
+    LTEXT           "Blue",IDC_STATIC,85,35,65,10
+    EDITTEXT        IDC_R,60,15,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_G,60,25,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_B,60,35,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RAD,60,50,20,10,ES_AUTOHSCROLL
+    LTEXT           "Light Position:",IDC_STATIC,5,5,45,10
+    LTEXT           "n/a",IDC_POS,60,5,90,10
+    LTEXT           "Flickering:",IDC_STATIC,5,65,50,10
+    CONTROL         " ",IDC_FLICKER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,60,
+                    65,10,10
+    LTEXT           "Units",IDC_STATIC,85,50,25,10
+    LTEXT           "Shadow Caster:",IDC_STATIC,5,75,50,10
+    CONTROL         " ",IDC_SHADOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,60,
+                    75,10,10
+END
+
+DLGENTITYTYPE DIALOG DISCARDABLE  0, 0, 124, 58
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Set Entity Type"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,9,40,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,64,40,50,14
+    CONTROL         "Sliding Door",IDC_SLIDEDOOR,"Button",BS_AUTORADIOBUTTON,
+                    5,5,55,10
+    CONTROL         "Rotating Door",IDC_UNUSED2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED,65,5,55,10
+    CONTROL         "Train Wagon",IDC_UNUSED1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED,5,20,55,10
+    CONTROL         "Lift Platform",IDC_UNUSED3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED,65,20,55,10
+END
+
+DlgEditEntDoor DIALOG DISCARDABLE  0, 0, 129, 74
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Set Sliding Door Attributes"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,12,55,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,67,55,50,14
+    CONTROL         "X",IDC_XAXIS,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE,
+                    60,35,20,10
+    CONTROL         "Y",IDC_YAXIS,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE,
+                    80,35,20,10
+    CONTROL         "Z",IDC_ZAXIS,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE,
+                    100,35,20,10
+    LTEXT           "Axis to slide on:",IDC_STATIC,5,35,50,10
+    LTEXT           "Distance to move:",IDC_STATIC,5,5,60,10
+    EDITTEXT        IDC_DIST,66,5,25,10,ES_AUTOHSCROLL
+    LTEXT           "Time to pause:",IDC_STATIC,5,20,60,10
+    EDITTEXT        IDC_PAUSE,66,20,25,10,ES_AUTOHSCROLL
+    LTEXT           "Units",IDC_STATIC,96,5,25,10
+    LTEXT           "Units",IDC_STATIC,96,20,25,10
+END
+
+DLGROTATE DIALOG DISCARDABLE  0, 0, 129, 63
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Rotate Object(s)"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,12,45,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,67,45,50,14
+    CONTROL         "X Axis",IDC_X,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE,
+                    17,5,40,10
+    CONTROL         "Y Axis",IDC_Y,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE,
+                    17,15,40,10
+    CONTROL         "Z Axis",IDC_Z,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE,
+                    17,25,40,10
+    EDITTEXT        IDC_DEG,72,20,35,10,ES_AUTOHSCROLL
+    LTEXT           "Degree:",IDC_STATIC,72,10,35,10
+END
+
+DLGEDITMATERIAL DIALOG DISCARDABLE  0, 0, 199, 83
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PanBox Edit - Edit Material"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,145,40,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,145,60,50,14
+    EDITTEXT        IDC_AMB_R,30,20,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AMB_G,30,35,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AMB_B,30,50,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AMB_A,30,65,20,10,ES_AUTOHSCROLL
+    LTEXT           "Red:",IDC_STATIC,5,20,20,10
+    LTEXT           "Green:",IDC_STATIC,5,35,20,10
+    LTEXT           "Blue:",IDC_STATIC,5,50,20,10
+    LTEXT           "Alpha:",IDC_STATIC,5,65,20,10
+    EDITTEXT        IDC_DIF_R,60,20,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DIF_G,60,35,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DIF_B,60,50,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DIF_A,60,65,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EMI_R,90,20,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EMI_G,90,35,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EMI_B,90,50,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EMI_A,90,65,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SPE_R,120,20,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SPE_G,120,35,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SPE_B,120,50,20,10,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SPE_A,120,65,20,10,ES_AUTOHSCROLL
+    CTEXT           "Diffuse",IDC_STATIC,55,5,30,10
+    CTEXT           "Ambient",IDC_STATIC,25,5,30,10
+    CTEXT           "Emissive",IDC_STATIC,85,5,30,10
+    CTEXT           "Specular",IDC_STATIC,115,5,30,10
+    CTEXT           "Power",IDC_STATIC,145,5,30,10
+    EDITTEXT        IDC_SPE_P,150,20,20,10,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_TOOLBAR TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      IDTB_FILE_NEW
+    BUTTON      IDTB_FILE_OPEN
+    BUTTON      IDTB_FILE_SAVE
+    BUTTON      IDTB_MESH_OPEN
+    BUTTON      IDTB_MESH_SAVE
+    BUTTON      IDTB_LEVEL_ATTRIBUTES
+    BUTTON      IDTB_SECTOR_NEW
+    BUTTON      IDTB_SECTOR_DELETE
+    BUTTON      IDTB_SECTOR_ATTRIBUTES
+    BUTTON      IDTB_SECTOR_AMBIENT
+    BUTTON      IDTB_INSERT_LIGHT
+    BUTTON      IDTB_INSERT_SPAWN
+    BUTTON      IDTB_LIGHT_EDIT
+    BUTTON      IDTB_EDIT_ENTITY
+    BUTTON      IDTB_EDIT_SPAWN
+    BUTTON      IDTB_GEO_INSIDEOUT
+    BUTTON      IDTB_MAKE_ENTITY
+    BUTTON      IDTB_MAKE_PORTAL
+    BUTTON      IDTB_PORTAL_CONNECT
+    BUTTON      IDTB_INSERT_SHAPE_RECT
+    BUTTON      IDTB_INSERT_SHAPE_CUBE
+    BUTTON      IDTB_INSERT_SHAPE_LIGHT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_TOOLBAR             BITMAP  DISCARDABLE     "toolbar1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDTB_TEST1              "Dies ist ein Testbutton"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDTB_INSERT_SHAPE_RECT  "Insert a rectangle into the active sector"
+    IDM_EDIT_INSIDEOUT      "Change polygon front- and backsides..."
+END
+
+#endif    // Deutsch (Deutschland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

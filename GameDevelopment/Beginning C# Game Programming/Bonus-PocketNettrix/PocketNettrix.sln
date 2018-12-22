@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{20D4826A-C6FA-45DB-90F4-C717570B9F32}") = "PocketNettrix", "PocketNettrix.csdproj", "{DACE6351-19C1-416F-9217-54D632048582}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DACE6351-19C1-416F-9217-54D632048582}.Debug.ActiveCfg = Debug|Pocket PC
+		{DACE6351-19C1-416F-9217-54D632048582}.Debug.Build.0 = Debug|Pocket PC
+		{DACE6351-19C1-416F-9217-54D632048582}.Debug.Deploy.0 = Debug|Pocket PC
+		{DACE6351-19C1-416F-9217-54D632048582}.Release.ActiveCfg = Release|Pocket PC
+		{DACE6351-19C1-416F-9217-54D632048582}.Release.Build.0 = Release|Pocket PC
+		{DACE6351-19C1-416F-9217-54D632048582}.Release.Deploy.0 = Release|Pocket PC
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

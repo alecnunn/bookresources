@@ -1,0 +1,42 @@
+Q||BRAKE:AUTOMOBILE::
+A||reins:horse
+A||pad:helicopter
+A||ship:fleet
+A||helmet:motorcycle
+A||boot:saddle
+Q||AREA:SQUARE::
+A||volume:cube
+A||diagonal:rectangle
+A||angle:triangle
+A||radius:circle
+A||base:cylinder
+Q||COLLEAGUES:PROFFESION::
+A||kinsfolk:family
+A||spectators:game
+A||exiles:country
+A||rivals:team
+A||passengers:subway
+Q||TERMITE:WOOD::
+A||moth:wool
+A||silkworm:silk
+A||oyster:shell
+A||anthracite:coal
+A||terrace:stone
+Q||TALLY:VOTES
+A||census:population
+A||taxation:revenue
+A||government:laws
+A||team:athletes
+A||election:canidates
+Q||CEASE-FIRE:HOSTILITIES::
+A||lull:storm
+A||alimony:divorce
+A||battery:missles
+A||bonfire:kindling
+A||apology:insult
+Q||They _____ the body and held an autopsy
+A||disinterred
+Q||This ruse will _____ the enemy
+A||discomfit
+Q||His book was marred by his many _____
+A||digressions

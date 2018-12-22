@@ -1,0 +1,311 @@
+CGAPatch "Sine Oscillator"
+{
+	CGASineOscillator VCO
+	{
+		Frequency = 200;
+	}
+
+}
+
+CGAPatch "Sine Oscillator with LFO Modulation"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 3.5;
+		
+	}
+
+	CGASineOscillator VCO
+	{
+		Frequency = 200;
+		FMAttenuation = 0.015;
+	}
+
+	Connection = 0,1, SampleOut, FM;
+
+}
+
+CGAPatch "Sine Oscillator with Triangle - LFO Modulation"
+{
+	CGATriangleOscillator LFO
+	{
+		Frequency = 0.5;
+		
+	}
+
+	CGASineOscillator VCO
+	{
+		Frequency = 200;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = 0,1, SampleOut, FM;
+
+}
+
+
+CGAPatch "Triangle Oscillator"
+{
+
+	CGATriangleOscillator VCO
+	{
+		Frequency = 200;
+	}
+
+}
+
+CGAPatch "Triangle Oscillator with Sine LFO Modulation"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 3.5;
+		
+	}
+
+	CGATriangleOscillator VCO
+	{
+		Frequency = 200;
+		FMAttenuation = 0.015;
+	}
+
+	Connection = 0,1, SampleOut, FM;
+
+}
+
+
+CGAPatch "Square Oscillator"
+{
+
+	CGASquareOscillator VCO
+	{
+		Frequency = 200;
+	}
+
+}
+
+CGAPatch "Square Oscillator with LFO Modulation"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 3.5;
+		
+	}
+
+	CGASquareOscillator VCO
+	{
+		Frequency = 200;
+		FMAttenuation = 0.015;
+	}
+
+	Connection = 0,1, SampleOut, FM;
+
+}
+
+CGAPatch "Sawtooth Oscillator"
+{
+
+	CGASawtoothOscillator VCO
+	{
+		Frequency = 200;
+	}
+
+}
+
+CGAPatch "Sawtooth Oscillator with LFO Modulation"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 3.5;
+		
+	}
+
+	CGASawtoothOscillator VCO
+	{
+		Frequency = 200;
+		FMAttenuation = 0.015;
+	}
+
+	Connection = 0,1, SampleOut, FM;
+
+}
+
+
+
+CGAPatch "SinCos Oscillator"
+{
+	CGASinCosOscillator VCO
+	{
+		Frequency = 200;
+	}
+
+}
+
+CGAPatch "SineX Oscillator with SinCos LFO Modulation"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+		
+	}
+	
+
+
+	CGASineXOscillator VCO1
+	{
+		Frequency = 160;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = LFO1,VCO1, SampleOut, FM;
+
+}
+
+CGAPatch "SineX Oscillator 860Hz with SinCos LFO Modulation"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+		
+	}
+
+	CGASineXOscillator VCO1
+	{
+		Frequency = 860;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = LFO1,VCO1, SampleOut, FM;
+
+}
+
+
+CGAPatch "Buzz Oscillator"
+{
+	CGASawtoothOscDSF VCO
+	{
+		Frequency = 200;
+	}
+
+}
+
+CGAPatch "Buzz Oscillator with Sine LFO Modulation"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 3.5;
+		
+	}
+
+	CGASawtoothOscDSF VCO
+	{
+		Frequency = 200;
+		FMAttenuation = 0.015;
+	}
+
+	Connection = LFO,VCO, SampleOut, FM;
+
+}
+
+CGAPatch "Sawtooth Oscillator Blit"
+{
+	CGASawtoothOscBlit VCO
+	{
+		Frequency = 200;
+	}
+
+}
+
+
+
+
+CGAPatch "Sawtooth Oscillator Blit with Sine LFO Modulation"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 0.1;
+		
+	}
+
+	CGASawtoothOscBLIT VCO
+	{
+		Frequency = 200;
+		FMAttenuation = 0.4;
+	}
+
+	Connection = LFO,VCO, SampleOut, FM;
+
+}
+
+CGAPatch "3 Sawtooth Oscillator Blit with Sine LFO Modulation"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 0.1;
+		
+	}
+
+	CGASawtoothOscBLIT VCO1
+	{
+		Frequency = 100.7;
+		FMAttenuation = 0.3;
+	}
+
+	CGASawtoothOscBLIT VCO2
+	{
+		Frequency = 150.4;
+		FMAttenuation = 0.4001;
+	}
+	
+	CGASawtoothOscBLIT VCO3
+	{
+		Frequency = 240;
+		FMAttenuation = 0.199;
+	}
+	
+	CGAMixer3 MIX1
+	{
+	}
+	
+	Connection = LFO,VCO1, SampleOut, FM;
+	Connection = LFO,VCO2, SampleOut, FM;
+	Connection = LFO,VCO3, SampleOut, FM;
+	Connection = VCO1,MIX1, SampleOut, SampleIn1;
+	Connection = VCO2,MIX1, SampleOut, SampleIn2;
+	Connection = VCO3,MIX1, SampleOut, SampleIn3;
+
+}
+
+
+CGASignal  Loop
+{
+	File = "m_tone02.wav";
+}
+
+CGAPatch "Wavetable Oscillator"
+{
+	CGAWaveTableOscillator VCO
+	{
+		WaveTable = Loop;
+		Frequency = 1;
+	}
+
+}
+
+CGAPatch "Wavetable Oscillator with LFO Modulation"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 0.2;
+		
+	}
+
+	CGAWaveTableOscillator VCO
+	{
+		WaveTable = Loop;
+		Frequency = 1.0;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = 0,1, SampleOut, FM;
+
+}

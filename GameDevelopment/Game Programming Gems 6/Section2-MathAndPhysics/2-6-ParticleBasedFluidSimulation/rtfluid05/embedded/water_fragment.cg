@@ -1,0 +1,31 @@
+void main(float reflectionFactor : COLOR,
+		  float3 incident : TEXCOORD0,
+		  float3 N : TEXCOORD1,
+		  //float3 incident : TEXCOORD2,
+
+		  out float4 color : COLOR,
+
+//		  uniform float       transmittance,
+//		  uniform sampler2D   decalMap,
+		  uniform samplerCUBE environmentMap)
+{
+//	float4 reflectedColor = texCUBE(environmentMap, R);
+	//float4 refractedColor = texCUBE(environmentMap, T);
+
+	incident = normalize(incident);
+	N = normalize(N);
+	float eta_ratio = 1.3;
+//	float4 refract_color = texCUBE(environmentMap, refract(incident, N, eta_ratio));
+	float4 refract_color = texCUBE(environmentMap, refract(incident, N, eta_ratio).xyz);
+//	float4 refract_color = texCUBE(environmentMap, incident);
+	float4 reflect_color = texCUBE(environmentMap, reflect(incident, N));
+
+	//color = lerp(refract_color, reflectedColor, 0.2);
+	color = lerp(refract_color, reflect_color, reflectionFactor);
+//	color = lerp(lerp(refract_color, reflectedColor, reflectionFactor), dot(N, normalize(float3(1, 1, 0))), 0.5);
+//	color = lerp(lerp(refract_color, reflect_color, reflectionFactor), dot(N, normalize(float3(1, 1, 0))) + float4(0.1, 0.1, 0.1, 1), 0.5);
+
+	//color = reflectedColor;
+	//color += 0.2*dot(N, normalize(float3(1, 1, 0)));
+	//color = refract_color;
+}

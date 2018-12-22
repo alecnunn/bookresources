@@ -1,0 +1,14 @@
+ps.1.1 
+
+; grayscale formula
+def c1, 0.30, 0.59, 0.11, 1.0 
+                     
+tex      t0                  
+texcoord t1                 
+dp3_sat r0, t1_bx2, t1_bx2
+mul r0, c0, 1-r0            
+mul r0, r0, t0              
+
+; make grayscale
+dp3 r0, r0, c1
+

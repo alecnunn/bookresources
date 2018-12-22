@@ -1,0 +1,29 @@
+Spacewar is a head to head space battle.  When the game starts, you configure your network settings and either choose to host a new game, or join a game that is already in session.
+
+Hosting a game:
+1) Start the game and select ‘Configure Network and Play’.
+2) Enter your user name, and the network service you wish to use.
+3) Click on ‘Create’ on the ‘Join or Create session screen’.
+4) Enter a session name and select ‘OK’.
+5) Wait for others to join your game.
+
+Joining a game in session:
+1) Start the game and select ‘Configure Network and Play’.
+2) Enter your user name, and the network service you wish to use.
+3) Click on ‘Start Search’ on the ‘Join or Create session screen’.
+4) If you know the name of the computer hosting the session, enter it in the ‘Hostname’ box and press OK.  If you don’t know the computer name, leave the ‘Hostname’ box blank and press OK to scan for all Spacewar sessions.
+5) Highlight the session, and click on ‘Join’.
+6) The game will start.
+
+Control Keys:
+Esc			-	Exit
+Left Arrow		-	Rotate Left
+Right Arrow		-	Rotate Right
+Up Arrow			-	Thrust Forward
+CTRL			-	Fire
+Spacebar			-	Hyperspace
+F2			-	Configure game options (host mode only)
+F5			-	Taunt
+F6-F10			-	Dude!
+
+

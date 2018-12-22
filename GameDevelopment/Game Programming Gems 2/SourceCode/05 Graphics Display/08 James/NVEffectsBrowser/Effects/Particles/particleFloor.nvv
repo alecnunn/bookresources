@@ -1,0 +1,30 @@
+/************************************************************************
+particleFloor.nvv
+
+Vertex Shader for the floor of the Particle System
+
+Each vertex contains
+    v0: position
+    v1: 2D texture coordinates
+
+This vertex shader simply transform the position and copies the 
+texture coordinates.
+
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+#include "ParticleSystem.h"
+
+vs.1.1
+
+; Transform position to clip space
+dp4 oPos.x, v0, c[VSC_WORLDVIEW_PROJ_0]
+dp4 oPos.y, v0, c[VSC_WORLDVIEW_PROJ_1]
+dp4 oPos.z, v0, c[VSC_WORLDVIEW_PROJ_2]
+dp4 oPos.w, v0, c[VSC_WORLDVIEW_PROJ_3]
+
+; copy texture coordinates
+mov oT0.xy, v1
+
+

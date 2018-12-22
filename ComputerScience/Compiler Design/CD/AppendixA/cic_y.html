@@ -1,0 +1,1281 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - cic.y</h2>
+<p>%{<br>
+  #include &quot;cic.h&quot;<br>
+  Quad *quadTable;<br>
+  short int varCount,dataType;<br>
+  #define MAXVARIABLES 10</p>
+<p>#define MAXVARSIZE 20<br>
+  char varNames[MAXVARIABLES][MAXVARSIZE];<br>
+  int i;<br>
+  char *ptr;<br>
+  int numDim;<br>
+  char labelpending[LABELSIZE];<br>
+  short int dataSize;<br>
+  short int storeType;<br>
+  short int qualifierType;<br>
+  short int operatorType;<br>
+  short int assignOpr;<br>
+  short int signType=DEFAULT;<br>
+  int caseIdx,noCases;<br>
+  extern int lineNo;<br>
+  char tempLabel[LABELSIZE];<br>
+  char caseExpr[NAMESIZE];<br>
+  char caseLabel[LABELSIZE];<br>
+  typedef struct TFLABEL<br>
+  { <br>
+  char trueLabel[LABELSIZE];<br>
+  char falseLabel[LABELSIZE];<br>
+  }TFLABEL;<br>
+  TFLABEL tflabel;</p>
+<p>extern LNode* findSymbolHash(ST*,char*);<br>
+  LNode* L;<br>
+  Attr opnd1,opnd2,result,noAttr;<br>
+  %}<br>
+  %union<br>
+  {<br>
+  char name[NAMESIZE];<br>
+  int no;<br>
+  Attr attr;<br>
+  <br>
+  /*Label label;*/<br>
+  struct tfLabel<br>
+  { <br>
+  char trueLabel[LABELSIZE];<br>
+  char falseLabel[LABELSIZE];<br>
+  }tflabel;<br>
+  struct ForLabel<br>
+  {<br>
+  char cond2Label[LABELSIZE];<br>
+  char cond3Label[LABELSIZE];<br>
+  char cond2TestLabel[LABELSIZE];<br>
+  char nextStmtLabel[LABELSIZE];<br>
+  }forLabel;<br>
+  };<br>
+  %left _or<br>
+  %left _and<br>
+  %left _equal _ne<br>
+  %left _lt _le _gt _ge<br>
+  %left _minus _plus<br>
+  %left _mul _div<br>
+  %nonassoc _uminus<br>
+  %token _assign _typedef _extern _static _auto _register _void _char _short _else<br>
+  %token _int _long _float _double _signed _unsigned _bool _complex _leftb  _rightb<br>
+  %token _struct _union _colon _enum _const _restrict _volatile _inline _leftp _rightp<br>
+  %token  _mul _dot _comma  _leftsp _rightsp<br>
+  %token _dereferencing _incr _decr _sizeof _plus _uminus _tilde _bang _div <br>
+  %token _modulo _minus _lShift _rSignedShift _lt _gt _le _ge _eq _ne <br>
+  %token _bitAnd _xor _and _or _hook _mulAssign _divAssign _moduloAssign _plusAssign<br>
+  %token _minusAssign _lShiftAssign _rSignedShiftAssign _andAssign _xorAssign _orAssign<br>
+  %token  _case _default  _semicolon _goto _bitOr<br>
+  %token _continue _break _return  _Imaginary _rUnsignedShift _rUnsignedShiftAssign<br>
+  %token &lt;attr&gt; _id<br>
+  %token  &lt;attr&gt; _num<br>
+  %token  &lt;attr&gt; _dnum<br>
+  %token &lt;attr&gt; _charcons<br>
+  %token &lt;attr&gt; _strcons<br>
+  %type &lt;attr&gt; identifier<br>
+  %type &lt;attr&gt; initDeclarator<br>
+  %type &lt;attr&gt; directDeclarator<br>
+  %type &lt;attr&gt; constant<br>
+  %type &lt;attr&gt; stringLiteral<br>
+  %type &lt;attr&gt; primaryExpression<br>
+  %type &lt;attr&gt; postfixExpression<br>
+  %type &lt;attr&gt; unaryExpression<br>
+  %type &lt;attr&gt; castExpression<br>
+  %type &lt;attr&gt; multiplicativeExpression<br>
+  %type &lt;attr&gt; additiveExpression<br>
+  %type &lt;attr&gt; typeName<br>
+  %type &lt;attr&gt; shiftExpression<br>
+  %type &lt;attr&gt; relationalExpression<br>
+  %type &lt;attr&gt; equalityExpression<br>
+  %type &lt;attr&gt; andExpression<br>
+  %type &lt;attr&gt; exclusiveOrExpression<br>
+  %type &lt;attr&gt; inclusiveOrExpression<br>
+  %type &lt;attr&gt; logicalAndExpression<br>
+  %type &lt;attr&gt; logicalOrExpression<br>
+  %type &lt;attr&gt; conditionalExpression<br>
+  %type &lt;attr&gt; expression<br>
+  %type &lt;attr&gt; assignmentExpression<br>
+  %type &lt;attr&gt; assignmentExpressionopt<br>
+  %type &lt;attr&gt; constantExpression<br>
+  %type &lt;attr&gt; statement<br>
+  %type &lt;attr&gt; matchedStatement<br>
+  %type &lt;attr&gt; unmatchedStatement<br>
+  %type &lt;attr&gt; ifexprMatchedStatementElse<br>
+  %type &lt;attr&gt; iterationStatement<br>
+  %type &lt;attr&gt; switchCaseStatement<br>
+  %type &lt;attr&gt; labeledStatement<br>
+  %type &lt;attr&gt; compoundStatement<br>
+  %type &lt;attr&gt; blockItemList<br>
+  %type &lt;attr&gt; expressionStatement<br>
+  %type &lt;attr&gt; expressionopt</p>
+<p>%type &lt;attr&gt; identifieropt<br>
+  %type &lt;attr&gt; enumerationConstant<br>
+  %type &lt;attr&gt; declarator<br>
+  %type &lt;attr&gt; abstractDeclarator<br>
+  %type &lt;attr&gt; pointeropt<br>
+  %type &lt;attr&gt; pointer<br>
+  %type &lt;attr&gt; ifexpr<br>
+  %token &lt;forLabel&gt; _for<br>
+  %token &lt;tflabel&gt; _while<br>
+  %token &lt;tflabel&gt; _if<br>
+  %token &lt;tflabel&gt; _do<br>
+  %token &lt;tflabel&gt; _switch<br>
+  %%<br>
+  program: <br>
+  {<br>
+  prevst=NULL;<br>
+  st = NULL;<br>
+  cst=NULL;<br>
+  cstackTop=-1;<br>
+  bstackTop=-1;<br>
+  st = (ST*)malloc(sizeof(ST));<br>
+  if(st==NULL) <br>
+  {<br>
+  printf(&quot;Error: Memory allocation Problem for Symbol Table..Existing\n&quot;);<br>
+  exit(-1);<br>
+  }<br>
+  st-&gt;prevst=prevst;<br>
+  prevst=st;<br>
+  initHash(st,HASHSIZE);<br>
+  createQuadList(&amp;quadTable);</p>
+<p> }<br>
+  translationUnit <br>
+  { <br>
+  if(errCount == 0)<br>
+  {<br>
+  printCode(quadTable);<br>
+  printf(&quot;\n&quot;);<br>
+  dispSymbolTableHash(st);<br>
+  }<br>
+  destroySymbolTable(st,HASHSIZE);<br>
+  printf(&quot;cstackTop=%d and bstackTop =%d\n&quot;,cstackTop,bstackTop);<br>
+  return;<br>
+  }<br>
+  ;<br>
+  translationUnit: externalDeclaration <br>
+  |translationUnit externalDeclaration<br>
+  ;<br>
+  externalDeclaration: functionDefinition <br>
+  |  declaration<br>
+  ;<br>
+  functionDefinition: declarationSpecifiers declarator <br>
+  <br>
+  declarationListopt compoundStatement <br>
+  {<br>
+  //initHash(HASHSIZE);<br>
+  //dispSymbolTableHash(st);<br>
+  strcpy(labelpending,&quot; &quot;);<br>
+  //st=st-&gt;prevst;<br>
+  }<br>
+  ;<br>
+  declarationListopt:	|declarationList<br>
+  ;<br>
+  declarationList: declaration<br>
+  |declarationList declaration<br>
+  ;<br>
+  declaration:  declarationSpecifiers  initDeclaratorListopt _semicolon <br>
+  ;<br>
+  declarationSpecifiers: storageClassSpecifier declarationSpecifiersopt<br>
+  |typeSpecifier  declarationSpecifiersopt<br>
+  |typeQualifier declarationSpecifiersopt<br>
+  |functionSpecifier declarationSpecifiersopt<br>
+  ;<br>
+  declarationSpecifiersopt:	|declarationSpecifiers<br>
+  ;<br>
+  storageClassSpecifier: 	_auto <br>
+  {<br>
+  storeType = AUTO;<br>
+  }<br>
+  |_register <br>
+  {<br>
+  storeType = REGISTER;<br>
+  }<br>
+  |_static <br>
+  {<br>
+  storeType = STATIC;<br>
+  }<br>
+  |_extern<br>
+  {<br>
+  storeType = EXTERN;<br>
+  }<br>
+  |_typedef <br>
+  {<br>
+  storeType = TYPEDEF;<br>
+  }<br>
+  ;<br>
+  typeSpecifier: 	_void <br>
+  {<br>
+  dataType = VOID;<br>
+  dataSize=0;//sizeof(char);<br>
+  } <br>
+  |_char <br>
+  {<br>
+  dataType = CHAR;<br>
+  dataSize=sizeof(char);<br>
+  } <br>
+  |_short <br>
+  {<br>
+  dataType = SHORT;<br>
+  dataSize=sizeof(short int);<br>
+  }<br>
+  |_int <br>
+  {<br>
+  dataType = INT;<br>
+  dataSize=sizeof(int);<br>
+  }<br>
+  |_long <br>
+  {<br>
+  dataType = LONG;<br>
+  dataSize=sizeof(long int);<br>
+  }<br>
+  |_float <br>
+  {<br>
+  dataType = FLOAT;<br>
+  dataSize=sizeof(float);<br>
+  }<br>
+  |_double <br>
+  {<br>
+  dataType = DOUBLE;<br>
+  dataSize=sizeof(double); //printf(&quot;DataType=%d and dataSize=%d\n&quot;,dataType,dataSize);testc<br>
+  }<br>
+  |_signed <br>
+  {<br>
+  dataType = SIGNED;<br>
+  dataSize=sizeof(signed);<br>
+  }<br>
+  |_unsigned <br>
+  {<br>
+  dataType = UNSIGNED;<br>
+  dataSize=sizeof(unsigned);<br>
+  }<br>
+  |_bool <br>
+  {<br>
+  dataType = BOOL;<br>
+  dataSize=sizeof(short int);<br>
+  }<br>
+  |_complex <br>
+  {<br>
+  dataType = COMPLEX;<br>
+  dataSize=sizeof(2*sizeof(int)); //  has to be updated<br>
+  }<br>
+  |structOrUnionSpecifier <br>
+  {<br>
+  dataType = STRUCTORUNION;<br>
+  dataSize=sizeof(2*sizeof(int)); //  has to be updated<br>
+  }<br>
+  |enumSpecifier<br>
+  {<br>
+  dataType = ENUM;<br>
+  dataSize=sizeof(2*sizeof(int)); //has to be updated<br>
+  }<br>
+  ;<br>
+  typeQualifier: _const <br>
+  {<br>
+  qualifierType = CONST;<br>
+  }<br>
+  |_restrict	{<br>
+  qualifierType = RESTRICT;<br>
+  }<br>
+  |_volatile	{<br>
+  qualifierType = VOLATILE;<br>
+  }<br>
+  ;<br>
+  functionSpecifier: _inline<br>
+  ;</p>
+<p>initDeclaratorListopt: 	|initDeclaratorList<br>
+  ;<br>
+  initDeclaratorList: initDeclarator <br>
+  {<br>
+  sym.nameLen = strlen($1.name);<br>
+  sym.name = malloc(sym.nameLen+1);<br>
+  strcpy(sym.name,$1.name);<br>
+  sym.storage = storeType;<br>
+  sym.qualifier = qualifierType;<br>
+  sym.sign=DEFAULT;<br>
+  sym.type = BASIC; <br>
+  sym.subtype = dataType;<br>
+  sym.width = dataSize; <br>
+  sym.relAddr=relAddr;<br>
+  relAddr = relAddr + sym.width;<br>
+  addSymbolHash(st,sym);</p>
+<p> } <br>
+  |initDeclaratorList _comma initDeclarator <br>
+  {<br>
+  sym.nameLen = strlen($3.name);<br>
+  sym.name = malloc(sym.nameLen+1);<br>
+  strcpy(sym.name,$3.name);<br>
+  sym.storage = storeType;<br>
+  sym.qualifier = qualifierType;<br>
+  sym.sign=DEFAULT;<br>
+  sym.type = BASIC; <br>
+  sym.subtype = dataType;<br>
+  sym.width = dataSize; <br>
+  sym.relAddr=relAddr;<br>
+  relAddr = relAddr + sym.width;<br>
+  addSymbolHash(st,sym);<br>
+  } <br>
+  ;<br>
+  initDeclarator:  declarator 	{strcpy($$.name,$1.name);}<br>
+  |declarator _assign initializer<br>
+  ;</p>
+<p>structOrUnionSpecifier: structOrUnion identifieropt _leftb structDeclarationList _rightb<br>
+  |structOrUnion identifier<br>
+  ;<br>
+  structOrUnion: _struct<br>
+  |_union<br>
+  ;<br>
+  structDeclarationList: structDeclaration<br>
+  |structDeclarationList structDeclaration<br>
+  ;<br>
+  structDeclaration: specifierQualifierList structDeclaratorList _semicolon<br>
+  ;<br>
+  specifierQualifierList: typeSpecifier specifierQualifierListopt<br>
+  |typeQualifier specifierQualifierListopt<br>
+  ;<br>
+  specifierQualifierListopt:	|specifierQualifierList<br>
+  ;<br>
+  structDeclaratorList: structDeclarator<br>
+  |structDeclaratorList _comma structDeclarator<br>
+  ;<br>
+  structDeclarator: declarator<br>
+  |declaratoropt _colon constantExpression<br>
+  ;<br>
+  declaratoropt:	|declarator<br>
+  ;<br>
+  enumSpecifier: _enum identifieropt _leftb enumeratorList _rightb<br>
+  |_enum identifieropt _leftb enumeratorList _comma _rightb<br>
+  |_enum identifier<br>
+  ;<br>
+  identifieropt:	|identifier <br>
+  {<br>
+  strcpy($$.name,$1.name);<br>
+  }<br>
+  ;<br>
+  enumeratorList: enumerator<br>
+  |enumeratorList _comma enumerator<br>
+  ;<br>
+  enumerator: enumerationConstant<br>
+  |enumerationConstant _assign constantExpression<br>
+  ;<br>
+  enumerationConstant:	identifier <br>
+  {<br>
+  strcpy($$.name,$1.name);<br>
+  }<br>
+  ;</p>
+<p>declarator: pointeropt  directDeclarator <br>
+  {<br>
+  strcpy($$.name,$2.name);<br>
+  }<br>
+  ;<br>
+  pointeropt:	|pointer {$$=$1;}<br>
+  ;<br>
+  directDeclarator: identifier {strcpy($$.name,$1.name);}<br>
+  |_leftp declarator _rightp	{$$=$2;}<br>
+  |directDeclarator _leftsp typeQualifierListopt assignmentExpressionopt _rightsp<br>
+  |directDeclarator _leftsp _static typeQualifierListopt assignmentExpression _rightsp<br>
+  |directDeclarator _leftsp typeQualifierList _static assignmentExpression _rightsp<br>
+  |directDeclarator  _leftsp typeQualifierListopt _mul _rightsp<br>
+  |directDeclarator _leftp parameterTypeList _rightp<br>
+  |directDeclarator _leftp identifierListopt _rightp<br>
+  ;<br>
+  identifierListopt:	|identifierList <br>
+  ;<br>
+  typeQualifierListopt:	|typeQualifierList<br>
+  ;<br>
+  assignmentExpressionopt:	|assignmentExpression {$$=$1;}<br>
+  ;<br>
+  pointer: _mul typeQualifierListopt<br>
+  |_mul typeQualifierListopt pointer<br>
+  ;<br>
+  typeQualifierList: typeQualifier<br>
+  |typeQualifierList typeQualifier<br>
+  ;<br>
+  parameterTypeList: parameterList<br>
+  |parameterList _comma _dot _dot _dot<br>
+  ;<br>
+  parameterList: parameterDeclaration<br>
+  |parameterList _comma parameterDeclaration<br>
+  ;<br>
+  parameterDeclaration: declarationSpecifiers declarator<br>
+  |declarationSpecifiers abstractDeclaratoropt<br>
+  ;<br>
+  abstractDeclaratoropt:	|abstractDeclarator<br>
+  ;<br>
+  identifierList: identifier <br>
+  |identifierList _comma identifier<br>
+  ;<br>
+  typeName: specifierQualifierList abstractDeclaratoropt<br>
+  ;<br>
+  abstractDeclarator: pointer  {$$=$1;}<br>
+  |pointeropt directAbstractDeclarator<br>
+  ;<br>
+  directAbstractDeclarator: _leftp abstractDeclarator _rightp<br>
+  |directAbstractDeclaratoropt _leftsp assignmentExpressionopt _rightsp<br>
+  |directAbstractDeclaratoropt _leftsp _mul _rightsp<br>
+  |directAbstractDeclaratoropt _leftp parameterTypeListopt _rightp<br>
+  ;<br>
+  directAbstractDeclaratoropt:	 | directAbstractDeclarator <br>
+  ;<br>
+  parameterTypeListopt:	|parameterTypeList<br>
+  ;<br>
+  initializer: assignmentExpression<br>
+  |_leftb initializerList _rightb<br>
+  |_leftb initializerList _comma _rightb<br>
+  ;<br>
+  initializerList: designationopt initializer<br>
+  |initializerList _comma designationopt initializer<br>
+  ;<br>
+  designationopt:	|designation<br>
+  ;<br>
+  designation: designatorList _assign<br>
+  ;<br>
+  designatorList: designator<br>
+  |designatorList designator<br>
+  ;<br>
+  designator: _leftsp constantExpression _rightsp<br>
+  |_dot identifier<br>
+  ;</p>
+<p>constant:	_num <br>
+  { $$=$1; }<br>
+  |_dnum <br>
+  { $$=$1; }<br>
+  |_charcons <br>
+  { $$=$1; }<br>
+  ; <br>
+  stringLiteral:	_strcons <br>
+  { $$=$1; }<br>
+  ;</p>
+<p>primaryExpression:	identifier <br>
+  { <br>
+  int found = FALSE;<br>
+  cst = st;<br>
+  while(cst != NULL)<br>
+  {<br>
+  if(findSymbolHash(cst,$1.name) != NULL)<br>
+  {<br>
+  found=TRUE;<br>
+  break;<br>
+  }<br>
+  else<br>
+  {<br>
+  cst=cst-&gt;prevst;<br>
+  }<br>
+  }<br>
+  if(found == FALSE)<br>
+  {<br>
+  printf(&quot;....%s: %d:Error %s: Undeclared Identifier\n&quot;,srcFileName,lineNo-1,$1.name);<br>
+  errCount++;<br>
+  }<br>
+  else<br>
+  { //printf(&quot;%s is found here\n&quot;,$1.name);<br>
+  $$=$1;<br>
+  strcpy($$.offsetName,&quot;&quot;);<br>
+  }</p>
+<p> } <br>
+  | constant <br>
+  { $$=$1; }<br>
+  | stringLiteral <br>
+  { $$=$1; }<br>
+  |_leftp expression _rightp <br>
+  { $$=$2; }<br>
+  ;<br>
+  postfixExpression: primaryExpression <br>
+  { $$=$1; }<br>
+  | postfixExpression _leftsp expression _rightsp<br>
+  | postfixExpression _leftp argumentExpressionListopt _rightp<br>
+  | postfixExpression _dot identifier<br>
+  | postfixExpression _dereferencing identifier<br>
+  | postfixExpression _incr<br>
+  | postfixExpression _decr<br>
+  |_leftp typeName _rightp _leftb initializerList _rightb<br>
+  |_leftp typeName _rightp _leftb initializerList _comma _rightb<br>
+  ;<br>
+  argumentExpressionListopt:	|argumentExpressionList<br>
+  ;<br>
+  argumentExpressionList: assignmentExpression<br>
+  |argumentExpressionList _comma assignmentExpression<br>
+  ;<br>
+  unaryOperator: _bitAnd  {operatorType = UBITAND;}<br>
+  |_mul   	{operatorType = UMUL;}<br>
+  |_plus 		{operatorType = UPLUS;}<br>
+  |_uminus 	{operatorType = UMINUS;}<br>
+  |_tilde  	{operatorType = UTILDE;}<br>
+  |_bang   	{operatorType = UBANG;}<br>
+  ;<br>
+  unaryExpression: postfixExpression <br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |_incr unaryExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  noAttr.type = NOP;<br>
+  addCode(quadTable,labelpending,INCR,$2,noAttr, $$);<br>
+  sym=copySymbol(st,$2,$$.name);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |_decr unaryExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  noAttr.type = NOP;<br>
+  addCode(quadTable,labelpending,DECR,$2,noAttr, $$);<br>
+  sym=copySymbol(st,$2,$$.name);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |unaryOperator castExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  noAttr.type = NOP;<br>
+  addCode(quadTable,labelpending,operatorType,$2,noAttr, $$);<br>
+  sym=copySymbol(st,$2,$$.name);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |_sizeof unaryExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  noAttr.type = NOP;<br>
+  addCode(quadTable,labelpending,SIZEOF,$2,noAttr, $$);<br>
+  sym=copySymbol(st,$2,$$.name);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |_sizeof _leftp typeName _rightp<br>
+  {<br>
+  createTemp($$.name);<br>
+  noAttr.type = NOP;<br>
+  addCode(quadTable,labelpending,USERSIZEOF,$3,noAttr, $$);<br>
+  sym=copySymbol(st,$3,$$.name);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  castExpression: unaryExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |_leftp typeName _rightp castExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,TYPECAST,$2,$4,$$);<br>
+  sym=createTempSymbolWithType(st,$2,$4,$$);  //to be updated<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  multiplicativeExpression: castExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |multiplicativeExpression _mul castExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,MUL,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |multiplicativeExpression _div castExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,DIV,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |multiplicativeExpression _modulo castExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,MODULO,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  additiveExpression: multiplicativeExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |additiveExpression _plus multiplicativeExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,PLUS,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |additiveExpression _minus multiplicativeExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,MINUS,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  shiftExpression: additiveExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |shiftExpression _lShift additiveExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,LSHIFT,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |shiftExpression _rSignedShift additiveExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,RSHIFTSIGNED,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  relationalExpression: shiftExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |relationalExpression _lt shiftExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,LT,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |relationalExpression _gt shiftExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,GT,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |relationalExpression _le shiftExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,LE,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |relationalExpression _ge shiftExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,GE,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  equalityExpression: relationalExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |equalityExpression _eq relationalExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,EQ,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  |equalityExpression _ne relationalExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,NE,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  andExpression: equalityExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |andExpression _bitAnd  equalityExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,BITAND,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  exclusiveOrExpression: andExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |exclusiveOrExpression _xor andExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,XOR,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  inclusiveOrExpression: exclusiveOrExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |inclusiveOrExpression _bitOr exclusiveOrExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,BITOR,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  logicalAndExpression: inclusiveOrExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |logicalAndExpression _and inclusiveOrExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,AND,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  logicalOrExpression: logicalAndExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |logicalOrExpression _or logicalAndExpression<br>
+  {<br>
+  createTemp($$.name);<br>
+  addCode(quadTable,labelpending,OR,$1,$3,$$);<br>
+  sym=createTempSymbolWithType(st,$1,$3,$$);<br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  conditionalExpression: logicalOrExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |logicalOrExpression _hook expression _colon conditionalExpression<br>
+  {<br>
+  createLabel(tflabel.trueLabel);<br>
+  createLabel(tflabel.falseLabel);<br>
+  createTemp($$.name);<br>
+  opnd2.type=NOP;<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,tflabel.trueLabel);<br>
+  addCode(quadTable,labelpending,IFGO,$1,opnd2,result);<br>
+  addCode(quadTable,labelpending,ASSIGN,$5,opnd2,$$);   //false part assigned<br>
+  sym=createTempSymbolWithType(st,$3,$3,$$); <br>
+  result.type=LABEL;<br>
+  strcpy(result.name,tflabel.falseLabel);<br>
+  addCode(quadTable,labelpending,GOTO,opnd2,opnd2,result); //goto end of this conditional expression<br>
+  strcpy(labelpending,tflabel.trueLabel); <br>
+  addCode(quadTable,labelpending,ASSIGN,$3,opnd2,$$);  //true part assigned and follows to the IC with labelpending<br>
+  sym=createTempSymbolWithType(st,$5,$5,$$);<br>
+  strcpy(labelpending,tflabel.trueLabel); <br>
+  addSymbolHash(st,sym);<br>
+  }<br>
+  ;<br>
+  assignmentExpression: conditionalExpression<br>
+  {<br>
+  $$ = $1; <br>
+  }<br>
+  |unaryExpression assignmentOperator assignmentExpression<br>
+  {<br>
+  <br>
+  switch(assignOpr)<br>
+  {<br>
+  case ASSIGN: <br>
+  opnd2.type = NOP;<br>
+  addCode(quadTable,labelpending,assignOpr,$3,opnd2,$1); <br>
+  //sym=createTempSymbolWithType(st,$3,$3,$1); //This statement gave trouble<br>
+  break;<br>
+  case MULASSIGN:<br>
+  addCode(quadTable,labelpending,MUL,$1,$3,$1); <br>
+  sym=createTempSymbolWithType(st,$1,$3,$1);<br>
+  break;<br>
+  case DIVASSIGN:<br>
+  addCode(quadTable,labelpending,DIV,$1,$3,$1); <br>
+  sym=createTempSymbolWithType(st,$1,$3,$1);<br>
+  break;<br>
+  case MODULOASSIGN:<br>
+  addCode(quadTable,labelpending,MODULO,$1,$3,$1); <br>
+  sym=createTempSymbolWithType(st,$1,$3,$1);<br>
+  $$ = $1;<br>
+  $$.type = ID;<br>
+  break;<br>
+  case PLUSASSIGN:<br>
+  addCode(quadTable,labelpending,PLUS,$1,$3,$1); <br>
+  sym=createTempSymbolWithType(st,$1,$3,$1);<br>
+  break;<br>
+  case MINUSASSIGN:<br>
+  addCode(quadTable,labelpending,MINUS,$1,$3,$1); <br>
+  sym=createTempSymbolWithType(st,$1,$3,$1);<br>
+  $$ = $1;<br>
+  $$.type = ID;<br>
+  break;<br>
+  case LSHIFTASSIGN:<br>
+  addCode(quadTable,labelpending,LSHIFT,$1,$3,$1); <br>
+  sym=createTempSymbolWithType(st,$1,$3,$1);<br>
+  break;<br>
+  case RSIGNEDSHIFTASSIGN:<br>
+  addCode(quadTable,labelpending,RSHIFTSIGNED,$1,$3,$1); <br>
+  break;<br>
+  case ANDASSIGN:<br>
+  addCode(quadTable,labelpending,AND,$1,$3,$1); <br>
+  sym=createTempSymbolWithType(st,$1,$3,$1);<br>
+  break;<br>
+  case ORASSIGN:<br>
+  addCode(quadTable,labelpending,OR,$1,$3,$1); <br>
+  sym=createTempSymbolWithType(st,$1,$3,$1);<br>
+  break;<br>
+  case XORASSIGN:<br>
+  addCode(quadTable,labelpending,XOR,$1,$3,$1); <br>
+  sym=createTempSymbolWithType(st,$1,$3,$1);<br>
+  break;<br>
+  }<br>
+  $$ = $1;<br>
+  }<br>
+  ;<br>
+  assignmentOperator: _assign   {assignOpr = ASSIGN;}<br>
+  |_mulAssign		      {assignOpr = MULASSIGN;}<br>
+  |_divAssign		      {assignOpr = DIVASSIGN;}<br>
+  |_moduloAssign                {assignOpr = MODULOASSIGN;}<br>
+  |_plusAssign                  {assignOpr = PLUSASSIGN;}<br>
+  |_minusAssign		      {assignOpr = MINUSASSIGN;}<br>
+  |_lShiftAssign                {assignOpr = LSHIFTASSIGN;}<br>
+  |_rSignedShiftAssign          {assignOpr = RSIGNEDSHIFTASSIGN;}<br>
+  |_andAssign		      {assignOpr = ANDASSIGN;}<br>
+  |_xorAssign		      {assignOpr = XORASSIGN;}<br>
+  |_orAssign		      {assignOpr = ORASSIGN;}<br>
+  ;<br>
+  expression: assignmentExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  |expression <br>
+  {<br>
+  //$$ = $1;<br>
+  }<br>
+  _comma assignmentExpression<br>
+  {<br>
+  $$ = $4;<br>
+  }<br>
+  ;<br>
+  constantExpression: conditionalExpression<br>
+  {<br>
+  $$ = $1;<br>
+  }<br>
+  ;<br>
+  statement:	matchedStatement<br>
+  |unmatchedStatement<br>
+  ;<br>
+  ifexprMatchedStatementElse: ifexpr matchedStatement _else <br>
+  {<br>
+  <br>
+  strcpy(result.name,$1.label2);<br>
+  result.type=LABEL;<br>
+  opnd1.type = NOP;<br>
+  opnd2.type = NOP;<br>
+  strcpy(opnd1.name,&quot; &quot;); <br>
+  strcpy(opnd2.name,&quot; &quot;);<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);<br>
+  strcpy(labelpending,$$.label1);<br>
+  strcpy($$.label2,$1.label2);<br>
+  }<br>
+  ;<br>
+  ifexpr : _if _leftp expression _rightp <br>
+  {<br>
+  createLabel($$.label1);<br>
+  createLabel($$.label2);<br>
+  opnd2.type = CONST;<br>
+  opnd2.subtype = INT;<br>
+  opnd2.value.iVal = 0;  //false<br>
+  result.type = LABEL;<br>
+  strcpy(result.name,$$.label1);<br>
+  addCode(quadTable,labelpending,IFGO,$3,opnd2,result);<br>
+  <br>
+  }<br>
+  ;<br>
+  matchedStatement:  ifexprMatchedStatementElse  matchedStatement <br>
+  {<br>
+  strcpy(labelpending,$1.label2);<br>
+  } <br>
+  |labeledStatement <br>
+  |compoundStatement <br>
+  |expressionStatement <br>
+  |iterationStatement <br>
+  |jumpStatement <br>
+  |switchCaseStatement <br>
+  ;<br>
+  unmatchedStatement: ifexpr  statement <br>
+  {<br>
+  strcpy(labelpending,$1.label1);<br>
+  }<br>
+  |ifexprMatchedStatementElse  unmatchedStatement <br>
+  {<br>
+  strcpy(labelpending,$1.label2); <br>
+  }<br>
+  ;<br>
+  switchCaseStatement: _switch <br>
+  { <br>
+  noCases=0; <br>
+  createLabel($1.falseLabel);<br>
+  bstackpush($1.falseLabel);<br>
+  }<br>
+  _leftp expression _rightp <br>
+  statement <br>
+  { <br>
+  //strcpy(labelpending,$1.falseLabel);<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP; <br>
+  strcpy(opnd1.name,&quot; &quot;); <br>
+  strcpy(opnd2.name,&quot; &quot;);<br>
+  result.type=LABEL; <br>
+  strcpy(result.name,$1.falseLabel);<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);</p>
+<p> strcpy(labelpending,&quot;checkForCase&quot;);<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP; <br>
+  strcpy(opnd1.name,&quot; &quot;); <br>
+  strcpy(opnd2.name,&quot; &quot;);<br>
+  result.type=NOP; <br>
+  strcpy(result.name,&quot; &quot;);<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  caseIdx=0; //printf(&quot;no of cases=%d\n&quot;,noCases);<br>
+  while(caseIdx &lt; noCases-1)<br>
+  {<br>
+  strcpy(caseExpr,caseExprs[caseIdx]);<br>
+  strcpy(caseLabel,caseLabels[caseIdx]);<br>
+  caseIdx++;<br>
+  opnd1.type=ID; <br>
+  strcpy(opnd1.name,$4.name);<br>
+  opnd2.type=ID; <br>
+  strcpy(opnd2.name,caseExpr);<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,caseLabel);<br>
+  addCode(quadTable,&quot; &quot;,IFEQGO,opnd1,opnd2,result);<br>
+  }</p>
+<p> strcpy(caseExpr,caseExprs[caseIdx]);<br>
+  //printf(&quot;%s is the caseExpr at caseIdx %d\n&quot;,caseExpr,caseIdx); <br>
+  if(strcmp(caseExpr,&quot;default&quot;))  //if no default case exists<br>
+  { <br>
+  strcpy(caseLabel,caseLabels[caseIdx]);<br>
+  //strcpy(caseExpr,caseExprs[caseIdx]);<br>
+  caseIdx++;<br>
+  opnd1.type=ID; <br>
+  strcpy(opnd1.name,$4.name);<br>
+  opnd2.type=ID; <br>
+  strcpy(opnd2.name,caseExpr);<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,caseLabel);<br>
+  addCode(quadTable,&quot; &quot;,IFEQGO,opnd1,opnd2,result);<br>
+  }<br>
+  else<br>
+  {<br>
+  strcpy(caseLabel,caseLabels[caseIdx]);<br>
+  caseIdx++;<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP; <br>
+  strcpy(opnd1.name,&quot; &quot;); <br>
+  strcpy(opnd2.name,&quot; &quot;);<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,caseLabel);<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);<br>
+  }</p>
+<p> strcpy(labelpending,$1.falseLabel);<br>
+  opnd1.type=NOP;<br>
+  strcpy(opnd1.name,&quot; &quot;); <br>
+  opnd2.type=NOP; <br>
+  strcpy(opnd2.name,&quot; &quot;); <br>
+  result.type=NOP; <br>
+  strcpy(result.name,&quot; &quot;);<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result); <br>
+  bstackpop();<br>
+  noCases=0;<br>
+  }<br>
+  ;<br>
+  labeledStatement: identifier _colon <br>
+  {<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP; <br>
+  strcpy(opnd1.name,&quot; &quot;); <br>
+  strcpy(opnd2.name,&quot; &quot;);<br>
+  result.type=NOP; <br>
+  strcpy(result.name,&quot; &quot;);<br>
+  strcpy(labelpending,$1.name);<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  }<br>
+  statement <br>
+  |_case constantExpression _colon <br>
+  {<br>
+  strcpy(caseExprs[noCases],$2.name);<br>
+  createLabel(tempLabel);<br>
+  strcpy(caseLabels[noCases],tempLabel);<br>
+  noCases++;<br>
+  strcpy(labelpending,tempLabel);<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP; <br>
+  strcpy(opnd1.name,&quot; &quot;); <br>
+  strcpy(opnd2.name,&quot; &quot;);<br>
+  result.type=NOP; <br>
+  strcpy(result.name,&quot; &quot;);<br>
+  strcpy(labelpending,tempLabel);<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  }<br>
+  statement<br>
+  |_default  _colon <br>
+  {<br>
+  strcpy(caseExprs[noCases],&quot;default&quot;);<br>
+  createLabel(tempLabel);<br>
+  strcpy(caseLabels[noCases],tempLabel);<br>
+  noCases++;<br>
+  //strcpy(labelpending,tempLabel);<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP;<br>
+  strcpy(opnd1.name,&quot; &quot;); <br>
+  strcpy(opnd2.name,&quot; &quot;);<br>
+  result.type=NOP; <br>
+  strcpy(result.name,&quot; &quot;);<br>
+  strcpy(labelpending,tempLabel);<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  }<br>
+  statement<br>
+  ;<br>
+  compoundStatement: _leftb <br>
+  { <br>
+  st = (ST*)malloc(sizeof(ST));<br>
+  if(st==NULL) <br>
+  {<br>
+  printf(&quot;Error: Memory allocation Problem for Symbol Table..Existing\n&quot;);<br>
+  exit(-1);<br>
+  }<br>
+  st-&gt;prevst=prevst;<br>
+  prevst=st;<br>
+  initHash(st,HASHSIZE);<br>
+  }<br>
+  blockItemListopt _rightb <br>
+  { <br>
+  st = st-&gt;prevst; <br>
+  } <br>
+  ;<br>
+  blockItemListopt:	| blockItemList <br>
+  ;<br>
+  blockItemList: blockItem <br>
+  |blockItemList blockItem<br>
+  ;<br>
+  blockItem: declaration <br>
+  |statement <br>
+  ;<br>
+  expressionStatement: expressionopt _semicolon<br>
+  ;<br>
+  expressionopt:	|expression<br>
+  ;<br>
+  iterationStatement: _while <br>
+  { <br>
+  createLabel($1.trueLabel); <br>
+  createLabel($1.falseLabel);<br>
+  strcpy(labelpending,$1.trueLabel);<br>
+  cstackpush($1.trueLabel);<br>
+  bstackpush($1.falseLabel);<br>
+  }<br>
+  _leftp expression <br>
+  {<br>
+  <br>
+  opnd2.type = CONST;<br>
+  opnd2.subtype = INT;<br>
+  opnd2.value.iVal = 0;<br>
+  createTemp(result.name);<br>
+  result.type = LABEL;<br>
+  strcpy(result.name,$1.falseLabel);<br>
+  addCode(quadTable,labelpending,IFGO,$4,opnd2,result);<br>
+  }<br>
+  _rightp statement <br>
+  {<br>
+  opnd1.type = NOP;<br>
+  opnd2.type = NOP;<br>
+  result.type = LABEL;<br>
+  strcpy(result.name,$1.trueLabel);<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1, opnd2,result);<br>
+  strcpy(labelpending,$1.falseLabel);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  result.type=NOP;<br>
+  strcpy(result.name,&quot; &quot;);<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  cstackpop();<br>
+  bstackpop();<br>
+  }<br>
+  |_do <br>
+  {<br>
+  createLabel($1.trueLabel);<br>
+  createLabel($1.falseLabel);<br>
+  cstackpush($1.trueLabel);<br>
+  bstackpush($1.falseLabel);<br>
+  strcpy(labelpending, $1.trueLabel);<br>
+  }<br>
+  statement _while _leftp expression <br>
+  {<br>
+  <br>
+  opnd2.type = CONST;<br>
+  opnd2.subtype = INT;<br>
+  opnd2.value.iVal = 0;<br>
+  createTemp(result.name);<br>
+  //result.type = CONST;<br>
+  result.type = LABEL;<br>
+  //result.datatype = FALSE;<br>
+  strcpy(result.name,$1.falseLabel);<br>
+  addCode(quadTable,labelpending,IFGO,$6,opnd2,result);<br>
+  opnd1.type = NOP;<br>
+  opnd2.type = NOP;<br>
+  createTemp(result.name);<br>
+  result.type = LABEL;<br>
+  strcpy(result.name,$1.trueLabel);<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);<br>
+  strcpy(labelpending,$1.falseLabel);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  result.type=NOP;<br>
+  strcpy(result.name,&quot; &quot;);<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  cstackpop();<br>
+  bstackpop();<br>
+  }<br>
+  _rightp _semicolon<br>
+  |_for  _leftp <br>
+  {<br>
+  createLabel($1.cond2Label);<br>
+  createLabel($1.cond3Label);<br>
+  createLabel($1.cond2TestLabel);<br>
+  createLabel($1.nextStmtLabel);<br>
+  cstackpush($1.cond2Label);<br>
+  bstackpush($1.nextStmtLabel);<br>
+  <br>
+  } <br>
+  expressionopt _semicolon <br>
+  { <br>
+  strcpy(labelpending,$1.cond2Label);<br>
+  }<br>
+  expressionopt _semicolon <br>
+  {<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.cond2TestLabel);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);<br>
+  strcpy(labelpending,$1.cond3Label);<br>
+  } <br>
+  expressionopt _rightp <br>
+  {<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.cond2Label);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);<br>
+  strcpy(labelpending,$1.cond2TestLabel);<br>
+  opnd2.type = CONST;<br>
+  opnd2.subtype = INT;<br>
+  opnd2.value.iVal = 0;<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.nextStmtLabel);<br>
+  addCode(quadTable,labelpending,IFGO,$7,opnd2,result);<br>
+  } </p>
+<p>statement <br>
+  {<br>
+  opnd1.type = NOP;<br>
+  opnd2.type = NOP;<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.cond3Label);<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result); <br>
+  strcpy(labelpending,$1.nextStmtLabel);<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP; <br>
+  result.type=NOP; <br>
+  strcpy(result.name,&quot; &quot;);<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result);<br>
+  cstackpop();<br>
+  bstackpop();<br>
+  }<br>
+  |_for _leftp <br>
+  {<br>
+  createLabel($1.cond2Label);<br>
+  createLabel($1.cond3Label);<br>
+  createLabel($1.cond2TestLabel);<br>
+  createLabel($1.nextStmtLabel);<br>
+  } <br>
+  declaration expressionopt _semicolon <br>
+  {<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.cond2TestLabel);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);<br>
+  //addCode(quadTable,&quot; &quot;,GOTO,&quot; &quot;,&quot; &quot;,$1.cond2TestLabel);<br>
+  strcpy(labelpending,$1.cond3Label);<br>
+  } <br>
+  expressionopt _rightp <br>
+  {<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.cond2Label);<br>
+  opnd1.type=NOP;<br>
+  opnd2.type=NOP;<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result);<br>
+  strcpy(labelpending,$1.cond2TestLabel);<br>
+  opnd2.type = CONST;<br>
+  opnd2.subtype = INT;<br>
+  opnd2.value.iVal = 0;<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.nextStmtLabel);<br>
+  addCode(quadTable,labelpending,IFGO,opnd1,opnd2,result);<br>
+  } <br>
+  statement <br>
+  {<br>
+  opnd1.type = NOP;<br>
+  opnd2.type = NOP;<br>
+  result.type=LABEL;<br>
+  strcpy(result.name,$1.cond3Label);<br>
+  addCode(quadTable,&quot; &quot;,GOTO,opnd1,opnd2,result); <br>
+  strcpy(labelpending,$1.nextStmtLabel);<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP; <br>
+  result.type=NOP; <br>
+  strcpy(result.name,&quot; &quot;);<br>
+  addCode(quadTable,labelpending,NOP,opnd1,opnd2,result); <br>
+  }<br>
+  ;<br>
+  jumpStatement: _goto identifier _semicolon <br>
+  {<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP; <br>
+  result.type=LABEL; <br>
+  strcpy(result.name,$2.name);<br>
+  addCode(quadTable,labelpending,GOTO,opnd1,opnd2,result);<br>
+  }<br>
+  |_continue _semicolon <br>
+  {<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP; <br>
+  result.type=LABEL; <br>
+  if(cstackTop != -1) <br>
+  {<br>
+  strcpy(result.name,cstack[cstackTop]);<br>
+  addCode(quadTable,labelpending,GOTO,opnd1,opnd2,result);<br>
+  }<br>
+  }<br>
+  |_break _semicolon <br>
+  {<br>
+  opnd1.type=NOP; <br>
+  opnd2.type=NOP; <br>
+  result.type=LABEL;<br>
+  if(bstackTop != -1)<br>
+  {<br>
+  strcpy(result.name,bstack[bstackTop]); <br>
+  addCode(quadTable,labelpending,GOTO,opnd1,opnd2,result);<br>
+  }<br>
+  }<br>
+  |_return expressionopt _semicolon<br>
+  ;<br>
+  identifier:	_id <br>
+  {<br>
+  strcpy($$.name,$1.name);<br>
+  }<br>
+  ;<br>
+  %%</p>
+<p>int yyerror(char *errmsg)<br>
+  {<br>
+  printf(&quot;%s: Error has occurred in parsing Program\n&quot;,errmsg);<br>
+  exit(-1);<br>
+  }<br>
+  <br>
+</p>
+</body>
+</html>

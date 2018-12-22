@@ -1,0 +1,19 @@
+#include "sph.cg"
+
+void main(float index : TEXCOORD0,
+		  uniform samplerRECT force_rect     : TEXUNIT0,
+		  uniform samplerRECT neighbour_rect : TEXUNIT1,
+		  uniform int len,
+		  out float3 result : COLOR)
+{
+	float3 force = float3(0, 0, 0);
+	for (int i = 0; i < len; i++)
+	{
+		float2 pair_index = f2texRECT(neighbour_rect, float2(i, index));
+		float3 f = f3texRECT(force_rect, pair_index);//coord + float2(i, 0));
+		if (pair_index.x < 0.0f)
+			f -= f;
+		force += f;
+	}
+	result = force;
+}

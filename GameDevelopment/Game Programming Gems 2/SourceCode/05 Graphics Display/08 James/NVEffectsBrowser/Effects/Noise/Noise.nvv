@@ -1,0 +1,140 @@
+vs.1.1
+
+#include "constants.h"
+
+; Vertex program procedural noise 
+
+; Uses Perlin-style recursive table lookup into 64 constants
+; to produce repeatable random numbers for given vertex position.
+; Interpolates bilinearly between 4 neighbours to give a smooth result
+
+; TODO
+; Fix interpolation bug
+
+; sgreen@nvidia.com 10/2000
+
+; WARNING - Macros ahoy!
+
+; Modulo function
+; R.x = fmod(X, C);
+; C - constant containing (1.0/period, period, n, n)
+#define FMOD(R, X, C, TEMP) \
+	mul TEMP.x, X, c[C].x	\
+	expp TEMP.y, TEMP.x		\
+	mul R, TEMP.y, c[C].y
+
+; Table lookup
+; R = table[X+C];
+; C - constant offset [-64,63]
+#define TABLELOOKUP(R, X, C) \
+	mov a0.x, X				\
+	mov R, c[a0.x+C]
+
+; Nice smooth cubic S-curve function
+; f(x) = 3x^2 - 2x^3 = x*x*(3-2*x)
+; C - constant containing (0.0, 1.0, 2.0, 3.0)
+#define SMOOTHSTEP(R, X, C, TEMP) \
+	mad	TEMP, X, -c[C].z, c[C].w	\
+	mul TEMP, TEMP, X				\
+	mul R, TEMP, X
+
+; linear interpolation
+; r = a*(1-x) + b*x = a + (b-a)*x
+#define LERP(R, A, B, X, T) \
+	add	T, B, -A			\
+	mad	R, T, X, A
+
+; noise macro
+; - returns a repeatable random vector based on (x,y,z) position
+; #define PERM(x)          perm[(x)%tabsize]
+; #define INDEX(ix,iy,iz)  PERM((ix)+PERM((iy)+PERM(iz)))
+;
+; inputs:
+; POS			- lattice position
+; T, T2		- temporary registers
+; CV_NOISETABLE	- permutation of integers
+;
+; 17 instructions
+
+; 2D version
+; 11 instructions
+#define NOISE2(R, POS, T, T2)	\
+	FMOD(T.x, POS.x, CV_NOISEFACTORS_FREQ, T2)	\
+	TABLELOOKUP(R.w, T.x, CV_NOISETABLE)	\
+	add	T.x, R.w, POS.y		\
+	FMOD(T.x, T.x, CV_NOISEFACTORS_FREQ, T2)		\
+	TABLELOOKUP(R, T.x, CV_NOISETABLE)
+
+
+; 2D bilinear interpolated noise based on vertex position
+
+#define FREQ	c[CV_NOISEFACTORS].x
+#define AMP		c[CV_NOISEFACTORS].y
+
+#define NPOS	r0
+#define N1		r1
+#define N2		r2
+#define I1		r3
+#define I2		r4
+#define I3		r5
+#define FRAC	r6
+#define TPOS	r7
+#define VF		r8
+#define NORM	r9
+
+#define T1		r10
+#define T2		r11
+
+; calc noise position
+mul	NPOS, v0.xyyy, FREQ
+mov	NPOS.z, c[CV_ZERO].x
+
+; n1 = noise(x, y)
+NOISE2(N1, NPOS, T1, T2)
+
+; n2 = noise(x+1, y)
+mov TPOS, NPOS
+add	TPOS.x, NPOS, c[CV_ONE].x
+NOISE2(N2, TPOS, T1, T2)
+
+; i1 = lerp(n1, n2, frac(npos.x))
+expp FRAC, NPOS.x
+SMOOTHSTEP(FRAC, FRAC, CV_SMOOTHSTEP, T1)
+LERP(I1, N1, N2, FRAC.y, T1)
+
+; n1 = noise(x+1, y+1)
+mov TPOS, NPOS
+add	TPOS.xy, NPOS, c[CV_ONE].x
+NOISE2(N1, TPOS, T1, T2)
+
+; n2 = noise(x, y+1)
+mov TPOS, NPOS
+add	TPOS.y, NPOS, c[CV_ONE].x
+NOISE2(N2, TPOS, T1, T2)
+
+; i2 = lerp(n1, n2, frac(npos.x))
+expp FRAC, NPOS.x
+SMOOTHSTEP(FRAC, FRAC, CV_SMOOTHSTEP, T1)
+LERP(I2, N2, N1, FRAC.y, T1)
+
+; final interpolation
+; i3 = lerp(i1, i2, frac(npos.y))
+expp FRAC, NPOS.y
+SMOOTHSTEP(FRAC, FRAC, CV_SMOOTHSTEP, T1)
+LERP(I3, I1, I2, FRAC.y, T1)
+
+; replace vertex z
+mov	VF, v0
+mul	VF.z, I3, AMP
+
+mov	oD0.xyz, I3
+
+; transform obj->clip space
+dp4	oPos.x, c[CV_WORLDVIEWPROJ_0], VF
+dp4	oPos.y, c[CV_WORLDVIEWPROJ_1], VF
+dp4	oPos.z, c[CV_WORLDVIEWPROJ_2], VF
+dp4	oPos.w, c[CV_WORLDVIEWPROJ_3], VF
+
+
+
+

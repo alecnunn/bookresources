@@ -1,0 +1,11 @@
+ps.1.4
+
+def c1, 0.33, 0.33, 0.33, 0.0
+
+texld r0, t0
+dp3   r1, r0, c1
+
+phase
+
+texld r1, r1
+mov r0, r1

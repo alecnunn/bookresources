@@ -1,0 +1,6 @@
+#ifndef SGX_FILESYSTEM_IO_FSIOXMLTREE_HPP
+#define SGX_FILESYSTEM_IO_FSIOXMLTREE_HPP	1
+
+CSGXFile& operator<<(CSGXFile&File, const sgxXMLTree &tree);
+
+#endif /* SGX_FILESYSTEM_IO_FSIOXMLTREE_HPP */

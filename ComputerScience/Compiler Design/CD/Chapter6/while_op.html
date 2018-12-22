@@ -1,0 +1,57 @@
+<html>
+<head>
+<title></title>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Output</h2>
+<p><br></p>
+<p>In while-&gt;L1: ....<br>
+  In while-&gt;L2: ....</p>
+<p>&nbsp;</p>
+<p>THE TABLE OF QUADRUPLES ARE</p>
+<p>LABEL	OPER	OP1	OP2	RES</p>
+<p> =	0	-	sum<br>
+  =	100000	-	requiredIncome<br>
+  =	2000	-	monthlyIncome<br>
+  =	0	-	noOfMonths<br>
+  L1:	&lt;=	sum	requiredIncome	t1<br>
+  If=	t1	0	L2<br>
+  +	sum	monthlyIncome	t3<br>
+  =	t3	-	sum<br>
+  +	noOfMonths	1	t4<br>
+  =	t4	-	noOfMonths<br>
+  goto	-	-	L1<br>
+  L2:	Nop	-	-	-<br>
+  ==	requiredIncome	sum	t5<br>
+  =	t5	-	check<br>
+  ..................................<br>
+  Printing the quadruples Blockwise<br>
+  ..................................<br>
+  Block No:0<br>
+  =	0	-	sum<br>
+  =	100000	-	requiredIncome<br>
+  =	2000	-	monthlyIncome<br>
+  =	0	-	noOfMonths<br>
+  Block No:1<br>
+  L1:	&lt;=	sum	requiredIncome	t1<br>
+  If=	t1	0	L2<br>
+  Block No:2<br>
+  +	sum	monthlyIncome	t3<br>
+  =	t3	-	sum<br>
+  +	noOfMonths	1	t4<br>
+  =	t4	-	noOfMonths<br>
+  goto	-	-	L1<br>
+  Block No:3<br>
+  ==	requiredIncome	sum	t5<br>
+  =	t5	-	check<br>
+  Construct Flow Graph<br>
+  Print Flow Graph<br>
+  B1<br>
+  B2<br>
+  B4	B3<br>
+  B2 </p>
+<p>Printing Labels<br>
+  L1	L2 </p>
+<p></p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WeakRefs", "WeakRefs.vcproj", "{EA59F1CF-F615-4CC6-8BE3-4D1160F07139}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "Tests\tests.vcproj", "{411C7400-2396-45FF-ABC3-A8401C479405}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{411C7400-2396-45FF-ABC3-A8401C479405}.0 = {EA59F1CF-F615-4CC6-8BE3-4D1160F07139}
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{EA59F1CF-F615-4CC6-8BE3-4D1160F07139}.Debug.ActiveCfg = Debug|Win32
+		{EA59F1CF-F615-4CC6-8BE3-4D1160F07139}.Debug.Build.0 = Debug|Win32
+		{EA59F1CF-F615-4CC6-8BE3-4D1160F07139}.Release.ActiveCfg = Release|Win32
+		{EA59F1CF-F615-4CC6-8BE3-4D1160F07139}.Release.Build.0 = Release|Win32
+		{411C7400-2396-45FF-ABC3-A8401C479405}.Debug.ActiveCfg = Debug|Win32
+		{411C7400-2396-45FF-ABC3-A8401C479405}.Debug.Build.0 = Debug|Win32
+		{411C7400-2396-45FF-ABC3-A8401C479405}.Release.ActiveCfg = Release|Win32
+		{411C7400-2396-45FF-ABC3-A8401C479405}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

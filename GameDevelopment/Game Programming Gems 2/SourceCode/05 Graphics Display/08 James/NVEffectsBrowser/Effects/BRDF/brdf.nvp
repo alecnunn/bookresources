@@ -1,0 +1,35 @@
+//
+// Pixel shader - BRDF
+//      This is actually minneart reflections
+//
+//
+
+	#include "constants.h"
+
+// Declare pixel shader version 1.0
+	ps.1.0
+
+	tex t0	
+	texm3x2pad t1,t0_bx2		// dot normal with light vector (S coordinate)
+	texm3x2tex t2,t0_bx2		// dot normal with eye vector (T coordinate)
+	tex t3						// grab bump map normal 
+
+#ifdef MODULATE_COLOR
+	
+	dp3_sat	r1, c[CVP_LIGHT_DIRECTION]_bx2, t3_bx2
+
+	mul r0, r1, t2				// multiply in darkening limbs
+	mul r0, r0, v0			// multiply by diffuse color
+#else
+	mov	r0,t2
+#endif
+
+
+
+
+
+
+
+
+
+

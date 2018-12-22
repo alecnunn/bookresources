@@ -1,0 +1,116 @@
+build :
+	@mkdir -p ../Include
+	@mkdir -p ../Library/Debug
+	@mkdir -p ../Library/Release
+	@mkdir -p Debug
+	@mkdir -p Release
+	@cp -fp WildMagic3.h ../Include
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Approximation
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Collision
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Containment
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Controllers
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Curves
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Detail
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Distance
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Effects
+	make build_project -f makelib.lnx CONFIG=Debug DIR=ImageAnalysis
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Interpolation
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Intersection
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Math
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Meshes
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Miscellaneous
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Numerics
+	make build_project -f makelib.lnx CONFIG=Debug DIR=ObjectSystem
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Physics
+	make build_project -f makelib.lnx CONFIG=Debug DIR=RationalArithmetic
+	make build_project -f makelib.lnx CONFIG=Debug DIR=SceneGraph
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Shaders
+	make build_project -f makelib.lnx CONFIG=Debug DIR=SharedArrays
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Sorting
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Surfaces
+	make build_project -f makelib.lnx CONFIG=Debug DIR=System
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Terrain
+	make build_project -f makelib.lnx CONFIG=Debug DIR=Tessellation
+	make build_project -f makelib.lnx CONFIG=Release DIR=Approximation
+	make build_project -f makelib.lnx CONFIG=Release DIR=Collision
+	make build_project -f makelib.lnx CONFIG=Release DIR=Containment
+	make build_project -f makelib.lnx CONFIG=Release DIR=Controllers
+	make build_project -f makelib.lnx CONFIG=Release DIR=Curves
+	make build_project -f makelib.lnx CONFIG=Release DIR=Detail
+	make build_project -f makelib.lnx CONFIG=Release DIR=Distance
+	make build_project -f makelib.lnx CONFIG=Release DIR=Effects
+	make build_project -f makelib.lnx CONFIG=Release DIR=ImageAnalysis
+	make build_project -f makelib.lnx CONFIG=Release DIR=Interpolation
+	make build_project -f makelib.lnx CONFIG=Release DIR=Intersection
+	make build_project -f makelib.lnx CONFIG=Release DIR=Math
+	make build_project -f makelib.lnx CONFIG=Release DIR=Meshes
+	make build_project -f makelib.lnx CONFIG=Release DIR=Miscellaneous
+	make build_project -f makelib.lnx CONFIG=Release DIR=Numerics
+	make build_project -f makelib.lnx CONFIG=Release DIR=ObjectSystem
+	make build_project -f makelib.lnx CONFIG=Release DIR=Physics
+	make build_project -f makelib.lnx CONFIG=Release DIR=RationalArithmetic
+	make build_project -f makelib.lnx CONFIG=Release DIR=SceneGraph
+	make build_project -f makelib.lnx CONFIG=Release DIR=Shaders
+	make build_project -f makelib.lnx CONFIG=Release DIR=SharedArrays
+	make build_project -f makelib.lnx CONFIG=Release DIR=Sorting
+	make build_project -f makelib.lnx CONFIG=Release DIR=Surfaces
+	make build_project -f makelib.lnx CONFIG=Release DIR=System
+	make build_project -f makelib.lnx CONFIG=Release DIR=Terrain
+	make build_project -f makelib.lnx CONFIG=Release DIR=Tessellation
+
+clean :
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Approximation
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Collision
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Containment
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Controllers
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Curves
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Detail
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Distance
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Effects
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=ImageAnalysis
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Interpolation
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Intersection
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Math
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Meshes
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Miscellaneous
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Numerics
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=ObjectSystem
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Physics
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=RationalArithmetic
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=SceneGraph
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Shaders
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=SharedArrays
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Sorting
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Surfaces
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=System
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Terrain
+	make clean_project -f makelib.lnx CONFIG=Debug DIR=Tessellation
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Approximation
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Collision
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Containment
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Controllers
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Curves
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Detail
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Distance
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Effects
+	make clean_project -f makelib.lnx CONFIG=Release DIR=ImageAnalysis
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Interpolation
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Intersection
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Math
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Meshes
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Miscellaneous
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Numerics
+	make clean_project -f makelib.lnx CONFIG=Release DIR=ObjectSystem
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Physics
+	make clean_project -f makelib.lnx CONFIG=Release DIR=RationalArithmetic
+	make clean_project -f makelib.lnx CONFIG=Release DIR=SceneGraph
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Shaders
+	make clean_project -f makelib.lnx CONFIG=Release DIR=SharedArrays
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Sorting
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Surfaces
+	make clean_project -f makelib.lnx CONFIG=Release DIR=System
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Terrain
+	make clean_project -f makelib.lnx CONFIG=Release DIR=Tessellation
+	rm -f ../Include/*.*
+	rm -f ../Library/Debug/*.*
+	rm -f ../Library/Release/*.*

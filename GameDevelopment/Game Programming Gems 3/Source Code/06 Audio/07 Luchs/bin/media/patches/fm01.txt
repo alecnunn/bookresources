@@ -1,0 +1,132 @@
+
+
+
+CGASignal  Envelope
+{
+	File = "m_env04.wav";
+}
+
+
+CGAPatch "FM 1"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.25;
+	}
+
+	CGASineOscillator VCO1
+	{
+		Frequency = 400;
+	}
+
+	CGASineOscillator VCO2
+	{
+		Frequency = 200;
+		FMAttenuation = 0.1;
+	}
+
+
+
+	Connection = LFO1,VCO1, SampleOut, AM;
+	Connection = VCO1,VCO2, SampleOut, FM;
+
+}
+
+CGAPatch "FM 2"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.25;
+	}
+
+	CGASineOscillator VCO1
+	{
+		Frequency = 16.0;
+	}
+	
+	CGASineOscillator VCO2
+	{
+		Frequency = 60;
+	}
+
+
+	CGAMixer2 MODMIX
+	{
+	}
+
+	CGASineOscillator VCO3
+	{
+		Frequency = 200;
+		FMAttenuation = 0.3;
+	}
+
+
+
+	Connection = LFO1,MODMIX, SampleOut, SampleIn1;
+	Connection = LFO1,VCO1, SampleOut, AM;
+	Connection = VCO1,VCO2, SampleOut, AM;
+	Connection = VCO2,MODMIX, SampleOut, SampleIn2;
+	Connection = MODMIX,VCO3, SampleOut, FM;
+
+}
+
+
+CGAPatch "FM 3"
+{
+	CGAWavetableOscillator ENV1
+	{
+		WaveTable = Envelope;
+		Frequency = 0.0003;
+	}
+
+	CGAAverager AVG1
+	{
+		Duration = 0.001;
+	}
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.25;
+	}
+
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGAAverager AVG2
+	{
+		Duration = 0.0002;
+	}
+	
+	CGASineOscillator VCO1
+	{
+		Frequency = 1040;
+		FMAttenuation = 0.01;
+	}
+
+
+	CGAMixer3 ModMix
+	{
+		InputGain1 = 0.8;
+		InputGain3 = 0.1;
+	}
+
+
+	CGASineOscillator VCO2
+	{
+		Frequency = 580;
+		FMAttenuation = 0.2;
+	}
+
+
+
+	Connection = ENV1,AVG1, SampleOut, SampleIn;
+	Connection = AVG1,VCO2, SampleOut, AM;
+	Connection = RAND1,AVG2, SampleOut, SampleIn;
+	Connection = AVG2,ModMix, SampleOut, SampleIn1;
+	Connection = VCO1,ModMix, SampleOut, SampleIn2;
+	Connection = LFO1,ModMix, SampleOut, SampleIn3;
+
+	Connection = ModMix,VCO2, SampleOut, FM;
+}

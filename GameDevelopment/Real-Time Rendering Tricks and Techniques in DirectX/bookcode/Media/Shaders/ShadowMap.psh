@@ -1,0 +1,29 @@
+ps.1.1
+
+;Set the bias for the conditional instruction. The instruction
+;compares against 0.5.
+def c0, 0.495, 0.495, 0.495, 0.495
+
+;If the conditional test passes we want full brightness
+def c1, 1.0, 1.0, 1.0, 1.0
+
+;If the test fails, everything is dark
+def c2, 0.5, 0.5, 0.5, 0.5
+
+;This is the light texture
+tex t0
+
+;Subtract the two distances. The result should be either
+;zero or greater than zero.
+sub r1, v1, t0
+
+;Add 0.5. If the distances matched the result will be equal
+;to 0.5. Otherwise it will be greater
+add r0.a, r1.b, c0.b
+
+;Compare the result to 0.5. If the distances don't match, choose c2
+cnd r0, r0.a, c2, c1
+
+;r0 is now either zero or one. Use that value to turn
+;the lighting on or off.
+mul r0, r0, v0

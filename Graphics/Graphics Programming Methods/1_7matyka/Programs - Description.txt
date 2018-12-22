@@ -1,0 +1,44 @@
+Programs for article:
+
+"Inverse Dynamic Displacement Constraints in Real-Time Cloth and Soft Body Models."
+by Maciej Matyka, document done: Linkoping 18.III.2003
+University of Wroclaw
+email: maq@panoramix.ift.uni.wroc.pl
+url:   http://panoramix.ift.uni.wroc.pl/~maq
+
+
+Short Description:
+	That two programs illustrates the techniques presented in my article for th GPM book.
+	Both of them are based on the same engine and are compiled from provided source code.
+	
+
+	Flag.exe - program which simulate constrained cloth behaviour. Feel free to change texture file,
+		but remember - it have to be .bmp file with 2^n size in x and y direction.
+	SoftBody.exe - simualtion of two soft bodies. Bodies dont interact with each other. Bodies
+		are putted in 3D rotating box, so they move very nice.
+
+Requirements:
+	- Windows operating system (tested on W98 only)
+	- GLUT extension support (important: glut32.dll inside of the program directory)
+
+Keys:
+
+		
+	';' -	move y+
+	'.' -   move y-
+	'/' -   move x+
+	',' -   move x-
+	'k' -   translate z+
+	'l' -	translate z-
+	'+' -   scale x
+	'-' -	scale y
+
+	'8' - anglex+
+	'2' - anglex-
+	'6' - angley+
+	'4' - angley-
+	'7' - anglez+
+	'9' - anglez-
+	'5' - reset angle & position to some constans value
+
+

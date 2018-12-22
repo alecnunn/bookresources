@@ -1,0 +1,199 @@
+
+
+*** test0() ***
+
+TestBufferSingle: size=1
+TestBufferSingle: size=2
+TestBufferSingle: size=4
+TestBufferSingle: size=8
+
+
+*** test1() ***
+
+TestCount: c=0
+Buffer: size=2  [ 1a 80 ]
+TestCount: c=1
+Buffer: size=2  [ 1a 81 ]
+TestCount: c=127
+Buffer: size=2  [ 1a ff ]
+TestCount: c=128
+Buffer: size=3  [ 1a 00 81 ]
+TestCount: c=129
+Buffer: size=3  [ 1a 01 81 ]
+TestCount: c=255
+Buffer: size=3  [ 1a 7f 81 ]
+TestCount: c=16383
+Buffer: size=3  [ 1a 7f ff ]
+TestCount: c=16384
+Buffer: size=4  [ 1a 00 00 81 ]
+TestCount: c=16385
+Buffer: size=4  [ 1a 01 00 81 ]
+TestCount: c=32767
+Buffer: size=4  [ 1a 7f 7f 81 ]
+TestCount: c=32768
+Buffer: size=4  [ 1a 00 00 82 ]
+TestCount: c=2097151
+Buffer: size=4  [ 1a 7f 7f ff ]
+TestCount: c=2097152
+Buffer: size=5  [ 1a 00 00 00 81 ]
+TestCount: c=2097153
+Buffer: size=5  [ 1a 01 00 00 81 ]
+TestCount: c=268435455
+Buffer: size=5  [ 1a 7f 7f 7f ff ]
+TestCount: c=268435456
+Buffer: size=6  [ 1a 00 00 00 00 81 ]
+TestCount: c=268435457
+Buffer: size=6  [ 1a 01 00 00 00 81 ]
+TestCount: c=4294967294
+Buffer: size=6  [ 1a 7e 7f 7f 7f 8f ]
+TestCount: c=4294967295
+Buffer: size=6  [ 1a 7f 7f 7f 7f 8f ]
+
+
+*** test2() ***
+
+Test_int8: val=24
+Buffer: size=2  [ 00 18 ]
+Test_int8: val=-42
+Buffer: size=2  [ 00 d6 ]
+Test_uint8: val=34
+Buffer: size=2  [ 01 22 ]
+Test_int16: val=10043
+Buffer: size=3  [ 02 27 3b ]
+Test_int16: val=-3482
+Buffer: size=3  [ 02 f2 66 ]
+Test_uint16: val=32422
+Buffer: size=3  [ 03 7e a6 ]
+Test_int32: val=33
+Buffer: size=5  [ 04 00 00 00 21 ]
+Test_int32: val=100223
+Buffer: size=5  [ 04 00 01 87 7f ]
+Test_uint32: val=456456
+Buffer: size=5  [ 05 00 06 f7 08 ]
+Test_int64: val=123456789012345
+Buffer: size=9  [ 06 00 00 70 48 86 0d df 79 ]
+Test_uint64: val=123456789012345
+Buffer: size=9  [ 07 00 00 70 48 86 0d df 79 ]
+Test_float32: val=1.000000
+Buffer: size=5  [ 08 3f 80 00 00 ]
+Test_float32: val=12345.7
+Buffer: size=5  [ 08 46 40 e6 b6 ]
+Test_float64: val=3.14159
+Buffer: size=9  [ 09 40 09 21 f9 f0 1b 86 6e ]
+Test_float64: val=1.5e+170
+Buffer: size=9  [ 09 63 43 df 7d b4 6c 3a 1b ]
+Test_bool: val=1
+Buffer: size=2  [ 0a 01 ]
+Test_bool: val=0
+Buffer: size=2  [ 0a 00 ]
+
+
+*** test3() ***
+
+TestString: 'testing'
+Buffer: size=10  [ 0b 1a 87 74 65 73 74 69 6e 67 ]
+TestString: 'testing again'
+Buffer: size=16  [ 0b 1a 8d 74 65 73 74 69 6e 67 20 61 67 61 69 6e ]
+TestCharPtr: 'testing char*'
+Buffer: size=16  [ 0b 1a 8d 74 65 73 74 69 6e 67 20 63 68 61 72 2a ]
+TestCharPtr: 'testing char* again'
+Buffer: size=22  [ 0b 1a 93 74 65 73 74 69 6e 67 20 63 68 61 72 2a 20 61 67 61 69 6e ]
+
+
+*** test4() ***
+
+TestArray: numItems=4
+Buffer: size=23  [ 0c 1a 84 05 00 00 00 01 05 00 00 00 02 05 00 00 00 03 05 00 00 00 04 ]
+TestArray: numItems=5
+Buffer: size=28  [ 0c 1a 85 08 3f 00 00 00 08 bf c0 00 00 08 42 05 c2 8f 08 42 f0 99 9a 08 42 c8 33 33 ]
+TestArray: numItems=5
+Buffer: size=48  [ 0c 1a 85 09 3f e0 00 00 00 00 00 00 09 bf f8 00 00 00 00 00 00 09 40 40 b8 51 eb 85 1e b8 09 40 5e 13 33 33 33 33 33 09 40 59 06 66 66 66 66 66 ]
+TestArray: numItems=3
+Buffer: size=22  [ 0c 1a 83 0b 1a 84 7a 65 72 6f 0b 1a 83 6f 6e 65 0b 1a 83 74 77 6f ]
+
+
+*** test5() ***
+
+TestRaw: len=8
+Buffer: size=9  [ 0d 00 01 02 03 04 05 06 07 ]
+TestRaw: len=8
+Buffer: size=9  [ 0d 58 39 b4 c8 76 be f3 3f ]
+
+
+*** test6() ***
+
+pair:
+Buffer: size=15  [ 0e 05 00 00 00 64 0b 1a 86 66 6f 6f 62 61 72 ]
+list:
+Buffer: size=3  [ 10 1a 80 ]
+Buffer: size=6  [ 10 1a 81 02 00 01 ]
+Buffer: size=9  [ 10 1a 82 02 00 01 02 00 22 ]
+Buffer: size=12  [ 10 1a 83 02 00 01 02 00 22 02 00 2a ]
+vector:
+Buffer: size=3  [ 0f 1a 80 ]
+Buffer: size=8  [ 0f 1a 81 08 3f 80 00 00 ]
+Buffer: size=13  [ 0f 1a 82 08 3f 80 00 00 08 40 49 0f d0 ]
+Buffer: size=18  [ 0f 1a 83 08 3f 80 00 00 08 40 49 0f d0 08 42 85 c2 8f ]
+deque:
+Buffer: size=3  [ 11 1a 80 ]
+Buffer: size=9  [ 11 1a 81 0b 1a 83 6f 6e 65 ]
+Buffer: size=15  [ 11 1a 82 0b 1a 83 6f 6e 65 0b 1a 83 74 77 6f ]
+set:
+Buffer: size=3  [ 12 1a 80 ]
+Buffer: size=12  [ 12 1a 81 06 00 00 00 00 00 00 27 27 ]
+Buffer: size=21  [ 12 1a 82 06 00 00 00 00 00 00 27 27 06 00 00 00 00 14 c1 b2 58 ]
+Buffer: size=30  [ 12 1a 83 06 00 00 00 00 00 00 27 27 06 00 00 00 00 14 c1 b2 58 06 00 0c 5f 35 e6 5f f9 c7 ]
+multiset:
+Buffer: size=3  [ 14 1a 80 ]
+Buffer: size=12  [ 14 1a 81 06 00 00 00 00 00 00 27 27 ]
+Buffer: size=21  [ 14 1a 82 06 00 00 00 00 00 00 27 27 06 00 00 00 00 14 c1 b2 58 ]
+Buffer: size=30  [ 14 1a 83 06 00 00 00 00 00 00 27 27 06 00 00 00 00 00 00 27 27 06 00 00 00 00 14 c1 b2 58 ]
+map:
+Buffer: size=3  [ 16 1a 80 ]
+Buffer: size=15  [ 16 1a 81 0e 00 01 09 40 c3 99 28 f5 c2 8f 5c ]
+Buffer: size=27  [ 16 1a 82 0e 00 01 09 40 c3 99 28 f5 c2 8f 5c 0e 00 06 09 41 17 73 a9 1e b8 51 ec ]
+multimap:
+Buffer: size=3  [ 18 1a 80 ]
+Buffer: size=11  [ 18 1a 81 0e 01 01 08 46 1c c8 f6 ]
+Buffer: size=19  [ 18 1a 82 0e 01 01 08 46 1c c8 f6 0e 01 02 08 43 ae 36 32 ]
+Buffer: size=27  [ 18 1a 83 0e 01 01 08 46 1c c8 f6 0e 01 01 08 47 bf dd 2c 0e 01 02 08 43 ae 36 32 ]
+Buffer: size=35  [ 18 1a 84 0e 01 01 08 46 1c c8 f6 0e 01 01 08 47 bf dd 2c 0e 01 02 08 43 ae 36 32 0e 01 02 08 46 1c c8 f6 ]
+hash_set:
+Buffer: size=3  [ 13 1a 80 ]
+Buffer: size=8  [ 13 1a 81 04 00 00 27 27 ]
+Buffer: size=13  [ 13 1a 82 04 14 c1 b2 58 04 00 00 27 27 ]
+Buffer: size=18  [ 13 1a 83 04 00 01 43 87 04 14 c1 b2 58 04 00 00 27 27 ]
+hash_multiset:
+Buffer: size=3  [ 15 1a 80 ]
+Buffer: size=8  [ 15 1a 81 04 00 00 27 27 ]
+Buffer: size=13  [ 15 1a 82 04 14 c1 b2 58 04 00 00 27 27 ]
+Buffer: size=18  [ 15 1a 83 04 14 c1 b2 58 04 00 00 27 27 04 00 00 27 27 ]
+hash_map:
+Buffer: size=3  [ 17 1a 80 ]
+Buffer: size=15  [ 17 1a 81 0e 00 01 09 40 c3 99 28 f5 c2 8f 5c ]
+Buffer: size=27  [ 17 1a 82 0e 00 01 09 40 c3 99 28 f5 c2 8f 5c 0e 00 06 09 41 17 73 a9 1e b8 51 ec ]
+hash_multimap:
+Buffer: size=3  [ 19 1a 80 ]
+Buffer: size=11  [ 19 1a 81 0e 01 01 08 46 1c c8 f6 ]
+Buffer: size=19  [ 19 1a 82 0e 01 01 08 46 1c c8 f6 0e 01 02 08 43 ae 36 32 ]
+Buffer: size=27  [ 19 1a 83 0e 01 01 08 46 1c c8 f6 0e 01 01 08 47 bf dd 2c 0e 01 02 08 43 ae 36 32 ]
+Buffer: size=35  [ 19 1a 84 0e 01 01 08 46 1c c8 f6 0e 01 01 08 47 bf dd 2c 0e 01 02 08 43 ae 36 32 0e 01 02 08 46 1c c8 f6 ]
+
+
+*** test7() ***
+
+Buffer: size=27  [ 1b 1a 97 0d 0b 1a 8c 68 65 6c 6c 6f 2c 20 77 6f 72 6c 64 05 00 00 00 2a 1a 1d 8c ]
+
+
+*** test8() ***
+
+Buffer: size=58  [ 1c 0a 01 16 1a 83 0e 03 00 03 1b 1a 8a 0d 0b 1a 87 74 65 73 74 69 6e 67 0e 03 00 04 1b 1a 85 0d 05 00 00 01 56 0e 03 00 05 1b 1a 8d 0d 10 1a 82 08 3f 80 00 00 08 40 00 00 00 ]
+Buffer: size=78  [ 1c 0a 01 16 1a 84 0e 0b 1a 83 62 61 7a 1b 1a 87 0d 0b 1a 84 71 75 75 78 0e 0b 1a 83 66 6f 6f 1b 1a 86 0d 0b 1a 83 62 61 72 0e 0b 1a 81 78 1b 1a 85 0d 05 00 00 00 01 0e 0b 1a 82 7a 7a 1b 1a 8d 0d 12 1a 82 08 3f 80 00 00 08 40 59 99 9a ]
+
+
+*** test9() ***
+
+Buffer: size=24  [ 1d 05 00 00 00 01 0b 1a 82 68 69 10 1a 82 08 40 90 00 00 08 42 62 99 9a ]
+Buffer: size=27  [ 0f 1a 81 1d 05 00 00 00 01 0b 1a 82 68 69 10 1a 82 08 40 90 00 00 08 42 62 99 9a ]
+Buffer: size=59  [ 0f 1a 82 1d 05 00 00 00 01 0b 1a 82 68 69 10 1a 82 08 40 90 00 00 08 42 62 99 9a 1d 05 00 00 00 02 0b 1a 85 74 68 65 72 65 10 1a 83 08 40 90 00 00 08 42 62 99 9a 08 44 5e 87 df ]
+Buffer: size=75  [ 0f 1a 83 1d 05 00 00 00 01 0b 1a 82 68 69 10 1a 82 08 40 90 00 00 08 42 62 99 9a 1d 05 00 00 00 02 0b 1a 85 74 68 65 72 65 10 1a 83 08 40 90 00 00 08 42 62 99 9a 08 44 5e 87 df 1d 05 00 00 00 03 0b 1a 84 61 73 64 66 10 1a 80 ]

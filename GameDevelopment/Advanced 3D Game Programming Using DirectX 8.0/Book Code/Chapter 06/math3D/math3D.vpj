@@ -1,0 +1,13 @@
+[ASSOCIATION]
+makefile=E:\bookCode\math3D\math3D.dsp
+makefiletype=microsoft visual c++
+[COMPILER]
+workingdir=.
+INCLUDEDIRS=%(INCLUDE)
+COMPILE=concur|capture,nmake /F "%rn.mak" %b "%bd%n.obj"
+MAKE=concur|capture,nmake /F "%rn.mak" %b
+execute=,"%bdmath3D.exe"
+debug=,msdev "%bdmath3D.exe"
+REBUILD=concur|capture,nmake /A /F "%rn.mak" %b
+usertool_resource_editor=hide|:Resource Editor:Resource Editor,msdev
+version=5.0

@@ -1,0 +1,591 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Driver of Death.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Driver of Death.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Driver of Death"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Fingers Of Death Driver Version 1.0   Dr. Roger Smith and Donald Stoner  www.fingersofdeath.com",
+                    IDC_STATIC,40,10,115,26,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2003",IDC_STATIC,40,36,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_DRIVEROFDEATH_DIALOG DIALOGEX 0, 0, 389, 222
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Fingers Of Death Driver"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Tab1",IDC_TAB,"SysTabControl32",0x0,7,7,375,208
+END
+
+IDD_TAB_ONE_DLG DIALOG DISCARDABLE  0, 0, 378, 202
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TAB_ONE_WIDTH,50,70,93,19,ES_AUTOHSCROLL
+    LTEXT           "Width of the Target (m):",IDC_STATIC,50,58,83,10
+    EDITTEXT        IDC_EDIT_TAB_ONE_STD_DEV,50,119,93,19,ES_AUTOHSCROLL
+    LTEXT           "Standard Deviation of the Bullet Dispersion (m.):",
+                    IDC_STATIC,50,100,80,18
+    EDITTEXT        IDC_EDIT_TAB_ONE_POH,265,34,93,19,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Probability of Hit:",IDC_STATIC,265,24,54,8
+    PUSHBUTTON      "Calculate Probability of Hit",IDC_CALCULATE_BUTTON,200,
+                    24,58,29,BS_MULTILINE
+    CONTROL         139,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,50,7,91,42
+END
+
+IDD_TAB_TWO_DLG DIALOG DISCARDABLE  0, 0, 377, 202
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TAB_ONE_WIDTH,50,71,93,19,ES_AUTOHSCROLL
+    LTEXT           "Radius of the Target (m.):",IDC_STATIC,50,59,85,10
+    EDITTEXT        IDC_EDIT_TAB_ONE_STD_DEV,50,119,93,19,ES_AUTOHSCROLL
+    LTEXT           "Standard Deviation of the Bullet Dispersion (m.):",
+                    IDC_STATIC,50,100,80,18
+    EDITTEXT        IDC_EDIT_TAB_ONE_POH,265,34,93,19,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Probability of Hit:",IDC_STATIC,265,24,54,8
+    PUSHBUTTON      "Calculate Probability of Hit",IDC_CALCULATE_BUTTON,200,
+                    24,58,29,BS_MULTILINE
+    CONTROL         141,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,50,7,150,
+                    49
+END
+
+IDD_TAB_FOUR_DLG DIALOG DISCARDABLE  0, 0, 377, 203
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TAB_ONE_NUM_OF_RNDS,50,71,93,19,ES_AUTOHSCROLL
+    LTEXT           "Number of Rounds:",IDC_STATIC,50,59,68,10
+    EDITTEXT        IDC_EDIT_TAB_ONE_LETHAL_AREA,50,119,93,19,ES_AUTOHSCROLL
+    LTEXT           "Lethal Area of a Single Round (sq. m.):",IDC_STATIC,50,
+                    100,80,18
+    EDITTEXT        IDC_EDIT_TAB_ONE_POH,265,34,93,19,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Probability of Hit:",IDC_STATIC,265,24,54,8
+    EDITTEXT        IDC_EDIT_TAB_ONE_STD_DEV,50,169,93,19,ES_AUTOHSCROLL
+    LTEXT           "Standard Deviation of the Bullet Dispersion in the X Dimension (m.):",
+                    IDC_STATIC,50,149,109,18
+    PUSHBUTTON      "Calculate Probability of Hit",IDC_CALCULATE_BUTTON,200,
+                    24,58,29,BS_MULTILINE
+    CONTROL         149,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,50,7,137,
+                    48
+END
+
+IDD_TAB_THREE_DLG DIALOG DISCARDABLE  0, 0, 376, 202
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TAB_ONE_WIDTH,50,127,93,19,ES_AUTOHSCROLL
+    LTEXT           "Length of the Target in the X Dimension (m.):",
+                    IDC_STATIC,50,109,80,18
+    EDITTEXT        IDC_EDIT_TAB_ONE_STD_DEV,200,127,93,19,ES_AUTOHSCROLL
+    LTEXT           "Standard Deviation of the Bullet Dispersion in the X Dimension (m.):",
+                    IDC_STATIC,200,109,111,18
+    EDITTEXT        IDC_EDIT_TAB_ONE_POH,265,34,93,19,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Probability of Hit:",IDC_STATIC,265,24,54,8
+    EDITTEXT        IDC_EDIT_TAB_ONE_STD_DEV2,200,168,93,19,ES_AUTOHSCROLL
+    LTEXT           "Standard Deviation of the Bullet Dispersion in the Y Dimension (m.):",
+                    IDC_STATIC,200,150,111,18
+    EDITTEXT        IDC_EDIT_TAB_ONE_WIDTH2,50,168,93,19,ES_AUTOHSCROLL
+    LTEXT           "Width of the Target in the Y Dimension (m.):",
+                    IDC_STATIC,50,150,80,18
+    PUSHBUTTON      "Calculate Probability of Hit",IDC_CALCULATE_BUTTON,200,
+                    24,58,29,BS_MULTILINE
+    CONTROL         146,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,50,7,137,
+                    100
+END
+
+IDD_TAB_FIVE_DLG DIALOG DISCARDABLE  0, 0, 379, 204
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TAB_FIVE_NUM_RNDS,50,71,93,19,ES_AUTOHSCROLL
+    LTEXT           "Number of Rounds:",IDC_STATIC,50,59,68,10
+    EDITTEXT        IDC_EDIT_TAB_FIVE_LETHAL_AREA,50,119,93,19,
+                    ES_AUTOHSCROLL
+    LTEXT           "Lethal Area of a Single Round (sq. m.):",IDC_STATIC,50,
+                    100,80,18
+    EDITTEXT        IDC_EDIT_TAB_ONE_POH,265,34,93,19,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Probability of Hit:",IDC_STATIC,265,24,54,8
+    EDITTEXT        IDC_EDIT_TAB_FIVE_STD_DEV,50,169,93,19,ES_AUTOHSCROLL
+    LTEXT           "Standard Deviation of the Bullet Dispersion in the X Dimension (m.):",
+                    IDC_STATIC,50,149,109,18
+    PUSHBUTTON      "Calculate Probability of Hit",IDC_CALCULATE_BUTTON,200,
+                    24,58,29,BS_MULTILINE
+    CONTROL         145,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,50,7,135,
+                    47
+END
+
+IDD_TAB_SIX_DLG DIALOG DISCARDABLE  0, 0, 376, 203
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TAB_SIX_PROBABILITY,50,150,93,19,ES_AUTOHSCROLL
+    LTEXT           "Probability of a Mobility or Firepower Kill:",
+                    IDC_STATIC,50,131,81,17
+    EDITTEXT        IDC_EDIT_TAB_SIX_KILL_TYPE,263,150,93,19,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Kill Type:",IDC_STATIC,263,140,30,8
+    PUSHBUTTON      "Calculate Kill Type",IDC_CALCULATE_BUTTON,200,131,58,38,
+                    BS_MULTILINE
+    CONTROL         147,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,50,7,150,
+                    62
+END
+
+IDD_TAB_SEVEN_DLG DIALOG DISCARDABLE  0, 0, 378, 203
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TAB_SEVEN_NUM_RNDS,50,76,93,19,ES_AUTOHSCROLL
+    LTEXT           "Number of Rounds:",IDC_STATIC,50,64,68,10
+    EDITTEXT        IDC_EDIT_TAB_SEVEN_CHEM_WEIGHT,50,124,93,19,
+                    ES_AUTOHSCROLL
+    LTEXT           "Weight of Chemical in Each Round (kg.):",IDC_STATIC,50,
+                    105,80,18
+    EDITTEXT        IDC_EDIT_TAB_SEVEN_POH,265,76,93,19,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Probability of Hit:",IDC_STATIC,265,66,54,8
+    EDITTEXT        IDC_EDIT_TAB_SEVEN_DIST_RNDS,50,169,93,19,ES_AUTOHSCROLL
+    LTEXT           "Distance the Rounds Fall from the Target (m.):",
+                    IDC_STATIC,50,150,82,18
+    PUSHBUTTON      "Calculate Probability of Hit",IDC_CALCULATE_BUTTON,200,
+                    66,58,29,BS_MULTILINE
+    CONTROL         144,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,50,7,202,
+                    52
+END
+
+IDD_TAB_EIGHT_DLG DIALOG DISCARDABLE  0, 0, 378, 204
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TAB_EIGHT_NUM_PROJ,50,81,93,19,ES_AUTOHSCROLL
+    LTEXT           "Number of Fragments or Projectiles:",IDC_STATIC,50,62,
+                    68,18
+    EDITTEXT        IDC_EDIT_TAB_EIGHT_RANGE_DET,50,168,93,19,ES_AUTOHSCROLL
+    LTEXT           "Range from Detonation to the Target (m.):",IDC_STATIC,
+                    50,150,76,18
+    EDITTEXT        IDC_EDIT_TAB_EIGHT_POH,276,36,93,19,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Probability of Hit:",IDC_STATIC,276,25,54,8
+    EDITTEXT        IDC_EDIT_TAB_EIGHT_ANGLE_NEAR,225,81,93,19,
+                    ES_AUTOHSCROLL
+    LTEXT           "Angle from the Missile to the Near Edge of the Target",
+                    IDC_STATIC,225,62,93,18
+    EDITTEXT        IDC_EDIT_TAB_EIGHT_VUL_AREA,50,124,93,19,ES_AUTOHSCROLL
+    LTEXT           "Vulnerable Area of the Target (sq. m.):",IDC_STATIC,50,
+                    106,68,18
+    PUSHBUTTON      "Calculate Probability of Hit",IDC_CALCULATE_BUTTON,210,
+                    25,58,30,BS_MULTILINE
+    EDITTEXT        IDC_EDIT_TAB_EIGHT_ANGLE_FAR,225,124,93,19,
+                    ES_AUTOHSCROLL
+    LTEXT           "Angle from the Missile to the Far Edge of the Target",
+                    IDC_STATIC,225,106,88,18
+    CONTROL         142,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,50,7,151,
+                    48
+END
+
+IDD_TAB_NINE_DLG DIALOG DISCARDABLE  0, 0, 378, 203
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TAB_NINE_NUM_PREY,50,71,93,19,ES_AUTOHSCROLL
+    LTEXT           "Number of Prey of Given Type:",IDC_STATIC,50,52,68,18
+    EDITTEXT        IDC_EDIT_TAB_NINE_TOTAL_PREY,50,168,93,19,ES_AUTOHSCROLL
+    LTEXT           "Total Number of Prey:",IDC_STATIC,50,150,62,18
+    EDITTEXT        IDC_EDIT_TAB_NINE_CHANGE_IN_PREY_POP,267,71,93,19,
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Change in Prey Population:",IDC_STATIC,267,52,84,19
+    EDITTEXT        IDC_EDIT_TAB_NINE_PROB_DETECTION,200,119,93,19,
+                    ES_AUTOHSCROLL
+    LTEXT           "Probability that Hunter of Given Type can Detect Prey:",
+                    IDC_STATIC,200,100,95,18
+    EDITTEXT        IDC_EDIT_TAB_NINE_PREY_HARDNESS,50,119,93,19,
+                    ES_AUTOHSCROLL
+    LTEXT           "Hardness of Prey:",IDC_STATIC,50,100,51,18
+    PUSHBUTTON      "Calculate Change in Population",IDC_CALCULATE_BUTTON,
+                    200,52,58,38,BS_MULTILINE
+    EDITTEXT        IDC_EDIT_TAB_NINE_NUM_HUNTERS,200,168,93,19,
+                    ES_AUTOHSCROLL
+    LTEXT           "Number of Hunters of Given Type:",IDC_STATIC,200,150,60,
+                    18
+    CONTROL         143,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,50,7,178,
+                    43
+END
+
+IDD_TAB_TEN_DLG DIALOG DISCARDABLE  0, 0, 377, 203
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_TAB_TEN_NUM_PREY,50,71,93,19,ES_AUTOHSCROLL
+    LTEXT           "Number of Prey of Given Type:",IDC_STATIC,50,52,68,18
+    EDITTEXT        IDC_EDIT_TAB_TEN_TOTAL_PREY,50,168,93,19,ES_AUTOHSCROLL
+    LTEXT           "Total Number of Prey:",IDC_STATIC,50,150,62,18
+    EDITTEXT        IDC_EDIT_TAB_TEN_CHANGE_PREY_POP,267,71,93,19,
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Change in Prey Population:",IDC_STATIC,267,52,68,18
+    EDITTEXT        IDC_EDIT_TAB_TEN_AVG_DESTRUCTION,200,119,93,19,
+                    ES_AUTOHSCROLL
+    LTEXT           "Average Destruction of Prey j by Hunters:",IDC_STATIC,
+                    200,100,72,18
+    EDITTEXT        IDC_EDIT_TAB_TEN_PREY_SPACING,50,119,93,19,
+                    ES_AUTOHSCROLL
+    LTEXT           "Average Spacing of Prey (m.):",IDC_STATIC,50,100,63,18
+    PUSHBUTTON      "Calculate Change in Population",IDC_CALCULATE_BUTTON,
+                    200,52,58,38,BS_MULTILINE
+    EDITTEXT        IDC_EDIT_TAB_TEN_NUM_HUNTERS,200,168,93,19,
+                    ES_AUTOHSCROLL
+    LTEXT           "Number of Hunters of Given Type:",IDC_STATIC,200,150,60,
+                    18
+    CONTROL         148,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,50,7,178,
+                    43
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Driver of Death MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Driver of Death\0"
+            VALUE "LegalCopyright", "Copyright (C) 2003\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Driver of Death.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Driver of Death Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DRIVEROFDEATH_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 382
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 215
+    END
+
+    IDD_TAB_ONE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 371
+        VERTGUIDE, 50
+        VERTGUIDE, 190
+        VERTGUIDE, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+        HORZGUIDE, 24
+        HORZGUIDE, 53
+        HORZGUIDE, 100
+    END
+
+    IDD_TAB_TWO_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 370
+        VERTGUIDE, 50
+        VERTGUIDE, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+        HORZGUIDE, 24
+        HORZGUIDE, 53
+        HORZGUIDE, 100
+    END
+
+    IDD_TAB_FOUR_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 370
+        VERTGUIDE, 50
+        VERTGUIDE, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+        HORZGUIDE, 24
+        HORZGUIDE, 53
+        HORZGUIDE, 100
+        HORZGUIDE, 149
+    END
+
+    IDD_TAB_THREE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 369
+        VERTGUIDE, 50
+        VERTGUIDE, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+        HORZGUIDE, 25
+        HORZGUIDE, 54
+        HORZGUIDE, 100
+        HORZGUIDE, 149
+    END
+
+    IDD_TAB_FIVE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 372
+        VERTGUIDE, 50
+        VERTGUIDE, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 197
+        HORZGUIDE, 24
+        HORZGUIDE, 53
+        HORZGUIDE, 100
+        HORZGUIDE, 150
+    END
+
+    IDD_TAB_SIX_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 369
+        VERTGUIDE, 50
+        VERTGUIDE, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+        HORZGUIDE, 25
+        HORZGUIDE, 50
+        HORZGUIDE, 86
+        HORZGUIDE, 100
+        HORZGUIDE, 150
+    END
+
+    IDD_TAB_SEVEN_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 371
+        VERTGUIDE, 50
+        VERTGUIDE, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+        HORZGUIDE, 24
+        HORZGUIDE, 50
+        HORZGUIDE, 95
+    END
+
+    IDD_TAB_EIGHT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 371
+        VERTGUIDE, 50
+        VERTGUIDE, 150
+        VERTGUIDE, 225
+        VERTGUIDE, 250
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 197
+        HORZGUIDE, 25
+        HORZGUIDE, 55
+        HORZGUIDE, 100
+        HORZGUIDE, 150
+    END
+
+    IDD_TAB_NINE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 371
+        VERTGUIDE, 50
+        VERTGUIDE, 200
+        VERTGUIDE, 267
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+        HORZGUIDE, 25
+        HORZGUIDE, 50
+        HORZGUIDE, 90
+    END
+
+    IDD_TAB_TEN_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 370
+        VERTGUIDE, 50
+        VERTGUIDE, 200
+        VERTGUIDE, 266
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+        HORZGUIDE, 25
+        HORZGUIDE, 50
+        HORZGUIDE, 90
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP_RIBBON       BITMAP  DISCARDABLE     "res\\Hitting A Ribbon.bmp"
+IDB_BITMAP_BULLSEYE     BITMAP  DISCARDABLE     "res\\Hitting The Bullseye.bmp"
+IDB_BITMAP_SHRAPNEL_WEDGE BITMAP  DISCARDABLE     "res\\Shrapnel Wedge.bmp"
+IDB_BITMAP_BEATING_THE_BUSHES BITMAP  DISCARDABLE     "res\\Beating the Bushes.bmp"
+IDB_BITMAP_AREA_MAGIC   BITMAP  DISCARDABLE     "res\\Chemicals, Fireballs and Area Magic.bmp"
+IDB_BITMAP_WALKING_ARTILLERY BITMAP  DISCARDABLE     "res\\Death By Walking Artillery.bmp"
+IDB_BITMAP_RECTANGLE    BITMAP  DISCARDABLE     "res\\Hitting A Rectangle.bmp"
+IDB_BITMAP_FOUR_FLAVORS BITMAP  DISCARDABLE     "res\\Kills Come in Four Flavors.bmp"
+IDB_BITMAP_BEATING_SPACING BITMAP  DISCARDABLE     "res\\Beating the Bushes With Prey Spacing.bmp"
+IDB_BITMAP_SHOTGUNNING  BITMAP  DISCARDABLE     "res\\Shotgunning A Small Target.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About Fingers Of Death Driver..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\Driver of Death.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

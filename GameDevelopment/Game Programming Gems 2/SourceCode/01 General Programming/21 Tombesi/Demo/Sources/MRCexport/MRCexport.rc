@@ -1,0 +1,217 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PANEL DIALOGEX 0, 0, 198, 150
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "TOMBESI MARCO\nMRC file Export",IDC_STATIC,7,7,184,20,0,
+                    WS_EX_TRANSPARENT
+    CTEXT           "DELAY BETWEEN SAMPLES",IDC_STATIC,7,38,184,8
+    PUSHBUTTON      "About",IDC_BUTTON_ABOUT,7,123,28,20,BS_CENTER | 
+                    BS_VCENTER | BS_FLAT
+    PUSHBUTTON      "GO Create",IDC_BUTTON_OK,148,117,43,26
+    PUSHBUTTON      "Cancel",IDC_BUTTON_CANCEL,105,117,43,26
+    CTEXT           "default: 100 milliseconds",IDC_STATIC,7,51,184,8
+    EDITTEXT        IDC_EDIT,74,69,49,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+END
+
+IDD_ABOUT DIALOGEX 0, 0, 231, 150
+STYLE DS_ABSALIGN | DS_SYSMODAL | DS_MODALFRAME | DS_SETFOREGROUND | 
+    DS_3DLOOK | DS_CONTROL | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CLIPSIBLINGS
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_RIGHT | WS_EX_RTLREADING | 
+    WS_EX_LEFTSCROLLBAR
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         115,IDC_ABOUT_LOGO,"Static",SS_BITMAP | SS_CENTERIMAGE,
+                    158,7,66,53
+    CTEXT           "TITLE",IDC_ABOUT_TITLE,7,17,142,34,SS_CENTERIMAGE | NOT 
+                    WS_GROUP,WS_EX_STATICEDGE
+    CTEXT           "COPYRIGHT",IDC_ABOUT_COPYRIGHT,18,74,194,20,
+                    SS_CENTERIMAGE | NOT WS_GROUP
+    RTEXT           "E_MAIL",IDC_ABOUT_CONTACT1,18,100,194,16,SS_CENTERIMAGE,
+                    WS_EX_RIGHT
+    RTEXT           "WEB SITE",IDC_ABOUT_CONTACT2,18,121,194,16,
+                    SS_CENTERIMAGE,WS_EX_RIGHT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_PANEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 191
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 224
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3,0,0,0
+ PRODUCTVERSION 3,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x29L
+#else
+ FILEFLAGS 0x28L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "TECH: MARCO TOMBESI\0"
+            VALUE "CompanyName", "Marco Tombesi\0"
+            VALUE "FileDescription", "Expot to MRC file containing skeletal animation data\0"
+            VALUE "FileVersion", "3.0.0.0\0"
+            VALUE "InternalName", "MRCexport\0"
+            VALUE "LegalCopyright", "Copyright © 2001, Marco Tombesi\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "MRCexport.dle\0"
+            VALUE "PrivateBuild", "122\0"
+            VALUE "ProductName", "3D Studio MAX 3.0\0"
+            VALUE "ProductVersion", "3.0.0.0\0"
+            VALUE "SpecialBuild", "1.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_LIBDESCRIPTION      "Export to a MRC file containing skeletal animation data. Copyright (c) 2001 Marco Tombesi, All Rights Reserved. Contact me: TOMBESI MARCO, e-mail: baggior@libero.it"
+    IDS_CATEGORY            "Export"
+    IDS_CLASS_NAME          "MRCexport v.1.22"
+    IDS_PARAMS              "Parameters"
+    IDS_SPIN                "Spin"
+    IDS_COPYRIGHT           "Copyright (c) 2001 Marco Tombesi, All Rights Reserved."
+    IDS_CONTACT1            "e-mail ---> baggior@libero.it"
+    IDS_TITLE               "MRC Export plug-in. ver. 1.22"
+    IDS_CONTACT2            "web-page ---> http://digilander.iol.it/baggior"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Italian (Italy) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ITA)
+#ifdef _WIN32
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGO                BITMAP  DISCARDABLE     "LOGO.BMP"
+#endif    // Italian (Italy) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

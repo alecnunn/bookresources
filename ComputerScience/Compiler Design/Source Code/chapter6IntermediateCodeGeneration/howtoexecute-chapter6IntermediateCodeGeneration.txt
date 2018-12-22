@@ -1,0 +1,7 @@
+In windows platform
+$ make
+$ ./icexe.exe test_C_filename 
+
+In Linux Platform
+$ make
+$ ./icexe test_C_filename

@@ -1,0 +1,133 @@
+ 582  16:03:40  07/08/03        doc op - create level directory [D:\mythos\GPG4\levels\pacman.xml022]                        304  RTTIPropsDoc.cpp
+ 581  16:03:09  07/08/03      graph op - drag & drop : [wall0052] becomes a child of [wall0001]                              438  CommandView.cpp
+ 580  16:03:07  07/08/03      graph op - drag & drop : [wall0051] becomes a child of [wall0001]                              438  CommandView.cpp
+ 579  16:03:05  07/08/03      graph op - drag & drop : [wall0050] becomes a child of [wall0001]                              438  CommandView.cpp
+ 578  16:03:04  07/08/03      graph op - drag & drop : [wall0049] becomes a child of [wall0001]                              438  CommandView.cpp
+ 577  16:03:03  07/08/03      graph op - drag & drop : [wall0048] becomes a child of [wall0001]                              438  CommandView.cpp
+ 576  16:03:01  07/08/03      graph op - drag & drop : [wall0047] becomes a child of [wall0001]                              438  CommandView.cpp
+ 575  16:02:59  07/08/03      graph op - drag & drop : [wall0046] becomes a child of [wall0001]                              438  CommandView.cpp
+ 574  16:02:58  07/08/03      graph op - drag & drop : [wall0045] becomes a child of [wall0001]                              438  CommandView.cpp
+ 573  16:02:56  07/08/03      graph op - drag & drop : [wall0044] becomes a child of [wall0001]                              438  CommandView.cpp
+ 572  16:02:55  07/08/03      graph op - drag & drop : [wall0043] becomes a child of [wall0001]                              438  CommandView.cpp
+ 571  16:02:53  07/08/03      graph op - drag & drop : [wall0042] becomes a child of [wall0001]                              438  CommandView.cpp
+ 570  16:02:51  07/08/03      graph op - drag & drop : [wall0041] becomes a child of [wall0001]                              438  CommandView.cpp
+ 569  16:02:48  07/08/03      graph op - drag & drop : [wall0040] becomes a child of [wall0001]                              438  CommandView.cpp
+ 568  16:02:43  07/08/03      graph op - drag & drop : [wall0039] becomes a child of [wall0001]                              438  CommandView.cpp
+ 567  16:02:41  07/08/03      graph op - drag & drop : [wall0038] becomes a child of [wall0001]                              438  CommandView.cpp
+ 566  16:02:38  07/08/03      graph op - drag & drop : [wall0037] becomes a child of [wall0001]                              438  CommandView.cpp
+ 565  16:02:36  07/08/03      graph op - drag & drop : [wall0036] becomes a child of [wall0001]                              438  CommandView.cpp
+ 564  16:02:35  07/08/03      graph op - drag & drop : [wall0035] becomes a child of [wall0001]                              438  CommandView.cpp
+ 563  16:02:33  07/08/03      graph op - drag & drop : [wall0034] becomes a child of [wall0001]                              438  CommandView.cpp
+ 562  16:02:31  07/08/03      graph op - drag & drop : [wall0033] becomes a child of [wall0001]                              438  CommandView.cpp
+ 561  16:02:21  07/08/03      graph op - drag & drop : [author] becomes a child of [scene root]                              438  CommandView.cpp
+ 560  16:02:16  07/08/03      graph op - drag & drop : [author] becomes a child of [gem01]                                   438  CommandView.cpp
+ 559  16:02:13  07/08/03      graph op - drag & drop : [pacman camera] becomes a child of [scene root]                       438  CommandView.cpp
+ 558  16:02:10  07/08/03      graph op - drag & drop : [pacman camera] becomes a child of [floor]                            438  CommandView.cpp
+ 557  16:02:04  07/08/03      graph op - drag & drop : [pacman] becomes a child of [floor]                                   438  CommandView.cpp
+ 556  16:02:01  07/08/03      graph op - drag & drop : [vamp4] becomes a child of [floor]                                    438  CommandView.cpp
+ 555  16:01:54  07/08/03      graph op - drag & drop : [block0014] becomes a child of [block0001]                            438  CommandView.cpp
+ 554  16:01:52  07/08/03      graph op - drag & drop : [block0013] becomes a child of [block0001]                            438  CommandView.cpp
+ 553  16:01:50  07/08/03      graph op - drag & drop : [block0012] becomes a child of [block0001]                            438  CommandView.cpp
+ 552  16:01:47  07/08/03      graph op - drag & drop : [block0011] becomes a child of [block0001]                            438  CommandView.cpp
+ 551  16:01:45  07/08/03      graph op - drag & drop : [block0010] becomes a child of [block0001]                            438  CommandView.cpp
+ 550  16:01:42  07/08/03      graph op - drag & drop : [block0009] becomes a child of [block0001]                            438  CommandView.cpp
+ 549  16:01:38  07/08/03      graph op - drag & drop : [block0008] becomes a child of [block0001]                            438  CommandView.cpp
+ 548  16:01:31  07/08/03      graph op - drag & drop : [wall0032] becomes a child of [wall0001]                              438  CommandView.cpp
+ 547  16:01:27  07/08/03      graph op - drag & drop : [wall0031] becomes a child of [wall0001]                              438  CommandView.cpp
+ 546  16:01:17  07/08/03      graph op - drag & drop : [vamp3] becomes a child of [floor]                                    438  CommandView.cpp
+ 545  16:00:57  07/08/03      graph op - drag & drop : [gem31] becomes a child of [gem01]                                    438  CommandView.cpp
+ 544  16:00:55  07/08/03      graph op - drag & drop : [gem30] becomes a child of [gem01]                                    438  CommandView.cpp
+ 543  16:00:52  07/08/03      graph op - drag & drop : [gem29] becomes a child of [gem01]                                    438  CommandView.cpp
+ 542  16:00:50  07/08/03      graph op - drag & drop : [gem28] becomes a child of [gem01]                                    438  CommandView.cpp
+ 541  16:00:48  07/08/03      graph op - drag & drop : [gem27] becomes a child of [gem01]                                    438  CommandView.cpp
+ 540  16:00:45  07/08/03      graph op - drag & drop : [gem26] becomes a child of [gem01]                                    438  CommandView.cpp
+ 539  16:00:43  07/08/03      graph op - drag & drop : [gem25] becomes a child of [gem01]                                    438  CommandView.cpp
+ 538  16:00:41  07/08/03      graph op - drag & drop : [gem24] becomes a child of [gem01]                                    438  CommandView.cpp
+ 537  16:00:39  07/08/03      graph op - drag & drop : [gem23] becomes a child of [gem01]                                    438  CommandView.cpp
+ 536  16:00:37  07/08/03      graph op - drag & drop : [gem22] becomes a child of [gem01]                                    438  CommandView.cpp
+ 535  16:00:35  07/08/03      graph op - drag & drop : [gem21] becomes a child of [gem01]                                    438  CommandView.cpp
+ 534  16:00:32  07/08/03      graph op - drag & drop : [gem20] becomes a child of [gem01]                                    438  CommandView.cpp
+ 533  16:00:30  07/08/03      graph op - drag & drop : [gem19] becomes a child of [gem01]                                    438  CommandView.cpp
+ 532  16:00:28  07/08/03      graph op - drag & drop : [gem18] becomes a child of [gem01]                                    438  CommandView.cpp
+ 531  16:00:26  07/08/03      graph op - drag & drop : [gem17] becomes a child of [gem01]                                    438  CommandView.cpp
+ 530  16:00:24  07/08/03      graph op - drag & drop : [gem16] becomes a child of [gem01]                                    438  CommandView.cpp
+ 529  16:00:22  07/08/03      graph op - drag & drop : [gem15] becomes a child of [gem01]                                    438  CommandView.cpp
+ 528  16:00:20  07/08/03      graph op - drag & drop : [gem14] becomes a child of [gem01]                                    438  CommandView.cpp
+ 527  16:00:18  07/08/03      graph op - drag & drop : [gem13] becomes a child of [gem01]                                    438  CommandView.cpp
+ 526  16:00:17  07/08/03      graph op - drag & drop : [gem12] becomes a child of [gem01]                                    438  CommandView.cpp
+ 525  16:00:15  07/08/03      graph op - drag & drop : [gem11] becomes a child of [gem01]                                    438  CommandView.cpp
+ 524  16:00:13  07/08/03      graph op - drag & drop : [gem10] becomes a child of [gem01]                                    438  CommandView.cpp
+ 523  16:00:12  07/08/03      graph op - drag & drop : [gem09] becomes a child of [gem01]                                    438  CommandView.cpp
+ 522  16:00:10  07/08/03      graph op - drag & drop : [gem08] becomes a child of [gem01]                                    438  CommandView.cpp
+ 521  16:00:09  07/08/03      graph op - drag & drop : [gem07] becomes a child of [gem01]                                    438  CommandView.cpp
+ 520  16:00:07  07/08/03      graph op - drag & drop : [gem06] becomes a child of [gem01]                                    438  CommandView.cpp
+ 519  16:00:05  07/08/03      graph op - drag & drop : [gem05] becomes a child of [gem01]                                    438  CommandView.cpp
+ 518  16:00:04  07/08/03      graph op - drag & drop : [gem04] becomes a child of [gem01]                                    438  CommandView.cpp
+ 517  16:00:02  07/08/03      graph op - drag & drop : [gem03] becomes a child of [gem01]                                    438  CommandView.cpp
+ 516  16:00:00  07/08/03      graph op - drag & drop : [gem02] becomes a child of [gem01]                                    438  CommandView.cpp
+ 515  15:59:56  07/08/03      graph op - drag & drop : [block0007] becomes a child of [block0001]                            438  CommandView.cpp
+ 514  15:59:54  07/08/03      graph op - drag & drop : [block0006] becomes a child of [block0001]                            438  CommandView.cpp
+ 513  15:59:53  07/08/03      graph op - drag & drop : [block0005] becomes a child of [block0001]                            438  CommandView.cpp
+ 512  15:59:51  07/08/03      graph op - drag & drop : [block0004] becomes a child of [block0001]                            438  CommandView.cpp
+ 511  15:59:49  07/08/03      graph op - drag & drop : [block0003] becomes a child of [block0001]                            438  CommandView.cpp
+ 510  15:59:44  07/08/03      graph op - drag & drop : [block0002] becomes a child of [block0001]                            438  CommandView.cpp
+ 509  15:59:31  07/08/03      graph op - drag & drop : [wall0030] becomes a child of [wall0001]                              438  CommandView.cpp
+ 508  15:59:29  07/08/03      graph op - drag & drop : [wall0029] becomes a child of [wall0001]                              438  CommandView.cpp
+ 507  15:59:27  07/08/03      graph op - drag & drop : [wall0028] becomes a child of [wall0001]                              438  CommandView.cpp
+ 506  15:59:24  07/08/03      graph op - drag & drop : [wall0027] becomes a child of [wall0001]                              438  CommandView.cpp
+ 505  15:59:22  07/08/03      graph op - drag & drop : [wall0026] becomes a child of [wall0001]                              438  CommandView.cpp
+ 504  15:59:20  07/08/03      graph op - drag & drop : [wall0025] becomes a child of [wall0001]                              438  CommandView.cpp
+ 503  15:59:09  07/08/03      graph op - drag & drop : [wall0024] becomes a child of [wall0001]                              438  CommandView.cpp
+ 502  15:59:05  07/08/03      graph op - drag & drop : [wall0023] becomes a child of [wall0001]                              438  CommandView.cpp
+ 501  15:59:01  07/08/03      graph op - drag & drop : [wall0022] becomes a child of [wall0001]                              438  CommandView.cpp
+ 500  15:58:56  07/08/03      graph op - drag & drop : [wall0021] becomes a child of [wall0001]                              438  CommandView.cpp
+ 499  15:58:52  07/08/03      graph op - drag & drop : [wall0020] becomes a child of [wall0001]                              438  CommandView.cpp
+ 498  15:58:47  07/08/03      graph op - drag & drop : [wall0019] becomes a child of [wall0001]                              438  CommandView.cpp
+ 497  15:58:38  07/08/03      graph op - drag & drop : [wall0019] becomes a child of [wall0018]                              438  CommandView.cpp
+ 496  15:58:35  07/08/03      graph op - drag & drop : [block0007] becomes a child of [block0002]                            438  CommandView.cpp
+ 495  15:58:32  07/08/03      graph op - drag & drop : [wall0030] becomes a child of [wall0019]                              438  CommandView.cpp
+ 494  15:58:29  07/08/03      graph op - drag & drop : [wall0030] becomes a child of [block0002]                             438  CommandView.cpp
+ 493  15:58:26  07/08/03      graph op - drag & drop : [wall0030] becomes a child of [wall0019]                              438  CommandView.cpp
+ 492  15:58:24  07/08/03      graph op - drag & drop : [wall0029] becomes a child of [wall0019]                              438  CommandView.cpp
+ 491  15:58:22  07/08/03      graph op - drag & drop : [wall0028] becomes a child of [wall0019]                              438  CommandView.cpp
+ 490  15:58:21  07/08/03      graph op - drag & drop : [wall0027] becomes a child of [wall0019]                              438  CommandView.cpp
+ 489  15:58:19  07/08/03      graph op - drag & drop : [wall0026] becomes a child of [wall0019]                              438  CommandView.cpp
+ 488  15:58:18  07/08/03      graph op - drag & drop : [wall0025] becomes a child of [wall0019]                              438  CommandView.cpp
+ 487  15:58:14  07/08/03      graph op - drag & drop : [wall0024] becomes a child of [wall0019]                              438  CommandView.cpp
+ 486  15:58:12  07/08/03      graph op - drag & drop : [wall0023] becomes a child of [wall0019]                              438  CommandView.cpp
+ 485  15:58:11  07/08/03      graph op - drag & drop : [wall0022] becomes a child of [wall0019]                              438  CommandView.cpp
+ 484  15:58:09  07/08/03      graph op - drag & drop : [block0006] becomes a child of [block0002]                            438  CommandView.cpp
+ 483  15:58:06  07/08/03      graph op - drag & drop : [wall0021] becomes a child of [wall0019]                              438  CommandView.cpp
+ 482  15:58:04  07/08/03      graph op - drag & drop : [block0005] becomes a child of [block0002]                            438  CommandView.cpp
+ 481  15:58:02  07/08/03      graph op - drag & drop : [wall0020] becomes a child of [wall0019]                              438  CommandView.cpp
+ 480  15:57:58  07/08/03      graph op - drag & drop : [block0004] becomes a child of [block0002]                            438  CommandView.cpp
+ 479  15:57:55  07/08/03      graph op - drag & drop : [block0003] becomes a child of [block0002]                            438  CommandView.cpp
+ 478  15:57:50  07/08/03      graph op - drag & drop : [wall0018] becomes a child of [wall0001]                              438  CommandView.cpp
+ 477  15:57:45  07/08/03      graph op - drag & drop : [wall0017] becomes a child of [wall0001]                              438  CommandView.cpp
+ 476  15:57:40  07/08/03      graph op - drag & drop : [wall0016] becomes a child of [wall0001]                              438  CommandView.cpp
+ 475  15:57:31  07/08/03      graph op - drag & drop : [wall0015] becomes a child of [wall0001]                              438  CommandView.cpp
+ 474  15:57:15  07/08/03      graph op - drag & drop : [vampire camera] becomes a child of [scene root]                      438  CommandView.cpp
+ 473  15:57:13  07/08/03      graph op - drag & drop : [vampire camera] becomes a child of [wall0001]                        438  CommandView.cpp
+ 472  15:57:04  07/08/03      graph op - drag & drop : [left] becomes a child of [scene root]                                438  CommandView.cpp
+ 471  15:57:00  07/08/03      graph op - drag & drop : [top] becomes a child of [scene root]                                 438  CommandView.cpp
+ 470  15:56:56  07/08/03      graph op - drag & drop : [default camera] becomes a child of [scene root]                      438  CommandView.cpp
+ 469  15:56:53  07/08/03      graph op - drag & drop : [default camera] becomes a child of [vamp2]                           438  CommandView.cpp
+ 468  15:56:51  07/08/03      graph op - drag & drop : [left] becomes a child of [vamp2]                                     438  CommandView.cpp
+ 467  15:56:50  07/08/03      graph op - drag & drop : [top] becomes a child of [vamp2]                                      438  CommandView.cpp
+ 466  15:56:43  07/08/03      graph op - drag & drop : [wall0014] becomes a child of [wall0001]                              438  CommandView.cpp
+ 465  15:56:41  07/08/03      graph op - drag & drop : [wall0013] becomes a child of [wall0001]                              438  CommandView.cpp
+ 464  15:56:31  07/08/03      graph op - drag & drop : [block0001] becomes a child of [scene root]                           438  CommandView.cpp
+ 463  15:56:13  07/08/03      graph op - drag & drop : [block0001] becomes a child of [wall0001]                             438  CommandView.cpp
+ 462  15:56:09  07/08/03      graph op - drag & drop : [wall0012] becomes a child of [wall0001]                              438  CommandView.cpp
+ 461  15:56:08  07/08/03      graph op - drag & drop : [wall0011] becomes a child of [wall0001]                              438  CommandView.cpp
+ 460  15:56:05  07/08/03      graph op - drag & drop : [wall0010] becomes a child of [wall0001]                              438  CommandView.cpp
+ 459  15:56:04  07/08/03      graph op - drag & drop : [wall0010] becomes a child of [default camera]                        438  CommandView.cpp
+ 458  15:56:02  07/08/03      graph op - drag & drop : [wall0009] becomes a child of [wall0001]                              438  CommandView.cpp
+ 457  15:56:00  07/08/03      graph op - drag & drop : [wall0008] becomes a child of [wall0001]                              438  CommandView.cpp
+ 456  15:55:55  07/08/03      graph op - drag & drop : [wall0007] becomes a child of [wall0001]                              438  CommandView.cpp
+ 455  15:55:54  07/08/03      graph op - drag & drop : [wall0006] becomes a child of [wall0001]                              438  CommandView.cpp
+ 454  15:55:52  07/08/03      graph op - drag & drop : [wall0005] becomes a child of [wall0001]                              438  CommandView.cpp
+ 453  15:55:50  07/08/03      graph op - drag & drop : [wall0004] becomes a child of [wall0001]                              438  CommandView.cpp
+ 452  15:55:49  07/08/03      graph op - drag & drop : [wall0003] becomes a child of [wall0001]                              438  CommandView.cpp
+ 451  15:55:47  07/08/03      graph op - drag & drop : [wall0002] becomes a child of [wall0001]                              438  CommandView.cpp
+ 450  15:55:10  07/08/03        doc op - D:\mythos\GPG4\levels\pacman.xml saved to [pacman.xml021]                           394  RTTIPropsDoc.cpp

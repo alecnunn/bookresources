@@ -1,0 +1,16 @@
+; TwoSidedNoLight.nvp
+;
+; Renders an object with flat texture - no 
+;  lighting values used
+
+
+#include "TwoSided.h"
+
+; Declare pixel shader version 1.0
+ps.1.0
+
+
+tex t0
+mov r0, t0
+
+

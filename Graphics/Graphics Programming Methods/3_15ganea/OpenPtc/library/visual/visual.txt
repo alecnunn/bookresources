@@ -1,0 +1,6 @@
+Import Libraries for Visual C++
+
+To generate the "ptc.lib" and "ptcdebug.lib" for Visual C++
+you need to run "scripts\visual\import.bat".
+
+See the OpenPTC for Windows documentation for details.

@@ -1,0 +1,165 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Timer  Class Reference</h1>A high resolution timer. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcTimer-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcTimer.html#a0">Timer</a> ()
+<li><a class="el" href="class_ptcTimer.html#a1">Timer</a> (double time)
+<li><a class="el" href="class_ptcTimer.html#a2">Timer</a> (const Timer &amp;timer)
+<li><a class="el" href="class_ptcTimer.html#a3">~Timer</a> ()
+<li>void <a class="el" href="class_ptcTimer.html#a4">set</a> (double time)
+<li>void <a class="el" href="class_ptcTimer.html#a5">start</a> ()
+<li>void <a class="el" href="class_ptcTimer.html#a6">stop</a> ()
+<li>double <a class="el" href="class_ptcTimer.html#a7">time</a> ()
+<li>double <a class="el" href="class_ptcTimer.html#a8">delta</a> ()
+<li>double <a class="el" href="class_ptcTimer.html#a9">resolution</a> ()
+<li>Timer&amp; <a class="el" href="class_ptcTimer.html#a10">operator=</a> (const Timer &amp;timer)
+<li>bool <a class="el" href="class_ptcTimer.html#a11">operator==</a> (const Timer &amp;timer) const
+<li>bool <a class="el" href="class_ptcTimer.html#a12">operator!=</a> (const Timer &amp;timer) const
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+A high resolution timer.
+<p>
+The timer class represents a high resolution system timer.
+<p>
+Timer objects may be created and started then queried for the current time value in seconds.
+<p>
+This is useful for animations because motion can be based upon a high resolution real 't' value instead of being linked to the speed of the machine. <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Timer::Timer"></a>ptc::Timer::Timer ()</h3>
+<div class="in">
+
+<p>
+Default constructor.
+<p>
+Sets the time value to zero. </div>
+
+<h3><a name="a1" doxytag="ptc::Timer::Timer"></a>ptc::Timer::Timer (double <em>time</em>)</h3>
+<div class="in">
+
+<p>
+Creates a timer object with the time value initially set to <em>time.</em>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>time</em> -  the initial time value in seconds. </dl></div>
+
+<h3><a name="a2" doxytag="ptc::Timer::Timer"></a>ptc::Timer::Timer (const Timer &amp; <em>timer</em>)</h3>
+<div class="in">
+
+<p>
+Copy constructor. </div>
+
+<h3><a name="a3" doxytag="ptc::Timer::~Timer"></a>ptc::Timer::~Timer ()</h3>
+<div class="in">
+
+<p>
+Destructor. </div>
+
+<h3><a name="a4" doxytag="ptc::Timer::set"></a>void ptc::Timer::set (double <em>time</em>)</h3>
+<div class="in">
+
+<p>
+Sets the timer time value to <em>time.</em>
+<p>
+The time value may be set whether the timer is running or not.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>time</em> -  the time value in seconds. </dl></div>
+
+<h3><a name="a5" doxytag="ptc::Timer::start"></a>void ptc::Timer::start ()</h3>
+<div class="in">
+
+<p>
+Starts the timer.
+<p>
+When the timer is initially created it is not running.
+<p>
+Use this function to start the timer when you are ready to begin using it. </div>
+
+<h3><a name="a6" doxytag="ptc::Timer::stop"></a>void ptc::Timer::stop ()</h3>
+<div class="in">
+
+<p>
+Stops the timer. </div>
+
+<h3><a name="a7" doxytag="ptc::Timer::time"></a>double ptc::Timer::time ()</h3>
+<div class="in">
+
+<p>
+Gets the current time value of the timer in seconds.
+<p>
+While the timer is running the time value increases as time passes.
+<p>
+When the timer is stopped the time value is constant.
+<p>
+<dl compact><dt>
+<b>See also:</b><dd>
+<a class="el" href="class_ptcTimer.html#a5">Timer::start</a>() <a class="el" href="class_ptcTimer.html#a6">Timer::stop</a>()
+<p>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+The current time value. </dl></div>
+
+<h3><a name="a8" doxytag="ptc::Timer::delta"></a>double ptc::Timer::delta ()</h3>
+<div class="in">
+
+<p>
+Gets the amount of time that has passed since the last call to delta in seconds.
+<p>
+While the timer is running the delta value is typically a small value limited to the resolution of the timer.
+<p>
+When the timer is stopped the delta value is always zero.
+<p>
+<dl compact><dt>
+<b>See also:</b><dd>
+<a class="el" href="class_ptcTimer.html#a5">Timer::start</a>() <a class="el" href="class_ptcTimer.html#a6">Timer::stop</a>() <a class="el" href="class_ptcTimer.html#a9">Timer::resolution</a>()
+<p>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+The current delta value. </dl></div>
+
+<h3><a name="a9" doxytag="ptc::Timer::resolution"></a>double ptc::Timer::resolution ()</h3>
+<div class="in">
+
+<p>
+Gets the limiting resolution of the timer in seconds.
+<p>
+The timer resolution is the smallest increment of time which the system timer can handle.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The timer resolution. </dl></div>
+
+<h3><a name="a10" doxytag="ptc::Timer::operator="></a>Timer &amp; ptc::Timer::operator= (const Timer &amp; <em>timer</em>)</h3>
+<div class="in">
+
+<p>
+Assignment operator. </div>
+
+<h3><a name="a11" doxytag="ptc::Timer::operator=="></a>bool ptc::Timer::operator== (const Timer &amp; <em>timer</em>) const</h3>
+<div class="in">
+
+<p>
+Equality operator. </div>
+
+<h3><a name="a12" doxytag="ptc::Timer::operator!="></a>bool ptc::Timer::operator!= (const Timer &amp; <em>timer</em>) const</h3>
+<div class="in">
+
+<p>
+Inequality operator. </div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

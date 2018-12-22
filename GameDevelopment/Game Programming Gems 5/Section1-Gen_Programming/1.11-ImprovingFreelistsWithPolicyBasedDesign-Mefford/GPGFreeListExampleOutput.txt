@@ -1,0 +1,44 @@
+
+Testing FreeList<Foo, PlacementNewLinkedList<Foo>, DoubleGrowthSize<16> >
+Num In Use:  0  Peak:  0  Allocated:  0
+Num In Use:  3  Peak:  3  Allocated:  16
+Num In Use:  2  Peak:  3  Allocated:  16
+Num In Use:  10002  Peak:  10002  Allocated:  16384
+Num In Use:  2  Peak:  10002  Allocated:  16384
+
+Testing FreeList<Foo, ConstructOnceStack<Foo>, ConstantGrowthPolicy<16,16,1024> >
+Num In Use:  0  Peak:  1  Allocated:  16
+Num In Use:  3  Peak:  3  Allocated:  16
+Num In Use:  2  Peak:  3  Allocated:  16
+Num In Use:  1024  Peak:  1024  Allocated:  1024
+Num In Use:  2  Peak:  1024  Allocated:  1024
+Num In Use:  0  Peak:  1024  Allocated:  1024
+Num In Use:  0  Peak:  1024  Allocated:  0
+
+Testing FreeList<Foo, CompactableChunkPolicy<Foo>, ConstantChunkSizeGrowthPolicy<Foo, 4096> >
+Num In Use:  0  Peak:  0  Allocated:  0
+Num In Use:  3  Peak:  3  Allocated:  512
+Num In Use:  2  Peak:  3  Allocated:  512
+Num In Use:  10002  Peak:  10002  Allocated:  10240
+Num In Use:  2  Peak:  10002  Allocated:  1024
+
+Testing FreeList<Foo, SharedChunkPolicy<Foo>, DoubleGrowthSize<16> >
+Num In Use:  0  Peak:  0  Allocated:  0
+Num In Use:  3  Peak:  3  Allocated:  16
+Num In Use:  2  Peak:  3  Allocated:  16
+Num In Use:  10002  Peak:  10002  Allocated:  16384
+Num In Use:  2  Peak:  10002  Allocated:  16384
+
+Testing FreeList<Bar, SharedChunkPolicy<Bar>, DoubleGrowthSize<16> >
+Num In Use:  2  Peak:  10002  Allocated:  16384
+Num In Use:  5  Peak:  10002  Allocated:  16384
+Num In Use:  4  Peak:  10002  Allocated:  16384
+Num In Use:  10004  Peak:  10004  Allocated:  16384
+Num In Use:  4  Peak:  10004  Allocated:  16384
+
+Testing FreeList<int, PlacementNewLinkedList<int>, DoubleGrowthSize<16> >
+Num In Use:  0  Peak:  0  Allocated:  0
+Num In Use:  3  Peak:  3  Allocated:  16
+Num In Use:  2  Peak:  3  Allocated:  16
+Num In Use:  10002  Peak:  10002  Allocated:  16384
+Num In Use:  2  Peak:  10002  Allocated:  16384

@@ -1,0 +1,75 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ASTGen - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Build : warning : failed to (or don't know how to) build 'C:\src\GPG3\VertexShaderCompiler\ASTGen\Debug\ASTGen.exe'
+
+Creating temporary file "C:\DOCUME~1\atlake\LOCALS~1\Temp\RSPD4.bat" with contents
+[
+@echo off
+echo Running flex lexer.l ...
+flex -olex.yy.cpp lexer.l
+echo Lexer Generation DONE
+echo Running bison yaccer.y...
+bison -d yaccer.y
+echo Yaccer Generation DONE
+echo Copying yaccer_tab.c to yaccer_tab.cpp
+copy yaccer_tab.c yaccer_tab.cpp
+echo Copy DONE
+]
+Creating command line "C:\DOCUME~1\atlake\LOCALS~1\Temp\RSPD4.bat"
+<h3>Output Window</h3>
+Performing Custom Build Step on .\Debug\ASTGen.exe
+Running flex lexer.l ...
+Lexer Generation DONE
+Running bison yaccer.y...
+Yaccer Generation DONE
+Copying yaccer_tab.c to yaccer_tab.cpp
+        1 file(s) copied.
+Copy DONE
+<h3>
+--------------------Configuration: CodeGen - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\atlake\LOCALS~1\Temp\RSPD5.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "..\CodeGen" /I "..\ASTGen" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/CodeGen.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\src\GPG3\VertexShaderCompiler\ASTGen\yaccer_tab.cpp"
+"C:\src\GPG3\VertexShaderCompiler\ASTGen\lex.yy.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\atlake\LOCALS~1\Temp\RSPD5.tmp" 
+Creating temporary file "C:\DOCUME~1\atlake\LOCALS~1\Temp\RSPD6.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/CodeGen.pdb" /debug /machine:I386 /out:"Debug/CodeGen.exe" /pdbtype:sept 
+.\Debug\CastNode.obj
+.\Debug\CCodeGenerator.obj
+.\Debug\CSymbolTable.obj
+.\Debug\yaccer_tab.obj
+.\Debug\lex.yy.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\atlake\LOCALS~1\Temp\RSPD6.tmp"
+<h3>Output Window</h3>
+Compiling...
+yaccer_tab.cpp
+lex.yy.cpp
+Linking...
+Creating temporary file "C:\DOCUME~1\atlake\LOCALS~1\Temp\RSPD8.bat" with contents
+[
+@echo off
+copy Debug\CodeGen.exe ..\..\bin\compile.exe
+]
+Creating command line "C:\DOCUME~1\atlake\LOCALS~1\Temp\RSPD8.bat"
+Copying to bin directory
+        1 file(s) copied.
+
+
+
+<h3>Results</h3>
+CodeGen.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

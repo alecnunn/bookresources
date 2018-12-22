@@ -1,0 +1,42 @@
+ps.1.1
+
+
+;*************
+;* Constants *
+;*************
+;  c0 == zero
+;  c1 == one
+;  c2 == major team color
+;  c3 == minor team color
+
+
+;************
+;* Textures *
+;************
+tex t0
+tex t1
+
+
+;***********************************
+;* Compute team color *
+;***********************************
+; lerp between the team color and the first texture
+; based on the alpha of the first texture
+lrp		r0.rgb,		t0.a,	t0,		c2
++mov	r0.a,		c1.a
+
+; multiply with vertex color to get lighting
+mul		r0,			r0,		v0
+
+; lerp between black and the minor
+; team color based on the alpha of the second
+; texture (its uv's are peturbed in the vertex shader).
+lrp		r1,			t1.a,	c0,		c3
+mov		r1.a,		c1.a
+
+; lerp the result again with black based
+; on the alpha of the first texture
+lrp		r1,			t0.a,	c0,		r1
+
+; and add the result to output
+add		r0,			r0,		r1

@@ -1,0 +1,10 @@
+CApplication::OnMouseMove
+=========================
+
+Add the following line in case of "// translating selection buffer"
+inside the "if (m_bIsMovingSelection != 255)" check. Now the editor
+will ask you to save changes after you just moved the selection.
+
+m_G.bChanged = true;
+
+

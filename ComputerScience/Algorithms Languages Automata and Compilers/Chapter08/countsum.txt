@@ -1,0 +1,10 @@
+program CountSum. 
+
+var s: integer(0..100) := 0; // sum
+    b: integer(1..6) := 1;   // counter
+
+begin
+loop: let s := s + b;  
+      let b := b + 1;
+      if b < 6 goto loop;
+end.

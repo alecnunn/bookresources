@@ -1,0 +1,6 @@
+//
+// Prefix header for all source files of the 'CubeMapGenerator' target in the 'CubeMapGenerator' project.
+//
+
+#include <Carbon/Carbon.h>
+#define _MAC1

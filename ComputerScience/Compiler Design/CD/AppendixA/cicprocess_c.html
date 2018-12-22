@@ -1,0 +1,168 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - cicprocess.c</h2>
+<p>#include &quot;cic.h&quot;</p>
+<p>void createQuadList(Quad **quadListHeader)<br>
+  {<br>
+  *quadListHeader=(Quad *)malloc(sizeof(Quad));<br>
+  (*quadListHeader)-&gt;label=NULL;<br>
+  (*quadListHeader)-&gt;operator=-1;<br>
+  (*quadListHeader)-&gt;operand1=NULL;<br>
+  (*quadListHeader)-&gt;operand2=NULL;<br>
+  (*quadListHeader)-&gt;result=NULL;<br>
+  (*quadListHeader)-&gt;nextQuad=NULL;<br>
+  }<br>
+</p>
+<p>void addCode(Quad *quadListHeader,char *label,int operator,Attr operand1,Attr operand2,Attr result)<br>
+  {<br>
+  Quad *temp,*ptr;<br>
+  static quadCount;<br>
+  temp=quadListHeader;<br>
+  <br>
+  while(temp-&gt;nextQuad!=NULL) <br>
+  temp=temp-&gt;nextQuad;</p>
+<p> ptr=(Quad*)malloc(sizeof(Quad));</p>
+<p> ptr-&gt;label=(char *)malloc(strlen(label)+1);<br>
+  ptr-&gt;operand1 = malloc(sizeof(operand1));<br>
+  ptr-&gt;operand2 = malloc(sizeof(operand2));<br>
+  ptr-&gt;result = malloc(sizeof(result));<br>
+  ptr-&gt;nextQuad=NULL;</p>
+<p> strcpy(ptr-&gt;label,label);<br>
+  if(strcmp(label,&quot; &quot;)!=0)<br>
+  strcpy(label,&quot; &quot;);<br>
+  <br>
+  ptr-&gt;operator=operator;<br>
+  memcpy(ptr-&gt;operand1,&amp;operand1,sizeof(operand1));<br>
+  memcpy(ptr-&gt;operand2,&amp;operand2,sizeof(operand2));<br>
+  memcpy(ptr-&gt;result,&amp;result,sizeof(result));<br>
+  temp-&gt;nextQuad=ptr;<br>
+  quadCount++;<br>
+  //printf(&quot;QuadCount:%d\n&quot;,quadCount);<br>
+  }<br>
+</p>
+<p>void printCode(Quad *quadListHeader)<br>
+  {<br>
+  Quad *temp;<br>
+  <br>
+  temp=quadListHeader-&gt;nextQuad;<br>
+  printf(&quot; THE TABLE OF QUADRUPLES ARE\n\n&quot;);<br>
+  printf(&quot;LABEL\tOPER\tOP1\tOP2\tRES\n\n&quot;);</p>
+<p> while(temp!=NULL)<br>
+  { <br>
+  if(strcmp(temp-&gt;label,&quot; &quot;))<br>
+  printf(&quot;%s\t&quot;,temp-&gt;label);<br>
+  else<br>
+  printf(&quot;\t&quot;);<br>
+  printf(&quot;%s\t%s\t%s\t%s\n&quot;,ops[temp-&gt;operator],temp-&gt;operand1-&gt;name,temp-&gt;operand2-&gt;name,temp-&gt;result-&gt;name);<br>
+  //printf(&quot;%d\t%s\t%s\t%s\n&quot;,temp-&gt;operator,temp-&gt;operand1,temp-&gt;operand2,temp-&gt;result);<br>
+  temp=temp-&gt;nextQuad;<br>
+  }<br>
+</p>
+<p>}</p>
+<p>short int cstackpush(char *label)<br>
+  {<br>
+  if(cstackTop &lt; STACKSIZE)<br>
+  {<br>
+  strcpy(cstack[++cstackTop],label);<br>
+  return 1;<br>
+  }<br>
+  else<br>
+  {<br>
+  printf(&quot;Continue Statement Stack overflow..Unpredicted result may occur!\n&quot;);<br>
+  return -1;<br>
+  }<br>
+  }</p>
+<p>short int cstackpop()<br>
+  {<br>
+  if(cstackTop &gt;= 0)<br>
+  {<br>
+  cstackTop--;<br>
+  return 1;<br>
+  }<br>
+  else<br>
+  {<br>
+  printf(&quot;Continue Statment Stack underflow....Unpredicted result may occur!\n&quot;);<br>
+  return -1;<br>
+  }<br>
+  }</p>
+<p>short int bstackpush(char *label)<br>
+  {<br>
+  if(bstackTop &lt; STACKSIZE)<br>
+  {<br>
+  strcpy(bstack[++bstackTop],label);<br>
+  return 1;<br>
+  }<br>
+  else<br>
+  {<br>
+  printf(&quot;Break Statement Stack overflow..Unpredicted result may occur!\n&quot;);<br>
+  return -1;<br>
+  }<br>
+  }</p>
+<p>short int bstackpop()<br>
+  {<br>
+  if(bstackTop &gt;= 0)<br>
+  {<br>
+  bstackTop--;<br>
+  return 1;<br>
+  }<br>
+  else<br>
+  {<br>
+  printf(&quot;Break Stack underflow....Unpredicted result may occur!\n&quot;);<br>
+  return -1;<br>
+  }<br>
+  }</p>
+<p>void itoa(int n, char *name)<br>
+  {<br>
+  int i=0,j;<br>
+  int new=n;<br>
+  if(n==0)<br>
+  strcpy(name,&quot;0&quot;);<br>
+  else<br>
+  {<br>
+  while(n)<br>
+  {<br>
+  i++;<br>
+  n=n/10;<br>
+  }<br>
+  n=new;<br>
+  for(j=i-1;j&gt;=0;j--)<br>
+  {<br>
+  name[j]=n%10+48;<br>
+  n=n/10;<br>
+  }<br>
+  name[i]='\0';<br>
+  } <br>
+  }</p>
+<p>void createTemp(char temp[])<br>
+  {<br>
+  static int i=0;<br>
+  char no[5];<br>
+  i++;<br>
+  itoa(i,no);<br>
+  strcpy(temp,&quot;t&quot;);<br>
+  strcat(temp,no);<br>
+  }<br>
+  <br>
+  void createLabel(char temp[])<br>
+  {<br>
+  static int i=0;<br>
+  char no[5];<br>
+  i++;<br>
+  itoa(i,no);<br>
+  strcpy(temp,&quot;CL&quot;);<br>
+  strcat(temp,no);<br>
+  }</p>
+<p>int main(int argc,char *argv[])<br>
+  {<br>
+  extern FILE *yyin;<br>
+  Quad *quadlist;<br>
+  strcpy(srcFileName,argv[1]);<br>
+  yyin=fopen(argv[1],&quot;r&quot;);<br>
+  yyparse();<br>
+  return 1;<br>
+  }</p>
+<p></p>
+</body>
+</html>

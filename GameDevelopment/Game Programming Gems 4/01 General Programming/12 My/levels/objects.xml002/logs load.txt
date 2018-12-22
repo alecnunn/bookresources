@@ -1,0 +1,113 @@
+ 113  18:39:31  22/08/03        doc op - C:\mythos\gpg4_sample\levels\objects.xml loaded from [objects.xml002]               554  C:\mythos\gpg4_sample\RTTIPropsDoc.cpp
+ 112  18:39:31  22/08/03         3d op - display view from [default camera]                                                  357  C:\mythos\gpg4_sample\3DView.cpp
+ 111  18:39:31  22/08/03     data file - class: CEngineTexture  id: 0x16C7B00                                                766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 110  18:39:31  22/08/03     data file - class: CEngineMaterial  id: 0x16CBDD0                                               766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 109  18:39:31  22/08/03     data file - class: CEditorTexture  id: 0x16C6A20                                                766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 108  18:39:31  22/08/03     data file - class: CEngineMaterial  id: 0x16C52F0                                               766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 107  18:39:31  22/08/03     data file - class: CEngineMaterial  id: 0x16C55C0                                               766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 106  18:39:31  22/08/03     data file - class: CEngineMaterial  id: 0x16CC750                                               766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 105  18:39:31  22/08/03     data file - class: CEngineBox  id: 0x16CBA00                                                    766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 104  18:39:31  22/08/03     data file - class: CEngineBox  id: 0x16CAC20                                                    766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 103  18:39:31  22/08/03     data file - class: CEngineBox  id: 0x16C76E0                                                    766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 102  18:39:31  22/08/03     data file - class: CEngineMaterial  id: 0x16C5130                                               766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 101  18:39:31  22/08/03     data file - class: CEditorSphere  id: 0x16CB3D0                                                 766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+ 100  18:39:31  22/08/03     data file - class: CEditorBox  id: 0x16CAD80                                                    766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  99  18:39:31  22/08/03     data file - class: CEditorSphere  id: 0x16CA780                                                 766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  98  18:39:31  22/08/03     data file - class: CEditorCamera  id: 0x16CA7E0                                                 766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  97  18:39:31  22/08/03     data file - class: CEditorBox  id: 0x16C90A0                                                    766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  96  18:39:31  22/08/03     data file - class: CEditorBox  id: 0x16C6060                                                    766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  95  18:39:31  22/08/03     data file - class: CEditorMaterial  id: 0x16CCA00                                               766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  94  18:39:31  22/08/03     data file - class: CEditorMaterial  id: 0x16CB4A0                                               766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  93  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C7BD0                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  92  18:39:31  22/08/03     data file - class: CEditorMaterial  id: 0x16C5400                                               766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  91  18:39:31  22/08/03     data file - class: CEditorMaterial  id: 0x16C31F0                                               766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  90  18:39:31  22/08/03     data file - class: CEditorMaterial  id: 0x16C1130                                               766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  89  18:39:31  22/08/03     data file - class: CEngineSphere  id: 0x16CB140                                                 766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  88  18:39:31  22/08/03     data file - class: CEngineSphere  id: 0x16C8CB0                                                 766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  87  18:39:31  22/08/03     data file - class: CEngineCamera  id: 0x16CA540                                                 766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  86  18:39:31  22/08/03     data file - class: CEngineCamera  id: 0x16C4EC0                                                 766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  85  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16CB320                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  84  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C9B90                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  83  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C8E00                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  82  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16CA6C0                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  81  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C9320                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  80  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C78D0                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  79  18:39:31  22/08/03     data file - class: CEditorFolder  id: 0x16C4140                                                 766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  78  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16CC850                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  77  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16CBE70                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  76  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C5230                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  75  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C5470                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  74  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C56B0                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  73  18:39:31  22/08/03     data file - class: CEditorFolder  id: 0x16C6660                                                 766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  72  18:39:31  22/08/03     data file - class: CEditorCamera  id: 0x16C4BD0                                                 766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  71  18:39:31  22/08/03     data file - class: CEngineNode  id: 0x16C3080                                                   766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  70  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C79C0                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  69  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C57A0                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  68  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C4B60                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  67  18:39:31  22/08/03     data file - class: CEditorNode  id: 0x16C4D50                                                   766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  66  18:39:31  22/08/03     data file - class: CEditorSceneItem  id: 0x16C4CE0                                              766  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  65  18:39:31  22/08/03     data file - editor root: scene root  id: 0x16C4CE0                                              810  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  64  18:39:31  22/08/03     data file - engine root: scene root  id: 0x16C3080                                              801  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  63  18:39:31  22/08/03        doc op - LevelData.xml                                                                       449  C:\mythos\gpg4_sample\RTTIPropsDoc.cpp
+  62  18:39:31  22/08/03    props file - prop: File  type: String                                                            586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  61  18:39:31  22/08/03    props file - class: CEngineTexture  base: CEngineObj                                             445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  60  18:39:31  22/08/03    props file - class: CEditorTexture  base: CEditorObj                                             445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  59  18:39:31  22/08/03    props file - prop: Material  type: Fct                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  58  18:39:31  22/08/03    props file - prop: Extent  type: Vect3D                                                          586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  57  18:39:31  22/08/03    props file - class: CEngineBox  base: CEngineNode                                                445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  56  18:39:31  22/08/03    props file - prop: Op1  type: U32                                                                586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  55  18:39:31  22/08/03    props file - prop: Op0  type: U32                                                                586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  54  18:39:31  22/08/03    props file - prop: Tex1  type: SP                                                                586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  53  18:39:31  22/08/03    props file - prop: Tex0  type: SP                                                                586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  52  18:39:31  22/08/03    props file - prop: Culling  type: Bool                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  51  18:39:31  22/08/03    props file - prop: Z Test  type: Bool                                                            586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  50  18:39:31  22/08/03    props file - prop: Lighted  type: Bool                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  49  18:39:31  22/08/03    props file - prop: Diffuse  type: Vect4D                                                         586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  48  18:39:31  22/08/03    props file - class: CEngineMaterial  base: CEngineObj                                            445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  47  18:39:31  22/08/03    props file - class: CEditorSphere  base: CEditorNode                                             445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  46  18:39:31  22/08/03    props file - class: CEditorBox  base: CEditorNode                                                445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  45  18:39:31  22/08/03    props file - class: CEditorMaterial  base: CEditorObj                                            445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  44  18:39:31  22/08/03    props file - prop: Material  type: Fct                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  43  18:39:31  22/08/03    props file - prop: Section Pts  type: U32                                                        586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  42  18:39:31  22/08/03    props file - prop: Radius  type: Float                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  41  18:39:31  22/08/03    props file - class: CEngineSphere  base: CEngineNode                                             445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  40  18:39:31  22/08/03    props file - prop: PerspAllow  type: Bool                                                        586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  39  18:39:31  22/08/03    props file - prop: Rotations  type: Bool                                                         586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  38  18:39:31  22/08/03    props file - prop: Scale Ortho  type: Float                                                      586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  37  18:39:31  22/08/03    props file - prop: Perspective  type: Bool                                                       586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  36  18:39:31  22/08/03    props file - prop: Far  type: Float                                                              586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  35  18:39:31  22/08/03    props file - prop: Near  type: Float                                                             586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  34  18:39:31  22/08/03    props file - prop: Ratio  type: Float                                                            586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  33  18:39:31  22/08/03    props file - prop: FOV  type: Float                                                              586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  32  18:39:31  22/08/03    props file - prop: Initial Up  type: Vect3D                                                      586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  31  18:39:31  22/08/03    props file - prop: Up  type: Vect3D                                                              586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  30  18:39:31  22/08/03    props file - prop: Target  type: Vect3D                                                          586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  29  18:39:31  22/08/03    props file - class: CEngineCamera  base: CEngineNode                                             445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  28  18:39:31  22/08/03    props file - class: CEditorFolder  base: CEditorObj                                              445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  27  18:39:31  22/08/03    props file - class: CEditorCamera  base: CEditorNode                                             445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  26  18:39:31  22/08/03    props file - prop: Collide  type: Bool                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  25  18:39:31  22/08/03    props file - prop: Draw Node  type: Bool                                                         586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  24  18:39:31  22/08/03    props file - prop: Scale  type: Vect3D                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  23  18:39:31  22/08/03    props file - prop: Position  type: Vect3D                                                        586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  22  18:39:31  22/08/03    props file - prop: Rotation  type: Vect4D                                                        586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  21  18:39:31  22/08/03    props file - prop: Subnodes  type: Fct                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  20  18:39:31  22/08/03    props file - class: CEngineNode  base: CEngineObj                                                445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  19  18:39:31  22/08/03    props file - prop: Deleted  type: Bool                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  18  18:39:31  22/08/03    props file - class: CEngineObj  base: CPersistent                                                445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  17  18:39:31  22/08/03    props file - class: CEditorNode  base: CEditorObj                                                445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  16  18:39:31  22/08/03    props file - prop: EngineObj  type: SP                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  15  18:39:31  22/08/03    props file - prop: Renamable  type: Bool                                                         586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  14  18:39:31  22/08/03    props file - prop: DropTarget  type: Bool                                                        586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  13  18:39:31  22/08/03    props file - prop: Draggable  type: Bool                                                         586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  12  18:39:31  22/08/03    props file - prop: Deletable  type: Bool                                                         586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  11  18:39:31  22/08/03    props file - prop: Selected  type: Bool                                                          586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+  10  18:39:31  22/08/03    props file - class: CEditorObj  base: CPersistent                                                445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+   9  18:39:31  22/08/03    props file - prop: Subitems  type: Fct                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+   8  18:39:31  22/08/03    props file - prop: EditorObj  type: SP                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+   7  18:39:31  22/08/03    props file - prop: Prev Parent  type: String                                                     586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+   6  18:39:31  22/08/03    props file - prop: Expanded  type: Bool                                                          586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+   5  18:39:31  22/08/03    props file - prop: Deleted  type: Bool                                                           586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+   4  18:39:31  22/08/03    props file - class: CEditorSceneItem  base: CPersistent                                          445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+   3  18:39:31  22/08/03    props file - prop: Name  type: String                                                            586  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+   2  18:39:31  22/08/03    props file - class: CPersistent  base: CRefCount                                                 445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp
+   1  18:39:31  22/08/03    props file - class: CRefCount  base:                                                             445  C:\mythos\gpg4_sample\PropSystem\Persistent.cpp

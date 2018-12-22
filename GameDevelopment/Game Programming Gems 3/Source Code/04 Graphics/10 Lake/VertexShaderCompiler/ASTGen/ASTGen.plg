@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ASTGen - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Build : warning : failed to (or don't know how to) build 'C:\src\GPG3\VertexShaderCompiler\ASTGen\Debug\ASTGen.exe'
+
+Creating temporary file "C:\DOCUME~1\atlake\LOCALS~1\Temp\RSPD3.bat" with contents
+[
+@echo off
+echo Running flex lexer.l ...
+flex -olex.yy.cpp lexer.l
+echo Lexer Generation DONE
+echo Running bison yaccer.y...
+bison -d yaccer.y
+echo Yaccer Generation DONE
+echo Copying yaccer_tab.c to yaccer_tab.cpp
+copy yaccer_tab.c yaccer_tab.cpp
+echo Copy DONE
+]
+Creating command line "C:\DOCUME~1\atlake\LOCALS~1\Temp\RSPD3.bat"
+<h3>Output Window</h3>
+Performing Custom Build Step on .\Debug\ASTGen.exe
+Running flex lexer.l ...
+Lexer Generation DONE
+Running bison yaccer.y...
+Yaccer Generation DONE
+Copying yaccer_tab.c to yaccer_tab.cpp
+        1 file(s) copied.
+Copy DONE
+
+
+
+<h3>Results</h3>
+ASTGen.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

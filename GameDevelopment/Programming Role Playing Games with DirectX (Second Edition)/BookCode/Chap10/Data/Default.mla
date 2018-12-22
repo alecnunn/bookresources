@@ -1,0 +1,37 @@
+"If flag #~ is ~ then"
+  INT 0 255
+  BOOL
+
+"Else"
+
+"Endif"
+
+"Set flag #~ to ~"
+  INT 0 255
+  BOOL
+
+"Print ~"
+  TEXT
+
+"Move character to ~, ~, ~"
+  FLOAT 0.0 2048.0
+  FLOAT 0.0 2048.0
+  FLOAT 0.0 2048.0
+
+"Character ~ ~ ~ ~ points"
+  CHOICE 3 
+    "Main Character" 
+    "Caster" 
+    "Target"
+  CHOICE 2
+    "Gains"
+    "Looses"
+  INT 0 128
+  CHOICE 2
+    "Hit"
+    "Magic"
+
+"Engage in battle sequence #~"
+  INT 0 65535
+
+"End Script"

@@ -1,0 +1,38 @@
+vs.1.0
+; Constants:
+;
+;  c0-c3  - World to screen matrix
+
+dp4 r1.x, v0, c0
+dp4 r1.y, v0, c1
+dp4 r1.z, v0, c2
+dp4 r1.w, v0, c3
+
+; Transform position to screen space
+dp4 oPos.x, r1, c4
+dp4 oPos.y, r1, c5
+dp4 oPos.z, r1, c6
+dp4 oPos.w, r1, c7
+
+mov r1.y, c8.y
+
+; Normalize view vector
+dp3 r1.w, r1, r1
+rsq r1.w, r1.w	
+mul r1, r1, r1.w 
+
+; setup the vertex angle
+mad r2.x, r1.x, c9.x, c9.y
+
+max	r2.x, r2.x, c9.z
+min	r2.x, r2.x, c9.w
+
+mov oT1.x, r2.x
+
+; export texture coordinates
+mov oT0, v2
+mov oT1.y, v3.y
+
+mov oD0, v1
+;mov oT0, v2
+;mov oT1, v3

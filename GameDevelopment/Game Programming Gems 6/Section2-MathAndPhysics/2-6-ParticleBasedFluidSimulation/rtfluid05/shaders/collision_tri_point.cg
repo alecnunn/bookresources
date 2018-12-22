@@ -1,0 +1,95 @@
+void main(float2 par_tri_coord : TEXCOORD0,
+		  //float2 tri_coord : TEXCOORD1,
+		  uniform samplerRECT attr_rect : TEXUNIT0,
+		  uniform samplerRECT tri_rect  : TEXUNIT1,
+		  out float3 result : COLOR)
+{
+	float k = 30000.0;
+	float radius = 0.004;
+
+	float3 pos = f3texRECT(attr_rect, float2(par_tri_coord.x, 0));
+	float3 vel = f3texRECT(attr_rect, float2(par_tri_coord.x, 1));//par_coord + float2(0, 1));
+
+	float2 basei = float2(8*floor(par_tri_coord.y), 0);
+	
+	/* triangle 0 */
+	float3 a0 = f3texRECT(tri_rect, basei);
+	float3 a1 = f3texRECT(tri_rect, basei + float2(1.0, 0.0));
+	float3 a2 = f3texRECT(tri_rect, basei + float2(2.0, 0.0));
+	float3 v0 = f3texRECT(tri_rect, basei + float2(3.0, 0.0));
+	//float3 n0 = f3texRECT(tri_rect, basei + float2(4.0, 0.0));
+
+	/* triangle 1 */
+	float3 a3 = f3texRECT(tri_rect, basei + float2(4.0, 0.0));
+	float3 a4 = f3texRECT(tri_rect, basei + float2(5.0, 0.0));
+	float3 a5 = f3texRECT(tri_rect, basei + float2(6.0, 0.0));
+	float3 v1 = f3texRECT(tri_rect, basei + float2(7.0, 0.0));
+	//float3 n1 = f3texRECT(tri_rect, basei + float2(7.0, 0.0));
+	
+	const float EPSILON = 0.000001f;
+
+	float dist0;
+	float3 p0_tri = pos - v0;
+	p0_tri = float3(dot(a0, p0_tri), dot(a1, p0_tri), dot(a2, p0_tri));
+	if ((0.0f > p0_tri.x) || (0.0f > p0_tri.y) || ((p0_tri.x + p0_tri.y) > 1.0f))
+	{
+		p0_tri.z = 4*radius;
+	}
+
+	float3 p1_tri = pos - v1;
+	p1_tri = float3(dot(a3, p1_tri), dot(a4, p1_tri), dot(a5, p1_tri));
+	if ((0.0f > p1_tri.x) || (0.0f > p1_tri.y) || ((p1_tri.x + p1_tri.y) > 1.0f))
+	{
+		p1_tri.z = 4*radius;
+	}
+/*
+		return p_tri.z;
+	
+	return p_tri.z + p_tri.x*p_tri.x + p_tri.y*p_tri.y;
+*/
+	float diff;
+
+	float3 n;
+	if (p0_tri.z < p1_tri.z)
+	{
+		n = a2;
+		//dist = dist0;
+		diff = 2.0*radius - p0_tri.z;
+	}
+	else
+	{
+		n = a5;
+		//dist = dist1;
+		diff = 2.0*radius - p1_tri.z;
+	}
+
+	if (diff > EPSILON)
+	{
+		float vel0 = dot(vel, n);
+		result = (k*diff - 64.0*vel0)*n;
+	}
+	else result = float3(0.0, 0.0, 0.0);
+
+	/*
+
+	float diff0 = 2.0*radius - dist0;
+	float diff1 = 2.0*radius - dist1;
+
+//	float diff = 2.0*radius - min(dist0, dist1);
+
+	if (diff0 > EPSILON)
+	{
+		float vel0 = dot(vel, n0);
+		result.xyz = (k*diff0 - 64.0f*vel0)*n0;
+//		result.xyz = k*diff*normal;//(k*diff - 64.0f*vel0)*normal;
+	}
+	else result.xyz = float3(0.0, 0.0, 0.0);
+
+	if (diff0 > EPSILON)
+	{
+		float vel0 = dot(vel, n0);
+		result.xyz = (k*diff0 - 64.0f*vel0)*n0;
+//		result.xyz = k*diff*normal;//(k*diff - 64.0f*vel0)*normal;
+	}
+	else result.xyz = float3(0.0, 0.0, 0.0);*/
+}

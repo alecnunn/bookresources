@@ -1,0 +1,36 @@
+--------------------Configuration: Tanks - Win32 Release--------------------
+Begining build with project "C:\jfm96r\Tanks\Tanks.dsp", at root.
+Active configuration is Win32 (x86) Application (based on Win32 (x86) Application)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp".\Release/Tanks.pch" /Yu"stdafx.h" /Fo".\Release/" /Fd".\Release/" /FD /c "
+			"OLE Type Library Maker" with flags "/nologo /D "NDEBUG" /mktyplib203 /win32 "
+			"Win32 Resource Compiler" with flags "/l 0x809 /fo".\Release/Tanks.res" /d "NDEBUG" /d "_AFXDLL" "
+			"Browser Database Maker" with flags "/nologo /o".\Release/Tanks.bsc" "
+			"COFF Linker for 80x86" with flags "/nologo /subsystem:windows /incremental:no /pdb:".\Release/Tanks.pdb" /machine:I386 /out:".\Release/Tanks.exe" "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\TEMP\RSP11A.tmp" with contents </nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp".\Release/Tanks.pch" /Yu"stdafx.h" /Fo".\Release/" /Fd".\Release/" /FD /c 
+"C:\jfm96r\Tanks\TanksDoc.cpp"
+>
+Creating command line "cl.exe @C:\TEMP\RSP11A.tmp" 
+Creating temp file "C:\TEMP\RSP11B.tmp" with contents </nologo /subsystem:windows /incremental:no /pdb:".\Release/Tanks.pdb" /machine:I386 /out:".\Release/Tanks.exe" 
+.\Release\CMLP.obj
+.\Release\CProjectile.obj
+.\Release\CTank.obj
+.\Release\CWorld.obj
+.\Release\MainFrm.obj
+.\Release\StdAfx.obj
+.\Release\Tanks.obj
+.\Release\TanksDoc.obj
+.\Release\TanksView.obj
+.\Release\Tanks.res>
+Creating command line "link.exe @C:\TEMP\RSP11B.tmp" 
+Compiling...
+TanksDoc.cpp
+Linking...
+
+
+
+Tanks.exe - 0 error(s), 0 warning(s)

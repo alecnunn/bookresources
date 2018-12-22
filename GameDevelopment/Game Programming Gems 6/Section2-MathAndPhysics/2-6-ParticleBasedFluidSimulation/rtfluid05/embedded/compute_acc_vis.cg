@@ -1,0 +1,37 @@
+#include "kernel.cg"
+#include "sph.cg"
+
+void main(fixed2 sn_coord : TEXCOORD0,
+		  /**
+		  y  : subject particle index
+		  xy : neighbour particle index
+		  **/
+		  uniform samplerRECT attr_rect      : TEXUNIT0,
+		  uniform samplerRECT neighbour_rect : TEXUNIT1,
+		  out float3 result : COLOR // acceleration
+		  )
+{
+	float h = SMOOTHING_LENGTH;
+	float m = MASS;
+	float mu = VISCOSITY;
+	
+	float neighbour_index = f1texRECT(neighbour_rect, sn_coord);
+
+	float3 pos_i = f3texRECT(attr_rect, float2(sn_coord.y, GPU_ATTR_POS));
+	float3 v_i = f3texRECT(attr_rect, float2(sn_coord.y, GPU_ATTR_VEL));
+	float2 dp_i = f2texRECT(attr_rect, float2(sn_coord.y, GPU_ATTR_DP));
+
+	float3 pos_j = f3texRECT(attr_rect, float2(neighbour_index, GPU_ATTR_POS));
+	float3 v_j = f3texRECT(attr_rect, float2(neighbour_index, GPU_ATTR_VEL));
+	float2 dp_j = f2texRECT(attr_rect, float2(neighbour_index, GPU_ATTR_DP));
+
+	float r = distance(pos_i, pos_j);
+
+	float h_r = h - r;
+
+//	h_r = max(h_r, 0.0);
+
+	if (h_r > 0.0)
+		result = 15*m/(PI*h*h*h*h*h*h)*h_r*((dp_i.y + dp_j.y)*0.5*h_r*h_r*(pos_i - pos_j) + 3*mu*(v_j - v_i))*dp_j.x;///dp_j.x;
+	else result = 0.0;
+}

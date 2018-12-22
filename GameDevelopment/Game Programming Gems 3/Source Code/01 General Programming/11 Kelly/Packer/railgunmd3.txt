@@ -1,0 +1,1592 @@
+MD3_FILEHDR
+    ID            IDP3
+    VERSION       15
+    FILENAME      models/weapons2/railgun/railgun.md3
+    NUM_BONEFRAME 1
+    NUM_TAGS      2
+    NUM_MESH      5
+    MAXTEX_NUM    0
+    HEADER_SIZE   108
+    TAGS_START    164
+    MESH_START    388
+    FILE_SIZE     14464
+END
+
+MD3_BONEFRAMES
+    MINS        -14.109   -5.609   -4.688
+    MAXS         15.688    4.844    6.953
+    POSITION      0.000    0.000    0.000
+    SCALE        18.053
+    CREATOR    "(from ASE)"
+END
+MD3_TAGS
+    TAG_NAME     tag_weapon
+    POSITION        0.000    0.000    0.000
+    ROTATION_MAT    1.000    0.000    0.000
+                    0.000    1.000    0.000
+                    0.000    0.000    1.000
+    TAG_NAME     tag_flash
+    POSITION       16.313   -0.344    4.016
+    ROTATION_MAT    1.000   -0.014    0.000
+                    0.014    1.000    0.000
+                    0.000    0.000    1.000
+END
+
+MD3_MESH
+    ID                 IDP3
+    MESH_NAME          w_railgun1
+    NUM_MESHFRAMES     1
+    NUM_SKINS          1
+    NUM_VERTS          391
+    NUM_TRIS           377
+    TRI_START_ADDR     176
+    HEADER_SIZE        108
+    TEXVEC_START_ADDR  4700
+    VERTEX_START_ADDR  7828
+    MESH_SIZE          10956
+END
+
+MD3_TEXTURENAMES
+    TEX_NAME   models/weapons2/railgun/railgun1.tga
+END
+
+MD3_TRIANGLEVERTS
+    VERT_IDX          7        8        6
+    VERT_IDX          6        8        3
+    VERT_IDX          6        3        1
+    VERT_IDX          1        3        4
+    VERT_IDX          1        4        2
+    VERT_IDX          1        2        0
+    VERT_IDX          0        2        5
+    VERT_IDX          0        5        9
+    VERT_IDX         30       23       22
+    VERT_IDX         22       23       24
+    VERT_IDX         22       24       31
+    VERT_IDX         33       25       27
+    VERT_IDX         27       25       26
+    VERT_IDX         27       26       32
+    VERT_IDX         57       56       49
+    VERT_IDX         49       56       50
+    VERT_IDX         49       50       48
+    VERT_IDX         49       48       36
+    VERT_IDX         36       48       34
+    VERT_IDX         36       34       35
+    VERT_IDX         35       34       37
+    VERT_IDX         35       37       45
+    VERT_IDX         45       37       38
+    VERT_IDX         45       38       35
+    VERT_IDX         35       38       36
+    VERT_IDX         58       59       41
+    VERT_IDX         41       59       47
+    VERT_IDX         41       47       39
+    VERT_IDX         18       16       17
+    VERT_IDX         17       16       15
+    VERT_IDX         16       14       15
+    VERT_IDX         15       14       13
+    VERT_IDX         14       11       13
+    VERT_IDX         13       11       10
+    VERT_IDX         11       12       10
+    VERT_IDX         10       12       28
+    VERT_IDX         95       96       97
+    VERT_IDX         97       96      118
+    VERT_IDX         97      118      147
+    VERT_IDX        117      115      116
+    VERT_IDX        116      115      114
+    VERT_IDX        116      114      137
+    VERT_IDX         20       21       19
+    VERT_IDX         19       21       29
+    VERT_IDX        133      123       94
+    VERT_IDX         94      123       92
+    VERT_IDX         94       92       93
+    VERT_IDX         93       92      124
+    VERT_IDX         41       39       40
+    VERT_IDX         40       39       44
+    VERT_IDX         39       46       44
+    VERT_IDX         44       46       42
+    VERT_IDX         44       42       43
+    VERT_IDX         37       51       38
+    VERT_IDX         38       51       53
+    VERT_IDX         51       52       53
+    VERT_IDX         53       52       54
+    VERT_IDX         53       54       55
+    VERT_IDX         60       61       62
+    VERT_IDX         62       61       72
+    VERT_IDX         63       64       65
+    VERT_IDX         65       64      144
+    VERT_IDX        146       98       85
+    VERT_IDX         85       98       83
+    VERT_IDX         85       83       84
+    VERT_IDX         84       83      108
+    VERT_IDX         84      108      103
+    VERT_IDX        103      108      109
+    VERT_IDX        103      109      102
+    VERT_IDX        118       96      106
+    VERT_IDX        106       96      107
+    VERT_IDX        106      107       90
+    VERT_IDX         90      107      101
+    VERT_IDX         90      101       91
+    VERT_IDX         90       91       89
+    VERT_IDX         89       91      132
+    VERT_IDX         89      132      149
+    VERT_IDX         67       68       66
+    VERT_IDX         66       68       76
+    VERT_IDX         70       71       69
+    VERT_IDX         69       71      136
+    VERT_IDX         74       75       73
+    VERT_IDX         73       75      134
+    VERT_IDX         78       79       77
+    VERT_IDX         77       79      135
+    VERT_IDX        121      119      120
+    VERT_IDX        120      119      148
+    VERT_IDX        184      173      175
+    VERT_IDX        175      173      174
+    VERT_IDX        175      174      182
+    VERT_IDX        175      182      183
+    VERT_IDX        174      173      185
+    VERT_IDX        190      178      177
+    VERT_IDX        177      178      176
+    VERT_IDX        177      176      189
+    VERT_IDX        189      176      188
+    VERT_IDX        189      188      186
+    VERT_IDX        186      188      187
+    VERT_IDX        186      187      179
+    VERT_IDX        179      187      164
+    VERT_IDX        179      164      163
+    VERT_IDX        163      164      165
+    VERT_IDX        163      165      180
+    VERT_IDX        199      197      192
+    VERT_IDX        192      197      194
+    VERT_IDX        192      194      193
+    VERT_IDX        115      113      114
+    VERT_IDX        114      113      112
+    VERT_IDX        113      110      112
+    VERT_IDX        112      110      111
+    VERT_IDX        111      110      125
+    VERT_IDX        125      110      128
+    VERT_IDX        125      128      130
+    VERT_IDX        125      130      129
+    VERT_IDX        124       92      131
+    VERT_IDX        131       92      104
+    VERT_IDX         92      123      104
+    VERT_IDX        104      123      105
+    VERT_IDX        104      105      100
+    VERT_IDX        104      100       99
+    VERT_IDX         99      100       86
+    VERT_IDX        100       87       86
+    VERT_IDX         86       87       88
+    VERT_IDX         86       88      145
+    VERT_IDX        321      320      318
+    VERT_IDX        318      320      316
+    VERT_IDX        318      316      317
+    VERT_IDX        317      316      319
+    VERT_IDX        317      319      315
+    VERT_IDX        315      319      314
+    VERT_IDX        315      314      313
+    VERT_IDX        313      314      311
+    VERT_IDX        313      311      312
+    VERT_IDX        312      311      322
+    VERT_IDX        327      328      323
+    VERT_IDX        323      328      326
+    VERT_IDX        323      326      324
+    VERT_IDX        323      324      325
+    VERT_IDX        331      329      330
+    VERT_IDX        330      329      333
+    VERT_IDX        330      333      332
+    VERT_IDX        330      332      334
+    VERT_IDX        336      337      335
+    VERT_IDX        335      337      338
+    VERT_IDX        335      338      339
+    VERT_IDX        335      339      340
+    VERT_IDX        346      344      343
+    VERT_IDX        343      344      345
+    VERT_IDX        343      345      341
+    VERT_IDX        343      341      342
+    VERT_IDX        139      140      138
+    VERT_IDX        138      140      151
+    VERT_IDX        360      361      358
+    VERT_IDX        358      361      359
+    VERT_IDX        358      359      357
+    VERT_IDX        363      364      362
+    VERT_IDX        362      364      365
+    VERT_IDX        362      365      366
+    VERT_IDX        142      143      141
+    VERT_IDX        141      143      150
+    VERT_IDX        167      168      166
+    VERT_IDX        166      168      181
+    VERT_IDX        171      169      170
+    VERT_IDX        170      169      172
+    VERT_IDX        193      191      192
+    VERT_IDX        192      191      195
+    VERT_IDX        191      196      195
+    VERT_IDX        195      196      198
+    VERT_IDX        195      198      200
+    VERT_IDX        210      211      209
+    VERT_IDX        209      211      212
+    VERT_IDX        309      305      308
+    VERT_IDX        308      305      304
+    VERT_IDX        305      306      304
+    VERT_IDX        304      306      307
+    VERT_IDX        306      303      307
+    VERT_IDX        307      303      302
+    VERT_IDX        303      300      302
+    VERT_IDX        302      300      299
+    VERT_IDX        300      301      299
+    VERT_IDX        299      301      310
+    VERT_IDX        352      350      351
+    VERT_IDX        351      350      353
+    VERT_IDX        354      355      356
+    VERT_IDX        356      355      347
+    VERT_IDX        355      348      347
+    VERT_IDX        347      348      349
+    VERT_IDX        348      353      349
+    VERT_IDX        349      353      350
+    VERT_IDX        369      367      368
+    VERT_IDX        368      367      370
+    VERT_IDX        372      373      371
+    VERT_IDX        371      373      374
+    VERT_IDX        162      156      158
+    VERT_IDX        158      156      157
+    VERT_IDX        158      157      152
+    VERT_IDX        152      157      153
+    VERT_IDX        152      153      154
+    VERT_IDX        154      153      161
+    VERT_IDX        154      161      159
+    VERT_IDX        159      161      153
+    VERT_IDX        159      153      156
+    VERT_IDX        156      153      157
+    VERT_IDX        152      154      155
+    VERT_IDX        155      154      160
+    VERT_IDX        154      159      160
+    VERT_IDX        160      159      156
+    VERT_IDX        160      156      162
+    VERT_IDX        218      217      216
+    VERT_IDX        216      217      213
+    VERT_IDX        216      213      215
+    VERT_IDX        215      213      214
+    VERT_IDX        215      214      219
+    VERT_IDX        219      214      220
+    VERT_IDX        219      220      217
+    VERT_IDX        217      220      213
+    VERT_IDX        217      218      219
+    VERT_IDX        220      214      213
+    VERT_IDX        224      223      222
+    VERT_IDX        222      223      221
+    VERT_IDX        222      221      236
+    VERT_IDX        236      221      235
+    VERT_IDX        236      235      246
+    VERT_IDX        246      235      245
+    VERT_IDX        246      245      252
+    VERT_IDX        252      245      251
+    VERT_IDX        223      233      221
+    VERT_IDX        221      233      232
+    VERT_IDX        221      232      235
+    VERT_IDX        235      232      244
+    VERT_IDX        235      244      245
+    VERT_IDX        245      244      250
+    VERT_IDX        245      250      251
+    VERT_IDX        251      250      259
+    VERT_IDX        259      250      258
+    VERT_IDX        258      250      243
+    VERT_IDX        258      243      257
+    VERT_IDX        257      243      241
+    VERT_IDX        257      241      240
+    VERT_IDX        240      241      231
+    VERT_IDX        240      231      229
+    VERT_IDX        229      231      230
+    VERT_IDX        229      230      228
+    VERT_IDX        257      240      256
+    VERT_IDX        256      240      249
+    VERT_IDX        256      249      255
+    VERT_IDX        255      249      248
+    VERT_IDX        255      248      254
+    VERT_IDX        254      248      247
+    VERT_IDX        254      247      253
+    VERT_IDX        253      247      246
+    VERT_IDX        253      246      252
+    VERT_IDX        246      247      236
+    VERT_IDX        236      247      237
+    VERT_IDX        236      237      222
+    VERT_IDX        222      237      225
+    VERT_IDX        222      225      224
+    VERT_IDX        224      225      226
+    VERT_IDX        247      248      237
+    VERT_IDX        237      248      238
+    VERT_IDX        237      238      225
+    VERT_IDX        225      238      227
+    VERT_IDX        225      227      226
+    VERT_IDX        226      227      228
+    VERT_IDX        248      249      238
+    VERT_IDX        238      249      239
+    VERT_IDX        238      239      227
+    VERT_IDX        227      239      229
+    VERT_IDX        227      229      228
+    VERT_IDX        250      244      243
+    VERT_IDX        243      244      234
+    VERT_IDX        243      234      241
+    VERT_IDX        241      234      242
+    VERT_IDX        241      242      231
+    VERT_IDX        233      234      232
+    VERT_IDX        232      234      244
+    VERT_IDX        229      239      240
+    VERT_IDX        240      239      249
+    VERT_IDX        267      266      265
+    VERT_IDX        265      266      264
+    VERT_IDX        265      264      263
+    VERT_IDX        263      264      262
+    VERT_IDX        263      262      261
+    VERT_IDX        261      262      260
+    VERT_IDX        261      260      273
+    VERT_IDX        273      260      271
+    VERT_IDX        273      271      272
+    VERT_IDX        272      271      283
+    VERT_IDX        272      283      282
+    VERT_IDX        282      283      289
+    VERT_IDX        282      289      297
+    VERT_IDX        297      289      298
+    VERT_IDX        298      289      290
+    VERT_IDX        290      289      284
+    VERT_IDX        290      284      291
+    VERT_IDX        291      284      285
+    VERT_IDX        291      285      292
+    VERT_IDX        292      285      286
+    VERT_IDX        292      286      293
+    VERT_IDX        293      286      287
+    VERT_IDX        293      287      294
+    VERT_IDX        294      287      288
+    VERT_IDX        294      288      295
+    VERT_IDX        295      288      279
+    VERT_IDX        295      279      296
+    VERT_IDX        296      279      280
+    VERT_IDX        296      280      282
+    VERT_IDX        282      280      272
+    VERT_IDX        296      282      297
+    VERT_IDX        289      283      284
+    VERT_IDX        284      283      274
+    VERT_IDX        284      274      285
+    VERT_IDX        285      274      275
+    VERT_IDX        285      275      286
+    VERT_IDX        286      275      276
+    VERT_IDX        286      276      287
+    VERT_IDX        287      276      277
+    VERT_IDX        287      277      288
+    VERT_IDX        288      277      278
+    VERT_IDX        288      278      279
+    VERT_IDX        279      278      268
+    VERT_IDX        279      268      270
+    VERT_IDX        270      268      269
+    VERT_IDX        283      271      274
+    VERT_IDX        274      271      260
+    VERT_IDX        274      260      275
+    VERT_IDX        275      260      262
+    VERT_IDX        275      262      276
+    VERT_IDX        276      262      264
+    VERT_IDX        276      264      277
+    VERT_IDX        277      264      266
+    VERT_IDX        277      266      278
+    VERT_IDX        278      266      268
+    VERT_IDX        279      270      280
+    VERT_IDX        280      270      281
+    VERT_IDX        280      281      272
+    VERT_IDX        266      267      268
+    VERT_IDX        268      267      269
+    VERT_IDX        202      203      201
+    VERT_IDX        201      203      204
+    VERT_IDX        201      204      205
+    VERT_IDX        205      204      206
+    VERT_IDX        205      206      207
+    VERT_IDX        202      201      208
+    VERT_IDX        208      201      205
+    VERT_IDX        208      205      207
+    VERT_IDX         80       81       82
+    VERT_IDX         82       81      122
+    VERT_IDX         82      122      126
+    VERT_IDX        126      103       82
+    VERT_IDX         82      103      102
+    VERT_IDX         82      102      127
+    VERT_IDX         82      127       80
+    VERT_IDX        380      377      381
+    VERT_IDX        381      377      376
+    VERT_IDX        381      376      382
+    VERT_IDX        382      376      375
+    VERT_IDX        382      375      379
+    VERT_IDX        379      375      378
+    VERT_IDX        379      378      380
+    VERT_IDX        380      378      377
+    VERT_IDX        376      377      375
+    VERT_IDX        375      377      378
+    VERT_IDX        380      381      379
+    VERT_IDX        379      381      382
+    VERT_IDX        388      385      389
+    VERT_IDX        389      385      384
+    VERT_IDX        389      384      390
+    VERT_IDX        390      384      383
+    VERT_IDX        390      383      387
+    VERT_IDX        387      383      386
+    VERT_IDX        387      386      388
+    VERT_IDX        388      386      385
+    VERT_IDX        384      385      383
+    VERT_IDX        383      385      386
+    VERT_IDX        388      389      387
+    VERT_IDX        387      389      390
+END
+
+MD3_TEXVEC
+    UV_OR_VEC      0.985    0.953
+    UV_OR_VEC      0.981    0.919
+    UV_OR_VEC      0.449    0.953
+    UV_OR_VEC      0.449    0.953
+    UV_OR_VEC      0.444    0.919
+    UV_OR_VEC      0.421    0.992
+    UV_OR_VEC      0.985    0.953
+    UV_OR_VEC      0.990    0.992
+    UV_OR_VEC      0.421    0.992
+    UV_OR_VEC      0.990    0.992
+    UV_OR_VEC      0.507    0.744
+    UV_OR_VEC      0.604    0.744
+    UV_OR_VEC      0.604    0.725
+    UV_OR_VEC      0.507    0.763
+    UV_OR_VEC      0.604    0.763
+    UV_OR_VEC      0.507    0.872
+    UV_OR_VEC      0.604    0.872
+    UV_OR_VEC      0.507    0.880
+    UV_OR_VEC      0.604    0.880
+    UV_OR_VEC      0.508    0.764
+    UV_OR_VEC      0.604    0.764
+    UV_OR_VEC      0.604    0.870
+    UV_OR_VEC      0.480    0.752
+    UV_OR_VEC      0.460    0.657
+    UV_OR_VEC      0.430    0.686
+    UV_OR_VEC      0.430    0.686
+    UV_OR_VEC      0.460    0.657
+    UV_OR_VEC      0.480    0.752
+    UV_OR_VEC      0.507    0.725
+    UV_OR_VEC      0.508    0.870
+    UV_OR_VEC      0.482    0.649
+    UV_OR_VEC      0.449    0.761
+    UV_OR_VEC      0.482    0.649
+    UV_OR_VEC      0.449    0.761
+    UV_OR_VEC      0.388    0.898
+    UV_OR_VEC      0.483    0.895
+    UV_OR_VEC      0.486    0.823
+    UV_OR_VEC      0.388    0.898
+    UV_OR_VEC      0.486    0.823
+    UV_OR_VEC      0.702    0.892
+    UV_OR_VEC      0.704    0.737
+    UV_OR_VEC      0.666    0.763
+    UV_OR_VEC      0.851    0.848
+    UV_OR_VEC      0.852    0.783
+    UV_OR_VEC      0.753    0.737
+    UV_OR_VEC      0.483    0.895
+    UV_OR_VEC      0.751    0.892
+    UV_OR_VEC      0.665    0.864
+    UV_OR_VEC      0.318    0.779
+    UV_OR_VEC      0.383    0.702
+    UV_OR_VEC      0.313    0.714
+    UV_OR_VEC      0.318    0.779
+    UV_OR_VEC      0.313    0.714
+    UV_OR_VEC      0.383    0.702
+    UV_OR_VEC      0.351    0.660
+    UV_OR_VEC      0.378    0.661
+    UV_OR_VEC      0.351    0.660
+    UV_OR_VEC      0.378    0.661
+    UV_OR_VEC      0.643    0.763
+    UV_OR_VEC      0.642    0.864
+    UV_OR_VEC      0.702    0.478
+    UV_OR_VEC      0.722    0.339
+    UV_OR_VEC      0.554    0.478
+    UV_OR_VEC      0.722    0.339
+    UV_OR_VEC      0.702    0.478
+    UV_OR_VEC      0.516    0.339
+    UV_OR_VEC      0.615    0.586
+    UV_OR_VEC      0.615    0.714
+    UV_OR_VEC      0.794    0.715
+    UV_OR_VEC      0.798    0.586
+    UV_OR_VEC      0.872    0.757
+    UV_OR_VEC      0.963    0.700
+    UV_OR_VEC      0.516    0.339
+    UV_OR_VEC      0.798    0.586
+    UV_OR_VEC      0.984    0.586
+    UV_OR_VEC      0.963    0.700
+    UV_OR_VEC      0.795    0.586
+    UV_OR_VEC      0.513    0.646
+    UV_OR_VEC      0.606    0.646
+    UV_OR_VEC      0.605    0.599
+    UV_OR_VEC      0.794    0.586
+    UV_OR_VEC      0.614    0.586
+    UV_OR_VEC      0.781    0.540
+    UV_OR_VEC      0.983    0.403
+    UV_OR_VEC      0.752    0.452
+    UV_OR_VEC      0.743    0.403
+    UV_OR_VEC      0.743    0.403
+    UV_OR_VEC      0.983    0.403
+    UV_OR_VEC      0.983    0.349
+    UV_OR_VEC      0.757    0.255
+    UV_OR_VEC      0.759    0.205
+    UV_OR_VEC      0.057    0.255
+    UV_OR_VEC      0.781    0.539
+    UV_OR_VEC      0.614    0.585
+    UV_OR_VEC      0.794    0.585
+    UV_OR_VEC      0.013    0.027
+    UV_OR_VEC      0.013    0.087
+    UV_OR_VEC      0.013    0.027
+    UV_OR_VEC      0.983    0.349
+    UV_OR_VEC      0.752    0.452
+    UV_OR_VEC      0.983    0.452
+    UV_OR_VEC      0.037    0.205
+    UV_OR_VEC      0.983    0.540
+    UV_OR_VEC      0.766    0.497
+    UV_OR_VEC      0.766    0.497
+    UV_OR_VEC      0.983    0.497
+    UV_OR_VEC      0.757    0.145
+    UV_OR_VEC      0.021    0.145
+    UV_OR_VEC      0.983    0.452
+    UV_OR_VEC      0.983    0.497
+    UV_OR_VEC      0.757    0.204
+    UV_OR_VEC      0.037    0.205
+    UV_OR_VEC      0.021    0.145
+    UV_OR_VEC      0.757    0.145
+    UV_OR_VEC      0.013    0.087
+    UV_OR_VEC      0.757    0.086
+    UV_OR_VEC      0.013    0.027
+    UV_OR_VEC      0.757    0.027
+    UV_OR_VEC      0.757    0.086
+    UV_OR_VEC      0.615    0.586
+    UV_OR_VEC      0.794    0.715
+    UV_OR_VEC      0.615    0.714
+    UV_OR_VEC      0.614    0.540
+    UV_OR_VEC      0.983    0.539
+    UV_OR_VEC      0.614    0.539
+    UV_OR_VEC      0.057    0.255
+    UV_OR_VEC      0.614    0.497
+    UV_OR_VEC      0.985    0.586
+    UV_OR_VEC      0.757    0.255
+    UV_OR_VEC      0.085    0.305
+    UV_OR_VEC      0.756    0.305
+    UV_OR_VEC      0.615    0.497
+    UV_OR_VEC      0.085    0.305
+    UV_OR_VEC      0.985    0.585
+    UV_OR_VEC      0.872    0.757
+    UV_OR_VEC      0.514    0.599
+    UV_OR_VEC      0.984    0.586
+    UV_OR_VEC      0.013    0.027
+    UV_OR_VEC      0.757    0.005
+    UV_OR_VEC      0.013    0.018
+    UV_OR_VEC      0.013    0.027
+    UV_OR_VEC      0.757    0.027
+    UV_OR_VEC      0.013    0.027
+    UV_OR_VEC      0.013    0.018
+    UV_OR_VEC      0.554    0.478
+    UV_OR_VEC      0.738    0.349
+    UV_OR_VEC      0.738    0.349
+    UV_OR_VEC      0.757    0.027
+    UV_OR_VEC      0.794    0.586
+    UV_OR_VEC      0.756    0.305
+    UV_OR_VEC      0.757    0.005
+    UV_OR_VEC      0.757    0.027
+    UV_OR_VEC      0.040    0.283
+    UV_OR_VEC      0.053    0.444
+    UV_OR_VEC      0.064    0.364
+    UV_OR_VEC      0.064    0.313
+    UV_OR_VEC      0.011    0.444
+    UV_OR_VEC      0.011    0.444
+    UV_OR_VEC      0.015    0.254
+    UV_OR_VEC      0.053    0.444
+    UV_OR_VEC      0.040    0.283
+    UV_OR_VEC      0.094    0.444
+    UV_OR_VEC      0.015    0.254
+    UV_OR_VEC      0.970    0.103
+    UV_OR_VEC      0.783    0.103
+    UV_OR_VEC      0.780    0.202
+    UV_OR_VEC      0.972    0.250
+    UV_OR_VEC      0.970    0.103
+    UV_OR_VEC      0.783    0.103
+    UV_OR_VEC      0.970    0.103
+    UV_OR_VEC      0.777    0.250
+    UV_OR_VEC      0.783    0.103
+    UV_OR_VEC      0.972    0.250
+    UV_OR_VEC      0.844    0.017
+    UV_OR_VEC      0.901    0.017
+    UV_OR_VEC      0.799    0.050
+    UV_OR_VEC      0.818    0.032
+    UV_OR_VEC      0.903    0.017
+    UV_OR_VEC      0.846    0.017
+    UV_OR_VEC      0.966    0.075
+    UV_OR_VEC      0.972    0.202
+    UV_OR_VEC      0.777    0.250
+    UV_OR_VEC      0.929    0.031
+    UV_OR_VEC      0.948    0.050
+    UV_OR_VEC      0.816    0.032
+    UV_OR_VEC      0.872    0.013
+    UV_OR_VEC      0.951    0.051
+    UV_OR_VEC      0.786    0.076
+    UV_OR_VEC      0.800    0.051
+    UV_OR_VEC      0.931    0.031
+    UV_OR_VEC      0.875    0.013
+    UV_OR_VEC      0.948    0.050
+    UV_OR_VEC      0.867    0.036
+    UV_OR_VEC      0.799    0.050
+    UV_OR_VEC      0.816    0.032
+    UV_OR_VEC      0.879    0.036
+    UV_OR_VEC      0.929    0.031
+    UV_OR_VEC      0.844    0.017
+    UV_OR_VEC      0.901    0.017
+    UV_OR_VEC      0.867    0.016
+    UV_OR_VEC      0.879    0.016
+    UV_OR_VEC      0.562    0.509
+    UV_OR_VEC      0.586    0.509
+    UV_OR_VEC      0.586    0.577
+    UV_OR_VEC      0.537    0.577
+    UV_OR_VEC      0.562    0.509
+    UV_OR_VEC      0.537    0.577
+    UV_OR_VEC      0.586    0.577
+    UV_OR_VEC      0.586    0.509
+    UV_OR_VEC      0.503    0.579
+    UV_OR_VEC      0.503    0.579
+    UV_OR_VEC      0.503    0.506
+    UV_OR_VEC      0.503    0.506
+    UV_OR_VEC      0.897    0.287
+    UV_OR_VEC      0.809    0.286
+    UV_OR_VEC      0.810    0.270
+    UV_OR_VEC      0.914    0.270
+    UV_OR_VEC      0.896    0.327
+    UV_OR_VEC      0.914    0.338
+    UV_OR_VEC      0.809    0.338
+    UV_OR_VEC      0.809    0.329
+    UV_OR_VEC      0.180    0.743
+    UV_OR_VEC      0.189    0.769
+    UV_OR_VEC      0.078    0.723
+    UV_OR_VEC      0.095    0.752
+    UV_OR_VEC      0.186    0.799
+    UV_OR_VEC      0.107    0.785
+    UV_OR_VEC      0.170    0.843
+    UV_OR_VEC      0.111    0.831
+    UV_OR_VEC      0.144    0.887
+    UV_OR_VEC      0.103    0.879
+    UV_OR_VEC      0.093    0.911
+    UV_OR_VEC      0.156    0.757
+    UV_OR_VEC      0.060    0.746
+    UV_OR_VEC      0.067    0.786
+    UV_OR_VEC      0.269    0.798
+    UV_OR_VEC      0.262    0.826
+    UV_OR_VEC      0.248    0.853
+    UV_OR_VEC      0.221    0.876
+    UV_OR_VEC      0.179    0.910
+    UV_OR_VEC      0.141    0.943
+    UV_OR_VEC      0.156    0.914
+    UV_OR_VEC      0.074    0.860
+    UV_OR_VEC      0.219    0.872
+    UV_OR_VEC      0.237    0.810
+    UV_OR_VEC      0.329    0.882
+    UV_OR_VEC      0.309    0.899
+    UV_OR_VEC      0.288    0.910
+    UV_OR_VEC      0.255    0.926
+    UV_OR_VEC      0.202    0.944
+    UV_OR_VEC      0.292    0.890
+    UV_OR_VEC      0.355    0.984
+    UV_OR_VEC      0.329    0.985
+    UV_OR_VEC      0.297    0.984
+    UV_OR_VEC      0.267    0.985
+    UV_OR_VEC      0.210    0.985
+    UV_OR_VEC      0.156    0.985
+    UV_OR_VEC      0.181    0.985
+    UV_OR_VEC      0.258    0.985
+    UV_OR_VEC      0.311    0.985
+    UV_OR_VEC      0.178    0.743
+    UV_OR_VEC      0.076    0.723
+    UV_OR_VEC      0.188    0.769
+    UV_OR_VEC      0.094    0.752
+    UV_OR_VEC      0.184    0.799
+    UV_OR_VEC      0.105    0.785
+    UV_OR_VEC      0.169    0.843
+    UV_OR_VEC      0.109    0.831
+    UV_OR_VEC      0.142    0.887
+    UV_OR_VEC      0.101    0.879
+    UV_OR_VEC      0.091    0.911
+    UV_OR_VEC      0.155    0.757
+    UV_OR_VEC      0.065    0.786
+    UV_OR_VEC      0.058    0.746
+    UV_OR_VEC      0.270    0.798
+    UV_OR_VEC      0.261    0.826
+    UV_OR_VEC      0.247    0.853
+    UV_OR_VEC      0.220    0.876
+    UV_OR_VEC      0.177    0.910
+    UV_OR_VEC      0.140    0.943
+    UV_OR_VEC      0.155    0.914
+    UV_OR_VEC      0.073    0.860
+    UV_OR_VEC      0.218    0.872
+    UV_OR_VEC      0.236    0.810
+    UV_OR_VEC      0.327    0.882
+    UV_OR_VEC      0.307    0.899
+    UV_OR_VEC      0.287    0.910
+    UV_OR_VEC      0.254    0.926
+    UV_OR_VEC      0.200    0.944
+    UV_OR_VEC      0.291    0.890
+    UV_OR_VEC      0.355    0.984
+    UV_OR_VEC      0.329    0.985
+    UV_OR_VEC      0.296    0.984
+    UV_OR_VEC      0.266    0.985
+    UV_OR_VEC      0.209    0.985
+    UV_OR_VEC      0.154    0.985
+    UV_OR_VEC      0.179    0.985
+    UV_OR_VEC      0.257    0.985
+    UV_OR_VEC      0.310    0.985
+    UV_OR_VEC      0.501    0.585
+    UV_OR_VEC      0.204    0.585
+    UV_OR_VEC      0.209    0.632
+    UV_OR_VEC      0.501    0.475
+    UV_OR_VEC      0.146    0.475
+    UV_OR_VEC      0.501    0.382
+    UV_OR_VEC      0.109    0.382
+    UV_OR_VEC      0.127    0.421
+    UV_OR_VEC      0.501    0.421
+    UV_OR_VEC      0.501    0.306
+    UV_OR_VEC      0.087    0.306
+    UV_OR_VEC      0.501    0.632
+    UV_OR_VEC      0.501    0.585
+    UV_OR_VEC      0.209    0.632
+    UV_OR_VEC      0.204    0.585
+    UV_OR_VEC      0.501    0.475
+    UV_OR_VEC      0.146    0.475
+    UV_OR_VEC      0.501    0.382
+    UV_OR_VEC      0.127    0.421
+    UV_OR_VEC      0.109    0.382
+    UV_OR_VEC      0.501    0.421
+    UV_OR_VEC      0.501    0.306
+    UV_OR_VEC      0.087    0.306
+    UV_OR_VEC      0.501    0.632
+    UV_OR_VEC      0.025    0.732
+    UV_OR_VEC      0.148    0.587
+    UV_OR_VEC      0.112    0.686
+    UV_OR_VEC      0.138    0.541
+    UV_OR_VEC      0.021    0.457
+    UV_OR_VEC      0.108    0.504
+    UV_OR_VEC      0.149    0.588
+    UV_OR_VEC      0.025    0.731
+    UV_OR_VEC      0.112    0.686
+    UV_OR_VEC      0.109    0.505
+    UV_OR_VEC      0.139    0.541
+    UV_OR_VEC      0.021    0.458
+    UV_OR_VEC      0.024    0.732
+    UV_OR_VEC      0.112    0.686
+    UV_OR_VEC      0.148    0.587
+    UV_OR_VEC      0.138    0.541
+    UV_OR_VEC      0.108    0.504
+    UV_OR_VEC      0.020    0.457
+    UV_OR_VEC      0.149    0.588
+    UV_OR_VEC      0.112    0.686
+    UV_OR_VEC      0.025    0.731
+    UV_OR_VEC      0.109    0.505
+    UV_OR_VEC      0.139    0.541
+    UV_OR_VEC      0.021    0.458
+    UV_OR_VEC      0.941    0.756
+    UV_OR_VEC      0.983    0.901
+    UV_OR_VEC      0.985    0.762
+    UV_OR_VEC      0.941    0.756
+    UV_OR_VEC      0.895    0.900
+    UV_OR_VEC      0.897    0.750
+    UV_OR_VEC      0.939    0.900
+    UV_OR_VEC      0.895    0.900
+    UV_OR_VEC      0.939    0.900
+    UV_OR_VEC      0.897    0.750
+    UV_OR_VEC      0.152    0.643
+    UV_OR_VEC      0.172    0.677
+    UV_OR_VEC      0.300    0.643
+    UV_OR_VEC      0.226    0.710
+    UV_OR_VEC      0.280    0.677
+    UV_OR_VEC      0.280    0.677
+    UV_OR_VEC      0.226    0.710
+    UV_OR_VEC      0.172    0.677
+    UV_OR_VEC      0.152    0.643
+    UV_OR_VEC      0.300    0.643
+    UV_OR_VEC      0.968    0.963
+    UV_OR_VEC      0.466    0.984
+    UV_OR_VEC      0.967    0.987
+    UV_OR_VEC      0.467    0.961
+    UV_OR_VEC      0.513    0.649
+    UV_OR_VEC      0.601    0.649
+    UV_OR_VEC      0.601    0.601
+    UV_OR_VEC      0.513    0.601
+    UV_OR_VEC      0.220    0.065
+    UV_OR_VEC      0.139    0.065
+    UV_OR_VEC      0.139    0.065
+    UV_OR_VEC      0.220    0.065
+    UV_OR_VEC      0.220    0.036
+    UV_OR_VEC      0.220    0.036
+    UV_OR_VEC      0.139    0.036
+    UV_OR_VEC      0.139    0.035
+    UV_OR_VEC      0.239    0.070
+    UV_OR_VEC      0.152    0.070
+    UV_OR_VEC      0.152    0.070
+    UV_OR_VEC      0.239    0.070
+    UV_OR_VEC      0.239    0.041
+    UV_OR_VEC      0.239    0.041
+    UV_OR_VEC      0.152    0.041
+    UV_OR_VEC      0.152    0.041
+END
+
+MD3_VERTEX
+    VERT        -170       21      296
+    VERT        -175      -25      329
+    VERT        -741       23      297
+    VERT        -742      -69      297
+    VERT        -756      -23      329
+    VERT        -771       39      239
+    VERT        -170      -71      296
+    VERT        -164      -87      238
+    VERT        -772      -85      238
+    VERT        -164       37      238
+    VERT        -751     -122      388
+    VERT        -750       67      389
+    VERT        -697       67      380
+    VERT        -849     -122      338
+    VERT        -848       67      338
+    VERT        -903     -120       40
+    VERT        -902       69       41
+    VERT        -826     -120       18
+    VERT        -825       68       19
+    VERT        -697     -122      379
+    VERT        -697       67      380
+    VERT        -825       68       19
+    VERT        -825       68       19
+    VERT        -750       67      389
+    VERT        -848       67      338
+    VERT        -849     -122      338
+    VERT        -751     -122      388
+    VERT        -826     -120       18
+    VERT        -697     -122      379
+    VERT        -826     -120       18
+    VERT        -697       67      380
+    VERT        -902       69       41
+    VERT        -697     -122      379
+    VERT        -903     -120       40
+    VERT        -255       33     -126
+    VERT          -4       33     -143
+    VERT          22      103      -26
+    VERT        -255      -71     -127
+    VERT          21     -144      -27
+    VERT        -347     -143      192
+    VERT        -346      104      193
+    VERT        -256       60      274
+    VERT        -255      -71     -127
+    VERT        -255       33     -126
+    VERT        -358      104       87
+    VERT          -4      -72     -143
+    VERT        -359     -143       86
+    VERT        -256     -100      273
+    VERT        -358      104       87
+    VERT        -195      103      193
+    VERT        -346      104      193
+    VERT        -359     -143       86
+    VERT        -347     -143      192
+    VERT        -196     -144      192
+    VERT        -256     -100      273
+    VERT        -196     -100      273
+    VERT        -256       60      274
+    VERT        -195       59      274
+    VERT        -195       59      274
+    VERT        -196     -100      273
+    VERT         423     -214      -73
+    VERT         424     -204      212
+    VERT         835     -216      -73
+    VERT         426      157      213
+    VERT         425      169      -71
+    VERT         942      155      213
+    VERT         424     -204      212
+    VERT         426      157      213
+    VERT         139      158      214
+    VERT         138     -203      212
+    VERT          19     -212      -72
+    VERT        -182     -207       21
+    VERT         941     -206      212
+    VERT         139      158      214
+    VERT        -205      160      214
+    VERT        -181      166       23
+    VERT         138     -203      212
+    VERT          19     -212      -72
+    VERT          20      171      -71
+    VERT        -181      166       23
+    VERT         139      158      214
+    VERT         426      157      213
+    VERT         157      150      266
+    VERT        -205       34      374
+    VERT         217       79      350
+    VERT         233       28      374
+    VERT         232      -84      374
+    VERT        -205      -78      374
+    VERT        -205      -22      382
+    VERT         476     -196      264
+    VERT         562     -173      314
+    VERT         960     -198      264
+    VERT         155     -195      265
+    VERT         424     -204      212
+    VERT         138     -203      212
+    VERT        1000      -41      370
+    VERT        1001      -82      373
+    VERT        1003      -41      379
+    VERT        -205      -22      382
+    VERT         216     -134      349
+    VERT        -205     -128      350
+    VERT         978     -172      311
+    VERT        -204      151      266
+    VERT         194      116      316
+    VERT         193     -171      315
+    VERT        -205     -168      312
+    VERT         562     -136      349
+    VERT         992     -133      349
+    VERT        -205       85      351
+    VERT        -204      125      313
+    VERT         563      115      315
+    VERT         979      121      312
+    VERT         992       81      350
+    VERT         563       78      350
+    VERT        1001       30      374
+    VERT         563       27      374
+    VERT        1004      -18      380
+    VERT         563      -16      380
+    VERT         562      -85      373
+    VERT         562     -173      314
+    VERT         194      116      316
+    VERT         563      115      315
+    VERT         477      148      266
+    VERT        -206     -194      265
+    VERT         476     -196      264
+    VERT         961      147      265
+    VERT         563      115      315
+    VERT        -205      160      214
+    VERT         477      148      266
+    VERT         942      155      213
+    VERT         426      157      213
+    VERT         562     -173      314
+    VERT         941     -206      212
+    VERT        -206     -202      213
+    VERT          20      171      -71
+    VERT        -182     -207       21
+    VERT        -206     -202      213
+    VERT        1000      -18      370
+    VERT         562      -39      341
+    VERT        1000      -41      370
+    VERT        1003      -41      379
+    VERT         563      -16      380
+    VERT        1004      -18      380
+    VERT        1000      -18      370
+    VERT         837      168      -72
+    VERT         238      -28      382
+    VERT         238      -28      382
+    VERT         562      -39      380
+    VERT         193     -171      315
+    VERT         424     -204      212
+    VERT         563      -16      341
+    VERT         562      -39      380
+    VERT        -265       17      -69
+    VERT        -329       18     -279
+    VERT        -277      -23     -187
+    VERT        -246      -23     -121
+    VERT        -387      -51     -258
+    VERT        -387        6     -258
+    VERT        -285        5      -17
+    VERT        -329      -63     -279
+    VERT        -266      -64      -69
+    VERT        -270      -23     -300
+    VERT        -285      -52      -17
+    VERT        -205      160      214
+    VERT        -206     -202      213
+    VERT        -182     -207       21
+    VERT         425      169      -71
+    VERT         426      157      213
+    VERT         424     -204      212
+    VERT         139      158      214
+    VERT          19     -212      -72
+    VERT         138     -203      212
+    VERT          20      171      -71
+    VERT         232      -84      374
+    VERT         233       28      374
+    VERT         193     -171      315
+    VERT        -205     -128      350
+    VERT        -205       34      374
+    VERT        -205      -78      374
+    VERT        -204      151      266
+    VERT        -181      166       23
+    VERT         423     -214      -73
+    VERT         217       79      350
+    VERT         194      116      316
+    VERT         216     -134      349
+    VERT         238      -28      382
+    VERT        -204      125      313
+    VERT        -206     -194      265
+    VERT        -205     -168      312
+    VERT        -205       85      351
+    VERT        -205      -22      382
+    VERT         563      115      315
+    VERT         562      -39      341
+    VERT         562     -173      314
+    VERT         562     -136      349
+    VERT         563      -16      341
+    VERT         563       78      350
+    VERT         562      -85      373
+    VERT         563       27      374
+    VERT         562      -39      380
+    VERT         563      -16      380
+    VERT         -16      -30      445
+    VERT          45      -30      445
+    VERT          45      -35      390
+    VERT         -79      -35      390
+    VERT         -16      -20      445
+    VERT         -79      -14      391
+    VERT          45      -15      390
+    VERT          45      -20      445
+    VERT          45      -15      390
+    VERT          45      -35      390
+    VERT          45      -30      445
+    VERT          45      -20      445
+    VERT        -107      -53      394
+    VERT          70      -54      394
+    VERT          70      -61      373
+    VERT        -132      -60      373
+    VERT        -107        8      394
+    VERT        -132       15      373
+    VERT          70       15      373
+    VERT          70        7      394
+    VERT         497      190       96
+    VERT         506      197      128
+    VERT         484      129      117
+    VERT         494      140      148
+    VERT         530      195      152
+    VERT         520      147      169
+    VERT         561      184      161
+    VERT         553      148      173
+    VERT         590      168      152
+    VERT         585      144      160
+    VERT         605      138      113
+    VERT         506      176       66
+    VERT         494      119       85
+    VERT         525      123       56
+    VERT         534      242       78
+    VERT         540      246      111
+    VERT         559      236      139
+    VERT         583      214      151
+    VERT         604      189      144
+    VERT         625      167      104
+    VERT         607      176       44
+    VERT         572      127       61
+    VERT         580      213       29
+    VERT         540      225       49
+    VERT         588      276       66
+    VERT         592      278      100
+    VERT         602      263      129
+    VERT         615      235      144
+    VERT         626      203      140
+    VERT         592      257       38
+    VERT         652      288       62
+    VERT         653      289       96
+    VERT         652      272      126
+    VERT         652      241      141
+    VERT         652      207      138
+    VERT         652      175      101
+    VERT         652      190       40
+    VERT         652      236       21
+    VERT         652      268       34
+    VERT         496     -237       94
+    VERT         483     -176      115
+    VERT         505     -244      126
+    VERT         493     -187      146
+    VERT         528     -243      151
+    VERT         518     -195      167
+    VERT         560     -232      160
+    VERT         552     -196      172
+    VERT         588     -216      150
+    VERT         583     -192      159
+    VERT         604     -186      112
+    VERT         505     -223       64
+    VERT         524     -170       55
+    VERT         493     -166       84
+    VERT         532     -289       76
+    VERT         539     -293      110
+    VERT         557     -283      137
+    VERT         581     -262      149
+    VERT         603     -237      143
+    VERT         624     -215      102
+    VERT         606     -223       43
+    VERT         571     -174       60
+    VERT         578     -261       28
+    VERT         539     -271       48
+    VERT         586     -323       64
+    VERT         590     -326       98
+    VERT         600     -310      127
+    VERT         613     -283      142
+    VERT         625     -251      138
+    VERT         590     -304       36
+    VERT         650     -336       60
+    VERT         650     -337       94
+    VERT         651     -320      124
+    VERT         651     -290      140
+    VERT         651     -256      136
+    VERT         651     -223       99
+    VERT         651     -238       38
+    VERT         651     -284       20
+    VERT         650     -316       32
+    VERT         639     -317      -29
+    VERT         839     -317      -29
+    VERT         835     -216      -73
+    VERT         639     -358       74
+    VERT         889     -359       74
+    VERT         639     -316      161
+    VERT         922     -317      161
+    VERT         905     -348      124
+    VERT         639     -347      124
+    VERT         640     -205      212
+    VERT         941     -206      212
+    VERT         640     -215      -73
+    VERT         641      269      -27
+    VERT         837      168      -72
+    VERT         841      268      -27
+    VERT         641      310       76
+    VERT         892      309       76
+    VERT         641      267      163
+    VERT         908      298      126
+    VERT         924      266      163
+    VERT         641      298      126
+    VERT         641      156      214
+    VERT         942      155      213
+    VERT         641      168      -71
+    VERT         837      168      -72
+    VERT         892      309       76
+    VERT         841      268      -27
+    VERT         908      298      126
+    VERT         942      155      213
+    VERT         924      266      163
+    VERT         641      310       76
+    VERT         641      168      -71
+    VERT         641      269      -27
+    VERT         641      267      163
+    VERT         641      298      126
+    VERT         641      156      214
+    VERT         835     -216      -73
+    VERT         839     -317      -29
+    VERT         889     -359       74
+    VERT         905     -348      124
+    VERT         922     -317      161
+    VERT         941     -206      212
+    VERT         639     -358       74
+    VERT         639     -317      -29
+    VERT         640     -215      -73
+    VERT         639     -316      161
+    VERT         639     -347      124
+    VERT         640     -205      212
+    VERT         820       50     -115
+    VERT         424      -22     -157
+    VERT         804      -23     -158
+    VERT         820      -96     -115
+    VERT         424     -122      -72
+    VERT         836     -123      -73
+    VERT         424      -95     -115
+    VERT         424       78      -72
+    VERT         424       52     -114
+    VERT         836       77      -72
+    VERT         424     -122      -72
+    VERT         424      -95     -115
+    VERT         424       78      -72
+    VERT         424      -22     -157
+    VERT         424       52     -114
+    VERT         820       50     -115
+    VERT         804      -23     -158
+    VERT         820      -96     -115
+    VERT         836     -123      -73
+    VERT         836       77      -72
+    VERT        -772      -85      238
+    VERT        -164       37      238
+    VERT        -771       39      239
+    VERT        -164      -87      238
+    VERT         835     -216      -73
+    VERT         837      168      -72
+    VERT         425      169      -71
+    VERT         423     -214      -73
+    VERT         669      -41      379
+    VERT         739      -41      379
+    VERT         739      -41      344
+    VERT         669      -41      344
+    VERT         669      -15      379
+    VERT         669      -15      344
+    VERT         739      -15      344
+    VERT         739      -15      379
+    VERT         853      -40      379
+    VERT         928      -40      379
+    VERT         928      -40      344
+    VERT         853      -40      344
+    VERT         853      -15      379
+    VERT         853      -15      344
+    VERT         928      -15      344
+    VERT         928      -15      379
+END
+
+MD3_MESH
+    ID                 IDP3
+    MESH_NAME          w_railgun2
+    NUM_MESHFRAMES     1
+    NUM_SKINS          1
+    NUM_VERTS          32
+    NUM_TRIS           26
+    TRI_START_ADDR     176
+    HEADER_SIZE        108
+    TEXVEC_START_ADDR  488
+    VERTEX_START_ADDR  744
+    MESH_SIZE          1000
+END
+
+MD3_TEXTURENAMES
+    TEX_NAME   models/weapons2/railgun/railgun2.tga
+END
+
+MD3_TRIANGLEVERTS
+    VERT_IDX         15       13       14
+    VERT_IDX         14       13       11
+    VERT_IDX         14       11       10
+    VERT_IDX         10       11        9
+    VERT_IDX         10        9       12
+    VERT_IDX         12        9        5
+    VERT_IDX          9        6        5
+    VERT_IDX          5        6        4
+    VERT_IDX          5        4        8
+    VERT_IDX          8        4        7
+    VERT_IDX          3        1        0
+    VERT_IDX          0        1        2
+    VERT_IDX          4        2        7
+    VERT_IDX          7        2        1
+    VERT_IDX         17       18       16
+    VERT_IDX         16       18       19
+    VERT_IDX         18       20       19
+    VERT_IDX         19       20       21
+    VERT_IDX         20       22       21
+    VERT_IDX         21       22       23
+    VERT_IDX         25       26       24
+    VERT_IDX         24       26       27
+    VERT_IDX         26       28       27
+    VERT_IDX         27       28       29
+    VERT_IDX         28       30       29
+    VERT_IDX         29       30       31
+END
+
+MD3_TEXVEC
+    UV_OR_VEC      1.126    0.917
+    UV_OR_VEC      1.126   -1.965
+    UV_OR_VEC      1.274    0.977
+    UV_OR_VEC      1.026    0.887
+    UV_OR_VEC      1.375    0.990
+    UV_OR_VEC      1.500   -1.965
+    UV_OR_VEC      1.500    0.998
+    UV_OR_VEC      1.274   -1.965
+    UV_OR_VEC      1.375   -1.965
+    UV_OR_VEC      1.625    0.990
+    UV_OR_VEC      1.726   -1.965
+    UV_OR_VEC      1.726    0.977
+    UV_OR_VEC      1.625   -1.965
+    UV_OR_VEC      1.874    0.917
+    UV_OR_VEC      1.874   -1.965
+    UV_OR_VEC      1.974    0.887
+    UV_OR_VEC      0.871   -1.787
+    UV_OR_VEC      0.933   -0.665
+    UV_OR_VEC      0.536   -0.610
+    UV_OR_VEC      0.532   -1.892
+    UV_OR_VEC      0.158   -0.568
+    UV_OR_VEC      0.168   -1.969
+    UV_OR_VEC     -0.003   -0.547
+    UV_OR_VEC     -0.003   -1.998
+    UV_OR_VEC      2.997   -1.998
+    UV_OR_VEC      2.997   -0.547
+    UV_OR_VEC      2.835   -0.568
+    UV_OR_VEC      2.825   -1.969
+    UV_OR_VEC      2.454   -0.610
+    UV_OR_VEC      2.459   -1.892
+    UV_OR_VEC      2.063   -0.665
+    UV_OR_VEC      2.125   -1.787
+END
+
+MD3_VERTEX
+    VERT         972     -161      321
+    VERT          -8     -157      321
+    VERT         993     -114      356
+    VERT         962     -177      285
+    VERT         997      -77      369
+    VERT          -7      -25      377
+    VERT        1000      -28      376
+    VERT          -8     -111      357
+    VERT          -7      -73      369
+    VERT         997       21      369
+    VERT          -7       62      357
+    VERT         993       58      357
+    VERT          -7       24      370
+    VERT         973      105      322
+    VERT          -7      108      322
+    VERT         963      121      286
+    VERT          53     -167      225
+    VERT         434     -169      245
+    VERT         453     -156      125
+    VERT          17     -155      124
+    VERT         467     -102      -36
+    VERT          -9     -100      -22
+    VERT         475      -23      -94
+    VERT         -19      -21      -75
+    VERT         -19      -21      -75
+    VERT         475      -23      -94
+    VERT         468       55      -34
+    VERT          -9       57      -20
+    VERT         454      108      128
+    VERT          18      110      126
+    VERT         435      119      248
+    VERT          54      120      228
+END
+
+MD3_MESH
+    ID                 IDP3
+    MESH_NAME          w_railgun4
+    NUM_MESHFRAMES     1
+    NUM_SKINS          1
+    NUM_VERTS          16
+    NUM_TRIS           14
+    TRI_START_ADDR     176
+    HEADER_SIZE        108
+    TEXVEC_START_ADDR  344
+    VERTEX_START_ADDR  472
+    MESH_SIZE          600
+END
+
+MD3_TEXTURENAMES
+    TEX_NAME   models/weapons2/railgun/railgun4.tga
+END
+
+MD3_TRIANGLEVERTS
+    VERT_IDX         13       11       12
+    VERT_IDX         12       11       10
+    VERT_IDX         11        9       10
+    VERT_IDX         10        9        8
+    VERT_IDX          9        7        8
+    VERT_IDX          8        7        6
+    VERT_IDX         15        1       14
+    VERT_IDX         14        1        0
+    VERT_IDX          1        2        0
+    VERT_IDX          0        2        3
+    VERT_IDX          2        4        3
+    VERT_IDX          3        4        5
+    VERT_IDX          4        6        5
+    VERT_IDX          5        6        7
+END
+
+MD3_TEXVEC
+    UV_OR_VEC      0.645    0.001
+    UV_OR_VEC      0.645    0.999
+    UV_OR_VEC      0.587    0.999
+    UV_OR_VEC      0.587    0.001
+    UV_OR_VEC      0.500    0.999
+    UV_OR_VEC      0.500    0.001
+    UV_OR_VEC      0.412    0.999
+    UV_OR_VEC      0.413    0.001
+    UV_OR_VEC      0.355    0.999
+    UV_OR_VEC      0.355    0.001
+    UV_OR_VEC      0.045    0.999
+    UV_OR_VEC      0.045    0.001
+    UV_OR_VEC     -0.045    0.999
+    UV_OR_VEC     -0.045    0.001
+    UV_OR_VEC      0.955    0.001
+    UV_OR_VEC      0.955    0.999
+END
+
+MD3_VERTEX
+    VERT          19       80      310
+    VERT         572       78      310
+    VERT         572       39      338
+    VERT          19       42      338
+    VERT         572      -28      355
+    VERT          19      -26      356
+    VERT         572      -95      338
+    VERT          19      -93      338
+    VERT         572     -133      309
+    VERT          18     -131      310
+    VERT         572      -92        3
+    VERT          18      -90        4
+    VERT         572       38        4
+    VERT          19       40        4
+    VERT          19       40        4
+    VERT         572       38        4
+END
+
+MD3_MESH
+    ID                 IDP3
+    MESH_NAME          w_railgun3
+    NUM_MESHFRAMES     1
+    NUM_SKINS          1
+    NUM_VERTS          14
+    NUM_TRIS           12
+    TRI_START_ADDR     176
+    HEADER_SIZE        108
+    TEXVEC_START_ADDR  320
+    VERTEX_START_ADDR  432
+    MESH_SIZE          544
+END
+
+MD3_TEXTURENAMES
+    TEX_NAME   models/weapons2/railgun/railgun3.tga
+END
+
+MD3_TRIANGLEVERTS
+    VERT_IDX         12        8        7
+    VERT_IDX          7        8        6
+    VERT_IDX          7        6        9
+    VERT_IDX          9        6       13
+    VERT_IDX          6        8        5
+    VERT_IDX          5        8        4
+    VERT_IDX          5        4        3
+    VERT_IDX          3        4       11
+    VERT_IDX          3       11        1
+    VERT_IDX          3        1        0
+    VERT_IDX          0        1        2
+    VERT_IDX          0        2       10
+END
+
+MD3_TEXVEC
+    UV_OR_VEC      0.051    0.365
+    UV_OR_VEC      0.947    0.365
+    UV_OR_VEC      0.974    0.984
+    UV_OR_VEC      0.071    0.252
+    UV_OR_VEC      0.862    0.150
+    UV_OR_VEC      0.135    0.150
+    UV_OR_VEC      0.234    0.068
+    UV_OR_VEC      0.519    0.022
+    UV_OR_VEC      0.762    0.068
+    UV_OR_VEC      0.462    0.022
+    UV_OR_VEC      0.024    0.984
+    UV_OR_VEC      0.925    0.252
+    UV_OR_VEC      0.637    0.016
+    UV_OR_VEC      0.359    0.016
+END
+
+MD3_VERTEX
+    VERT         941     -206      212
+    VERT         942      156      213
+    VERT         837      168      -72
+    VERT         960     -198      264
+    VERT         979      121      312
+    VERT         978     -172      311
+    VERT         992     -133      349
+    VERT        1000      -18      370
+    VERT         992       81      350
+    VERT        1000      -41      370
+    VERT         835     -215      -73
+    VERT         961      147      265
+    VERT        1001       30      374
+    VERT        1001      -82      373
+END
+
+MD3_MESH
+    ID                 IDP3
+    MESH_NAME          w_railgun05
+    NUM_MESHFRAMES     1
+    NUM_SKINS          1
+    NUM_VERTS          32
+    NUM_TRIS           24
+    TRI_START_ADDR     176
+    HEADER_SIZE        108
+    TEXVEC_START_ADDR  464
+    VERTEX_START_ADDR  720
+    MESH_SIZE          976
+END
+
+MD3_TEXTURENAMES
+    TEX_NAME   models/weapons2/railgun/railgun1.tga
+END
+
+MD3_TRIANGLEVERTS
+    VERT_IDX          5        3        4
+    VERT_IDX          4        3        6
+    VERT_IDX          4        6        0
+    VERT_IDX          0        6        1
+    VERT_IDX          0        1        2
+    VERT_IDX          2        1       22
+    VERT_IDX         23        8        7
+    VERT_IDX          7        8        9
+    VERT_IDX          7        9       12
+    VERT_IDX         12       13        7
+    VERT_IDX          7       13       10
+    VERT_IDX          7       10       11
+    VERT_IDX         31       25       24
+    VERT_IDX         24       25       26
+    VERT_IDX         24       26       29
+    VERT_IDX         29       30       24
+    VERT_IDX         24       30       27
+    VERT_IDX         24       27       28
+    VERT_IDX         15       16       14
+    VERT_IDX         14       16       17
+    VERT_IDX         16       18       17
+    VERT_IDX         17       18       19
+    VERT_IDX         18       20       19
+    VERT_IDX         19       20       21
+END
+
+MD3_TEXVEC
+    UV_OR_VEC      0.757    0.145
+    UV_OR_VEC      0.573    0.145
+    UV_OR_VEC      0.759    0.205
+    UV_OR_VEC      0.571    0.027
+    UV_OR_VEC      0.757    0.086
+    UV_OR_VEC      0.757    0.027
+    UV_OR_VEC      0.571    0.086
+    UV_OR_VEC      0.873    0.050
+    UV_OR_VEC      0.929    0.031
+    UV_OR_VEC      0.901    0.017
+    UV_OR_VEC      0.816    0.032
+    UV_OR_VEC      0.799    0.050
+    UV_OR_VEC      0.879    0.036
+    UV_OR_VEC      0.844    0.017
+    UV_OR_VEC      0.757    0.204
+    UV_OR_VEC      0.577    0.205
+    UV_OR_VEC      0.573    0.145
+    UV_OR_VEC      0.757    0.145
+    UV_OR_VEC      0.571    0.087
+    UV_OR_VEC      0.757    0.086
+    UV_OR_VEC      0.571    0.027
+    UV_OR_VEC      0.757    0.027
+    UV_OR_VEC      0.578    0.205
+    UV_OR_VEC      0.948    0.050
+    UV_OR_VEC      0.873    0.050
+    UV_OR_VEC      0.929    0.031
+    UV_OR_VEC      0.901    0.017
+    UV_OR_VEC      0.816    0.032
+    UV_OR_VEC      0.799    0.050
+    UV_OR_VEC      0.879    0.036
+    UV_OR_VEC      0.844    0.017
+    UV_OR_VEC      0.948    0.050
+END
+
+MD3_VERTEX
+    VERT         384     -135      349
+    VERT         433     -135      349
+    VERT         384     -172      314
+    VERT         433      -29      380
+    VERT         384      -85      374
+    VERT         385      -27      380
+    VERT         433      -84      374
+    VERT         384      -28      315
+    VERT         385       78      350
+    VERT         385       27      374
+    VERT         384     -135      349
+    VERT         384     -172      314
+    VERT         385      -27      380
+    VERT         384      -85      374
+    VERT         385      115      316
+    VERT         434      116      315
+    VERT         434       79      350
+    VERT         385       78      350
+    VERT         433       28      374
+    VERT         385       27      374
+    VERT         433      -29      380
+    VERT         385      -27      380
+    VERT         433     -172      314
+    VERT         385      115      316
+    VERT         433      -28      315
+    VERT         433     -135      349
+    VERT         433      -84      374
+    VERT         434       79      350
+    VERT         434      116      315
+    VERT         433      -29      380
+    VERT         433       28      374
+    VERT         433     -172      314
+END
+

@@ -1,0 +1,36 @@
+LIBRARY     ELBYECC.DLL
+
+EXPORTS
+    _BCD2BIN                      = BCD2BIN                             ; BCD2BIN
+    _BCDtoLBA                     = BCDtoLBA                            ; BCDtoLBA
+    _BCDtoMSF                     = BCDtoMSF                            ; BCDtoMSF
+    _BCDtoULBA                    = BCDtoULBA                           ; BCDtoULBA
+    _BIN2BCD                      = BIN2BCD                             ; BIN2BCD
+    _CheckECCAndEDC_Mode1         = CheckECCAndEDC_Mode1                ; CheckECCAndEDC_Mode1
+    _CheckECCAndEDC_Mode2Form1    = CheckECCAndEDC_Mode2Form1           ; CheckECCAndEDC_Mode2Form1
+    _CheckECCAndEDC_Mode2Form2    = CheckECCAndEDC_Mode2Form2           ; CheckECCAndEDC_Mode2Form2
+    _CheckSector                  = CheckSector                         ; CheckSector
+    _CheckSectors                 = CheckSectors                        ; CheckSectors
+    _GenECCAndEDC_Mode1           = GenECCAndEDC_Mode1                  ; GenECCAndEDC_Mode1
+    _GenECCAndEDC_Mode2Form1      = GenECCAndEDC_Mode2Form1             ; GenECCAndEDC_Mode2Form1
+    _GenECCAndEDC_Mode2Form2      = GenECCAndEDC_Mode2Form2             ; GenECCAndEDC_Mode2Form2
+    _GenHeadAndSyc_4_RawDatenLeadin_0Sect= GenHeadAndSyc_4_RawDatenLeadin_0Sect      ; GenHeadAndSyc_4_RawDatenLeadin_0Sect
+    _GenerateSector               = GenerateSector                      ; GenerateSector
+    _IdentifyTrack                = IdentifyTrack                       ; IdentifyTrack
+    _LBAtoBCD                     = LBAtoBCD                            ; LBAtoBCD
+    _LBAtoMSF                     = LBAtoMSF                            ; LBAtoMSF
+    _MSFtoBCD                     = MSFtoBCD                            ; MSFtoBCD
+    _MSFtoLBA                     = MSFtoLBA                            ; MSFtoLBA
+    _MSFtoULBA                    = MSFtoULBA                           ; MSFtoULBA
+    _RawScrambleSector            = RawScrambleSector                   ; RawScrambleSector
+    _RawScrambleSectors           = RawScrambleSectors                  ; RawScrambleSectors
+    _ReGenECCAndEDC               = ReGenECCAndEDC                      ; ReGenECCAndEDC
+    _ReGenECCAndEDC_Mode1         = ReGenECCAndEDC_Mode1                ; ReGenECCAndEDC_Mode1
+    _ReGenECCAndEDC_Mode2Form1    = ReGenECCAndEDC_Mode2Form1           ; ReGenECCAndEDC_Mode2Form1
+    _ScrambleSector               = ScrambleSector                      ; ScrambleSector
+    _ScrambleSectors              = ScrambleSectors                     ; ScrambleSectors
+    _SyncByteTemplate             = SyncByteTemplate                    ; SyncByteTemplate
+    _ULBAtoBCD                    = ULBAtoBCD                           ; ULBAtoBCD
+    _ULBAtoMSF                    = ULBAtoMSF                           ; ULBAtoMSF
+    _UnScrambleSector             = UnScrambleSector                    ; UnScrambleSector
+    _UnScrambleSectors            = UnScrambleSectors                   ; UnScrambleSectors

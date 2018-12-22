@@ -1,0 +1,4 @@
+ADDENDUM - Chapter 10
+
+For the ExtractImageTest.java demonstration, please
+replace strip.gif by the desired image strip.

@@ -1,0 +1,6 @@
+Import Libraries for LCC-Win32
+
+To generate the "ptc.lib" and "ptcdebug.lib" for LCC-Win32
+you need to run "scripts\lcc-win32\import.bat".
+
+See the OpenPTC for Windows documentation for details.

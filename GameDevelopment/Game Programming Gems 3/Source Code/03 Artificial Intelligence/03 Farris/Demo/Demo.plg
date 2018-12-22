@@ -1,0 +1,103 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: FSM - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP30B5.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\wyrdwyrks\GameGems3\farris\FSM\Demo\FSM\FSM.cpp"
+"D:\wyrdwyrks\GameGems3\farris\FSM\Demo\FSM\State.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP30B5.TMP" 
+Creating command line "link.exe -lib /nologo /out:"Debug\FSM.lib"  .\Debug\FSM.obj .\Debug\State.obj "
+<h3>Output Window</h3>
+Compiling...
+FSM.cpp
+State.cpp
+Generating Code...
+Creating library...
+Creating temporary file "C:\WINDOWS\TEMP\RSP3104.BAT" with contents
+[
+@echo off
+copy .\Debug\*.lib ..\Lib
+]
+Creating command line "C:\WINDOWS\TEMP\RSP3104.BAT"
+
+.\Debug\FSM.lib
+        1 file(s) copied
+<h3>
+--------------------Configuration: Lightbulb - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP3121.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\wyrdwyrks\GameGems3\farris\FSM\Demo\Lightbulb\FlashingLightbulb.cpp"
+"D:\wyrdwyrks\GameGems3\farris\FSM\Demo\Lightbulb\Lightbulb.cpp"
+"D:\wyrdwyrks\GameGems3\farris\FSM\Demo\Lightbulb\RealisticLightbulb.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP3121.TMP" 
+Creating command line "link.exe -lib /nologo /out:"Debug\Lightbulb.lib"  .\Debug\FlashingLightbulb.obj .\Debug\Lightbulb.obj .\Debug\RealisticLightbulb.obj \wyrdwyrks\GameGems3\farris\FSM\Demo\FSM\Debug\FSM.lib "
+<h3>Output Window</h3>
+Compiling...
+FlashingLightbulb.cpp
+Lightbulb.cpp
+RealisticLightbulb.cpp
+Generating Code...
+Creating library...
+Creating temporary file "C:\WINDOWS\TEMP\RSP3160.BAT" with contents
+[
+@echo off
+copy .\Debug\*.lib ..\Lib
+]
+Creating command line "C:\WINDOWS\TEMP\RSP3160.BAT"
+
+.\Debug\Lightbulb.lib
+        1 file(s) copied
+<h3>
+--------------------Configuration: Application - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP3173.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\wyrdwyrks\GameGems3\farris\FSM\Demo\Application\Main.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP3173.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP3174.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/Application.pdb" /debug /machine:I386 /out:"Debug/Application.exe" /pdbtype:sept /libpath:"..\Lib" 
+.\Debug\Main.obj
+\wyrdwyrks\GameGems3\farris\FSM\Demo\FSM\Debug\FSM.lib
+\wyrdwyrks\GameGems3\farris\FSM\Demo\Lightbulb\Debug\Lightbulb.lib
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP3174.TMP"
+<h3>Output Window</h3>
+Compiling...
+Main.cpp
+Linking...
+Creating temporary file "C:\WINDOWS\TEMP\RSP31E0.BAT" with contents
+[
+@echo off
+copy .\Debug\*.exe ..\Bin
+]
+Creating command line "C:\WINDOWS\TEMP\RSP31E0.BAT"
+
+.\Debug\Application.exe
+        1 file(s) copied
+<h3>
+--------------------Configuration: Demo - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+
+
+
+<h3>Results</h3>
+Demo - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

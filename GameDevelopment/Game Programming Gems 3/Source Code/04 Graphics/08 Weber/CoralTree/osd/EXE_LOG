@@ -1,0 +1,14 @@
+gcc: /mnt/zip/jpweber/CoralTree/lib/libosd.a: Too many levels of symbolic links
+xosd.c:70: warning: return-type defaults to `int'
+xosd.c: In function `main':
+xosd.c:84: warning: unused variable `osdtime'
+xosd.c:83: warning: unused variable `base_name'
+xosd.c:82: warning: unused variable `filemem'
+xosd.c:80: warning: unused variable `sptr'
+xosd.c:79: warning: unused variable `time'
+xosd.c:77: warning: unused variable `pathname'
+xosd.c:74: warning: unused variable `output'
+xosd.c:73: warning: unused variable `inbuffer'
+xosd.c:72: warning: unused variable `buffer'
+xosd.c:71: warning: unused variable `file'
+xosd.c:366: warning: control reaches end of non-void function

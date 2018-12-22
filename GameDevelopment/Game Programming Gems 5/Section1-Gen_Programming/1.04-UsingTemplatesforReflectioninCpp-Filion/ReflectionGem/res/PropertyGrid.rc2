@@ -1,0 +1,24 @@
+//
+// PROPERTYGRID.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+
+#include <XTPVersion.h>
+
+#ifdef _XTP_INCLUDE_CONTROLS
+//#include "AboutDlg.rc"
+#endif
+
+#if defined(_XTP_STATICLINK) || !defined(_AFXDLL)
+#include <XTToolkitPro.rc>
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+

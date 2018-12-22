@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objectsfile>
+	<objects>
+		<object name="Player">
+			<component name="Entity" description="Standard position data for all objects">
+				<hash name="Room" description="The object's position (which room it's in)">ProgrammingRoom</hash>
+			</component>
+			<component name="Player" description="Player control component">
+			</component>
+			<component name="Inventory">
+			</component>
+		</object>
+		
+		<object name="Boss">
+			<component name="Entity">
+				<hash name="Room">BossOffice</hash>
+				<bool name="Visible">true</bool>
+				<hash name="InteractionName0">Boss</hash>
+				<hash name="InteractionName1">Boss man</hash>
+				<hash name="InteractionName2">Bossman</hash>
+				<hash name="InteractionName3">Chief</hash>
+			</component>
+			<component name="Actor" description="In real life this would probably have a path to a script. In our case, it's all hardcoded though.">
+			</component>
+			<component name="Description">
+				<string name="ShortDesc">The Boss</string>
+				<string name="LongDesc">You look at the boss and can't help but feeling how unfair it is that he's going to the GDC instead of you.</string>
+			</component>
+		</object>
+		
+		<object name="Ticket">
+			<component name="Entity">
+				<hash name="Room">BossOffice</hash>
+				<bool name="Visible">true</bool>
+				<hash name="InteractionName0">Ticket</hash>
+				<hash name="InteractionName1">The Ticket</hash>
+				<hash name="InteractionName2">Pass</hash>
+				<hash name="InteractionName3">GDC ticket</hash>
+				<hash name="InteractionName4">GDC pass</hash>
+				<hash name="InteractionName5">GDC gigapass</hash>
+			</component>
+			<component name="Description">
+				<string name="ShortDesc">GDC Ticket</string>
+				<string name="LongDesc">If you could only get your hands on this ticket...</string>
+			</component>
+		</object>
+		<object name="Thermostat">
+			<component name="Entity">
+				<hash name="Room">ProgrammingRoom</hash>
+				<bool name="Visible">true</bool>
+				<hash name="InteractionName0">Thermostat</hash>
+				<hash name="InteractionName1">Heat thingy</hash>
+				<hash name="InteractionName2">temperature gauge</hash>
+			</component>
+			<component name="Description">
+				<string name="ShortDesc">To be replaced at init time</string>
+				<string name="LongDesc">This string will be set by the PuzzleLogic component in this object</string>
+			</component>
+			<component name="PuzzleLogic" description="">
+				<hash name="InitialState">normal</hash>
+				<hash name="FromState0">normal</hash>
+				<hash name="ToState0">hot</hash>
+				<hash name="RequiredObject0" description="object needed for this transition to work. Empty for use on its own"></hash>
+				
+				<hash name="State0">normal</hash>
+				<string name="ShortDescState0">Thermostat</string>
+				<string name="LongDescState0">The thermostat is set to a sensible working temperature.</string>
+				<string name="ChangeToState0">You've set the thermostat to a sensible temperature.</string>
+				<hash name="State1">hot</hash>
+				<string name="ShortDescState1">Thermostat</string>
+				<string name="LongDescState1">The thermostat is turned all the way up. That would explain why it's so hot.</string>
+				<string name="ChangeToState1">You've turned the thermostat all the way up. It should get really hot in a second.</string>
+			</component>
+		</object>
+		
+		<object name="WaterCooler">
+			<component name="Entity">
+				<hash name="Room">Corridor</hash>
+				<bool name="Visible">true</bool>
+				<hash name="InteractionName0">Water cooler</hash>
+				<hash name="InteractionName1">Water fountain</hash>
+				<hash name="InteractionName2">Water dispenser</hash>
+				<hash name="InteractionName3">Cooler</hash>
+			</component>
+			<component name="PuzzleLogic" description="">
+				<hash name="InitialState">normal</hash>
+				<hash name="FromState0">normal</hash>
+				<hash name="ToState0">LaxativeInWater</hash>
+				<hash name="RequiredObject0" description="object needed for this transition to work. Empty for use on its own">Laxative</hash>
+				
+				<hash name="State0">normal</hash>
+				<string name="ShortDescState0">Water Cooler</string>
+				<string name="LongDescState0">The water cooler is full of clear and healthy water.</string>
+				<string name="ChangeToState0"></string>
+				<hash name="State1">LaxativeInWater</hash>
+				<string name="ShortDescState1">Water Cooler with laxative</string>
+				<string name="LongDescState1">The water cooler looks like it's full of clear and healthy water. You know better though.</string>
+				<string name="ChangeToState1">You've added the laxative to the water cooler. Whoever has a drink of this water is in for a nasty surprise.</string>
+			</component>
+			<component name="Description">
+				<string name="ShortDesc">To be replaced at init time</string>
+				<string name="LongDesc">This string will be set by the PuzzleLogic component in this object</string>
+			</component>
+		</object>		
+		
+		<object name="Laxative">
+			<component name="Entity">
+				<hash name="Room">Toilet</hash>
+				<bool name="Visible">true</bool>
+				<hash name="InteractionName0">Laxative</hash>
+				<hash name="InteractionName1">Odour and taste free laxative</hash>
+				<hash name="InteractionName2">Bowel relax</hash>
+				<hash name="InteractionName3">Bowel relax express</hash>
+			</component>
+			<component name="Collectable">
+			</component>
+			<component name="Description">
+				<string name="ShortDesc">To be replaced at init time</string>
+				<string name="LongDesc">This string will be set by the PuzzleLogic component in this object</string>
+			</component>
+			<component name="PuzzleLogic">
+				<hash name="InitialState">normal</hash>
+				<hash name="FromState0">normal</hash>
+				<hash name="ToState0">ingested</hash>
+				<hash name="RequiredObject0" description="object needed for this transition to work. Empty for use on its own"></hash>
+				
+				<hash name="State0">normal</hash>
+				<string name="ShortDescState0">Laxative: Bowel Relax Express!</string>
+				<string name="LongDescState0">The label claims that this laxative is odourless and taste free.</string>
+				<string name="ChangeToState0"></string>
+				<hash name="State1">ingested</hash>
+				<string name="ShortDescState1">Laxative: Bowel Relax Express!</string>
+				<string name="LongDescState1">The label claims that this laxative is odourless and taste free. After drinking some, you agree that it lives up to expectations.</string>
+				<string name="ChangeToState1">You take a healthy helping of the laxative</string>
+			</component>
+		</object>
+		
+		<object name="ProgrammingRoom">
+			<component name="Entity" description="Standard position data for all objects">
+				<hash name="Room" description="The object's position (which room it is)">ProgrammingRoom</hash>
+				<bool name="Visible">true</bool>
+				<hash name="InteractionName0" description="for use when entering commands">Programming Room</hash>
+				<hash name="InteractionName1">Programming</hash>
+				<hash name="InteractionName2">Den</hash>
+			</component>
+			<component name="Room" description="This defines a room">
+				<hash name="ConnectedRoom0">Corridor</hash>
+			</component>
+			<component name="Description">
+				<string name="ShortDesc">Programming room</string>
+				<string name="LongDesc">This is the den where the programmers live. You really need to get out of this place.</string>
+			</component>
+		</object>
+		<object name="Corridor">
+			<component name="Entity">
+				<hash name="Room">Corridor</hash>
+				<bool name="Visible">true</bool>
+				<hash name="InteractionName0" description="for use when entering commands">The Corridor</hash>
+				<hash name="InteractionName1">Hallway</hash>
+				<hash name="InteractionName2">Hall</hash>
+				<hash name="InteractionName3">Corridor</hash>
+			</component>
+			<component name="Room">
+				<hash name="ConnectedRoom0">ProgrammingRoom</hash>
+				<hash name="ConnectedRoom1">Toilet</hash>
+				<hash name="ConnectedRoom2">BossOffice</hash>
+			</component>
+			<component name="Description">
+				<string name="ShortDesc">Corridor</string>
+				<string name="LongDesc">The only redeeming feature of this dull and drab corridor is the water cooler.</string>
+			</component>
+		</object>
+		<object name="Toilet">
+			<component name="Entity">
+				<hash name="Room">Toilet</hash>
+				<bool name="Visible">true</bool>
+				<hash name="InteractionName0" description="for use when entering commands">The Toilet</hash>
+				<hash name="InteractionName1">Toilet</hash>
+				<hash name="InteractionName2">Toilets</hash>
+				<hash name="InteractionName3">Restroom</hash>
+				<hash name="InteractionName4">Washroom</hash>
+				<hash name="InteractionName5">Loo</hash>
+			</component>
+			<component name="Room">
+				<string name="ShortDesc">Toilet</string>
+				<string name="LongDesc">This place sure could do with a clean.</string>
+				<hash name="ConnectedRoom0">Corridor</hash>
+			</component>
+			<component name="Description">
+				<string name="ShortDesc">Toilet</string>
+				<string name="LongDesc">This place sure could do with a clean.</string>
+			</component>
+		</object>
+		<object name="BossOffice">
+			<component name="Entity">
+				<hash name="Room">BossOffice</hash>
+				<bool name="Visible">true</bool>
+				<hash name="InteractionName0" description="for use when entering commands">The boss's office</hash>
+				<hash name="InteractionName1">boss's office</hash>
+				<hash name="InteractionName2">boss office</hash>
+				<hash name="InteractionName3">boss room</hash>
+				<hash name="InteractionName4">office</hash>
+			</component>
+			<component name="Room">
+				<hash name="ConnectedRoom0">Corridor</hash>
+			</component>
+			<component name="Description">
+				<string name="ShortDesc">Boss's office</string>
+				<string name="LongDesc">The only room in the building to actually have some natural light. You know that the GDC pass lies in here somewhere. The trouble is, without a few minutes time to yourself and the boss elsewhere, there's no way you'll be able to find it.</string>
+			</component>
+		</object>
+	</objects>
+</objectsfile>

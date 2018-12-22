@@ -1,0 +1,787 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 39;
+	objects = {
+		014CEA520018CE5811CA2923 = {
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ZERO_LINK = YES;
+			};
+			isa = PBXBuildStyle;
+			name = Development;
+		};
+		014CEA530018CE5811CA2923 = {
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				ZERO_LINK = NO;
+			};
+			isa = PBXBuildStyle;
+			name = Deployment;
+		};
+//010
+//011
+//012
+//013
+//014
+//080
+//081
+//082
+//083
+//084
+		08FB7793FE84155DC02AAC07 = {
+			buildSettings = {
+			};
+			buildStyles = (
+				014CEA520018CE5811CA2923,
+				014CEA530018CE5811CA2923,
+			);
+			hasScannedForEncodings = 1;
+			isa = PBXProject;
+			mainGroup = 08FB7794FE84155DC02AAC07;
+			projectDirPath = "";
+			targets = (
+				3C5AEB1A070B3B740083AAB5,
+				3C5AEB22070B3B820083AAB5,
+			);
+		};
+		08FB7794FE84155DC02AAC07 = {
+			children = (
+				08FB7795FE84155DC02AAC07,
+				C6A0FF2B0290797F04C91782,
+				1AB674ADFE9D54B511CA2CBB,
+			);
+			isa = PBXGroup;
+			name = OpenGLRenderer;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 = {
+			children = (
+				3C5CC56E070C8F940013DECF,
+				3C5CC56F070C8F940013DECF,
+				3C701778070BA1B60007A156,
+				3C7BA709070B3D6F0049EC46,
+				3C7BA70A070B3D6F0049EC46,
+				3C7BA70B070B3D6F0049EC46,
+				3C7BA70C070B3D6F0049EC46,
+				3C7BA70D070B3D6F0049EC46,
+				3C7BA70E070B3D6F0049EC46,
+				3C7BA70F070B3D6F0049EC46,
+				3C7BA710070B3D6F0049EC46,
+				3C7BA711070B3D6F0049EC46,
+				3C7BA712070B3D6F0049EC46,
+				3C7BA713070B3D6F0049EC46,
+				3C7BA714070B3D6F0049EC46,
+				3C7BA715070B3D6F0049EC46,
+				3C7BA716070B3D6F0049EC46,
+				3C7BA717070B3D6F0049EC46,
+				3C7BA718070B3D6F0049EC46,
+				3C7BA719070B3D6F0049EC46,
+				3C7BA71A070B3D6F0049EC46,
+				3C7BA71B070B3D6F0049EC46,
+			);
+			isa = PBXGroup;
+			name = Source;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+//080
+//081
+//082
+//083
+//084
+//1A0
+//1A1
+//1A2
+//1A3
+//1A4
+		1AB674ADFE9D54B511CA2CBB = {
+			children = (
+				3C7BA749070B3DAC0049EC46,
+				3C7BA74D070B3DC20049EC46,
+			);
+			isa = PBXGroup;
+			name = Products;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+//1A0
+//1A1
+//1A2
+//1A3
+//1A4
+//3C0
+//3C1
+//3C2
+//3C3
+//3C4
+		3C5AEB16070B3B740083AAB5 = {
+			buildActionMask = 2147483647;
+			files = (
+				3C7BA724070B3D6F0049EC46,
+				3C7BA72A070B3D6F0049EC46,
+				3C7BA72E070B3D6F0049EC46,
+				3C5CC571070C8F940013DECF,
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C5AEB17070B3B740083AAB5 = {
+			buildActionMask = 2147483647;
+			files = (
+				3C7BA71C070B3D6F0049EC46,
+				3C7BA71D070B3D6F0049EC46,
+				3C7BA71E070B3D6F0049EC46,
+				3C7BA71F070B3D6F0049EC46,
+				3C7BA720070B3D6F0049EC46,
+				3C7BA721070B3D6F0049EC46,
+				3C7BA722070B3D6F0049EC46,
+				3C7BA723070B3D6F0049EC46,
+				3C7BA725070B3D6F0049EC46,
+				3C7BA726070B3D6F0049EC46,
+				3C7BA727070B3D6F0049EC46,
+				3C7BA728070B3D6F0049EC46,
+				3C7BA729070B3D6F0049EC46,
+				3C7BA72B070B3D6F0049EC46,
+				3C7BA72C070B3D6F0049EC46,
+				3C7BA72D070B3D6F0049EC46,
+				3C70177C070BA1B70007A156,
+				3C5CC570070C8F940013DECF,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C5AEB18070B3B740083AAB5 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C5AEB19070B3B740083AAB5 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C5AEB1A070B3B740083AAB5 = {
+			buildPhases = (
+				3C5AEB16070B3B740083AAB5,
+				3C5AEB17070B3B740083AAB5,
+				3C5AEB18070B3B740083AAB5,
+				3C5AEB19070B3B740083AAB5,
+				3C5AEB26070B3BDD0083AAB5,
+			);
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../Include\"";
+				LIBRARY_STYLE = STATIC;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "-D_DEBUG -DWM3_USE_GLUT";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOL_FLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = libOpenGLRendererDebug.a;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+			};
+			dependencies = (
+			);
+			isa = PBXLibraryTarget;
+			name = Debug;
+			productInstallPath = /usr/local/lib;
+			productName = Debug;
+			productReference = 3C7BA749070B3DAC0049EC46;
+		};
+		3C5AEB1E070B3B820083AAB5 = {
+			buildActionMask = 2147483647;
+			files = (
+				3C7BA737070B3D6F0049EC46,
+				3C7BA73D070B3D6F0049EC46,
+				3C7BA741070B3D6F0049EC46,
+				3C5CC573070C8F940013DECF,
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C5AEB1F070B3B820083AAB5 = {
+			buildActionMask = 2147483647;
+			files = (
+				3C7BA72F070B3D6F0049EC46,
+				3C7BA730070B3D6F0049EC46,
+				3C7BA731070B3D6F0049EC46,
+				3C7BA732070B3D6F0049EC46,
+				3C7BA733070B3D6F0049EC46,
+				3C7BA734070B3D6F0049EC46,
+				3C7BA735070B3D6F0049EC46,
+				3C7BA736070B3D6F0049EC46,
+				3C7BA738070B3D6F0049EC46,
+				3C7BA739070B3D6F0049EC46,
+				3C7BA73A070B3D6F0049EC46,
+				3C7BA73B070B3D6F0049EC46,
+				3C7BA73C070B3D6F0049EC46,
+				3C7BA73E070B3D6F0049EC46,
+				3C7BA73F070B3D6F0049EC46,
+				3C7BA740070B3D6F0049EC46,
+				3C701780070BA1B70007A156,
+				3C5CC572070C8F940013DECF,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C5AEB20070B3B820083AAB5 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C5AEB21070B3B820083AAB5 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C5AEB22070B3B820083AAB5 = {
+			buildPhases = (
+				3C5AEB1E070B3B820083AAB5,
+				3C5AEB1F070B3B820083AAB5,
+				3C5AEB20070B3B820083AAB5,
+				3C5AEB21070B3B820083AAB5,
+				3C5AEB29070B3BF60083AAB5,
+			);
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../Include\"";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "-DNDEBUG -DWM3_USE_GLUT";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOL_FLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = libOpenGLRendererRelease.a;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+			};
+			dependencies = (
+			);
+			isa = PBXLibraryTarget;
+			name = Release;
+			productInstallPath = /usr/local/lib;
+			productName = Release;
+			productReference = 3C7BA74D070B3DC20049EC46;
+		};
+		3C5AEB26070B3BDD0083AAB5 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			isa = PBXShellScriptBuildPhase;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/fillsdk.sh";
+		};
+		3C5AEB29070B3BF60083AAB5 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			isa = PBXShellScriptBuildPhase;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/fillsdk.sh";
+		};
+		3C5CC56E070C8F940013DECF = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3GlutRenderer.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C5CC56F070C8F940013DECF = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = Wm3GlutRenderer.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C5CC570070C8F940013DECF = {
+			fileRef = 3C5CC56E070C8F940013DECF;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C5CC571070C8F940013DECF = {
+			fileRef = 3C5CC56F070C8F940013DECF;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C5CC572070C8F940013DECF = {
+			fileRef = 3C5CC56E070C8F940013DECF;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C5CC573070C8F940013DECF = {
+			fileRef = 3C5CC56F070C8F940013DECF;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C701778070BA1B60007A156 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			path = glew.c;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C70177C070BA1B70007A156 = {
+			fileRef = 3C701778070BA1B60007A156;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C701780070BA1B70007A156 = {
+			fileRef = 3C701778070BA1B60007A156;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA709070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLAlphaState.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA70A070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLBumpMap.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA70B070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLCullState.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA70C070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLDitherState.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA70D070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLDrawText.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA70E070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLEnvironmentMap.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA70F070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLFogState.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA710070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLGlossMap.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA711070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = Wm3OpenGLIncludes.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA712070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLMaterialState.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA713070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLPlanarReflection.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA714070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLPlanarShadow.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA715070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLProjectedTexture.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA716070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLRenderer.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA717070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = Wm3OpenGLRenderer.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA718070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLShadeState.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA719070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLWireframeState.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA71A070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			path = Wm3OpenGLZBufferState.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA71B070B3D6F0049EC46 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = Wm3RendererLibType.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		3C7BA71C070B3D6F0049EC46 = {
+			fileRef = 3C7BA709070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA71D070B3D6F0049EC46 = {
+			fileRef = 3C7BA70A070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA71E070B3D6F0049EC46 = {
+			fileRef = 3C7BA70B070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA71F070B3D6F0049EC46 = {
+			fileRef = 3C7BA70C070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA720070B3D6F0049EC46 = {
+			fileRef = 3C7BA70D070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA721070B3D6F0049EC46 = {
+			fileRef = 3C7BA70E070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA722070B3D6F0049EC46 = {
+			fileRef = 3C7BA70F070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA723070B3D6F0049EC46 = {
+			fileRef = 3C7BA710070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA724070B3D6F0049EC46 = {
+			fileRef = 3C7BA711070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA725070B3D6F0049EC46 = {
+			fileRef = 3C7BA712070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA726070B3D6F0049EC46 = {
+			fileRef = 3C7BA713070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA727070B3D6F0049EC46 = {
+			fileRef = 3C7BA714070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA728070B3D6F0049EC46 = {
+			fileRef = 3C7BA715070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA729070B3D6F0049EC46 = {
+			fileRef = 3C7BA716070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA72A070B3D6F0049EC46 = {
+			fileRef = 3C7BA717070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA72B070B3D6F0049EC46 = {
+			fileRef = 3C7BA718070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA72C070B3D6F0049EC46 = {
+			fileRef = 3C7BA719070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA72D070B3D6F0049EC46 = {
+			fileRef = 3C7BA71A070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA72E070B3D6F0049EC46 = {
+			fileRef = 3C7BA71B070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA72F070B3D6F0049EC46 = {
+			fileRef = 3C7BA709070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA730070B3D6F0049EC46 = {
+			fileRef = 3C7BA70A070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA731070B3D6F0049EC46 = {
+			fileRef = 3C7BA70B070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA732070B3D6F0049EC46 = {
+			fileRef = 3C7BA70C070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA733070B3D6F0049EC46 = {
+			fileRef = 3C7BA70D070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA734070B3D6F0049EC46 = {
+			fileRef = 3C7BA70E070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA735070B3D6F0049EC46 = {
+			fileRef = 3C7BA70F070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA736070B3D6F0049EC46 = {
+			fileRef = 3C7BA710070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA737070B3D6F0049EC46 = {
+			fileRef = 3C7BA711070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA738070B3D6F0049EC46 = {
+			fileRef = 3C7BA712070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA739070B3D6F0049EC46 = {
+			fileRef = 3C7BA713070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA73A070B3D6F0049EC46 = {
+			fileRef = 3C7BA714070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA73B070B3D6F0049EC46 = {
+			fileRef = 3C7BA715070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA73C070B3D6F0049EC46 = {
+			fileRef = 3C7BA716070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA73D070B3D6F0049EC46 = {
+			fileRef = 3C7BA717070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA73E070B3D6F0049EC46 = {
+			fileRef = 3C7BA718070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA73F070B3D6F0049EC46 = {
+			fileRef = 3C7BA719070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA740070B3D6F0049EC46 = {
+			fileRef = 3C7BA71A070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA741070B3D6F0049EC46 = {
+			fileRef = 3C7BA71B070B3D6F0049EC46;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C7BA749070B3DAC0049EC46 = {
+			explicitFileType = "compiled.mach-o.dylib";
+			includeInIndex = 0;
+			isa = PBXFileReference;
+			path = libOpenGLRendererDebug.a;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C7BA74D070B3DC20049EC46 = {
+			explicitFileType = "compiled.mach-o.dylib";
+			includeInIndex = 0;
+			isa = PBXFileReference;
+			path = libOpenGLRendererRelease.a;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+//3C0
+//3C1
+//3C2
+//3C3
+//3C4
+//C60
+//C61
+//C62
+//C63
+//C64
+		C6A0FF2B0290797F04C91782 = {
+			children = (
+			);
+			isa = PBXGroup;
+			name = Documentation;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+	};
+	rootObject = 08FB7793FE84155DC02AAC07;
+}

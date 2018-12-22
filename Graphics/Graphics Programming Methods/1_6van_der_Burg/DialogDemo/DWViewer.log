@@ -1,0 +1,242 @@
+DWEngine : Initializing engine with settings:
+DWEngine : + Resolution = 800x600x32
+DWEngine : + ScreenMode = Fullscreen
+DWEngine : Initializing image manager
+*** C:\Coding\Projects\UtilityLib\ImageFile.cpp(297) --> TODO: 'Add support for loading from and saving to memory'
+*** C:\Coding\Projects\UtilityLib\ImageFile.cpp(298) --> TODO: 'Add support for image resizing'
+*** C:\Coding\Projects\UtilityLib\ImageFile.cpp(299) --> TODO: 'Add support for mipmap generation'
+DWEngine : - Available Adapters:
+DWEngine :   + 64MB DDR NVIDIA GeForce4 Ti 4200 with TV Out
+DWEngine :     | Driver               : nv4_disp.dll
+DWEngine :     | Driver Version       : 658271
+DWEngine :     | Vendor ID            : 4318
+DWEngine :     | Device ID            : 595
+DWEngine :     | SubSystem ID         : 20058334
+DWEngine :     | Revision             : 163
+DWEngine :     | WHQL Level           : Certified
+DWEngine :     | Current Display Mode : 1024x768 (X8R8G8B8)
+DWEngine :     | Available Video Modes:
+DWEngine :     | + 640x480 (R5G6B5)
+DWEngine :     | + 640x480 (R5G6B5)
+DWEngine :     | + 640x480 (R5G6B5)
+DWEngine :     | + 320x200 (R5G6B5)
+DWEngine :     | + 320x200 (R5G6B5)
+DWEngine :     | + 320x200 (R5G6B5)
+DWEngine :     | + 320x200 (R5G6B5)
+DWEngine :     | + 320x240 (R5G6B5)
+DWEngine :     | + 320x240 (R5G6B5)
+DWEngine :     | + 320x240 (R5G6B5)
+DWEngine :     | + 320x240 (R5G6B5)
+DWEngine :     | + 400x300 (R5G6B5)
+DWEngine :     | + 400x300 (R5G6B5)
+DWEngine :     | + 400x300 (R5G6B5)
+DWEngine :     | + 400x300 (R5G6B5)
+DWEngine :     | + 480x360 (R5G6B5)
+DWEngine :     | + 480x360 (R5G6B5)
+DWEngine :     | + 480x360 (R5G6B5)
+DWEngine :     | + 480x360 (R5G6B5)
+DWEngine :     | + 512x384 (R5G6B5)
+DWEngine :     | + 512x384 (R5G6B5)
+DWEngine :     | + 512x384 (R5G6B5)
+DWEngine :     | + 512x384 (R5G6B5)
+DWEngine :     | + 640x400 (R5G6B5)
+DWEngine :     | + 640x400 (R5G6B5)
+DWEngine :     | + 640x400 (R5G6B5)
+DWEngine :     | + 640x400 (R5G6B5)
+DWEngine :     | + 640x400 (R5G6B5)
+DWEngine :     | + 800x600 (R5G6B5)
+DWEngine :     | + 800x600 (R5G6B5)
+DWEngine :     | + 800x600 (R5G6B5)
+DWEngine :     | + 1024x768 (R5G6B5)
+DWEngine :     | + 1024x768 (R5G6B5)
+DWEngine :     | + 1024x768 (R5G6B5)
+DWEngine :     | + 1152x864 (R5G6B5)
+DWEngine :     | + 1152x864 (R5G6B5)
+DWEngine :     | + 1280x800 (R5G6B5)
+DWEngine :     | + 1280x800 (R5G6B5)
+DWEngine :     | + 1280x1024 (R5G6B5)
+DWEngine :     | + 1280x1024 (R5G6B5)
+DWEngine :     | + 1280x1024 (R5G6B5)
+DWEngine :     | + 1600x1000 (R5G6B5)
+DWEngine :     | + 1600x1000 (R5G6B5)
+DWEngine :     | + 1600x1200 (R5G6B5)
+DWEngine :     | + 1600x1200 (R5G6B5)
+DWEngine :     | + 640x480 (X8R8G8B8)
+DWEngine :     | + 640x480 (X8R8G8B8)
+DWEngine :     | + 640x480 (X8R8G8B8)
+DWEngine :     | + 320x200 (X8R8G8B8)
+DWEngine :     | + 320x200 (X8R8G8B8)
+DWEngine :     | + 320x200 (X8R8G8B8)
+DWEngine :     | + 320x200 (X8R8G8B8)
+DWEngine :     | + 320x240 (X8R8G8B8)
+DWEngine :     | + 320x240 (X8R8G8B8)
+DWEngine :     | + 320x240 (X8R8G8B8)
+DWEngine :     | + 320x240 (X8R8G8B8)
+DWEngine :     | + 400x300 (X8R8G8B8)
+DWEngine :     | + 400x300 (X8R8G8B8)
+DWEngine :     | + 400x300 (X8R8G8B8)
+DWEngine :     | + 400x300 (X8R8G8B8)
+DWEngine :     | + 480x360 (X8R8G8B8)
+DWEngine :     | + 480x360 (X8R8G8B8)
+DWEngine :     | + 480x360 (X8R8G8B8)
+DWEngine :     | + 480x360 (X8R8G8B8)
+DWEngine :     | + 512x384 (X8R8G8B8)
+DWEngine :     | + 512x384 (X8R8G8B8)
+DWEngine :     | + 512x384 (X8R8G8B8)
+DWEngine :     | + 512x384 (X8R8G8B8)
+DWEngine :     | + 640x400 (X8R8G8B8)
+DWEngine :     | + 640x400 (X8R8G8B8)
+DWEngine :     | + 640x400 (X8R8G8B8)
+DWEngine :     | + 640x400 (X8R8G8B8)
+DWEngine :     | + 640x400 (X8R8G8B8)
+DWEngine :     | + 800x600 (X8R8G8B8)
+DWEngine :     | + 800x600 (X8R8G8B8)
+DWEngine :     | + 800x600 (X8R8G8B8)
+DWEngine :     | + 1024x768 (X8R8G8B8)
+DWEngine :     | + 1024x768 (X8R8G8B8)
+DWEngine :     | + 1024x768 (X8R8G8B8)
+DWEngine :     | + 1152x864 (X8R8G8B8)
+DWEngine :     | + 1152x864 (X8R8G8B8)
+DWEngine :     | + 1280x800 (X8R8G8B8)
+DWEngine :     | + 1280x800 (X8R8G8B8)
+DWEngine :     | + 1280x1024 (X8R8G8B8)
+DWEngine :     | + 1280x1024 (X8R8G8B8)
+DWEngine :     | + 1280x1024 (X8R8G8B8)
+DWEngine :     | + 1600x1000 (X8R8G8B8)
+DWEngine :     | + 1600x1000 (X8R8G8B8)
+DWEngine :     | + 1600x1200 (X8R8G8B8)
+DWEngine :     | + 1600x1200 (X8R8G8B8)
+DWEngine :     | Device Caps:
+DWEngine :     | + Can Render Windowed      : Yes
+DWEngine :     | + Max Texture Resolution   : 4096x4096
+DWEngine :     | + Max Texture Aspect Ratio : 0
+DWEngine :     | + Only Power Of 2 Textures : Yes
+DWEngine :     | + Only Squared Textures    : No
+DWEngine :     | + Mipmapping Supported     : Yes
+DWEngine :     | + Buffers From System Mem  : Yes
+DWEngine :     | + Buffers From Video Mem   : Yes
+DWEngine :     | + Hardware Rasterization   : Yes
+DWEngine :     | + Hardware TnL             : Yes
+DWEngine :     | + Support For N Patches    : No
+DWEngine :     | + Pure Hardware Device     : Yes
+DWEngine :     | + Supports Quintic Beziers : No
+DWEngine :     | + Rect And Tri Patches     : No
+DWEngine :     -----------------------------------------
+*** C:\Coding\Projects\DreamWorld\DWEngine\dw_engine.cpp(376) --> TODO: 'Add more states here'
+DWEngine : Creating DirectInput object
+DWEngine : Trying to create a keyboard device
+DWEngine : Trying to create a mouse device
+DWEngine : Creating texture cache
+DWEngine : Creating utility vertex and index buffer
+DWEngine : Engine initialized successfully
+- Trying to load LMA file 'data\callin.lma...
+- Trying to load LMO file 'data\callin.lmo...
+    | diffuse tex = ''
+    | diffuse tex = 'cts\DreamWorld\DWV_Win32\Textures\callin_Suit'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_Suit.jpg'
+    | diffuse tex = 'DreamWorld\DWV_Win32\Textures\callin_Trousers'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_Trousers.jpg'
+    | diffuse tex = 'DreamWorld\DWV_Win32\Textures\callin_Cape_new'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_Cape_new.jpg'
+    | diffuse tex = 'cts\DreamWorld\DWV_Win32\Textures\callin_Face'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_Face.jpg'
+    | diffuse tex = 'reamWorld\DWV_Win32\Textures\callin_TurbanTop'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_TurbanTop.jpg'
+    | diffuse tex = 'IN98\Desktop\MODELS\Ueberhand\ueberHand_1_map'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\ueberHand_1_map.jpg'
+    | diffuse tex = 'eamWorld\DWV_Win32\Textures\callin_TurbanSide'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_TurbanSide.jpg'
+    | diffuse tex = 'cts\DreamWorld\DWV_Win32\Textures\callin_Face'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_Face.jpg'
+    | diffuse tex = 'IN98\Desktop\MODELS\Ueberhand\ueberHand_1_map'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\ueberHand_1_map.jpg'
+    | diffuse tex = 'cts\DreamWorld\DWV_Win32\Textures\callin_Suit'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_Suit.jpg'
+    | diffuse tex = 'DreamWorld\DWV_Win32\Textures\callin_Trousers'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_Trousers.jpg'
+    | diffuse tex = 'DreamWorld\DWV_Win32\Textures\callin_Cape_new'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_Cape_new.jpg'
+    | diffuse tex = 'cts\DreamWorld\DWV_Win32\Textures\callin_Face'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_Face.jpg'
+    | diffuse tex = 'reamWorld\DWV_Win32\Textures\callin_TurbanTop'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_TurbanTop.jpg'
+    | diffuse tex = 'IN98\Desktop\MODELS\Ueberhand\ueberHand_1_map'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\ueberHand_1_map.jpg'
+    | diffuse tex = 'eamWorld\DWV_Win32\Textures\callin_TurbanSide'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\callin_TurbanSide.jpg'
+Loading vertexshader 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\skinnedNode2.vsh'...
+Loading vertexshader 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\skinnedNode3.vsh'...
+Loading vertexshader 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\skinnedNode1.vsh'...
+Loading vertexshader 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\standard.vsh'...
+- Trying to load LMD file 'data\callin.lmd'...
+- Trying to load LMA file 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\data\exp_eyesclosed.LMA...
+Original number of nodes is 197
+Reduced to 24 nodes (phoneme=0)
+- Trying to load LMA file 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\data\exp_lowereyesup.LMA...
+Original number of nodes is 197
+Reduced to 12 nodes (phoneme=0)
+- Trying to load LMA file 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\data\exp_eyesbrowraise.LMA...
+Original number of nodes is 197
+Reduced to 10 nodes (phoneme=0)
+- Trying to load LMA file 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\data\exp_eyebrowsturndown.LMA...
+Original number of nodes is 197
+Reduced to 2 nodes (phoneme=0)
+- Trying to load LMA file 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\data\exp_eyesbrowlow.LMA...
+Original number of nodes is 197
+Reduced to 2 nodes (phoneme=0)
+- Trying to load LMA file 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\data\callin.LMA...
+Original number of nodes is 197
+Reduced to 197 nodes (phoneme=1)
+- Trying to load LMA file 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\data\mouthshape_ee.LMA...
+Original number of nodes is 197
+Reduced to 197 nodes (phoneme=1)
+- Trying to load LMA file 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\data\mouthshape_0.LMA...
+Original number of nodes is 197
+Reduced to 197 nodes (phoneme=1)
+- Trying to load LMA file 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\data\mouthshape_aa.LMA...
+Original number of nodes is 197
+Reduced to 197 nodes (phoneme=1)
+- Trying to load LMA file 'data\maindialog5.lma...
+- Trying to load LMA file 'data\cards.lma...
+- Trying to load LMO file 'data\cards.lmo...
+    | diffuse tex = ''
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\BK'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\BK.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\JC'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\JC.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\JD'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\JD.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\JH'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\JH.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\QC'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\QC.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\Qd'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\Qd.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\Qh'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\Qh.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\QS'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\QS.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\KC'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\KC.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\KD'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\KD.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\KH'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\KH.jpg'
+    | diffuse tex = 'ts\LiquidMotion\DialogDemo\data\fixedcards\KS'
+TextureCache -> Loading texture 'C:\Darwin\Charles_River\vanderBurg_facial\DialogDemo\textures\\KS.jpg'
+- Trying to load LMA file 'data\cardsanim.lma...
+WARNING: motionpart 'callin_Suit' of motion 'Callin Idle Animation' can not be linked to a node inside actor 'Callin'...
+WARNING: motionpart 'callin_Hand' of motion 'Callin Idle Animation' can not be linked to a node inside actor 'Callin'...
+WARNING: motionpart 'callin_Hand01' of motion 'Callin Idle Animation' can not be linked to a node inside actor 'Callin'...
+WARNING: motionpart 'callin_Cape' of motion 'Callin Idle Animation' can not be linked to a node inside actor 'Callin'...
+WARNING: motionpart 'callin_Trousers' of motion 'Callin Idle Animation' can not be linked to a node inside actor 'Callin'...
+WARNING: motionpart 'callin_Tail02' of motion 'Callin Idle Animation' can not be linked to a node inside actor 'Callin'...
+WARNING: motionpart 'callin_Tail01' of motion 'Callin Idle Animation' can not be linked to a node inside actor 'Callin'...
+WARNING: motionpart 'callin_Tail03' of motion 'Callin Idle Animation' can not be linked to a node inside actor 'Callin'...
+WARNING: motionpart 'callin_Face01' of motion 'Callin Idle Animation' can not be linked to a node inside actor 'Callin'...
+------------ Finished Initializing, entering mainloop --------------
+------------ Shutting Down --------------
+DWEngine : - Removing nodes:
+DWEngine :   + Removing Camera 'Unknown Camera'
+DWEngine : Closing engine
+DWEngine : Engine closed

@@ -1,0 +1,24 @@
+Errata
+------
+
+In the gem text there are some wrong references to the RTTI usage.
+My type information code simulates the behaviour of RTTI's typeid(), so to validate this action 
+I have deleted all usage of RTTI from the Tweaker! 
+
+Here are the pros and cons of keeping my type information: 
+
+Pros
+
+  * Takes less space for the type information (only for classes that uses it)
+  * One can add specific information to the TypeID_c class, i.e. way to store/load the type, 
+    pointer to GUI control, etc.
+    (With typeid we have to create a special mapping between type_info (or any part of it) and our 
+    additional information to do this.)
+
+Cons
+  * Have to use macros for each unique type, while RTTI provides the type information automatically
+
+  
+
+
+

@@ -1,0 +1,23 @@
+/************************************************************************
+TetrahedronNoDoFLookup.nvp
+
+Same as Tetrahedron.nvp, except no Depth-Of-Field look-up occurs. Instead
+we push the distance through so we can visualize distance to camera.
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+ps.1.1
+
+def c0, 1.0f, 0.0f, 0.0f, 0.0f
+
+tex t0          ; get color from first texture stage
+texcoord t1     ; t1 holds the circle-of-confusion interpolator look-up (in r)
+
+; select the r (x) component, replicate it across all channels, and 
+; store the proper circle-of-confusion interpolator in dest alpha!
+dp3_sat r0.rgba, t1, c0 
+
+; finally, modulate the current diffuse color with the texture to the output
+mul_sat r0.rgb, t0, v0
+

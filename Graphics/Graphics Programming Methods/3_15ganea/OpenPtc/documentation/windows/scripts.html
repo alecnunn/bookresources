@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>Scripts Guide</title>
+</head>
+
+<body TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#824250" VLINK="#51188E" ALINK="#FF0000"
+BACKGROUND="white.gif">
+
+<h1 align="left"><font face="Arial" size="7">Scripts Guide</font></h1>
+
+<h4><br>
+<font face="Arial">import</font></h4>
+
+<ul>
+  <li>You use this script to generate import libraries so that you can link to the OpenPTC
+    dynamic link libaries.</li>
+  <li>This script generates the input libraries &quot;ptc.lib&quot; and
+    &quot;ptcdebug.lib&quot; for your compiler so that you can link to &quot;ptc.dll&quot; and
+    &quot;debug.dll&quot;.</li>
+  <li>See the <a href="compiler.html">Compiler Instructions</a> page for compiler specific
+    instructions on how to generate the import libraries for your compiler.</li>
+</ul>
+
+<h4><font face="Arial">build</font></h4>
+
+<ul>
+  <li>This script is for building an example or demo program, it is capable of building
+    programs with a single source .c or .cpp file, not multiple files.</li>
+  <li>To use the build script, simply change to the directory of the example program and
+    execute the script.</li>
+  <li>The syntax of the build script is as follows: <em>build name [release|debug]
+    [windows|console]</em></li>
+  <li>The first parameter is manditory, the others are optional.</li>
+  <li>The name parameter is the name of the program, ie. you would type &quot;build
+    random&quot; to build the random example (random.cpp to random.exe).</li>
+  <li>The second parameter determines what build you want. A release build means that the
+    output is optimized and links to &quot;ptc.dll&quot;. A debug build is not optimized,
+    contains debugging information and links to &quot;ptcdebug.dll&quot;. If this parameter is
+    omitted then it defaults to release.</li>
+  <li>The third parameter selects the type of executable to be output. A windows executable is
+    'normal'. This means, it just starts with a WinMain and performs all of its output by
+    creating windows. A console application is like a dos application, it runs in a command
+    prompt and pipes stdout there. Do not confuse this a console application and the OpenPTC
+    console, they are not related.</li>
+  <li>In most circumstances you will want a windows application, however for some example
+    programs (&quot;Info&quot;, &quot;Mode&quot; etc.) that output using printf or cout then
+    you if want to actually see the text output then you have to create a console application.</li>
+  <li>Typically, console applications start with &quot;int main()&quot; and windows
+    applications start with &quot;WinMain(...)&quot;.</li>
+</ul>
+</body>
+</html>

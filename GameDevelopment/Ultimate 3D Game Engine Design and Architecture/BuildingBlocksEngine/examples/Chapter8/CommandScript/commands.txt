@@ -1,0 +1,10 @@
+Print "Hello World"
+PrintLine ""
+
+PrintLine "Good bye world!!!"
+PrintLine "Hello world again!"
+
+Print "Command Scripting"
+PrintLine ""
+
+DisplayDemoInfo

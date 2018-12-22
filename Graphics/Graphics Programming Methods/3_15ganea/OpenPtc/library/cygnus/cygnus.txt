@@ -1,0 +1,6 @@
+Import Libraries for Cygnus C++ (Cygwin)
+
+To generate the "ptc.lib" and "ptcdebug.lib" for Cygnus C++
+you need to run "scripts\cygnus\import.bat".
+
+See the OpenPTC for Windows documentation for details.

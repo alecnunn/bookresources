@@ -1,0 +1,70 @@
+!!VP1.0
+# Project particle position to frame time using Runge Kutta 3 method
+
+# Calculations simplify to:
+# y = y0 + (h/6)*(2at^2 + 3bt + 6c)
+
+# ****** k = (h/6) * (2at^2 + 3bt + 6c)
+# ****** Compute k and place it in R3, using R10 as temporary register ******
+# move t^2 to a temporary register
+MUL R9.xyzw, v[1].y, v[1].y;
+# move 2 to the temporary register
+MOV R10.xyzw, v[6].x;
+# compute 2t^2 and place it in the temporary register
+MUL R10, R10, R9;
+# compute 2at^2
+MUL R10, R10, v[8];
+# place first k term in R3
+MOV R3, R10;
+# move 3 to the temporary register
+MOV R10.xyzw, v[6].y;
+# compute 3t and place it in the temporary register
+MUL R10, R10, v[1].y;
+# compute 3bt
+MUL R10, R10, v[10];
+# accumulate second k term in R3
+ADD R3, R3, R10;
+# move 6 to the temporary register
+MOV R10.xyzw, v[6].z;
+# compute 6c and place it in the temporary register
+MUL R10, R10, v[12];
+# accumulate third k term in R3
+ADD R3, R3, R10;
+# move h' to a temporary register
+MOV R11.xyzw, v[1].x;
+# compute h'/6 and place it in the temporary register
+MUL R11, R11, v[6].w;
+# compute k * h/6 and place it in R3
+MUL R3, R3, R11;
+
+# R3 now holds the term that should be added to the particle position
+# in order to project it
+
+# project the particle position
+MOV R0, v[OPOS];
+ADD R0.xyz, R0, R3;
+
+# R0 holds the final particle position
+# Transform using normal pipeline: multiply by the MODELVIEW_PROJECTION matrix
+DP4   o[HPOS].x, c[0], R0;
+DP4   o[HPOS].y, c[1], R0;
+DP4   o[HPOS].z, c[2], R0;
+DP4   o[HPOS].w, c[3], R0;
+
+# set the particle color accordingly, if texturing is disabled
+MOV o[COL0], v[COL0];
+
+# Attenuate particle size according to the viewer distance, using R1 as temporary register
+# PointSize = psize * (znear/-z) * scale
+MOV R1.x, v[4].x;
+MUL R1.x, R1.x, v[4].y;
+MUL R1.x, R1.x, v[4].z;
+# transform particle z coordinate (it's still in R0.z) to the view space, placing the result in R1.z
+DP4 R1.z, c[6], R0;
+MOV R1.z, -R1.z;
+RCP R1.z, R1.z;
+MUL R1.x, R1.x, R1.z;
+
+MOV o[PSIZ].x, R1.x;
+
+END

@@ -1,0 +1,110 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CLIENT DIALOG DISCARDABLE  0, 0, 282, 201
+STYLE WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "DirectPlay Client Example"
+CLASS "ClientDemo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Select a TCP/IP adapter to connect with, enter a host IP address and click Connect to connect.  When done, click Disconnect to end session.  When connection, enter messages in box and click Send to transmit.",
+                    IDC_STATIC,5,170,270,25
+    LTEXT           "TCP/IP Adapters",IDC_STATIC,5,5,100,10
+    PUSHBUTTON      "Connect",IDC_STARTSTOP,215,5,60,25
+    COMBOBOX        IDC_ADAPTERS,5,15,135,115,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Host IP Address",IDC_STATIC,145,5,60,8
+    EDITTEXT        IDC_IP,145,15,65,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NAME,5,45,135,12,ES_AUTOHSCROLL
+    LTEXT           "Player Name",IDC_STATIC,5,35,60,10
+    EDITTEXT        IDC_MESSAGE,5,145,235,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Send",IDC_SEND,245,145,35,15
+    LISTBOX         IDC_CHATTER,5,65,270,75,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_CLIENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 194
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

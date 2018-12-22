@@ -1,0 +1,86 @@
+/************************************************************************
+MotionBlur.nvv
+
+Implements per-vertex motion-blur:
+    For every incoming vertex, we compute the view-space position with
+    the current frame's transform, as well as the previous' frame 
+    transform.  The difference between these two positions constitutes 
+    a per-vertex motion vector.  If the vertex's normal faces into the 
+    motion vector, then the vertex is transformed with the current 
+    frame's transform.  Otherwise, we use the previous' frame transform.
+    The object as a whole is thus spread from the previous frame to the
+    current frame.  
+    
+    We also modify the alpha-channel of vertices transformed 
+    with the previous' frame's transform to achieve a blending effect 
+    that looks like a blur.  The alpha will be very transparent for long 
+    motion vectors and nearly opaque for very short motion vectors.
+
+    Finally, the vertex color is copied from constant memory (based on
+    whether we used the current or previous' frame's transform).
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+#include "MotionBlur.h"
+
+#define  ZERO           c[CV_CONSTANTS].x
+#define  BLUR_FRACTION  c[CV_OBJECT_EXTEND].z
+
+vs.1.1
+
+; Transform position into view-space with previous worldview-transform
+dp4 r0.x, v0, c[CV_PREV_WORLDVIEW_TXF_0]
+dp4 r0.y, v0, c[CV_PREV_WORLDVIEW_TXF_1]
+dp4 r0.z, v0, c[CV_PREV_WORLDVIEW_TXF_2]
+
+; Transform position into view-space with current worldview-transform
+dp4 r1.x, v0, c[CV_CURR_WORLDVIEW_TXF_0]
+dp4 r1.y, v0, c[CV_CURR_WORLDVIEW_TXF_1]
+dp4 r1.z, v0, c[CV_CURR_WORLDVIEW_TXF_2]
+
+; take the transform difference in view-space (may be zero)
+add r2.xyz, r1, - r0
+
+; artificially shorten (lengthen) this motion vector
+mul r2.xyz, r2, BLUR_FRACTION
+
+; transform normal into view-space
+dp3 r3.x, v3, c[CV_CURR_WORLDVIEW_IT_0]
+dp3 r3.y, v3, c[CV_CURR_WORLDVIEW_IT_1]
+dp3 r3.z, v3, c[CV_CURR_WORLDVIEW_IT_2]
+
+; dot the difference with the projected vertex normal
+dp3 r2.w, r2, r3
+
+; if r2.w < 0, then r4 = r0, else r4 = r1
+slt  r3.w,   r2.w,  ZERO
+mad  r4.xyz, r3.w, -r2, r1
+expp r4.w,   v0.x           ; generate constant 1.0
+
+; compute final position by transforming r4 to clip-space
+dp4 oPos.x, r4, c[CV_PROJ_TXF_0]
+dp4 oPos.y, r4, c[CV_PROJ_TXF_1]
+dp4 oPos.z, r4, c[CV_PROJ_TXF_2]
+dp4 oPos.w, r4, c[CV_PROJ_TXF_3]
+
+; compute alpha component depending on length of motion vector
+dp3 r2.w, r2,  r2
+rsq r1.w, r2.w
+mul r2.w, r2.w, r1.w				; r2.w now contains length(motion vec)
+
+; now compute r2.w = 1 - length(motion vec)/extent
+mad r2.w, -r2.w, c[CV_OBJECT_EXTEND].x, c[CV_OBJECT_EXTEND].y
+
+; clamp color and alpha to minimum values
+max r5, c[CV_PREV_COLOR], r2.w
+
+; select color and alpha based on whether we use current or previous transform
+add r5,  r5, - c[CV_CURR_COLOR]
+mad oD0, r3.w, r5, c[CV_CURR_COLOR]
+
+; Copy uv texture coords
+mov oT0.xy, v7
+
+
+

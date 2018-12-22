@@ -1,0 +1,55 @@
+/************************************************************************
+ShadowShow.nvv
+
+Implements per-pixel shadow buffers
+
+    Using a special 2048x256 texture, we are able to achieve 11 bit per-
+    object shdow depth buffers as well as 8 bit object IDs.
+
+    This shader is designed to set up the TSS or pixel shader pipeline to
+    test the generated shadow coordinates versus the shadow map's depth
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+#include "Constants.h"
+
+#define  ZERO           c[CV_CONSTANTS].x
+#define  ONE            c[CV_CONSTANTS].y
+#define  HALF           c[CV_CONSTANTS].z
+
+vs.1.1
+
+; Transform from model space into light space, and then
+;  squish along light space Z so that 0 to 1 maps to texture
+
+; oT0.x is both the Green & Blue distance dimensions
+; oT0.y is the Red ObjectID Dimension
+
+; initialize Z & W to 1
+mov oT0, ONE
+
+; Transform position into clip space
+
+dp4 oPos.x, v0, c[ CV_MVP_TXF_0 ];
+dp4 oPos.y, v0, c[ CV_MVP_TXF_1 ];
+dp4 oPos.z, v0, c[ CV_MVP_TXF_2 ];
+dp4 oPos.w, v0, c[ CV_MVP_TXF_3 ];
+
+// T0 contains the calculated distance  to the light
+
+// Don't want or need W component of matrix b/c I'm using Z and projecting by W would just give me 1 for Z...
+dp4 oT0.x, v0, c[ CV_CURR_SQUISH_TXF_2 ].xyzw
+
+mov oT0.y, c[ CV_CURR_OBJECTID_IN_TEXELS ].x
+
+
+// T1 contains the shadow map's distance to the light
+
+dp4 oT1.x, v0, c[ CV_CURR_WORLD2LIGHT_TXF_0 ]
+dp4 oT1.y, v0, c[ CV_CURR_WORLD2LIGHT_TXF_1 ]
+dp4 oT1.z, v0, c[ CV_CURR_WORLD2LIGHT_TXF_2 ]
+dp4 oT1.w, v0, c[ CV_CURR_WORLD2LIGHT_TXF_3 ]
+
+
+

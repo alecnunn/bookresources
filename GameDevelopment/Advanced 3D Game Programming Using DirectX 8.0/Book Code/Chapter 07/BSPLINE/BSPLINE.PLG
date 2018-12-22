@@ -1,0 +1,105 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GameLib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA2.tmp" with contents
+[
+/nologo /MLd /W2 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/GameLib.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\Application.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\File.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\Window.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\GraphicsLayer.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\Model.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\Sound.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\SoundLayer.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\InputLayer.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\Keyboard.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\Mouse.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA2.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA3.tmp" with contents
+[
+/nologo /MLd /W2 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/GameLib.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\GameLib\StdAfx.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA3.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA4.tmp" with contents
+[
+/nologo /out:"..\lib\GameLib.lib" 
+".\Debug\Application.obj"
+".\Debug\File.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Window.obj"
+".\Debug\GraphicsLayer.obj"
+".\Debug\Model.obj"
+".\Debug\Sound.obj"
+".\Debug\SoundLayer.obj"
+".\Debug\wavread.obj"
+".\Debug\InputLayer.obj"
+".\Debug\Keyboard.obj"
+".\Debug\Mouse.obj"
+]
+Creating command line "link.exe -lib @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA4.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+Application.cpp
+File.cpp
+Window.cpp
+GraphicsLayer.cpp
+Model.cpp
+Sound.cpp
+SoundLayer.cpp
+InputLayer.cpp
+Keyboard.cpp
+Mouse.cpp
+Generating Code...
+Creating library...
+<h3>
+--------------------Configuration: bspline - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA5.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/bspline.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\bspline\bspline.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\bspline\bSplineApp.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA5.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA6.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/bspline.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\bspline\StdAfx.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA6.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA7.tmp" with contents
+[
+winmm.lib dinput8.lib d3d8.lib d3dx8.lib dxguid.lib dsound.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"../bin/bspline.pdb" /debug /machine:I386 /out:"../bin/bspline.exe" /pdbtype:sept 
+".\Debug\bspline.obj"
+".\Debug\bSplineApp.obj"
+".\Debug\StdAfx.obj"
+"\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\lib\GameLib.lib"
+"\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 07\lib\math3D.lib"
+]
+Creating command line "link.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPA7.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+bspline.cpp
+bSplineApp.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+bspline.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

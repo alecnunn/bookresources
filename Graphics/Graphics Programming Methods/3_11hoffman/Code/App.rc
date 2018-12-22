@@ -1,0 +1,230 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "DirectX.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAIN_ACCEL ACCELERATORS DISCARDABLE 
+BEGIN
+    VK_F2,          IDM_CHANGEDEVICE,       VIRTKEY, NOINVERT
+    VK_RETURN,      IDC_VIEWFULLSCREEN,     VIRTKEY, ALT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_FORMVIEW DIALOGEX 0, 0, 637, 359
+STYLE WS_CHILD
+FONT 8, "MS Shell Dlg"
+BEGIN
+    CONTROL         "",IDC_RENDERVIEW,"Static",SS_BLACKFRAME,7,7,620,265,
+                    WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE | 
+                    WS_EX_CONTROLPARENT
+    CONTROL         "Slider1",IDC_SLIDER_TIME,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS,45,306,91,11
+    CONTROL         "Slider3",IDC_SLIDER_SUN_INTENSITY,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS,45,319,91,11
+    CONTROL         "Slider1",IDC_SLIDER_BETA_MIE,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS,233,306,91,11
+    CONTROL         "Slider3",IDC_SLIDER_HG_G,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS,233,319,91,11
+    CONTROL         "Slider1",IDC_SLIDER_BETA_RAY,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS,394,306,91,11
+    CONTROL         "Slider1",IDC_SLIDER_MULT_INSCATTERING,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS,525,306,91,11
+    GROUPBOX        "Sun",IDC_STATIC,7,282,159,59
+    LTEXT           "Intensity",IDC_STATIC,15,319,27,8
+    GROUPBOX        "Rayleigh Scattering ",IDC_STATIC,345,282,145,59
+    GROUPBOX        " Mie Scattering ",IDC_STATIC,182,282,147,59
+    LTEXT           "East",IDC_STATIC,25,306,15,8
+    LTEXT           "West",IDC_STATIC,138,306,18,8
+    LTEXT           "Directional (g)",IDC_STATIC,189,319,44,8
+    GROUPBOX        "Inscattering",IDC_STATIC,508,282,119,59
+    LTEXT           "Scattering Coefficient",IDC_STATIC,188,300,43,16
+    LTEXT           "Scattering Coefficient",IDC_STATIC,353,300,43,16
+END
+
+IDD_SELECTDEVICE DIALOG DISCARDABLE  0, 0, 267, 138
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Device"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    GROUPBOX        "Rendering device",IDC_STATIC,5,5,200,45
+    LTEXT           "&Adapter:",IDC_STATIC,22,17,65,10,SS_CENTERIMAGE
+    COMBOBOX        IDC_ADAPTER_COMBO,90,15,105,100,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Device:",IDC_STATIC,22,32,65,10,SS_CENTERIMAGE
+    COMBOBOX        IDC_DEVICE_COMBO,90,30,105,100,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Rendering mode",IDC_STATIC,5,52,200,45
+    CONTROL         "Use desktop &window",IDC_WINDOW,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,10,62,85,15
+    CONTROL         "&Fullscreen mode:",IDC_FULLSCREEN,"Button",
+                    BS_AUTORADIOBUTTON,10,77,75,15
+    COMBOBOX        IDC_FULLSCREENMODES_COMBO,90,77,105,204,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    GROUPBOX        "Multisample",IDC_STATIC,5,101,200,28
+    LTEXT           "&Multisample Type:",IDC_STATIC,22,113,62,10,
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_MULTISAMPLE_COMBO,90,111,105,100,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,210,10,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,210,30,50,14
+END
+
+IDD_DIALOG_HELP DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,64,74,50,14
+    LTEXT           "Rendering Outdoor Light Scattering in Real Time",
+                    IDC_STATIC,7,13,154,8
+    LTEXT           "Ver 1.0",IDC_STATIC,29,27,24,8
+    LTEXT           "Naty Hoffman & Arcot Preetham",IDC_STATIC,7,39,97,8
+END
+
+IDD_DIALOG2 DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_FORMVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 627
+        VERTGUIDE, 314
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 351
+    END
+
+    IDD_SELECTDEVICE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 259
+        TOPMARGIN, 7
+    END
+
+    IDD_DIALOG_HELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_DIALOG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    MENUITEM "Play",                        ID_PLAY
+    MENUITEM "Help",                        ID_HELP
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

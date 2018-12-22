@@ -1,0 +1,395 @@
+
+CGASignal  Impulse
+{
+	File = "m_impulse03.wav";
+}
+
+
+
+CGAPatch "Muffler with 1 Resonance"
+{
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+	
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 8;
+		FMAttenuation = 0.4;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Impulse;
+		Frequency = 0.5;
+		Repeat = 1;
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 300;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = LFO1,Trigger1, SampleOut, FM;
+	Connection = LFO1,Reso1, SampleOut, FM;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Wave1, Reso1,SampleOut, SampleIn;
+
+}
+
+
+
+CGAPatch "Muffler with 2 Resonances"
+{
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+	
+	CGASequencer16 SEQ1
+	{
+		Frequency = 10.0;
+		Steps = XoooXoooooooooXo;
+		FMAttenuation = 0.3;
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Impulse;
+		Frequency = 0.5;
+		Repeat = 1;
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 540;
+		FMAttenuation = 0.03;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 220;
+		FMAttenuation = 0.25;
+	}
+
+	CGAMixer3 MIX1
+	{
+		InputGain1 = 0.3;
+		InputGain2 = 0.5;
+		InputGain3 = 0.15;
+	}
+
+	Connection = LFO1,SEQ1, SampleOut, FM;
+	Connection = LFO1,Reso1, SampleOut, FM;
+	Connection = LFO1,Reso2, SampleOut, FM;
+	Connection = SEQ1,Wave1, SampleOut, TRIG;
+	Connection = Wave1, Reso1,SampleOut, SampleIn;
+	Connection = Wave1, Reso2,SampleOut, SampleIn;
+
+	Connection = Reso1, MIX1,SampleOut, SampleIn1;
+	Connection = Reso2, MIX1,SampleOut, SampleIn2;
+	Connection = Wave1, MIX1,SampleOut, SampleIn3;
+
+}
+
+
+CGAPatch "Muffler with Noise + 2 Resonances"
+{
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.05;
+	}
+	
+	
+	CGASequencer16 SEQ1
+	{
+		Frequency = 26.0;
+		Steps = XoooXoooooooooXo;
+		FMAttenuation = 0.2;
+	}
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGAResonator Reso3
+	{
+		Frequency = 220;
+		FMAttenuation = 0.22;
+	}
+		
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Impulse;
+		Frequency = 0.9;
+		Repeat = 1;
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 80;
+		FMAttenuation = 0.16;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 90;
+		FMAttenuation = 0.4;
+	}
+
+
+
+	CGAMixer3 MIX1
+	{
+		InputGain1 = 0.4;
+		InputGain2 = 0.4;
+		InputGain3 = 0.3;
+	}
+
+	Connection = LFO1,SEQ1, SampleOut, FM;
+	Connection = LFO1,Reso2, SampleOut, FM;
+	Connection = LFO1,Reso3, SampleOut, FM;
+	Connection = SEQ1,Wave1, SampleOut, TRIG;
+	Connection = Noise1, Reso3,SampleOut, SampleIn;
+	Connection = Reso3, Reso1,SampleOut, FM;
+	Connection = Wave1, Reso1,SampleOut, SampleIn;
+	Connection = Wave1, Reso2,SampleOut, SampleIn;
+
+	Connection = Reso1, MIX1,SampleOut, SampleIn1;
+	Connection = Reso2, MIX1,SampleOut, SampleIn2;
+	Connection = Wave1, MIX1,SampleOut, SampleIn3;
+
+}
+
+CGAPatch "Engine with Noise + FM-OSC + 2 Resonances"
+{
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.05;
+	}
+	
+	
+	CGASequencer16 SEQ1
+	{
+		Frequency = 30.0;
+		Steps = XoooXoooooooooXo;
+		FMAttenuation = 0.12;
+	}
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGAResonator Reso3
+	{
+		Frequency = 220;
+		FMAttenuation = 0.22;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 55.0;
+		FMAttenuation = 0.11;
+	}
+			
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Impulse;
+		Frequency = 0.9;
+		Repeat = 1;
+		FMAttenuation = 0.02;
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 80;
+		FMAttenuation = 0.16;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 90;
+		FMAttenuation = 0.4;
+	}
+
+
+
+	CGAMixer3 MIX1
+	{
+		InputGain1 = 0.4;
+		InputGain2 = 0.4;
+		InputGain3 = 0.3;
+	}
+
+	Connection = LFO1,SEQ1, SampleOut, FM;
+	Connection = LFO1,OSC1, SampleOut, FM;
+	Connection = LFO1,Reso2, SampleOut, FM;
+	Connection = LFO1,Reso3, SampleOut, FM;
+	Connection = OSC1,Wave1, SampleOut, FM;
+	Connection = SEQ1,Wave1, SampleOut, TRIG;
+	Connection = Noise1, Reso3,SampleOut, SampleIn;
+	Connection = Reso3, Reso1,SampleOut, FM;
+	Connection = Wave1, Reso1,SampleOut, SampleIn;
+	Connection = Wave1, Reso2,SampleOut, SampleIn;
+
+	Connection = Reso1, MIX1,SampleOut, SampleIn1;
+	Connection = Reso2, MIX1,SampleOut, SampleIn2;
+	Connection = Wave1, MIX1,SampleOut, SampleIn3;
+
+}
+
+
+CGASignal  PowerExhaust
+{
+	File = "m_power_exhaust01.wav";
+}
+
+CGAPatch "PowerExhaust, 2 Resonances, OSC"
+{
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.06;
+	}
+
+
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 20;
+		FMAttenuation = 0.2;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = PowerExhaust;
+		Frequency = 1.0;
+		Repeat = 1;
+	}
+
+	CGASawtoothOscillator OSC1
+	{
+		Frequency = 40.0;
+		FMAttenuation = 0.2;
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 300;
+		FMAttenuation = 0.1;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 480;
+		FMAttenuation = 0.06;
+	}
+	
+	CGAMixer3 MIX1
+	{
+		InputGain1 = 0.4;
+		InputGain2 = 0.3;
+		InputGain3 = 0.6;
+	}
+
+	Connection = LFO1,Trigger1, SampleOut, FM;
+	Connection = LFO1,Reso1, SampleOut, FM;
+	Connection = LFO1,Osc1, SampleOut, FM;
+	Connection = LFO1,Osc1, SampleOut, AM;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Wave1, Reso1,SampleOut, SampleIn;
+	Connection = OSC1, Reso2,SampleOut, SampleIn;
+
+	Connection = Wave1, MIX1,SampleOut, SampleIn1;
+	Connection = Reso1, MIX1,SampleOut, SampleIn2;
+	Connection = Reso2, MIX1,SampleOut, SampleIn3;
+
+
+}
+
+
+CGAPatch "PowerExhaust, 2 Resonances, OSC + Noise"
+{
+
+	CGASinCosOscillator LFO1
+	{
+		Frequency = 0.03;
+	}
+
+
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 26;
+		FMAttenuation = 0.12;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = PowerExhaust;
+		Frequency = 1.0;
+		Repeat = 1;
+	}
+
+
+	CGANoiseGenerator Noise1
+	{
+	}
+	
+	CGAMixer2 ModMix1
+	{
+		Balance 0.3;
+	}
+	
+	CGASawtoothOscillator OSC1
+	{
+		Frequency = 30.0;
+		FMAttenuation = 0.2;
+	}
+
+
+
+	CGAResonator Reso1
+	{
+		Frequency = 300;
+		FMAttenuation = 0.1;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 410;
+		FMAttenuation = 0.08;
+	}
+	
+	CGAMixer3 MIX1
+	{
+		InputGain1 = 0.3;
+		InputGain2 = 0.5;
+		InputGain3 = 0.3;
+	}
+
+	Connection = LFO1,Trigger1, SampleOut, FM;
+	Connection = LFO1,Noise1, SampleOut, AM;
+	Connection = LFO1,Reso1, SampleOut, FM;
+	Connection = LFO1,ModMix1, SampleOut, SampleIn1;
+	Connection = LFO1,Osc1, SampleOut, AM;
+	Connection = Noise1,ModMix1, SampleOut, SampleIn2;
+	Connection = ModMix1,Osc1, SampleOut, FM;
+
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Wave1, Reso1,SampleOut, SampleIn;
+	Connection = OSC1, Reso2,SampleOut, SampleIn;
+
+	Connection = Wave1, MIX1,SampleOut, SampleIn1;
+	Connection = Reso1, MIX1,SampleOut, SampleIn2;
+	Connection = Reso2, MIX1,SampleOut, SampleIn3;
+
+
+}

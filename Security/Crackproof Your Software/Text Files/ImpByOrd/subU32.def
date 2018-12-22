@@ -1,0 +1,11 @@
+NAME USER32.dll
+
+EXPORTS
+MessageBoxA
+MessageBoxW
+wsprintfA
+wsprintfW
+USER32_ORD_0001 @1 NONAME
+USER32_ORD_0002 @2 NONAME
+USER32_ORD_0003 @3 NONAME
+;etc...

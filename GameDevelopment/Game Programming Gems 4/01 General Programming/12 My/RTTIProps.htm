@@ -1,0 +1,307 @@
+<html>
+<head>
+<title>Using Custom RTTI Properties to Stream and Edit Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="html_data/mystyles.css">
+</head>
+
+<body>
+<a name="top"></a>
+<div class=titre1>Using Custom RTTI Properties to Stream and Edit Objects</div>
+<BR><BR>
+
+<a name="contents"></a>
+<div class=titre2>Contents</div>
+<BR>
+<a href="#liability">Limited warranty and disclaimer of liability<BR>
+<a href="#folders">Folders<BR>
+<a href="#sample">Sample program<BR>
+<a href="#menu">Menu commands<BR>
+<a href="#3dcomm">3D view commands<BR>
+<a href="#gridcomm">Grid commands<BR>
+<a href="#scenecomm">Scene view commands<BR>
+<a href="#buttons">Other commands<BR>
+<a href="#levels">Levels<BR>
+<a href="#xml">XML compliance<BR>
+<BR><BR>
+
+<a name="liability"></a>
+<div class=titre2>Limited warranty and disclaimer of liability</div>
+<BR>
+This software is provided "as is" <span class=highlight>without express or implied warranties</span>. 
+You may freely copy, compile and use this source into applications <span class=highlight>at your own risk</span>.
+<BR><BR><BR>
+
+<a name="folders"></a>
+<div class=titre2>Folders</div>
+<BR>
+<table width="100%" border="0" cellspacing=0 cellpadding=0>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>. &nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">root folder, <span class=highlight>VC++ project</span>, executable
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>Core&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">classes for file manipulation, debugging, maths...
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>data&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">external data used by the levels
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>Dialogs&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">MFC dialog classes
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>Editor&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">editor objects and tools
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>Engine&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">engine classes
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>GridCtrl&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">MFC grid control by Chris Maunder (see About... box or the Gem's references)
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>html_data&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">data for this documentation
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>levels&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">demonstration levels
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>PropSystem&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16"><span class=highlight>property system described in the Gem</span>
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>Rendering&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">simple DirectX 8 renderer
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>res&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">MFC resources
+    </td>
+  </tr>
+</table>
+<BR><BR>
+
+<a name="sample"></a>
+<div class=titre2>Sample program</div>
+<BR>
+This program has been compiled with Visual C++ 6 Service Pack 5, a VC 7.0 (.NET 2002) "solution" is also provided. 
+<span class=highlight>DirectX 8.1</span> is used to render the 3D view and thus required. <BR>
+Here is a screenshot from this application :<BR><BR>
+<img src="html_data/screenshot.jpg">
+<BR>
+<table width="100%" border="0" cellspacing=0 cellpadding=0>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>top left&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">3D view as seen by the currently selected camera
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>top right&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">scene tree, commands and scene graph (see below)
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>bottom left&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">grid control (also called "property view") displaying the properties of the object selected in the scene tree
+    </td>
+  </tr>
+  <tr>
+	  <td width="0" height="16" valign="top" nowrap><div class=date>bottom right&nbsp&nbsp&nbsp</div></td>
+	  <td width="0" height="16">:&nbsp&nbsp&nbsp</td>
+	  <td width="100%" height="16">log window
+    </td>
+  </tr>
+</table>
+<BR>
+The scene tree contains every object which is part of the current level : boxes, cameras, materials, nodes, spheres and textures. You can 
+organize these objects the way you want by dragging them in the tree, and by grouping them in folders. This has no impact on the level 
+itself.<BR><BR>
+On the contrary the scene graph reflects how nodes (i.e. objects having a position and orientation) and objects derived from nodes 
+(boxes, cameras, spheres, but not materials and textures) are hierarchically organized. By using drag and drop in the scene graph you can 
+modify parent-child relationships between nodes.
+<BR><BR><BR>
+
+<a name="menu"></a>
+<div class=titre2>Menu commands</div>
+<BR>
+The "File" menu allows you to create, load or save a level.<BR>
+A new level only consists of a scene root and a default camera used to display the scene. You can add new objects with the 
+"Scene view commands".<BR>
+<BR>
+When a level is saved, the following files are created :<BR>
+- <i>MyLevel</i>.xml in the /Levels directory : this is the main file, which contains the path to the other files. 
+This path is the name of the main file followed by a number : <i>MyLevel</i>.xml000, <i>MyLevel</i>.xml001, etc. 
+The number is incremented each time the level is saved with the same name, so the old files are not overwritten and can be used as 
+backups.<BR>
+- PropDesc.bin and PropDesc.xml : these files hold the class descriptions, in binary and xml format.<BR>
+- LevelData.bin and LevelData.xml : these files contain the data of the level's objects.<BR>
+- logs.txt : the content of the log window is copied to this file, and the window is cleared. This is useful to reproduce the 
+operations executed since the previous saving.<BR><BR>
+When the level is loaded, an additional file is created : logs load.txt, which records information during the loading process and can 
+be examined in case of failure.
+<BR><BR><BR>
+
+<a name="3dcomm"></a>
+<div class=titre2>3D view commands</div>
+<BR>
+You can right-click on the 3D view to get a menu with a few commands or directly use their shortcuts when this view has the input focus.<BR>
+- Move Camera : move the camera with the arrow keys or the mouse, and go forward / backward with page up / page down or the mouse buttons. 
+You can validate your move by pressing enter, cancel it (but keep moving) with ctrl+Z, or exit this command with escape. 
+Information about the current position is displayed in the status bar.<BR>
+- Perpective : toggle between perspective and parallel projections. In parallel mode use + and - on the keypad to zoom in and out.<BR>
+- Move Selection : move selected objects (displayed in wireframe) and their children while keeping the left button held down. You can 
+limit your move to one axis with the ctrl and shift keys.
+<BR><BR><BR>
+
+<a name="gridcomm"></a>
+<div class=titre2>Grid commands</div>
+<BR>
+There are 3 tabs in the property view : All, Editing, and <i>Object</i> (eg. Camera). This is because each type of object (camera, node, 
+box...) in the sample is made of two parts : the "engine object", which contains the data needed by the game engine, and the "editor 
+object", which adds other information only useful for tools. The Editing tab shows the properties of the editor object, the <i>Object</i> 
+tab corresponds with the engine object, and All displays the properties of both parts.<BR><BR>
+Only the 3rd column ("Value") is editable. When the cell has a yellow background, the property is read-only. Read-only properties can be 
+hidden by using the "read-only props" button (top right). To modify a value in a text cell, double-click the cell and edit the value. 
+Vectors (for example, the "Position" property) are floats separated by ";" and this syntax must be respected when entering new positions 
+or directions.<BR><BR>
+Buttons within grid cells are used to toggle boolean values between true and false, and to handle properties requiring special editing 
+considerations. Several examples are given in the sample :<BR>
+- objects derived from nodes own a Rotation property which is internally stored as a quaternion. However the user is asked to enter 
+3 Euler angles to define a new orientation.<BR>
+- each box and sphere references a material : the user can choose a new material from a list in a dialog box.<BR>
+- in the sample a material has pointers to two textures : another dialog box is used, to show the existing textures in the level.<BR>
+- a texture object loads its contents from a disk file : to choose this file a standard "open file" dialog is presented to the user. 
+<BR><BR><BR>
+
+<a name="scenecomm"></a>
+<div class=titre2>Scene view commands</div>
+<BR>
+Right-click an item in the scene tree to get a list of supported commands. Most items can be renamed, boxes, spheres and cameras have a 
+specific "edit" command which opens a dialog box, and all items allow to create new objects.<BR><BR>
+When you create a new object you are prompted to give it a name, which must be unique. Boxes, spheres and cameras display a dialog box 
+with default values you may want to modify (for example, the position), other objects are immediately added to the level. When the 
+created object is a node or an object derived from node, it is attached to the scene root in the scene graph. You can use drag and drop 
+to link it to another node in the graph.<BR>
+Notice that positions and rotations in the grid control are relative to the parent node of the edited object.<BR><BR>
+If you double-click a camera item, this camera becomes the one used to display the 3D view. If you see nothing it probably means 
+that the camera is not looking at your objects but somewhere else (verify its properties in the grid control : by default objects are 
+located at the world's origin so (0;0;0) is a good value for the camera target. By the way, the world's axes are x=right, y=top, z=towards 
+you, this is a right-handed space).
+<BR><BR><BR>
+
+<a name="buttons"></a>
+<div class=titre2>Other commands</div>
+<BR>
+The meaning of the 4 buttons above the scene graph is straightforward. However we haven't seen yet how to make or modify a selection. 
+There are two different ways of doing it :<BR>
+- to select / unselect an object you can edit it in the grid control : select it in the scene view, and change the value of its "Selected" 
+property in the grid. Selected objects are displayed in wireframe.<BR>
+- you can also use the check boxes in the scene view.<BR>
+- of course in a real production tool it would be possible to choose objects by names, or in the 3D view.
+<BR><BR>
+In this sample the only thing you can do with a selection is to move it ; so selecting textures or other objects not derived from node is 
+useless. <BR>
+When the level is persisted, the "Selected" property is saved ; so it is easy to recreate the selection when re-loading a level.
+<BR><BR><BR>
+
+<a name="levels"></a>
+<div class=titre2>Levels</div>
+<BR>
+A few levels are provided with this sample to demonstrate some concepts explained in the Gem. This is coder "art", so don't expect 
+amazing graphics ;) 
+Each level (except "sphere") is available in binary and 
+xml format, the program creates both of them when you save a level. By default it reads the xml files when loading, there is a 
+#define _LOAD_XML_ line to comment in RTTIPropsDoc.cpp if you want to change this behavior.<BR><BR>
+
+* <span class=highlight>objects.xml</span> :<BR><BR>
+this simple example contains the different types of objects available in the demonstration program. You can double-click the "top" and 
+"default camera" cameras, and try to move them.<BR><BR>
+If you move the current selection, you will see that the 3 cubes are linked to the wireframe sphere, as indicated in the scene graph. This 
+can be verified in the persisted file Levels/objects.xml002/LevelData.xml too : look for the second CEngineSphere object 
+(its name is "bottom right"), after its name and a flag the 3rd property tells us that this object has 3 children and gives us their IDs.<BR>
+How does the executable know that the 3rd property is the list of children ? By reading PropDesc.xml in the same directory : 
+CEngineSphere derives from CEngineNode, CEngineObj, CPersistent and finally CRefCount, and if we walk this class hierarchy from the 
+base-most class (CRefCount) we see that the 3rd property of the CEngineSphere class is called "Subnodes" and inherited from 
+CEngineNode. This property demonstrates how to stream a list of pointers, this is the example from the "Functions Properties" section 
+of the Gem.<BR><BR>
+All kinds of properties are used in this example, pointers being represented by the "SP" type (Smart Pointer). For example, each 
+material (CEngineMaterial object) owns 2 pointers to textures, some are NULL and some are not. You can look for the referenced IDs to 
+identify the pointed to objects : this is what the program does with an STL map during the linking phase.<BR><BR>
+
+* <span class=highlight>objects_old.xml</span> :<BR><BR>
+this is the same level as before, but in an old format : properties have been modified in the program since this file has been saved. By 
+comparing the PropDesc.xml files we see the following differences between the old and current versions :<BR>
+- in the CEngineNode class, "Draw Node" and "Collide" boolean properties have been added.<BR>
+- in CEngineMaterial, the "Texture" and "TexOp" properties have been removed, and replaced by new "Tex0", "Tex1", "Op0" and "Op1" 
+properties ; this is of course to manage 2 textures instead of one in the material.<BR>
+- in CEngineTexture, the "Width", "Height" and "Depth" are not persisted anymore.<BR><BR>
+Despite these changes, you can still load this level with the current executable. This demonstrates how the matching process described in 
+the Gem helps reducing compatibility problems with old files.<BR><BR>
+Notice that the central sphere is not textured : this is because the "Texture" property has been removed from the CEngineMaterial class. 
+The new "Tex0" property does not exist in the file, so the corresponding material's pointer is NULL by default. You can re-assign the texture 
+to the material in the grid control. This operation could have been avoided : instead of removing "Texture" and adding "Tex0" and "Tex1", 
+"Tex1" could have been added to the already existing "Texture" property, thus ensuring that material-texture links are preserved.
+<BR><BR>
+
+* <span class=highlight>pacman.xml</span> :<BR><BR>
+this level contains more objects and cameras, but you can see that PropDesc.xml is not bigger (which means that the matching phase does not 
+take longer).
+<BR><BR>
+
+* <span class=highlight>sphere.xml</span> :<BR><BR>
+this level contains the single sphere whose class' description and data is used in the Gem to illustrate the 
+"Compatibility With Old Files" section.
+<BR><BR><BR>
+
+<a name="xml"></a>
+<div class=titre2>XML compliance</div>
+<BR>
+The text files created by the sample are XML compliant, provided that they do not contain special characters reserved by this language. 
+More precisely, <span class=highlight>& < > \ "</span> should be replaced by their corresponding escape sequences. To preserve XML 
+compliance, you should not :<BR>
+- use these characters in the property names.<BR>
+- use these characters in the names of scene objects. The CDlgItemName class used to enter or modify the name of an object rejects these 
+characters in its CDlgItemName::OnChangeName() method.
+<BR><BR><BR>
+<BR>
+
+Frederic My, 08/2003<BR>
+<a href="mailto:fmy@fairyengine.com">fmy@fairyengine.com</a>
+<BR><BR><BR>
+
+<a href="#top"><div class=backtop>back to top</div></a>
+</body>
+</html>

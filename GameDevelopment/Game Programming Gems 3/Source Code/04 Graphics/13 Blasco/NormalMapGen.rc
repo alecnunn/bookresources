@@ -1,0 +1,208 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_NORMALMAPROLLUP DIALOG DISCARDABLE  0, 0, 108, 241
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Oscar Blasco Maestro 2002",IDC_STATIC3,7,159,95,10,
+                    SS_CENTERIMAGE
+    CONTROL         "Low Object",IDC_PICKLOWBUTTON,"CustButton",0x0,12,17,85,
+                    10
+    CONTROL         "High Object",IDC_PICKHIGHBUTTON,"CustButton",0x0,12,31,
+                    85,10
+    LTEXT           "Map Size :",IDC_STATIC,10,131,35,10
+    CONTROL         "",IDC_MAPSIZEEDIT,"CustEdit",0x0,44,131,50,10
+    GROUPBOX        "Object Picking",IDC_STATIC,7,7,95,45
+    GROUPBOX        "Output",IDC_STATIC,7,121,93,26
+    CONTROL         "On Selected Faces",IDC_ONSELECTEDFACESBUTTON,"CustButton",
+                    0x0,11,70,85,10
+    GROUPBOX        "Options",IDC_STATIC,7,58,94,58
+    CONTROL         "Non Continous Normals",IDC_NONCONTNORMALSBUTTON,
+                    "CustButton",WS_TABSTOP,11,85,85,10
+    CTEXT           "Curvature Simulation Gem",IDC_STATIC,7,172,94,19
+    CONTROL         "Texture Space",IDC_TEXTURESPACEBUTTON,"CustButton",0x0,
+                    11,100,85,10
+END
+
+IDD_PROGRESSWIN DIALOGEX 0, 0, 195, 64
+STYLE DS_MODALFRAME | DS_NOFAILCREATE | DS_CENTER | WS_MINIMIZEBOX | 
+    WS_POPUP | WS_VISIBLE | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "Generating Normal Map..."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESSBAR,"msctls_progress32",
+                    PBS_SMOOTH,5,5,185,10
+    CONTROL         "",IDC_INFO,"Static",SS_LEFTNOWORDWRAP | SS_SUNKEN | 
+                    WS_GROUP,5,50,115,10
+    CONTROL         "Progress1",IDC_FACEPROGRESSBAR,"msctls_progress32",
+                    PBS_SMOOTH,5,20,185,10
+    CONTROL         "Cancel",IDC_CANCELBUTTON,"CustButton",0x0,125,50,65,10
+    CONTROL         "Low Priority",IDC_LOWPRIORITYBUTTON,"CustButton",0x0,70,
+                    35,65,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_NORMALMAPROLLUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 101
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_PROGRESSWIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 188
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 57
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Spanish (Castilian) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESP)
+#ifdef _WIN32
+LANGUAGE LANG_SPANISH, SUBLANG_SPANISH
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904b0"
+        BEGIN
+            VALUE "Comments", "3DSMax4.0 Plugin\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "NormalMapGenerator\0"
+            VALUE "FileVersion", "1.1\0"
+            VALUE "InternalName", "NormalMapGenerator\0"
+            VALUE "LegalCopyright", "Oscar Blasco Maestro\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "NormalMapGen.dlo\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "NormalMap Generator Plugin\0"
+            VALUE "ProductVersion", "1.1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DESC                "Normal Maps Generator"
+    IDS_CLASS_NAME          "NormalMap"
+END
+
+#endif    // Spanish (Castilian) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

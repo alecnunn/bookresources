@@ -1,0 +1,122 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Copy  Class Reference</h1>Routines for copying and converting pixel data. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcCopy-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcCopy.html#a0">Copy</a> ()
+<li><a class="el" href="class_ptcCopy.html#a1">~Copy</a> ()
+<li>void <a class="el" href="class_ptcCopy.html#a2">request</a> (const Format &amp;source,const Format &amp;destination)
+<li>void <a class="el" href="class_ptcCopy.html#a3">palette</a> (const Palette &amp;source,const Palette &amp;destination)
+<li>void <a class="el" href="class_ptcCopy.html#a4">copy</a> (const void *source_pixels,int source_x,int source_y,int source_width,int source_height,int source_pitch, void *destination_pixels,int destination_x,int destination_y,int destination_width,int destination_height,int destination_pitch)
+<li>bool <a class="el" href="class_ptcCopy.html#a5">option</a> (const char option[])
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Routines for copying and converting pixel data.
+<p>
+This class is an interface to low level pixel copying and conversion routines.
+<p>
+Before using the copy class take a look at the high level <a class="el" href="class_ptcSurface.html#a3">Surface::copy</a>(), <a class="el" href="class_ptcSurface.html#a7">Surface::load</a>() and <a class="el" href="class_ptcSurface.html#a9">Surface::save</a>() functions.
+<p>
+Typically the only time the copy class is required is when you are managing your own pixel buffers. <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Copy::Copy"></a>ptc::Copy::Copy ()</h3>
+<div class="in">
+
+<p>
+Default constructor. </div>
+
+<h3><a name="a1" doxytag="ptc::Copy::~Copy"></a>ptc::Copy::~Copy ()</h3>
+<div class="in">
+
+<p>
+Destructor. </div>
+
+<h3><a name="a2" doxytag="ptc::Copy::request"></a>void ptc::Copy::request (const Format &amp; <em>source</em>, const Format &amp; <em>destination</em>)</h3>
+<div class="in">
+
+<p>
+Request a copy routine for the specified pixel formats <em>source</em> and <em>destination.</em>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>source</em> -  the source pixel format. <dd>
+<em>destination</em> -  the destination pixel format. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl></div>
+
+<h3><a name="a3" doxytag="ptc::Copy::palette"></a>void ptc::Copy::palette (const Palette &amp; <em>source</em>, const Palette &amp; <em>destination</em>)</h3>
+<div class="in">
+
+<p>
+Set the <em>source</em> and <em>destination</em> palettes for indexed color conversion.
+<p>
+If neither pixel arrays are indexed color then pass blank palettes:
+<p>
+<div class="fragment"><pre>
+
+            // set blank copy palettes
+            copy.palette(Palette(),Palette());</pre></div>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>source</em> -  the source palette. <dd>
+<em>destination</em> -  the destination palette. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl></div>
+
+<h3><a name="a4" doxytag="ptc::Copy::copy"></a>void ptc::Copy::copy (const void * <em>source_pixels</em>, int <em>source_x</em>, int <em>source_y</em>, int <em>source_width</em>, int <em>source_height</em>, int <em>source_pitch</em>, void * <em>destination_pixels</em>, int <em>destination_x</em>, int <em>destination_y</em>, int <em>destination_width</em>, int <em>destination_height</em>, int <em>destination_pitch</em>)</h3>
+<div class="in">
+
+<p>
+Copy an area of the source pixel array <em>source_pixels</em> to an area of the destination pixel array <em>destination_pixels.</em>
+<p>
+<em>source_width,</em> <em>source_height,</em> <em>destination_width</em> and <em>destination_height</em> must all be positive integers.
+<p>
+<em>source_pitch</em> and <em>destination_pitch</em> may be any value, even negative.
+<p>
+<dl compact><dt>
+<b>Warning: </b><dd>
+You must first call <a class="el" href="class_ptcCopy.html#a2">Copy::request</a>() to initialize the pixel formats and <a class="el" href="class_ptcCopy.html#a3">Copy::palette</a>() to initialize palettes.
+<p>
+</dl><dl compact><dt>
+<b>Parameters: </b><dd>
+<em>source_pixels</em> -  the source pixel array. <dd>
+<em>source_x</em> -  the x coordinate of the top-left corner of the source area. <dd>
+<em>source_y</em> -  the y coordinate of the top-left corner of the source area. <dd>
+<em>source_width</em> -  the width of the source area in pixels. <dd>
+<em>source_height</em> -  the height of the source area in pixels. <dd>
+<em>source_pitch</em> -  the pitch of the source pixel array in bytes. <dd>
+<em>destination_pixels</em> -  the destination pixel array. <dd>
+<em>destination_x</em> -  the x coordinate of the top-left corner of the destination area. <dd>
+<em>destination_y</em> -  the y coordinate of the top-left corner of the destination area. <dd>
+<em>destination_width</em> -  the width of the destination area in pixels. <dd>
+<em>destination_height</em> -  the height of the destination area in pixels. <dd>
+<em>destination_pitch</em> -  the pitch of the destination pixel array in bytes. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl></div>
+
+<h3><a name="a5" doxytag="ptc::Copy::option"></a>bool ptc::Copy::option (const char option[])</h3>
+<div class="in">
+
+<p>
+Passes an implementation specific option string to the copy object.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+<em>true</em> if the option string is recognized, <em>false</em> otherwise. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl></div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

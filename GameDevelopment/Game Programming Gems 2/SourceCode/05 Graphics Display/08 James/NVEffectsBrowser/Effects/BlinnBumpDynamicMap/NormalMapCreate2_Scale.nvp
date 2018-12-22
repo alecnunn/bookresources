@@ -1,0 +1,75 @@
+/*********************************************************************NVMH2****
+Path:  C:\Dev\devrel\Nv_sdk_4\Dx8\NVEffectsBrowser\Effects\CA_Water
+File:  NormalMapCreate.nvp
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+This file is provided without support, instruction, or implied warranty of any
+kind.  NVIDIA makes no guarantee of its fitness for a particular purpose and is
+not liable under any circumstances for any damages or loss whatsoever arising
+from the use or inability to use this file or items derived from it.
+
+Comments:
+
+Neighbor-differencing for RGB normal map creation.  Scale factors for s and t
+  axis components are hard-coded in the constants.  This does a crude
+  1-s^2-t^2 calculation for the blue component in order to approximately normalize
+  the RGB normal map vector.  For s^2+t^2 close to 1.0, this is a close
+  approximation to blue = sqrt(1 - s^2 - t^2) which would give a normalized 
+  vector
+
+******************************************************************************/
+
+
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+// Define c[PCN_RED_MASK] as RGBA = (scale, 0, 0, 0)
+//  Where scale [0,1] is applied to reduce the magnitude
+//  of the s axis component of the normal.
+// Define c[PCN_GREEN_MASK] similarly to affect the 
+//  t axis component
+
+
+// blue mask for r axis component (blue = up out of texture)
+def c4, 0.0, 0.0, 1.0, 1.0
+
+
+def c2, 0.5, 0.5, 0.0, 0.0
+def c1, 1.0, 1.0, 0.0, 0.0
+
+
+; get colors from all 4 texture stages
+; t0 = -s,  0
+; t1 = +s,  0
+; t2 =  0, +t
+; t3 =  0, -t
+
+
+
+tex t0
+tex t1
+tex t2
+tex t3
+
+
+sub_x4  r0, t0, t1					// (t0 - t1)*4  : 4 for higher scale
+mul     t0, r0, c[PCN_RED_MASK]		// t0 = s result in red only
+
+sub_x4  r1, t3, t2						// r1 = t result in green only
+
+mad     r0, r1, c[PCN_GREEN_MASK], t0	// r0 = red,green for s and t result
+
+mul_x2  t1, r0, r0          // t1 = ( 2 * s^2, 2 * t^2, 0.0)
+
+dp3_d2  r1, 1-t1, c1        // ( 1-2s^2 + 1-2t^2 )/2 = 1 - s^2 - t^2
+
+add     r0, r0, c2          // bias red,green to 0.5
+
+mad     r0, r1, c4, r0      // RGB = (r+0, g+0, 0+blue )
+

@@ -1,0 +1,36 @@
+# meta/pretty.bld
+
+([ -~]*).(o|obj)$:x
+{
+	set SILENT = 1
+	set IGNORE = 1
+	system("echo -n '[1m[36m'")
+	system("cat COMPILE_LINE")
+	#system("echo -n '[32m'")
+	#system("head -10 COMPILE_LOG")
+	system("echo -n '[0m'")
+}
+
+([ -~]*).exe:x
+{
+	set SILENT = 1
+	set IGNORE = 1
+	system("echo -n '[1m[36m'")
+	system("cat EXE_LINE")
+	system("echo -n '[32m'")
+	system("head -10 EXE_LOG")
+	system("echo -n '[0m'")
+}
+
+([ -~]*).(so|a|lib):x
+{
+	set SILENT = 1
+	set IGNORE = 1
+	#system("echo -n '[1m[36m'")
+	#system("cat AR_LINE")
+	#system("echo -n '[32m'")
+	#system("head -10 AR_LOG")
+	#system("echo -n '[0m'")
+}
+
+

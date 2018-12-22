@@ -1,0 +1,361 @@
+ SkelDemo
+
+ Timestamp is 3b2302df (Sat Jun 09 22:17:19 2001)
+
+ Preferred load address is 00400000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00003b00H .text                   CODE
+ 0002:00000000 00000494H .rdata                  DATA
+ 0002:00000494 00000000H .edata                  DATA
+ 0003:00000000 00000004H .CRT$XCA                DATA
+ 0003:00000004 00000004H .CRT$XCU                DATA
+ 0003:00000008 00000004H .CRT$XCZ                DATA
+ 0003:0000000c 00000004H .CRT$XIA                DATA
+ 0003:00000010 00000004H .CRT$XIZ                DATA
+ 0003:00000020 00000044H .data                   DATA
+ 0003:00000068 000001bcH .bss                    DATA
+ 0004:00000000 000000a0H .idata$2                DATA
+ 0004:000000a0 00000014H .idata$3                DATA
+ 0004:000000b4 00000180H .idata$4                DATA
+ 0004:00000234 00000180H .idata$5                DATA
+ 0004:000003b4 00000572H .idata$6                DATA
+ 0005:00000000 00000130H .rsrc$01                DATA
+ 0005:00000130 000007e8H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base     Lib:Object
+
+ 0001:00000000       ??0_RootBone@@QAE@XZ       00401000 f   Bones.obj
+ 0001:00000060       ??0_RootBone@@QAE@PBUMRC_t@@@Z 00401060 f   Bones.obj
+ 0001:000000d0       ?Update@_RootBone@@QAEXK@Z 004010d0 f   Bones.obj
+ 0001:00000150       ??0_Bone@@QAE@XZ           00401150 f   Bones.obj
+ 0001:000001e0       ??0_Bone@@QAE@PBUMRC_t@@H@Z 004011e0 f   Bones.obj
+ 0001:00000440       ??1_Bone@@QAE@XZ           00401440 f   Bones.obj
+ 0001:000004c0       ?UpdateBoneAnim_TM@_Bone@@IAEXK@Z 004014c0 f   Bones.obj
+ 0001:00000550       ?InterpolateTransf@_Bone@@AAEXK@Z 00401550 f i Bones.obj
+ 0001:00000710       ?VectAdd@@YAXQAM00@Z       00401710 f i Bones.obj
+ 0001:00000770       ?VectDelta@@YAXQAM00@Z     00401770 f i Bones.obj
+ 0001:000007d0       ?VectMul@@YAXQAM0M@Z       004017d0 f i Bones.obj
+ 0001:00000820       ?Identity@@YAXQAM@Z        00401820 f i Bones.obj
+ 0001:000008d0       ??0_BoneKeys@@QAE@XZ       004018d0 f   Bones.obj
+ 0001:00000920       ??1_BoneKeys@@QAE@XZ       00401920 f   Bones.obj
+ 0001:00000970       ?setAnimRelTime@_RootBone@@AAEXK@Z 00401970 f i Bones.obj
+ 0001:000009c0       ?GetIndexKey@_BoneKeys@@QAEHK@Z 004019c0 f   Bones.obj
+ 0001:00000b20       ?InitGL@@YAHXZ             00401b20 f   OpGL.obj
+ 0001:00000c20       ?DrawGLScene@@YAHXZ        00401c20 f   OpGL.obj
+ 0001:00000e70       ?ReSizeGLScene@@YAXHH@Z    00401e70 f   OpGL.obj
+ 0001:00000f20       ?DisplayGrid@@YAXMQBM@Z    00401f20 f   OpGLfunc.obj
+ 0001:000011c0       ?DisplayNormals@@YAXPAV_Skin@@M@Z 004021c0 f   OpGLfunc.obj
+ 0001:00001420       ?DisplayMesh@@YAXPAV_Skin@@@Z 00402420 f   OpGLfunc.obj
+ 0001:000015b0       ?DisplaySkel@@YAXABV_Bone@@@Z 004025b0 f   OpGLfunc.obj
+ 0001:00001830       ?InitGameData@@YA_NXZ      00402830 f   SkelDemo.obj
+ 0001:000018e0       ?DialogProc@@YGHPAUHWND__@@IIJ@Z 004028e0 f   SkelDemo.obj
+ 0001:00001a70       ?CreateGLWindow@@YAHPADHHH_N@Z 00402a70 f   SkelDemo.obj
+ 0001:00002160       ?KillGLWindow@@YAXXZ       00403160 f   SkelDemo.obj
+ 0001:00002360       _WinMain@16                00403360 f   SkelDemo.obj
+ 0001:00002530       ??0_Skin@@QAE@XZ           00403530 f   Skin.obj
+ 0001:000025f0       ??0_Skin@@QAE@PBUMRC_t@@@Z 004035f0 f   Skin.obj
+ 0001:00002840       ??1_Skin@@QAE@XZ           00403840 f   Skin.obj
+ 0001:000028f0       ??1_RootBone@@QAE@XZ       004038f0 f i Skin.obj
+ 0001:00002930       ?UpdateTempData@_Skin@@AAEHAAV_Bone@@@Z 00403930 f   Skin.obj
+ 0001:00002a60       ?Update@_Skin@@QAEHK@Z     00403a60 f   Skin.obj
+ 0001:00002ad0       _MRCLoad@4                 00403ad0 f   MRCImport:MRCimport.dll
+ 0001:00002ae0       ?MatXVect@@YAXQAM00@Z      00403ae0 f   Utils:Utils.obj
+ 0001:00002b7c       ?VectDist@@YAMQAM0@Z       00403b7c f   Utils:Utils.obj
+ 0001:00002bf9       ?Slerp@@YAXQAM0MAAY03M@Z   00403bf9 f   Utils:Utils.obj
+ 0001:00002da1       ?QuatToMatrix@@YAXQAM0@Z   00403da1 f   Utils:Utils.obj
+ 0001:00002f13       ?CpyMat@@YAXQAMQBM@Z       00403f13 f   Utils:Utils.obj
+ 0001:00002f31       ?MatrixInv@@YAXAAY0BA@MQAM@Z 00403f31 f   Utils:Utils.obj
+ 0001:000033ca       ?GetTranslation@@YAXQBMQAM@Z 004043ca f   Utils:Utils.obj
+ 0001:000033f2       ??0Clock@@QAE@XZ           004043f2 f   Utils:Utils.obj
+ 0001:0000351b       ??1Clock@@QAE@XZ           0040451b f   Utils:Utils.obj
+ 0001:0000352d       ?Update@Clock@@QAEHXZ      0040452d f   Utils:Utils.obj
+ 0001:0000374a       _GetModuleHandleA@4        0040474a f   kernel32:KERNEL32.dll
+ 0001:00003750       _QueryPerformanceFrequency@4 00404750 f   kernel32:KERNEL32.dll
+ 0001:00003756       _QueryPerformanceCounter@4 00404756 f   kernel32:KERNEL32.dll
+ 0001:0000375c       _SendMessageA@16           0040475c f   user32:USER32.dll
+ 0001:00003762       _GetDlgItem@8              00404762 f   user32:USER32.dll
+ 0001:00003768       _SetFocus@4                00404768 f   user32:USER32.dll
+ 0001:0000376e       _SetForegroundWindow@4     0040476e f   user32:USER32.dll
+ 0001:00003774       _ShowWindow@8              00404774 f   user32:USER32.dll
+ 0001:0000377a       _GetDC@4                   0040477a f   user32:USER32.dll
+ 0001:00003780       _CreateDialogParamA@20     00404780 f   user32:USER32.dll
+ 0001:00003786       _CreateWindowExA@48        00404786 f   user32:USER32.dll
+ 0001:0000378c       _AdjustWindowRectEx@16     0040478c f   user32:USER32.dll
+ 0001:00003792       _ShowCursor@4              00404792 f   user32:USER32.dll
+ 0001:00003798       _ChangeDisplaySettingsA@8  00404798 f   user32:USER32.dll
+ 0001:0000379e       _MessageBoxA@16            0040479e f   user32:USER32.dll
+ 0001:000037a4       _RegisterClassA@4          004047a4 f   user32:USER32.dll
+ 0001:000037aa       _LoadCursorA@8             004047aa f   user32:USER32.dll
+ 0001:000037b0       _LoadIconA@8               004047b0 f   user32:USER32.dll
+ 0001:000037b6       _DefWindowProcA@16         004047b6 f   user32:USER32.dll
+ 0001:000037bc       _PostQuitMessage@4         004047bc f   user32:USER32.dll
+ 0001:000037c2       _UnregisterClassA@8        004047c2 f   user32:USER32.dll
+ 0001:000037c8       _DestroyWindow@4           004047c8 f   user32:USER32.dll
+ 0001:000037ce       _ReleaseDC@8               004047ce f   user32:USER32.dll
+ 0001:000037d4       _DispatchMessageA@4        004047d4 f   user32:USER32.dll
+ 0001:000037da       _TranslateMessage@4        004047da f   user32:USER32.dll
+ 0001:000037e0       _PeekMessageA@20           004047e0 f   user32:USER32.dll
+ 0001:000037e6       _SetPixelFormat@12         004047e6 f   gdi32:GDI32.dll
+ 0001:000037ec       _ChoosePixelFormat@8       004047ec f   gdi32:GDI32.dll
+ 0001:000037f2       _SwapBuffers@4             004047f2 f   gdi32:GDI32.dll
+ 0001:000037f8       _timeGetTime@0             004047f8 f   winmm:WINMM.dll
+ 0001:000037fe       _glPopMatrix@0             004047fe f   opengl32:OPENGL32.dll
+ 0001:00003804       _glLoadIdentity@0          00404804 f   opengl32:OPENGL32.dll
+ 0001:0000380a       _glPushMatrix@0            0040480a f   opengl32:OPENGL32.dll
+ 0001:00003810       _glGetFloatv@8             00404810 f   opengl32:OPENGL32.dll
+ 0001:00003816       _glMultMatrixf@4           00404816 f   opengl32:OPENGL32.dll
+ 0001:0000381c       _glTranslatef@12           0040481c f   opengl32:OPENGL32.dll
+ 0001:00003822       _glMatrixMode@4            00404822 f   opengl32:OPENGL32.dll
+ 0001:00003828       _glEnable@4                00404828 f   opengl32:OPENGL32.dll
+ 0001:0000382e       _glClearDepth@8            0040482e f   opengl32:OPENGL32.dll
+ 0001:00003834       _glClearColor@16           00404834 f   opengl32:OPENGL32.dll
+ 0001:0000383a       _glShadeModel@4            0040483a f   opengl32:OPENGL32.dll
+ 0001:00003840       _glDisable@4               00404840 f   opengl32:OPENGL32.dll
+ 0001:00003846       _glLightfv@12              00404846 f   opengl32:OPENGL32.dll
+ 0001:0000384c       _glRotatef@16              0040484c f   opengl32:OPENGL32.dll
+ 0001:00003852       _glClear@4                 00404852 f   opengl32:OPENGL32.dll
+ 0001:00003858       _glViewport@16             00404858 f   opengl32:OPENGL32.dll
+ 0001:0000385e       _glEnd@0                   0040485e f   opengl32:OPENGL32.dll
+ 0001:00003864       _glVertex3f@12             00404864 f   opengl32:OPENGL32.dll
+ 0001:0000386a       _glBegin@4                 0040486a f   opengl32:OPENGL32.dll
+ 0001:00003870       _glColor4fv@4              00404870 f   opengl32:OPENGL32.dll
+ 0001:00003876       _glLineWidth@4             00404876 f   opengl32:OPENGL32.dll
+ 0001:0000387c       _glVertex3fv@4             0040487c f   opengl32:OPENGL32.dll
+ 0001:00003882       _glNormal3fv@4             00404882 f   opengl32:OPENGL32.dll
+ 0001:00003888       _glMaterialfv@12           00404888 f   opengl32:OPENGL32.dll
+ 0001:0000388e       _glPointSize@4             0040488e f   opengl32:OPENGL32.dll
+ 0001:00003894       _wglMakeCurrent@8          00404894 f   opengl32:OPENGL32.dll
+ 0001:0000389a       _wglCreateContext@4        0040489a f   opengl32:OPENGL32.dll
+ 0001:000038a0       _wglDeleteContext@4        004048a0 f   opengl32:OPENGL32.dll
+ 0001:000038a6       _gluPerspective@32         004048a6 f   glu32:GLU32.dll
+ 0001:000038ac       __chkesp                   004048ac f   MSVCRT:MSVCRT.dll
+ 0001:000038b2       _memcpy                    004048b2 f   MSVCRT:MSVCRT.dll
+ 0001:000038b8       ??2@YAPAXI@Z               004048b8 f   MSVCRT:MSVCRT.dll
+ 0001:000038be       ??3@YAXPAX@Z               004048be f   MSVCRT:MSVCRT.dll
+ 0001:000038d0       __assert                   004048d0 f   MSVCRT:MSVCRT.dll
+ 0001:000038d6       _sprintf                   004048d6 f   MSVCRT:MSVCRT.dll
+ 0001:000038dc       __ftol                     004048dc f   MSVCRT:MSVCRT.dll
+ 0001:000038e2       __onexit                   004048e2 f   MSVCRT:atonexit.obj
+ 0001:0000390e       _atexit                    0040490e f   MSVCRT:atonexit.obj
+ 0001:00003920       _fopen                     00404920 f   MSVCRT:MSVCRT.dll
+ 0001:00003926       _memset                    00404926 f   MSVCRT:MSVCRT.dll
+ 0001:0000392c       _WinMainCRTStartup         0040492c f   MSVCRT:crtexew.obj
+ 0001:00003a8a       _sqrt                      00404a8a f   MSVCRT:MSVCRT.dll
+ 0001:00003a90       _sin                       00404a90 f   MSVCRT:MSVCRT.dll
+ 0001:00003a96       _acos                      00404a96 f   MSVCRT:MSVCRT.dll
+ 0001:00003a9c       ___dllonexit               00404a9c f   MSVCRT:MSVCRT.dll
+ 0001:00003aa2       __exit                     00404aa2 f   MSVCRT:MSVCRT.dll
+ 0001:00003aa8       __XcptFilter               00404aa8 f   MSVCRT:MSVCRT.dll
+ 0001:00003aae       _exit                      00404aae f   MSVCRT:MSVCRT.dll
+ 0001:00003ab4       ___getmainargs             00404ab4 f   MSVCRT:MSVCRT.dll
+ 0001:00003aba       __initterm                 00404aba f   MSVCRT:MSVCRT.dll
+ 0001:00003ac0       __setdefaultprecision      00404ac0 f   MSVCRT:fp8.obj
+ 0001:00003ad2       ___setusermatherr          00404ad2 f   MSVCRT:MSVCRT.dll
+ 0001:00003ad8       __matherr                  00404ad8 f   MSVCRT:merr.obj
+ 0001:00003adb       __setargv                  00404adb f   MSVCRT:dllargv.obj
+ 0001:00003adc       ___p__commode              00404adc f   MSVCRT:MSVCRT.dll
+ 0001:00003ae2       ___p__fmode                00404ae2 f   MSVCRT:MSVCRT.dll
+ 0001:00003ae8       ___set_app_type            00404ae8 f   MSVCRT:MSVCRT.dll
+ 0001:00003aee       __except_handler3          00404aee f   MSVCRT:MSVCRT.dll
+ 0001:00003af4       __controlfp                00404af4 f   MSVCRT:MSVCRT.dll
+ 0001:00003afa       _GetStartupInfoA@4         00404afa f   kernel32:KERNEL32.dll
+ 0002:0000001c       ??_C@_0DK@OLAC@?$CIKeys?$FLtmpIndex?$FN?4mSec?$DM?$DNmSec?$CJ?$CG?$CG?$CImS@ 0040501c     Bones.obj
+ 0002:00000058       ??_C@_0GA@LCLC@c?3?2windows?2desktop?2gems2?5cd?2sour@ 00405058     Bones.obj
+ 0002:000000d8       __real@4@3ffbcccccd0000000000 004050d8     OpGL.obj
+ 0002:000000dc       ??_C@_07ICNM@FPS?3?5?$CFd?$AA@ 004050dc     OpGL.obj
+ 0002:000000e8       __real@8@4011f424000000000000 004050e8     OpGL.obj
+ 0002:00000130       __real@4@4003a000000000000000 00405130     OpGLfunc.obj
+ 0002:00000134       __real@4@3ffe8000000000000000 00405134     OpGLfunc.obj
+ 0002:00000138       ??_C@_0O@NDOH@Data?2TEST?4mrc?$AA@ 00405138     SkelDemo.obj
+ 0002:00000148       ??_C@_02JKAF@rb?$AA@       00405148     SkelDemo.obj
+ 0002:0000014c       ??_C@_06GGLN@Rotate?$AA@   0040514c     SkelDemo.obj
+ 0002:00000154       ??_C@_04DFLL@Stop?$AA@     00405154     SkelDemo.obj
+ 0002:0000015c       ??_C@_0BH@NLCL@Initialization?5Failed?4?$AA@ 0040515c     SkelDemo.obj
+ 0002:00000174       ??_C@_0CJ@NKFI@Can?8t?5Activate?5The?5GL?5Rendering?5@ 00405174     SkelDemo.obj
+ 0002:000001a0       ??_C@_0CF@PPGI@Can?8t?5Create?5A?5GL?5Rendering?5Cont@ 004051a0     SkelDemo.obj
+ 0002:000001c8       ??_C@_0BL@JMLH@Can?8t?5Set?5The?5PixelFormat?4?$AA@ 004051c8     SkelDemo.obj
+ 0002:000001e4       ??_C@_0CD@NFCF@Can?8t?5Find?5A?5Suitable?5PixelForma@ 004051e4     SkelDemo.obj
+ 0002:00000208       ??_C@_0CC@IIAP@Can?8t?5Create?5A?5GL?5Device?5Context@ 00405208     SkelDemo.obj
+ 0002:0000022c       ??_C@_0BH@GGAO@Window?5Creation?5Error?4?$AA@ 0040522c     SkelDemo.obj
+ 0002:00000244       ??_C@_0BI@BJHP@Program?5Will?5Now?5Close?4?$AA@ 00405244     SkelDemo.obj
+ 0002:0000025c       ??_C@_0FO@DPIJ@The?5Requested?5Fullscreen?5Mode?5Is@ 0040525c     SkelDemo.obj
+ 0002:000002bc       ??_C@_07ENOD@WARNING?$AA@  004052bc     SkelDemo.obj
+ 0002:000002c4       ??_C@_0CF@GABA@Failed?5To?5Register?5The?5Window?5Cl@ 004052c4     SkelDemo.obj
+ 0002:000002ec       ??_C@_05EFDD@ERROR?$AA@    004052ec     SkelDemo.obj
+ 0002:000002f4       ??_C@_0BE@GIGB@OP?5GL?5render?5screen?$AA@ 004052f4     SkelDemo.obj
+ 0002:00000308       ??_C@_0BM@KLHO@Could?5Not?5Unregister?5Class?4?$AA@ 00405308     SkelDemo.obj
+ 0002:00000324       ??_C@_0BI@IBIF@Could?5Not?5Release?5hWnd?4?$AA@ 00405324     SkelDemo.obj
+ 0002:0000033c       ??_C@_0BL@JGBH@Could?5Not?5Release?5hDLGWnd?4?$AA@ 0040533c     SkelDemo.obj
+ 0002:00000358       ??_C@_0BP@KJKC@Release?5Device?5Context?5Failed?4?$AA@ 00405358     SkelDemo.obj
+ 0002:00000378       ??_C@_0CC@IAHF@Release?5Rendering?5Context?5Failed@ 00405378     SkelDemo.obj
+ 0002:0000039c       ??_C@_0BN@KHPB@Release?5Of?5DC?5And?5RC?5Failed?4?$AA@ 0040539c     SkelDemo.obj
+ 0002:000003bc       ??_C@_0P@EIPA@SHUTDOWN?5ERROR?$AA@ 004053bc     SkelDemo.obj
+ 0002:000003cc       ??_C@_0CJ@JEDE@Can?8t?5Load?5OBJECT?5data?5from?5?4MRC@ 004053cc     SkelDemo.obj
+ 0002:000003f8       ??_C@_0CI@NKPK@Skeletal?5animation?5DEMO?5?9?5MARCO?5@ 004053f8     SkelDemo.obj
+ 0002:00000420       ??_C@_0CK@OHPN@Would?5You?5Like?5To?5Run?5In?5Fullscr@ 00405420     SkelDemo.obj
+ 0002:0000044c       ??_C@_0BC@IJJM@Start?5FullScreen?$DP?$AA@ 0040544c     SkelDemo.obj
+ 0002:00000460       __real@8@3feb8637bd05af6c6800 00405460     Utils:Utils.obj
+ 0002:00000468       __real@8@3fff8000000000000000 00405468     Utils:Utils.obj
+ 0002:00000470       __real@8@00000000000000000000 00405470     Utils:Utils.obj
+ 0002:00000478       __real@8@4008fa00000000000000 00405478     Utils:Utils.obj
+ 0002:00000480       __real@8@4013f424000000000000 00405480     Utils:Utils.obj
+ 0003:00000000       ___xc_a                    00406000     MSVCRT:cinitexe.obj
+ 0003:00000008       ___xc_z                    00406008     MSVCRT:cinitexe.obj
+ 0003:0000000c       ___xi_a                    0040600c     MSVCRT:cinitexe.obj
+ 0003:00000010       ___xi_z                    00406010     MSVCRT:cinitexe.obj
+ 0003:00000020       ?__LINE__Var@?1??GetIndexKey@_BoneKeys@@QAEHK@Z@4FA 00406020     Bones.obj
+ 0003:00000028       ?active@@3_NA              00406028     SkelDemo.obj
+ 0003:00000029       ?fullscreen@@3_NA          00406029     SkelDemo.obj
+ 0003:00000060       ___defaultmatherr          00406060     MSVCRT:merr.obj
+ 0003:000000a8       ?t@@3VClock@@A             004060a8     SkelDemo.obj
+ 0003:000000e8       ?keys@@3PA_NA              004060e8     SkelDemo.obj
+ 0003:000001e8       ?pSkin@@3PAV_Skin@@A       004061e8     SkelDemo.obj
+ 0003:000001f0       ?hInstance@@3PAUHINSTANCE__@@A 004061f0     SkelDemo.obj
+ 0003:000001f4       ?hDC@@3PAUHDC__@@A         004061f4     SkelDemo.obj
+ 0003:000001f8       ?hRC@@3PAUHGLRC__@@A       004061f8     SkelDemo.obj
+ 0003:000001fc       ?hWnd@@3PAUHWND__@@A       004061fc     SkelDemo.obj
+ 0003:00000200       ?hDLGWnd@@3PAUHWND__@@A    00406200     SkelDemo.obj
+ 0003:00000204       ?normals@@3_NA             00406204     SkelDemo.obj
+ 0003:00000205       ?skel@@3_NA                00406205     SkelDemo.obj
+ 0003:00000206       ?rotate@@3_NA              00406206     SkelDemo.obj
+ 0003:00000208       __dowildcard               00406208     MSVCRT:wildcard.obj
+ 0003:0000020c       __newmode                  0040620c     MSVCRT:_newmode.obj
+ 0003:00000210       __commode                  00406210     MSVCRT:xncommod.obj
+ 0003:00000214       __fmode                    00406214     MSVCRT:xtxtmode.obj
+ 0003:00000218       __adjust_fdiv              00406218     <common>
+ 0003:0000021c       ___onexitend               0040621c     <common>
+ 0003:00000220       ___onexitbegin             00406220     <common>
+ 0004:00000000       __IMPORT_DESCRIPTOR_MRCimport 00407000     MRCImport:MRCimport.dll
+ 0004:00000014       __IMPORT_DESCRIPTOR_KERNEL32 00407014     kernel32:KERNEL32.dll
+ 0004:00000028       __IMPORT_DESCRIPTOR_USER32 00407028     user32:USER32.dll
+ 0004:0000003c       __IMPORT_DESCRIPTOR_GDI32  0040703c     gdi32:GDI32.dll
+ 0004:00000050       __IMPORT_DESCRIPTOR_WINMM  00407050     winmm:WINMM.dll
+ 0004:00000064       __IMPORT_DESCRIPTOR_OPENGL32 00407064     opengl32:OPENGL32.dll
+ 0004:00000078       __IMPORT_DESCRIPTOR_GLU32  00407078     glu32:GLU32.dll
+ 0004:0000008c       __IMPORT_DESCRIPTOR_MSVCRT 0040708c     MSVCRT:MSVCRT.dll
+ 0004:000000a0       __NULL_IMPORT_DESCRIPTOR   004070a0     MRCImport:MRCimport.dll
+ 0004:00000234       __imp__SwapBuffers@4       00407234     gdi32:GDI32.dll
+ 0004:00000238       __imp__ChoosePixelFormat@8 00407238     gdi32:GDI32.dll
+ 0004:0000023c       __imp__SetPixelFormat@12   0040723c     gdi32:GDI32.dll
+ 0004:00000240       \177GDI32_NULL_THUNK_DATA  00407240     gdi32:GDI32.dll
+ 0004:00000244       __imp__gluPerspective@32   00407244     glu32:GLU32.dll
+ 0004:00000248       \177GLU32_NULL_THUNK_DATA  00407248     glu32:GLU32.dll
+ 0004:0000024c       __imp__GetModuleHandleA@4  0040724c     kernel32:KERNEL32.dll
+ 0004:00000250       __imp__QueryPerformanceFrequency@4 00407250     kernel32:KERNEL32.dll
+ 0004:00000254       __imp__QueryPerformanceCounter@4 00407254     kernel32:KERNEL32.dll
+ 0004:00000258       __imp__GetStartupInfoA@4   00407258     kernel32:KERNEL32.dll
+ 0004:0000025c       \177KERNEL32_NULL_THUNK_DATA 0040725c     kernel32:KERNEL32.dll
+ 0004:00000260       __imp__MRCLoad@4           00407260     MRCImport:MRCimport.dll
+ 0004:00000264       \177MRCimport_NULL_THUNK_DATA 00407264     MRCImport:MRCimport.dll
+ 0004:00000268       __imp____setusermatherr    00407268     MSVCRT:MSVCRT.dll
+ 0004:0000026c       __imp___initterm           0040726c     MSVCRT:MSVCRT.dll
+ 0004:00000270       __imp____getmainargs       00407270     MSVCRT:MSVCRT.dll
+ 0004:00000274       __imp___acmdln             00407274     MSVCRT:MSVCRT.dll
+ 0004:00000278       __imp____p__fmode          00407278     MSVCRT:MSVCRT.dll
+ 0004:0000027c       __imp___adjust_fdiv        0040727c     MSVCRT:MSVCRT.dll
+ 0004:00000280       __imp____dllonexit         00407280     MSVCRT:MSVCRT.dll
+ 0004:00000284       __imp____set_app_type      00407284     MSVCRT:MSVCRT.dll
+ 0004:00000288       __imp___onexit             00407288     MSVCRT:MSVCRT.dll
+ 0004:0000028c       __imp____p__commode        0040728c     MSVCRT:MSVCRT.dll
+ 0004:00000290       __imp__acos                00407290     MSVCRT:MSVCRT.dll
+ 0004:00000294       __imp__sin                 00407294     MSVCRT:MSVCRT.dll
+ 0004:00000298       __imp__sqrt                00407298     MSVCRT:MSVCRT.dll
+ 0004:0000029c       __imp__memset              0040729c     MSVCRT:MSVCRT.dll
+ 0004:000002a0       __imp__fopen               004072a0     MSVCRT:MSVCRT.dll
+ 0004:000002a4       __imp___ftol               004072a4     MSVCRT:MSVCRT.dll
+ 0004:000002a8       __imp__sprintf             004072a8     MSVCRT:MSVCRT.dll
+ 0004:000002ac       __imp___except_handler3    004072ac     MSVCRT:MSVCRT.dll
+ 0004:000002b0       __imp___controlfp          004072b0     MSVCRT:MSVCRT.dll
+ 0004:000002b4       __imp___exit               004072b4     MSVCRT:MSVCRT.dll
+ 0004:000002b8       __imp_??2@YAPAXI@Z         004072b8     MSVCRT:MSVCRT.dll
+ 0004:000002bc       __imp_??3@YAXPAX@Z         004072bc     MSVCRT:MSVCRT.dll
+ 0004:000002c0       __imp__exit                004072c0     MSVCRT:MSVCRT.dll
+ 0004:000002c4       __imp___XcptFilter         004072c4     MSVCRT:MSVCRT.dll
+ 0004:000002c8       __imp___assert             004072c8     MSVCRT:MSVCRT.dll
+ 0004:000002cc       __imp__memcpy              004072cc     MSVCRT:MSVCRT.dll
+ 0004:000002d0       __imp___chkesp             004072d0     MSVCRT:MSVCRT.dll
+ 0004:000002d4       \177MSVCRT_NULL_THUNK_DATA 004072d4     MSVCRT:MSVCRT.dll
+ 0004:000002d8       __imp__glGetFloatv@8       004072d8     opengl32:OPENGL32.dll
+ 0004:000002dc       __imp__glMatrixMode@4      004072dc     opengl32:OPENGL32.dll
+ 0004:000002e0       __imp__glEnable@4          004072e0     opengl32:OPENGL32.dll
+ 0004:000002e4       __imp__glClearDepth@8      004072e4     opengl32:OPENGL32.dll
+ 0004:000002e8       __imp__glClearColor@16     004072e8     opengl32:OPENGL32.dll
+ 0004:000002ec       __imp__glShadeModel@4      004072ec     opengl32:OPENGL32.dll
+ 0004:000002f0       __imp__glDisable@4         004072f0     opengl32:OPENGL32.dll
+ 0004:000002f4       __imp__glPushMatrix@0      004072f4     opengl32:OPENGL32.dll
+ 0004:000002f8       __imp__glRotatef@16        004072f8     opengl32:OPENGL32.dll
+ 0004:000002fc       __imp__glClear@4           004072fc     opengl32:OPENGL32.dll
+ 0004:00000300       __imp__glViewport@16       00407300     opengl32:OPENGL32.dll
+ 0004:00000304       __imp__glEnd@0             00407304     opengl32:OPENGL32.dll
+ 0004:00000308       __imp__glMultMatrixf@4     00407308     opengl32:OPENGL32.dll
+ 0004:0000030c       __imp__glTranslatef@12     0040730c     opengl32:OPENGL32.dll
+ 0004:00000310       __imp__glColor4fv@4        00407310     opengl32:OPENGL32.dll
+ 0004:00000314       __imp__glLineWidth@4       00407314     opengl32:OPENGL32.dll
+ 0004:00000318       __imp__glVertex3fv@4       00407318     opengl32:OPENGL32.dll
+ 0004:0000031c       __imp__glNormal3fv@4       0040731c     opengl32:OPENGL32.dll
+ 0004:00000320       __imp__glMaterialfv@12     00407320     opengl32:OPENGL32.dll
+ 0004:00000324       __imp__glPointSize@4       00407324     opengl32:OPENGL32.dll
+ 0004:00000328       __imp__wglMakeCurrent@8    00407328     opengl32:OPENGL32.dll
+ 0004:0000032c       __imp__wglCreateContext@4  0040732c     opengl32:OPENGL32.dll
+ 0004:00000330       __imp__wglDeleteContext@4  00407330     opengl32:OPENGL32.dll
+ 0004:00000334       __imp__glLoadIdentity@0    00407334     opengl32:OPENGL32.dll
+ 0004:00000338       __imp__glPopMatrix@0       00407338     opengl32:OPENGL32.dll
+ 0004:0000033c       __imp__glVertex3f@12       0040733c     opengl32:OPENGL32.dll
+ 0004:00000340       __imp__glBegin@4           00407340     opengl32:OPENGL32.dll
+ 0004:00000344       __imp__glLightfv@12        00407344     opengl32:OPENGL32.dll
+ 0004:00000348       \177OPENGL32_NULL_THUNK_DATA 00407348     opengl32:OPENGL32.dll
+ 0004:0000034c       __imp__RegisterClassA@4    0040734c     user32:USER32.dll
+ 0004:00000350       __imp__LoadCursorA@8       00407350     user32:USER32.dll
+ 0004:00000354       __imp__PeekMessageA@20     00407354     user32:USER32.dll
+ 0004:00000358       __imp__TranslateMessage@4  00407358     user32:USER32.dll
+ 0004:0000035c       __imp__DispatchMessageA@4  0040735c     user32:USER32.dll
+ 0004:00000360       __imp__ReleaseDC@8         00407360     user32:USER32.dll
+ 0004:00000364       __imp__DestroyWindow@4     00407364     user32:USER32.dll
+ 0004:00000368       __imp__UnregisterClassA@8  00407368     user32:USER32.dll
+ 0004:0000036c       __imp__PostQuitMessage@4   0040736c     user32:USER32.dll
+ 0004:00000370       __imp__DefWindowProcA@16   00407370     user32:USER32.dll
+ 0004:00000374       __imp__LoadIconA@8         00407374     user32:USER32.dll
+ 0004:00000378       __imp__GetDlgItem@8        00407378     user32:USER32.dll
+ 0004:0000037c       __imp__SendMessageA@16     0040737c     user32:USER32.dll
+ 0004:00000380       __imp__MessageBoxA@16      00407380     user32:USER32.dll
+ 0004:00000384       __imp__ChangeDisplaySettingsA@8 00407384     user32:USER32.dll
+ 0004:00000388       __imp__ShowCursor@4        00407388     user32:USER32.dll
+ 0004:0000038c       __imp__AdjustWindowRectEx@16 0040738c     user32:USER32.dll
+ 0004:00000390       __imp__CreateWindowExA@48  00407390     user32:USER32.dll
+ 0004:00000394       __imp__CreateDialogParamA@20 00407394     user32:USER32.dll
+ 0004:00000398       __imp__GetDC@4             00407398     user32:USER32.dll
+ 0004:0000039c       __imp__ShowWindow@8        0040739c     user32:USER32.dll
+ 0004:000003a0       __imp__SetForegroundWindow@4 004073a0     user32:USER32.dll
+ 0004:000003a4       __imp__SetFocus@4          004073a4     user32:USER32.dll
+ 0004:000003a8       \177USER32_NULL_THUNK_DATA 004073a8     user32:USER32.dll
+ 0004:000003ac       __imp__timeGetTime@0       004073ac     winmm:WINMM.dll
+ 0004:000003b0       \177WINMM_NULL_THUNK_DATA  004073b0     winmm:WINMM.dll
+
+ entry point at        0001:0000392c
+
+ Static symbols
+
+ 0001:00001730       _$E4                       00402730 f   SkelDemo.obj
+ 0001:00001770       _$E1                       00402770 f   SkelDemo.obj
+ 0001:000017b0       _$E3                       004027b0 f   SkelDemo.obj
+ 0001:000017f0       _$E2                       004027f0 f   SkelDemo.obj
+ 0001:00002020       ?WndProc@@YGJPAUHWND__@@IIJ@Z 00403020 f   SkelDemo.obj
+ 0001:00000ac0       ?SearchRootIdx@@YAHPBUMRC_t@@@Z 00401ac0 f   Bones.obj
+
+FIXUPS: 3f2b 95 402 8f c2 54 130 5f 4c 389 fffffecc 19 f 33 6a 1b fffffe8f
+FIXUPS: 4913 ffffcb7f 11 d 43 3b f 62 88 14 14 18 13 12 1b 16 1b f 10 1bd
+FIXUPS: 18c7 8d 10 13a 10 2133 10 dc 13 1d 1a 82 188 ffffdfe8 d fffff10b
+FIXUPS: 104b 37 10 2b 38 f f 12 f d 36 1f f 27 3b 30 f 5d 2c 16 f 16 30
+FIXUPS: 136f 33 35 25 2d 4b 721 14 f 14 f 14 14 12 68 1d 1b 1f 2d b c f
+FIXUPS: 1d42 1d f 21 1f 1f f 17 e 1f 12 30 4a 14 f 26 511 d 56 1d 48 24
+FIXUPS: 2517 25 25 25 14 d 2d 17 11 14 13 f 14 14 14 35 14 13 13 f 12 1c
+FIXUPS: 2727 fffff421 23 16 4af 46 1f 25 f 19 14 11 17 1d 17 1d f 14 14
+FIXUPS: 21b3 59 14 11 48 22 25 16 25 23 26 16 25 23 26 16 14 e04 21 2f
+FIXUPS: 3267 29 21 29 21 24 21 17 41 28 13 26 31 26 13 2f 5 16 18 2e 15
+FIXUPS: 3518 ffffea46 17 14 13 41 1f 25 d11 e2 13 1d 22 e 1d 25 9 1d 1d
+FIXUPS: 2f0c 1d 23 9 1d 1f 16 15 5 9 1d 11 18 d0 41 26 d 3e 11 1c 21 fffff57b
+FIXUPS: 278e d 33 10 30 d 45 16 17 18 24 c2 36 52 1e 16 16 61 41 19 2b
+FIXUPS: 2b69 29 47 21 2b 31 2d 4b 34 13 83f 88 3c 6b 35 33 27 35 33 5a
+FIXUPS: 3806 12 10 52 24 24 e d 34 d 85 17 1e 34 39 f 34 1e 12 d ffffec84
+FIXUPS: 274e

@@ -1,0 +1,13 @@
+\Bin
+  Pre-built executable and sample Lua scripts.
+
+\Lua5
+  Pre-built Lua libraries and headers.
+
+\LuaManager
+  Sample Lua script management framework source code
+  and Visual Studio 6 project.
+
+Lua-5.0.2.tar.gz
+  Latest Lua distribution (March 17, 2004)
+  See www.lua.org for more information.

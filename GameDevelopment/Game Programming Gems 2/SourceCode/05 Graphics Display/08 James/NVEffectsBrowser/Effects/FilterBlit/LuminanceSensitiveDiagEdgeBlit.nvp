@@ -1,0 +1,54 @@
+/************************************************************************
+LuminanceSensitiveDiagEdgeBlit.nvp
+
+This pixel shader detects and displays edges.  It assumes the same 
+texture is sampled with appropriate offsets at all four texture units.
+An edge is detected if the difference of the diagonally-opposed samples
+is larger then some threshold.  The edge-information is blended with the 
+luminance-converted image.
+
+Algorithm:
+- sample all four texture stages
+- convert color-samples to luminance-values
+- computes the diagonal differences
+- square each difference (it is easier than abs())
+- add the two differences
+- multiply the result by large number to make visible
+- Invert the result to display edges black on white
+- Multiply edge-image with the luminance values 
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+; Declare pixel shader version
+ps.1.1
+
+; declare constants:
+def c1, 0.3f, 0.59f, 0.11f, 0.0f    ; luminance conversion constant
+
+; get colors from all 4 texture stages
+tex t0
+tex t1
+tex t2
+tex t3
+
+dp3    r0.rgba, t0, c1		// convert t0 color to luminance, store in r0.a
+dp3    r1.rgba, t2, c1		// convert t2 color to luminance, store in r1.a
+
+dp3    r0.rgb, t1, c1		// convert t1 color to luminance, store in r0.rgb
+dp3    r1.rgb, t3, c1		// convert t3 color to luminance, store in r1.rgb
+
+; Both .rgb and .a pipes are used in the following
+sub_x4 r0, r0, r1		    // take both differences   (and keep oversaturating the colors)
+mul_x2 r0, r0, r0		    // square both differences (instead of abs())
+
+; Recombine .rgb and .a values
+sub_sat    r0, 1-r0, r0.a	// invert and add the 2 components:
+                            // 1 - (r0.a + r0.rgb) = (1 - r0.a) - r0.rgb
+mul_x2_sat r0, r0, r1	    // and multiply with luminance for final result 
+                            // (brighten it a bit to bring out edges more)
+
+
+
+
+

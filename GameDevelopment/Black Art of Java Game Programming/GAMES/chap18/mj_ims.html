@@ -1,0 +1,352 @@
+<html>
+<head>
+<center>
+<title> Intro. to IMS </title>
+<h1> The Internet MahJong Server (0.21): 
+<br>
+An Introduction </h1>
+Copyright &#169 1996 Thomas Zuwei Feng
+</center>
+</head>
+<body>
+<ul>
+<li>	<a href="#WhatIs">What is IMS?</a>
+<li>	<a href="#Connect">Connecting to a Server</a>
+<li>	<a href="#Login">Logging In</a>
+<li>	<a href="#Overview">Overview of the IMS Console Window</a>
+<li>	<a href="#Comm">Communicating with Other Players</a>
+<li>	<a href="#Player">Player Information</a>
+<li>	<a href="#Table">MahJong Tables</a>
+<li>	<a href="#Desktop">Desktop of a MahJong Table</a>
+<li>	<a href="#Pref">User Preferences</a>
+<li>	<a href="#Finale">Final Words</a>
+</ul>
+<hr>
+<a name="WhatIs"></a>
+<h2> What is the Internet MahJong Server? </h2>
+The Internet MahJong Server (IMS) is a software package that provides
+virtual gambling rooms for the popular Chinese tile game MahJong.
+<p>
+IMS requires minimal computer knowledge to connect and play.
+All you need is a Web browser that understands 
+<a href="http://java.sun.com/">Java</a>, for example, the
+<a href="http://www.netscape.com/comprod/mirror/index.html">
+Netscape Navigator</a>.
+<p>
+IMS provides functionality comparable to OKbridge, the GO servers, the
+Chess servers, and other Internet game sites.
+There is full support for playing MahJong games, observing games,
+and communicating with other players.
+The server keeps track of each player's score, along with his
+personal information.
+<p>
+IMS does all this with an intuitive graphical user interface.
+In this 0.2 version, it has been beefed up to be comparable to 
+commercial applications.
+
+<a name="Connect"></a>
+<h2> Connecting to a Server </h2>
+To start, you are advised to go to the
+<a href="http://www.math.princeton.edu/~ztfeng/mj_servers.html">
+Internet MahJong Meta-Server</a>.
+There you will find a list of all public MahJong servers, their URL,
+and brief descriptions about them.
+Choose a site nearest to you, and click on the link to go there.
+<p>
+Typically, you'll be greeted by the main Web page of that server.
+It will present to you various information relevant to MahJong in
+general and that server in particular.
+Most importantly, your Web browser will start loading a Java applet,
+the <B>client</B>.
+It may take a while, but eventually you will see a big button on the
+Web page, labeled <B>Connect NOW!</B>.
+
+<a name="Login">
+<h2> Logging in to the Server </h2>
+Click on the <B>Connect NOW!</B> button.
+The client will now actually make the connection to the MahJong server,
+and present you with a login window.
+<p>
+Now it's time to think for a name you wish to use on IMS.
+It could be anything, so use your imagination!
+Also think for a password that you can remember, but is hard to guess.
+<p>
+<B>Important</B>: since the password is currently stored in a database on
+the server <B>without</B> encription, your password is readable by the
+server administrator and perhaps other people on the machine on which 
+the server is running.  <B>DO NOT</B> use the password for any of your
+computer accounts!
+<p>
+Now, type in your name and password.  If this is the first time you login
+on this server, click on the <B>New Player</B> button.  Otherwise, click on
+the <B>Login</B> button.
+<p>
+Your login request may be rejected due to one of the following reasons:
+<ul>
+<li>	If you clicked on <B>New Player</B>, but there is already a player
+	with your name in the server's player database.
+<li>	If you clicked on <B>Login</B>, but you haven't logged in to this
+	server with this name before.
+<li>	If you clicked on <B>Login</B>, but supplied a bad password.
+<li>	If there is already a player logged in to this server with the
+	name you have chosen.  If you were logged in and had a broken
+	connection, your slot will be cleared after about 2 minutes.
+</ul>
+
+<a name="Overview"></a>
+<h2> Overview of the IMS Console Window </h2>
+This is what a typical IMS console window looks like (snapshot taken with
+Netscape Navigator 2.0 for X Window):
+<br>
+<center>
+<img src="images/mj_view.gif">
+</center>
+<p>
+In the top half of the window, you will find a <B>player list</B> in the
+upper left corner, a <B>table list</B> in the upper right corner,
+a <B>message panel</B> immediately below them, 
+the <B>message text field</B>, and a bunch of buttons.
+This portion of the window is called the <B>console</B>.
+<p>
+Below the console is the <B>desktop</B> of your MahJong table.
+When you first login, you are not on any table, so the desktop should
+look pretty much empty.
+<p>
+On the very top of the window, you will find a menu bar containing
+the following items:
+<ul>
+<li>	<B>File</B>.  This menu has a single choice: <B>Quit</B>.  This is
+	how you leave the server.  As a courtesy to your fellow players,
+	please do not quit while in the middle of a game.
+<li>	<a href="#Player"><B>Players</B></a>.  
+	Here you can choose to change your password, or obtain personal
+	information of other players currently on the server.
+<li>	<a href="#Table"><B>Table</B></a>.  
+	This is where you serve a new table, or join an
+	existing one.  You can also set some options for your table.
+<li>	<B>Preferences</B>.  You can configure your client here.
+<li>	<B>Help</B>.  Ask for help.  This will usually bring up help
+	documents in your Web browser, so you need to read them there.
+</ul>
+
+<a name="Comm"></a>
+<h2> Communicating with Other Players </h2>
+You may send messages to everyone on the server, everyone on your table,
+or to the server administrator ("God").  You choose the destination of
+your message in the multiple choice button right next to the
+message text field.  You cannot send messages to individual players.
+This makes cheating harder.
+<p>
+Now, simply type your message in the message text field, and press the
+<B>return</B> key, or the <B>Send</B> button.  It is as simple as that.
+If you mess up and want to start over, simply click on the <B>Clear</B>
+button.
+<p>
+Messages sent to you will be accumulated in the big message panel.  If it
+gets too full, you can click on the <B>Purge</B> button to clear the entire
+message panel.
+
+<a name="Player"></a>
+<h2> Player Information </h2>
+The player list in the upper left corner of the console window
+shows a list of all players currently on the server.
+Each row in the list corresponds to a player.
+The columns from left to right show the player ID, name, total score,
+table ID, and host machine.
+<p>
+In the <B>Players</B> menu, choose <B>Finger</B> to bring up a finger
+information window.
+<p>
+There are several ways to finger a player.
+The quickiest is double-clicking on his entry in the player list.
+This also brings up the finger information window automatically.
+Or, click on his entry and choose <B>Finger</B> from the <B>Players</B> menu.
+You can also type his ID in the ID# text field of the finger information
+window, and click on <RETURN> or click on the <B>Finger</B> button.
+<p>
+You will now see his E-mail address, home page URL, and a "plan".
+Of course, you won't see anything but empty space if that player hadn't
+put these information there!
+<p>
+To update your own information so that other players can see it,
+click on <B>Finger self</B>.
+Now you will see your own information, and you will be able to edit it.
+When you are done, click on <B>Update self</B> to store the updated information
+on the server.
+<p>
+<B>Important</B>: The finger information takes up space on the server side,
+and network bandwidth every time a finger request is processed.  Please
+keep your finger information brief, and don't flood the server with finger
+requests!
+<p>
+You can also change your password.  In the <B>Players</B> menu, choose
+<B>Change Password</B>.  This will bring up a dialog window.
+Type in your old password, and your new password twice, and click on
+<B>OK</B>.  The change takes effect immediately.
+
+<a name="Table"></a>
+<h2> MahJong Tables </h2>
+MahJong games are played on <B>tables</B>, with 4 <B>players</B>.
+A table can also have several <B>spectators</B> who only observe the game.
+<p>
+There is a table list in the upper right corner of the console window.
+Each row in the list corresponds to a table.
+The columns from left to right show the table ID, 
+a brief description its options (see below),
+and the IDs of its players.
+<p>
+Table options affect (to some minor extent) how games are played and
+how scores are calculated.  Basic rules and the scoring system are
+the same across tables, these options only provide minor variations.
+See <a href="mj_rules.html#Opts">MahJong Rules: IMS Table Opotions</a> 
+for a description of these options.
+<p>
+In the <B>Table</B> menu, select <B>Info</B> to bring up a
+table information window.
+Type an ID in its ID# field to get the information of that table.
+Double-clicking a table entry in the table list has the same effect.
+The table information window shows in detail that table's options,
+the IDs and names of players on that table,
+tells you which table you are on, and also gives you the ability to
+join, serve, or leave tables, or to change your table's options.
+<p>
+To serve a new table, either select <B>Serve</B> from the <B>Table</B> menu,
+or click on the <B>Serve</B> button in the table information window.  
+You will be seated in the special seat for the creator of the table.
+Only you (or the one that replaces you when you leave your table) have the
+privilege to set or change that table's options.
+<p>
+You may make changes to your table's options in the table information window.
+Clicking on the "Apply" button applies your changes to the table.
+Note that only the creator can change options, and then only when no
+game is in progress.
+<p>
+You may also serve a private table.  To do so, send the command
+<TT><B>/serve</B></TT> as a message to God (the server administrator).
+Send <TT><B>/invite 3</B></TT> to God to invite player #3, and
+<TT><B>/invite -3</B></TT> to uninvite him again.
+To invite or uninvite several players, put all their ID numbers after the
+<TT><B>/invite</B></TT> command, with a <TT><B>-</B></TT> sign to uninvite.
+The server will send a message to invited players asking them to join
+your table.  Whether they do so is entirely up to them.
+Only invited players can join your private table to play, but anyone can join
+to observe.
+<p>
+To join an existing table, select <B>Join</B> from the <B>Table</B> menu,
+or click on the <B>Join</B> button in the table information window.
+This brings up a dialog window.  Type in the ID number of the table you 
+want to join.  The client may have put a default ID number there (the table
+you currently have info on).  
+To join the table as a spector (for watching others play), choose
+<B>Spectator</B> instead of the default <B>Player</B>.  Now click on the
+<B>Join</B> button.  Your join table request may be denied if the table
+is full, or is a private one and you aren't invited.  If your join request
+is successful, you will be assigned a random seat.  However, if the original
+creator of the table has left, then you will always take his seat even if
+there are other open seats.
+<p>
+To leave a table, select <B>Leave</B> in the <B>Table</B> menu,
+or click on the <B>Leave</B> button in the table information window.
+As a courtesy to the other players, please finish your current game before
+leaving your table.  There is a 5 point penalty for being the first to
+leave a table with a game in progress. Also, please don't "hog" a table.  
+If there is a game in progress and you are idle for 2 minutes, 
+the server will automatically kick you off the table and 
+give you a 5 point penalty.
+
+<a name="Desktop"></a>
+<h2> Desktop of a MahJong Table </h2>
+This section is best read together with
+<a href="mj_rules.html">MahJong Rules</a>.
+<p>
+The desktop window is a graphic representation of your MahJong table.
+<p>
+There are 5 large gray areas that are used to show tiles.
+If you are playing the game, your private, concealed tiles will always
+be shown in the long gray area at the bottom.  You can arrange these tiles
+by clicking and dragging.  The tiles that you reveal in the process of the 
+game will be displayed in the gray area just above your private tiles.
+The other 3 gray areas display tiles (concealed and revealed) of the other
+3 players.  Their private, concealed tiles will only show up with a gray
+shade, so you can only see their revealed tiles.  You cannot arrange any
+revealed tiles of your own nor any tiles of the other players.
+<p>
+In the center of the desktop you'll find a small gray area.  This place
+is for tiles that players discard during the game.  It only has space for
+the most recently discarded tile (the tile in auction).  Previously discarded
+tiles go into the <B>tile pool</B> window.  You can bring this window up
+by selecting <B>Show Pool</B> in the <B>Table</B> menu.
+<p>
+Around the central gray area you will find labels that show you the name,
+score, and seat wind of all the players on your table.  Note that the
+<B>seat wind</B> is a MahJong jargon, it actually rotates in the reverse order
+of the compass directions.
+<p>
+If you are a spectator, then the positions of the 4 players' tiles will
+change from game to game.  The <B>dealer</B> (with seat wind <B>east</B>)
+for any particular game will always be displayed at the bottom.
+<p>
+In the middle of the desktop window you will also find text labels that 
+display the options of the table, the round wind of the game,
+the number of tiles left in the game, and explanations of what is going on.
+These should make sense once you know the rules of MahJong.
+<p>
+At the very bottom of the desktop window, you will find a row of buttons.
+Among those, <B>Show Pool</B> brings up the tile pool window, <B>Sort</B>
+sorts your private tiles.  The other buttons all correspond to particular
+actions you can make during the course of a MahJong game.  They are
+described in <a href="mj_rules.html#Game">MahJong Rules: A MahJong Game</a>.
+<p>
+There is a Duke figure and an <B>Urge</B> button to the left and right of
+the long gray area near the bottom of the desktop window.
+When there is a game in progress, you may click on the <B>Urge</B> button to
+ask them to hurry up.
+If your urge request is accepted, everyone on the table will be alerted.
+The alert takes in the form of the Duke waving at you, and (depending on
+the system configuration) a "cuckoo" sound.
+<p>
+For players with a small monitor, the desktop window can be detached from
+the main console window by selecting <B>Split Desktop</B> from the
+<B>Preferences</B> menu.
+
+<a name="Pref"></a>
+<h2> User Preferences </h2>
+You can configure the appearance of your client to suit your hardware or
+personal taste, and save it on the server so your client looks the same
+the next time you login.
+<p>
+You can set the number of rows and columns used by the player list, table
+list, and message panels.  To do so, simply select <B>Set Geometry</B> in
+the <B>Preferences</B> menu to bring up the dialog window, enter your
+desired values, and click on <B>Apply</B>.
+<p>
+IMS keeps track of 3 fonts, the <B>label font</B>, the <B>message font</B>,
+and the <B>button font</b>.  They are used in many (but not all) text labels,
+the player and table lists, the message windows, and the game action buttons.
+You can change the font family, size, and style of these 3 fonts by selecting
+the appropriate item in the <B>Preferences</B> menu.  This will bring up a
+dialog window with the family, size, and style of the font.  You may make
+your choice and click on <B>Apply</B> to see the effects.
+<p>
+Finally, select <B>Save Preferences</B> in the <B>Preferences</B> menu to
+save your configuration on the server.
+
+<a name="Finale"></a>
+<h2> Final Words </h2>
+The Internet MahJong Servers are social centers.  Please be kind to observe
+the usual etiquettes.  Let's cooperate with each other to make the MahJong
+servers a comfortable cyberhome for you and other MahJong lovers.
+<p>
+Happy MahJonging!
+
+<hr>
+</body>
+<center>
+|<a href="http://www.math.princeton.edu/~ztfeng/mj_servers.html">Meta-Server</a>
+|<a href="copyright.html">Copyright</a>
+|<a href="mj_ims.html">Introduction</a>
+|<a href="mj_rules.html">MahJong Rules</a>
+|<a href="mj_new.html">What's New</a>
+|
+</center>
+</html>

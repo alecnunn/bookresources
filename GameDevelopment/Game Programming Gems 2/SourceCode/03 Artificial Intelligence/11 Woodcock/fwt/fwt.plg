@@ -1,0 +1,53 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: fwt - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPD2D1.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/fwt.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\11 Woodcock\fwt\CBoid.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\11 Woodcock\fwt\CBox.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\11 Woodcock\fwt\CFlock.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\11 Woodcock\fwt\CObstacle.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\11 Woodcock\fwt\main.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\11 Woodcock\fwt\mtxlib.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\11 Woodcock\fwt\myprintf.c"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\11 Woodcock\fwt\vector.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPD2D1.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPD2D2.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib winmm.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/fwt.pdb" /debug /machine:I386 /out:"Debug/fwt.exe" /pdbtype:sept /libpath:"d:\gamegems2\code\libs" 
+".\Debug\CBoid.obj"
+".\Debug\CBox.obj"
+".\Debug\CFlock.obj"
+".\Debug\CObstacle.obj"
+".\Debug\main.obj"
+".\Debug\mtxlib.obj"
+".\Debug\myprintf.obj"
+".\Debug\vector.obj"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPD2D2.TMP"
+<h3>Output Window</h3>
+Compiling...
+CBoid.cpp
+CBox.cpp
+CFlock.cpp
+CObstacle.cpp
+main.cpp
+mtxlib.cpp
+myprintf.c
+vector.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+fwt.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

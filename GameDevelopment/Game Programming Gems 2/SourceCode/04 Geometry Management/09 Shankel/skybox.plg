@@ -1,0 +1,32 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: skybox - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPB313.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\09 Shankel\main.c"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPB313.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPB314.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib glut32.lib glu32.lib opengl32.lib glaux.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/skybox.pdb" /debug /machine:I386 /out:"Debug/skybox.exe" /pdbtype:sept 
+".\Debug\main.obj"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPB314.TMP"
+<h3>Output Window</h3>
+Compiling...
+main.c
+Linking...
+
+
+
+<h3>Results</h3>
+skybox.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

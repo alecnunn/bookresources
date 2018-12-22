@@ -1,0 +1,500 @@
+
+
+
+CGASignal  Flap1
+{
+	File = "noiseflap02.wav";
+}
+
+CGASignal  Flap2
+{
+	File = "noiseflap04.wav";
+}
+
+CGAPatch "Triggered Flap"
+{
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 2;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+
+
+}
+
+
+
+CGAPatch "Flanging Flap Delay modulated by LFO"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 8;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGADelay Delay1
+	{
+		Delay= 0.004;
+	}
+
+	CGAMixer2 Mix1
+	{
+		InputGain1 = 0.9;
+		InputGain2 = 0.9;
+	}
+
+	Connection = LFO1,Delay1, SampleOut, Delay;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Wave1,Delay1, SampleOut, SampleIn;
+	Connection = Delay1,Mix1, SampleOut, SampleIn1;
+	Connection = Wave1,Mix1, SampleOut, SampleIn2;
+}
+
+CGAPatch "Flanging with 2 flaps, LFOs "
+{
+
+	CGASineOscillator LFO1
+	{
+		Frequency = 2;
+	}
+	
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 8;
+		FMAttenuation = 0.001;
+	}
+
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGASineOscillator LFO2
+	{
+		Frequency = 2.01;
+	}
+
+	CGAImpulseGenerator Trigger2
+	{
+		Frequency = 8.0;
+		FMAttenuation = 0.001;
+	}
+
+	CGAWavetableOscillator Wave2
+	{
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGAMixer2 Mix1
+	{
+	}
+
+	Connection = LFO1,Trigger1, SampleOut, FM;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = LFO2,Trigger2, SampleOut, FM;
+	Connection = Trigger2,Wave2, SampleOut, TRIG;
+
+	Connection = Wave1,Mix1, SampleOut, SampleIn1;
+	Connection = Wave2,Mix1, SampleOut, SampleIn2;
+
+}
+
+CGAPatch "Flanging with 2 flaps, LFOs+Random "
+{
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGASineOscillator LFO1
+	{
+		Frequency = 2;
+	}
+	
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 8;
+		FMAttenuation = 0.001;
+	}
+
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGASineOscillator LFO2
+	{
+		Frequency = 2.01;
+		FMAttenuation = 0.1;
+	}
+
+
+	CGAImpulseGenerator Trigger2
+	{
+		Frequency = 8.0;
+		FMAttenuation = 0.001;
+	}
+
+	CGAWavetableOscillator Wave2
+	{
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGAMixer2 Mix1
+	{
+	}
+
+	Connection = RAND1,LFO2, SampleOut, FM;
+
+	Connection = LFO1,Trigger1, SampleOut, FM;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+
+	Connection = LFO2,Trigger2, SampleOut, FM;
+	Connection = Trigger2,Wave2, SampleOut, TRIG;
+
+	Connection = Wave1,Mix1, SampleOut, SampleIn1;
+	Connection = Wave2,Mix1, SampleOut, SampleIn2;
+
+}
+
+CGAPatch "Noise-Flanging with 2 flaps, LFOs+Random "
+{
+
+	CGARandomGenerator RAND1
+	{
+	}
+
+	CGASineOscillator LFO1
+	{
+		Frequency = 2;
+	}
+	
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 8;
+		FMAttenuation = 0.001;
+	}
+
+	CGAHalfCosineEnvelope ENV1
+	{
+		Duration = 0.07;
+	}
+
+
+	CGANoiseMSineOsc Noise1
+	{
+	}
+
+	CGAButterworthLPF LPF1
+	{
+		Frequency = 300.0;
+		FMAttenuation = 0.4;
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGASineOscillator LFO2
+	{
+		Frequency = 2.01;
+		FMAttenuation = 0.1;
+	}
+
+
+	CGAImpulseGenerator Trigger2
+	{
+		Frequency = 8.0;
+		FMAttenuation = 0.001;
+	}
+
+	CGAWavetableOscillator Wave2
+	{
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGAMixer3 Mix1
+	{
+		InputGain1 = 0.4;
+		InputGain2 = 0.3;
+		InputGain3 = 0.7;
+	}
+
+	Connection = RAND1,LFO2, SampleOut, FM;
+
+
+
+	Connection = LFO1,Trigger1, SampleOut, FM;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Trigger1,ENV1, SampleOut, TRIG;
+	Connection = ENV1,LPF1, SampleOut, FM;
+
+	Connection = LFO2,Trigger2, SampleOut, FM;
+	Connection = Trigger2,Wave2, SampleOut, TRIG;
+
+	Connection = Noise1,LPF1, SampleOut, SampleIn;
+
+
+	Connection = Wave1,Mix1, SampleOut, SampleIn1;
+	Connection = Wave2,Mix1, SampleOut, SampleIn2;
+	Connection = LPF1,Mix1, SampleOut, SampleIn3;
+
+}
+
+
+
+CGAPatch "Flanging Flap Delay modulated by Random"
+{
+	CGARandomGenerator Random1
+	{
+	}
+
+
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 8;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGADelay Delay1
+	{
+		Delay= 0.004;
+	}
+
+	CGAMixer2 Mix1
+	{
+		InputGain1 = 0.9;
+		InputGain2 = 0.9;
+	}
+
+	Connection = Random1,Delay1, SampleOut, Delay;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Wave1,Delay1, SampleOut, SampleIn;
+	Connection = Delay1,Mix1, SampleOut, SampleIn1;
+	Connection = Wave1,Mix1, SampleOut, SampleIn2;
+}
+
+CGAPatch "Flanging Flap Delay modulated by time modulated Random"
+{
+
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+
+
+
+	CGARandomGenerator Random1
+	{
+	}
+
+
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 8;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Flap2;
+		Repeat = 1;
+	}
+
+	CGADelay Delay1
+	{
+		Delay= 0.004;
+	}
+
+	CGAMixer2 Mix1
+	{
+		InputGain1 = 0.9;
+		InputGain2 = 0.9;
+	}
+
+	Connection = LFO1,Random1, SampleOut, SampleTime;
+	Connection = Random1,Delay1, SampleOut, Delay;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Wave1,Delay1, SampleOut, SampleIn;
+	Connection = Delay1,Mix1, SampleOut, SampleIn1;
+	Connection = Wave1,Mix1, SampleOut, SampleIn2;
+}
+
+
+
+CGAPatch "Flanging Flap Delay modulated by LFO+ modulated Random"
+{
+	CGASineOscillator RandomMod1
+	{
+		Frequency = 0.05;
+	}
+
+	CGARandomGenerator Random1
+	{
+	}
+
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.02;
+	}
+
+	CGASineOscillator LFO2
+	{
+		Frequency = 0.042;
+	}
+
+	CGABipolarToUnipolar BipUnip1
+	{
+	}
+
+	CGABalance ModMix1
+	{
+	}
+
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 8;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		Frequency = 0.9;
+		WaveTable = Flap2;
+		Repeat = 1;
+		FMAttenuation = 0.02;
+	}
+
+	CGADelay Delay1
+	{
+		Delay= 0.004;
+	}
+
+
+	
+	CGAMixer2 Mix1
+	{
+		InputGain1 = 0.9;
+		InputGain2 = 0.9;
+	}
+
+	Connection = RandomMod1,Random1, SampleOut, SampleTime;
+	Connection = Random1,ModMix1, SampleOut, SampleIn1;
+	Connection = LFO1,ModMix1, SampleOut, SampleIn2;
+	Connection = LFO2,BipUnip1, SampleOut, SampleIn;
+	Connection = BipUnip1,ModMix1, SampleOut, Balance;
+	Connection = ModMix1,Wave1, SampleOut, FM;
+	Connection = ModMix1,Delay1, SampleOut, Delay;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Wave1,Delay1, SampleOut, SampleIn;
+	Connection = Wave1,Mix1, SampleOut, SampleIn1;
+	Connection = Delay1,Mix1, SampleOut, SampleIn2;
+}
+
+
+
+
+CGASignal  Flap
+{
+	File = "noiseflap02.wav";
+}
+
+
+CGAPatch "Flanging Flap with Noise"
+{
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.05;
+		Amplitude = 0.8;
+	}
+
+	CGAImpulseGenerator Trigger1
+	{
+		Frequency = 3;
+		FMAttenuation = 0.05;
+		
+	}
+
+	CGAWavetableOscillator Wave1
+	{
+		WaveTable = Flap;
+		Repeat = 1;
+		Frequency = 0.2;
+		FMAttenuation = 0.05;
+	}
+
+	CGADelay Delay1
+	{
+		Delay= 0.004;
+	}
+
+	CGANoiseGenerator Noise1
+	{
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 600.0;
+		FMAttenuation = 0.3;
+	}
+
+
+	CGAMixer3 Mix1
+	{
+	}
+
+	Connection = LFO1,Delay1, SampleOut, Delay;
+	Connection = LFO1,Trigger1, SampleOut, FM;
+	Connection = LFO1,Wave1, SampleOut, FM;
+	Connection = Trigger1,Wave1, SampleOut, TRIG;
+	Connection = Wave1,Delay1, SampleOut, SampleIn;
+	Connection = Noise1,OSC1, SampleOut, FM;
+	Connection = Delay1,Mix1, SampleOut, SampleIn1;
+	Connection = Wave1,Mix1, SampleOut, SampleIn2;
+	Connection = OSC1,Mix1, SampleOut, SampleIn3;
+
+}
+
+
+
+
+
+	
+
+
+
+

@@ -1,0 +1,134 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ProceduralCloudDemo - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/Dx8Shell.res" /i "src" /d "_DEBUG" "C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Dx8Shell.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPF055.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawBackground.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\DataIO\IawBmpLoader.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawCamera.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawCone.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawCube.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawCylinder.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\IawD3dWrapper.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Utils\IawExponentialNoise.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\DataIO\IawFileStream.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawGnomon.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\DataIO\IawImageLoader.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\FrameWork\IawMatrix.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Utils\IawNoiseGenerator.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawObject.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawPlane.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\FrameWork\IawRenderTarget.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Shaders\IawShader.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Shaders\IawShaderMgr.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawSkyPlane.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawSphere.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawTerrain.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawTerrainMgr.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Objects\IawTextMgr.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\FrameWork\IawTexture.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\IawWindow3d.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\Main.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\ProceduralCloudDemo.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\RandTexture.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\StaticRandTexture.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPF055.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPF056.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/ProceduralCloudDemo.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\05 Graphics Display\04 Pallister\project\src\stdAfx.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPF056.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPF057.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ProceduralCloudDemo.pdb" /debug /machine:I386 /out:"Debug/ProceduralCloudDemo.exe" /pdbtype:sept 
+".\Debug\IawBackground.obj"
+".\Debug\IawBmpLoader.obj"
+".\Debug\IawCamera.obj"
+".\Debug\IawCone.obj"
+".\Debug\IawCube.obj"
+".\Debug\IawCylinder.obj"
+".\Debug\IawD3dWrapper.obj"
+".\Debug\IawExponentialNoise.obj"
+".\Debug\IawFileStream.obj"
+".\Debug\IawGnomon.obj"
+".\Debug\IawImageLoader.obj"
+".\Debug\IawMatrix.obj"
+".\Debug\IawNoiseGenerator.obj"
+".\Debug\IawObject.obj"
+".\Debug\IawPlane.obj"
+".\Debug\IawRenderTarget.obj"
+".\Debug\IawShader.obj"
+".\Debug\IawShaderMgr.obj"
+".\Debug\IawSkyPlane.obj"
+".\Debug\IawSphere.obj"
+".\Debug\IawTerrain.obj"
+".\Debug\IawTerrainMgr.obj"
+".\Debug\IawTextMgr.obj"
+".\Debug\IawTexture.obj"
+".\Debug\IawWindow3d.obj"
+".\Debug\Main.obj"
+".\Debug\ProceduralCloudDemo.obj"
+".\Debug\RandTexture.obj"
+".\Debug\StaticRandTexture.obj"
+".\Debug\stdAfx.obj"
+".\Debug\Dx8Shell.res"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPF057.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+stdAfx.cpp
+Compiling...
+IawBackground.cpp
+IawBmpLoader.cpp
+IawCamera.cpp
+IawCone.cpp
+IawCube.cpp
+IawCylinder.cpp
+IawD3dWrapper.cpp
+IawExponentialNoise.cpp
+IawFileStream.cpp
+IawGnomon.cpp
+IawImageLoader.cpp
+IawMatrix.cpp
+IawNoiseGenerator.cpp
+IawObject.cpp
+IawPlane.cpp
+IawRenderTarget.cpp
+IawShader.cpp
+IawShaderMgr.cpp
+IawSkyPlane.cpp
+IawSphere.cpp
+Generating Code...
+Compiling...
+IawTerrain.cpp
+IawTerrainMgr.cpp
+IawTextMgr.cpp
+IawTexture.cpp
+IawWindow3d.cpp
+Main.cpp
+ProceduralCloudDemo.cpp
+c:\windows\desktop\gems2 cd\sourcecode\05 graphics display\04 pallister\project\src\proceduralclouddemo.cpp(505) : warning C4244: 'initializing' : conversion from 'float' to 'unsigned char', possible loss of data
+c:\windows\desktop\gems2 cd\sourcecode\05 graphics display\04 pallister\project\src\proceduralclouddemo.cpp(1064) : warning C4244: '*=' : conversion from 'float' to 'unsigned char', possible loss of data
+c:\windows\desktop\gems2 cd\sourcecode\05 graphics display\04 pallister\project\src\proceduralclouddemo.cpp(1116) : warning C4244: '*=' : conversion from 'float' to 'unsigned char', possible loss of data
+RandTexture.cpp
+StaticRandTexture.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+ProceduralCloudDemo.exe - 0 error(s), 3 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,156 @@
+
+/******************************************************************************
+
+Coral Tree wds/wtypes.cc
+Copyright (C) 1998 Infinite Monkeys Incorporated
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the Artistic License.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+Artistic License for more details.
+
+You should have received a copy of the Artistic License along with
+this program (see meta/ART_LICE); if not, write to coral@imonk.com.
+
+******************************************************************************/
+
+
+
+#include "wds.h"
+
+// in header
+// WDS_DECLARE_TYPE(WDS_Button);
+// or
+// GPL_OBJECT_INTERFACE(WDS_GfxTest);
+
+
+WDS_DEFINE_TYPE(WDS_Button);
+WDS_DEFINE_TYPE(WDS_ToggleButton);
+WDS_DEFINE_TYPE(WDS_RadioButton);
+
+WDS_DEFINE_TYPE(WDS_DividerForm);
+WDS_DEFINE_TYPE(WDS_DividerTab);
+WDS_DEFINE_TYPE(WDS_DividerPlaceHolder);
+WDS_DEFINE_TYPE(WDS_Divider);
+
+WDS_DEFINE_TYPE(WDS_Paragraph);
+WDS_DEFINE_TYPE(WDS_DocumentForm);
+WDS_DEFINE_TYPE(WDS_Document);
+
+WDS_DEFINE_TYPE(WDS_Form);
+
+WDS_DEFINE_TYPE(WDS_GetString);
+
+WDS_DEFINE_TYPE(WDS_HierarchyForm);
+WDS_DEFINE_TYPE(WDS_HierarchyToggle);
+WDS_DEFINE_TYPE(WDS_HierarchyNode);
+
+WDS_DEFINE_TYPE(WDS_MenuButton);
+WDS_DEFINE_TYPE(WDS_MenuBar);
+WDS_DEFINE_TYPE(WDS_MenuForm);
+WDS_DEFINE_TYPE(WDS_MenuNode);
+
+WDS_DEFINE_TYPE(WDS_Partition);
+WDS_DEFINE_TYPE(WDS_MFD);
+
+WDS_DEFINE_TYPE(WDS_PointerEntry);
+
+WDS_DEFINE_TYPE(WDS_PickButton);
+WDS_DEFINE_TYPE(WDS_PickList);
+WDS_DEFINE_TYPE(WDS_PickScroll);
+WDS_DEFINE_TYPE(WDS_Pick);
+
+WDS_DEFINE_TYPE(WDS_PopupBase);
+WDS_DEFINE_TYPE(WDS_Popup);
+WDS_DEFINE_TYPE(WDS_Portal);
+
+WDS_DEFINE_TYPE(WDS_Relay);
+
+WDS_DEFINE_TYPE(WDS_Scope);
+
+WDS_DEFINE_TYPE(WDS_ScrollBarButton);
+WDS_DEFINE_TYPE(WDS_ScrollBar);
+WDS_DEFINE_TYPE(WDS_ScrollRegion);
+
+WDS_DEFINE_TYPE(WDS_TablePartition);
+WDS_DEFINE_TYPE(WDS_Table);
+
+WDS_DEFINE_TYPE(WDS_TextList);
+WDS_DEFINE_TYPE(WDS_TextList_GetString);
+
+WDS_DEFINE_TYPE(WDS_TipString);
+
+
+GPL_OBJECT_IMPLEMENTATION(WDS_Widget,0x40050000,"WDS_Widget");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_Button,0x4005002D,"WDS_Button");
+GPL_OBJECT_IMPLEMENTATION(WDS_ToggleButton, 0x40050010, "WDS_ToggleButton");
+GPL_OBJECT_IMPLEMENTATION(WDS_RadioButton, 0x4005002B, "WDS_RadioButton");
+GPL_OBJECT_IMPLEMENTATION(WDS_RadioScope, 0x40050015, "WDS_RadioScope");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_DividerForm, 0x40050023, "WDS_DividerForm");
+GPL_OBJECT_IMPLEMENTATION(WDS_DividerTab, 0x4005001F, "WDS_DividerTab");
+GPL_OBJECT_IMPLEMENTATION(WDS_DividerPlaceHolder, 0x40050020, "WDS_DividerPlaceHolder");
+GPL_OBJECT_IMPLEMENTATION(WDS_Divider, 0x40050009, "WDS_Divider");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_Paragraph, 0x40050001, "WDS_Paragraph");
+GPL_OBJECT_IMPLEMENTATION(WDS_DocumentForm, 0x40050022, "WDS_DocumentForm");
+GPL_OBJECT_IMPLEMENTATION(WDS_Document, 0x40050004, "WDS_Document");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_Form, 0x4005000E, "WDS_Form");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_GetNumber, 0x4005000A, "WDS_GetNumber");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_GetString, 0x40050002, "WDS_GetString");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_GfxTest, 0x40050008, "WDS_GfxTest");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_HierarchyFile, 0x40050025, "WDS_HierarchyFile");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_HierarchyForm, 0x40050017, "WDS_HierarchyForm");
+GPL_OBJECT_IMPLEMENTATION(WDS_HierarchyToggle, 0x40050012, "WDS_HierarchyToggle");
+GPL_OBJECT_IMPLEMENTATION(WDS_HierarchyNode, 0x40050028, "WDS_HierarchyNode");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_HierarchyTest, 0x40050011, "WDS_HierarchyTest");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_MenuButton, 0x40050021, "WDS_MenuButton");
+GPL_OBJECT_IMPLEMENTATION(WDS_MenuBar, 0x40050016, "WDS_MenuBar");
+GPL_OBJECT_IMPLEMENTATION(WDS_MenuForm, 0x4005000B, "WDS_MenuForm");
+GPL_OBJECT_IMPLEMENTATION(WDS_MenuNode, 0x4005001E, "WDS_MenuNode");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_IncrButton, 0x4005002A, "WDS_IncrButton");
+GPL_OBJECT_IMPLEMENTATION(WDS_DecrButton, 0x4005001C, "WDS_DecrButton");
+GPL_OBJECT_IMPLEMENTATION(WDS_NumberEntry, 0x40050003, "WDS_NumberEntry");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_Partition, 0x4005000F, "WDS_Partition");
+GPL_OBJECT_IMPLEMENTATION(WDS_MFD, 0x4005002E, "WDS_MFD");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_PointerEntry, 0x4005000D, "WDS_PointerEntry");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_PickButton, 0x40050006, "WDS_PickButton");
+GPL_OBJECT_IMPLEMENTATION(WDS_PickList, 0x40050013, "WDS_PickList");
+GPL_OBJECT_IMPLEMENTATION(WDS_PickScroll, 0x4005001A, "WDS_PickScroll");
+GPL_OBJECT_IMPLEMENTATION(WDS_Pick, 0x40050029, "WDS_Pick");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_PopupBase, 0x4005000C, "WDS_PopupBase");
+GPL_OBJECT_IMPLEMENTATION(WDS_Popup, 0x40050019, "WDS_Popup");
+GPL_OBJECT_IMPLEMENTATION(WDS_Portal, 0x4005002F, "WDS_Portal");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_Relay, 0x40050024, "WDS_Relay");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_Scope, 0x4005001D, "WDS_Scope");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_ScrollBarButton, 0x40050026, "WDS_ScrollBarButton");
+GPL_OBJECT_IMPLEMENTATION(WDS_ScrollBar, 0x40050007, "WDS_ScrollBar");
+GPL_OBJECT_IMPLEMENTATION(WDS_ScrollRegion, 0x40050018, "WDS_ScrollRegion");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_TablePartition, 0x40050005, "WDS_TablePartition");
+GPL_OBJECT_IMPLEMENTATION(WDS_Table, 0x40050014, "WDS_Table");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_TextList, 0x40050027, "WDS_TextList");
+GPL_OBJECT_IMPLEMENTATION(WDS_TextList_GetString, 0x4005001B, "WDS_TextList_GetString");
+
+GPL_OBJECT_IMPLEMENTATION(WDS_TipString, 0x4005002C, "WDS_TextList_GetString");

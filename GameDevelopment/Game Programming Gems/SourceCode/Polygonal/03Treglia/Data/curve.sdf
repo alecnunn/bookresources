@@ -1,0 +1,30 @@
+begin_spline
+	control_count 4
+	curve_subdivision 600
+	curve_type 0
+	display_control_mode 0
+	display_curve_mode 0
+	display_curve_modulo 1 
+	display_orientation_mode 0
+	display_orientation_modulo 1
+	display_orientation_len 4.25
+
+	begin_points
+		// Not Drawn
+		C:  48.000000 2.000000  48.000000
+
+		C:  48.000000 2.000000 -48.000000
+
+		C: -48.000000 2.000000 -48.000000
+
+		C: -48.000000 2.000000  48.000000
+
+		C:  48.000000 2.000000  48.000000
+
+		// Not Drawn
+		C:  48.000000 2.000000 -48.000000
+
+		// Not Drawn
+		C: -48.000000 2.000000 -48.000000
+	end_points
+end_spline

@@ -1,0 +1,54 @@
+; Distorts vertices in eye-space to give a fish-eye lens effect
+; See: http://www-cad.eecs.berkley.edu/Respep/Research/interact/playpen/fish
+
+#include "trees.h"
+
+#define FACTOR_KPLUS1       c[CV_CONSTANTS].x
+#define XYZW_MAX_XZRATIO    x
+#define XYZW_FACTOR_K       y
+#define XYZW_ZERO           z
+#define XYZW_ONE            w
+
+vs.1.0
+
+; Transform position to view space
+dp4 r0.x, v0, c[CV_WORLDVIEW_0]
+dp4 r0.y, v0, c[CV_WORLDVIEW_1]
+dp4 r0.z, v0, c[CV_WORLDVIEW_2]
+dp4 r0.w, v0, c[CV_WORLDVIEW_3]
+
+; scale x and y, set z and w to 0
+mul r1, r0, c[CV_FISHEYEINFO].xxzz
+
+; compute normalized distance from camera (camera in view-space is alwasy at (0,0,0))
+; r1.x = sqrt(x^2 + y^2)/z
+dp3 r1.x, r1, r1
+rsq r1.y, r1.x
+mul r1.y, r1.y, r0.z
+rcp r1.x, r1.y
+
+; and take the absolute value
+max r1.x, r1.x, -r1.x
+
+; compute (k*d + 1)
+mad r1.z, r1.x, c[CV_FISHEYEINFO].XYZW_FACTOR_K, c[CV_FISHEYEINFO].XYZW_ONE
+
+; compute (k+1)/(k*d + 1) -- this is the reciprocal formula of the above 
+; referenced web-page because our distances are generally not less than 1.0!
+rcp r1.z, r1.z
+mul r1.xy, FACTOR_KPLUS1, r1.z
+
+; only scale the original x, y with this factor
+mul r0.xy, r0, r1
+
+; transform new position to clip space
+dp4 oPos.x, r0, c[CV_PROJ_0]
+dp4 oPos.y, r0, c[CV_PROJ_1]
+dp4 oPos.z, r0, c[CV_PROJ_2]
+dp4 oPos.w, r0, c[CV_PROJ_3]
+
+; Draw in white (generate constant 1 in all components)
+sge oD0.xyzw, r0, r0
+
+mov oT0.xy, v2
+

@@ -1,0 +1,20 @@
+void main(float2 sn_coord : TEXCOORD0,
+		  /**	
+		  y  : subject particle index
+		  xy : neighbour particle index
+		  **/
+		  uniform samplerRECT force_rect     : TEXUNIT0,
+		  uniform samplerRECT neighbour_rect : TEXUNIT1,
+		  out float3 result : COLOR
+		  )
+{
+	float neighbour_index = f1texRECT(neighbour_rect, sn_coord.yx);
+	result = -f3texRECT(force_rect, unpack_2ushort(neighbour_index)*65536);
+
+	//float3 f2me = -f3texRECT(force_rect, unpack_2ushort(neighbour_index)*65536);
+	//result.xy = (unpack_2ushort(neighbour_index)*65536);
+	//result.z = f2me.x;
+
+	//result.xy = sn_coord;
+	//result.x = 44;
+}

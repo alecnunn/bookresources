@@ -1,0 +1,86 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: gl_basecode - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Release/dialog.res" /d "NDEBUG" "D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\dialog.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPD353.TMP" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/gl_basecode.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\basecode.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\gl_wrap.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\win_wrap.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\grass.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\leaves.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\water.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\cs_am3d.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\cs_ch3d.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\cs_kf3d.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\cs_sk3d.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\mth_angle.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\mth_matrix.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\mth_quaternion.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\mth_spherical.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\mth_vector.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\particles.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\texture.cpp"
+"D:\Rishi\Demos\Game Programming Gems 5\Demo\Source\demo.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPD353.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPD354.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/Natural Effects.pdb" /machine:I386 /out:"Release/Natural Effects.exe" 
+".\Release\basecode.obj"
+".\Release\gl_wrap.obj"
+".\Release\win_wrap.obj"
+".\Release\grass.obj"
+".\Release\leaves.obj"
+".\Release\water.obj"
+".\Release\cs_am3d.obj"
+".\Release\cs_ch3d.obj"
+".\Release\cs_kf3d.obj"
+".\Release\cs_sk3d.obj"
+".\Release\mth_angle.obj"
+".\Release\mth_matrix.obj"
+".\Release\mth_quaternion.obj"
+".\Release\mth_spherical.obj"
+".\Release\mth_vector.obj"
+".\Release\particles.obj"
+".\Release\texture.obj"
+".\Release\demo.obj"
+".\Release\dialog.res"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPD354.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+basecode.cpp
+gl_wrap.cpp
+win_wrap.cpp
+grass.cpp
+leaves.cpp
+water.cpp
+cs_am3d.cpp
+cs_ch3d.cpp
+cs_kf3d.cpp
+cs_sk3d.cpp
+mth_angle.cpp
+mth_matrix.cpp
+mth_quaternion.cpp
+mth_spherical.cpp
+mth_vector.cpp
+particles.cpp
+texture.cpp
+demo.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Natural Effects.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

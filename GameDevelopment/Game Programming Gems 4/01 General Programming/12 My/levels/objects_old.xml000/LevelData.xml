@@ -1,0 +1,503 @@
+<xml>
+
+<engine_root obj='scene root' addr='0x16CC7A0'/>
+
+<editor_root obj='scene root' addr='0x16CB6D0'/>
+
+<data class='CEditorSceneItem' id='0x16CB6D0'>
+  scene root
+  false
+  true
+  
+  0x16CB490
+  3
+  0x16CB320
+  0x16CB1C0
+  0x16CCE60
+</data>
+
+<data class='CEditorNode' id='0x16CB490'>
+  scene root
+  false
+  false
+  true
+  true
+  true
+  0x16CC7A0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CB320'>
+  default camera
+  false
+  false
+  
+  0x16CC110
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CB1C0'>
+  materials
+  false
+  true
+  
+  0x16CC550
+  5
+  0x16CC470
+  0x16CC310
+  0x16CDF30
+  0x16CDD60
+  0x16CDC00
+</data>
+
+<data class='CEditorSceneItem' id='0x16CCE60'>
+  objects
+  false
+  true
+  
+  0x16CDAD0
+  6
+  0x16CD9C0
+  0x16CD860
+  0x16CD700
+  0x16CD5A0
+  0x16CD440
+  0x16CD2E0
+</data>
+
+<data class='CEngineNode' id='0x16CC7A0'>
+  scene root
+  false
+  4
+  0x16CD0E0
+  0x16CEE90
+  0x16CEC90
+  0x16CEA30
+  0; 0; 0; 1
+  0; 0; 0
+  1; 1; 1
+</data>
+
+<data class='CEditorCamera' id='0x16CC110'>
+  default camera
+  false
+  false
+  true
+  true
+  false
+  0x16CD0E0
+</data>
+
+<data class='CEditorFolder' id='0x16CC550'>
+  materials
+  false
+  false
+  true
+  true
+  true
+  0x0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CC470'>
+  material : red
+  false
+  false
+  
+  0x16CE780
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CC310'>
+  material : green
+  false
+  false
+  
+  0x16CE670
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CDF30'>
+  material : vampire
+  false
+  true
+  
+  0x16CE530
+  1
+  0x16CE390
+</data>
+
+<data class='CEditorSceneItem' id='0x16CDD60'>
+  material : blue
+  false
+  false
+  
+  0x16CE290
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CDC00'>
+  material : white
+  false
+  false
+  
+  0x16CE180
+  0
+</data>
+
+<data class='CEditorFolder' id='0x16CDAD0'>
+  objects
+  false
+  false
+  true
+  true
+  true
+  0x0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CD9C0'>
+  top left
+  false
+  false
+  
+  0x16CE020
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CD860'>
+  top right
+  false
+  false
+  
+  0x16CFED0
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CD700'>
+  top
+  false
+  false
+  
+  0x16CFD70
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CD5A0'>
+  vampire
+  false
+  false
+  
+  0x16CFC40
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CD440'>
+  bottom left
+  false
+  false
+  
+  0x16CFB10
+  0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CD2E0'>
+  bottom right
+  false
+  false
+  
+  0x16CF9E0
+  0
+</data>
+
+<data class='CEngineCamera' id='0x16CD0E0'>
+  default camera
+  false
+  0
+  0; 0; 0; 1
+  0; 0; 10
+  1; 1; 1
+  0; 0; 0
+  0; 1; 0
+  0; 1; 0
+  1.0472
+  1.33333
+  1
+  1000
+  true
+  10
+  true
+  true
+</data>
+
+<data class='CEngineCamera' id='0x16CEE90'>
+  top
+  false
+  0
+  0.707107; 0; 0; 0.707107
+  0; 10; 0
+  1; 1; 1
+  0; 0; 0
+  0; 0; -1
+  0; 1; 0
+  1.0472
+  1.33333
+  1
+  1000
+  true
+  10
+  true
+  true
+</data>
+
+<data class='CEngineSphere' id='0x16CEC90'>
+  vampire
+  false
+  0
+  0; 0.707107; 0; 0.707107
+  0; 0; 0
+  1; 1; 1
+  1
+  16
+  0x16CF8B0
+</data>
+
+<data class='CEngineSphere' id='0x16CEA30'>
+  bottom right
+  false
+  3
+  0x16CF640
+  0x16D0E30
+  0x16D0BD0
+  0; 0; 0; 1
+  4; -3; 0
+  1; 1; 1
+  1
+  16
+  0x16D0A20
+</data>
+
+<data class='CEditorMaterial' id='0x16CE780'>
+  material : red
+  false
+  false
+  true
+  true
+  true
+  0x16D0860
+</data>
+
+<data class='CEditorMaterial' id='0x16CE670'>
+  material : green
+  false
+  false
+  true
+  true
+  true
+  0x16D06D0
+</data>
+
+<data class='CEditorMaterial' id='0x16CE530'>
+  material : vampire
+  false
+  false
+  true
+  true
+  true
+  0x16CF8B0
+</data>
+
+<data class='CEditorSceneItem' id='0x16CE390'>
+  tex vampire
+  false
+  false
+  
+  0x16D0530
+  0
+</data>
+
+<data class='CEditorMaterial' id='0x16CE290'>
+  material : blue
+  false
+  false
+  true
+  true
+  true
+  0x16D0400
+</data>
+
+<data class='CEditorMaterial' id='0x16CE180'>
+  material : white
+  false
+  false
+  true
+  true
+  true
+  0x16D0A20
+</data>
+
+<data class='CEditorBox' id='0x16CE020'>
+  top left
+  false
+  false
+  true
+  true
+  true
+  0x16CF640
+</data>
+
+<data class='CEditorBox' id='0x16CFED0'>
+  top right
+  false
+  false
+  true
+  true
+  true
+  0x16D0E30
+</data>
+
+<data class='CEditorCamera' id='0x16CFD70'>
+  top
+  false
+  false
+  true
+  true
+  true
+  0x16CEE90
+</data>
+
+<data class='CEditorSphere' id='0x16CFC40'>
+  vampire
+  false
+  false
+  true
+  true
+  true
+  0x16CEC90
+</data>
+
+<data class='CEditorBox' id='0x16CFB10'>
+  bottom left
+  false
+  false
+  true
+  true
+  true
+  0x16D0BD0
+</data>
+
+<data class='CEditorSphere' id='0x16CF9E0'>
+  bottom right
+  true
+  false
+  true
+  true
+  true
+  0x16CEA30
+</data>
+
+<data class='CEngineMaterial' id='0x16CF8B0'>
+  material : vampire
+  false
+  1; 1; 1; 1
+  true
+  true
+  true
+  0x16D0240
+  1
+</data>
+
+<data class='CEngineBox' id='0x16CF640'>
+  top left
+  false
+  0
+  0; 0; 0; 1
+  -8; 6; 0
+  1; 1; 1
+  2; 2; 2
+  0x16D0860
+</data>
+
+<data class='CEngineBox' id='0x16D0E30'>
+  top right
+  false
+  0
+  0; 0; 0; 1
+  0; 6; 0
+  1; 1; 1
+  1; 1; 1
+  0x16D06D0
+</data>
+
+<data class='CEngineBox' id='0x16D0BD0'>
+  bottom left
+  false
+  0
+  0; 0; 0; 1
+  -8; 0; 0
+  1; 1; 1
+  1; 1; 1
+  0x16D0400
+</data>
+
+<data class='CEngineMaterial' id='0x16D0A20'>
+  material : white
+  false
+  1; 1; 1; 1
+  true
+  true
+  true
+  0x0
+  0
+</data>
+
+<data class='CEngineMaterial' id='0x16D0860'>
+  material : red
+  false
+  1; 0; 0; 1
+  true
+  true
+  true
+  0x0
+  0
+</data>
+
+<data class='CEngineMaterial' id='0x16D06D0'>
+  material : green
+  false
+  0; 1; 0; 1
+  true
+  true
+  true
+  0x0
+  0
+</data>
+
+<data class='CEditorTexture' id='0x16D0530'>
+  tex vampire
+  false
+  false
+  true
+  true
+  true
+  0x16D0240
+</data>
+
+<data class='CEngineMaterial' id='0x16D0400'>
+  material : blue
+  false
+  0; 0; 1; 1
+  true
+  true
+  true
+  0x0
+  0
+</data>
+
+<data class='CEngineTexture' id='0x16D0240'>
+  VAMPIRE.TGA
+  false
+  VAMPIRE.TGA
+  256
+  256
+  24
+</data>
+
+</xml>

@@ -1,0 +1,28 @@
+;
+; Pixel shader 
+
+
+
+#include "SimpleFog.h"
+
+; Declare pixel shader version 1.0
+ps.1.0
+
+
+tex t0              ; decal texture
+
+
+
+mul r0, t0, v0        ; v0 = ambient + diffuse for front facing illumination
+
+; add height-based fog (oD1 == v1 in the pixel shader) 
+; mult fog color by fog fac and add it in
+
+mad r0, v1, c[CP_HEIGHT_FOG_COLOR], r0
+
+
+
+
+
+
+

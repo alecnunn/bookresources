@@ -1,0 +1,18 @@
+struct Contact
+{
+    // Contact data
+    Point    mPosition;
+    Point    mNormal;
+    float    mPenetrationDepth;
+
+    // Objects in contact
+    Object*  mObject0;
+    Object*  mObject1;
+
+    // 64-bits contact ID
+    int      mID_Part0;
+    int      mID_Part1;
+
+	// Cluster index
+    int      mCluster;
+};

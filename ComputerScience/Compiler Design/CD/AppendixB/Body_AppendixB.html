@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Mission</title>
+<script type="text/javascript">
+function myLoad()
+{
+//alert("amma");
+	var x=window.location+"";
+	//alert("amma"+x);
+	var y=x.indexOf("=",0)+1;
+	var z=x.slice(y,x.length);
+	var srcfr=document.getElementById("src_id");
+	srcfr.src=z+".html";
+	//alert(srcfr.src);
+	//srcfra.src=z+".html";
+	//alert(srcfr.src);
+}	
+function loadTest(file)
+{
+// alert(file);
+ var testfr=document.getElementById("testpgm_id");
+ var opfr=document.getElementById("oppgm_id");
+ testfr.src=file+"_test.html";
+ opfr.src=file+"_op.html";
+}
+</script>
+<style type="text/css">
+.exec
+{
+	position:absolute;
+	left:640px;
+	top:570px;
+	height: 125px;
+}
+.test
+{
+ position:absolute;
+ left:640px;
+ top:710px;
+}
+.op
+{
+	position:absolute;
+	left:641px;
+	top:1225px;
+	height: 173px;
+}
+.style1 {color: #000000}
+</style>
+</head>
+<body onLoad="myLoad();" bgcolor="#FFFFFF">
+<h2 align="center" class="style1">Appendix-B.</h2>
+<h3 align="justify"><br>JavaCC is a tool enabling the language designer to specify the lexical and syntax specifications.<br>
+  In generates a set of Java files which are meant for the scanning and parsing the source program.<br>
+  Along with the specification the semantic actions can be attached so the intermediate code corresponding source code can be generated.<br>
+We have used the quadruples as the intermediate code.</h3>
+<h3>When the specification files are processed by JavaCC, it produces the following files as follows:</h3>
+<blockquote>
+  <h4>CParser.java<br>
+    CParserConstants.java<br>
+    CParserTokenManager.java<br>
+    JavaCharStream.java<br>
+    ParseException.java<br>
+    Token.java<br>
+    TokenMgrError.java<br>
+  These files compiled using Javac produces the scanner and parser routines.</h4>
+</blockquote>
+<hr>
+<h3 align="center">Select TestProgram</h3>
+<h4>
+<table width="605" border="0" align="center">
+  <tr>
+    <th width="136"><a onClick="loadTest('tst')" href="#">tst</a></th>
+ 
+    <th width="145"><a onClick="loadTest('tst0')" href="#">tst0</a></th>
+
+    <th width="145"><a onClick="loadTest('tst1')" href="#">tst1</a></th>
+
+    <th width="161"><a onClick="loadTest('tst2')" href="#">tst2</a></th>
+
+  </tr>
+</table>
+</h4>
+<hr>
+<!-- <iframe align="middle" frameborder="0" width="1000px" src="TestPgm.php" scrolling="no" ></iframe><br> -->
+<iframe id="src_id"  frameborder="1" height="860px" width="600px" scrolling="yes" ></iframe>
+<iframe class="exec" id="howtoexec"  frameborder="1" height="100px" width="400px" src="HowToExec.html" ></iframe>
+<iframe class="test" id="testpgm_id"  frameborder="1" height="500px" width="400px" scrolling="yes" ></iframe>
+<iframe class="op" id="oppgm_id"  frameborder="1" height="200px" width="400px" scrolling="yes" ></iframe>
+</body>
+</html>

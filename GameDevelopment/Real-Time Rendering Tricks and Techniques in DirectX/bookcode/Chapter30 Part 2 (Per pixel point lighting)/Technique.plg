@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Technique - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\KELLY_~1.TEC\LOCALS~1\Temp\RSP6A.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/Technique.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\Kelly_L_Dempski.TECHLABS\Desktop\Book\code\Chapter30 Part 2 (Per pixel point lighting)\Application.cpp"
+"C:\Documents and Settings\Kelly_L_Dempski.TECHLABS\Desktop\Book\code\Chapter30 Part 2 (Per pixel point lighting)\DirectXFont.cpp"
+"C:\Documents and Settings\Kelly_L_Dempski.TECHLABS\Desktop\Book\code\Chapter30 Part 2 (Per pixel point lighting)\Executable.cpp"
+"C:\Documents and Settings\Kelly_L_Dempski.TECHLABS\Desktop\Book\code\Chapter30 Part 2 (Per pixel point lighting)\TechniqueApplication.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\KELLY_~1.TEC\LOCALS~1\Temp\RSP6A.tmp" 
+Creating temporary file "C:\DOCUME~1\KELLY_~1.TEC\LOCALS~1\Temp\RSP6B.tmp" with contents
+[
+d3dx8dt.lib d3d8.lib kernel32.lib user32.lib gdi32.lib advapi32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Technique.pdb" /debug /machine:I386 /out:"Debug/Technique.exe" /pdbtype:sept 
+".\Debug\Application.obj"
+".\Debug\DirectXFont.obj"
+".\Debug\Executable.obj"
+".\Debug\TechniqueApplication.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\KELLY_~1.TEC\LOCALS~1\Temp\RSP6B.tmp"
+<h3>Output Window</h3>
+Compiling...
+Application.cpp
+c:\documents and settings\kelly_l_dempski.techlabs\desktop\book\code\chapter30 part 2 (per pixel point lighting)\application.cpp(112) : warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+DirectXFont.cpp
+Executable.cpp
+TechniqueApplication.cpp
+c:\documents and settings\kelly_l_dempski.techlabs\desktop\book\code\chapter30 part 2 (per pixel point lighting)\techniqueapplication.cpp(105) : warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+Linking...
+
+
+
+<h3>Results</h3>
+Technique.exe - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

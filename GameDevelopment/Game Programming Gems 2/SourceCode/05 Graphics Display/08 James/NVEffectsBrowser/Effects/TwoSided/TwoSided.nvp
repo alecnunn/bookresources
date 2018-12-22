@@ -1,0 +1,23 @@
+;
+; Pixel shader 
+
+
+
+#include "TwoSided.h"
+
+; Declare pixel shader version 1.0
+ps.1.0
+
+
+tex t0              ; decal texture
+tex t1              ; back illuminination texture
+
+
+
+
+mul r0, t0, v0        ; v0 = ambient + diffuse for front facing illumination
+
+mad r0, t1, v1, r0    ; back facing ambient + diffuse + front facing illum
+
+
+

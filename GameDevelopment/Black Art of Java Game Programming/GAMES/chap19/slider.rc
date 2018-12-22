@@ -1,0 +1,16 @@
+//
+// Symantec Cafe Studio generated header file
+//
+// This file is intended for use with Windows 95
+//
+
+#ifdef JAVA
+#define SYMANTEC_JAVA
+#else
+#include <windows.h>
+#include <ver.h>
+#endif
+
+#include "resource.k"
+
+

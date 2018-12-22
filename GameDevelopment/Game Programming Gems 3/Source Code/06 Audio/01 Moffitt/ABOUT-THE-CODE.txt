@@ -1,0 +1,38 @@
+ABOUT THE OGG VORBIS CODE
+-------------------------
+
+To help get you started programming with Ogg Vorbis the following files
+have been provided.
+
+For more information (and for more vorbis related code) please visit
+the Ogg Vorbis site at http://www.vorbis.com.
+
+
+vorbis-sdk-1.0rc3.zip
+---------------------
+
+This is the Windows SDK.  Libraries (debug and release) are provided, along
+with headers and documentation.  Several example programs are in the
+'examples' subdirectory, including basic decode, encode, and chaining.
+Binary executables of the examples are also provided in the 'bin' 
+subdirectory.
+
+
+libogg-1.0rc3.zip
+--------------------
+
+This is the full C source code to the Ogg library, a part of the Ogg
+Vorbis codec.  It includes project files for MSVC 6 (in the win32 directory), 
+and build scripts for Unix based systems.  
+
+
+libvorbis-1.0rc3.zip
+--------------------
+
+This is the full C source code to the Vorbis library, which depends on
+the Ogg library.  This provides all the core decode functions, as well
+as two helper libraries (vorbisfile and vorbisenc).  vorbisfile is an
+easy to use decode library (see examples/vorbisfile_example.c) and vorbisenc
+is used to set up encode runs (see examples/encoder_example.c).  This
+contains MSVC 6 project files (in the win32 directory) as well as
+Unix build scripts.

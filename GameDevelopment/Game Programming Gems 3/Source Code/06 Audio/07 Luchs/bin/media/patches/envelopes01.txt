@@ -1,0 +1,187 @@
+CGAPatch "Pitch Envelope, use trigger button"
+{
+
+	CGATriangleEnvelope Env1
+	{
+		Center = 0.5;
+		Duration = 2.0;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 440;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = Env1, OSC1,SampleOut, FM;
+
+}
+
+
+CGAPatch "HalfCosine Envelope on pitch, use trigger button"
+{
+
+	CGAHalfCosineEnvelope Env1
+	{
+		Duration = 0.3;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 440;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = Env1, OSC1,SampleOut, FM;
+
+}
+
+
+CGASignal  Tone
+{
+	File = "m_tone01.wav";
+}
+
+CGAPatch "Pitch Envelope on Sample, use trigger button"
+{
+
+	CGATriangleEnvelope Env1
+	{
+		Center = 0.02;
+		Duration = 0.2;
+	}
+
+	CGAWavetableOscillator OSC1
+	{
+		WaveTable = Tone;
+		FMAttenuation = 0.008;
+	}
+
+	Connection = Env1, OSC1,SampleOut, FM;
+	Connection = Env1, OSC1,SampleOut, Amplitude;
+
+}
+
+CGAPatch "Triggered Envelope on Noise , mono"
+{
+
+	CGAImpulseGenerator Gen
+	{
+		Frequency = 10;
+	}
+
+	CGARampEnvelope Env
+	{
+		SignalMode = 1;
+		Duration = 0.1;
+	}
+
+	CGANoiseGenerator Noise
+	{
+		
+	}
+
+	Connection = 0,1, SampleOut, TRIG; 
+	Connection = 1,2, SampleOut, AM; 
+}
+
+
+
+CGAPatch "Sequence Triggered Envelope"
+{
+	CGASequencer16 SEQ1
+	{
+		Steps = x000x0x0x0x0x0x0;
+	}
+
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+		Amplitude = 0.1;
+	}
+
+	CGATriangleEnvelope Env1
+	{
+		Center = 0.1;
+		Duration = 0.1;
+	}
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 800;
+	}
+
+	Connection = LFO1, OSC1,SampleOut, FM;
+	Connection = SEQ1, Env1,SampleOut, TRIG;
+	Connection = Env1, OSC1,SampleOut, Amplitude;
+
+}
+
+
+CGASignal  Envelope
+{
+	File = "m_env01.wav";
+}
+
+CGAPatch "Sample based envelope"
+{
+	CGAWavetableOscillator ENV1
+	{
+		WaveTable = Envelope;
+		Frequency = 0.0005;
+	}
+
+	CGASawtoothOscBLIT OSC1
+	{
+		Frequency = 100;
+		FMAttenuation = 0.2;
+	}
+
+	Connection = ENV1, OSC1,SampleOut, FM;
+
+}
+
+
+CGAPatch "Sample based envelope, 2 Osc + Averager"
+{
+	CGAWavetableOscillator ENV1
+	{
+		WaveTable = Envelope;
+		Frequency = 0.0002;
+	}
+
+	CGAAverager AVG1
+	{
+		Duration = 0.0000133;
+	}
+	
+	CGAAverager AVG2
+	{
+		Duration = 0.00001;
+	}
+
+	CGASawtoothOscBLIT OSC1
+	{
+		Frequency = 100;
+		FMAttenuation = 0.3;
+	}
+
+	CGASawtoothOscBLIT OSC2
+	{
+		Frequency = 200;
+		FMAttenuation = 0.3;
+	}
+
+	CGAMixer2 MIX1
+	{
+	}
+
+	Connection = ENV1, AVG1,SampleOut, SampleIn;
+	Connection = AVG1, OSC1,SampleOut, FM;
+	Connection = ENV1, AVG2,SampleOut, SampleIn;
+	Connection = AVG2, OSC2,SampleOut, FM;
+	Connection = OSC1, MIX1,SampleOut, SampleIn1;
+	Connection = OSC2, MIX1,SampleOut, SampleIn2;
+
+}
+

@@ -1,0 +1,34 @@
+#include "sph.cg"
+void main(float2 tc0 : TEXCOORD0, // pair index
+		  uniform samplerRECT attr_rect      : TEXUNIT0,  // attributes of particles
+		  uniform samplerRECT neighbour_rect : TEXUNIT1,  // neighbour list
+		  uniform float grad_spiky_coef,
+		  uniform float lap_vis_coef,
+		  //uniform float mass,
+		  //uniform float viscosity,
+		  out float3 result : COLOR // acceleration
+		  )
+{
+	float m = MASS;
+	float h = SMOOTHING_LENGTH;
+	float mu = VISCOSITY;
+	float2 texel = f2texRECT(neighbour_rect, tc0);
+	float index = texel.x;
+	float nindex = texel.y;
+
+	float3 pos_i = f3texRECT(attr_rect, float2(index, GPU_ATTR_POS));
+	float3 v_i = f3texRECT(attr_rect, float2(index, GPU_ATTR_VEL));
+	float2 dp_i = f2texRECT(attr_rect, float2(index, GPU_ATTR_DP));
+
+	float3 pos_j = f3texRECT(attr_rect, float2(nindex, GPU_ATTR_POS));
+	float3 v_j = f3texRECT(attr_rect, float2(nindex, GPU_ATTR_VEL));
+	float2 dp_j = f2texRECT(attr_rect, float2(nindex, GPU_ATTR_DP));
+
+	float r = distance(pos_i, pos_j);
+	float h_r = h - r;
+	if (h_r > 0.0)
+		result = m*h_r*dp_i.x*dp_j.x*(-0.5*(pos_i + pos_j)*grad_spiky_coef*h_r/r + (v_j - v_i)*mu*lap_vis_coef);
+		//result = 45*m/(PI*pow(h, 6))*h_r*((dp_i.y + dp_j.y)*0.5*h_r*(pos_i - pos_j)/r + mu*(v_j - v_i))*dp_j.x*dp_i.x;
+//		result = 45*m/(PI*h*h*h*h*h*h)*h_r*((dp_i.y + dp_j.y)*0.5*h_r*(pos_i - pos_j)/r + mu*(v_j - v_i))*dp_j.x*dp_i.x;
+	else result = float3(0, 0, 0);
+}

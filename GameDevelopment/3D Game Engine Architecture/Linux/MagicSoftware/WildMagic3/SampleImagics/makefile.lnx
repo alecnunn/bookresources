@@ -1,0 +1,23 @@
+build :
+	make build -f makeall.lnx CONFIG=Debug APP=BinaryOperations
+	make build -f makeall.lnx CONFIG=Debug APP=ConformalMapping
+	make build -f makeall.lnx CONFIG=Debug APP=ExtractLevelCubes
+	make build -f makeall.lnx CONFIG=Debug APP=ExtractLevelCurves
+	make build -f makeall.lnx CONFIG=Debug APP=ExtractLevelTetra
+	make build -f makeall.lnx CONFIG=Release APP=BinaryOperations
+	make build -f makeall.lnx CONFIG=Release APP=ConformalMapping
+	make build -f makeall.lnx CONFIG=Release APP=ExtractLevelCubes
+	make build -f makeall.lnx CONFIG=Release APP=ExtractLevelCurves
+	make build -f makeall.lnx CONFIG=Release APP=ExtractLevelTetra
+
+clean :
+	make clean -f makeall.lnx CONFIG=Debug APP=BinaryOperations
+	make clean -f makeall.lnx CONFIG=Debug APP=ConformalMapping
+	make clean -f makeall.lnx CONFIG=Debug APP=ExtractLevelCubes
+	make clean -f makeall.lnx CONFIG=Debug APP=ExtractLevelCurves
+	make clean -f makeall.lnx CONFIG=Debug APP=ExtractLevelTetra
+	make clean -f makeall.lnx CONFIG=Release APP=BinaryOperations
+	make clean -f makeall.lnx CONFIG=Release APP=ConformalMapping
+	make clean -f makeall.lnx CONFIG=Release APP=ExtractLevelCubes
+	make clean -f makeall.lnx CONFIG=Release APP=ExtractLevelCurves
+	make clean -f makeall.lnx CONFIG=Release APP=ExtractLevelTetra

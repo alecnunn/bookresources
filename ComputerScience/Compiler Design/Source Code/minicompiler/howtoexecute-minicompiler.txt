@@ -1,0 +1,9 @@
+The command for compiling the source files is:
+$ make
+$ ./mcc sourceCFileName objectFileName
+It produces the machine code which is embedded into the elf file to create a object file
+In order to get the other header details (the differnt fields can be manually filled), the  elf information from the existing is used by storing them into a elftemplate file.
+For having the minimum information on elf object file, the following command can be used.
+$cc -c cfilename -s -nostartfiles -nostdlib -nodefaultlibs
+This command generates the file called 'cfilename.o' which is used as the template file, whose text contents is modified according to the given source file
+

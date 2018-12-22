@@ -1,0 +1,13 @@
+ps.1.1
+
+def c1, 0.3, 0.6, 0.1, 1.0
+def c2, 0.9, 0.7, 0.3, 1.0
+def c3, 0.5, 0.5, 0.5, 1.0
+
+tex t0
+
+;convert to luminance
+dp3 r0, t0, c1
+
+;convert to sepia
+mul r0, r0, c2

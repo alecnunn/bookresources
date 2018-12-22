@@ -1,0 +1,53 @@
+<html>
+<head>
+<title></title>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Output</h2>
+<p>THE TABLE OF QUADRUPLES ARE</p>
+<p>LABEL	OPER	OP1	OP2	RES</p>
+<p> =	156000	-	loanAmount<br>
+  =	0	-	balance<br>
+  =	1000	-	installments<br>
+  =	0	-	noOfInstallments<br>
+  L1:	-	loanAmount	installments	t1<br>
+  =	t1	-	balance<br>
+  +	noOfInstallments	1	t2<br>
+  =	t2	-	noOfInstallments<br>
+  &lt;	balance	0	t3<br>
+  If=	t3	0	L2<br>
+  goto	-	-	L1<br>
+  L2:	Nop	-	-	-<br>
+  -	balance	-	t6<br>
+  =	-	excess<br>
+  ..................................<br>
+  Printing the quadruples Blockwise<br>
+  ..................................<br>
+  Block No:0<br>
+  =	156000	-	loanAmount<br>
+  =	0	-	balance<br>
+  =	1000	-	installments<br>
+  =	0	-	noOfInstallments<br>
+  Block No:1<br>
+  L1:	-	loanAmount	installments	t1<br>
+  =	t1	-	balance<br>
+  +	noOfInstallments	1	t2<br>
+  =	t2	-	noOfInstallments<br>
+  &lt;	balance	0	t3<br>
+  If=	t3	0	L2<br>
+  Block No:2<br>
+  goto	-	-	L1<br>
+  Block No:3<br>
+  -	balance	-	t6<br>
+  =	-	excess<br>
+  Construct Flow Graph<br>
+  Print Flow Graph<br>
+  B1<br>
+  B2<br>
+  B4	B3<br>
+  B2 </p>
+<p>Printing Labels<br>
+  L1	L2 </p>
+<p></p>
+</body>
+</html>

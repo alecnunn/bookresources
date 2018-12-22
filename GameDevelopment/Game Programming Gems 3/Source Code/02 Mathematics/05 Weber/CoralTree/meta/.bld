@@ -1,0 +1,14 @@
+# META
+set MODULE = meta
+if (!$(CORALHOME))
+{
+	cd ..
+	set CORALHOME = `pwd`
+	cd $(MODULE)
+}
+include $(CORALHOME)/meta/coral.bld
+
+set FILES =
+set PROGRAMS =
+set TARGETS =
+

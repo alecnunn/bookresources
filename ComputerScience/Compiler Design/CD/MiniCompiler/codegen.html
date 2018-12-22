@@ -1,0 +1,365 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - codegen </h2>
+<p>#include &quot;cic.h&quot;<br>
+  #include&lt;elf.h&gt;<br>
+  #define MAXSECTIONS 100<br>
+  #define MAXPROGRAMS 100<br>
+#define MAXSYMBOLS 100</p>
+<p>void dispMainCode()<br>
+  {<br>
+  int i;<br>
+  for (i = 0;i &lt; cc; i++)<br>
+  {<br>
+  printf(&quot;%x &quot;,mainCode[i]);<br>
+  }<br>
+  printf(&quot;\n&quot;);<br>
+  }<br>
+  void genCodeFromQuad(Quad *quadListHeader)<br>
+  {<br>
+  unsigned char ch=0;<br>
+  int spaceInStack=0;<br>
+  unsigned char byte1=0,byte2=0,byte3=0,byte4=0;<br>
+  Quad *temp;<br>
+  List L;<br>
+  int symCount=0;<br>
+  int arg1,arg2,quo,rem;<br>
+  unsigned char stackPos;<br>
+  st = gst;<br>
+  temp=quadListHeader-&gt;nextQuad;<br>
+  while(temp!=NULL)<br>
+  {<br>
+  //printf(&quot;%d: %s\n&quot;,temp-&gt;operator,ops[temp-&gt;operator]);<br>
+  switch(temp-&gt;operator)<br>
+  {<br>
+  case ASSIGN: <br>
+  if(temp-&gt;operand1-&gt;type==CONST)<br>
+  {<br>
+  arg1 = temp-&gt;operand1-&gt;value.iVal;<br>
+  byte1 = arg1 &amp; 0x000000ff;<br>
+  byte2 = (arg1 &gt;&gt; 8) &amp; 0x000000ff;<br>
+  byte3 = (arg1 &gt;&gt; 16) &amp; 0x000000ff;<br>
+  byte2 = (arg1 &gt;&gt; 24) &amp; 0x000000ff;<br>
+  stackPos = 0xff - getStackPos(st,temp-&gt;result-&gt;name)+1; <br>
+  mainCode[cc++] = 0xc7; <br>
+  mainCode[cc++] = 0x45; <br>
+  mainCode[cc++] = stackPos; <br>
+  mainCode[cc++] = byte1; <br>
+  mainCode[cc++] = byte2; <br>
+  mainCode[cc++] = byte3; <br>
+  mainCode[cc++] = byte4; <br>
+  }<br>
+  else<br>
+  {<br>
+  stackPos = 0xff - getStackPos(st,temp-&gt;operand1-&gt;name)+1; <br>
+  //mov operand1stackPos (%ebp), %eax<br>
+  //	mainCode[cc++] = 0x8b; <br>
+  //	mainCode[cc++] = 0x45; <br>
+  //	mainCode[cc++] = stackPos; <br>
+  }<br>
+  break;<br>
+  case FUNCTION: <br>
+  L=findSymbolHash(st,temp-&gt;result-&gt;name);<br>
+  if(L==NULL)<br>
+  {<br>
+  printf(&quot;required symbol table is not found\n&quot;);<br>
+  exit(-1);<br>
+  }<br>
+  st = L-&gt;symbol.st;<br>
+  //To prepare the activation record ready on the stack<br>
+  symCount=countSymbols(st); <br>
+  spaceInStack = (int)(ceil(((double)symCount + 4)/16)) * 16  ;<br>
+  assignLocInStack(st,spaceInStack); <br>
+  //Store ebp on the stack and ebp holds the stack pointer to work across the Activation Record<br>
+  mainCode[cc++] = 0x55 ;     //push %ebp<br>
+  mainCode[cc++] = 0x89;      //mov %esp,%ebp<br>
+  mainCode[cc++] = 0xe5; <br>
+  //Calculate the space requirements on the stack to hold all the local variables<br>
+  ch = spaceInStack &amp; 0x000000ff; //This space may increase more than 256 bytes - Code to be modified then<br>
+  mainCode[cc++] = 0x83;	//sub $chvalue, %esp<br>
+  mainCode[cc++] = 0xec;<br>
+  mainCode[cc++] = ch;<br>
+  break;<br>
+  case RETURN: <br>
+  //stackPos = 0xff - getStackPos(st,temp-&gt;operand1-&gt;name)+1; <br>
+  //mov stackPos(%epb), eax<br>
+  mainCode[cc++] = 0x8b;<br>
+  mainCode[cc++] = 0x45;<br>
+  mainCode[cc++] = stackPos;<br>
+  //leave<br>
+  //ret <br>
+  mainCode[cc++] = 0xc9;<br>
+  mainCode[cc++] = 0xc3;<br>
+  st=st-&gt;prevst;<br>
+  break;<br>
+  case PLUS:<br>
+  if(temp-&gt;operand1-&gt;type==CONST)<br>
+  {<br>
+  arg1 = temp-&gt;operand1-&gt;value.iVal;<br>
+  byte1 = arg1 &amp; 0x000000ff;<br>
+  byte2 = (arg1 &gt;&gt; 8) &amp; 0x000000ff;<br>
+  byte3 = (arg1 &gt;&gt; 16) &amp; 0x000000ff;<br>
+  byte2 = (arg1 &gt;&gt; 24) &amp; 0x000000ff;<br>
+  }<br>
+  else<br>
+  {<br>
+  stackPos = 0xff - getStackPos(st,temp-&gt;operand1-&gt;name)+1; <br>
+  //mov operand1stackPos (%ebp), %eax<br>
+  mainCode[cc++] = 0x8b; <br>
+  mainCode[cc++] = 0x45; <br>
+  mainCode[cc++] = stackPos; <br>
+  }<br>
+  if(temp-&gt;operand2-&gt;type==CONST)<br>
+  {<br>
+  arg2 = temp-&gt;operand2-&gt;value.iVal;<br>
+  byte1 = arg2 &amp; 0x000000ff;<br>
+  byte2 = (arg2 &gt;&gt; 8) &amp; 0x000000ff;<br>
+  byte3 = (arg2 &gt;&gt; 16) &amp; 0x000000ff;<br>
+  byte2 = (arg2 &gt;&gt; 24) &amp; 0x000000ff;<br>
+  }<br>
+  else<br>
+  {<br>
+  stackPos = 0xff - getStackPos(st,temp-&gt;operand2-&gt;name)+1; <br>
+  //add operand2stackPos (%ebp), %edx<br>
+  mainCode[cc++] = 0x8b;<br>
+  mainCode[cc++] = 0x55;<br>
+  mainCode[cc++] = stackPos;<br>
+  }<br>
+  //lea(%edx,%eax,1), %eax<br>
+  mainCode[cc++] = 0x8d;<br>
+  mainCode[cc++] = 0x04;<br>
+  mainCode[cc++] = 0x02;<br>
+  //mov %eax,stackPos(%ebp) <br>
+  stackPos = 0xff - getStackPos(st,temp-&gt;result-&gt;name)+1; <br>
+  //mov  %eax, resultstackPos(%ebp)<br>
+  mainCode[cc++] = 0x89;<br>
+  mainCode[cc++] = 0x45; <br>
+  mainCode[cc++] = stackPos; <br>
+  break;<br>
+  case MINUS:<br>
+  //code similar to ADD<br>
+  break;<br>
+  case MUL:<br>
+  //Code similar to ADD<br>
+  break;<br>
+  case DIV:<br>
+  //Code similar to ADD<br>
+  break;<br>
+  case MODULO:<br>
+  //Code similar to ADD<br>
+  break;<br>
+  default: break;<br>
+  }<br>
+  temp=temp-&gt;nextQuad;<br>
+  }<br>
+  mainCodeSize = cc;<br>
+  printf(&quot;codesize = %d\n&quot;,mainCodeSize);<br>
+  dispMainCode();<br>
+  }</p>
+<p>int createElfFile(char *dstFile)<br>
+  {<br>
+  int i,j,k,pos,offset,size,noSymbols;<br>
+  int pos1,pos2;<br>
+  int type,binding;<br>
+  int R,W,E;<br>
+  char *stringTable,*symStrTable;<br>
+  FILE *fpi,*fpo;<br>
+  char *buf;<br>
+  char **segmentsIn, **segmentsOut;<br>
+  char **sectionsIn, **sectionsOut;<br>
+  Elf32_Ehdr *ehdrIn,*ehdrOut;<br>
+  //Elf32_Shdr shdrIn,shdrsIn[MAXSECTIONS];<br>
+  Elf32_Shdr shdrOut,**shdrsOut;<br>
+  Elf32_Shdr shdrIn,**shdrsIn;<br>
+  //Elf32_Phdr phdrIn,phdrsIn[MAXPROGRAMS];<br>
+  Elf32_Phdr phdrOut,**phdrsOut;<br>
+  Elf32_Phdr phdrIn,**phdrsIn;<br>
+  //Elf32_Phdr phdrsOut[MAXPROGRAMS];<br>
+  Elf32_Sym *sym_tab_ptr,*symTable, symbols[MAXSYMBOLS];<br>
+  char *shdr_ptr;<br>
+  int result;</p>
+<p> //Opening the ELF file for both reading and writing<br>
+  fpi = fopen(&quot;elftemplate&quot;,&quot;rb&quot;);<br>
+  if(NULL == fpi)<br>
+  {<br>
+  printf(&quot;Error in reading elf template file .. Program terminated\n&quot;);<br>
+  exit(-1);<br>
+  }<br>
+  fpo=fopen(dstFile,&quot;wb&quot;);<br>
+  if(NULL==fpo)<br>
+  {<br>
+  printf(&quot;Error in creating the elf file .. Program terminated \n&quot;,dstFile);<br>
+  exit(-1);<br>
+  }<br>
+  ehdrIn = (Elf32_Ehdr*) malloc(sizeof(Elf32_Ehdr));<br>
+  ehdrOut = (Elf32_Ehdr*) malloc(sizeof(Elf32_Ehdr));<br>
+  fseek(fpi,0,SEEK_END);<br>
+  size = ftell(fpi);<br>
+  buf = (char*) malloc(size);<br>
+  fwrite( (char*)buf, size,1,fpo);<br>
+  /*Reading the Elf32_Ehdr for making copy of the Elf32_EHdr for writing into another Elf32_Ehdr*/<br>
+  fseek(fpi,0,SEEK_SET); <br>
+  result = fread((char*)ehdrIn,sizeof(Elf32_Ehdr),1,fpi);<br>
+  if(result &lt;= 0)<br>
+  {<br>
+  printf(&quot;ElfHeader could not be read from the elf template file\n&quot;);<br>
+  return -1;<br>
+  }</p>
+<p> //Copy the Elf32_Ehdr from an existing Elf file format to the new file to be created<br>
+  memcpy((char*)ehdrOut,(char*)ehdrIn,sizeof(Elf32_Ehdr));<br>
+  fseek(fpo,0,SEEK_SET); <br>
+  result = fwrite((char*)ehdrOut,sizeof(Elf32_Ehdr),1,fpo);<br>
+  if(result &lt;= 0)<br>
+  {<br>
+  printf(&quot;ElfHeader could not be written to %s\n&quot;,dstFile); <br>
+  return -1;<br>
+  }</p>
+<p> if(ehdrIn-&gt;e_phnum &gt; 0)<br>
+  {<br>
+  //Memory Allocation for program headers<br>
+  phdrsIn = (Elf32_Phdr**) malloc(sizeof(long int)*ehdrIn-&gt;e_phnum); <br>
+  for(i=0;i&lt;ehdrIn-&gt;e_phnum;i++)<br>
+  phdrsIn[i] = (Elf32_Phdr*)malloc(sizeof(Elf32_Phdr));<br>
+  phdrsOut = (Elf32_Phdr**) malloc(sizeof(long int)*ehdrOut-&gt;e_phnum); <br>
+  for(i=0;i&lt;ehdrOut-&gt;e_phnum;i++)<br>
+  phdrsOut[i] = (Elf32_Phdr*)malloc(sizeof(Elf32_Phdr));</p>
+<p> //Reading the program headers and writing the program headers<br>
+  fseek(fpi,ehdrIn-&gt;e_phoff,SEEK_SET);<br>
+  fseek(fpo,ehdrOut-&gt;e_phoff,SEEK_SET);<br>
+  for(i=0;i&lt;ehdrIn-&gt;e_phnum;i++)<br>
+  {<br>
+  result = fread((char*)phdrsIn[i],sizeof(Elf32_Phdr) ,1,fpi);<br>
+  if(result &lt;= 0)<br>
+  {<br>
+  printf(&quot;Error in reading the Program header from Elf template file: %s\n&quot;); <br>
+  exit(-1);<br>
+  }<br>
+  memcpy((char*)phdrsOut[i],(char*)phdrsIn[i],sizeof(Elf32_Phdr));<br>
+  result = fwrite((char*)phdrsOut[i],sizeof(Elf32_Phdr) ,1,fpo);<br>
+  if(result &lt;= 0)<br>
+  {<br>
+  printf(&quot;Error in writing the section  header into the file: %s\n&quot;,dstFile);<br>
+  exit(-1);<br>
+  }<br>
+  }<br>
+  }<br>
+  <br>
+  //Allocate memory for the section headers for the existing elf file and output elf file<br>
+  shdrsIn = (Elf32_Shdr**) malloc(sizeof(long int)*ehdrIn-&gt;e_shnum); <br>
+  for(i=0;i&lt;ehdrIn-&gt;e_shnum;i++)<br>
+  shdrsIn[i] = (Elf32_Shdr*)malloc(sizeof(Elf32_Shdr));</p>
+<p> shdrsOut = (Elf32_Shdr**) malloc(sizeof(long int)*ehdrOut-&gt;e_shnum); <br>
+  for(i=0;i&lt;ehdrOut-&gt;e_shnum;i++)<br>
+  shdrsOut[i] = (Elf32_Shdr*)malloc(sizeof(Elf32_Shdr));</p>
+<p> <br>
+  //Copy section headers from the exisiting elf file to the elfout file<br>
+  fseek(fpi,ehdrIn-&gt;e_shoff,SEEK_SET);<br>
+  fseek(fpo,ehdrOut-&gt;e_shoff,SEEK_SET);<br>
+  for(i=0;i&lt;ehdrIn-&gt;e_shnum;i++)<br>
+  {<br>
+  <br>
+  result = fread((char*)shdrsIn[i],sizeof(Elf32_Shdr) ,1,fpi);<br>
+  if(result &lt;= 0)<br>
+  {<br>
+  printf(&quot;Error in reading the section header from the Elf template file\n&quot;);<br>
+  exit(-1);<br>
+  }<br>
+  memcpy((char*)shdrsOut[i],(char*)shdrsIn[i],sizeof(Elf32_Shdr));<br>
+  result = fwrite((char*)shdrsOut[i],sizeof(Elf32_Shdr),1,fpo);<br>
+  if(result &lt;= 0)<br>
+  {<br>
+  printf(&quot;Error in Writing the section header to the file\n&quot;,dstFile); <br>
+  exit(-1);</p>
+<p> }<br>
+  }<br>
+  <br>
+  //Read the string table for all the display of names<br>
+  pos = shdrsIn[ehdrIn-&gt;e_shstrndx]-&gt;sh_offset;<br>
+  size = shdrsIn[ehdrIn-&gt;e_shstrndx]-&gt;sh_size;<br>
+  fseek(fpi,pos,SEEK_SET);<br>
+  stringTable = (char*)malloc(size); <br>
+  result = fread((char*)stringTable,size,1,fpi);<br>
+  if(result &lt;= 0)<br>
+  {<br>
+  printf(&quot;Could not read string table from the Elf Template file %s\n&quot;);<br>
+  return -1;<br>
+  }<br>
+  fseek(fpo,pos,SEEK_SET);<br>
+  result = fwrite((char*)stringTable,size,1,fpo);<br>
+  if(result &lt;= 0)<br>
+  {<br>
+  printf(&quot;Could not write string table to  the out Elf file %s\n&quot;);<br>
+  return -1;<br>
+  }<br>
+  //Allocate Memory for holding the sections<br>
+  sectionsIn = (char**) malloc(ehdrIn-&gt;e_shnum*sizeof(long int));<br>
+  sectionsOut = (char**) malloc(ehdrOut-&gt;e_shnum*sizeof(long int));<br>
+  for(i=0;i&lt;ehdrIn-&gt;e_shnum;i++)<br>
+  {<br>
+  sectionsIn[i] = (char*) malloc(shdrsIn[i]-&gt;sh_size);<br>
+  sectionsOut[i] = (char*) malloc(shdrsOut[i]-&gt;sh_size);<br>
+  }<br>
+  for(i=0;i&lt;ehdrIn-&gt;e_shnum;i++)<br>
+  {<br>
+  if(shdrsIn[i]-&gt;sh_type==SHT_STRTAB)<br>
+  {<br>
+  size = shdrsIn[i]-&gt;sh_size;<br>
+  pos = shdrsIn[i]-&gt;sh_addr+shdrsIn[i]-&gt;sh_offset;<br>
+  fseek(fpi,pos,SEEK_SET);<br>
+  fseek(fpo,pos,SEEK_SET);<br>
+  symStrTable = (char*)malloc(size);<br>
+  fread((char*)symStrTable,size,1,fpi);<br>
+  fwrite((char*)symStrTable,size,1,fpo);<br>
+  }<br>
+  }<br>
+</p>
+<p> //Copying the sections to the elf out file<br>
+  for(i=0;i&lt;ehdrIn-&gt;e_shnum;i++)<br>
+  {<br>
+  if(shdrsIn[i]-&gt;sh_size &gt; 0)<br>
+  {<br>
+  fseek(fpi,shdrsIn[i]-&gt;sh_offset,SEEK_SET); <br>
+  result = fread((char*)sectionsIn[i],shdrsIn[i]-&gt;sh_size,1,fpi);<br>
+  if(result &lt;= 0)<br>
+  {<br>
+  printf(&quot;Error in reading the section from the elf template elf file: \n&quot;); <br>
+  exit(-1);<br>
+  }<br>
+  //Copy every sections from the existing elf file except .text portion which is to be produced <br>
+  //from the compilation of the new program file<br>
+  if(strcmp((stringTable+shdrsIn[i]-&gt;sh_name),&quot;.text&quot;) == 0)<br>
+  {<br>
+  shdrsOut[i]-&gt;sh_size = mainCodeSize;<br>
+  memcpy((char*)sectionsOut[i],(char*)&amp;mainCode[0], shdrsOut[i]-&gt;sh_size); <br>
+  }<br>
+  else<br>
+  {<br>
+  memcpy((char*)sectionsOut[i],(char*)sectionsIn[i],shdrsIn[i]-&gt;sh_size); <br>
+  }<br>
+  <br>
+  fseek(fpo,shdrsOut[i]-&gt;sh_offset,SEEK_SET); <br>
+  result = fwrite((char*)sectionsOut[i],shdrsOut[i]-&gt;sh_size,1,fpo);<br>
+  if(result &lt;= 0)<br>
+  {<br>
+  printf(&quot;Error in writing the section to the file: %s\n&quot;, dstFile); <br>
+  exit(-1);<br>
+  }<br>
+  <br>
+  }<br>
+  }</p>
+<p> //copy remaining portion of the files into the target elf file<br>
+  pos1=ftell(fpi);<br>
+  fseek(fpi,0,SEEK_END);<br>
+  pos2=ftell(fpi);<br>
+  size = pos2-pos1;<br>
+  buf=(char*)malloc(sizeof(char)*size);<br>
+  fread((char*)buf,size,1,fpi);<br>
+  fwrite((char*)buf,size,1,fpo);<br>
+  fclose(fpi);<br>
+  fclose(fpo);<br>
+  }<br>
+</p>
+</body>
+</html>

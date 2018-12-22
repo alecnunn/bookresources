@@ -1,0 +1,52 @@
+; v0  -- position
+; v1  -- normal
+; v2  -- tex coord
+;
+; c0-3   -- world/view/proj matrix
+; c4     -- light vector
+; c5    -- eye point
+; c6	-- 1.0f
+
+#include "constants.h"
+
+#define srcPosition v0
+#define srcNormal	v1
+#define srcTexCoord	v2
+
+#define destNormTex oT0
+#define destLightTex oT1
+#define destEyeTex oT2
+#define destNormTex2 oT3
+
+	vs.1.0
+
+
+;transform position
+	dp4 oPos.x, srcPosition, c[CV_WORLDVIEWPROJ_0]
+	dp4 oPos.y, srcPosition, c[CV_WORLDVIEWPROJ_1]
+	dp4 oPos.z, srcPosition, c[CV_WORLDVIEWPROJ_2]
+	dp4 oPos.w, srcPosition, c[CV_WORLDVIEWPROJ_3]
+
+; get light direction from vertex
+; because this is a directional light.
+
+	mov destLightTex, c[CVP_LIGHT_DIRECTION]
+
+#ifdef MODULATE_COLOR
+; get vertex position to eye position (-eye vector)
+	sub	r0, c[CV_EYE_POSITION], srcPosition
+
+; normalize the new vector
+	dp3 r0.w, r0, r0
+	rsq r0.w, r0.w
+	mul destEyeTex, r0, r0.w					; destEyeTex coordinate now has normalized vector vertex->eye
+	mov destEyeTex.w, c[CV_ONE]
+
+#else
+	mov	destEyeTex, srcNormal
+#endif
+	mov	destNormTex, srcNormal
+	mov destNormTex2, srcNormal
+	mov destNormTex2.w, c[CV_ONE]
+
+	mov	oD0, c[CV_MATERIAL_COLOR]

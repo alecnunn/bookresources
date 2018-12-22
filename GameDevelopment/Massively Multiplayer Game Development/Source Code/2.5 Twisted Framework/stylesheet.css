@@ -1,0 +1,133 @@
+
+BODY
+{
+  margin-left: 2em;
+  margin-right: 2em;
+  border: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+  }
+
+.done { color: #005500; background-color: #99ff99 }
+.notdone { color: #550000; background-color: #ff9999;}
+
+PRE
+{
+  padding: 1em;
+  font-family: Neep Alt, Courier New, Courier;
+  font-size: 12pt;
+  border: thin black solid;
+}
+
+.boxed
+{
+  padding: 1em;
+  border: thin black solid;
+}
+
+.shell
+{ 
+  background-color: #ffffdd;
+}
+
+.python
+{
+  background-color: #dddddd;
+}
+
+.htmlsource
+{
+  background-color: #dddddd;
+}
+
+.py-prototype
+{
+  background-color: #ddddff;
+}
+
+
+.python-interpreter
+{
+  background-color: #ddddff;
+}
+
+.doit 
+{
+  border: thin blue dashed ;
+  background-color: #0ef
+}
+
+.py-src-comment
+{
+  color: #1111CC
+}
+
+.py-src-keyword
+{
+  color: #3333CC;
+  font-weight: bold;
+}
+
+.py-src-parameter
+{
+  color: #000066;
+  font-weight: bold;
+}
+
+.py-src-identifier
+{
+  color: #CC0000
+}
+
+.py-src-string
+{
+  
+  color: #115511
+}
+.py-listing 
+{
+  border: thin solid black;
+  background-color: #eee;
+}
+.py-listing .python 
+{
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none;
+  border-bottom: thin solid black;
+  }
+
+.py-listing .htmlsource
+{
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none;
+  border-bottom: thin solid black;
+  }
+
+.py-caption
+{
+  text-align: center;
+ }
+.py-filename
+{
+  font-style: italic;
+  }
+HR
+{
+  display: inline;
+  }
+
+UL
+{
+  padding: 0px;
+  margin: 0px;
+  margin-left: 1em;
+  padding-left: 1em;
+  border-left: 1em;
+  }
+
+LI
+{
+  padding: 2px;
+  }

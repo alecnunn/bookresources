@@ -1,0 +1,35 @@
+import java.awt.*;
+import GamePiece;
+
+public class GameBoard {
+
+final boolean BLACK = false;
+final boolean WHITE = true;
+
+public int rows, cols;  // number of rows/columns
+GamePiece board[][]; // the actual board itself
+
+GameBoard( int w, int h) {
+	board = new GamePiece[w][h];
+	cols = w;
+	rows = h;
+}
+
+public void paintBoard(Graphics g, Rectangle r) {
+
+int x, pieceWidth;
+int y, pieceHeight;
+
+pieceWidth = (int) (r.width/cols);
+pieceHeight = (int) (r.height/rows);
+
+g.setColor(Color.green);
+g.fillRect( r );
+
+for( x=0; x<cols; x++) 
+	for(y=0; y<rows; y++) 
+		if( board[x][y] != null )
+			board[x][y].paintPiece( g, new Rectangle( r.x + pieceWidth*x, r.y + pieceHeight*y, pieceWidth, pieceHeight) );
+}
+
+}

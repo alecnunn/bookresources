@@ -1,0 +1,98 @@
+#ifndef META_OPTIONS_H
+#define META_OPTIONS_H
+
+/* THIS HEADER FILE GENERATED DURING BUILD */
+/* EDITS OF THIS FILE MAY BE LOST          */
+
+/* OSD_FILE_ATTRIB_NONEXIST_COMPLAIN */
+/*  */
+#undef	OSD_FILE_ATTRIB_NONEXIST_COMPLAIN
+
+/* OSD_PLATFORM_GRAPHICS */
+/*  */
+#undef	OSD_PLATFORM_GRAPHICS
+
+/* OSD_REPLACE_SCANDIR */
+/*  */
+#undef	OSD_REPLACE_SCANDIR
+
+/* OSD_FORCE_PATHNAME_LOWER_CASE */
+/*  */
+#undef	OSD_FORCE_PATHNAME_LOWER_CASE
+
+/* GPL_PROBE_CIRCULAR_QUEUE */
+/*  */
+#undef	GPL_PROBE_CIRCULAR_QUEUE
+
+/* GPL_PROBE_DYNAMIC_ARRAY */
+/*  */
+#undef	GPL_PROBE_DYNAMIC_ARRAY
+
+/* GPL_USE_DESC_IMPLEMENTATION */
+/*  */
+#undef	GPL_USE_DESC_IMPLEMENTATION
+
+/* GPL_USE_STRTOK_IN_STRINGTOKENIZER */
+/*  */
+#undef	GPL_USE_STRTOK_IN_STRINGTOKENIZER
+
+/* SPA_ENABLE_TIMECHECKING */
+/*  */
+#undef	SPA_ENABLE_TIMECHECKING
+
+/* SPA_RANGE_CHECKING */
+/*  */
+#define	SPA_RANGE_CHECKING
+
+/* DSS_DEADLOCK_TESTING */
+/*  */
+#undef	DSS_DEADLOCK_TESTING
+
+/* DSS_ENABLE_CHUNKCACHE */
+/*  */
+#undef	DSS_ENABLE_CHUNKCACHE
+
+/* DSS_ENABLE_TIMECHECKING */
+/*  */
+#undef	DSS_ENABLE_TIMECHECKING
+
+/* DSS_LAST_KNOWN_OVERRIDE */
+/*  */
+#undef	DSS_LAST_KNOWN_OVERRIDE
+
+/* DSS_OLD_WAITRETURN */
+/*  */
+#undef	DSS_OLD_WAITRETURN
+
+/* DSS_PRINT_BLOCKS */
+/*  */
+#undef	DSS_PRINT_BLOCKS
+
+/* DSS_SUPPRESS_GARBAGE_COLLECTION */
+/*  */
+#undef	DSS_SUPPRESS_GARBAGE_COLLECTION
+
+/* DSSX_ENABLE_TIMECHECKING */
+/*  */
+#undef	DSSX_ENABLE_TIMECHECKING
+
+/* DSSX_OLD_UPDATE_IMPL */
+/*  */
+#undef	DSSX_OLD_UPDATE_IMPL
+
+/* DSSX_SHT_ATOMIC_IMPL */
+/*  */
+#undef	DSSX_SHT_ATOMIC_IMPL
+
+/* DSSX_USE_DESC_IMPLEMENTATION */
+/*  */
+#undef	DSSX_USE_DESC_IMPLEMENTATION
+
+/* EW_TRACK_NEWED */
+/* Track which EW/WDS nodes have been allocated via   */
+/* operator new() and complain if any node given to   */
+/* operator delete() was not allocated (e.g., a class */
+/* data member.                                       */
+#define	EW_TRACK_NEWED	1
+
+#endif /* META_OPTIONS_H */

@@ -1,0 +1,103 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: D3D8frame - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP71A1.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "include" /I "..\MyInc" /D "DEBUG" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D DXVERSION=8 /Fp"Debug/D3D8frame.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\d3dapp.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\d3dfile.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\d3dfont.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\d3dutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\ddutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\didcfgview.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\diutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\dmutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\dsutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\dxutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\netclient.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\netconnect.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\src\netvoice.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP71A1.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP71A2.TMP" with contents
+[
+/nologo /out:"Debug\D3D8frame.lib" 
+".\Debug\d3dapp.obj"
+".\Debug\d3dfile.obj"
+".\Debug\d3dfont.obj"
+".\Debug\d3dutil.obj"
+".\Debug\ddutil.obj"
+".\Debug\didcfgview.obj"
+".\Debug\diutil.obj"
+".\Debug\dmutil.obj"
+".\Debug\dsutil.obj"
+".\Debug\dxutil.obj"
+".\Debug\netclient.obj"
+".\Debug\netconnect.obj"
+".\Debug\netvoice.obj"
+]
+Creating command line "link.exe -lib @C:\WINDOWS\TEMP\RSP71A2.TMP"
+<h3>Output Window</h3>
+Compiling...
+d3dapp.cpp
+d3dfile.cpp
+d3dfont.cpp
+d3dutil.cpp
+ddutil.cpp
+didcfgview.cpp
+diutil.cpp
+dmutil.cpp
+dsutil.cpp
+dxutil.cpp
+netclient.cpp
+netconnect.cpp
+netvoice.cpp
+Creating library...
+<h3>
+--------------------Configuration: GemVIPM - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x809 /fo"Debug/WinMain.res" /d "_DEBUG" "C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\GemVIPM\WinMain.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP80E2.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "..\d3d8frame\include" /I "..\MyInc" /D "_DEBUG" /D "DEBUG" /D "WIN32" /D "_WINDOWS" /D DXVERSION=8 /FR"Debug/" /Fp"Debug/GemVIPM.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\MyInc\TomsD3DLib.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\MyInc\TomsLib.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\GemVIPM\gemvipm.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\GemVIPM\object.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP80E2.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP80E3.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dx8dt.lib d3d8.lib ddraw.lib d3dxof.lib dxguid.lib winmm.lib dinput8.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/GemVIPM.pdb" /debug /machine:I386 /out:"Debug/GemVIPM.exe" /pdbtype:sept 
+".\Debug\TomsD3DLib.obj"
+".\Debug\TomsLib.obj"
+".\Debug\gemvipm.obj"
+".\Debug\object.obj"
+".\Debug\WinMain.res"
+"\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8FRAME\Debug\D3D8frame.lib"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP80E3.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+TomsD3DLib.cpp
+TomsLib.cpp
+gemvipm.cpp
+object.cpp
+c:\windows\desktop\gems2 cd\sourcecode\04 geometry management\01 forsyth\gemvipm\object.cpp(1178) : warning C4200: nonstandard extension used : zero-sized array in struct/union
+c:\windows\desktop\gems2 cd\sourcecode\04 geometry management\01 forsyth\gemvipm\object.cpp(2874) : warning C4200: nonstandard extension used : zero-sized array in struct/union
+Linking...
+
+
+
+<h3>Results</h3>
+GemVIPM.exe - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

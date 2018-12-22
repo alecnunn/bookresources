@@ -1,0 +1,41 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RangeSequences", "RangeSequences\RangeSequences.vcproj", "{9A7D92D0-1400-4E42-93CB-EFDF14729CE1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PermutationSequences", "PermutationSequences\PermutationSequences.vcproj", "{95B3EAB4-11C3-428E-B464-56998009EE3C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CombinationalSequences", "CombinationalSequences\CombinationalSequences.vcproj", "{7F1FE252-8ADD-44CC-9AA6-F8CA5F3D539B}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{9A7D92D0-1400-4E42-93CB-EFDF14729CE1}.Debug.ActiveCfg = Debug|Win32
+		{9A7D92D0-1400-4E42-93CB-EFDF14729CE1}.Debug.Build.0 = Debug|Win32
+		{9A7D92D0-1400-4E42-93CB-EFDF14729CE1}.Release.ActiveCfg = Release|Win32
+		{9A7D92D0-1400-4E42-93CB-EFDF14729CE1}.Release.Build.0 = Release|Win32
+		{95B3EAB4-11C3-428E-B464-56998009EE3C}.Debug.ActiveCfg = Debug|Win32
+		{95B3EAB4-11C3-428E-B464-56998009EE3C}.Debug.Build.0 = Debug|Win32
+		{95B3EAB4-11C3-428E-B464-56998009EE3C}.Release.ActiveCfg = Release|Win32
+		{95B3EAB4-11C3-428E-B464-56998009EE3C}.Release.Build.0 = Release|Win32
+		{7F1FE252-8ADD-44CC-9AA6-F8CA5F3D539B}.Debug.ActiveCfg = Debug|Win32
+		{7F1FE252-8ADD-44CC-9AA6-F8CA5F3D539B}.Debug.Build.0 = Debug|Win32
+		{7F1FE252-8ADD-44CC-9AA6-F8CA5F3D539B}.Release.ActiveCfg = Release|Win32
+		{7F1FE252-8ADD-44CC-9AA6-F8CA5F3D539B}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		Item:1 = BigNumber\BigNumber.h
+		Item:2 = BigNumber\BigNumberCombinatorial.h
+		Item:3 = BigNumber\BigNumberFactorial.h
+		Item:4 = CombinationalSequenceIndexer.h
+		Item:5 = PermutationSequenceIndexer.h
+		Item:6 = RangeSequenceIndexer.h
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

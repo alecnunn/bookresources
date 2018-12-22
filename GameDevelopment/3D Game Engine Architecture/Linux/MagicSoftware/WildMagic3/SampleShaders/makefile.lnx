@@ -1,0 +1,27 @@
+build :
+	make build -f makeall.lnx CONFIG=Debug APP=Fresnel
+	make build -f makeall.lnx CONFIG=Debug APP=Iridescence
+	make build -f makeall.lnx CONFIG=Debug APP=Refraction
+	make build -f makeall.lnx CONFIG=Debug APP=RipplingOcean
+	make build -f makeall.lnx CONFIG=Debug APP=Skinning
+	make build -f makeall.lnx CONFIG=Debug APP=VertexNoise
+	make build -f makeall.lnx CONFIG=Release APP=Fresnel
+	make build -f makeall.lnx CONFIG=Release APP=Iridescence
+	make build -f makeall.lnx CONFIG=Release APP=Refraction
+	make build -f makeall.lnx CONFIG=Release APP=RipplingOcean
+	make build -f makeall.lnx CONFIG=Release APP=Skinning
+	make build -f makeall.lnx CONFIG=Release APP=VertexNoise
+
+clean :
+	make clean -f makeall.lnx CONFIG=Debug APP=Fresnel
+	make clean -f makeall.lnx CONFIG=Debug APP=Iridescence
+	make clean -f makeall.lnx CONFIG=Debug APP=Refraction
+	make clean -f makeall.lnx CONFIG=Debug APP=RipplingOcean
+	make clean -f makeall.lnx CONFIG=Debug APP=Skinning
+	make clean -f makeall.lnx CONFIG=Debug APP=VertexNoise
+	make clean -f makeall.lnx CONFIG=Release APP=Fresnel
+	make clean -f makeall.lnx CONFIG=Release APP=Iridescence
+	make clean -f makeall.lnx CONFIG=Release APP=Refraction
+	make clean -f makeall.lnx CONFIG=Release APP=RipplingOcean
+	make clean -f makeall.lnx CONFIG=Release APP=Skinning
+	make clean -f makeall.lnx CONFIG=Release APP=VertexNoise

@@ -1,0 +1,247 @@
+// Magic Software, Inc.
+// http://www.magic-software.com
+// Copyright (c) 2000-2003.  All Rights Reserved
+//
+// Source code from Magic Software is supplied under the terms of a license
+// agreement and may not be copied or disclosed except in accordance with the
+// terms of that agreement.  The various license agreements may be found at
+// the Magic Software web site.  This file is subject to the license
+//
+// 3D GAME ENGINE SOURCE CODE
+// http://www.magic-software.com/License/3DGameEngine.pdf
+
+// Options Listing Reference
+//      Short option names => Descriptions (Object name)
+//      ----------------------------------
+//      objFile => Export object file (CTWExpObjChk)
+//      textFile => Export dag text file (CTWExpTxtChk)
+//      quiet => Quiet (CTWQuietChk)
+//      expCameras => Export Cameras (CTWCameraChk)
+//      expInvisible => Export Invisible Objects (CTWInvisibleChk)
+//      expLights => Export Lights (CTWLightChk)
+//      expTextures => Export Textures (CTWTextureChk)
+//      expBump => Export Bump Maps (CTWBumpChk)
+//      expKeys => Export Keyframes (CTWKeyChk)
+//      expSkin => Export skin controllers (CTWSkinChk)
+//		expBind => Meshes should export bind pose [as opposed to current time pose] (CTWBindChk)
+//		expCalcNorm => Vertex normals should be re-calculated from faces (CTWCalcNormChk)
+
+global proc ConvertToWmofWidgetsEnable()
+{
+	// Bump mapping can't be on if there isn't textures and lights
+	int $enableBump = ((`checkBox -q -v CTWTextureChk` == true) &&
+		(`checkBox -q -v CTWLightChk` == true));
+		
+	// Export filter options can't be on if there's no object file
+	// being exported
+	int $enableFilter = (`checkBox -q -v CTWExpObjChk` == true);	
+	
+	// Bind pose is off if skin controllers is on
+	int $enableBind = (`checkBox -q -v CTWSkinChk` == false);		
+
+	if ($enableFilter)
+	{
+		// Enabling/disabling a layout enable/disables each element in the layout
+		// Thus, if the layout is enabled, enable everything first
+		// Then, disable (if necessary) the bump and bind.
+		frameLayout -e -en $enableFilter CTWFiltFrame;
+		columnLayout -e -en $enableFilter CTWFiltColumnLayout;	
+		checkBox -e -en $enableBump CTWBumpChk;
+	    checkBox -e -en $enableBind CTWBindChk;	
+	}
+	else
+	{
+		// If the layout is disabled, just disable these, because we know
+		// already that bump and bind will be disabled.
+		frameLayout -e -en $enableFilter CTWFiltFrame;
+		columnLayout -e -en $enableFilter CTWFiltColumnLayout;		
+	}
+}
+
+global proc int ConvertToWmofOptions(string $parent,string $action,
+	string $initialSettings,string $resultCallback )
+//
+// This heading description for the export options dialogue API
+// was taken from the Maya example animExport.mel that comes with
+// Maya 6.0.
+//
+//	Parameters:
+//		$parent	- the elf parent layout for this options layout. It is
+//					always a scrollLayout.
+//		$action	- the action that is to be performed with this invokation
+//					of this proc. Valid options are:
+//						"query" - construct the options string and pass it
+//									to the resultCallback.
+//						"post"	- post all the elf controls.
+//		$resultCallback	-
+//				This is the proc to be called with the result string. 
+//				resultCallback ( string $optionsString )
+//
+//	Returns:
+//		1 if successfull.
+//		0 otherwise.
+//
+{
+	int 	$result;
+	string 	$currentOptions;
+	string 	$optionList[];
+	string 	$optionBreakDown[];
+	int		$index;
+	
+	if ($action == "post") {
+	
+		setParent $parent;
+
+		rowLayout -nc 2 -cw2 150 150 -vis false CTWRowLayout;
+			frameLayout -l "General Settings" -fn "boldLabelFont" 
+				-cll false CTWGenFrame;
+				
+				columnLayout -rs 8 -adj true -cat "left" 12 CTWGenColumnLayout;
+					checkBox -l "Export Object File" -al "left" -v true 
+						-ann "Create a .wmof file when exporting" 
+						-onc ConvertToWmofWidgetsEnable -ofc ConvertToWmofWidgetsEnable
+						CTWExpObjChk;
+					checkBox -l "Export DAG Text File" -al "left" -v false 
+						-ann "Create a text file with a DAG hierarchy description" CTWExpTxtChk;
+					checkBox -l "Quiet" -al "left" -v false 
+						-ann "Don't output warnings or information into the script editor" 
+						CTWQuietChk;
+				setParent ..;
+			setParent ..;
+			
+			frameLayout -l "Export Filter" -fn "boldLabelFont" 
+				-cll false CTWFiltFrame;
+				
+				columnLayout -rs 8 -adj true -cat "left" 12 CTWFiltColumnLayout;
+					checkBox -l "Cameras" -al "left" -v true 
+						-ann "Export all of the (visible) cameras" CTWCameraChk;
+					checkBox -l "Invisible Objects" -al "left" -v false 
+						-ann "Export cameras/meshes even if marked invisible" 
+						CTWInvisibleChk;
+					checkBox -l "Lights" -al "left" -v true 
+						-ann "Export all of the lights" -onc ConvertToWmofWidgetsEnable 
+						-ofc ConvertToWmofWidgetsEnable CTWLightChk;
+					checkBox -l "Textures" -al "left" -v true 
+						-ann "Export textures on objects"
+						-onc ConvertToWmofWidgetsEnable -ofc ConvertToWmofWidgetsEnable
+						CTWTextureChk;
+					checkBox -l "Bump Maps" -al "left" -v true 
+						-ann "Export bumpmaps (requires lights and textures)" CTWBumpChk;
+					checkBox -l "Keyframes" -al "left" -v true 
+						-ann "If no keyframes, current frame will be used" CTWKeyChk;
+					checkBox -l "Skin Controllers" -al "left" -v true 
+						-ann "Export skin controllers" 
+						-onc ConvertToWmofWidgetsEnable -ofc ConvertToWmofWidgetsEnable
+						CTWSkinChk;
+					checkBox -l "Bind Pose" -al "left" -v false
+						-ann "Use bind pose (if not, pose at current time)" CTWBindChk;
+					checkBox -l "Re-calculate vertex normals" -al left -v false
+						-ann "Calculate vertex normals by averaging face normals" 
+						CTWCalcNormChk;
+				setParent ..;
+			setParent ..;
+		setParent ..;		
+		
+		$currentOptions = $initialSettings;
+		if (size($currentOptions) > 0) {
+			tokenize($currentOptions, ";", $optionList);
+			for ($index = 0; $index < size($optionList); $index++) {
+				tokenize($optionList[$index], "=", $optionBreakDown);
+				
+				if ($optionBreakDown[0] == "objFile")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWExpObjChk;
+				}
+				else if ($optionBreakDown[0] == "textFile")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWExpTxtChk;
+				}
+				else if ($optionBreakDown[0] == "quiet")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWQuietChk;			
+				}
+				else if ($optionBreakDown[0] == "expCameras")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWCameraChk;	
+				}
+				else if ($optionBreakDown[0] == "expInvisible")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWInvisibleChk;
+				}
+				else if ($optionBreakDown[0] == "expLights")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWLightChk;
+				}
+				else if ($optionBreakDown[0] == "expTextures")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWTextureChk;
+				}
+				else if ($optionBreakDown[0] == "expBump")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWBumpChk;
+				}
+				else if ($optionBreakDown[0] == "expKeys")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWKeyChk;	
+				}
+				else if ($optionBreakDown[0] == "expSkin")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWSkinChk;	
+				}
+				else if ($optionBreakDown[0] == "expBind")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWBindChk;
+				}
+				else if ($optionBreakDown[0] == "expCalcNorm")
+				{
+					int $value = $optionBreakDown[1];
+					checkBox -e -v $value CTWCalcNormChk;
+				}
+				else
+				{
+					print("// Error: illegal option: " +
+						$optionBreakDown[0] + "\n");
+				}
+			}
+		}
+
+		ConvertToWmofWidgetsEnable();
+		rowLayout -e -vis true CTWRowLayout;
+
+		$result = 1;
+	} else if ($action == "query") {
+		// Create an options string based on the values in the forms
+
+		$currentOptions += ("objFile="+`checkBox -q -v CTWExpObjChk`);
+		$currentOptions += (";textFile="+`checkBox -q -v CTWExpTxtChk`);
+		$currentOptions += (";quiet="+`checkBox -q -v CTWQuietChk`);
+		$currentOptions += (";expCameras="+`checkBox -q -v CTWCameraChk`);
+		$currentOptions += (";expInvisible="+`checkBox -q -v CTWInvisibleChk`);
+		$currentOptions += (";expLights="+`checkBox -q -v CTWLightChk`);
+		$currentOptions += (";expTextures="+`checkBox -q -v CTWTextureChk`);
+		$currentOptions += (";expBump="+`checkBox -q -v CTWBumpChk`);
+		$currentOptions += (";expKeys="+`checkBox -q -v CTWKeyChk`);
+		$currentOptions += (";expSkin="+`checkBox -q -v CTWSkinChk`);
+		$currentOptions += (";expBind="+`checkBox -q -v CTWBindChk`);
+		$currentOptions += (";expCalcNorm="+`checkBox -q -v CTWCalcNormChk`);
+	
+		eval($resultCallback+" \""+$currentOptions+"\"");
+
+		$result = 1;
+	} else {
+		$result = 0;
+	}
+
+	return $result;
+}

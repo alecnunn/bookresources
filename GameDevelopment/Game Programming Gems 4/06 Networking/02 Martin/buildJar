@@ -1,0 +1,2 @@
+javac -classpath ./common.jar net/tmachine/gpg4/*.java net/tmachine/gpg4/gameserver/*.java
+jar -cmf manifest gpg4-demo.jar net/tmachine/gpg4

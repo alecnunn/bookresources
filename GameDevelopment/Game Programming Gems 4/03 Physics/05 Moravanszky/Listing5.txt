@@ -1,0 +1,9 @@
+enum FeatureCode
+{
+    FEATURE_VERTEX,
+    FEATURE_EDGE,
+    FEATURE_FACE
+};
+
+mID_Part0 = (vertex_index<<2)|FEATURE_VERTEX;
+mID_Part1 = (triangle_index<<2)|FEATURE_FACE;

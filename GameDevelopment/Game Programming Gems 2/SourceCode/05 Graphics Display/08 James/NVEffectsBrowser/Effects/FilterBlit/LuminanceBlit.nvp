@@ -1,0 +1,20 @@
+/************************************************************************
+LuminanceBlit.nvp
+
+This pixel shader samples the first texture stage only and converts 
+the color-value obtained into a luminance-value.
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+; Declare pixel shader version
+ps.1.1
+
+; declare constants:
+def c1, 0.3f, 0.59f, 0.11f, 0.0f    ; luminance conversion constant
+
+; get color from first texture stage only
+tex t0
+
+; convert color to luminance and output
+dp3    r0.rgba, t0, c1		

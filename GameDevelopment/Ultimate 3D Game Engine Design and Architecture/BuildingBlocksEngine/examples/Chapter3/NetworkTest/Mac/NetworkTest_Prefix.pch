@@ -1,0 +1,6 @@
+//
+// Prefix header for all source files of the 'NetworkTest' target in the 'NetworkTest' project.
+//
+
+#include <Carbon/Carbon.h>
+#define _MAC 1

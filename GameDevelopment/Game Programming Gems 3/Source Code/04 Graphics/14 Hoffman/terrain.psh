@@ -1,0 +1,27 @@
+// Cloud mapping pixel shader
+// Kenny Mitchell - Westwood Studios EA 2002
+
+// pixel shader version 1.1
+ps.1.1
+
+#include "terrain_shader_constants.h"
+
+// CP_SKYLIGHT - constant sky light RGB factor
+
+tex		TEX_TERRAIN_COLOR			// terrain color texture
+tex		TEX_SUNLIGHT				// sun light texture
+tex		TEX_CLOUD_LAYER_0			// cloud map layer 0
+tex		TEX_CLOUD_LAYER_1			// cloud map layer 1
+
+
+// get average density of 2 cloud layers (a+b)/2
+add_d2	AVG_CLOUD_DENSITY, TEX_CLOUD_LAYER_0, TEX_CLOUD_LAYER_1
+
+// multiply inverted result with sun light texture map
+mul		CLOUD_SHADOW_LUM, TEX_SUNLIGHT, 1-AVG_CLOUD_DENSITY
+
+// multiply terrain color texture with sky light
+mul		SKYLIGHT_REG, TEX_TERRAIN_COLOR, CP_SKYLIGHT_FACTOR
+
+// multiply semi-occluded sunlight with terrain color texture and add sky light
+mad		OUTPUT_REG, CLOUD_SHADOW_LUM, TEX_TERRAIN_COLOR, SKYLIGHT_REG

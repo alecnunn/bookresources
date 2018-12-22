@@ -1,0 +1,167 @@
+WORKLOG STARTED (current work approx. 15h)
+
+24.01.2003 (8h):
+- orthogonal projection debugged to support translating
+- scaling in projection not in world matrix anymore
+- rendering ortho and perspective grid active
+
+25.01.2003 (8h):
+- design of fundamentals classes polygon, polymesh, sector
+  and level as well as the depending architechture of them
+- selection menu prepared and GUI enlarged
+
+27.01.2003 (8h):
+- selection buffer fully operational for polys and meshs
+- selecting polys and meshs in perspective view up and running
+
+28.01.2003 (3h):
+- invert selection, select all/none and stuff like that added
+
+29.01.2003 (8h):
+- implemented hide menu fully operational
+- updated render and select methods to ignore hidden stuff
+- some changes here and there mainly for optics
+
+30.01.2003 (6h):
+- spinal operation in render DLL to render points and polylines
+- render options (wireframe, verts, grid) added to menu
+
+31.01.2003 (6h):
+- show mouse coordinates while in ortho window
+- Transform2Dto2D rewritten for easier usage
+- selection rectangle for mouse dragging in ortho views
+
+01.02.2003 (3h):
+- replaced obb with aabb due to speed gain on intersection
+- creating polys by setting verts in ortho view enabled
+- debugging aabb methods in 3d mathe lib
+
+02.02.2003 (6h):
+- selection in ortho view is now active
+- added some aabb stuff to 3d math lib
+- vertices can be selected and translated now
+- debugged graphics output
+
+03.02.2003 (5h):
+- texture GUI with offset and repeat failed due to possible
+  multiple selections which would kill existing coordinates
+- created a new dialog for texture coordinates
+- texture offset and repeat implemented via dialog
+- bug fixed in bounding box recalc during mesh translation
+- bug fixed in dragging selection rect in ortho views
+- CLevelObject added as base class for all level stuff
+
+04.02.2003 (4h):
+- CSector and CLevel render methods interface simplified
+- bug fixed in mesh class (base class attribute declaration-nasty)
+- portals creation from 4-vert polys 
+- portals can be added to sectors and be rendered
+ 
+05.02.2003 (5h):
+- portals now rendered as transparent pink polys
+- polygon front- and backside can be flipped
+- cleared up CApplication class render methods
+- rendering partial polygon while user is creating a new poly
+- memory (re-)allocation now in base class CLevelObject
+- objects in selection buffer can be copied now
+
+06.02.2003 (6h):
+- unknown bug in saving material, size of texture name is lost
+- CSelectionBuffer can now only handle lobs and vertices, not
+  any more polys, meshs, ... which simplifies all operations
+- CSector instances now also only operate on lobs in main parts
+
+07.02.2003 (5h):
+- bug fixed in loading polygons (m_pDad was not properly set 
+  which lead to crash on deleting polys from meshs)
+- straightened out level and sector attribute dialog boxes
+
+08.02.2003 (2h):
+- sector class is now working on CLevelObjects whereever possible
+
+09.02.2003 (4h):
+- skins can now be totally restored along with alpha information
+- editor can save and load all skins used within a level
+- fixed grid rendering quick'n dirty implementation
+- camera menue set up and implemented
+
+11.02.2003 (4h):
+- skins can be created with a dialog to select a new texture
+- two additional maps (detail, bump) can be added to skin
+- change some details in ZFXD3D to enable multitexturing
+- loading and saving of prefabs (simple list of polygons)
+
+12.02.2003 (4h):
+- render orthogonal grid methods revisited and sped up
+- some performance tests and selection buffer reset bugfixes
+- HULLWIRE mode exchanged with LINES mode due to performance
+
+14.02.2003 (3h):
+- some reorganization of code 
+- level building
+
+15.02.2003 (4h):
+- random bugs in level loading, added interception code for
+  corrupted data in level file during loading to inform user
+- prefabs can now be saved with base texture which will be loaded
+  during loading of prefab if not yet present in the level
+
+16.02.2003 ():
+- even a man needs sleep and sports
+
+17.02.2003 (3h):
+- some level building and bug hunting in level saving/loading
+
+18.02.2003 (4h):
+- finally level loading/saving bug fixed (hopefully *g*)
+- even more level building and planning
+- added ambient light dialog box for sector lighting
+
+19.02.2003 (2h):
+- fixed some small issues and continued working on level
+
+17.03.2003 (4h):
+- make use of shaders not exclusively to fixed function pipeline
+- rendering level geometry with shaders now to make the per-pixel
+  lighting run
+
+18.03.2003 (4h)
+- solved some minor problems in render DLL design, shaders now stable
+- bug fixed in line rendering after using alpha blending
+
+27.03.2003 (6h)
+- entities base type rendered functional finally, now you can create
+  entities from selected mesh objects
+- squeezed some more performance out of the rendering process by
+  adjusting state changes and rendering only if needed
+  
+31.03.2003 (2h)
+- bug fixed in "hide unselected" option where all polys of a selected
+  mesh were hidden due to missing IsSelected() request on the mesh.
+- some minor changes here and there
+
+02.04.2003 (5h)
+- prepared the automatic connection from portals to each other and
+  to door entities as well as automatic removal of those connections
+- automatic connection between portals and doors completed
+- bug fixed in portal copying method, id was not copied correctly
+
+26.04.2003 (1h)
+- adjusted speed of movebased translation and rotation in view windows
+- added arbritrary rotating option to the already existing 90 degree
+  rotate options to be more flexible in placing objects in the level
+
+28.04.2003 (1h)
+- several vertex formats added to the render dll, editor is now using
+  a vertex structure with three texture coordinate pairs in order to
+  enrich walls with detail and bump map coordinates
+
+29.04.2003 (1h)
+- added material edit menu to the editor an added functionality to
+  render dll that material is taken into account when rendering 
+  with shaders
+
+20.06.2003 (2h)
+- added CSpawnPoint class and its usage functionality to the editor
+  to enable the level designer to place spawn points for players
+  and bots into the level at will :)

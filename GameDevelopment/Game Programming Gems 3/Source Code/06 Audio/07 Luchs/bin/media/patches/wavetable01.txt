@@ -1,0 +1,36 @@
+
+
+CGASignal  Loop
+{
+	File = "m_tone03.wav";
+}
+
+CGAPatch "Wavetable Oscillator"
+{
+	CGAWaveTableOscillator VCO
+	{
+		WaveTable = Loop;
+		Frequency = 1;
+	}
+
+}
+
+CGAPatch "Wavetable Oscillator with LFO Modulation"
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 0.2;
+		
+	}
+
+	CGAWaveTableOscillator VCO
+	{
+		WaveTable = Loop;
+		Frequency = 1.0;
+		FMAttenuation = 0.1;
+	}
+
+
+	Connection = LFO,VCO, SampleOut, FM;
+
+}

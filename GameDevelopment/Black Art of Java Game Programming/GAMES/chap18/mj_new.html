@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>
+IMS: New Features and Change Log
+</title>
+</head>
+<body>
+<h2> IMS: New Features </h2>
+The Internet MahJong Server 0.21 has the following new features:
+<ul>
+<li>	Integrating the player list with the finger player feature.
+<li>	Integrating the table list with a new table info window,
+	and join/serve/leave table operations.
+</ul>
+New features since version 0.2beta:
+<ul>
+<li>	A menu-driven interface.
+<li>	Users can now change their passwords.
+<li>	The ability to configure fonts and size of message windows to
+	suit your taste and screen resolution.
+<li>	Per-user configuration can be stored permanently on the server side
+	and used automatically upon start.
+<li>	The ability to store and edit personal information like E-mail
+	address, home page URL, and a "plan" file on the server.
+	These information can be queried by other players by the "finger"
+	feature.
+<li>	The "help" menu is integrated with the navigator to give instant 
+	access to documentation.
+</ul>
+<h2> <a name="Changes">Changes...</a> </h2>
+<ul>
+<li> <B>Changes from 0.2beta to 0.21:</B> (5/15/96)
+	<ul>
+	<li>	A new class TableInfo replaces the old TableOptionWindow.
+	This new component class displays more detailed table information.
+	<li>	Home-brew ScrolledList class to implement the player and
+	table lists.  These classes are better adapted to our situation
+	than plain old TextArea.
+	<li>	Found and corrected a synchronization bug that could be
+	causing deadlocks (hmm, wonder how many more there are...)
+	</ul>
+<li> <B>Changes from 0.1 to 0.2beta:</B> (4/21/96)
+	<ul>
+	<li>	New player database file format.  A fixed block size with
+	variable number of blocks structure allows variable length information
+	for each user to be stored and retrieved with good efficiency.  A
+	utility class to convert the old file format into the new one is
+	also included.
+	<li>	A lot of new classes for the new menu-driven interface.
+	<li>	Cleaned up TileWindow class.  Got rid of the obscure and
+	pretty much obsolete TileFinder class and its associated methods.
+	<li>	Rewrote packet handling code.  Instead of one class per
+	packet type, we now use just one Packet class.  This is a work-around
+	that's necessary due to Netscape's limit on the number of user-defined
+	classes (too many classes cause Netscape to core dump with bus error).
+	This also brings forth a revision of the client-server protocol.
+	</ul>
+<li> Greeting applet now loads Client applet on start-up (4/10/96)
+<li> Minor changes in scoring system (4/2/96)
+<li> Fixed some synchronization bugs that occasionally causes 
+	deadlocks (4/2/96)
+<li> Updated the documentation (4/1/96)
+<li> New images for flower tiles (3/28/96)
+<li> First step code clean-up: separated code into several packages,
+	Makefile, a more organized directory structure, final touches (3/20/96)
+<li> <B>Changes from the alpha version to the beta version:</B> (3/10/96)
+	<ul>
+	<li>	The server automatically kicks idle players off tables
+	when there is a game in progress.  Also provided are an "Urge" 
+	button to be used occasionally, and a waving "Duke" figure in
+	addition to a "Cookoo" sound (only on systems that can play 
+	<TT>.au</TT> sound files) to get players attention.
+	<li>	An entirely new game playing interface.  Players are no
+	longer required to group tiles together.  There is auto sorting
+	of private tiles.  Also, the server automatically
+	figures out the MahJong pattern with the highest score.
+	<li>	Now the server uses two threads per player, one for socket
+	reads, the other for socket writes.  Hopefully, this will eliminate
+	those nasty server lockups altogether.
+	</ul>
+<li> Added time out on dead connections.  It usually takes something between
+	1 to 3 minutes to clear up a dead slot (2/29/96)
+<li> Will now run "Top 10 scorers" regularly (2/28/96)
+<li> Added a backup server, because weird lock-ups still happen, could
+	this be due to some bugs in the Java socket library?? (2/28/96)
+<li> Added the ability to MahJong on someone's fourth tile of quadruplet
+	(2/23/96)
+<li> Show the names of players on your table on the desktop (2/23/96)
+<li> Added round-wind, seat-wind, dragon scores, plus other adjustments
+	(2/23/96)
+<li> Found bug in old monitor code on server side, hopefully fixed now 
+	(2/23/96)
+<li> Changed to counter-clockwise player rotation (2/21/96)
+<li> Added 3 levels of play, selected by SOUTH (2/21/96)
+<li> Added simple scoring system and bookkeeping (2/21/96)
+<li> Applet now loads all tile bitmaps before starting (2/21/96)
+<li> Moved documentation to another site (2/21/96)
+<li> Added player database (2/16/96)
+<li> Fixed minor bug in dragging tiles around (2/15/96)
+<li> New game interface: <B>Connect</B>, <B>Triplet</B>, and <B>Quadruplet</B>
+	in stead of a single <B>Grab</B> (2/15/96)
+<li> Corrected the bug where game freezes when someone wins (2/14/96)
+<li> Hopefully more robust monitor usage on the server (2/14/96)
+<li> Added 'Cuckoo' sound when your table is full (2/13/96)
+<li> Corrected tile-counting problem (2/13/96)
+<li> Version 0.1a, hopefully more robust (2/12/96)
+</ul>
+<hr>
+</body>
+<center>
+|<a href="http://www.math.princeton.edu/~ztfeng/mj_servers.html">Meta-Server</a>
+|<a href="copyright.html">Copyright</a>
+|<a href="mj_ims.html">Introduction</a>
+|<a href="mj_rules.html">MahJong Rules</a>
+|<a href="mj_new.html">What's New</a>
+|
+</center>
+</html>

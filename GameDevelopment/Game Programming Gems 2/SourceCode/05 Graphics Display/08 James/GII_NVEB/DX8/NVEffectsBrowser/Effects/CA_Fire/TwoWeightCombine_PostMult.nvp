@@ -1,0 +1,56 @@
+/*********************************************************************NVMH2****
+Path:  C:\Dev\devrel\Nv_sdk_4\Dx8\NVEffectsBrowser\Effects\CA_Fire
+File:  TwoWeightCombine_PostMult.nvp
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+This file is provided without support, instruction, or implied warranty of any
+kind.  NVIDIA makes no guarantee of its fitness for a particular purpose and is
+not liable under any circumstances for any damages or loss whatsoever arising
+from the use or inability to use this file or items derived from it.
+
+Comments:
+
+Simple pixel shader that samples all 4 texture stages, averages these
+samples and outputs the result.
+
+
+******************************************************************************/
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+// get colors from all 4 texture stages
+tex t0
+tex t1
+tex t2
+tex t3
+
+
+// Average them according to weights in constant mem:
+// r0 = fac1 * t0 + fac1 * t1 + fac2 * t2 + fac2 * t3
+// We could to this:
+// mul r0, c[PCN_MULTFACTOR_1], t0
+// mad r1, c[PCN_MULTFACTOR_1], t1, r0
+// mad r0, c[PCN_MULTFACTOR_2], t2, r1
+// mad r0, c[PCN_MULTFACTOR_2], t3, r0
+// But that would loose low bits of precision, so instead
+//   we add two components first (risking saturation at 1.0)
+//   and divide by two.
+
+
+add_d2		r0, t0, t1
+add_d2		r1, t2, t3
+mul			r0, c[PCN_MULTFACTOR_1], r0
+
+// Could do mad_d2 and larger mult factor to more 
+//  precisely adjust the dissipation of the "smoke"
+
+mad			r0, c[PCN_MULTFACTOR_2], r1, r0
+
+
+

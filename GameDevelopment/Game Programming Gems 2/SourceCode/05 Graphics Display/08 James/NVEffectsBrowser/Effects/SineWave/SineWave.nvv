@@ -1,0 +1,152 @@
+;
+; Generates a distortion in z based on the input x and y coordinates.
+; Distortion is generated from sin and cosine functions.
+; A normal is also calculated which then looks into a cubic environment map, using
+; generated texture coordinates.  This normal is also used for lighting
+; Note that the input vertex is simply 2 floats - the z coordinate, and the
+; normal/texture coordinates are all generated here.
+;
+;
+; MEMORY MAP
+;
+;	Each vertex ultimately needs to write the following output registers:
+;	oPos	-- the vertex's clip-space coordinates
+;	oT0     -- the vertex's reflection vector stored as uvw-coordinates
+;
+;	Each vertex comes into the vertex shader with the following read-only data:
+;	v0 -- vertex's u, v coordinates; they are used to generate the vertex position
+;		  (u, v, h * sin(time * distance)) 
+;		  distance is sqrt(u*u + v*v)
+;
+;	Constant memory is set in Sinewave.cpp to contain:
+;	c0-c3   -- CV_WORLDVIEWPROJ
+;			   contains matrix to take model-space 
+;			   coordinates to clip-space coordinates
+;	c4-c7   -- CV_WORLDVIEW
+;			   contains matrix to take model-space coordinates to 
+;			   eye-space coordinates
+;   c8-c10  -- CV_WORLDVIEWIT
+;		       contains matrix to take model-space normals to eye-space 
+;			   normals
+;   c15     -- CV_VECSIN
+;			   contains sine Taylor-series coefficients
+;   c16     -- CV_VECCOS
+;			   contains cosine Taylor-series coefficients
+;   c17     -- CV_TIME
+;			   contains time and other convenience constants 
+;              (time, height-scaler, 0.8f, 1.0f)
+;   c18     -- CV_PIS
+;			   contains PI-related constants 
+;			   (PI, 2*PI, 1/(2*PI), 0.5)
+;
+;	Registers contain
+;   r0	    -- vertex position in model-space
+;   r4.x    -- sin(theta)
+;   r5.x    -- cos(theta)
+;	r9      -- theta
+;
+
+
+#include "sinewave.h"
+
+#define R_EYE_NORMAL r9
+#define R_EYE_VECTOR r10
+
+#define     PI                  c[CV_PIS].x
+#define     TWO_PI              c[CV_PIS].y
+#define     ONE_OVER_TWO_PI     c[CV_PIS].z
+#define     HALF                c[CV_PIS].w
+
+#define     TIME                c[CV_TIME].x
+#define     HEIGHT              c[CV_TIME].y
+#define     ZERO                c[CV_TIME].z
+#define     ONE                 c[CV_TIME].w
+
+#define     TIME_HEIGHT         c[CV_CONSTANTS].x
+
+vs.1.0
+
+; Compute theta from distance and time
+dp3 r4.x, v0, v0                ; compute distance^2 (v0.z luckily defaults to 0)
+rsq r4.y, r4.x                  ; compute the square root
+mul r9,   r4.x, r4.y          
+
+mul r4.x, r9.x, TIME            ; scale by time
+
+
+; Clamp theta to -pi..pi
+mad  r4.x, r4.x, ONE_OVER_TWO_PI, HALF      ; add PI and divide by 2*PI
+expp r6.y, r4.x		                        ; get fractional part only 
+mad  r4.x, r6.y, TWO_PI, -PI		        ; multiply with 2*PI and subtract PI
+
+; Compute first 4 values in sin and cos series
+sge r5.x, r4.x, r4.x   ; theta^0
+                       ; theta^1 is contained in r4.x 
+mul r5.y, r4.x, r4.x   ; theta^2
+mul r4.y, r4.x, r5.y   ; theta^3
+mul r5.z, r5.y, r5.y   ; theta^4
+mul r4.z, r4.x, r5.z   ; theta^5
+mul r5.w, r5.y, r5.z   ; theta^6
+mul r4.w, r4.x, r5.w   ; theta^7
+
+mul r4, r4,   c[CV_VECSIN]      ; sin
+dp4 r4.x, r4, ONE       		; store sin(theta) in r4.x 
+
+mul r5, r5,   c[CV_VECCOS]      ; cos
+dp4 r5.x, r5, ONE		        ; store cos(theta) in r5.x
+
+; move original xy and compute z 
+; xy = 0 * r4.x + v0.xy   
+; z  = r4.x*height + 0)
+; w  = 0 * r4.x + 1 = 1
+mad r0.xyzw, r4.x, c[CV_TIME].zzyz, v0.xyzw
+
+; Transform position
+dp4 oPos.x, r0, c[CV_WORLDVIEWPROJ_0]
+dp4 oPos.y, r0, c[CV_WORLDVIEWPROJ_1]
+dp4 oPos.z, r0, c[CV_WORLDVIEWPROJ_2]
+dp4 oPos.w, r0, c[CV_WORLDVIEWPROJ_3]
+
+; Transform vertex to view-space and compute the vector from the eye
+; to the vertex.
+; Because the eye is at 0, no substraction is neccessary.
+; Because the reflection of this vector looks into a cube-map
+; normalization is also unnecessary!
+dp4 R_EYE_VECTOR.x, r0, c[CV_WORLDVIEW_0]
+dp4 R_EYE_VECTOR.y, r0, c[CV_WORLDVIEW_1]
+dp4 R_EYE_VECTOR.z, r0, c[CV_WORLDVIEW_2]
+dp4 R_EYE_VECTOR.w, r0, c[CV_WORLDVIEW_3]
+
+
+; Compute the normal per vertex
+rcp r9.w, r9.w      ; 1 / distance
+
+; norm x dist = x * (1 / distance)
+; norm y dist = y * (1 / distance)
+mul r9.xy, r0, r9.w
+
+; x = (x / distance) * cos theta
+; y = (y / distance) * cos theta
+mul r8.xyzw, r5.x, r9 
+
+; xy *= t*h and zw = 1
+mad r8.xyzw, r8, -c[CV_CONSTANTS].xxzz, c[CV_CONSTANTS].zzyy
+
+; intermittently copy unnormalized normal into color (for debug purposes)
+mov oD0.xyz, r8
+
+; transform normal from model-space to view-space
+dp3 R_EYE_NORMAL.x, r8, c[CV_WORLDVIEWIT_0]
+dp3 R_EYE_NORMAL.y, r8, c[CV_WORLDVIEWIT_1]
+dp3 R_EYE_NORMAL.z, r8, c[CV_WORLDVIEWIT_2]
+
+; normalize normal
+dp3 R_EYE_NORMAL.w, R_EYE_NORMAL, R_EYE_NORMAL
+rsq R_EYE_NORMAL.w, R_EYE_NORMAL.w
+mul R_EYE_NORMAL,   R_EYE_NORMAL.w, R_EYE_NORMAL
+
+; Calculate E - 2*(E dot N)*N
+dp3 r5.x, R_EYE_VECTOR, R_EYE_NORMAL
+add r5.x, r5.x, r5.x
+mad oT0.xyz, R_EYE_NORMAL, -r5.x, R_EYE_VECTOR
+

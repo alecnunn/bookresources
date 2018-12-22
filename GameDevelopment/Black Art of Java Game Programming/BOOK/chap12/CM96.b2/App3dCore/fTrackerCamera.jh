@@ -1,0 +1,27 @@
+/**
+ * A camera that tracks an object.
+ */
+public class fTrackerCamera extends fMagicCamera{
+   /**
+    * Constructs a tracker camera.
+    */
+   public fTrackerCamera(fWorld w,double viewangle,double viewdistance,
+                         double gridSize,double fading,
+                         double trackingspeed, fObject theObject,
+                         fAngle3d relagl,fPoint3d relpos)
+   
+   /**
+    * Sets the relative position of the camera with
+    * respect to the object it is tracking.
+    */
+   public void setRelativePosition(fPoint3d p)
+   /**
+    * Sets the relative angle of the camera with
+    * respect to the object it is tracking.
+    */
+	public void setRelativeAngle(fAngle3d p)
+
+	public fPoint3d getRelativePosition()
+	public fAngle3d getRelativeAngle()
+}
+

@@ -1,0 +1,221 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Raven - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x809 /fo"Debug/Script1.res" /d "_DEBUG" "C:\code\AI Source\Buckland_Chapter7 to 10_Raven\Script1.rc"" 
+Creating temporary file "D:\DOCUME~1\fup\LOCALS~1\Temp\RSPCE.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GR /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FAs /Fa"Debug/" /FR"Debug/" /Fp"Debug/Raven.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /Zm200 /c 
+"C:\code\AI Source\Common\Game\BaseGameEntity.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\lua\Raven_Scriptor.cpp"
+"C:\code\AI Source\Common\Game\EntityManager.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\GraveMarkers.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\Raven_Door.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\Raven_UserOptions.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\main.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\Raven_Bot.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\Raven_Game.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\Raven_Map.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_AdjustRange.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_AttackTarget.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_Explore.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_FollowPath.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_GetItem.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_HuntTarget.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_MoveToPosition.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_NegotiateDoor.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_Think.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\AttackTargetGoal_Evaluator.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\ExploreGoal_Evaluator.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\GetHealthGoal_Evaluator.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\GetWeaponGoal_Evaluator.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Raven_Feature.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_DodgeSideToSide.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_SayPhrase.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_SeekToPosition.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_TraverseEdge.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Goal_Wander.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\goals\Raven_Goal_Types.cpp"
+"C:\code\AI Source\Common\fuzzy\FuzzySet_LeftShoulder.cpp"
+"C:\code\AI Source\Common\fuzzy\FuzzySet_RightShoulder.cpp"
+"C:\code\AI Source\Common\fuzzy\FuzzySet_Singleton.cpp"
+"C:\code\AI Source\Common\fuzzy\FuzzySet_Triangle.cpp"
+"C:\code\AI Source\Common\fuzzy\FuzzyModule.cpp"
+"C:\code\AI Source\Common\fuzzy\FuzzyOperators.cpp"
+"C:\code\AI Source\Common\fuzzy\FuzzyVariable.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\navigation\Raven_PathPlanner.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\Raven_SteeringBehaviors.cpp"
+"C:\code\AI Source\Common\Messaging\MessageDispatcher.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\Raven_SensoryMemory.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\triggers\Trigger_HealthGiver.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\triggers\Trigger_SoundNotify.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\triggers\Trigger_WeaponGiver.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\Raven_WeaponSystem.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\Raven_TargetingSystem.cpp"
+"C:\code\AI Source\Common\Debug\DebugConsole.cpp"
+"C:\code\AI Source\Common\misc\Cgdi.cpp"
+"C:\code\AI Source\Common\Time\CrudeTimer.cpp"
+"C:\code\AI Source\Common\misc\FrameCounter.cpp"
+"C:\code\AI Source\Common\Time\PrecisionTimer.cpp"
+"C:\code\AI Source\Common\2D\Vector2d.cpp"
+"C:\code\AI Source\Common\misc\WindowUtils.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\armory\Raven_Weapon.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\armory\Weapon_Blaster.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\armory\Weapon_RailGun.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\armory\Weapon_RocketLauncher.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\armory\Weapon_ShotGun.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\armory\Projectile_Bolt.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\armory\Projectile_Pellet.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\armory\Projectile_Rocket.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\armory\Projectile_Slug.cpp"
+"C:\code\AI Source\Buckland_Chapter7 to 10_Raven\armory\Raven_Projectile.cpp"
+]
+Creating command line "cl.exe @D:\DOCUME~1\fup\LOCALS~1\Temp\RSPCE.tmp" 
+Creating temporary file "D:\DOCUME~1\fup\LOCALS~1\Temp\RSPCF.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Raven.pdb" /debug /machine:I386 /nodefaultlib:"libcmt" /out:"Debug/Raven.exe" /pdbtype:sept 
+".\Debug\BaseGameEntity.obj"
+".\Debug\Raven_Scriptor.obj"
+".\Debug\EntityManager.obj"
+".\Debug\GraveMarkers.obj"
+".\Debug\Raven_Door.obj"
+".\Debug\Raven_UserOptions.obj"
+".\Debug\main.obj"
+".\Debug\Raven_Bot.obj"
+".\Debug\Raven_Game.obj"
+".\Debug\Raven_Map.obj"
+".\Debug\Goal_AdjustRange.obj"
+".\Debug\Goal_AttackTarget.obj"
+".\Debug\Goal_Explore.obj"
+".\Debug\Goal_FollowPath.obj"
+".\Debug\Goal_GetItem.obj"
+".\Debug\Goal_HuntTarget.obj"
+".\Debug\Goal_MoveToPosition.obj"
+".\Debug\Goal_NegotiateDoor.obj"
+".\Debug\Goal_Think.obj"
+".\Debug\AttackTargetGoal_Evaluator.obj"
+".\Debug\ExploreGoal_Evaluator.obj"
+".\Debug\GetHealthGoal_Evaluator.obj"
+".\Debug\GetWeaponGoal_Evaluator.obj"
+".\Debug\Raven_Feature.obj"
+".\Debug\Goal_DodgeSideToSide.obj"
+".\Debug\Goal_SayPhrase.obj"
+".\Debug\Goal_SeekToPosition.obj"
+".\Debug\Goal_TraverseEdge.obj"
+".\Debug\Goal_Wander.obj"
+".\Debug\Raven_Goal_Types.obj"
+".\Debug\FuzzySet_LeftShoulder.obj"
+".\Debug\FuzzySet_RightShoulder.obj"
+".\Debug\FuzzySet_Singleton.obj"
+".\Debug\FuzzySet_Triangle.obj"
+".\Debug\FuzzyModule.obj"
+".\Debug\FuzzyOperators.obj"
+".\Debug\FuzzyVariable.obj"
+".\Debug\Raven_PathPlanner.obj"
+".\Debug\Raven_SteeringBehaviors.obj"
+".\Debug\MessageDispatcher.obj"
+".\Debug\Raven_SensoryMemory.obj"
+".\Debug\Trigger_HealthGiver.obj"
+".\Debug\Trigger_SoundNotify.obj"
+".\Debug\Trigger_WeaponGiver.obj"
+".\Debug\Raven_WeaponSystem.obj"
+".\Debug\Raven_TargetingSystem.obj"
+".\Debug\DebugConsole.obj"
+".\Debug\Cgdi.obj"
+".\Debug\CrudeTimer.obj"
+".\Debug\FrameCounter.obj"
+".\Debug\PrecisionTimer.obj"
+".\Debug\Vector2d.obj"
+".\Debug\WindowUtils.obj"
+".\Debug\Script1.res"
+".\Debug\Raven_Weapon.obj"
+".\Debug\Weapon_Blaster.obj"
+".\Debug\Weapon_RailGun.obj"
+".\Debug\Weapon_RocketLauncher.obj"
+".\Debug\Weapon_ShotGun.obj"
+".\Debug\Projectile_Bolt.obj"
+".\Debug\Projectile_Pellet.obj"
+".\Debug\Projectile_Rocket.obj"
+".\Debug\Projectile_Slug.obj"
+".\Debug\Raven_Projectile.obj"
+]
+Creating command line "link.exe @D:\DOCUME~1\fup\LOCALS~1\Temp\RSPCF.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+BaseGameEntity.cpp
+Raven_Scriptor.cpp
+EntityManager.cpp
+GraveMarkers.cpp
+Raven_Door.cpp
+Raven_UserOptions.cpp
+main.cpp
+Raven_Bot.cpp
+Raven_Game.cpp
+Raven_Map.cpp
+Goal_AdjustRange.cpp
+Goal_AttackTarget.cpp
+Goal_Explore.cpp
+Goal_FollowPath.cpp
+Goal_GetItem.cpp
+Goal_HuntTarget.cpp
+Goal_MoveToPosition.cpp
+Goal_NegotiateDoor.cpp
+Goal_Think.cpp
+AttackTargetGoal_Evaluator.cpp
+ExploreGoal_Evaluator.cpp
+GetHealthGoal_Evaluator.cpp
+GetWeaponGoal_Evaluator.cpp
+Raven_Feature.cpp
+Goal_DodgeSideToSide.cpp
+Goal_SayPhrase.cpp
+Goal_SeekToPosition.cpp
+Goal_TraverseEdge.cpp
+Goal_Wander.cpp
+Raven_Goal_Types.cpp
+FuzzySet_LeftShoulder.cpp
+FuzzySet_RightShoulder.cpp
+FuzzySet_Singleton.cpp
+FuzzySet_Triangle.cpp
+FuzzyModule.cpp
+FuzzyOperators.cpp
+FuzzyVariable.cpp
+Raven_PathPlanner.cpp
+Raven_SteeringBehaviors.cpp
+MessageDispatcher.cpp
+Raven_SensoryMemory.cpp
+Trigger_HealthGiver.cpp
+Trigger_SoundNotify.cpp
+Trigger_WeaponGiver.cpp
+Raven_WeaponSystem.cpp
+Raven_TargetingSystem.cpp
+DebugConsole.cpp
+Cgdi.cpp
+CrudeTimer.cpp
+FrameCounter.cpp
+PrecisionTimer.cpp
+Vector2d.cpp
+WindowUtils.cpp
+Raven_Weapon.cpp
+Weapon_Blaster.cpp
+Weapon_RailGun.cpp
+Weapon_RocketLauncher.cpp
+Weapon_ShotGun.cpp
+Projectile_Bolt.cpp
+Projectile_Pellet.cpp
+Projectile_Rocket.cpp
+Projectile_Slug.cpp
+Raven_Projectile.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Raven.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

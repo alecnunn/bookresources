@@ -1,0 +1,54 @@
+; Transforms a vertex to homogenoeous clip space
+; and lights it with a single directional light in
+; world space, then outputs a texture coordinate.
+; - 7 instructions
+; Note that negative output colors will be clamped
+; by the implicit 0-1 clamp after the shader
+
+#include "constants.h"
+
+#define srcPosition v0
+#define srcNormal	v1
+#define srcTexCoord	v2
+
+#define destTexCoord oT0
+#define destTexCoord2 oT1
+#define destColor oD0
+
+	vs.1.1
+
+
+;transform position
+	dp4 oPos.x, srcPosition, c[CV_WORLDVIEWPROJ_0]
+	dp4 oPos.y, srcPosition, c[CV_WORLDVIEWPROJ_1]
+	dp4 oPos.z, srcPosition, c[CV_WORLDVIEWPROJ_2]
+	dp4 oPos.w, srcPosition, c[CV_WORLDVIEWPROJ_3]
+
+	// put position into world space
+	dp4 r0.x, srcPosition, c[CV_WORLD_0]
+	dp4 r0.y, srcPosition, c[CV_WORLD_1]
+	dp4 r0.z, srcPosition, c[CV_WORLD_2]
+	dp4 r0.w, srcPosition, c[CV_WORLD_3]
+
+	mov	r1, c[CV_SCALE_POS]
+	mul	r3, c[CV_CONVENIENCE].xzxx, r1
+	add	r0, r0, r3 ;srcNormal
+
+	// now use rotated sky sphere matrix
+	dp3	r2.x, r0, c[CV_SKYSPHERE_ROT_0]
+	dp3	r2.y, r0, c[CV_SKYSPHERE_ROT_1]
+	dp3	r2.z, r0, c[CV_SKYSPHERE_ROT_2]
+
+	dp3 r2.w, r2, r2
+	rsq r2.w, r2.w
+	mul r2, r2, r2.w
+
+	mov	destTexCoord2.xyz, r2
+	mov destTexCoord2.w, CV_ONE
+
+
+	// get directional lighting at vertex
+	dp3	destColor, srcNormal, c[CV_LIGHT_DIRECTION]
+
+; Output texture coordinates
+	mov destTexCoord, srcTexCoord

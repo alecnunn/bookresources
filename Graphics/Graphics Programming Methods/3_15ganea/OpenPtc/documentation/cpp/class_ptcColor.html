@@ -1,0 +1,218 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Color  Class Reference</h1>Describes a pixel color. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcColor-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcColor.html#a0">Color</a> ()
+<li><a class="el" href="class_ptcColor.html#a1">Color</a> (int index)
+<li><a class="el" href="class_ptcColor.html#a2">Color</a> (float r,float g,float b,float a=1.0f)
+<li><a class="el" href="class_ptcColor.html#a3">Color</a> (const Color &amp;color)
+<li><a class="el" href="class_ptcColor.html#a4">~Color</a> ()
+<li>int <a class="el" href="class_ptcColor.html#a5">index</a> () const
+<li>float <a class="el" href="class_ptcColor.html#a6">r</a> () const
+<li>float <a class="el" href="class_ptcColor.html#a7">g</a> () const
+<li>float <a class="el" href="class_ptcColor.html#a8">b</a> () const
+<li>float <a class="el" href="class_ptcColor.html#a9">a</a> () const
+<li>bool <a class="el" href="class_ptcColor.html#a10">direct</a> () const
+<li>bool <a class="el" href="class_ptcColor.html#a11">indexed</a> () const
+<li>Color&amp; <a class="el" href="class_ptcColor.html#a12">operator=</a> (const Color &amp;color)
+<li>bool <a class="el" href="class_ptcColor.html#a13">operator==</a> (const Color &amp;color) const
+<li>bool <a class="el" href="class_ptcColor.html#a14">operator!=</a> (const Color &amp;color) const
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Describes a pixel color.
+<p>
+The color class can describe one of two types of color: direct color, or indexed color.
+<p>
+Indexed color is an index value into a palette and direct color is an set of red, green, blue and alpha values.
+<p>
+Color objects are typically used with surface and console routines <a class="el" href="class_ptcSurface.html#a11">Surface::clear</a>(const Color &amp;color) and <a class="el" href="class_ptcConsole.html#a25">Console::clear</a>(const Color &amp;color). <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Color::Color"></a>ptc::Color::Color ()</h3>
+<div class="in">
+
+<p>
+Default constructor.
+<p>
+<em>index,</em> <em>r,</em> <em>g,</em> <em>b</em> and <em>a</em> are all set to zero. </div>
+
+<h3><a name="a1" doxytag="ptc::Color::Color"></a>ptc::Color::Color (int <em>index</em>)</h3>
+<div class="in">
+
+<p>
+Creates an indexed color object referring to the palette color at <em>index.</em>
+<p>
+For 8 bit indexed modes the palette has 256 entries, therefore the index value should be in the range of [ <em>0,</em> <em>255</em> ].
+<p>
+<dl compact><dt>
+<b>See also:</b><dd>
+Palette class
+<p>
+</dl><dl compact><dt>
+<b>Parameters: </b><dd>
+<em>index</em> -  the color index. </dl></div>
+
+<h3><a name="a2" doxytag="ptc::Color::Color"></a>ptc::Color::Color (float <em>r</em>, float <em>g</em>, float <em>b</em>, float <em>a</em> = 1.0f)</h3>
+<div class="in">
+
+<p>
+Creates a direct color object with specific red, green, blue and alpha values.
+<p>
+The <em>r,</em> <em>g,</em> <em>b</em> and <em>a</em> values should all be set in the range of [ <em>0.0f,</em> <em>1.0f</em> ] where 0.0f represents minimum intensity and 1.0f represents maximum intensity.
+<p>
+For example, a color created with <em>Color(0.0f,0.0f,0.0f)</em> represents black, and a color created by <em>Color(1.0f,1.0f,1.0f)</em> represents white.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>r</em> -  the red color component. <dd>
+<em>g</em> -  the green color component. <dd>
+<em>b</em> -  the blue color component. <dd>
+<em>a</em> -  the alpha color component (defaults to one). </dl></div>
+
+<h3><a name="a3" doxytag="ptc::Color::Color"></a>ptc::Color::Color (const Color &amp; <em>color</em>)</h3>
+<div class="in">
+
+<p>
+Copy constructor. </div>
+
+<h3><a name="a4" doxytag="ptc::Color::~Color"></a>ptc::Color::~Color ()</h3>
+<div class="in">
+
+<p>
+Destructor. </div>
+
+<h3><a name="a5" doxytag="ptc::Color::index"></a>int ptc::Color::index () const</h3>
+<div class="in">
+
+<p>
+Gets the palette index value of the color.
+<p>
+The palette index is only valid if the color is indexed.
+<p>
+A color object is an indexed color if it was created by the <a class="el" href="class_ptcColor.html#a1">Color::Color</a>(int index) constructor.
+<p>
+If the color object is not indexed color then the index value is always zero.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The color index. </dl></div>
+
+<h3><a name="a6" doxytag="ptc::Color::r"></a>float ptc::Color::r () const</h3>
+<div class="in">
+
+<p>
+Gets the red color component of the color object.
+<p>
+The red color component is only valid if the color object is direct color.
+<p>
+A color object is direct color if it was created by the <a class="el" href="class_ptcColor.html#a2">Color::Color</a>(float r,float g,float b,float a) constructor.
+<p>
+If the color object is not direct color then the red component is always zero.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The red color component. </dl></div>
+
+<h3><a name="a7" doxytag="ptc::Color::g"></a>float ptc::Color::g () const</h3>
+<div class="in">
+
+<p>
+Gets the green color component of the color object.
+<p>
+The green color component is only valid if the color object is direct color.
+<p>
+A color object is direct color if it was created by the <a class="el" href="class_ptcColor.html#a2">Color::Color</a>(float r,float g,float b,float a) constructor.
+<p>
+If the color object is not direct color then the green component is always zero.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The green color component. </dl></div>
+
+<h3><a name="a8" doxytag="ptc::Color::b"></a>float ptc::Color::b () const</h3>
+<div class="in">
+
+<p>
+Gets the blue color component of the color object.
+<p>
+The blue color component is only valid if the color object is direct color.
+<p>
+A color object is direct color if it was created by the <a class="el" href="class_ptcColor.html#a2">Color::Color</a>(float r,float g,float b,float a) constructor.
+<p>
+If the color object is not direct color then the blue component is always zero.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The blue color component. </dl></div>
+
+<h3><a name="a9" doxytag="ptc::Color::a"></a>float ptc::Color::a () const</h3>
+<div class="in">
+
+<p>
+Gets the alpha color component of the color object.
+<p>
+The alpha color component is only valid if the color object is direct color.
+<p>
+A color object is direct color if it was created by the <a class="el" href="class_ptcColor.html#a2">Color::Color</a>(float r,float g,float b,float a) constructor.
+<p>
+If the color object is not direct color then the alpha component is always zero.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The alpha color component. </dl></div>
+
+<h3><a name="a10" doxytag="ptc::Color::direct"></a>bool ptc::Color::direct () const</h3>
+<div class="in">
+
+<p>
+Checks if the color is direct color.
+<p>
+A color object is direct color if it was created by the <a class="el" href="class_ptcColor.html#a2">Color::Color</a>(float r,float g,float b,float a) constructor.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+<em>true</em> if the color is direct color, <em>false</em> otherwise. </dl></div>
+
+<h3><a name="a11" doxytag="ptc::Color::indexed"></a>bool ptc::Color::indexed () const</h3>
+<div class="in">
+
+<p>
+Checks if the color is indexed color.
+<p>
+A color object is indexed color if it was created by the <a class="el" href="class_ptcColor.html#a1">Color::Color</a>(int index) constructor.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+<em>true</em> if the color is indexed color, <em>false</em> otherwise. </dl></div>
+
+<h3><a name="a12" doxytag="ptc::Color::operator="></a>Color &amp; ptc::Color::operator= (const Color &amp; <em>color</em>)</h3>
+<div class="in">
+
+<p>
+Assignment operator. </div>
+
+<h3><a name="a13" doxytag="ptc::Color::operator=="></a>bool ptc::Color::operator== (const Color &amp; <em>color</em>) const</h3>
+<div class="in">
+
+<p>
+Equality operator. </div>
+
+<h3><a name="a14" doxytag="ptc::Color::operator!="></a>bool ptc::Color::operator!= (const Color &amp; <em>color</em>) const</h3>
+<div class="in">
+
+<p>
+Inequality operator. </div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

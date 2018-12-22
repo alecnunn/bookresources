@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>Visual C++ Tutorial</title>
+</head>
+
+<body TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#824250" VLINK="#51188E" ALINK="#FF0000"
+BACKGROUND="white.gif">
+
+<h1 align="left"><font face="Arial" size="7">Visual C++ Tutorial</font></h1>
+
+<p><br>
+This tutorial is designed to teach a programmer new to Visual C++ how to create a project
+and workspace for their own applications that use OpenPTC. It describes the method used by
+myself to setup each of the example and demo program projects. It may look long winded,
+but once you know what you are doing its a snap. promise.</p>
+
+<p>1. Run Visual C++</p>
+
+<p>2. Go to the file menu and select 'new'<br>
+<br>
+3. In the projects list choose 'Win32 Application', then setup the name and location of
+your project in the topright of the dialog. press ok. In this tutorial i will create a
+project called 'Test'.<br>
+<br>
+4. If you are asked by Visual C++ what type of project you would like to create, just
+select 'An empty project'.<br>
+<br>
+5. You should now have an empty workspace (.dsw) and empty project (.dsp). You should see
+in the project tree over to the left of your Visual C++ window, something like 'Test
+classes' (if your project was called test).<br>
+<br>
+6. Select 'File View' in the project view tree, instead of 'Class View'.<br>
+<br>
+7. In Visual C++ 6.0 you will already have the folders, 'Source Files', 'Header Files' and
+'Resource Files' created, if your are in Visual C++ 5.0 no folders will be created so you
+will have to create them yourselves by right clicking on 'Test Files' (assuming your
+project is called 'Test') and selecting 'New Folder' from the popup menu. Because we do
+will not have any header files in this project, or resources (icons, dialogs etc.) you can
+delete the 'Header Files' and 'Resource Files' folders by selecting the folder with a
+mouse click and pressing the delete key (or right clicking and selecting 'Delete' from the
+popup menu).<br>
+<br>
+8. You can setup each folder to own a set of file extensions, ie. 'Source Files' is
+&quot;cpp;c&quot; and 'Header Files' is &quot;h&quot;. This automaticallly sorts files
+that are added to the project into the correct folder. To change the file types that a
+folder owns, right click on that folder and choose 'Properties' in the popup menu.<br>
+<br>
+9. Create a folder called 'Library Files' with file types set to &quot;lib&quot; in the
+project. This will contain the import library files so that you application can link to
+ptcdebug.dll and ptc.dll.<br>
+<br>
+10. Add two sub-folders to the 'Library Files' folder, 'debug' and 'release'. OpenPTC for
+Windows has seperate libraries for debug build and for release build, so we put them in
+seperate folders.<br>
+<br>
+11. Copy the file 'examples/Random/Random.cpp' from your PTC distribution to 'Test.cpp' in
+directory where you created this project. This will be your main source file.<br>
+<br>
+12. Now its time to add files to the project, first we must add 'Test.cpp' to the project,
+then the ptc libraries (&quot;library/release/ptc.lib&quot; and
+&quot;library/debug/ptcdebug.lib&quot;). To add files to the project just right click on
+the 'Test Files' text in the project file view tree, and choose 'Add Files to Project'
+from the popup menu.<br>
+<br>
+13. Now that 'Test.cpp', 'ptc.lib' and 'ptcdebug.lib' have been added to the project, we
+are almost ready to roll :). Make sure that the files have been placed in the correct
+folder, Test.cpp should be in 'Source Files' and the .lib files should be in 'Library
+Files'. If not just drag&amp;drop the files to their correct places.<br>
+<br>
+14. Now we have to tell the project to use 'ptcdebug.lib' in debug build, and 'ptc.lib' in
+release build. To do this, go to the project menu, and choose 'Settings'. In the dialog
+that pops up, expand the 'Test' tree in the left side by clicking on the [+] before test,
+continue expanding until you get the tree with 'Library Files' and 'debug'/'release'.
+Select the 'debug' folder, and set the drop box above to 'Settings for Release Build'. Now
+click 'Exclude file from build'. This stops the ptcdebug.lib from being linked to in
+release build. Now we do the opposite, select the 'release' build and change to 'Settings
+for Debug Build'. Now exclude ptc.lib from the debug build. Done.<br>
+<br>
+15. Finally we have to do one more thing, tell Visual C++ where the OpenPTC header files
+are. To do this, we must go to the tools menu and choose 'Options'. In the dialog that
+pops up, you have to choose the directories tab at the top, then add the ptc include
+directory (if you installed to c:\ptc, then you add c:\ptc\source as the include dir).
+when you are finished, press ok.<br>
+<br>
+16. Now we are ready to build. You can either use the 'build' menu, or press F7 to build,
+F5 to run with debug, or CTRL-F5 to run without debug. Everything should work fine, if it
+doesnt, then you'd better go back to #1. =)<br>
+<br>
+17. You can choose between debug build and release build by going to the build menu and
+selecting 'Set Active Configuration' from the menu. You can edit any file in your project
+file tree by double clicking on it, try double clicking on Test.cpp in the 'Source Files'
+folder, and edit it a bit.</p>
+</body>
+</html>

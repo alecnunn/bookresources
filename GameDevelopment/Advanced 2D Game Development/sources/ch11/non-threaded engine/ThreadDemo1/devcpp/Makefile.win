@@ -1,0 +1,33 @@
+# Project: ThreadDemo
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = ./obj/CollisionDemo_private.res
+OBJ  = ./obj/main.o $(RES)
+LINKOBJ  = ./obj/main.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -L"../../Engine/lib" -mwindows -lAdvanced2D -ld3d9 -ld3dx9 -ldinput8 -ldxguid -lwinmm -luser32 -lgdi32 -lfmodex -lpthreadGC  -s 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = ../bin/ThreadDemo.exe
+CXXFLAGS = $(CXXINCS)   -fno-access-control -fexceptions
+CFLAGS = $(INCS)   -fno-access-control -fexceptions
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ../bin/ThreadDemo.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "..\bin\ThreadDemo.exe" $(LIBS)
+
+./obj/main.o: ../main.cpp
+	$(CPP) -c ../main.cpp -o ./obj/main.o $(CXXFLAGS)
+
+./obj/CollisionDemo_private.res: CollisionDemo_private.rc 
+	$(WINDRES) -i CollisionDemo_private.rc --input-format=rc -o ./obj/CollisionDemo_private.res -O coff 

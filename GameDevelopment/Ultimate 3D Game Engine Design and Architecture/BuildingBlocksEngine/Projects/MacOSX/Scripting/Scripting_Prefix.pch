@@ -1,0 +1,5 @@
+//
+// Prefix header for all source files of the 'Scripting' target in the 'Scripting' project.
+//
+
+#include <Carbon/Carbon.h>

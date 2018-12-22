@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dia:DIA xmlns="urn:mpeg:mpeg21:2003:01-DIA-gBSD-NS" xmlns:dia="urn:mpeg:mpeg21:2003:01-DIA-NS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bs1="urn:mpeg:mpeg21:2003:01-DIA-BSDL1-NS" xsi:schemaLocation="urn:mpeg:mpeg21:2003:01-DIA-gBSD-NS schema/gBSSchema.xsd urn:mpeg:mpeg21:2003:01-DIA-BSDL1-NS schema/BSDL-1.xsd">
+	<dia:Description xsi:type="gBSDType" addressMode="Consecutive" bs1:bitstreamURI="Pierra_sequ0101.raw">
+
+		<gBSDUnit start="0" length="46520" marker="access_unit">
+			<gBSDUnit syntacticalLabel=":MG4:BBAPlane" start="0" length="49"/>
+			<gBSDUnit syntacticalLabel=":MG4:MainHeader" start="49" length="33" addressMode="Consecutive">
+				<Parameter name=":MG4:NoOfInterpolatedFrames" start="49" length="5">
+					<Value xsi:type="b5">0</Value>
+				</Parameter>
+				<Parameter name=":MG4:QuantizationValue" start="54" length="5">
+					<Value xsi:type="b5">1</Value>
+				</Parameter>
+				<Parameter name=":MG4:Pow2Quantizer" start="59" length="3">
+					<Value xsi:type="b3">0</Value>
+				</Parameter>
+				<Parameter name=":MG4:NoOfBones" start="62" length="10">
+					<Value xsi:type="b10">35</Value>
+				</Parameter>
+				<Parameter name=":MG4:NoOfMuscles" start="72" length="10">
+					<Value xsi:type="b10">0</Value>
+				</Parameter>
+			</gBSDUnit>
+			<gBSDUnit syntacticalLabel=":MG4:BoneSegment" start="82" length="46406" addressMode="Absolute">
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="82" length="28" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="110" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="135" length="25" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="160" length="25" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="185" length="25" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="210" length="25" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="235" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="260" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="285" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="310" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="335" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="360" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="385" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="410" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="435" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="460" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="485" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="510" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="535" length="25" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="560" length="25" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="585" length="25" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="610" length="25" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="635" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="660" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="685" length="25" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="710" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="735" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="760" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="785" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="810" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="835" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="860" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="885" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="910" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="935" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BBACodingType" start="960" length="1" marker="CodingType"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="961" length="3264" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="4225" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="4325" length="2231" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="6556" length="2552" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="9108" length="894" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="10002" length="874" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="10876" length="2017" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="12893" length="2520" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="15413" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="15513" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="15613" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="15713" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="15813" length="685" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="16498" length="612" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="17110" length="2293" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="19403" length="2472" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="21875" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="21975" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="22075" length="2840" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="24915" length="3256" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="28171" length="1566" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="29737" length="1598" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="31335" length="2293" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="33628" length="3256" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="36884" length="2261" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="39145" length="100" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="39245" length="100" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="39345" length="100" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="39445" length="100" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="39545" length="1916" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="41461" length="1897" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="43358" length="1915" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="45273" length="486" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="45759" length="362" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="46121" length="362" marker="BoneLoA3"/>
+				<Parameter name=":MG4:Padding" start="46483" length="5">
+					<Value xsi:type="b5">5</Value>
+				</Parameter>
+			</gBSDUnit>
+			<gBSDUnit syntacticalLabel=":MG4:BBAPlaneEnd" start="46488" length="32"/>
+		</gBSDUnit>
+		<gBSDUnit start="46520" length="31736" marker="access_unit">
+			<gBSDUnit syntacticalLabel=":MG4:BBAPlane" start="46520" length="49"/>
+			<gBSDUnit syntacticalLabel=":MG4:MainHeader" start="46569" length="33" addressMode="Consecutive">
+				<Parameter name=":MG4:NoOfInterpolatedFrames" start="46569" length="5">
+					<Value xsi:type="b5">0</Value>
+				</Parameter>
+				<Parameter name=":MG4:QuantizationValue" start="46574" length="5">
+					<Value xsi:type="b5">1</Value>
+				</Parameter>
+				<Parameter name=":MG4:Pow2Quantizer" start="46579" length="3">
+					<Value xsi:type="b3">0</Value>
+				</Parameter>
+				<Parameter name=":MG4:NoOfBones" start="46582" length="10">
+					<Value xsi:type="b10">35</Value>
+				</Parameter>
+				<Parameter name=":MG4:NoOfMuscles" start="46592" length="10">
+					<Value xsi:type="b10">0</Value>
+				</Parameter>
+			</gBSDUnit>
+			<gBSDUnit syntacticalLabel=":MG4:BoneSegment" start="46602" length="31654" addressMode="Absolute">
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46602" length="28" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46630" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46655" length="25" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46680" length="25" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46705" length="25" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46730" length="25" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46755" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46780" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46805" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46830" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46855" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46880" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46905" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46930" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46955" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="46980" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47005" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47030" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47055" length="25" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47080" length="25" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47105" length="25" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47130" length="25" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47155" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47180" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47205" length="25" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47230" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47255" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47280" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47305" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47330" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47355" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47380" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47405" length="25" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47430" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneMask" start="47455" length="25" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BBACodingType" start="47480" length="1" marker="CodingType"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="47481" length="2618" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="50099" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="50199" length="1389" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="51588" length="1447" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="53035" length="428" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="53463" length="420" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="53883" length="1519" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="55402" length="1824" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="57226" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="57326" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="57426" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="57526" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="57626" length="715" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="58341" length="641" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="58982" length="1772" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="60754" length="1607" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="62361" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="62461" length="100" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="62561" length="1847" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="64408" length="1723" marker="BoneLoA0"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="66131" length="1016" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="67147" length="945" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="68092" length="1751" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="69843" length="1932" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="71775" length="1655" marker="BoneLoA1"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="73430" length="100" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="73530" length="100" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="73630" length="100" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="73730" length="100" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="73830" length="1485" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="75315" length="1267" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="76582" length="1223" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="77805" length="250" marker="BoneLoA2"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="78055" length="100" marker="BoneLoA3"/>
+				<gBSDUnit syntacticalLabel=":MG4:BoneValue" start="78155" length="100" marker="BoneLoA3"/>
+				<Parameter name=":MG4:Padding" start="78255" length="1">
+					<Value xsi:type="b1">1</Value>
+				</Parameter>
+			</gBSDUnit>
+			<gBSDUnit syntacticalLabel=":MG4:BBAPlaneEnd" start="78256" length="32"/>
+		</gBSDUnit>
+	</dia:Description>
+</dia:DIA>

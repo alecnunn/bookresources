@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestProgram", "TestProgram.vcproj", "{BF70DF69-ECA1-4E39-9953-2CC1A243A00A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DFA2BD0C-F926-4727-BF45-33A3D82D3056} = {DFA2BD0C-F926-4727-BF45-33A3D82D3056}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RemoteLoggerGameModule", "..\RemoteLoggerGameModule\RemoteLoggerGameModule.vcproj", "{DFA2BD0C-F926-4727-BF45-33A3D82D3056}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{BF70DF69-ECA1-4E39-9953-2CC1A243A00A}.Debug.ActiveCfg = Debug|Win32
+		{BF70DF69-ECA1-4E39-9953-2CC1A243A00A}.Debug.Build.0 = Debug|Win32
+		{BF70DF69-ECA1-4E39-9953-2CC1A243A00A}.Release.ActiveCfg = Release|Win32
+		{BF70DF69-ECA1-4E39-9953-2CC1A243A00A}.Release.Build.0 = Release|Win32
+		{DFA2BD0C-F926-4727-BF45-33A3D82D3056}.Debug.ActiveCfg = Debug|Win32
+		{DFA2BD0C-F926-4727-BF45-33A3D82D3056}.Debug.Build.0 = Debug|Win32
+		{DFA2BD0C-F926-4727-BF45-33A3D82D3056}.Release.ActiveCfg = Release|Win32
+		{DFA2BD0C-F926-4727-BF45-33A3D82D3056}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

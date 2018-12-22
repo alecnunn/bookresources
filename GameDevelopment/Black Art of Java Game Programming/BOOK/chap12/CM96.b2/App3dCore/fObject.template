@@ -1,0 +1,96 @@
+/**
+ * Abstract class the represents a virtual object.
+ */
+class MyCoolObject extends fObject{
+   /**
+    * Constructor.
+    */
+   MyCoolObject(fWorld world){
+      super(world,new fPoint3d(0,0,0),new fAngle3d(0,0,0));
+  		usePolyhedronInstance(new fPolyhedronInstance(ourDefaultPolyhedron,ourScale));
+
+  		//--
+  		//-- insert code here
+  		//--
+   }
+   /**
+    * Updates this object by dt seconds.
+    */
+   public void update (double dt) {
+      super.update(dt);
+
+      //--
+      //-- insert code here
+      //--
+   }
+	/**
+	 * The core will ask this object if it is interested of
+	 * collision with some other object. Return true if the object
+	 * is interested.
+	 */
+	public boolean interestedOfCollisionWith (fObject obj) {
+	   //--
+	   //-- insert code here
+	   //-- example
+	   //--     if(obj instanceof MyCoolClass) return true;
+	   //--
+	   
+	   return super.interestedOfCollisionWith(obj);
+	}
+   /**
+    * Handles a collision with a object. Returns false if there is no point in checking
+    * more collisions. I.e. the object is dead.
+    */
+   protected boolean handleCollisionWith (fObject obj,double dt) {
+      //--
+      //-- insert code here
+      //-- example
+      //--     if(obj instanceof AtomicBomb) {die();return false;}
+      //--
+      
+      return super.handleCollisionWith(obj,dt);
+   }
+   /**
+    * Kills this object.
+    */
+   protected void die () {
+      super.die();
+
+      //--
+      //-- insert code here
+      //--
+   }
+   /**
+    * Inititates this class by loading the static parameters from
+    * the applet.
+    */
+   public static void initiateClass (Applet app) {
+      try{
+         //-- load the default polyhedron for all bouncing boxes
+         //-- this MUST be done in all non-abstract classes
+         String polyfile=app.getParameter("MyCoolObject_polyhedron");
+         URL url=new URL(app.getCodeBase(),polyfile);
+         InputStream is=url.openStream();
+         ourDefaultPolyhedron=new fConvexPolyhedron(is);
+      } catch(Exception e) {
+         e.printStackTrace();
+      }
+      //-- the scaling of the polyhedron
+      double xscale=new Double(app.getParameter("MyCoolObject_scalex")).doubleValue();
+      double yscale=new Double(app.getParameter("MyCoolObject_scaley")).doubleValue();
+      double zscale=new Double(app.getParameter("MyCoolObject_scalez")).doubleValue();
+      ourScale=new fPoint3d(xscale,yscale,zscale);
+      //--
+      //-- load your static stuff here
+      //--
+   }
+   
+   //-- class "constants"
+   protected static fPolyhedron ourDefaultPolyhedron;
+   protected static fPoint3d ourScale;
+   //--
+   //-- insert your static stuff here
+   //--
+
+}
+

@@ -1,0 +1,168 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - ic.h</h2>
+<p>#include&lt;stdio.h&gt;<br>
+  #include&lt;stdlib.h&gt;<br>
+  #include&lt;string.h&gt;<br>
+  #include&quot;define.h&quot;<br>
+  #include&quot;op.h&quot;<br>
+  #define HASHSIZE 100<br>
+  #define NAMESIZE 30<br>
+  #define DIMSIZE 30<br>
+#define LABELSIZE 5</p>
+<p>static char *ops[] = {&quot;&amp;&quot;,&quot;&amp;=&quot;,&quot;&amp;&amp;&quot;,&quot;&amp;&amp;=&quot;,&quot;=&quot;,&quot;^&quot;,&quot;^=&quot;,&quot;/&quot;,&quot;/=&quot;,&quot;==&quot;,&quot;&gt;=&quot;,&quot;goto&quot;,&quot;&gt;&quot;,&quot;&gt;&gt;=&quot;,&quot;If=&quot;,&quot;&lt;=&quot;,&quot;&lt;&quot;,&quot;&lt;&lt;=&quot;,&quot;*&quot;,&quot;*=&quot;,&quot;-&quot;,&quot;-=&quot;,&quot;--&quot;,&quot;%&quot;,&quot;%=&quot;,&quot;!=&quot;,&quot;||&quot;,&quot;||=&quot;,&quot;+&quot;,&quot;+=&quot;,&quot;++&quot;,&quot;sizeof&quot;,&quot;*&quot;,&quot;~&quot;,&quot;~=&quot;,&quot;-&quot;,&quot;+&quot;,&quot;=[]&quot;,&quot;[]=&quot;};</p>
+<p>long int relAddr;<br>
+  char srcFileName[40];<br>
+  int errCount;<br>
+  int lineNo;<br>
+</p>
+<p>&nbsp;</p>
+<p>typedef struct Attr<br>
+  {<br>
+  short int type;<br>
+  short int subtype;<br>
+  short int datatype;		//char, integer, long, float,double<br>
+  char name[NAMESIZE];<br>
+  union				//constant values if it is<br>
+  { <br>
+  char cVal;<br>
+  int iVal;<br>
+  float fVal;<br>
+  long lVal;<br>
+  double dVal;<br>
+  char *string;<br>
+  long int relAddr;<br>
+  }value;<br>
+  int dimArray[DIMSIZE+1];<br>
+  short int noDimensions;<br>
+  char offsetName[NAMESIZE];<br>
+  }Attr;</p>
+<p>typedef struct Quad{<br>
+  char *label;<br>
+  int operator;<br>
+  Attr *operand1;<br>
+  Attr * operand2;<br>
+  Attr *result;<br>
+  struct Quad *nextQuad;<br>
+  }Quad;</p>
+<p>//Quad *quadTable=NULL;</p>
+<p>typedef struct BBlock<br>
+  {<br>
+  char label[LABELSIZE];<br>
+  struct Quad *start;<br>
+  struct Quad *end;<br>
+  int blockNumber;<br>
+  struct BBlock *trueNext;<br>
+  struct BBlock *falseNext;<br>
+  struct BBlock *next;</p>
+<p>}BBlock;<br>
+  //BBlock *bblockTable=NULL;<br>
+  BBlock *rearBBPtr;</p>
+<p>&nbsp;</p>
+<p>typedef struct Symbol<br>
+  {<br>
+  short int type;  		//ID or Const <br>
+  short int subtype;		//Basic, Array, Pointer, Referernce, File, Function<br>
+  short int datatype;		//char, integer, long, float,double<br>
+  short int nameLen;		//Lengh of the ID if it is<br>
+  char *name;			//ID lexeme<br>
+  short int storage;		//Storage type: auto, register, static, typedef <br>
+  short int qualifier;		//Qualifier: Constant, Volatile<br>
+  short int sign;			//unsigned, signed<br>
+  short int width;		//width of the data if applicable<br>
+  union				//constant values if it is<br>
+  { <br>
+  char cVal;<br>
+  int iVal;<br>
+  float fVal;<br>
+  long lVal;<br>
+  double dVal;<br>
+  char *string;<br>
+  }value;<br>
+  int *dimArray;			//dimArray[0] refers to how many dimenstions dimArray[1] .. dimArray[2] .. size of each dimension<br>
+  char offsetName[NAMESIZE];<br>
+  long int relAddr;			//Relative address of each symbol<br>
+  }Symbol;<br>
+</p>
+<p>Symbol sym;</p>
+<p>&nbsp;</p>
+<p>typedef struct Label<br>
+  {<br>
+  char name[NAMESIZE];<br>
+  Quad *quad;<br>
+  BBlock *bblock;<br>
+  struct Label *nextLabel;<br>
+  }Label;<br>
+  //Label *labelTable=NULL;<br>
+  Label *rearLabelPtr;<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>typedef struct LNode<br>
+  {<br>
+  Symbol symbol;<br>
+  struct LNode *next;<br>
+  } LNode;</p>
+<p>typedef LNode *PtrToLNode ;<br>
+  typedef PtrToLNode List;</p>
+<p>typedef struct DagNode<br>
+  {<br>
+  int label;<br>
+  union {<br>
+  int operator;<br>
+  char IdOrConst[NAMESIZE];<br>
+  } val;<br>
+  List list;<br>
+  }DagNode;<br>
+  typedef struct TNode<br>
+  {<br>
+  Symbol symbol;<br>
+  struct TNode *left;<br>
+  struct TNode *right;<br>
+  } TNode;</p>
+<p>int hsize;</p>
+<p>List *HashTable;</p>
+<p>void initHash(int);</p>
+<p>Symbol initSymbol();<br>
+  Symbol copySymbol(Attr attr, char name[NAMESIZE]);</p>
+<p>Symbol createTempSymbolWithType(Attr attr1,Attr attr2, Attr attr3);</p>
+<p>short int findDType(Attr attr);</p>
+<p>int  addSymbolHash(Symbol symbol);</p>
+<p>int findHash(char[]);</p>
+<p>void dispSymbolTableHash();</p>
+<p>void destroySymbolTable(int size);</p>
+<p>void dispNodeHash(LNode *p);</p>
+<p>LNode *findSymbolash(char *name);</p>
+<p>int assignValueHash(char *name,char *value);</p>
+<p>int noElements;</p>
+<p>TNode *thead;</p>
+<p>&nbsp;</p>
+<p>LNode *head;</p>
+<p>int addSymbolLL(LNode *,Symbol symbol);</p>
+<p>int dispSymbolTableLL(LNode *);</p>
+<p>void assignValueLL(LNode *, char *name,char *value);</p>
+<p>/*-------------------semantic actions prototype declarations-------------*/</p>
+<p>//typedef Label *LabelsList; </p>
+<p>void createQuadList(Quad **quadListHeader);</p>
+<p>void createBBlockList(BBlock **blockListHeader);</p>
+<p>void createLabelsListHeader(Label **labelListHeader);</p>
+<p>void insertLabel(Label *labelTable,char *name,Quad *quad);//, int value,char type);</p>
+<p>void addCode(Quad *quadListHeader,char *label,int operator,Attr operand1,Attr operand2,Attr result);</p>
+<p>void addBBlock(BBlock *bblockListHeader,Quad *start,Quad *end,char label[LABELSIZE]);</p>
+<p>void split2BB(Quad *quadTable,BBlock **bblockTable);</p>
+<p>void printBB(BBlock *bblockTable);<br>
+  void constructFlowGraph(BBlock *bblockTable);</p>
+<p>//void printLabelsList(Label *labelListHeader);</p>
+<p>void printCode(Quad *quadListHeader);</p>
+<p>void itoa(int number, char *name);</p>
+<p>void createTemp(char temp[]);</p>
+<p>void createLabel(char temp[]);<br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+</body>
+</html>

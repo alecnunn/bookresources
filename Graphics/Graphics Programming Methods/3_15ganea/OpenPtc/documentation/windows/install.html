@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>Installation Instructions</title>
+</head>
+
+<body TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#824250" VLINK="#51188E" ALINK="#FF0000"
+BACKGROUND="white.gif">
+
+<h1 align="left"><font face="Arial" size="7">Installation Instructions</font></h1>
+
+<h4><br>
+<font face="Arial">1. Install the dynamic link libraries</font></h4>
+
+<ul>
+  <li>Add the OpenPTC &quot;library&quot; directory to your path, or alternatively, copy the
+    *.dll files from the library directory to your windows system directory.</li>
+  <li>If you do not have the dynamic link libraries in your path then none of your programs
+    that use OpenPTC will be able to run.</li>
+  <li>If you have installed the OpenPTC libraries to your system via the installation program,
+    you should be careful that you are running the correct version. To be sure, remove the
+    ptc.dll/ptcdebug.dll/hermes.dll installed to your system directory, and replace them with
+    the ones from this release.</li>
+</ul>
+
+<h4><font face="Arial"><br>
+2. Generate the import libraries for your compiler</font></h4>
+
+<blockquote>
+  <p><strong>a) Visual C++ 4.x/5.0/6.0</strong><ul>
+    <li>You can skip this step because OpenPTC for Windows comes with import libraries for
+      Visual C++ in the &quot;libraries/visual&quot; directory.</li>
+  </ul>
+  <p><strong>b) Other compilers</strong><ul>
+    <li>Import libraries are not included for compilers other than Visual C++.</li>
+    <li>Don't worry, its simple to generate the import libraries for your compiler.</li>
+    <li>Read the <a href="compiler.html">Compiler Instructions</a> page for more information.</li>
+  </ul>
+</blockquote>
+
+<h4><font face="Arial"><br>
+3. Compile and run the examples and demos</font></h4>
+
+<blockquote>
+  <p><strong>a) Visual C++ 5.0/6.0</strong><ul>
+    <li>You can build the example programs by opening up the &quot;Examples.dsw&quot; directory
+      in the &quot;Examples&quot; directory.</li>
+    <li>To build the demo programs open up the &quot;Demos.dsw&quot; workspace file in the
+      &quot;Demos&quot; directory.</li>
+    <li>You can move between separate projects in the workspace using &quot;Set Active
+      Configuration&quot; in the build menu. This is how you can choose which executable you
+      want to build and run. If you have the project view window open, you can right click on
+      the project name in the class view or file view tree and select &quot;Set as Active
+      Project&quot; to make that the current project to build and run.</li>
+    <li>See the <a href="compiler.html">Compiler Instructions</a> page for more information.</li>
+  </ul>
+  <p><strong>b) Other compilers</strong><ul>
+    <li>Read the <a href="compiler.html">Compiler Instructions</a> page for information on how
+      to build the example and demo programs with your compiler.</li>
+  </ul>
+</blockquote>
+
+<h4><br>
+<font face="Arial">4. Build your own applications using OpenPTC</font></h4>
+
+<blockquote>
+  <p><strong>a) Visual C++ 5.0/6.0</strong><ul>
+    <li>Read the '<a href="visual.html">How to create your own projects inVisual C++</a>'
+      tutorial for instructions on how to setup your own project and workspace for Visual C++
+      and OpenPTC.</li>
+  </ul>
+  <p><strong>b) Other compilers</strong><ul>
+    <li>Study the batch files for your compiler in the &quot;scripts&quot; directory. You can
+      either choose to use these batch files as is, modify them to suit your needs, or setup
+      your own batch files, makefiles, projects or whatever for your compiler.</li>
+    <li>See the <a href="scripts.html">Scripts Guide</a> for more information.<br>
+    </li>
+  </ul>
+</blockquote>
+
+<h4><font face="Arial">5. What if you cant get it to work?</font></h4>
+
+<ul>
+  <li>You can get support on the newsgroup <a href="news://news.scene.org/coders.ptc">news.scene.org/coders.ptc</a>.</li>
+  <li>If you find a bug you can report it to <a href="news://news.scene.org/coders.ptc.bugs">news.scene.org/coders.ptc.bugs</a>.</li>
+</ul>
+</body>
+</html>

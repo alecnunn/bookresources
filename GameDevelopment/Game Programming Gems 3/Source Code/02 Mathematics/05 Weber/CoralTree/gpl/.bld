@@ -1,0 +1,47 @@
+# GPL
+set MODULE = gpl
+if (!$(CORALHOME))
+{
+	cd ..
+	set CORALHOME = `pwd`
+	cd $(MODULE)
+}
+include $(CORALHOME)/meta/coral.bld
+
+set MODULES =	osd
+
+set FILES = 	version			\
+				cqueue			\
+				darray 			\
+				dbug			\
+				ftable			\
+				hier			\
+				hash			\
+				llock			\
+				dir				\
+				bitgroup		\
+				tools			\
+				heapmgr			\
+				track			\
+				bag				\
+				tuple			\
+				desc			\
+				value			\
+				block			\
+				dlist			\
+				time			\
+				factory			\
+				persist			\
+				file			\
+				message			\
+				regexp			\
+				error			\
+				log				\
+				str				\
+				filesel			\
+				ref
+
+set PROGRAMS = 	"xgpl$(EXE)" 			\
+				"xtime$(EXE)"
+
+set TARGETS = $(LIBRARY)

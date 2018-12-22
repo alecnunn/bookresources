@@ -1,0 +1,4 @@
+
+// Project current contact
+float f0 = DotProduct(ContactPos, RightBasisVector);
+float f1 = DotProduct(ContactPos, UpBasisVector);

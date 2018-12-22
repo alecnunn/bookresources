@@ -1,0 +1,45 @@
+class MyCoolObject extends fObject{
+
+	public fObject (fWorld world, fPoint3d pos, fAngle3d angle) {
+      super(world,pos,angle);
+      //--
+      //-- insert code here
+      //--
+	}
+
+   public void update (double dt) {
+      super.update(dt);
+      //--
+      //-- insert code here
+      //--
+   }
+
+	public boolean interestedOfCollisionWith (fObject obj) {
+      //--
+      //-- insert code here
+      //--
+      //-- example:
+      //--   if(obj instanceof InterestingObject) return true;
+      //--
+	   return super.interestedOfCollisionWith (obj);
+	}
+
+   protected boolean handleCollisionWith (fObject obj,double dt) {
+      //--
+      //-- insert code here
+      //--
+      //-- example:
+      //--   if(obj instanceof AtomicBomb) {die();return false;}
+      //--
+	   return super.handleCollisionWith(obj,dt);
+   }
+
+   protected void die () {
+      super.die();
+
+      //--
+      //-- insert code here
+      //--
+   }
+}
+

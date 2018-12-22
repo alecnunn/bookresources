@@ -1,0 +1,36 @@
+# First line starts the NN loading and gives the # of layers.
+NN_BEGIN 3
+#
+# NEURON x y z
+# x = layer number
+# y = node name
+# z = node bias
+NEURON 0 in1 0.0
+NEURON 0 in2 0.0
+NEURON 1 hidden1 0.5
+NEURON 1 hidden2 0.5
+NEURON 2 out 0.5
+#
+# DEFAULTOUT "string"
+# string = the default output
+DEFAULTOUT "0 (False)"
+#
+# EDGE x y z
+# x = source neuron
+# y = dest neuron
+# z = edge weight
+EDGE in1 hidden1 0.6
+EDGE in2 hidden1 0.6
+EDGE in1 hidden2 0.4
+EDGE in2 hidden2 0.4
+EDGE hidden1 out 0.6
+EDGE hidden2 out -0.2
+#
+# INPUT/OUTPUT x "y"
+# x = node for input/output
+# y = fancy name for the input/output
+INPUT in1 "Input 1"
+INPUT in2 "Input 2"
+OUTPUT out "1 (True)"
+#
+NN_END

@@ -1,0 +1,31 @@
+XLDemo
+======
+
+Intro -
+
+XLDemo is a demo program which shows how OpenAL and OpenGL can be used
+together to create a cross-platform 3D audio/video application.
+
+Running -
+
+After compiling XLDemo it may be necessary to copy all the resource files
+(.mdl, .wav, and .pcm) from the COMMON directory to the execution directory.
+The main executable should then run without error.  You can control the
+viewer with the arrow keys, step sideways with 'z' and 'x', and exit by
+pressing 'ESC'.
+
+Implementation -
+
+Most of the code for XLDemo is in the /COMMON directory.  There are
+OS-specific directories which contain the project files and a main program
+for each platform supported.
+
+There is a generic "Environment" object created in the main program which
+updates the display and audio environments as the program runs.  The main
+program continuously updates the Environment object with the current
+position of the "viewer," who is the "person" walking around the virtual
+world.  As the program has the opportunity, it tells the environment to
+update the position of objects as well as the display and audio environment.
+
+In the source code you will notice that the OpenGL and OpenAL updates are
+done together using the same type of mechanisms.

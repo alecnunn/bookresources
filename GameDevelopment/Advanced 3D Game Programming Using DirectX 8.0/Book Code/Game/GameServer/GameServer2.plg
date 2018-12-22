@@ -1,0 +1,66 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GameCommon - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "D:\DOCUME~1\ADRIAN~1\LOCALS~1\Temp\RSPB0.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/GameCommon.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\Book\Code\Game\GameCommon\GameWorld.cpp"
+]
+Creating command line "cl.exe @D:\DOCUME~1\ADRIAN~1\LOCALS~1\Temp\RSPB0.tmp" 
+Creating temporary file "D:\DOCUME~1\ADRIAN~1\LOCALS~1\Temp\RSPB1.tmp" with contents
+[
+/nologo /out:"Debug\GameCommon.lib" 
+.\Debug\GameCell.obj
+.\Debug\GameWorld.obj
+.\Debug\MsgDaemon.obj
+.\Debug\ResourceMgr.obj
+.\Debug\StdAfx.obj
+.\Debug\ViewCone.obj
+.\Debug\GameEnt.obj
+.\Debug\GameParaEnt.obj
+.\Debug\GamePlayerEnt.obj
+.\Debug\GameProjEnt.obj
+.\Debug\GameSpawnEnt.obj
+]
+Creating command line "link.exe -lib @D:\DOCUME~1\ADRIAN~1\LOCALS~1\Temp\RSPB1.tmp"
+<h3>Output Window</h3>
+Compiling...
+GameWorld.cpp
+Creating library...
+<h3>
+--------------------Configuration: GameServer2 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "D:\DOCUME~1\ADRIAN~1\LOCALS~1\Temp\RSPB2.tmp" with contents
+[
+winmm.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/GameServer2.pdb" /debug /machine:I386 /out:"../bin/GameServer2.exe" /pdbtype:sept 
+.\Debug\EntNM.obj
+.\Debug\LoginNM.obj
+.\Debug\MiscNM.obj
+.\Debug\NetMessages.obj
+.\Debug\File.obj
+.\Debug\GameServer2.obj
+.\Debug\StdAfx.obj
+.\Debug\GameServer.obj
+.\Debug\GameServer2.res
+\Book\Code\Game\GameCommon\Debug\GameCommon.lib
+\Book\Code\Game\lib\GameLib.lib
+\Book\Code\Game\lib\math3D.lib
+\Book\Code\Game\lib\NetLib.lib
+]
+Creating command line "link.exe @D:\DOCUME~1\ADRIAN~1\LOCALS~1\Temp\RSPB2.tmp"
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+GameServer2.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

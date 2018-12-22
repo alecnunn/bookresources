@@ -1,0 +1,7 @@
+#generated with JPatch (http://www.jpatch.com)
+
+newmtl Default_Material
+Ka 0.1 0.0 0.020000001
+Kd 0.9 0.0 0.17999999
+Ks 1.0 1.0 1.0
+Ns 0.01

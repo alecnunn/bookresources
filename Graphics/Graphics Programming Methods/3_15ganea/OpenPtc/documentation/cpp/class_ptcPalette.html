@@ -1,0 +1,164 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Palette  Class Reference</h1>A palette of color entries. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcPalette-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcPalette.html#a0">Palette</a> ()
+<li><a class="el" href="class_ptcPalette.html#a1">Palette</a> (const int32 data[])
+<li><a class="el" href="class_ptcPalette.html#a2">Palette</a> (const Palette &amp;palette)
+<li><a class="el" href="class_ptcPalette.html#a3">~Palette</a> ()
+<li>int32* <a class="el" href="class_ptcPalette.html#a4">lock</a> ()
+<li>void <a class="el" href="class_ptcPalette.html#a5">unlock</a> ()
+<li>void <a class="el" href="class_ptcPalette.html#a6">load</a> (const int32 data[])
+<li>void <a class="el" href="class_ptcPalette.html#a7">save</a> (int32 data[]) const
+<li>const int32* <a class="el" href="class_ptcPalette.html#a8">data</a> () const
+<li>Palette&amp; <a class="el" href="class_ptcPalette.html#a9">operator=</a> (const Palette &amp;palette)
+<li>bool <a class="el" href="class_ptcPalette.html#a10">operator==</a> (const Palette &amp;palette) const
+<li>bool <a class="el" href="class_ptcPalette.html#a11">operator!=</a> (const Palette &amp;palette) const
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+A palette of color entries.
+<p>
+The palette class represents a 256 color palette for 8 bit indexed color formats.
+<p>
+Internally each palette object maintains an array of 256 32 bit integer color values packed in ARGB8888 format.
+<p>
+Palette objects are typically used to set the surface palette with <a class="el" href="class_ptcSurface.html#a13">Surface::palette</a>(const Palette &amp;palette).
+<p>
+They are also used, although less frequently, to load and save surface pixels with <a class="el" href="class_ptcSurface.html#a7">Surface::load</a>() and <a class="el" href="class_ptcSurface.html#a9">Surface::save</a>().
+<p>
+And, even less frequently, they are used with the low level pixel copying and conversion routine <a class="el" href="class_ptcCopy.html#a3">Copy::palette</a>(). <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Palette::Palette"></a>ptc::Palette::Palette ()</h3>
+<div class="in">
+
+<p>
+Default constructor.
+<p>
+All palette color entries are set to black. </div>
+
+<h3><a name="a1" doxytag="ptc::Palette::Palette"></a>ptc::Palette::Palette (const int32 data[])</h3>
+<div class="in">
+
+<p>
+Creates a palette object with its color entries set to the color values in <em>data.</em>
+<p>
+The <em>data</em> array is an array of r,g,b,a color values packed into a 32 bit integer in the format ARGB8888.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>data</em> -  the palette data. </dl></div>
+
+<h3><a name="a2" doxytag="ptc::Palette::Palette"></a>ptc::Palette::Palette (const Palette &amp; <em>palette</em>)</h3>
+<div class="in">
+
+<p>
+Copy constructor. </div>
+
+<h3><a name="a3" doxytag="ptc::Palette::~Palette"></a>ptc::Palette::~Palette ()</h3>
+<div class="in">
+
+<p>
+Frees all palette memory and checks if the palette is still locked.
+<p>
+<dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>An</em> -  Error exception is thrown if the palette is still locked. </dl></div>
+
+<h3><a name="a4" doxytag="ptc::Palette::lock"></a>int32 * ptc::Palette::lock ()</h3>
+<div class="in">
+
+<p>
+Gets a pointer to the palette data array.
+<p>
+The data array is an array of r,g,b,a color values packed into a 32 bit integer in the format ARGB8888.
+<p>
+Each successful palette lock must be accompanied by an unlock.
+<p>
+Only one lock is allowed on a palette object at any one time.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+a pointer to the palette data. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>An</em> -  Error exception is thrown on failure. </dl></div>
+
+<h3><a name="a5" doxytag="ptc::Palette::unlock"></a>void ptc::Palette::unlock ()</h3>
+<div class="in">
+
+<p>
+Unlocks the palette color data after a call to lock.
+<p>
+If unlock is called and the palette is not locked a ptc::Error exception will be thrown.
+<p>
+<dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>An</em> -  Error exception is thrown on failure. </dl></div>
+
+<h3><a name="a6" doxytag="ptc::Palette::load"></a>void ptc::Palette::load (const int32 data[])</h3>
+<div class="in">
+
+<p>
+Loads the color values from <em>data</em> to the palette.
+<p>
+The <em>data</em> array is an array of r,g,b,a color values packed into a 32 bit integer in the format ARGB8888.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>data</em> -  the palette data. </dl></div>
+
+<h3><a name="a7" doxytag="ptc::Palette::save"></a>void ptc::Palette::save (int32 data[]) const</h3>
+<div class="in">
+
+<p>
+Saves the palette color values to the color array <em>data.</em>
+<p>
+The <em>data</em> array is an array of r,g,b,a color values packed into a 32 bit integer in the format ARGB8888.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>data</em> -  the palette data. </dl></div>
+
+<h3><a name="a8" doxytag="ptc::Palette::data"></a>const int32 * ptc::Palette::data () const</h3>
+<div class="in">
+
+<p>
+Gets a read-only pointer to the palette data array.
+<p>
+The data array is an array of r,g,b,a color values packed into a 32 bit integer in the format ARGB8888.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+a pointer to the palette data. </dl></div>
+
+<h3><a name="a9" doxytag="ptc::Palette::operator="></a>Palette &amp; ptc::Palette::operator= (const Palette &amp; <em>palette</em>)</h3>
+<div class="in">
+
+<p>
+Assignment operator. </div>
+
+<h3><a name="a10" doxytag="ptc::Palette::operator=="></a>bool ptc::Palette::operator== (const Palette &amp; <em>palette</em>) const</h3>
+<div class="in">
+
+<p>
+Equality operator. </div>
+
+<h3><a name="a11" doxytag="ptc::Palette::operator!="></a>bool ptc::Palette::operator!= (const Palette &amp; <em>palette</em>) const</h3>
+<div class="in">
+
+<p>
+Inequality operator. </div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

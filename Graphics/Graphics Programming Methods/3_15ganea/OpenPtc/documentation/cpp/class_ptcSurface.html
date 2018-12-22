@@ -1,0 +1,258 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Surface  Class Reference</h1>A linear array of pixels. 
+<a href="#_details">More...</a>
+<p>
+<p>Class diagram for ptc::Surface:
+<p><center><img src="class_ptcSurface.gif" usemap="#ptc::Surface_map" border="0"></center>
+<map name="ptc::Surface_map"><p>
+<area href="class_ptcBaseSurface.html" ALT="ptc::BaseSurface" shape="rect" coords="0,0,108,24">
+</MAP></P>
+<a href="class_ptcSurface-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcSurface.html#a0">Surface</a> (int width,int height,const Format &amp;format)
+<li><a class="el" href="class_ptcSurface.html#a1">~Surface</a> ()
+<li>virtual void <a class="el" href="class_ptcSurface.html#a2">copy</a> (BaseSurface &amp;surface)
+<li>virtual void <a class="el" href="class_ptcSurface.html#a3">copy</a> (BaseSurface &amp;surface,const Area &amp;source,const Area &amp;destination)
+<li>virtual void* <a class="el" href="class_ptcSurface.html#a4">lock</a> ()
+<li>virtual void <a class="el" href="class_ptcSurface.html#a5">unlock</a> ()
+<li>virtual void <a class="el" href="class_ptcSurface.html#a6">load</a> (const void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette)
+<li>virtual void <a class="el" href="class_ptcSurface.html#a7">load</a> (const void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette,const Area &amp;source,const Area &amp;destination)
+<li>virtual void <a class="el" href="class_ptcSurface.html#a8">save</a> (void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette)
+<li>virtual void <a class="el" href="class_ptcSurface.html#a9">save</a> (void *pixels,int width,int height,int pitch,const Format &amp;format,const Palette &amp;palette,const Area &amp;source,const Area &amp;destination)
+<li>virtual void <a class="el" href="class_ptcSurface.html#a10">clear</a> ()
+<li>virtual void <a class="el" href="class_ptcSurface.html#a11">clear</a> (const Color &amp;color)
+<li>virtual void <a class="el" href="class_ptcSurface.html#a12">clear</a> (const Color &amp;color,const Area &amp;area)
+<li>virtual void <a class="el" href="class_ptcSurface.html#a13">palette</a> (const Palette &amp;palette)
+<li>virtual const Palette&amp; <a class="el" href="class_ptcSurface.html#a14">palette</a> () const
+<li>virtual void <a class="el" href="class_ptcSurface.html#a15">clip</a> (const Area &amp;area)
+<li>virtual int <a class="el" href="class_ptcSurface.html#a16">width</a> () const
+<li>virtual int <a class="el" href="class_ptcSurface.html#a17">height</a> () const
+<li>virtual int <a class="el" href="class_ptcSurface.html#a18">pitch</a> () const
+<li>virtual const Area&amp; <a class="el" href="class_ptcSurface.html#a19">area</a> () const
+<li>virtual const Area&amp; <a class="el" href="class_ptcSurface.html#a20">clip</a> () const
+<li>virtual const Format&amp; <a class="el" href="class_ptcSurface.html#a21">format</a> () const
+<li>virtual bool <a class="el" href="class_ptcSurface.html#a22">option</a> (const char option[])
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+A linear array of pixels.
+<p>
+The surface class represents a linear array of pixels in system memory.
+<p>
+The surface class manages information about the array of pixels, such as its width, height, pitch, pixel format and palette.
+<p>
+It provides routines for loading pixels to the surface, saving surface pixels to another buffer, copying surface pixels to other surfaces and clearing surface pixels to a specified color.
+<p>
+The surface class also manages a clipping rectangle through which all area parameters are first passed to ensure that no load, save, copy or clear operation can write outside of surface memory.
+<p>
+Surface pitch is always equal to width * format.bytes().
+<p>
+This means that surface memory is always linear - the first pixel of line y+1 is immediately after the last pixel of line y in memory for all lines y in the surface.
+<p>
+Be warned, although ptc::Surface guarantees linear memory - <em>ptc::BaseSurface</em> <em>does</em> <em>not!</em>
+<p>
+The documentation of this class only provides an overview for most members, for details see ptc::BaseSurface. <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Surface::Surface"></a>ptc::Surface::Surface (int <em>width</em>, int <em>height</em>, const Format &amp; <em>format</em>)</h3>
+<div class="in">
+
+<p>
+Creates a surface with dimensions of <em>width</em> by <em>height</em> pixels and a pixel format of <em>format.</em>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>width</em> -  the width of the surface. <dd>
+<em>height</em> -  the height of the surface. <dd>
+<em>format</em> -  the pixel format of the surface. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl></div>
+
+<h3><a name="a1" doxytag="ptc::Surface::~Surface"></a>ptc::Surface::~Surface ()</h3>
+<div class="in">
+
+<p>
+Frees all pixel memory and checks if the surface is still locked.
+<p>
+<dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown if the surface is still locked. </dl></div>
+
+<h3><a name="a2" doxytag="ptc::Surface::copy"></a>virtual void ptc::Surface::copy (BaseSurface &amp; <em>surface</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Copies the entire contents of this surface to the other surface specified in the <em>surface</em> parameter. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a1">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a3" doxytag="ptc::Surface::copy"></a>virtual void ptc::Surface::copy (BaseSurface &amp; <em>surface</em>, const Area &amp; <em>source</em>, const Area &amp; <em>destination</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Copies an area of this surface to an area of the other surface specified in the <em>surface</em> parameter. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a2">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a4" doxytag="ptc::Surface::lock"></a>virtual void * ptc::Surface::lock ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Locks the surface and returns a pointer to the locked surface pixel memory. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a3">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a5" doxytag="ptc::Surface::unlock"></a>virtual void ptc::Surface::unlock ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Unlocks the surface pixel memory. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a4">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a6" doxytag="ptc::Surface::load"></a>virtual void ptc::Surface::load (const void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Loads pixels from the pixel array <em>pixels</em> to the surface. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a5">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a7" doxytag="ptc::Surface::load"></a>virtual void ptc::Surface::load (const void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>, const Area &amp; <em>source</em>, const Area &amp; <em>destination</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Loads an area of pixels from the pixel array <em>pixels</em> to an area of the surface. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a6">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a8" doxytag="ptc::Surface::save"></a>virtual void ptc::Surface::save (void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Saves the surface pixels to the pixel array <em>pixels.</em> 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a7">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a9" doxytag="ptc::Surface::save"></a>virtual void ptc::Surface::save (void * <em>pixels</em>, int <em>width</em>, int <em>height</em>, int <em>pitch</em>, const Format &amp; <em>format</em>, const Palette &amp; <em>palette</em>, const Area &amp; <em>source</em>, const Area &amp; <em>destination</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Saves an area of the surface pixels to an area of the pixel data array <em>pixels.</em> 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a8">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a10" doxytag="ptc::Surface::clear"></a>virtual void ptc::Surface::clear ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Clears the entire contents of the surface to black in direct color and index zero in indexed color. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a9">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a11" doxytag="ptc::Surface::clear"></a>virtual void ptc::Surface::clear (const Color &amp; <em>color</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Clears the entire contents of the surface to the color specified in the <em>color</em> parameter. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a10">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a12" doxytag="ptc::Surface::clear"></a>virtual void ptc::Surface::clear (const Color &amp; <em>color</em>, const Area &amp; <em>area</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Clears the area of pixels of the surface specified by the <em>area</em> parameter to the color specified in the <em>color</em> parameter. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a11">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a13" doxytag="ptc::Surface::palette"></a>virtual void ptc::Surface::palette (const Palette &amp; <em>palette</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Sets the surface palette to the palette specified in the <em>palette</em> parameter. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a12">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a14" doxytag="ptc::Surface::palette"></a>virtual const Palette &amp; ptc::Surface::palette () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the surface palette object. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a13">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a15" doxytag="ptc::Surface::clip"></a>virtual void ptc::Surface::clip (const Area &amp; <em>area</em>)<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Sets the surface clip area to the area specified by the <em>area</em> parameter. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a14">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a16" doxytag="ptc::Surface::width"></a>virtual int ptc::Surface::width () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the width of the surface in pixels. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a15">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a17" doxytag="ptc::Surface::height"></a>virtual int ptc::Surface::height () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the height of the surface in pixels. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a16">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a18" doxytag="ptc::Surface::pitch"></a>virtual int ptc::Surface::pitch () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the pitch of the surface in bytes. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a17">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a19" doxytag="ptc::Surface::area"></a>virtual const Area &amp; ptc::Surface::area () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the area of the surface. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a18">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a20" doxytag="ptc::Surface::clip"></a>virtual const Area &amp; ptc::Surface::clip () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the clip area of the surface. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a19">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a21" doxytag="ptc::Surface::format"></a>virtual const Format &amp; ptc::Surface::format () const<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Gets the pixel format of the surface. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a20">ptc::BaseSurface</a>.</div>
+
+<h3><a name="a22" doxytag="ptc::Surface::option"></a>virtual bool ptc::Surface::option (const char option[])<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Passes an implementation specific option string to the surface. 
+<p>
+Reimplemented from <a class="el" href="class_ptcBaseSurface.html#a21">ptc::BaseSurface</a>.</div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

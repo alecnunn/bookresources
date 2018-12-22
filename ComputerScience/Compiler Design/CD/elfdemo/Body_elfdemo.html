@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Mission</title>
+<script type="text/javascript">
+function myLoad()
+{
+//alert("amma");
+	var x=window.location+"";
+	//alert("amma"+x);
+	var y=x.indexOf("=",0)+1;
+	var z=x.slice(y,x.length);
+	var srcfr=document.getElementById("src_id");
+	srcfr.src=z+".html";
+	//alert(srcfr.src);
+	//srcfra.src=z+".html";
+	//alert(srcfr.src);
+}	
+function loadTest(file)
+{
+// alert(file);
+ var testfr=document.getElementById("testpgm_id");
+ var opfr=document.getElementById("oppgm_id");
+ testfr.src=file+"_test.html";
+ opfr.src=file+"_op.html";
+}
+</script>
+<style type="text/css">
+.exec
+{
+	position:absolute;
+	left:628px;
+	top:287px;
+	height: 226px;
+}
+.test
+{
+ position:absolute;
+ left:640px;
+ top:710px;
+}
+.op
+{
+	position:absolute;
+	left:630px;
+	top:540px;
+	//height: 266px;
+	height: 587px;
+}
+.style1 {color: #000000}
+</style>
+</head>
+<body onLoad="myLoad();" bgcolor="#FFFFFF">
+<h2 align="center" class="style1">Elf Demo </h2>
+<h3  align="justify"><br>
+  Elf file has man internal data structure to store the information related to the program. It has both linkable and executable format.<br>
+  There is a Elf header followed by many segments which inturn consists of many sections. The different sections are text, bss, string table etc.<br>
+  This section reads the headers and content of the section and segments from a object file and display them.<br>
+These features of studying the Elf contents helps to generate the exectuable version.</h3>
+<h3>&nbsp;</h3>
+<blockquote>&nbsp;</blockquote>
+<hr>
+<!-- <iframe align="middle" frameborder="0" width="1000px" src="TestPgm.php" scrolling="no" ></iframe><br> -->
+<iframe id="src_id"  frameborder="1" height="860px" width="600px" scrolling="yes" ></iframe>
+<iframe class="exec" id="howtoexec"  frameborder="1" height="100px" width="400px" scrolling="yes" src="HowToExec.html" ></iframe>
+<!-- <iframe class="test" id="testpgm_id"  frameborder="1" height="500px" width="400px" scrolling="yes" ></iframe> -->
+<iframe class="op" id="oppgm_id"  frameborder="1" height="200px" width="400px" scrolling="yes" src="elfdemo_op.html" ></iframe>
+</body>
+</html>

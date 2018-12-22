@@ -1,0 +1,33 @@
+#include "Constants.h"
+
+;
+; v0,v3 position for keyframe 0, 1
+; v1,v4 normal for keyframe 0, 1
+; v2,v5 tex coord for keyframe 0, 1
+;
+
+vs.1.0
+
+;lerp in model space
+mul r1, v0, c[CV_BLEND_FACTORS].y
+mad r1, v3, c[CV_BLEND_FACTORS].x, r1
+
+; and the same for the normals
+mul r2, v1, c[CV_BLEND_FACTORS].y
+mad r2, v4, c[CV_BLEND_FACTORS].x, r2
+
+; Transform to clip space
+dp4 oPos.x, r1, c[CV_WORLDVIEWPROJ_0]
+dp4 oPos.y, r1, c[CV_WORLDVIEWPROJ_1]
+dp4 oPos.z, r1, c[CV_WORLDVIEWPROJ_2]
+dp4 oPos.w, r1, c[CV_WORLDVIEWPROJ_3]
+
+dp3 r0.x, r2, c[CV_WORLD_0]
+dp3 r0.y, r2, c[CV_WORLD_1]
+dp3 r0.z, r2, c[CV_WORLD_2]
+
+; Dot normal with light direction in world space
+dp3 oD0, r0, c[CV_LIGHT_DIRECTION]
+
+; Pass through texture coords
+mov oT0.xy, v2

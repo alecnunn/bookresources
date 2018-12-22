@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BilevelTextureMagnification", "BilevelTextureMagnification.csproj", "{CA0C1B2A-C3F3-4D2B-A704-BF162E9D26E4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{CA0C1B2A-C3F3-4D2B-A704-BF162E9D26E4}.Debug.ActiveCfg = Debug|.NET
+		{CA0C1B2A-C3F3-4D2B-A704-BF162E9D26E4}.Debug.Build.0 = Debug|.NET
+		{CA0C1B2A-C3F3-4D2B-A704-BF162E9D26E4}.Release.ActiveCfg = Release|.NET
+		{CA0C1B2A-C3F3-4D2B-A704-BF162E9D26E4}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

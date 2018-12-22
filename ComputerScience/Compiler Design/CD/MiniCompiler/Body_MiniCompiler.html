@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Mission</title>
+<script type="text/javascript">
+function myLoad()
+{
+//alert("amma");
+	var x=window.location+"";
+	//alert("amma"+x);
+	var y=x.indexOf("=",0)+1;
+	var z=x.slice(y,x.length);
+	var srcfr=document.getElementById("src_id");
+	srcfr.src=z+".html";
+	//alert(srcfr.src);
+	//srcfra.src=z+".html";
+	//alert(srcfr.src);
+}	
+function loadTest(file)
+{
+// alert(file);
+ var testfr=document.getElementById("testpgm_id");
+ var opfr=document.getElementById("oppgm_id");
+ testfr.src=file+"_test.html";
+ opfr.src=file+"_op.html";
+}
+</script>
+<style type="text/css">
+.exec
+{
+	position:absolute;
+	left:626px;
+	top:316px;
+	height: 136px;
+}
+.test
+{
+ position:absolute;
+ left:628px;
+ top:471px;
+}
+.op
+{
+	position:absolute;
+	left:630px;
+	top:985px;
+	height: 182px;
+}
+.style1 {color: #000000}
+</style>
+</head>
+<body onLoad="myLoad();" bgcolor="#FFFFFF">
+<h2 align="center" class="style1">Mini Compiler</h2>
+<h3 align="justify"><br>
+This minicompiler works with the differnt phasses of scanning (cic.l), parsing (cic.y) and intermediate code generation (till this it has been covered in appendix-A).The file codegen.c has the necessary routines to generate the machine code from the intermediate code. The machine code generation for assignement statements and add experesion is presented.The machine code generation for the remaining intermediate code can be developed in a similar manner.</h3>
+<hr>
+<h3 align="center">Select TestProgram</h3>
+<h4>
+<table width="605" border="0" align="center">
+  <tr>
+    <th width="136"><a onClick="loadTest('add')" href="#">add</a></th>
+  </tr>
+</table>
+</h4>
+<hr>
+<!-- <iframe align="middle" frameborder="0" width="1000px" src="TestPgm.php" scrolling="no" ></iframe><br> -->
+<iframe id="src_id"  frameborder="1" height="860px" width="600px" scrolling="yes" ></iframe>
+<iframe class="exec" id="howtoexec"  frameborder="1" height="100px" width="400px" src="HowToExec.html" ></iframe>
+<iframe class="test" id="testpgm_id"  frameborder="1" height="500px" width="400px" scrolling="yes" ></iframe>
+<iframe class="op" id="oppgm_id"  frameborder="1" height="200px" width="400px" scrolling="yes" ></iframe>
+</body>
+</html>

@@ -1,0 +1,1 @@
+bcc32 cd_RS_doctor.c ElByECC.lib

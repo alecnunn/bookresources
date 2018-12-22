@@ -1,0 +1,33 @@
+TARGET := Wm3Application
+CC := /usr/bin/g++
+CFLAGS := $(CFLAGS) -c -DWM3_USE_GLUT
+AR := /usr/bin/ar
+ARFLAGS := rs
+
+ifeq (,$(findstring Debug,$(CONFIG)))
+    CFLAGS += -O2 -DNDEBUG
+else
+    CFLAGS += -g -D_DEBUG
+endif
+
+INCPATH := -I ../Include -I /usr/X11R6/include
+INCDIR := ../Include
+INC := $(wildcard Wm3*.h) $(wildcard Wm3*.inl) $(wildcard Wm3*.mcr)
+INC := $(notdir $(INC))
+SRC := $(wildcard Wm3*.cpp)
+SRC := $(notdir $(SRC))
+OBJ := $(SRC:%.cpp=$(CONFIG)/%.o) $(SRC:%.c=$(CONFIG)/%.o)
+LIB := ../Library/$(CONFIG)/libWm3Application.a
+
+$(TARGET) : $(OBJ)
+	$(AR) $(ARFLAGS) $(LIB) $(OBJ)
+	cp -fp $(INC) $(INCDIR) 
+
+$(CONFIG)/%.o : %.cpp
+	@mkdir -p $(CONFIG)
+	$(CC) $(INCPATH) $(CFLAGS) $< -o $@
+
+clean :
+	rm -f $(LIB)
+	rm -f $(CONFIG)/*.o
+

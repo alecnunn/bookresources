@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>Library Building Guide</title>
+</head>
+
+<body TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#824250" VLINK="#51188E" ALINK="#FF0000"
+BACKGROUND="white.gif">
+
+<h1 align="left"><font face="Arial" size="7">Library Building Guide</font></h1>
+
+<h4><br>
+<font face="Arial">Requirements</font></h4>
+
+<p>In order to build OpenPTC for Windows you need a copy of Visual C++ 6.0. You cannot
+build the library with any other compilers, even though you can use the library from
+several compilers, <u>only Visual C++ 6.0 is supported for actually building the library</u>.<br>
+<br>
+Also, please note that &quot;ptc.dll&quot;, &quot;ptcdebug.dll&quot; and
+&quot;hermes.dll&quot; are distributed prebuilt with OpenPTC for Windows. You do not have
+to build the library yourself in order to use OpenPTC. In fact, if you build your own
+library, you will most likely have to leave out a lot of cool features such as java
+support, so it is not recommended.</p>
+
+<h4><font face="Arial"><br>
+1. Configure Java support</font></h4>
+
+<ul>
+  <li>Java support allows java apps to call out to ptc.dll to get a large speed and
+    functionality boost.</li>
+  <li>If you want JNI (Java Native Interface) support then you will need to have JDK 1.1 or
+    greater installed and configure Visual C++ to have the JDK /include directory in the
+    include file search path (tools/options directories tab).</li>
+  <li>If you want RNI (Raw Native Interface) support then you must have the Microsoft Java SDK
+    installed and configure Visual C++ to search its include directory for include files.</li>
+  <li>To disable java support, comment out the following defines in
+    &quot;source/config.h&quot;: &quot;__PTC_JNI__&quot; and &quot;__PTC_RNI__&quot;. </li>
+  <li>You will also need to modify the &quot;source/Dynamic/Dynamic.def&quot; file to remove
+    all of the &quot;_Java_ptc_jni_*&quot;, &quot;ptc_rni_*&quot; and
+    &quot;RNIGetCompatableVersion&quot; symbols from the exports section if you disable java
+    support or the link will fail.</li>
+</ul>
+
+<h4><font face="Arial"><br>
+2. Build &quot;ptc.dll&quot; and &quot;ptcdebug.dll&quot;</font></h4>
+
+<ul>
+  <li>Open the workspace &quot;Source.dsw&quot; in the &quot;Source&quot; directory.</li>
+  <li>Go to the build menu and select &quot;Batch Build&quot;.</li>
+  <li>In the dialog that pops up, check both debug and release configurations of
+    &quot;Dynamic&quot; then press the &quot;Build&quot; button.</li>
+</ul>
+
+<h4><font face="Arial"><br>
+3. Build &quot;hermes.dll&quot;</font></h4>
+
+<ul>
+  <li>If you want to build your own &quot;hermes.dll&quot; you will need to download HERMES
+    from <a href="http://hermes.terminal.at">http://hermes.terminal.at</a> and follow the
+    build instructions included.</li>
+</ul>
+</body>
+</html>

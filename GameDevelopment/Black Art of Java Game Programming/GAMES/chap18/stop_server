@@ -1,0 +1,4 @@
+#!/bin/sh
+
+kill `cat server_pid`
+rm -f server_pid

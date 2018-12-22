@@ -1,0 +1,6 @@
+#ifndef SGX_DRIVERS_WINTEL32_FILESYSTEM_HPP
+#define SGX_DRIVERS_WINTEL32_FILESYSTEM_HPP
+
+#include "drivers/wintel32/filesystem/win32disc.hpp"
+
+#endif // SGX_DRIVERS_WINTEL32_FILESYSTEM_HPP

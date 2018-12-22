@@ -1,0 +1,125 @@
+/************************************************************************
+PaletteSkin.nvv
+
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+#include "Constants.h"
+
+// V_POSITION    -- position
+// V_WEIGHT      -- weight
+// V_INDICES.xy  -- indices
+// V_NORMAL      -- normal
+// V_TEX         -- texcoords
+// V_S           -- S
+// V_T           -- T
+// V_SxT         -- SxT
+//
+// CV_BONESTART + index is the start of the bones
+//
+// CV_LIGHT_DIRECTION is the light vector
+// CV_WORLDVIEWPROJ_0-3 is the world-view-proj matrix
+//
+// CV_CONSTANTS = (0.0f, 0.5f, 1.0f, 0.2f)
+//
+
+vs.1.1
+
+//first bone results -> r1
+mov a0.x, V_INDICES.x
+
+dp4 r1.x, V_POSITION, c[a0.x + CV_BONESTART + 0]
+dp4 r1.y, V_POSITION, c[a0.x + CV_BONESTART + 1]
+dp4 r1.z, V_POSITION, c[a0.x + CV_BONESTART + 2]
+
+//transform S
+dp3 r7.x, V_S, c[a0.x + CV_BONESTART + 0]
+dp3 r7.y, V_S, c[a0.x + CV_BONESTART + 1]
+dp3 r7.z, V_S, c[a0.x + CV_BONESTART + 2]
+
+//transform T
+dp3 r9.x, V_T, c[a0.x + CV_BONESTART + 0]
+dp3 r9.y, V_T, c[a0.x + CV_BONESTART + 1]
+dp3 r9.z, V_T, c[a0.x + CV_BONESTART + 2]
+
+//transform SxT
+dp3 r11.x, V_SxT, c[a0.x + CV_BONESTART + 0]
+dp3 r11.y, V_SxT, c[a0.x + CV_BONESTART + 1]
+dp3 r11.z, V_SxT, c[a0.x + CV_BONESTART + 2]
+
+//second bone results -> r2
+mov a0.x, V_INDICES.y
+
+dp4 r2.x, V_POSITION, c[a0.x + CV_BONESTART + 0]
+dp4 r2.y, V_POSITION, c[a0.x + CV_BONESTART + 1]
+dp4 r2.z, V_POSITION, c[a0.x + CV_BONESTART + 2]
+
+//transform S
+dp3 r8.x, V_S, c[a0.x + CV_BONESTART + 0]
+dp3 r8.y, V_S, c[a0.x + CV_BONESTART + 1]
+dp3 r8.z, V_S, c[a0.x + CV_BONESTART + 2]
+
+//transform T
+dp3 r10.x, V_T, c[a0.x + CV_BONESTART + 0]
+dp3 r10.y, V_T, c[a0.x + CV_BONESTART + 1]
+dp3 r10.z, V_T, c[a0.x + CV_BONESTART + 2]
+
+//transform SxT
+dp3 r0.x, V_SxT, c[a0.x + CV_BONESTART + 0]
+dp3 r0.y, V_SxT, c[a0.x + CV_BONESTART + 1]
+dp3 r0.z, V_SxT, c[a0.x + CV_BONESTART + 2]
+
+//blend between r1 and r2
+mul r1.xyz, r1.xyz, V_WEIGHT0.x
+mad r2, r2.xyz, V_WEIGHT1.x, r1.xyz
+
+mov r2.w, c[CV_CONSTANTS].z //set w to one
+
+//r2 now contains final position
+
+//blend between r7 and r8 -- S
+mul r7, r7.xyz, V_WEIGHT0.x
+mad r8, r8.xyz, V_WEIGHT1.x, r7
+
+//r8 now contains final S
+
+//blend between r9 and r10 -- T
+mul r9, r9.xyz, V_WEIGHT0.x
+mad r10, r10.xyz, V_WEIGHT1.x, r9
+
+//r10 now contains final T
+
+//blend between r11 and r12 -- SxT
+mul r11, r11.xyz, V_WEIGHT0.x
+mad r0, r0.xyz, V_WEIGHT1.x, r11
+
+//r0 now contains final SxT
+
+//transform light by skinned basis vector r8, r10, and r0
+dp3 r1.x, r8.xyz, c[CV_LIGHT_DIRECTION]
+dp3 r1.y, r10.xyz, c[CV_LIGHT_DIRECTION]
+dp3 r1.z, r0.xyz, c[CV_LIGHT_DIRECTION]
+
+//normalize light vector
+dp3 r1.w, r1, r1
+rsq r1.w, r1.w
+mul r1, r1, r1.w
+
+// transform to clip space
+dp4 oPos.x, r2, c[CV_WORLDVIEWPROJ_0]
+dp4 oPos.y, r2, c[CV_WORLDVIEWPROJ_1]
+dp4 oPos.z, r2, c[CV_WORLDVIEWPROJ_2]
+dp4 oPos.w, r2, c[CV_WORLDVIEWPROJ_3]
+
+//scale to 0-1
+
+//[-1, 1] --> [0, 2]
+add r1, r1, c[CV_CONSTANTS].z
+
+//[0, 2] --> [0, 1] and add in a bit of ambient
+mad oD0, r1, c[CV_CONSTANTS].y, c[CV_CONSTANTS].w
+
+//pass through texcoords
+mov oT0.xy, V_TEX
+mov oT1.xy, V_TEX

@@ -1,0 +1,13 @@
+#ifndef SGX_CORE_MATH_CONSTANTS_HPP
+#define SGX_CORE_MATH_CONSTANTS_HPP	1
+
+#define	sgxNAN         0xFFC00000
+#define	sgxSNAN        0xFF800000
+#define	sgxINF         0x7F800000
+
+#define sgxEPSILON     0.0001f
+#define sgxPI          3.1415926535897932384626433832795f
+#define sgx2PI         6.283185307179586476925286766559f
+#define sgxPI2         1.5707963267948966192313216916398f
+
+#endif /* SGX_CORE_MATH_CONSTANTS_HPP */

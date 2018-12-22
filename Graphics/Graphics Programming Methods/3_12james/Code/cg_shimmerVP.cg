@@ -1,0 +1,71 @@
+// ******** Volumetric Fog Shader ***********
+// Rob James 2003
+
+// This is the one and only Vertex Shader needed
+
+
+// Input structure to the vertex program
+// Parameters are bound to specific hardware registers to match what the application sends
+struct PerVertexInput {
+	float4 Position : POSITION;		// Position in model space
+	float4 Normal	: NORMAL;		// Normal in model space
+	float2 TexCoord : TEXCOORD0;	// Texture coordinates
+	float4 Colour	: COLOR0;		// Face normal
+};
+
+// Structure output by the vertex program
+// Parameters are bound to specific hardware registers, so that the fragment processor knows where to access them
+struct Output {
+	float4 Position : POSITION;		// Position in clip space
+	float4 Wpos		: WPOS;		// Position in clip space
+	float4 Tex0		: TEXCOORD0;	// Texture coordinates
+	float4 Tex1		: TEXCOORD1;	// Texture coordinates
+	float4 Tex2		: TEXCOORD2;	// Texture coordinates
+	float4 Tex3		: TEXCOORD3;	// Texture coordinates
+	float4 Col0		: COLOR0;		// Diffuse light		
+};
+
+// Program executed for every vertex
+Output main(PerVertexInput		IN,						// Per-vertex input
+			uniform float4x4	ModelViewProj	: C0,	// you know
+			uniform float4x4	ModelView		: C4,	// what
+			uniform float4x4	itModelView		: C8,	// these are :)
+			uniform float4x4	LScale			,	// Texture rectange scaling matrix
+			uniform float4		LightPos			// Light position in model space
+			)
+{
+	Output OUT;
+	
+	// Transform the position from model space to clip space
+	float4 tmp	 = mul(ModelViewProj,	IN.Position);
+
+	OUT.Tex1     = mul(ModelView,	IN.Position);  //tmp;
+	OUT.Position = tmp;
+	
+	// Scaled Texture coords used for pbuffer (TEX_RECTANGLE)
+	OUT.Tex2	= mul(LScale,tmp);
+	
+	// Output the texture coordinates for texturing
+	OUT.Tex0.xy = IN.TexCoord;
+
+	// Output distance to light
+	OUT.Tex3 = mul(ModelView, LightPos);//(LightPos.xyz - IN.Position.xyz);
+	OUT.Tex3.w   = (mul(itModelView,IN.Normal).z <= 0.0)?-0.01:+0.01;
+
+	// Compute the light vector:
+	// Normalized vector from vertex to light position
+	//float3 L = normalize(lposmv.xyz - IN.Position.xyz);
+	float3 L = normalize(LightPos.xyz - IN.Position.xyz);
+	
+	// Compute the diffuse light:
+	// Dot product between the light vector and the vertex normal, clamped to zero
+	float diffuse = 0.0;
+	float diffdot = max(dot(L,IN.Normal.xyz), 0.0);
+
+	//Juggle the diffuse a bit
+	diffuse = 0.7*diffdot + 0.3;
+    
+	OUT.Col0.xyz = diffuse.xxx * IN.Colour.xyz ;//for colourful scene
+	return OUT;
+}
+

@@ -1,0 +1,143 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "C"=.\C\C.DSP - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Core"=.\Core\Core.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "DirectX"=.\DirectX\DirectX.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Dynamic"=.\Dynamic\Dynamic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name DirectX
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Win32
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Core
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name C
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name JNI
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name RNI
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "GDI"=.\GDI\GDI.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "JDirect"=.\JDirect\JDirect.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "JNI"=.\JNI\JNI.DSP - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "RNI"=.\RNI\RNI.DSP - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Win32"=.\Win32\Win32.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

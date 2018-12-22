@@ -1,0 +1,22 @@
+
+/* 
+This is a sample text file showing off the capabilities of the
+Parser and related classes.
+*/  
+
+// Note how this header file, if properly designed, can be shared in both the
+// script and source files.
+#include "Test.h"  
+
+// Parse simple expression
+SomeClass(i+39,true,16.43,foo[11]);
+
+// Parse multi-character operators
+if(Var1==i++)
+
+// Simple macro substitution
+Var2 = VAL_PI
+
+// Complex macro substutition
+Var3 = ComplexMacro(Var1, Var2)
+

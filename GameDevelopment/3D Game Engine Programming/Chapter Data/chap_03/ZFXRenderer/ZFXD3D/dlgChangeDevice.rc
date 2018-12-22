@@ -1,0 +1,118 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Deutsch (Deutschland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DLGCHANGEDEVICE DIALOG DISCARDABLE  0, 0, 229, 151
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "ZFXEngine - select adapter/mode"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,60,130,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,120,130,50,14
+    LTEXT           "Graphics Adapter :",IDC_STATIC,100,5,100,10
+    LTEXT           "Available Modes:",IDC_STATIC,100,35,100,10
+    CONTROL         "Fullscreen",IDC_FULL,"Button",BS_AUTORADIOBUTTON | 
+                    BS_LEFTTEXT | BS_NOTIFY,10,65,50,10
+    CONTROL         "Windowed",IDC_WND,"Button",BS_AUTORADIOBUTTON | 
+                    BS_LEFTTEXT | BS_NOTIFY,10,80,50,10
+    LTEXT           "Adapter Format:",IDC_STATIC,100,65,100,10
+    CONTROL         "Back Buffer Format:",IDC_STATIC,"Static",
+                    SS_LEFTNOWORDWRAP | WS_GROUP,100,95,100,10
+    LTEXT           "Device Type:",IDC_STATIC,10,95,75,10
+    COMBOBOX        IDC_DEVICE,10,105,80,45,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_ADAPTER,100,15,120,130,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_MODE,100,45,120,85,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_ADAPTERFMT,100,75,120,70,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_BACKFMT,100,105,120,45,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    "DLGCHANGEDEVICE", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Deutsch (Deutschland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

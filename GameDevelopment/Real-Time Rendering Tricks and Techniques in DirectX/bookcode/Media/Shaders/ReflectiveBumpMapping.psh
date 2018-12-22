@@ -1,0 +1,21 @@
+ps.1.1
+
+;Some ambient light
+def c0, 0.1, 0.1, 0.1, 1.0
+
+;This is the normal map
+tex t0
+
+;Do the transformation and reflection
+texm3x3pad   t1,  t0_bx2
+texm3x3pad   t2,  t0_bx2		
+texm3x3vspec t3,  t0_bx2
+
+;Get the dot product of the diffuse and the normal map
+dp3_sat r0, t0_bx2, v0_bx2
+
+;Add in some ambient
+add_sat r0, r0, c0
+
+// result goes in output color
+mul r0, r0, t3

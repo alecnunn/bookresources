@@ -1,0 +1,110 @@
+22.02.2003 (3h):
+- project files and workspace created
+- started octree class
+
+23.02.2003 (4h):
+- octree creation methods completed
+
+03.03.2003 (3h):
+- spottet that polys are not clipped but tree creation
+  works at least
+- some bugs in polygon clip method removed
+- memory bounds invalidation debugged and removed
+
+05.03.2003 (3h):
+- got that bitch, polygon clip method finally bugfixed, back-
+  face of aabb planes were not checked against poly edges
+- smoothed out some stuff and now octree works with life fire data
+
+06.03.2003 (6h):
+- loading leveldata for rendering purposes also, creating
+  static buffers from vertex manager and render
+- need to add some functionality to the vertex manager to
+  render from one buffer with different index calls
+- rendering one sector from single vertex and index buffer is
+  up and running smoothly by now 
+
+20.3.2003 (4h):
+- loading lights along with level geometry into their own class
+- integrated rendering with omni light shaders but there is a
+  severe bug making this feature useless for now due to blackness
+- created class for portals in game to make player able to change
+  sectors as there is now way of finding appropriate sectors for
+  a given position from scratch fast enough
+
+25.02.2003 (4h):
+- portals can be rendered now for evaluation purposes
+- improved collision detection via the octree
+- rendering speed up multiple times be readjusting rendering
+  process and introducing poly caches for each light object
+
+28.03.2003 (5h):
+- loading of entities implemented, concentrating on doors for now
+- player can now activate sliding doors by pushing return key :))
+
+02.04.2003 (1h):
+- sliding doors can now switch on and off portals connected to them
+
+06.04.2003 (3h):
+- finally spotted bug in the COctree::GetFloor method and build a
+  workaround to make it stable. Player can now move through the
+  level with collision detection and correct height
+- backface culling in ray-triangle intersection method does not
+  work as intended
+
+12.04.2003 (3h):
+- GetFloor() method debuged and is now able to get the right floor
+  height even through horizontal lying portals the player is on
+- transition through portals into neighboring sectors is now working
+
+03.05.2003 (3h)
+- removed one minor bug concerning not executed height calculation 
+  of non-moving player during free fall
+- implemented return of collision plane in collision detection
+- level loader rewritten to be smoother and more natural, now it
+  also supports loading of meshs which were skipped till now
+
+27.05.2003
+- TIM'S ZEROTH BIRTHDAY THAT IS :)
+
+02.06.2003 (3h)
+- shadow volume class straightened out, can now handle arbitrary
+  vertex data as long as position and normal are stored first in
+  the vertex structure with six floats
+- lights will only cast shadows with meshs now if the meshs are
+  within the radius the light travels at maximum
+
+-> BIG BABY BREAK :)
+
+14.06.2003 (4h)
+- character animation class integrated into the game code
+- some minor adjustments to straighten out this and that
+
+15.06.2003 (4h)
+- zfx network DLL coupled to the game code to add networking
+  component and be able to create client and server game part
+- no separate server class due to simplicity of this demo
+
+16.06.2003 (4h)
+- client and server are now in ready to combat state
+- bullet list class added to game code to make game objects able
+  to create arbitrary valued bullets in the game
+- collision detection for bullets with level geometry and other
+  players
+
+17.06.2003 (1h)
+- bullets are now able to keep track of the sector they are in
+  using a check whether they traversed a portal during their flight
+
+20.06.2003 (1h)
+- loading of respawn points fpr players from level file integrated
+- level class can now offer a random respawn position if queried
+  along with the associated sector ID so there is no hardcoding 
+  of initial positions for players anymore
+
+21.06.2003 (2h)
+- sending messages moved away from CGame class to CGameCharacter
+  and other appropriate classes to make objects self-contained
+- bug in ZFXNetworkDevice::SendToServer fixed so that a server
+  application can now receive msg it sent to itself beforehand
+

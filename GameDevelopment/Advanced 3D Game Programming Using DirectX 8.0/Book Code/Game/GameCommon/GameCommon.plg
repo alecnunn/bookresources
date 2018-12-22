@@ -1,0 +1,69 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GameCommon - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1874.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/GameCommon.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\GameCell.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\GameWorld.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\MsgDaemon.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\ResourceMgr.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\ViewCone.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\Ents\GameEnt.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\Ents\GameParaEnt.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\Ents\GamePlayerEnt.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\Ents\GameProjEnt.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\Ents\GameSpawnEnt.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1874.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1875.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/GameCommon.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\StdAfx.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1875.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1876.tmp" with contents
+[
+/nologo /out:"Debug\GameCommon.lib" 
+".\Debug\GameCell.obj"
+".\Debug\GameWorld.obj"
+".\Debug\MsgDaemon.obj"
+".\Debug\ResourceMgr.obj"
+".\Debug\StdAfx.obj"
+".\Debug\ViewCone.obj"
+".\Debug\GameEnt.obj"
+".\Debug\GameParaEnt.obj"
+".\Debug\GamePlayerEnt.obj"
+".\Debug\GameProjEnt.obj"
+".\Debug\GameSpawnEnt.obj"
+]
+Creating command line "link.exe -lib @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1876.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+GameCell.cpp
+GameWorld.cpp
+MsgDaemon.cpp
+ResourceMgr.cpp
+ViewCone.cpp
+GameEnt.cpp
+GameParaEnt.cpp
+GamePlayerEnt.cpp
+GameProjEnt.cpp
+GameSpawnEnt.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+GameCommon.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

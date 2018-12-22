@@ -1,0 +1,192 @@
+import  java.awt.*;
+import  java.net.*;
+import  java.io.*;
+import  java.net.*;
+import  java.applet.*;
+import  java.util.*;
+
+
+
+public class cmApplet extends Applet implements Runnable{
+	Thread myThread;
+	boolean alive;
+
+	boolean key [ ];
+	Vector strings;
+	
+	cmWorld world;
+	cmAbstractVehicle vehicle1;
+
+	cmDisplayPanel display1;
+
+   Panel panel;
+	cmPanel panel1,panel2,panel3,panel4;
+
+	/**
+    * initiate the applet.
+    */
+
+	public void init () {
+      double viewAngle=new Double(getParameter("cmApplet_viewAngle")).doubleValue();
+      viewDistance=new Double(getParameter("cmApplet_viewDistance")).doubleValue();
+      gridSize=new Double(getParameter("cmApplet_gridSize")).doubleValue();
+      key=new boolean[100];
+
+   
+	   showStatus(" Initiating Combat Machines 96 ");
+
+      world=new cmWorld(this);
+		
+      vehicle1=(cmAbstractVehicle)world.player1;
+
+      setLayout(new GridLayout(1,1));
+      add(display1=new cmDisplayPanel(vehicle1,"C"));
+/*      panel=new Panel();
+      panel.setLayout(new GridLayout(2,2));
+      panel.add(panel1=new cmDisplayPanel(vehicle1,"G"));
+      panel.add(panel2=new cmDisplayPanel(vehicle1,"R"));
+      panel.add(panel3=new cmDisplayPanel(vehicle1));
+      panel.add(panel4=new cmDisplayPanel(vehicle1));
+      add(panel);
+*/      
+		myThread=new Thread(this);
+		myThread.start();
+      myThread.setPriority(Thread.MAX_PRIORITY);
+   	alive=true;
+
+   	strings=new Vector(10,10);
+   	strings.addElement(new String(" Calin was here. "));
+   	strings.addElement(new String(" Fesse was here. "));
+   	strings.addElement(new String(" Combat Machines !!!!!"));
+   	strings.addElement(new String(" Greetings to 'alla fessar'....."));
+   	strings.addElement(new String(" Kind of slow."));
+   	strings.addElement(new String(" Hello to my computer graphics professor who didn't pass me on my exam."));
+      strings.addElement(new String(" Hope you enjoy the game...it is kind of slow"));
+      strings.addElement(new String(" If you can read this then you are a fast reader."));
+      strings.addElement(new String(" I hope it is your lunchbrake."));
+      strings.addElement(new String(" Varning till EFD studenter. En DDG'are kan stå bakom dig just nu!"));
+      strings.addElement(new String(" Have you seen Asteroids96 ?"));
+      strings.addElement(new String(" Next version with Gouraud shaded texture mapping and shadows. :)"));
+      strings.addElement(new String(" You can read about this game in the Black Art of Java Programming."));
+      strings.addElement(new String(" Hello mom and dad."));
+      strings.addElement(new String(" Anybody from Alma out there?"));
+	}
+
+   int frames;
+   long time;
+	public final void run () {
+	         lastUpdate=System.currentTimeMillis()   ;
+				while(alive){
+   	         long currentTime=System.currentTimeMillis();
+   	         long dtmillis=currentTime-lastUpdate;
+   	         double dt=(double)dtmillis/1000;
+     	         lastUpdate=currentTime;
+
+   	         if(dt>0.2) dt=0.2;
+
+   	         handleKeyboard();
+		   		world.update(dt);
+		   		
+		   		display1.update(dt);
+/*		   		
+      	   	panel1.update(dt);
+      	   	panel2.update(dt);
+      	   	panel3.update(dt);
+      	   	panel4.update(dt);
+  */    	   	
+      	   	frames++;
+      	   	time+=dtmillis;
+      	   	if(time>1000){
+      	   	   if(fWorld.rand(0,10)>1){
+      	   	      showStatus(" Calin Tenitchi and Mathias Lagerwall : fps="+(double)((int)(10000*(double)frames/(double)time))/10);
+      	   	   }else{
+      	   	      showStatus(" Calin Tenitchi and Mathias Lagerwall : "+(String)strings.elementAt((int)fWorld.rand(0,strings.size()-1)));
+      	   	   }
+      	         time=0;
+      	         frames=0;
+      	   	}
+				}
+	}
+
+	public final void start () {
+	   showStatus(" Starting Combat Machines 96 ");
+		if(myThread==null){
+			myThread=new Thread(this);
+			myThread.setPriority(Thread.MAX_PRIORITY);
+			myThread.start();
+   		alive=true;
+		}
+	}
+
+	public final synchronized void stop () {
+	   showStatus(" Stoping applet.");
+		if(myThread!=null){
+			myThread.stop();
+			myThread=null;
+   		alive=false;
+		}
+	}
+
+
+	/**
+			 * Catches the key pressing.
+			 */
+
+	public boolean keyDown (Event ev, int k) {
+		keyboardEvent(ev.key,true);
+		return true;
+	}
+
+
+	/**
+			 * Catches the key releasing.
+			 */
+
+	public boolean keyUp (Event ev, int k) {
+		keyboardEvent(ev.key,false);
+		return true;
+	}
+
+	protected void keyboardEvent (int k, boolean pressed) {
+			switch(k){
+				case 'h': key[cmEventSteeringCommand.TURN_LEFT]=pressed;break;			
+				case 'k': key[cmEventSteeringCommand.TURN_RIGHT]=pressed;break;			
+				case 't': key[cmEventSteeringCommand.INCREASE_VELOCITY]=pressed;break;			
+				case 'g': key[cmEventSteeringCommand.BRAKE]=pressed;break;			
+		      case 'y': key[cmEventSteeringCommand.CLIMB]=pressed;break;
+		      case 'i': key[cmEventSteeringCommand.DECENT]=pressed;break;
+		      case 'u': key[cmEventSteeringCommand.PITCH_DOWN]=pressed;break;
+		      case 'j': key[cmEventSteeringCommand.PITCH_UP]=pressed;break;
+				case 'a': key[cmEventWeaponCommand.FIRE]=pressed;break;			
+				case '1': key[cmEventWeaponCommand.MINICANNON]=pressed;break;			
+				case '2': key[cmEventWeaponCommand.MISSILE]=pressed;break;			
+				case '3': key[cmEventWeaponCommand.BOMB]=pressed;break;			
+			}
+	}
+
+	protected void handleKeyboard () {
+				//-- handle keyboard;
+		      if(key[cmEventSteeringCommand.TURN_LEFT]) {vehicle1.turnLeft(1,0.1);}
+		      if(key[cmEventSteeringCommand.TURN_RIGHT]) {vehicle1.turnRight(1,0.1);}
+				if(key[cmEventSteeringCommand.INCREASE_VELOCITY]) vehicle1.increaseVelocity(1,0.1);
+				if(key[cmEventSteeringCommand.BRAKE]) vehicle1.brake(1,0.1);
+				if(key[cmEventSteeringCommand.CLIMB]) vehicle1.climb(1,0.1);
+				if(key[cmEventSteeringCommand.DECENT]) vehicle1.decent(1,0.1);
+				if(key[cmEventSteeringCommand.PITCH_UP]) vehicle1.pitchUp(1,0.1);
+				if(key[cmEventSteeringCommand.PITCH_DOWN]) vehicle1.pitchDown(1,0.1);
+
+		      if(key[cmEventWeaponCommand.FIRE]) vehicle1.fireSelectedWeapon();
+		      if(key[cmEventWeaponCommand.MINICANNON])
+		         vehicle1.addEvent(new cmEventWeaponCommand(world.getTime(),cmEventWeaponCommand.SELECT,cmEventWeaponCommand.MINICANNON));
+		      if(key[cmEventWeaponCommand.MISSILE])
+		         vehicle1.addEvent(new cmEventWeaponCommand(world.getTime(),cmEventWeaponCommand.SELECT,cmEventWeaponCommand.MISSILE));
+		      if(key[cmEventWeaponCommand.BOMB])
+		         vehicle1.addEvent(new cmEventWeaponCommand(world.getTime(),cmEventWeaponCommand.SELECT,cmEventWeaponCommand.BOMB));
+	}
+
+   protected long lastUpdate;
+   static double viewAngle;
+   static double viewDistance;
+   static double gridSize;
+}
+

@@ -1,0 +1,63 @@
+# First line starts the NN loading and gives the # of layers.
+NN_BEGIN 2
+#
+# NEURON x y z
+# x = layer number
+# y = node name
+# z = node bias
+NEURON 0 health 0.0
+NEURON 0 healthInv 0.0
+NEURON 0 ammo 0.0
+NEURON 0 ammoInv 0.0
+NEURON 0 enemy 0.0
+NEURON 0 enemyInv 0.0
+NEURON 1 findHealth 0.2
+NEURON 1 findAmmo 0.2
+NEURON 1 attackEnemy 0.5
+NEURON 1 fleeToHealth 0.5
+NEURON 1 fleeToAmmo 0.5
+#
+# DEFAULTOUT "string"
+# string = the default output
+DEFAULTOUT "Chill out"
+#
+# EDGE x y z
+# x = source neuron
+# y = dest neuron
+# z = edge weight
+#
+EDGE health attackEnemy 0.5
+EDGE ammo attackEnemy 0.5
+EDGE enemy attackEnemy 0.5
+EDGE healthInv attackEnemy -0.5
+EDGE ammoInv attackEnemy -0.5
+EDGE enemyInv attackEnemy -0.6
+#
+EDGE healthInv findHealth 0.6
+EDGE enemyInv findHealth 0.6
+#
+EDGE ammoInv findAmmo 0.6
+EDGE enemyInv findAmmo 0.6
+#
+EDGE healthInv fleeToHealth 0.8
+EDGE enemy fleeToHealth 0.5
+#
+EDGE ammoInv fleeToAmmo 0.8
+EDGE enemy fleeToAmmo 0.5
+#
+# INPUT/OUTPUT x "y"
+# x = node for input/output
+# y = fancy name for the input/output
+INPUT health "Health (0..1)"
+INPUT healthInv "1 - Health (0..1)"
+INPUT ammo "Ammo (0..1)"
+INPUT ammoInv "1 - Ammo (0..1)"
+INPUT enemy "Proximity to enemy (0..1)"
+INPUT enemyInv "1 - Proximity to enemy (0..1)"
+OUTPUT findHealth "Find Health"
+OUTPUT findAmmo "Find Ammo"
+OUTPUT attackEnemy "Attack Nearest Enemy"
+OUTPUT fleeToHealth "Flee Enemy Towards Health"
+OUTPUT fleeToAmmo "Flee Enemy Towards Ammo"
+#
+NN_END

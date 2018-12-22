@@ -1,0 +1,34 @@
+/* 
+ *  FILE       : main.c
+ *
+ *  DESCRIPTION: Weapon data
+ *
+ *
+ *
+ *
+ *
+ */ 
+START_AMMO
+   AMMO 9MM
+      DAMAGE   5	            /* percentage of health taken per direct hit */
+   END
+   AMMO 50CAL
+      DAMAGE   15
+   END
+END
+
+
+START_WEAPON
+   WEAPON MP5
+	   AMMO_CLIP   30	                      /* num bullets in clip  */
+	   AMMO_TYPE   9MM                      /* in millimeters       */
+	   FIRE_RATE   600	                   /* in rounds per second */
+   END
+
+   WEAPON DESERT_EAGLE
+	   AMMO_CLIP   10
+	   AMMO_TYPE   50CAL
+	   FIRE_RATE   150
+   END
+END
+

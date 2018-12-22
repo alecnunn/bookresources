@@ -1,0 +1,60 @@
+Memory Allocation        : driver.cpp(00061)                             new(0x007709D0) :         52 bytes     
+Memory Allocation        : Checkers.cpp(00030)                           new(0x00770970) :         52 bytes     
+Memory Allocation        : Path.cpp(00214)                               new(0x007704C0) :         16 bytes     
+Memory Allocation        : Path.cpp(00214)                               new(0x00770430) :         16 bytes     
+Memory Allocation        : Path.cpp(00214)                               new(0x007703A0) :         16 bytes     
+Memory Allocation        : Path.cpp(00214)                               new(0x00770310) :         16 bytes     
+Memory Allocation        : Path.cpp(00214)                               new(0x00770280) :         16 bytes     
+Memory Allocation        : Path.cpp(00214)                               new(0x007701F0) :         16 bytes     
+Memory Allocation        : Path.cpp(00214)                               new(0x00770160) :         16 bytes     
+Memory Deallocation      : Checkers.cpp(00058)                        delete(0x00770970) :         52 bytes     
+Memory Deallocation      : Path.cpp(00147)                            delete(0x00770160) :         16 bytes     
+Unused Memory Detected   : Path.cpp(00214)                               new(0x00770160) :          4 bytes     
+Memory Deallocation      : Path.cpp(00147)                            delete(0x007701F0) :         16 bytes     
+Unused Memory Detected   : Path.cpp(00214)                               new(0x007701F0) :          4 bytes     
+Memory Deallocation      : Path.cpp(00147)                            delete(0x00770280) :         16 bytes     
+Unused Memory Detected   : Path.cpp(00214)                               new(0x00770280) :          4 bytes     
+Memory Deallocation      : Path.cpp(00147)                            delete(0x00770310) :         16 bytes     
+Unused Memory Detected   : Path.cpp(00214)                               new(0x00770310) :          4 bytes     
+Memory Deallocation      : Path.cpp(00147)                            delete(0x007703A0) :         16 bytes     
+Unused Memory Detected   : Path.cpp(00214)                               new(0x007703A0) :          4 bytes     
+Memory Deallocation      : Path.cpp(00147)                            delete(0x00770430) :         16 bytes     
+Unused Memory Detected   : Path.cpp(00214)                               new(0x00770430) :          4 bytes     
+Memory Deallocation      : Path.cpp(00147)                            delete(0x007704C0) :         16 bytes     
+Unused Memory Detected   : Path.cpp(00214)                               new(0x007704C0) :          4 bytes     
+Memory Deallocation      : driver.cpp(00063)                          delete(0x007709D0) :         52 bytes     
+
+******************************************************************************* 
+*********           Memory report for: 06/11/2001 22:26:33            ********* 
+******************************************************************************* 
+
+                     T O T A L  M E M O R Y  U S A G E                          
+------------------------------------------------------------------------------- 
+           Total Number of Dynamic Allocations:          9
+      Reported Memory usage to the Application:        216 bytes     
+          Actual Memory use by the Application:      1,116 (   1.09K)
+                      Memory Tracking Overhead:        900 bytes     
+
+                      P E A K  M E M O R Y  U S A G E                           
+------------------------------------------------------------------------------- 
+            Peak Number of Dynamic Allocations:          9
+ Peak Reported Memory usage to the application:        216 bytes     
+     Peak Actual Memory use by the Application:      1,116 (   1.09K)
+                 Peak Memory Tracking Overhead:        900 bytes     
+
+                          U N U S E D  M E M O R Y                              
+------------------------------------------------------------------------------- 
+  Percentage of Allocated Memory Actually Used:      87.04 %
+       Percentage of Allocated Memory Not Used:      12.96 %
+        Memory Allocated but not Actually Used:         28 bytes     
+
+                      B O U N D S  V I O L A T I O N S                          
+------------------------------------------------------------------------------- 
+            Number of Memory Bounds Violations:          0
+
+                           M E M O R Y  L E A K S                               
+------------------------------------------------------------------------------- 
+                        Number of Memory Leaks:          0
+                 Amount of Memory Un-Allocated:          0 bytes     
+   Percentage of Allocated Memory Un-Allocated:       0.00 %
+

@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpeechRecogn", "SpeechRecogn.vcproj", "{B15AC99F-0C26-4A72-83C0-452CC6BD6FDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Debug test
+		ConfigName.2 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B15AC99F-0C26-4A72-83C0-452CC6BD6FDE}.Debug.ActiveCfg = Debug|Win32
+		{B15AC99F-0C26-4A72-83C0-452CC6BD6FDE}.Debug.Build.0 = Debug|Win32
+		{B15AC99F-0C26-4A72-83C0-452CC6BD6FDE}.Debug test.ActiveCfg = Debug test|Win32
+		{B15AC99F-0C26-4A72-83C0-452CC6BD6FDE}.Debug test.Build.0 = Debug test|Win32
+		{B15AC99F-0C26-4A72-83C0-452CC6BD6FDE}.Release.ActiveCfg = Release|Win32
+		{B15AC99F-0C26-4A72-83C0-452CC6BD6FDE}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

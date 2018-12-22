@@ -1,0 +1,5 @@
+ 154  16:37:57  06/08/03        doc op - create level directory [D:\mythos\GPG4\levels\objects_old.xml000]                   304  RTTIPropsDoc.cpp
+ 153  16:37:41  06/08/03       grid op - property [Texture] of [material : vampire] set to [VAMPIRE.TGA]                     596  PropView.cpp
+ 152  16:37:36  06/08/03      scene op - select item [material : vampire]                                                    350  SceneView.cpp
+ 151  16:37:33  06/08/03      scene op - select item [default camera]                                                        350  SceneView.cpp
+ 150  16:37:33  06/08/03        doc op - D:\mythos\GPG4\levels\objects.xml loaded from [objects.xml002]                      559  RTTIPropsDoc.cpp

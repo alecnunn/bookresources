@@ -1,0 +1,160 @@
+
+Format:
+- name [line]
+- matrix
+- delay lengths [4]
+- half lives [2]
+- rotation [2]
+- modulation [2]
+- mix [2]
+
+The matrices are
+0 - 7 householder
+8 - 11 stautner
+12 - 15 hadamard
+16 identity 
+17 - 19 rotations
+20 negative identity
+21 - 23 rotations with negative determinant
+
+-------------------------------------------------------------------------------	
+
+Long delay lengths (= many resonant modes) 
+and little coloration makes the reverb feel "distant".
+
+PRESET 
+Temple of the Ancestors
+6
+1439 2311 3347 4973
+30000 20000
+0 0
+60000 0.8
+70 30
+
+-------------------------------------------------------------------------------	
+
+Same without direct signal 
+(and a little bit of muffling)
+
+PRESET
+Temple of the Ancestors (back door)
+6
+1439 2311 3347 4973
+30000 5000
+90 180
+60000 0.8
+0 30
+
+-------------------------------------------------------------------------------	
+	
+The burst at 6000 samples is responsible for the echoey "open air" feeling.
+The delay line at 2111 samples is only there to increase time density.
+An input rotation of -45 degrees cancels any centered input 
+into this delay line, making the first echo at 2111 almost inaudible.
+
+PRESET
+Open Stage in the Woods
+6
+2111 6121 6748 7553
+14000 10000
+-45 -45
+70000 0.5
+40 60 
+
+-------------------------------------------------------------------------------	
+
+Medium reverb time, medium delay lengths.
+Medium dry-wet ratio makes you feel "there".
+
+PRESET
+Cardio Fitness at the Gym
+6
+773 1709 3001 4367
+9000 3000
+0 0
+20000 0.3
+40 60
+
+-------------------------------------------------------------------------------	
+
+Oscillator-like resonant modes at low frequencies 
+together high wet-ratio gives strong coloration.
+
+PRESET
+U-Boat Club Party
+6
+696 983 2247 3111
+5500 700
+0 90
+20000 0.3
+0 100 
+
+-------------------------------------------------------------------------------	
+
+Short delay length, short reverb time.
+We need a short response time (purpose of the first delay line at 196 samples) and
+a sufficient number of resonant modes (purpose of the last delay line at 1301 samples),
+to prevent sounding metallic.
+
+PRESET
+Christians former very small Dorm Room
+6
+196 417 537 1301
+1700 500 
+90 180 
+0 0 
+20 80 
+
+-------------------------------------------------------------------------------	
+
+Extreme delay length modulation gives pitch shift.
+A near identity matrix (tinyrot) makes
+each delay line like a harmonic oscillator.
+
+PRESET
+Howling Spirits
+17
+71 73 79 83
+1500 50 
+0 0
+125000 48 
+0 50 
+
+-------------------------------------------------------------------------------	
+
+Short delay lengths and long reverb times make delay lines like oscillators.
+A rotating feedback matrix makes the resonant modes unharmonic.
+
+PRESET
+Leaking Biohazard Container
+8
+83 89 193 197
+6000 150 
+0 0
+0 0 
+0 30 
+
+-------------------------------------------------------------------------------	
+
+A nearly negative identity matrix makes each delay line
+like a waveguide with an open ended reflection (sign change),
+creating the hollow sound.
+
+PRESET
+Oversized Shoe Box
+21
+41 43 47 53
+350 50
+0 180
+0 0
+0 70
+
+-------------------------------------------------------------------------------	
+
+Strong poles around 10 kHz - 12 kHz call for the ear doctor.
+
+PRESET Ring my bell
+21
+2 2 2 2
+4500 4500
+0 0 0 0 0 30

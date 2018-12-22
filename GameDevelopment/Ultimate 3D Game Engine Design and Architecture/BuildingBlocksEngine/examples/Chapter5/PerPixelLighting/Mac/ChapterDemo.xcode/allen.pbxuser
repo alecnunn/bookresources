@@ -1,0 +1,755 @@
+// !$*UTF8*$!
+{
+	20286C28FDCF999611CA2CEA = {
+		activeBuildStyle = 4A9504C5FFE6A39111CA0CBA;
+		activeExecutable = 9F1131CB0B03B9C500E5DD67;
+		activeTarget = 8D0C4E890486CD37000505A6;
+		addToTargets = (
+			8D0C4E890486CD37000505A6,
+		);
+		breakpoints = (
+			9F1132F00B03D23900E5DD67,
+			9F1132F20B03D26500E5DD67,
+			9F1133EF0B03E3FB00E5DD67,
+			9F11342B0B03E7F700E5DD67,
+		);
+		codeSenseManager = 9F1131D80B03B9DE00E5DD67;
+		executables = (
+			9F1131CB0B03B9C500E5DD67,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					243,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 184883952;
+			PBXWorkspaceStateSaveDate = 184883952;
+		};
+		sourceControlManager = 9F1131D70B03B9DE00E5DD67;
+		userBuildSettings = {
+		};
+	};
+	32DBCF6D0370B57F00C91783 = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 433}}";
+			sepNavSelRange = "{144, 0}";
+			sepNavVisRect = "{{0, 0}, {720, 433}}";
+			sepNavWindowFrame = "{{199, 97}, {759, 562}}";
+		};
+	};
+	8D0C4E890486CD37000505A6 = {
+		activeExec = 0;
+		executables = (
+			9F1131CB0B03B9C500E5DD67,
+		);
+	};
+	9F1131CB0B03B9C500E5DD67 = {
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		configStateDict = {
+		};
+		cppStopOnCatchEnabled = 0;
+		cppStopOnThrowEnabled = 0;
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		isa = PBXExecutable;
+		libgmallocEnabled = 0;
+		name = ChapterDemo;
+		savedGlobals = {
+		};
+		shlibInfoDictList_v2 = (
+			{
+				level = 0;
+				path = /usr/lib/system/libmathCommon.A.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libSystem.B.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libicucore.A.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libauto.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libobjc.A.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libz.1.2.3.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libgcc_s.1.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/IOKit.framework/Versions/A/IOKit;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Security.framework/Versions/A/Security;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CFNetwork.framework/Versions/A/CFNetwork;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/WebServicesCore.framework/Versions/A/WebServicesCore;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/CarbonSound.framework/Versions/A/CarbonSound;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libbsm.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libcrypto.0.9.7.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSync.framework/Versions/A/ColorSync;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreText.framework/Versions/A/CoreText;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libcups.2.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/LangAnalysis.framework/Versions/A/LangAnalysis;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/FindByContent.framework/Versions/A/FindByContent;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ImageIO.framework/Versions/A/Resources/libRaw.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ImageIO.framework/Versions/A/ImageIO;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libiconv.2.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libxml2.2.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A/DesktopServicesPriv;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/ImageCapture.framework/Versions/A/ImageCapture;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SpeechRecognition.framework/Versions/A/SpeechRecognition;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SecurityHI.framework/Versions/A/SecurityHI;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Ink.framework/Versions/A/Ink;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Help.framework/Versions/A/Help;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/OpenScripting.framework/Versions/A/OpenScripting;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Print.framework/Versions/A/Print;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HTMLRendering.framework/Versions/A/HTMLRendering;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/NavigationServices.framework/Versions/A/NavigationServices;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/CommonPanels.framework/Versions/A/CommonPanels;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/Carbon.framework/Versions/A/Carbon;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = "/usr/lib/libstdc++.6.0.4.dylib";
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libmx.A.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter4/OpenGL/Mac/build/Core.framework/Versions/A/Core;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter4/OpenGL/Mac/build/Input.framework/Versions/A/Input;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/AGL.framework/Versions/A/AGL;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Library/Frameworks/Cg.framework/Versions/1.0/Cg;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/AudioUnit.framework/Versions/A/AudioUnit;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /usr/lib/libsqlite3.0.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/CoreData.framework/Versions/A/CoreData;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/GLUT.framework/Versions/A/GLUT;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter4/OpenGL/Mac/build/OpenGLRendering.framework/Versions/A/OpenGLRendering;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter4/OpenGL/Mac/build/MathLibrary.framework/Versions/A/MathLibrary;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/PrivateFrameworks/ZeroLink.framework/Versions/A/ZeroLink;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter4/OpenGL/Mac/build/ChapterDemo.app/Contents/MacOS/ChapterDemo;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = "/Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter4/OpenGL/Mac/build/ChapterDemo.build/ChapterDemo.build/Objects-normal/ppc/main.ob";
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = "/Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter4/OpenGL/Mac/build/ChapterDemo.build/ChapterDemo.build/Objects-normal/ppc/macMain.ob";
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreGraphics.framework/Versions/A/Resources/libCGATS.A.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreGraphics.framework/Versions/A/Resources/libRIP.A.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreGraphics.framework/Versions/A/Resources/libCSync.A.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Developer/Applications/Xcode.app/Contents/PlugIns/GDBMIDebugging.xcplugin/Contents/Resources/PBGDBIntrospectionSupport.A.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLProgrammability.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/OpenGL.framework/Versions/A/Resources/GLEngine.bundle/GLEngine;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Extensions/ATIRadeon9700GLDriver.bundle/Contents/MacOS/ATIRadeon9700GLDriver;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLSystem.dylib;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/OpenGL.framework/Versions/A/Resources/GLDriver.bundle/GLDriver;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /System/Library/Frameworks/OpenGL.framework/Versions/A/Resources/GLRendererFloat.bundle/GLRendererFloat;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter4/OpenGL/Mac/build/Scripting.framework/Versions/A/Scripting;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/AlphaMapping/Mac/build/Core.framework/Versions/A/Core;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/AlphaMapping/Mac/build/Input.framework/Versions/A/Input;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/AlphaMapping/Mac/build/MathLibrary.framework/Versions/A/MathLibrary;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/AlphaMapping/Mac/build/OpenGLRendering.framework/Versions/A/OpenGLRendering;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/AlphaMapping/Mac/build/Scripting.framework/Versions/A/Scripting;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/AlphaMapping/Mac/build/ChapterDemo.app/Contents/MacOS/ChapterDemo;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = "/Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/AlphaMapping/Mac/build/ChapterDemo.build/ChapterDemo.build/Objects-normal/ppc/main.ob";
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = "/Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/AlphaMapping/Mac/build/ChapterDemo.build/ChapterDemo.build/Objects-normal/ppc/macMain.ob";
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/CubeMapping/Mac/build/Core.framework/Versions/A/Core;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/CubeMapping/Mac/build/Input.framework/Versions/A/Input;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/CubeMapping/Mac/build/MathLibrary.framework/Versions/A/MathLibrary;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/CubeMapping/Mac/build/OpenGLRendering.framework/Versions/A/OpenGLRendering;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/CubeMapping/Mac/build/Scripting.framework/Versions/A/Scripting;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = /Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/CubeMapping/Mac/build/ChapterDemo.app/Contents/MacOS/ChapterDemo;
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = "/Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/CubeMapping/Mac/build/ChapterDemo.build/ChapterDemo.build/Objects-normal/ppc/main.ob";
+				whenToLoad = 0;
+			},
+			{
+				level = 0;
+				path = "/Users/allen/Documents/Programming/BuildingBlocksEngine/examples/Chapter5/CubeMapping/Mac/build/ChapterDemo.build/ChapterDemo.build/Objects-normal/ppc/macMain.ob";
+				whenToLoad = 0;
+			},
+		);
+		sourceDirectories = (
+		);
+	};
+	9F1131D70B03B9DE00E5DD67 = {
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		isa = PBXSourceControlManager;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	9F1131D80B03B9DE00E5DD67 = {
+		indexTemplatePath = "";
+		isa = PBXCodeSenseManager;
+	};
+	9F1131DF0B03BA3200E5DD67 = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {459, 2478}}";
+			sepNavSelRange = "{4049, 0}";
+			sepNavVisRect = "{{0, 2273}, {459, 186}}";
+			sepNavWindowFrame = "{{176, 118}, {759, 562}}";
+		};
+	};
+	9F1131E20B03BABF00E5DD67 = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 1064}}";
+			sepNavSelRange = "{1888, 0}";
+			sepNavVisRect = "{{0, 617}, {720, 433}}";
+			sepNavWindowFrame = "{{297, 108}, {759, 562}}";
+		};
+	};
+	9F1132EE0B03D23900E5DD67 = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OBJLoader.h;
+		path = /Users/allen/Documents/Programming/BuildingBlocksEngine/source/OBJLoader.h;
+		refType = 0;
+		sourceTree = "<absolute>";
+	};
+	9F1132F00B03D23900E5DD67 = {
+		fileReference = 9F1132EE0B03D23900E5DD67;
+		functionName = "CreateOBJMesh()";
+		isa = PBXFileBreakpoint;
+		lineNumber = 44;
+		state = 1;
+	};
+	9F1132F20B03D26500E5DD67 = {
+		fileReference = 9F1132EE0B03D23900E5DD67;
+		functionName = "LoadOBJ()";
+		isa = PBXFileBreakpoint;
+		lineNumber = 97;
+		state = 1;
+	};
+	9F1133EF0B03E3FB00E5DD67 = {
+		fileReference = 9F1131DF0B03BA3200E5DD67;
+		functionName = "DemoInitialize()";
+		isa = PBXFileBreakpoint;
+		lineNumber = 123;
+		state = 1;
+	};
+	9F1134290B03E7F700E5DD67 = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = CubeMap.h;
+		path = /Users/allen/Documents/Programming/BuildingBlocksEngine/source/CubeMap.h;
+		refType = 0;
+		sourceTree = "<absolute>";
+	};
+	9F11342B0B03E7F700E5DD67 = {
+		fileReference = 9F1134290B03E7F700E5DD67;
+		functionName = "LoadCubeMapFromMemory()";
+		isa = PBXFileBreakpoint;
+		lineNumber = 21;
+		state = 1;
+	};
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	</head>
+	<body>
+		<H1>A System for Managing Game Entities</H1>
+		<H2><EM>Matthew Harmon - eV Interactive Corporation<BR>
+			</EM><A href="mailto:matt@matthewharmon.com"><EM>matt@matthewharmon.com</EM></A></H2>
+		<P>&nbsp;</P>
+		<H2>Source Code Overview</H2>
+		<P class="Gems4Text">The code included on this CD outlines a skeleton entity 
+			management system in C. It is not meant to be operational, but rather provide a 
+			framework on which a complete package can be built, and a design to which a 
+			C++, C# or Java implementation can be crafted. The typecasting, switch 
+			statements and function pointers in this C implementation look a little dated, 
+			but they should serve as an example of how a powerful entity system can be 
+			created in any language.&nbsp;</P>
+		<P class="Gems4Heading2"><STRONG>Moving To C++<BR>
+			</STRONG>A message-based entity system becomes simpler and easier to maintain 
+			when programmed in a language with support for classes and virtual functions. 
+			Entity classes implement the necessary functions derived from a robust base 
+			class. Sending a direct message is a simple matter of calling a member 
+			function. Sending a message to the entire entity tree is somewhat more complex, 
+			but manageable.&nbsp;</P>
+		<P>While creating an entity could be as simple as using the <FONT face="Courier">new</FONT>
+			operator on the derived class, it is still useful to maintain a class registry 
+			so entities can be created by textual name. This reduces source-file 
+			dependencies and allows entities to create and manipulate each other without 
+			any knowledge of their class definition.</P>
+		<H2>Manifest</H2>
+		<P><STRONG>EntityManager.c / h</STRONG><BR>
+			This file contains the basic entity manager framework, including the class list 
+			manager and entity management code.&nbsp; In this example, entities are kept in 
+			a simple tree.</P>
+		<P><STRONG>EntityUtilities.c / h<BR>
+			</STRONG>Contains examples of basic functions that may be performed on entities 
+			in a generic manner.</P>
+		<P><STRONG>Entities.h</STRONG><BR>
+			Contains prototypes for all the entitiy procedures used in a game.</P>
+		<P><STRONG>EntityMissile.c<BR>
+			</STRONG>This is a sample entity module that can be used as a framework for 
+			more complex entities.&nbsp;</P>
+		<P><STRONG>EntityNull.c</STRONG><BR>
+			A simple, do-nothing entity used for example purposes.&nbsp; Can also be used 
+			as a placeholder node in a world tree.</P>
+		<P><STRONG>EntityApp.c</STRONG><BR>
+			A skeleton console application showing how to use the entity manager.</P>
+		<P><STRONG>SystemStub.h</STRONG><BR>
+			This stub code is provided to allow the examples to compile.&nbsp; It includes 
+			elements such as vector operations that are used in the various sample files 
+			but will most certainly be replaced by the user's custom code.</P>
+		<P><STRONG>EntityManagerGem.dsw/dsp<BR>
+			</STRONG>A VisualStudio workspace/project file that can be used to compile the 
+			example code.</P>
+		<P>&nbsp;</P>
+	</body>
+</html>

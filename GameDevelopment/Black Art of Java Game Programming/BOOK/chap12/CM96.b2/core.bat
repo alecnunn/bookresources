@@ -1,0 +1,2 @@
+cd App3dcore
+

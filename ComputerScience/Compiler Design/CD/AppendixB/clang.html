@@ -1,0 +1,1253 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - clang.jj</h2>
+<p>options <br>
+  {<br>
+JAVA_UNICODE_ESCAPE = true;<br>
+}</p>
+
+<p>PARSER_BEGIN(CParser)</p>
+<p> import java.util.*;<br>
+  import java.lang.Object;<br>
+  abstract class Expression {}<br>
+  <br>
+  class Constants<br>
+  {<br>
+  public static final int INTEGER=1;<br>
+  public static final int FLOAT=2;<br>
+  public static final int DOUBLE=3;<br>
+  public static final int SHORTINT=4;<br>
+  public static final int UNSIGNEDCHAR=5;<br>
+  public static final int LONG=6;<br>
+  public static final int LONGINTEGER=7;<br>
+  public static final int SIGNEDINT=8;<br>
+  public static final int UNSIGNEDINTEGER=9;<br>
+  public static final int USERTYPE=10;<br>
+  public static final int ARRAYTYPE=11;<br>
+  public static final int AUTO=12;<br>
+  public static final int STATIC=13;<br>
+  public static final int REGISTER=14;<br>
+  public static final int EXTERN=15;<br>
+  public static final int TYPEDEF=16;<br>
+  public static final int CONSTANT=17;<br>
+  public static final int RESTRICT=18;<br>
+  public static final int VOLATILE=19;<br>
+  public static final int SIGNED=20;<br>
+  public static final int BASIC=21;<br>
+  public static final int ARRAY=22;<br>
+  public static final int VOID=23;<br>
+  public static final int SHORT=24;<br>
+  public static final int CHAR=25;<br>
+  }<br>
+  <br>
+  class _integerLiteral extends Expression<br>
+  {<br>
+  int value;<br>
+  _integerLiteral(int v) {value = v;}<br>
+  public String toString() {return value + &quot;&quot;;}<br>
+  }</p>
+<p> class _floatingPointLiteral extends Expression<br>
+  {<br>
+  double value;<br>
+  _floatingPointLiteral (double v) {value = v;}<br>
+  public String toString() {return value + &quot;&quot;;}<br>
+  }<br>
+  class _stringLiteral extends Expression<br>
+  {<br>
+  String value;<br>
+  _stringLiteral (String v) {value = v;}<br>
+  public String toString() {return value + &quot;&quot;;}<br>
+  }<br>
+  class _identifier extends Expression<br>
+  {<br>
+  String value;<br>
+  _identifier(String v) {value = v;}<br>
+  public String toString() {return value + &quot;&quot;;}<br>
+  }</p>
+<p> class IC3A extends Expression <br>
+  {<br>
+  String opcode,lvalue,label;<br>
+  static int tcnt;<br>
+  Expression operand1, operand2;<br>
+  IC3A(String lbl,String opc, Expression opr1, Expression opr2, String lval) <br>
+  {<br>
+  label=lbl;<br>
+  opcode = opc; <br>
+  operand1 = opr1; <br>
+  operand2 = opr2;<br>
+  lvalue = lval;<br>
+  CParser.labelpending = &quot; &quot;;<br>
+  }<br>
+  }<br>
+  class Type<br>
+  {<br>
+  int type;                 //ID or Const, Basic, Array, Pointer, Referernce, File, Function<br>
+  int subtype;              //char, integer, long, float,double<br>
+  String value;<br>
+  int dimensionCnt;<br>
+  Type ()<br>
+  {<br>
+  type=Constants.INTEGER;<br>
+  value=&quot; &quot;;<br>
+  dimensionCnt=0;<br>
+  }<br>
+  }<br>
+  class Symbol<br>
+  {<br>
+  String name;              //ID lexeme<br>
+  Type type;<br>
+  int storage;              //Storage type: auto, register, static, typedef<br>
+  int qualifier;            //Qualifier: Constant, Volatile<br>
+  int sign;                 //unsigned, signed<br>
+  int width;                //width of the data if applicable<br>
+  String widthType;			  //width type (short or long - applicable to integer<br>
+  int iVal;<br>
+  float fVal;<br>
+  String sVal;<br>
+  Symbol structLink; 			//to hold the fields of the structure<br>
+  int relAddr;                    //Relative address of each symbol<br>
+  <br>
+  Symbol()<br>
+  {<br>
+  type = new Type();<br>
+  type.type = Constants.BASIC; <br>
+  type.subtype = Constants.INTEGER;<br>
+  storage = Constants.AUTO;<br>
+  qualifier = Constants.VOLATILE;<br>
+  sign=Constants.SIGNED;<br>
+  width=4;<br>
+  widthType=&quot; &quot;;<br>
+  sVal=&quot; &quot;;<br>
+  structLink=null;<br>
+  relAddr=0;<br>
+  }<br>
+  } <br>
+  class Literal<br>
+  {<br>
+  int type;<br>
+  int iVal;<br>
+  double dVal;<br>
+  String sVal;<br>
+  Literal()<br>
+  {<br>
+  type=Constants.INTEGER;<br>
+  iVal=0;<br>
+  dVal=0.0;<br>
+  sVal=&quot; &quot;;<br>
+  }<br>
+  }<br>
+  <br>
+  class SymTab<br>
+  {<br>
+  HashMap hm;<br>
+  SymTab prevTab;<br>
+  HashMap structLink;<br>
+  SymTab()<br>
+  {<br>
+  hm=null;<br>
+  prevTab=null;<br>
+  structLink=null;<br>
+  }<br>
+  void dispSymbols()<br>
+  {<br>
+  Set s = hm.entrySet(); <br>
+  Iterator i = s.iterator();<br>
+  System.out.println(&quot;Name\t&quot;+&quot;Type\t&quot;+&quot;Sub Type\t&quot;+&quot;Width\n&quot;);<br>
+  while (i.hasNext()) <br>
+  { <br>
+  Map.Entry me = (Map.Entry)i.next();<br>
+  System.out.print(me.getKey() + &quot;\t&quot;);<br>
+  Symbol symbol=(Symbol)me.getValue(); <br>
+  System.out.print(symbol.type.type+&quot;\t\t&quot;+symbol.type.subtype+&quot;\t\t&quot;+symbol.width+&quot;\n&quot;);<br>
+  }<br>
+  }<br>
+  }<br>
+  <br>
+  public class CParser <br>
+  {<br>
+  static Vector&lt;IC3A&gt; vec;<br>
+  static IC3A ic3a;<br>
+  static int tcnt;<br>
+  static int lcnt;<br>
+  static Symbol symbol;<br>
+  //static HashMap hm=null,prevTab=null;  //hash map and current active hm;<br>
+  static SymTab symTab = null;<br>
+  static SymTab prevsymTab = null;<br>
+  static SymTab ctSymTab = null;<br>
+  static String labelpending = &quot; &quot;;<br>
+  static int errcnt=0;<br>
+  public static void main(String args[]) <br>
+  {<br>
+  <br>
+  CParser cparser;<br>
+  vec = new Vector&lt;IC3A&gt;();<br>
+  symTab = new SymTab(); <br>
+  symTab.prevTab=null;<br>
+  symTab.structLink = null;<br>
+  symTab.hm = new HashMap();<br>
+  tcnt = 0;<br>
+  if (args.length == 0) <br>
+  {<br>
+  System.out.println(&quot; Reading from standard input . . .&quot;);<br>
+  cparser = new CParser(System.in);<br>
+  } <br>
+  else if (args.length == 1) <br>
+  {<br>
+  System.out.println(&quot;Reading from file &quot; + args[0] + &quot; . . .&quot;);<br>
+  try <br>
+  {<br>
+  cparser = new CParser(new java.io.FileInputStream(args[0]));<br>
+  } <br>
+  catch (java.io.FileNotFoundException e) <br>
+  {<br>
+  System.out.println(&quot;File &quot; + args[0] + &quot; not found.&quot;);<br>
+  return;<br>
+  }<br>
+  } <br>
+  else <br>
+  {<br>
+  System.out.println(&quot;Usage is one of:&quot;);<br>
+  System.out.println(&quot;CParser &lt; inputfile&quot;);<br>
+  System.out.println(&quot;OR&quot;);<br>
+  System.out.println(&quot;CParser inputfile&quot;);<br>
+  return;<br>
+  }<br>
+  try <br>
+  {<br>
+  cparser.doParse();<br>
+  if(errcnt==0)<br>
+  {<br>
+  System.out.println(&quot;Program parsed successfully.&quot;);<br>
+  dispCode(vec);<br>
+  }<br>
+  } <br>
+  <br>
+  catch (ParseException e) <br>
+  {<br>
+  System.out.println(&quot;Encountered errors during parse.&quot;);<br>
+  }<br>
+  }<br>
+  <br>
+  static void dispCode(Vector vec)<br>
+  {<br>
+  Enumeration vEnum = vec.elements();<br>
+  System.out.println(&quot;\\nElements in vector:&quot;);<br>
+  while(vEnum.hasMoreElements())<br>
+  {<br>
+  ic3a = (IC3A)vEnum.nextElement();<br>
+  System.out.println(ic3a.label+&quot;\t&quot;+ic3a.opcode + &quot;\t&quot;  + ic3a.operand1.toString() +  &quot;\t&quot; + ic3a.operand2.toString() + &quot;\t&quot; + ic3a.lvalue + &quot;\n&quot;);<br>
+  System.out.println(); <br>
+  } <br>
+  }<br>
+  }</p>
+<p>PARSER_END(CParser)<br>
+</p>
+<p>SKIP : /* White Space */<br>
+  {<br>
+  &quot; &quot;<br>
+  | &quot;\t&quot;<br>
+  | &quot;\n&quot; <br>
+  | &quot;\r&quot;<br>
+  | &quot;\f&quot;<br>
+  }</p>
+<p>SPECIAL_TOKEN : /* Comments */<br>
+  {<br>
+  &lt;_singleLineComment: &quot;//&quot; (~[&quot;\n&quot;,&quot;\r&quot;])* (&quot;\n&quot;|&quot;\r&quot;|&quot;\r\n&quot;)&gt;<br>
+  | &lt;_formalComment: &quot;/**&quot; (~[&quot;*&quot;])* &quot;*&quot; (&quot;*&quot; | (~[&quot;*&quot;,&quot;/&quot;] (~[&quot;*&quot;])* &quot;*&quot;))* &quot;/&quot;&gt;<br>
+  | &lt;_multiLineComment: &quot;/*&quot; (~[&quot;*&quot;])* &quot;*&quot; (&quot;*&quot; | (~[&quot;*&quot;,&quot;/&quot;] (~[&quot;*&quot;])* &quot;*&quot;))* &quot;/&quot;&gt;<br>
+  }</p>
+<p>TOKEN : /* Reserved Words and Literals */<br>
+  {<br>
+  &lt; _auto: &quot;auto&quot; &gt; <br>
+  | &lt; _break: &quot;break&quot; &gt; <br>
+  | &lt; _case: &quot;case&quot; &gt; <br>
+  | &lt; _char: &quot;char&quot; &gt; <br>
+  | &lt; _const: &quot;const&quot; &gt; <br>
+  | &lt; _continue: &quot;continue&quot; &gt; <br>
+  | &lt; _default: &quot;default&quot; &gt; <br>
+  | &lt; _do: &quot;do&quot; &gt; <br>
+  | &lt; _double: &quot;double&quot; &gt; <br>
+  | &lt; _else: &quot;else&quot; &gt; <br>
+  | &lt; _enum: &quot;enum&quot; &gt; <br>
+  | &lt; _extern:	&quot;extern&quot; &gt; <br>
+  | &lt; _float: &quot;float&quot; &gt; <br>
+  | &lt; _for: &quot;for&quot; &gt; <br>
+  | &lt; _goto: &quot;goto&quot; &gt; <br>
+  | &lt; _if: &quot;if&quot; &gt;<br>
+  | &lt; _inline: &quot;inline&quot; &gt;<br>
+  | &lt; _include: &quot;include&quot; &gt; <br>
+  | &lt; _int: &quot;int&quot; &gt; <br>
+  | &lt; _long: &quot;long&quot; &gt; <br>
+  | &lt; _register: &quot;register&quot; &gt;<br>
+  | &lt; _restrict: &quot;restrict&quot; &gt;<br>
+  | &lt; _return: &quot;return&quot; &gt; <br>
+  | &lt; _short: &quot;short&quot; &gt; <br>
+  | &lt; _signed: &quot;signed&quot; &gt; <br>
+  | &lt; _sizeof:	&quot;sizeof&quot; &gt; <br>
+  | &lt; _static: &quot;static&quot; &gt; <br>
+  | &lt; _struct: &quot;struct&quot; &gt; <br>
+  | &lt; _switch: &quot;switch&quot; &gt; <br>
+  | &lt; _typedef: &quot;typedef&quot; &gt; <br>
+  | &lt; _union: &quot;union&quot; &gt; <br>
+  | &lt; _unsigned: &quot;unsigned&quot; &gt; <br>
+  | &lt; _void: &quot;void&quot; &gt; <br>
+  | &lt; _volatile: &quot;volatile&quot; &gt; <br>
+  | &lt; _while: &quot;while&quot; &gt;<br>
+  | &lt; _Bool: &quot;bool&quot; &gt;<br>
+  | &lt; _Complex: &quot;complex&quot; &gt;<br>
+  | &lt; _Imaginary: &quot;imaginary&quot; &gt;<br>
+  }</p>
+<p>TOKEN : /* LITERALS */<br>
+  {<br>
+  &lt; _integerLiteral:<br>
+  &lt;_decimalLiteral&gt; ([&quot;l&quot;,&quot;L&quot;])?<br>
+  | &lt;_hexLiteral&gt; ([&quot;l&quot;,&quot;L&quot;])?<br>
+  | &lt;_octalLiteral&gt; ([&quot;l&quot;,&quot;L&quot;])?<br>
+  &gt;<br>
+  |  &lt; #_decimalLiteral: [&quot;1&quot;-&quot;9&quot;] ([&quot;0&quot;-&quot;9&quot;])* &gt;<br>
+  |  &lt; #_hexLiteral: &quot;0&quot; [&quot;x&quot;,&quot;X&quot;] ([&quot;0&quot;-&quot;9&quot;,&quot;a&quot;-&quot;f&quot;,&quot;A&quot;-&quot;F&quot;])+ &gt;<br>
+  |  &lt; #_octalLiteral: &quot;0&quot; ([&quot;0&quot;-&quot;7&quot;])* &gt;<br>
+  |  &lt; _floatingPointLiteral:<br>
+  ([&quot;0&quot;-&quot;9&quot;])+ &quot;.&quot; ([&quot;0&quot;-&quot;9&quot;])* (&lt;_exponent&gt;)? ([&quot;f&quot;,&quot;F&quot;,&quot;d&quot;,&quot;D&quot;])?<br>
+  | &quot;.&quot; ([&quot;0&quot;-&quot;9&quot;])+ (&lt;_exponent&gt;)? ([&quot;f&quot;,&quot;F&quot;,&quot;d&quot;,&quot;D&quot;])?<br>
+  | ([&quot;0&quot;-&quot;9&quot;])+ &lt;_exponent&gt; ([&quot;f&quot;,&quot;F&quot;,&quot;d&quot;,&quot;D&quot;])?<br>
+  | ([&quot;0&quot;-&quot;9&quot;])+ (&lt;_exponent&gt;)? [&quot;f&quot;,&quot;F&quot;,&quot;d&quot;,&quot;D&quot;]<br>
+  &gt;<br>
+  |  &lt; #_exponent: [&quot;e&quot;,&quot;E&quot;] ([&quot;+&quot;,&quot;-&quot;])? ([&quot;0&quot;-&quot;9&quot;])+ &gt;<br>
+  |  &lt; _stringLiteral:<br>
+  &quot;\&quot;&quot;<br>
+  (   (~[&quot;\&quot;&quot;,&quot;\\&quot;,&quot;\n&quot;,&quot;\r&quot;])<br>
+  | (&quot;\\&quot;<br>
+  ( [&quot;n&quot;,&quot;t&quot;,&quot;b&quot;,&quot;r&quot;,&quot;f&quot;,&quot;\\&quot;,&quot;'&quot;,&quot;\&quot;&quot;]<br>
+  | [&quot;0&quot;-&quot;7&quot;] ( [&quot;0&quot;-&quot;7&quot;] )?<br>
+  | [&quot;0&quot;-&quot;3&quot;] [&quot;0&quot;-&quot;7&quot;] [&quot;0&quot;-&quot;7&quot;]<br>
+  )<br>
+  )<br>
+  )*<br>
+  &quot;\&quot;&quot;<br>
+  &gt;<br>
+  }</p>
+<p>TOKEN : /* Identifiers */<br>
+  {<br>
+  &lt; _identifier: &lt;_letter&gt; (&lt;_letter&gt;|&lt;_digit&gt;)* &gt;<br>
+  | &lt; #_letter:[&quot;a&quot;-&quot;z&quot;,&quot;A&quot;-&quot;Z&quot;,&quot;_&quot;]&gt;<br>
+  | &lt; #_digit:[&quot;0&quot;-&quot;9&quot;] &gt;<br>
+  }</p>
+<p>TOKEN : /* SEPARATORS */<br>
+  {<br>
+  &lt; _lparen: &quot;(&quot; &gt;<br>
+  | &lt; _rparen: &quot;)&quot; &gt;<br>
+  | &lt; _lbrace: &quot;{&quot; &gt;<br>
+  | &lt; _rbrace: &quot;}&quot; &gt;<br>
+  | &lt; _lbracket: &quot;[&quot; &gt;<br>
+  | &lt; _rbracket: &quot;]&quot; &gt;<br>
+  | &lt; _semicolon: &quot;;&quot; &gt;<br>
+  | &lt; _comma: &quot;,&quot; &gt;<br>
+  | &lt; _dot: &quot;.&quot; &gt;<br>
+  }</p>
+<p>TOKEN : /* OPERATORS */<br>
+  {<br>
+  &lt; _assign: &quot;=&quot; &gt;<br>
+  | &lt; _gt: &quot;&gt;&quot; &gt;<br>
+  | &lt; _lt: &quot;&lt;&quot; &gt;<br>
+  | &lt; _bang: &quot;!&quot; &gt;<br>
+  | &lt; _tilde: &quot;~&quot; &gt;<br>
+  | &lt; _hook: &quot;?&quot; &gt;<br>
+  | &lt; _colon: &quot;:&quot; &gt;<br>
+  | &lt; _eq: &quot;==&quot; &gt;<br>
+  | &lt; _le: &quot;&lt;=&quot; &gt;<br>
+  | &lt; _ge: &quot;&gt;=&quot; &gt;<br>
+  | &lt; _ne: &quot;!=&quot; &gt;<br>
+  | &lt; _scOr: &quot;||&quot; &gt;<br>
+  | &lt; _scAnd: &quot;&amp;&amp;&quot; &gt;<br>
+  | &lt; _incr: &quot;++&quot; &gt;<br>
+  | &lt; _decr: &quot;--&quot; &gt;<br>
+  | &lt; _plus: &quot;+&quot; &gt;<br>
+  | &lt; _minus: &quot;-&quot; &gt;<br>
+  | &lt; _star: &quot;*&quot; &gt;<br>
+  | &lt; _slash: &quot;/&quot; &gt;<br>
+  | &lt; _bitAnd: &quot;&amp;&quot; &gt;<br>
+  | &lt; _bitOr: &quot;|&quot; &gt;<br>
+  | &lt; _xor: &quot;^&quot; &gt;<br>
+  | &lt; _rem: &quot;%&quot; &gt;<br>
+  | &lt; _lShift: &quot;&lt;&lt;&quot; &gt;<br>
+  | &lt; _rSignedShift: &quot;&gt;&gt;&quot; &gt;<br>
+  | &lt; _rUnsignedShift: &quot;&gt;&gt;&gt;&quot; &gt;<br>
+  | &lt; _plusAssign: &quot;+=&quot; &gt;<br>
+  | &lt; _minusAssign: &quot;-=&quot; &gt;<br>
+  | &lt; _starAssign: &quot;*=&quot; &gt;<br>
+  | &lt; _slashAssign: &quot;/=&quot; &gt;<br>
+  | &lt; _andAssign: &quot;&amp;=&quot; &gt;<br>
+  | &lt; _orAssign: &quot;|=&quot; &gt;<br>
+  | &lt; _xorAssign: &quot;^=&quot; &gt;<br>
+  | &lt; _remAssign: &quot;%=&quot; &gt;<br>
+  | &lt; _lShiftAssign: &quot;&lt;&lt;=&quot; &gt;<br>
+  | &lt; _rSignedShiftAssign: &quot;&gt;&gt;=&quot; &gt;<br>
+  | &lt; _rUnsignedShiftAssign: &quot;&gt;&gt;&gt;=&quot; &gt;<br>
+  }</p>
+<p>void doParse() : {}<br>
+  {<br>
+  ( includeDeclaration() )* <br>
+  ( typeDeclaration() )* <br>
+  &lt;EOF&gt;<br>
+  }</p>
+<p>void includeDeclaration() : {}<br>
+  {<br>
+  &quot;#include&lt;&quot; name() &quot;&gt;&quot;<br>
+  |&quot;#define&quot; name() literal()<br>
+  }</p>
+<p>void typeDeclaration() : {}<br>
+  {<br>
+  functionBodyDeclaration() <br>
+  |  &quot;;&quot;<br>
+  }</p>
+<p>void functionBodyDeclaration() : {}<br>
+  {<br>
+  LOOKAHEAD(2)<br>
+  staticInitializer() <br>
+  |  LOOKAHEAD( methodDeclarationLookahead() )  methodDeclaration() <br>
+  |  globalDeclaration() {symTab.dispSymbols();}<br>
+  }</p>
+<p>void methodDeclarationLookahead() : {}<br>
+  {<br>
+  resultType() &lt;_identifier&gt; &quot;(&quot; <br>
+  }</p>
+<p>void globalDeclaration() : {Token n;Token n1;Type dtype;Symbol sym;int storage;int qualifier;}<br>
+  {<br>
+  {<br>
+  Symbol symbol;<br>
+  storage=Constants.AUTO; qualifier=Constants.VOLATILE;<br>
+  }<br>
+  [ <br>
+  n=&quot;auto&quot;  		{storage=Constants.AUTO;}<br>
+  | n=&quot;register&quot;		{storage=Constants.REGISTER;}<br>
+  | n=&quot;static&quot; 		{storage=Constants.STATIC;}<br>
+  | n=&quot;extern&quot; 		{storage=Constants.EXTERN;}<br>
+  | n=&quot;typedef&quot;		{storage=Constants.TYPEDEF;}<br>
+  ] <br>
+  <br>
+  [ <br>
+  n1 =&quot;const&quot; 		{qualifier=Constants.CONSTANT;}<br>
+  | n1=&quot;restrict&quot;		{qualifier=Constants.RESTRICT;}<br>
+  | n1 = &quot;volatile&quot;	{qualifier=Constants.VOLATILE;}<br>
+  ] <br>
+  dtype=type()  {System.out.println(dtype.subtype + &quot;.......&quot;);}<br>
+  sym=variableDeclarator()<br>
+  {<br>
+  symbol = new Symbol();<br>
+  symbol.storage=storage;<br>
+  symbol.qualifier=qualifier;<br>
+  symbol.type=dtype;<br>
+  switch(dtype.subtype)<br>
+  {<br>
+  case Constants.CHAR: <br>
+  symbol.width=1;<br>
+  break;<br>
+  case Constants.INTEGER: <br>
+  symbol.width=4;<br>
+  break;<br>
+  case Constants.FLOAT: <br>
+  symbol.width=4;<br>
+  break;<br>
+  case Constants.DOUBLE: <br>
+  symbol.width=8;<br>
+  break;<br>
+  default: <br>
+  symbol.width=4;<br>
+  }<br>
+  symbol.name=sym.name;<br>
+  symTab.hm.put(symbol.name, symbol); <br>
+  }<br>
+  ( &quot;,&quot; <br>
+  sym=variableDeclarator() <br>
+  {<br>
+  symbol = new Symbol();<br>
+  symbol.storage=storage;<br>
+  symbol.qualifier=qualifier;<br>
+  symbol.type=dtype;<br>
+  switch(dtype.subtype)<br>
+  {<br>
+  case Constants.CHAR: <br>
+  symbol.width=1;<br>
+  break;<br>
+  case Constants.INTEGER: <br>
+  symbol.width=4;<br>
+  break;<br>
+  case Constants.FLOAT: <br>
+  symbol.width=4;<br>
+  break;<br>
+  case Constants.DOUBLE: <br>
+  symbol.width=8;<br>
+  break;<br>
+  default: <br>
+  symbol.width=4;<br>
+  }<br>
+  symbol.name=sym.name;<br>
+  symTab.hm.put(symbol.name, symbol); <br>
+  }<br>
+  )* &quot;;&quot;<br>
+  }</p>
+<p>Symbol variableDeclarator() : {Expression expr;String s;}<br>
+  {<br>
+  {<br>
+  Symbol symbol =new Symbol();<br>
+  }<br>
+  s=variableDeclaratorId() <br>
+  [ &quot;=&quot; expr=variableInitializer() <br>
+  {<br>
+  symbol.sVal=expr.toString();<br>
+  }<br>
+  ]<br>
+  {<br>
+  symbol.name=s;<br>
+  return symbol;<br>
+  }<br>
+  }</p>
+<p>String variableDeclaratorId() : {Token n; String s;}<br>
+  {<br>
+  n=&lt;_identifier&gt; <br>
+  {<br>
+  s=n.toString();<br>
+  }<br>
+  ( &quot;[&quot; &quot;]&quot; <br>
+  {<br>
+  s=s+&quot;[]&quot;;<br>
+  }<br>
+  )*<br>
+  {<br>
+  return s;<br>
+  }<br>
+  }</p>
+<p>Expression variableInitializer() : {Expression expr;}<br>
+  {<br>
+  <br>
+  expr=expression()<br>
+  {<br>
+  return expr;<br>
+  }<br>
+  }</p>
+<p>void methodDeclaration() : {}<br>
+  {<br>
+  resultType() methodDeclarator() <br>
+  ( block() | &quot;;&quot; )<br>
+  }</p>
+<p>void methodDeclarator() : {}<br>
+  {<br>
+  &lt;_identifier&gt; formalParameters() ( &quot;[&quot; &quot;]&quot; )*<br>
+  }</p>
+<p>void formalParameters() :{}<br>
+  {<br>
+  &quot;(&quot; [ formalParameter() ( &quot;,&quot; formalParameter() )* ] &quot;)&quot;<br>
+  }</p>
+<p>void formalParameter() : {}<br>
+  {<br>
+  type() variableDeclaratorId()<br>
+  }</p>
+<p>void staticInitializer() : {}<br>
+  {<br>
+  &quot;static&quot; block()<br>
+  }<br>
+</p>
+<p>Type type() : {int itype;String stype;}<br>
+  {<br>
+  {<br>
+  Type type = new Type();<br>
+  type.dimensionCnt=0;<br>
+  }<br>
+  ( itype = primitiveType() <br>
+  { <br>
+  type.type = Constants.BASIC;<br>
+  type.subtype = itype;<br>
+  } <br>
+  | stype=name() <br>
+  {<br>
+  type.subtype = Constants.USERTYPE;<br>
+  type.value = stype;<br>
+  }<br>
+  ) <br>
+  ( &quot;[&quot; &quot;]&quot; <br>
+  {<br>
+  type.subtype = Constants.ARRAY;<br>
+  type.dimensionCnt++;<br>
+  }<br>
+  )* <br>
+  {<br>
+  return type;<br>
+  }<br>
+  }</p>
+<p>int primitiveType() : {Token n;}<br>
+  {<br>
+  n=&quot;char&quot; 	{return Constants.CHAR;}<br>
+  | n=&quot;unsigned char&quot; {return Constants.UNSIGNEDCHAR;}<br>
+  | n=&quot;int&quot; {return Constants.INTEGER; ;} <br>
+  | n=&quot;short&quot; {return Constants.SHORT;}<br>
+  | n=&quot;short int&quot; {return Constants.SHORTINT;}<br>
+  | n=&quot;long&quot; {return Constants.LONG;}<br>
+  | n=&quot;long int&quot; {return Constants.LONGINTEGER;}<br>
+  | n=&quot;float&quot; {return Constants.FLOAT;}<br>
+  | n=&quot;double&quot; {return Constants.DOUBLE;}<br>
+  }<br>
+</p>
+<p>Type resultType() : {Token n;Type typ;}<br>
+  {<br>
+  {typ = new Type();}<br>
+  n=&quot;void&quot; <br>
+  {<br>
+  typ.type=Constants.BASIC;<br>
+  typ.subtype=Constants.VOID;<br>
+  return typ; <br>
+  }<br>
+  |  	typ =type() <br>
+  {<br>
+  return typ;<br>
+  }<br>
+  }</p>
+<p>String name() : {String s1;String s2;Token n1;Token n2;}<br>
+  { <br>
+  n1=&lt;_identifier&gt; <br>
+  {<br>
+  s1=n1.toString();<br>
+  }<br>
+  ( LOOKAHEAD(2) &quot;.&quot; n2=&lt;_identifier&gt; <br>
+  {s2 = n2.toString();<br>
+  s1 = s1 + &quot;.&quot; + s2; }<br>
+  )*<br>
+  {<br>
+  return s1;<br>
+  }<br>
+  <br>
+  }</p>
+<p>Vector nameList() : {Vector v;String s;}<br>
+  {<br>
+  {v = new Vector();}<br>
+  s=name() <br>
+  { <br>
+  v.addElement(s);<br>
+  }<br>
+  ( &quot;,&quot; s=name()<br>
+  {<br>
+  v.addElement(s);<br>
+  }<br>
+  )*<br>
+  {<br>
+  return v;<br>
+  }<br>
+  }</p>
+<p>Expression expression() : {Expression expr1;Expression expr2;Token s;IC3A ic3a;}<br>
+  {<br>
+  LOOKAHEAD( primaryExpression() assignmentOperator() )<br>
+  assignment()  expr1=primaryExpression() s=assignmentOperator() expr2=expression() <br>
+  {<br>
+  ic3a = new IC3A(labelpending,s.toString(),expr2,new _identifier(&quot; &quot;),expr1.toString());<br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue); <br>
+  }<br>
+  | 	expr1=conditionalExpression() <br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression assignment() : {Expression expr1;Expression expr2;Token s;IC3A ic3a;}<br>
+  {<br>
+  expr1=primaryExpression() s=assignmentOperator()  expr2=expression() <br>
+  {<br>
+  ic3a = new IC3A(labelpending,s.toString(),expr2,new _identifier(&quot; &quot;),expr1.toString());<br>
+  vec.addElement(ic3a); <br>
+  return  new _identifier(ic3a.lvalue); <br>
+  }<br>
+  }</p>
+<p>Token assignmentOperator() : {Token n;}<br>
+  {<br>
+  n= &quot;=&quot; 		{return n;} <br>
+  |n= &quot;*=&quot; 	{return n ;}<br>
+  | n= &quot;/=&quot; 	{return n;}<br>
+  | n=&quot;%=&quot; 	{return n;}<br>
+  | n=&quot;+=&quot; 	{return n;}<br>
+  | n = &quot;-=&quot; 	{return n;}<br>
+  | n=&quot;&lt;&lt;=&quot; 	{return n;}<br>
+  | n=&quot;&gt;&gt;=&quot; 	{return n;}<br>
+  | n=&quot;&gt;&gt;&gt;=&quot; 	{return n;}<br>
+  | n=&quot;&amp;=&quot; 	{return n;}<br>
+  | n=&quot;^=&quot; 	{return n;}<br>
+  | n=&quot;|=&quot; 	{return n;}<br>
+  }</p>
+<p>Expression conditionalExpression() : {Expression expr;Expression expr1;Expression expr2;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr=conditionalOrExpression() <br>
+  [ &quot;?&quot; expr1=expression() &quot;:&quot; expr2=conditionalExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a=new IC3A(labelpending,&quot;?&quot;, expr1, expr2,lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return new _identifier(ic3a.lvalue);<br>
+  } <br>
+  ]<br>
+  {<br>
+  return expr;<br>
+  }<br>
+  }</p>
+<p>Expression conditionalOrExpression() : {Expression expr1;Expression expr2;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr1=conditionalAndExpression() <br>
+  ( &quot;||&quot; expr2=conditionalAndExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,&quot;||&quot;, expr1, expr2,lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return new _identifier(ic3a.lvalue);<br>
+  } <br>
+  )* <br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression conditionalAndExpression() : {Expression expr1;Expression expr2;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr1=inclusiveOrExpression() <br>
+  ( &quot;&amp;&amp;&quot; expr2=inclusiveOrExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,&quot;&amp;&amp;&quot;, expr1, expr2,lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  } <br>
+  )*<br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression inclusiveOrExpression() : {Expression expr1;Expression expr2;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr1=exclusiveOrExpression() <br>
+  ( &quot;|&quot; expr2=exclusiveOrExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,&quot;|&quot;, expr1, expr2,lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  )*<br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression exclusiveOrExpression() : {Expression expr1;Expression expr2;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr1=andExpression() <br>
+  ( &quot;^&quot; expr2=andExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,&quot;^&quot;, expr1, expr2,lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  )*<br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression andExpression() : {Expression expr1;Expression expr2;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr1=equalityExpression() <br>
+  ( &quot;&amp;&quot; expr2=equalityExpression()<br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,&quot;&amp;&quot;, expr1, expr2,lvalue); <br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  )*<br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression equalityExpression() : {Expression expr1;Expression expr2;Token n;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr1=relationalExpression() <br>
+  ( ( n = &quot;==&quot; | n = &quot;!=&quot; ) expr2=relationalExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr1, expr2,lvalue); <br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  )*<br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression relationalExpression() : {Expression expr1;Expression expr2;Token n;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr1=shiftExpression() <br>
+  ( ( n = &quot;&lt;&quot; | n = &quot;&gt;&quot; | n = &quot;&lt;=&quot; | n = &quot;&gt;=&quot; ) expr2=shiftExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr1, expr2,lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  )*<br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression shiftExpression() : {Expression expr1;Expression expr2;Token n;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr1=additiveExpression() <br>
+  ( ( n = &quot;&lt;&lt;&quot; | n = &quot;&gt;&gt;&quot; | n = &quot;&gt;&gt;&gt;&quot; ) expr2=additiveExpression() <br>
+  { <br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr1, expr2,lvalue); <br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  )*<br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression additiveExpression() : {Expression expr1;Expression expr2;Token n;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr1=multiplicativeExpression() <br>
+  ( (n = &quot;+&quot; | n = &quot;-&quot; ) expr2=multiplicativeExpression()<br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr1, expr2,lvalue); <br>
+  expr1 = new _identifier(ic3a.lvalue); <br>
+  vec.addElement(ic3a);<br>
+  //return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  )*<br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression multiplicativeExpression() : {Expression expr1;Expression expr2;Token n;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  expr1=unaryExpression() <br>
+  ( ( n = &quot;*&quot; | n = &quot;/&quot; | n = &quot;%&quot; ) expr2=unaryExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr1, expr2,lvalue);<br>
+  expr1 = new _identifier(ic3a.lvalue); <br>
+  vec.addElement(ic3a);<br>
+  //return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  )*<br>
+  {<br>
+  return expr1;<br>
+  }<br>
+  }</p>
+<p>Expression unaryExpression() : {Expression expr;Token n;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  (n =  &quot;+&quot; | n = &quot;-&quot; ) expr=unaryExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr, new _stringLiteral(&quot;unary&quot;),lvalue);<br>
+  expr = new _identifier(ic3a.lvalue); <br>
+  vec.addElement(ic3a);<br>
+  return  expr;//new _identifier(ic3a.lvalue);<br>
+  }<br>
+  |  expr=preIncrementExpression()<br>
+  {<br>
+  return expr;<br>
+  }<br>
+  |  expr=preDecrementExpression()<br>
+  {<br>
+  return expr;<br>
+  }<br>
+  |  expr=unaryExpressionNotPlusMinus() <br>
+  {<br>
+  return expr;<br>
+  }<br>
+  }</p>
+<p>Expression preIncrementExpression() : {Expression expr; Token n;IC3A ic3a;String lvalue;}<br>
+  {<br>
+  n=&quot;++&quot; expr=primaryExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr, new _stringLiteral(&quot;prefix&quot;),lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  }</p>
+<p>Expression preDecrementExpression() : {Expression expr1;IC3A ic3a; Token n;String lvalue;}<br>
+  {<br>
+  n=&quot;--&quot; expr1=primaryExpression() <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr1, new _stringLiteral(&quot;prefix&quot;),lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  }</p>
+<p>Expression unaryExpressionNotPlusMinus() : {Expression expr;IC3A ic3a; Token n;String lvalue;}<br>
+  {<br>
+  ( n = &quot;~&quot; | n = &quot;!&quot; ) expr=unaryExpression() <br>
+  { <br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr, new _stringLiteral(&quot;unary&quot;),lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  |  expr=postfixExpression() <br>
+  {<br>
+  return expr;<br>
+  }<br>
+  }</p>
+<p>Expression postfixExpression() : {Expression expr1;Expression expr2;IC3A ic3a; Token n;String lvalue;}<br>
+  {<br>
+  expr1=primaryExpression() <br>
+  [ n = &quot;++&quot; <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr1, new _stringLiteral(&quot;postfix&quot;),lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  | n = &quot;--&quot; <br>
+  {<br>
+  tcnt=tcnt+1;<br>
+  lvalue = &quot;t&quot; + tcnt; <br>
+  ic3a = new IC3A(labelpending,n.toString(), expr1, new _stringLiteral(&quot;postfix&quot;),lvalue);<br>
+  vec.addElement(ic3a);<br>
+  return  new _identifier(ic3a.lvalue);<br>
+  }<br>
+  ] <br>
+  {return expr1;}<br>
+  }</p>
+<p>Expression primaryExpression() : {Expression expr;String s;}<br>
+  {<br>
+  expr=literal() <br>
+  {<br>
+  return expr;<br>
+  }<br>
+  |  s=name() <br>
+  {<br>
+  expr = new _identifier(s); <br>
+  {<br>
+  ctSymTab = symTab;<br>
+  boolean found = false;<br>
+  while(ctSymTab != null)<br>
+  {<br>
+  if(ctSymTab.hm.containsKey(s))<br>
+  {<br>
+  found = true;<br>
+  break;<br>
+  }<br>
+  else<br>
+  ctSymTab = ctSymTab.prevTab;<br>
+  }<br>
+  if(found == false)<br>
+  {<br>
+  System.out.println(s + &quot;is undeclared identifier\n&quot; );<br>
+  }<br>
+  }<br>
+  return expr;<br>
+  } <br>
+  |  &quot;(&quot; expr=expression() &quot;)&quot; <br>
+  {<br>
+  return expr;<br>
+  }<br>
+  }</p>
+<p>Expression literal() : {Token n;} <br>
+  {<br>
+  n=&lt;_integerLiteral&gt; <br>
+  {<br>
+  return new _integerLiteral(Integer.parseInt(n.image));<br>
+  }<br>
+  | n=&lt;_floatingPointLiteral&gt; <br>
+  {<br>
+  return new _floatingPointLiteral(Double.parseDouble(n.image));<br>
+  }<br>
+  | n= &lt;_stringLiteral&gt; <br>
+  {<br>
+  return new _stringLiteral(n.image);<br>
+  }<br>
+  }</p>
+<p>void arguments() : {}<br>
+  {<br>
+  &quot;(&quot; [ argumentList() ] &quot;)&quot;<br>
+  }</p>
+<p>void argumentList() : {}<br>
+  {<br>
+  expression() ( &quot;,&quot; expression() )*<br>
+  }</p>
+<p>void arrayDimensions() : {}<br>
+  {<br>
+  ( LOOKAHEAD(2) &quot;[&quot; expression() &quot;]&quot; )+ ( LOOKAHEAD(2) &quot;[&quot; &quot;]&quot; )*<br>
+  }<br>
+</p>
+<p>void statement() : {}<br>
+  {<br>
+  LOOKAHEAD(2) labeledStatement()<br>
+  |  block() <br>
+  |  emptyStatement()<br>
+  |  statementExpression() &quot;;&quot; <br>
+  |  switchStatement()<br>
+  |  ifStatement()<br>
+  |  whileStatement()<br>
+  |  doStatement()<br>
+  |  forStatement()<br>
+  |  breakStatement()<br>
+  |<br>
+  continueStatement()<br>
+  |<br>
+  returnStatement()<br>
+  }</p>
+<p>void labeledStatement() : {}<br>
+  {<br>
+  &lt;_identifier&gt; &quot;:&quot; statement()<br>
+  }</p>
+<p>void block() : {}<br>
+  {<br>
+  &quot;{&quot; <br>
+  {<br>
+  <br>
+  prevsymTab = symTab;<br>
+  symTab = new SymTab();<br>
+  symTab.structLink = null;<br>
+  symTab.hm = new HashMap();<br>
+  symTab.prevTab = prevsymTab;<br>
+  }<br>
+  ( blockStatement() )* <br>
+  &quot;}&quot;<br>
+  { <br>
+  symTab.dispSymbols();<br>
+  symTab = symTab.prevTab;<br>
+  <br>
+  }<br>
+  }</p>
+<p>void blockStatement() : {}<br>
+  {<br>
+  LOOKAHEAD(type() &lt;_identifier&gt;)  localVariableDeclaration() &quot;;&quot;<br>
+  |  statement()<br>
+  }<br>
+</p>
+<p>void localVariableDeclaration() : {Token n;Token n1;Type dtype;Symbol sym;int storage;int qualifier;}<br>
+  {<br>
+  {<br>
+  Symbol symbol;<br>
+  storage=Constants.AUTO; qualifier=Constants.VOLATILE;<br>
+  }<br>
+  [ <br>
+  n=&quot;auto&quot;  		{storage=Constants.AUTO;}<br>
+  | n=&quot;register&quot;		{storage=Constants.REGISTER;}<br>
+  | n=&quot;static&quot; 		{storage=Constants.STATIC;}<br>
+  | n = &quot;extern&quot; 		{storage=Constants.EXTERN;}<br>
+  | n=&quot;typedef&quot;		{storage=Constants.TYPEDEF;}<br>
+  ] <br>
+  <br>
+  [ <br>
+  n1 =&quot;const&quot; 		{qualifier=Constants.CONSTANT;}<br>
+  | n1=&quot;restrict&quot;		{qualifier=Constants.RESTRICT;}<br>
+  | n1 = &quot;volatile&quot;	{qualifier=Constants.VOLATILE;}<br>
+  ] <br>
+  dtype=type() <br>
+  sym=variableDeclarator()<br>
+  {<br>
+  symbol = new Symbol();<br>
+  symbol.storage=storage;<br>
+  symbol.qualifier=qualifier;<br>
+  symbol.type=dtype;<br>
+  switch(dtype.subtype)<br>
+  {<br>
+  case Constants.CHAR: <br>
+  symbol.width=1;<br>
+  break;<br>
+  case Constants.INTEGER: <br>
+  symbol.width=4;<br>
+  break;<br>
+  case Constants.FLOAT: <br>
+  symbol.width=4;<br>
+  break;<br>
+  case Constants.DOUBLE: <br>
+  symbol.width=8;<br>
+  break;<br>
+  default: <br>
+  symbol.width=4;<br>
+  }<br>
+  symbol.name=sym.name;<br>
+  symTab.hm.put(symbol.name, symbol);<br>
+  }<br>
+  ( &quot;,&quot; <br>
+  sym=variableDeclarator() <br>
+  {<br>
+  symbol = new Symbol();<br>
+  symbol.storage=storage;<br>
+  symbol.qualifier=qualifier;<br>
+  symbol.type=dtype;<br>
+  switch(dtype.subtype)<br>
+  {<br>
+  case Constants.CHAR: <br>
+  symbol.width=1;<br>
+  break;<br>
+  case Constants.INTEGER: <br>
+  symbol.width=4;<br>
+  break;<br>
+  case Constants.FLOAT: <br>
+  symbol.width=4;<br>
+  break;<br>
+  case Constants.DOUBLE: <br>
+  symbol.width=8;<br>
+  break;<br>
+  default: <br>
+  symbol.width=4;<br>
+  }<br>
+  symbol.name=sym.name;<br>
+  symTab.hm.put(symbol.name, symbol);<br>
+  }<br>
+  )* <br>
+  }<br>
+</p>
+<p>void emptyStatement() : {}<br>
+  {<br>
+  &quot;;&quot;<br>
+  }</p>
+<p>Expression statementExpression() : {Expression expr1;Expression expr2;IC3A ic3a;String s;}<br>
+  {<br>
+  expr1=preIncrementExpression()  {return expr1;}<br>
+  | expr1=preDecrementExpression() {return expr1;}<br>
+  |  LOOKAHEAD( primaryExpression() s=assignmentOperator() )  expr1=assignment() { return expr1;}<br>
+  |  expr1=postfixExpression() {return expr1;}<br>
+  }</p>
+<p>void ifStatement() : {String labelElse;String labelEndif;Expression expr;IC3A ic3a;Expression texpr;}<br>
+  {<br>
+  &quot;if&quot; &quot;(&quot; <br>
+  {<br>
+  lcnt=lcnt+1;<br>
+  labelElse = &quot;L&quot; + lcnt;<br>
+  }<br>
+  expr=expression()<br>
+  &quot;)&quot; <br>
+  { <br>
+  texpr =  new _integerLiteral(Integer.parseInt(&quot;0&quot;));<br>
+  <br>
+  ic3a = new IC3A(labelpending,&quot;IFGO&quot;, expr, texpr,labelElse);<br>
+  vec.addElement(ic3a);<br>
+  }<br>
+  statement()<br>
+  {<br>
+  labelpending = labelElse;<br>
+  }<br>
+  [ LOOKAHEAD(1) <br>
+  &quot;else&quot; <br>
+  {<br>
+  lcnt=lcnt+1;<br>
+  labelEndif = &quot;L&quot; + lcnt;<br>
+  expr = new _identifier(&quot; &quot;);<br>
+  texpr = new _identifier(&quot; &quot;);<br>
+  ic3a = new IC3A(&quot; &quot;,&quot;GOTO&quot;, expr, texpr,labelEndif);<br>
+  vec.addElement(ic3a);<br>
+  labelpending = labelElse;<br>
+  }<br>
+  statement()<br>
+  { <br>
+  labelpending = labelEndif;<br>
+  }<br>
+  ]<br>
+  <br>
+  }</p>
+<p>void switchStatement() : {}<br>
+  {<br>
+  &quot;switch&quot; &quot;(&quot; expression() &quot;)&quot; &quot;{&quot;<br>
+  ( switchLabel() ( blockStatement() )* )*<br>
+  &quot;}&quot;<br>
+  }</p>
+<p>void switchLabel() : {}<br>
+  {<br>
+  &quot;case&quot; expression() &quot;:&quot;<br>
+  |<br>
+  &quot;default&quot; &quot;:&quot;<br>
+  }<br>
+</p>
+<p>void whileStatement() : {String labelWhileBegin; String labelWhileEnd;Expression expr;Expression texpr;IC3A ic3a;}<br>
+  {<br>
+  &quot;while&quot; &quot;(&quot; <br>
+  {<br>
+  lcnt=lcnt+1;<br>
+  labelWhileBegin = &quot;L&quot; + lcnt;<br>
+  lcnt=lcnt+1;<br>
+  labelWhileEnd = &quot;L&quot; + lcnt;<br>
+  labelpending = labelWhileBegin;<br>
+  }<br>
+  expr=expression() &quot;)&quot; <br>
+  { <br>
+  texpr =  new _integerLiteral(Integer.parseInt(&quot;0&quot;));<br>
+  ic3a = new IC3A(&quot; &quot;,&quot;IFGO&quot;, expr, texpr,labelWhileEnd);<br>
+  vec.addElement(ic3a);<br>
+  }<br>
+  statement()<br>
+  {<br>
+  expr = new _identifier(&quot; &quot;);<br>
+  texpr = new _identifier(&quot; &quot;);<br>
+  ic3a = new IC3A(labelpending,&quot;GOTO&quot;, expr, texpr,labelWhileBegin);<br>
+  vec.addElement(ic3a);<br>
+  labelpending = labelWhileEnd;<br>
+  }<br>
+  }</p>
+<p>void doStatement() : {}<br>
+  {<br>
+  &quot;do&quot; statement() &quot;while&quot; &quot;(&quot; expression() &quot;)&quot; &quot;;&quot;<br>
+  }</p>
+<p>void forStatement() : {}<br>
+  {<br>
+  &quot;for&quot; &quot;(&quot; [ forInit() ] &quot;;&quot; [ expression() ] &quot;;&quot; [ forUpdate() ] &quot;)&quot; statement()<br>
+  }</p>
+<p>void forInit() : {}<br>
+  {<br>
+  LOOKAHEAD( type() &lt;_identifier&gt; )<br>
+  localVariableDeclaration()<br>
+  |  statementExpressionList()<br>
+  }</p>
+<p>void statementExpressionList() : {}<br>
+  {<br>
+  statementExpression() ( &quot;,&quot; statementExpression() )*<br>
+  }</p>
+<p>void forUpdate() : {}<br>
+  {<br>
+  statementExpressionList()<br>
+  }</p>
+<p>void breakStatement() : {}<br>
+  {<br>
+  &quot;break&quot; [ &lt;_identifier&gt; ] &quot;;&quot;<br>
+  }</p>
+<p>void continueStatement() : {}<br>
+  {<br>
+  &quot;continue&quot; [ &lt;_identifier&gt; ] &quot;;&quot;<br>
+  }</p>
+<p>void returnStatement() : {}<br>
+  {<br>
+  &quot;return&quot; [ expression() ] &quot;;&quot;<br>
+  }</p>
+<p></p>
+<p><br>
+  </p>
+</p>
+<p><br>
+</p>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+</body>
+</html>

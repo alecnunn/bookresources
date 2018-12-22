@@ -1,0 +1,20 @@
+MACCHAIR.3DS - designer chair
+
+Mesh Objects: Total vertices:    889
+              Total faces:      1323
+
+Demonstration file from one of the Acuris ClipModel (TM) libraries.
+
+Acuris
+125 University Ave Suite 125 * Palo Alto CA 94301-1630
+(415) 329 1920
+
+  Object    Verts  Faces      Material        Mapping   Hidden
+----------  -----  -----  ----------------  ----------- ------
+trim          151    145  BROWN MATTE       Applied      No
+chair         514    769  MAROON PEARL      Applied      No
+seat           12     12  BEIGE MATTE       Applied      No
+arms          212    397  MAROON PEARL      Applied      No
+----------  -----  -----  ----------------  ----------- ------
+Total         889   1323
+

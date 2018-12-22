@@ -1,0 +1,59 @@
+/************************************************************************
+EqualWeightCombine_PostMult.nvp
+
+Simple pixel shader that samples all 4 texture stages, averages these
+samples and outputs the result.
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+def c7, 0.5, 0.5, 0.5, 1.0
+
+
+; get colors from all 4 texture stages
+tex t0
+tex t1
+tex t2
+tex t3
+
+; and average them according to weights in constant mem:
+; r0 = fac * t0 + fac * t1 + fac * t2 + fac * t3
+;mul r0, c[PCN_MULTFACTOR], t0
+;mad r1, c[PCN_MULTFACTOR], t1, r0
+;mad r0, c[PCN_MULTFACTOR], t2, r1
+;mad r0, c[PCN_MULTFACTOR], t3, r0
+
+
+;mov r0, t0
+;mov r1, t2
+
+add_d2  r0, t0_bias, t1_bias
+add_d2  r1, t2_bias, t3_bias
+
+add_d2  r0, r0, r1
+
+// bring back to 0 to 1
+add     r0, r0, c7
+
+;mul r0, c[PCN_MULTFACTOR_1], r0
+;mad r0, c[PCN_MULTFACTOR_2], r1, r0
+
+
+;mov r0, t0
+;mov r1, t2
+;add_d2 r0, r0, t1
+;add_d2 r1, r1, t3
+;mul r0, c[PCN_MULTFACTOR_1], r0
+;mad r0, c[PCN_MULTFACTOR_2], r1, r0
+
+
+
+

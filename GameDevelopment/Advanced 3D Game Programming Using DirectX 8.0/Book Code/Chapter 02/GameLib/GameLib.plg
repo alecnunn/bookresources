@@ -1,0 +1,116 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GameLib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPAFD.tmp" with contents
+[
+/nologo /MLd /W2 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/GameLib.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\Application.cpp"
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\File.cpp"
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\Window.cpp"
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp"
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\Sound.cpp"
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\SoundLayer.cpp"
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\InputLayer.cpp"
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\Keyboard.cpp"
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\Mouse.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPAFD.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPAFE.tmp" with contents
+[
+/nologo /MLd /W2 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\wavread.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPAFE.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPAFF.tmp" with contents
+[
+/nologo /MLd /W2 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/GameLib.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\3D Book CD\Book Code\Chapter 02\GameLib\StdAfx.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPAFF.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPB00.tmp" with contents
+[
+/nologo /out:"..\lib\GameLib.lib" 
+".\Debug\Application.obj"
+".\Debug\File.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Window.obj"
+".\Debug\GraphicsLayer.obj"
+".\Debug\Sound.obj"
+".\Debug\SoundLayer.obj"
+".\Debug\wavread.obj"
+".\Debug\InputLayer.obj"
+".\Debug\Keyboard.obj"
+".\Debug\Mouse.obj"
+]
+Creating command line "link.exe -lib @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSPB00.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+GraphicsLayer.cpp
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(281) : error C2039: 'InitDDrawFullscreen' : is not a member of 'cGraphicsLayer'
+        f:\3d book cd\book code\chapter 02\gamelib\graphicslayer.h(42) : see declaration of 'cGraphicsLayer'
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(292) : error C2065: 'DirectDrawCreateEx' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(294) : error C2065: 'm_pDD' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(295) : error C2065: 'IID_IDirectDraw7' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(306) : error C2227: left of '->SetCooperativeLevel' must point to class/struct/union
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(307) : error C2065: 'm_hWnd' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(308) : error C2065: 'DDSCL_ALLOWREBOOT' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(308) : error C2065: 'DDSCL_EXCLUSIVE' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(308) : error C2065: 'DDSCL_FULLSCREEN' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(318) : error C2065: 'm_rcScreenRect' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(319) : error C2065: 'm_rcViewportRect' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(327) : error C2227: left of '->SetDisplayMode' must point to class/struct/union
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(330) : error C2227: left of '->SetDisplayMode' must point to class/struct/union
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(334) : error C2227: left of '->SetDisplayMode' must point to class/struct/union
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(345) : error C2065: 'MakeFullscreenBuffers' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(359) : error C2065: 'sSurfDesc' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(359) : error C2146: syntax error : missing ';' before identifier 'sd'
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(359) : error C2065: 'sd' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(360) : error C2065: 'DDSD_CAPS' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(360) : error C2065: 'DDSD_BACKBUFFERCOUNT' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(361) : error C2065: 'DDSCAPS_PRIMARYSURFACE' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(361) : error C2065: 'DDSCAPS_3DDEVICE' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(362) : error C2065: 'DDSCAPS_FLIP' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(362) : error C2065: 'DDSCAPS_COMPLEX' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(363) : error C2228: left of '.dwBackBufferCount' must have class/struct/union type
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(368) : error C2227: left of '->CreateSurface' must point to class/struct/union
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(368) : error C2065: 'm_pddsPrimary' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(377) : error C2065: 'DDSCAPS2' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(377) : error C2146: syntax error : missing ';' before identifier 'ddscaps'
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(377) : error C2065: 'ddscaps' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(377) : error C2059: syntax error : '{'
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(377) : error C2143: syntax error : missing ';' before '{'
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(377) : error C2065: 'DDSCAPS_BACKBUFFER' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(377) : error C2143: syntax error : missing ';' before '}'
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(378) : error C2227: left of '->GetAttachedSurface' must point to class/struct/union
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(380) : error C2065: 'm_pddsBackBuffer' : undeclared identifier
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(392) : error C2227: left of '->AddRef' must point to class/struct/union
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(411) : error C2227: left of '->GetDC' must point to class/struct/union
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(428) : error C2227: left of '->ReleaseDC' must point to class/struct/union
+F:\3D Book CD\Book Code\Chapter 02\GameLib\GraphicsLayer.cpp(477) : error C2039: 'InitDDrawFullscreen' : is not a member of 'cGraphicsLayer'
+        f:\3d book cd\book code\chapter 02\gamelib\graphicslayer.h(42) : see declaration of 'cGraphicsLayer'
+Generating Code...
+Skipping... (no relevant changes detected)
+Application.cpp
+File.cpp
+Window.cpp
+Sound.cpp
+SoundLayer.cpp
+InputLayer.cpp
+Keyboard.cpp
+Mouse.cpp
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+GameLib.lib - 40 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

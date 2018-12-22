@@ -1,0 +1,58 @@
+//Given: 
+Contact contacts[numContacts];
+int numClusters = 3;
+
+struct Cluster
+{
+    Point    mCenter;
+    Point    mNextCenter;
+    int      mNumMembers;
+} clusters[numClusters];
+
+//initialization:
+//too few contacts to make k-means worthwile. 
+//In this case we just create numContacts contact 
+//groups.
+
+if(numClusters > numContacts)    return false;
+
+//initialize clusters to first few inputs.
+
+for(int c = 0;  c < numClusters; c++)
+{
+    Cluster &cl = clusters[c];
+    cl.mCenter = contacts[c].mNormal;
+    cl.mNextCenter.Zero();
+    cl.mNumMembers = 0;
+}
+
+for(int i = 0; i < numIters; i++)
+{
+    for(int j = 0; j < numContacts; j++)
+    {
+        Contact &con = contacts[j];
+        int nearestCluster = 0;
+        float minDist = squaredDist(con.mNormal, clusters[0].mCenter);
+	
+        for(int c = 0;  c < numClusters; c++)
+		{
+            float d = squaredDist(con.mNormal, clusters[c].mCenter);
+            if (d < minDist)
+            {
+                minDist = d;
+                nearestCluster = c;
+            }
+        }
+        con.mCluster = nearestCluster;
+        clusters[nearestCluster].mNextCenter += con.mNormal;
+        clusters[nearestCluster].mNumMembers ++;
+    }
+
+    for(int c = 0;  c < numClusters; c++)
+	{
+        Cluster & cl = clusters[c];
+        cl.mCenter = cl.mNextCenter * 1/ cl.mNumMembers;
+        cl.mNextCenter.Zero();
+        cl.mNumMembers = 0;
+    }
+}

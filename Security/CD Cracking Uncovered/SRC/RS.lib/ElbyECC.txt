@@ -1,0 +1,60 @@
+Microsoft (R) COFF Binary File Dumper Version 6.00.8168
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+
+Dump of file ElbyECC.dll
+
+File Type: DLL
+
+  Section contains the following exports for ElbyECC.dll
+
+           0 characteristics
+    3CA5A0B5 time date stamp Sat Mar 30 14:25:41 2002
+        0.00 version
+           1 ordinal base
+          33 number of functions
+          33 number of names
+
+    ordinal hint RVA      name
+
+          1    0 000070D0 BCD2BIN                                  +
+          2    1 00001210 BCDtoLBA                                 +
+          3    2 00001000 BCDtoMSF                                 +
+          4    3 00001230 BCDtoULBA                                +
+          5    4 000071D0 BIN2BCD                                  +
+          6    5 00001260 CheckECCAndEDC_Mode1                     +
+          7    6 00001850 CheckECCAndEDC_Mode2Form1                +
+          8    7 000018D0 CheckECCAndEDC_Mode2Form2                +
+          9    8 00002230 CheckSector                              +
+         10    9 00002270 CheckSectors                             +
+         11    A 00001A30 GenECCAndEDC_Mode1                       +
+         12    B 00001AA0 GenECCAndEDC_Mode2Form1                  +
+         13    C 00001B20 GenECCAndEDC_Mode2Form2                  +
+         14    D 00002000 GenHeadAndSyc_4_RawDatenLeadin_0Sect     +
+         15    E 000022C0 GenerateSector                           +
+         16    F 00001F60 IdentifyTrack                            +
+         17   10 00001150 LBAtoBCD                                 +
+         18   11 00001080 LBAtoMSF                                 +
+         19   12 00001040 MSFtoBCD                                 +
+         20   13 00001190 MSFtoLBA                                 +
+         21   14 000011D0 MSFtoULBA                                +
+         22   15 000020E0 RawScrambleSector                        +
+         23   16 000021B0 RawScrambleSectors                       +
+         24   17 00001A00 ReGenECCAndEDC                           +
+         25   18 00001940 ReGenECCAndEDC_Mode1                     +
+         26   19 000019A0 ReGenECCAndEDC_Mode2Form1                +
+         27   1A 00002110 ScrambleSector                           +
+         28   1B 00002170 ScrambleSectors                          +
+         29   1C 00008B18 SyncByteTemplate                         +
+         30   1D 00001170 ULBAtoBCD                                +
+         31   1E 000010F0 ULBAtoMSF                                +
+         32   1F 00002140 UnScrambleSector                         +
+         33   20 000021E0 UnScrambleSectors                        +
+
+  Summary
+
+        4000 .data
+        3000 .rdata
+        1000 .reloc
+        1000 .rsrc
+        6000 .text

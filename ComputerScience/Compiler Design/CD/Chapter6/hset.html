@@ -1,0 +1,305 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - hset</h2>
+<p>#include &quot;ic.h&quot;<br>
+  void initHash(int size)<br>
+  {<br>
+  int ii;<br>
+hsize = size;<br>
+HashTable = (List*)malloc(sizeof(List) * hsize);<br>
+if(HashTable == NULL) <br>
+{<br>
+printf(&quot;Memory allocation problem\n&quot;);<br>
+exit(-1);<br>
+}<br>
+for(ii=0;ii&lt;hsize;ii++)<br>
+{<br>
+HashTable[ii]=(LNode*)malloc(sizeof(LNode));<br>
+if(HashTable[ii] == NULL) <br>
+{ <br>
+printf(&quot;error in memory allocation for hash table\n&quot;);<br>
+exit(-1);<br>
+}<br>
+HashTable[ii]-&gt;next = NULL;<br>
+HashTable[ii]-&gt;symbol.name=NULL;<br>
+HashTable[ii]-&gt;symbol.nameLen = 0;<br>
+HashTable[ii]-&gt;symbol.storage = DEFAULT;<br>
+HashTable[ii]-&gt;symbol.qualifier = DEFAULT;<br>
+HashTable[ii]-&gt;symbol.sign = DEFAULT;<br>
+HashTable[ii]-&gt;symbol.type = DEFAULT;<br>
+HashTable[ii]-&gt;symbol.width = 0;<br>
+}<br>
+}</p>
+<p>void destroySymbolTable(int size)<br>
+  {<br>
+  int ii;<br>
+  List L,tmp;<br>
+  for(ii = 0;ii&lt;size;ii++)<br>
+  {<br>
+  L = HashTable[ii];<br>
+  while (L != NULL)<br>
+  {<br>
+  tmp = L;<br>
+  L = L-&gt;next;<br>
+  free(L);<br>
+  }<br>
+  }<br>
+  }<br>
+  <br>
+  void dispSymbolTableHash()<br>
+  {<br>
+  List L;<br>
+  int ii;<br>
+  printf(&quot;Name\tQualfier\tStorage\tSign\tCategory\tType\tWidth\tMem relAddr\n&quot;);<br>
+  for(ii=0;ii&lt;hsize;ii++)<br>
+  {<br>
+  L = HashTable[ii];<br>
+  while(L-&gt;next != NULL)<br>
+  {<br>
+  dispNodeHash(L-&gt;next);<br>
+  L = L-&gt;next;<br>
+  }<br>
+  }<br>
+  }<br>
+  <br>
+  void dispNodeHash(LNode *p)<br>
+  {<br>
+  printf(&quot;%s\t%s\t\t%s\t%s\t%s\t\t%s\t%d\t%ld\n&quot;,p-&gt;symbol.name,qualifiers[p-&gt;symbol.qualifier],stores[p-&gt;symbol.storage],signs[p-&gt;symbol.sign],types1[p-&gt;symbol.subtype],types[p-&gt;symbol.datatype],p-&gt;symbol.width,p-&gt;symbol.relAddr);</p>
+<p> /*switch(p-&gt;symbol.type)<br>
+  {<br>
+  case CHAR:<br>
+  printf(&quot;%c &quot;,p-&gt;symbol.value.cVal);<br>
+  break;<br>
+  case INT:<br>
+  printf(&quot;%d &quot;,p-&gt;symbol.value.iVal);<br>
+  break;<br>
+  case FLOAT:<br>
+  printf(&quot;%f &quot;,p-&gt;symbol.value.fVal);<br>
+  break;<br>
+  case LONG:<br>
+  printf(&quot;%ld &quot;,p-&gt;symbol.value.lVal);<br>
+  break;<br>
+  case DOUBLE:<br>
+  printf(&quot;%lf &quot;,p-&gt;symbol.value.dVal);<br>
+  break;<br>
+  case STRING:<br>
+  printf(&quot;%s&quot;,p-&gt;symbol.oVal);<br>
+  break;<br>
+  }*/<br>
+  printf(&quot;\n&quot;);<br>
+  }</p>
+<p>LNode* findSymbolHash(char *name)<br>
+  {<br>
+  List L;<br>
+  int idx;<br>
+  idx = findHash(name);<br>
+  L = HashTable[idx];<br>
+  while(L-&gt;next != NULL)<br>
+  {<br>
+  if(strcmp(name,L-&gt;next-&gt;symbol.name) == 0)<br>
+  return L-&gt;next;<br>
+  L = L-&gt;next;<br>
+  }<br>
+  return NULL;<br>
+  }</p>
+<p>int assignValueHash(char *name,char value[])<br>
+  {<br>
+  LNode *p;<br>
+  char *str;<br>
+  p=findSymbolHash(name);<br>
+  if(p!=NULL)<br>
+  {<br>
+  switch(p-&gt;symbol.type)<br>
+  {<br>
+  case CHAR:<br>
+  p-&gt;symbol.value.cVal = *value;<br>
+  break;<br>
+  case INT:<br>
+  p-&gt;symbol.value.iVal = atoi(value);<br>
+  break;<br>
+  case FLOAT:<br>
+  p-&gt;symbol.value.fVal = atof(value);<br>
+  break;<br>
+  case LONG:<br>
+  p-&gt;symbol.value.lVal = atol(value);<br>
+  break;<br>
+  case DOUBLE:<br>
+  p-&gt;symbol.value.dVal = atof(value);<br>
+  break;<br>
+  case STRING:<br>
+  str = (char*)malloc(strlen(value));<br>
+  strcpy(str,value);<br>
+  p-&gt;symbol.value.string=str;<br>
+  break;<br>
+  }<br>
+  }<br>
+  else <br>
+  {<br>
+  printf(&quot;%s : Not found\n&quot;,name);<br>
+  return -1;<br>
+  }<br>
+  return 1;<br>
+  }</p>
+<p>int findHash(char *name)<br>
+  {<br>
+  int hashVal = 0;<br>
+  while(*name != '\0')<br>
+  hashVal += *name++;<br>
+  return hashVal % hsize;<br>
+  }</p>
+<p>int addSymbolHash(Symbol symbol)<br>
+  {<br>
+  LNode *p,*sp;<br>
+  int ret,idx;<br>
+  char *str=NULL;<br>
+  idx = findHash(symbol.name);<br>
+  p = HashTable[idx];<br>
+  while(p-&gt;next != NULL) <br>
+  {<br>
+  ret = strcmp(symbol.name,p-&gt;next-&gt;symbol.name);<br>
+  if(ret == 0)<br>
+  {<br>
+  printf(&quot;%s: %d: Error: %s is redefined\n&quot;,srcFileName,lineNo,symbol.name);<br>
+  return -1;<br>
+  }<br>
+  p = p-&gt;next;<br>
+  }<br>
+  sp = malloc(sizeof(LNode));<br>
+  if(sp==NULL)<br>
+  {<br>
+  printf(&quot;Error in memory allocations\n&quot;);<br>
+  exit(-1);<br>
+  }<br>
+  sp-&gt;symbol.type = symbol.type;<br>
+  sp-&gt;symbol.qualifier = symbol.qualifier;<br>
+  sp-&gt;symbol.storage = symbol.storage;<br>
+  sp-&gt;symbol.sign = symbol.sign;<br>
+  sp-&gt;symbol.type = symbol.type;<br>
+  sp-&gt;symbol.subtype = symbol.subtype;<br>
+  sp-&gt;symbol.datatype = symbol.datatype;<br>
+  sp-&gt;symbol.width = symbol.width;<br>
+  sp-&gt;symbol.name = malloc(strlen(symbol.name)+1);<br>
+  sp-&gt;symbol.nameLen=symbol.nameLen;<br>
+  strcpy(sp-&gt;symbol.name,symbol.name);<br>
+  sp-&gt;symbol.relAddr = symbol.relAddr;<br>
+  sp-&gt;symbol.dimArray = symbol.dimArray;<br>
+  sp-&gt;next = NULL;<br>
+  p-&gt;next = sp;<br>
+  noElements = noElements + 1;<br>
+  return 1;<br>
+  }</p>
+<p>short int findDType(Attr attr)<br>
+  {<br>
+  short int sType;<br>
+  LNode *L;<br>
+  if(attr.type==CONST)<br>
+  {	if(attr.datatype == INT)<br>
+  return INT;<br>
+  else if(attr.datatype == DOUBLE)<br>
+  return DOUBLE;<br>
+  else if(attr.datatype == CHAR)<br>
+  return CHAR;<br>
+  }<br>
+  L = findSymbolHash(attr.name);<br>
+  //printf(&quot;The retrieved info from ST--&gt;name = %s type = %d\n&quot;,L-&gt;symbol.name,L-&gt;symbol.type);<br>
+  if(L == NULL)<br>
+  {<br>
+  printf(&quot;%s: not available in the Symbol Table\n&quot;,attr.name);<br>
+  exit(-1);<br>
+  }<br>
+  return L-&gt;symbol.datatype;<br>
+  } <br>
+</p>
+<p>Symbol copySymbol(Attr attr, char name[NAMESIZE])<br>
+  {<br>
+  char *ptr;<br>
+  Symbol sym;<br>
+  LNode *L;<br>
+  L = findSymbolHash(attr.name);<br>
+  sym.nameLen = strlen(name);<br>
+  sym.name = malloc(strlen(name)+1);<br>
+  strcpy(sym.name,name);<br>
+  sym.storage = L-&gt;symbol.storage;<br>
+  sym.qualifier = L-&gt;symbol.qualifier; <br>
+  sym.sign=L-&gt;symbol.sign;<br>
+  sym.type = L-&gt;symbol.type;<br>
+  if(attr.type == ARRAY)<br>
+  strcpy(sym.offsetName,attr.offsetName);<br>
+  sym.subtype = L-&gt;symbol.subtype;<br>
+  sym.datatype = L-&gt;symbol.datatype;<br>
+  sym.width = L-&gt;symbol.width;<br>
+  sym.relAddr=relAddr;<br>
+  relAddr = relAddr + sym.width;<br>
+  return sym;<br>
+  }<br>
+  Symbol initSymbol()<br>
+  {<br>
+  Symbol sym;<br>
+  sym.nameLen = 0;<br>
+  sym.name = NULL;<br>
+  sym.storage = DEFAULT;<br>
+  sym.qualifier = DEFAULT;<br>
+  sym.sign=DEFAULT;<br>
+  sym.type =DEFAULT;<br>
+  sym.subtype = DEFAULT;<br>
+  sym.width = 0;<br>
+  sym.relAddr=0;<br>
+  strcpy(sym.offsetName,&quot;&quot;);<br>
+  return sym;<br>
+  }</p>
+<p>void copyAttr2Symbol(Attr attr, Symbol *sym)<br>
+  {<br>
+  sym-&gt;nameLen = strlen(attr.name);<br>
+  sym-&gt;name=malloc(strlen(attr.name)+1);<br>
+  strcpy(sym-&gt;name,attr.name);<br>
+  sym-&gt;storage = DEFAULT;<br>
+  sym-&gt;qualifier = DEFAULT;<br>
+  sym-&gt;sign=DEFAULT;<br>
+  sym-&gt;type =attr.type;<br>
+  sym-&gt;subtype = attr.subtype;<br>
+  sym-&gt;datatype = attr.datatype;<br>
+  switch(attr.datatype)<br>
+  {<br>
+  case CHAR: <br>
+  sym-&gt;width = sizeof(char);<br>
+  break; <br>
+  case INT: <br>
+  sym-&gt;width = sizeof(int);<br>
+  break; <br>
+  case LONG: <br>
+  sym-&gt;width = sizeof(long);<br>
+  break; <br>
+  case FLOAT: <br>
+  sym-&gt;width = sizeof(float);<br>
+  break; <br>
+  case DOUBLE: <br>
+  sym-&gt;width = sizeof(double);<br>
+  break; <br>
+  case STRING: <br>
+  sym-&gt;width = strlen(attr.value.string);<br>
+  break; <br>
+  }<br>
+  sym-&gt;relAddr=relAddr;<br>
+  relAddr += sym-&gt;width;<br>
+  strcpy(sym-&gt;offsetName,attr.offsetName);<br>
+  }<br>
+  Symbol createTempSymbolWithType(Attr attr1,Attr attr2, Attr attr3)<br>
+  {<br>
+  Symbol tSym; <br>
+  short stype1,stype2,dType1,dType2,dType3;<br>
+  dType1 = findDType(attr1);<br>
+  dType2 = findDType(attr2);<br>
+  dType3 = sizes[dType1] &gt; sizes[dType2]? dType1:dType2;<br>
+  if(dType3 == dType1)<br>
+  tSym=copySymbol(attr1,attr3.name);<br>
+  else<br>
+  tSym=copySymbol(attr2,attr3.name);<br>
+  return tSym;<br>
+  } <br>
+</p>
+<p><br>
+</p>
+</body>
+</html>

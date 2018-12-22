@@ -1,0 +1,17 @@
+#include "texkill.h"
+
+vs.1.0
+
+; Transform position
+dp4 oPos.x, v0, c[CV_WORLDVIEWPROJ_0]
+dp4 oPos.y, v0, c[CV_WORLDVIEWPROJ_1]
+dp4 oPos.z, v0, c[CV_WORLDVIEWPROJ_2]
+dp4 oPos.w, v0, c[CV_WORLDVIEWPROJ_3]
+
+; Transform position by clipplane in world space
+dp4 oT0.x, v0, c[CV_CLIPPLANE_0]
+dp4 oT0.y, v0, c[CV_CLIPPLANE_1]
+dp4 oT0.z, v0, c[CV_CLIPPLANE_2]
+
+dp3 r1, v1, c[CV_LIGHTVECTOR]
+mul oD0, r1, c[CV_MAT_COLOR]

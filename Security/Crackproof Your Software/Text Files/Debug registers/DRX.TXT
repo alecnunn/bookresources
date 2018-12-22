@@ -1,0 +1,42 @@
+
+DR7 - Debug control
+
+    3                          2                          1
+ 1  0  9 8  7  6  5 4  3  2  1 0  9  8  7 6  5 4   3  2 1 0   9   8   7   6   5   4   3   2   1   0
+[LEN3][RW3][LEN2][RW2][LEN1][RW1][LEN0][RW0][0 0][GD][0 0 1][GE][LE][G3][L3][G2][L2][G1][L1][G0][L0]
+
+L? Local breakpoint DR? (0=off)
+G? Global Breakpoint DR? (0=off)
+
+GD Avaible on 486i+ - setting it enables a breakpoint on access to 
+debug registers the GD bit is cleared by the processor on entry to the exception 
+handler
+
+RW? Condition on DR? - 0 0 = execution
+                       0 1 = Data write
+                       1 0 = Undefined
+                       1 1 = Data Read/writes but NOT execution
+
+LEN? - Operand length
+                       0 0 = Byte or instruction execution
+		       0 1 = Word
+                       1 0 = Undefined
+                       1 1 = Dword
+
+****************************
+DR{0-4} - must contain *LINEAR* address of address!
+e.g. xor eax,eax |mov ax,cs | shl ax, 5 | mov ebx,offset breakhere | add eax,ebx | mov dr0,eax
+****************************
+DR6 Debug status register
+
+Bits
+   3                   2                             1
+ 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6   5    4    3   2 1 0 9 8 7 5 4   3    2    1    0
+[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 [BT] [BS] [BD] [0 1 1 1 1 1 1 1 [B3] [B2] [B1] [B0]
+
+B{0-3} set for the triggering DR{0-3}
+BD - set if next instruction will access any debug register
+BS - set if exception caused by Trap-flag
+BT - When a task with Trap bit set in the TSS has been switched to
+
+

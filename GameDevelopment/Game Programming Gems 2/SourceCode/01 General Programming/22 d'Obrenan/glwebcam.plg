@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: glwebcam - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP9104.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/glwebcam.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\22 d'Obrenan\camera.c"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\22 d'Obrenan\main.c"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\22 d'Obrenan\matrix.c"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\22 d'Obrenan\vector.c"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\22 d'Obrenan\webcam.c"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP9104.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP9105.TMP" with contents
+[
+vfw32.lib opengl32.lib glu32.lib glaux.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/glwebcam.pdb" /debug /machine:I386 /out:"Debug/glwebcam.exe" /pdbtype:sept 
+".\Debug\camera.obj"
+".\Debug\main.obj"
+".\Debug\matrix.obj"
+".\Debug\vector.obj"
+".\Debug\webcam.obj"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP9105.TMP"
+<h3>Output Window</h3>
+Compiling...
+camera.c
+main.c
+matrix.c
+vector.c
+webcam.c
+Linking...
+
+
+
+<h3>Results</h3>
+glwebcam.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

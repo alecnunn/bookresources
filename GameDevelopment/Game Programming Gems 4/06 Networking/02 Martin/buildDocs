@@ -1,0 +1,1 @@
+javadoc -protected -d docs -subpackages net -classpath .:.//common.jar

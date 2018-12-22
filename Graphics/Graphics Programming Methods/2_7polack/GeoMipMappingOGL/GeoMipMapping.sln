@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GeoMipMapping", "GeoMipMapping.vcproj", "{A9BBD10C-0B01-4DA5-8C6C-AA2897C99131}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A9BBD10C-0B01-4DA5-8C6C-AA2897C99131}.Debug.ActiveCfg = Debug|Win32
+		{A9BBD10C-0B01-4DA5-8C6C-AA2897C99131}.Debug.Build.0 = Debug|Win32
+		{A9BBD10C-0B01-4DA5-8C6C-AA2897C99131}.Release.ActiveCfg = Release|Win32
+		{A9BBD10C-0B01-4DA5-8C6C-AA2897C99131}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

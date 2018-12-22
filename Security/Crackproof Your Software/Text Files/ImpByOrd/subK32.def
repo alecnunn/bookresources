@@ -1,0 +1,11 @@
+NAME KERNEL32.dll
+
+EXPORTS
+GetModuleHandleA
+GetModuleHandleW
+GetProcAddress
+ExitProcess
+KERNEL32_ORD_0001 @1 NONAME
+KERNEL32_ORD_0002 @2 NONAME
+KERNEL32_ORD_0003 @3 NONAME
+;etc...

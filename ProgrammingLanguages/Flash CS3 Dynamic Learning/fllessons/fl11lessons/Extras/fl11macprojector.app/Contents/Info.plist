@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en_US</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>swf</string>
+				<string>spl</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>document</string>
+			<key>CFBundleTypeName</key>
+			<string>Shockwave Flash Movie</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>SWFL</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>flv</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>mflv</string>
+			<key>CFBundleTypeName</key>
+			<string>Macromedia Flash Video</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>MFLV</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+	</array>
+	<key>CFBundleExecutable</key>
+	<string>Flash Player</string>
+	<key>CFBundleGetInfoString</key>
+	<string>Adobe(R) Flash(R) Player 9.0 r37. Copyright (C) 1996-2006 Adobe Systems Incorporated.</string>
+	<key>CFBundleIconFile</key>
+	<string>icon</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.macromedia.Flash Player.app</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleLongVersionString</key>
+	<string>Adobe Flash Player 9.0 r33</string>
+	<key>CFBundleName</key>
+	<string>Flash Player</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>9.0.37.0</string>
+	<key>CFBundleSignature</key>
+	<string>SWF2</string>
+	<key>CFBundleVersion</key>
+	<string>9.0</string>
+	<key>CSResourcesFileMapped</key>
+	<true/>
+	<key>LSPrefersCarbon</key>
+	<string>YES</string>
+	<key>NSAppleScriptEnabled</key>
+	<string>YES</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 1996-2006 Adobe Macromedia Software LLC. All rights reserved.</string>
+</dict>
+</plist>

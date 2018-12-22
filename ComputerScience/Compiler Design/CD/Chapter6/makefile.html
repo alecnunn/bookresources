@@ -1,0 +1,24 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - makefile </h2>
+<p>icexe: ic.tab.o lex.yy.o hset.o icmain.o<br>
+cc icmain.o hset.c ic.tab.o lex.yy.o -o icexe<br>
+ic.tab.o: ic.tab.c ic.h <br>
+cc -c ic.tab.c<br>
+ic.tab.c: ic.y ic.h define.h op.h<br>
+bison -d  ic.y<br>
+lex.yy.o: lex.yy.c <br>
+cc -c lex.yy.c<br>
+lex.yy.c: ic.l ic.h define.h op.h<br>
+lex ic.l<br>
+icmainnew.o: icmain.c ic.h define.h op.h<br>
+cc -c icmain.c<br>
+hset.o:	hset.c ic.h define.h op.h<br>
+cc -c hset.c</p>
+<p></p>
+<p><br>
+</p>
+</body>
+</html>

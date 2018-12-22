@@ -1,0 +1,54 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: LOSGridDemo - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/LOSGridDemo.res" /d "_DEBUG" "C:\Windows\Desktop\AIWisdomCD\SourceCode\02 Useful Techniques and Specialized Systems\07 Vykruta\LOSGridDemo.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP2E2.TMP" with contents
+[
+/nologo /MTd /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/LOSGridDemo.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Windows\Desktop\AIWisdomCD\SourceCode\02 Useful Techniques and Specialized Systems\07 Vykruta\ChildView.cpp"
+"C:\Windows\Desktop\AIWisdomCD\SourceCode\02 Useful Techniques and Specialized Systems\07 Vykruta\LOSGridDemo.cpp"
+"C:\Windows\Desktop\AIWisdomCD\SourceCode\02 Useful Techniques and Specialized Systems\07 Vykruta\MainFrm.cpp"
+"C:\Windows\Desktop\AIWisdomCD\SourceCode\02 Useful Techniques and Specialized Systems\07 Vykruta\TransformMat.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP2E2.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP02E3.TMP" with contents
+[
+/nologo /MTd /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/LOSGridDemo.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Windows\Desktop\AIWisdomCD\SourceCode\02 Useful Techniques and Specialized Systems\07 Vykruta\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP02E3.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP02E4.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/LOSGridDemo.pdb" /debug /machine:I386 /out:"Debug/LOSGridDemo.exe" /pdbtype:sept 
+".\Debug\ChildView.obj"
+".\Debug\LOSGridDemo.obj"
+".\Debug\MainFrm.obj"
+".\Debug\StdAfx.obj"
+".\Debug\TransformMat.obj"
+".\Debug\LOSGridDemo.res"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP02E4.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+ChildView.cpp
+LOSGridDemo.cpp
+MainFrm.cpp
+TransformMat.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+LOSGridDemo.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

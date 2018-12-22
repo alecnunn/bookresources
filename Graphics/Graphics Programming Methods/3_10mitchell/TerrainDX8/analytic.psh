@@ -1,0 +1,72 @@
+// GPM - Pixel Shader Optimizations for Terrain Rendering Demo
+// Kenny Mitchell
+// Copyright Electronic Arts 2002, 2003
+
+// pixel shader version 1.1
+ps.1.1
+
+#include "analytic_shader_constants.h"
+
+// CP_SUNCOLOR - constant sun RGB color
+// CP_SUNLIGHT - constant sun light direction + sun angle factor (Alpha)
+// CP_SKYLIGHT - constant sky light RGB factor + constant=1 (Alpha)
+
+tex		TEX_TERRAIN_COLOR			// terrain color texture + sky light radiance map
+tex		TEX_DETAIL_COLOR			// terrain detail color texture + detail horizon map alpha
+tex		TEX_NORMAL_HORIZON_MAP		// normal and horizon map
+tex		TEX_CLOUD_LAYER				// cloud map layer
+
+// dot sun vector with terrain normal
+dp3_sat		REG_SUNLIGHT.rgb, CP_SUNLIGHT, TEX_NORMAL_HORIZON_MAP_bx2
+
+// place horizon angle in register
++mov		REG_SHADOW.a, TEX_NORMAL_HORIZON_MAP.a
+
+
+
+// multiply inverted cloud density with sun light color
+mul			REG_SUNLIGHT.rgb, REG_SUNLIGHT, TEX_CLOUD_LAYER
+
+// perturb horizon map by detail horizon map
++sub_sat	REG_SHADOW.a, REG_SHADOW.a, 1-TEX_DETAIL_COLOR.a
+
+
+
+// multiply sun light illumination by sun light color
+mul			REG_SUNLIGHT.rgb, REG_SUNLIGHT, CP_SUNCOLOR
+
+// difference between sun light angle and perturbed horizon angle
++sub_sat	REG_SHADOW.a, CP_SUNLIGHT.a, REG_SHADOW.a
+
+
+
+// multiply terrain color texture with detail color
+mul			TEX_TERRAIN_COLOR.rgb, TEX_TERRAIN_COLOR, TEX_DETAIL_COLOR
+
+// perturb sky radiance map by detail color (blue channel)
+// (disabled for early ps.1.1 hardware, may be enable on most boards)
+//+add		TEX_TERRAIN_COLOR.a, TEX_TERRAIN_COLOR.a, TEX_DETAIL_COLOR_bias.b
+
+
+
+// subtract sun light by terrain shadow factor (both pipes used)
+// this version requires higher precision internal calculations on the GPU
+sub_sat		REG_SUNLIGHT.rgb, REG_SUNLIGHT, REG_SHADOW.a
+
+
+
+// multiply detailed sky radiance map by detailed terrain texture color (both pipes used)
+mul			REG_SKYLIGHT.rgb, TEX_TERRAIN_COLOR, TEX_TERRAIN_COLOR.a
+
+
+
+// multiply sky light contribution with sky light color
+mul			REG_SKYLIGHT.rgb, REG_SKYLIGHT, CP_SKYLIGHT
+
+
+
+// multiply semi-occluded sun light with detailed terrain color texture and add sky light contribution
+mad			OUTPUT_REG.rgb, TEX_TERRAIN_COLOR, REG_SUNLIGHT, REG_SKYLIGHT
+
+// just make alpa opaque here (paired instruction)
++mov		OUTPUT_REG.a, CP_SUNCOLOR

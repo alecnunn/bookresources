@@ -1,0 +1,1 @@
+CombinationalSequences.exe must be run from a DOS command prompt, rather than through Explorer.

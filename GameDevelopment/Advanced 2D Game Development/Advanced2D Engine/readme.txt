@@ -1,0 +1,1 @@
+This folder contains the final version of the Advanced2D engine with both Debug and Release build configurations set up. This is the version of the engine you will want to use for future game projects, rather than the incremental version developed in each chapter.

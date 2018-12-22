@@ -1,0 +1,61 @@
+#include "Constants.h"
+
+;
+; v0-v2  pos, norm, tex for stream 0
+; v3-v5  pos, norm, tex for stream 1
+; v6-v8  pos, norm, tex for stream 2
+; v9-v11 pos, norm, tex for stream 3
+;
+; We're blending between v3 and v6, with v0 and v9 defining tangents
+;
+
+vs.1.0
+
+;lerp in model space
+
+;calculate first tangent
+mov r0, v6
+add r0, r0, -v0
+
+;calc second tangent
+mov r1, v9
+add r1, r1, -v3
+
+; accumulate final vertex position in model space
+mul r2, v3, c[CV_BLEND_FACTORS].x
+mad r2, r0, c[CV_BLEND_FACTORS].y, r2
+mad r2, r1, c[CV_BLEND_FACTORS].z, r2
+mad r2, v6, c[CV_BLEND_FACTORS].w, r2
+
+; and the same for the normals
+
+;calc first tangent
+mov r3, v7
+add r3, r3, -v1
+
+;calc second tangent
+mov r4, v10
+add r4, r4, -v4
+
+; accumulate final normal direction in model space
+mul r5, v4, c[CV_BLEND_FACTORS].x
+mad r5, r3, c[CV_BLEND_FACTORS].y, r5
+mad r5, r4, c[CV_BLEND_FACTORS].z, r5
+mad r5, v7, c[CV_BLEND_FACTORS].w, r5
+
+; Transform to clip space
+dp4 oPos.x, r2, c[CV_WORLDVIEWPROJ_0]
+dp4 oPos.y, r2, c[CV_WORLDVIEWPROJ_1]
+dp4 oPos.z, r2, c[CV_WORLDVIEWPROJ_2]
+dp4 oPos.w, r2, c[CV_WORLDVIEWPROJ_3]
+
+; Put normals into world space (assuming affine transform)
+dp3 r0.x, r5, c[CV_WORLD_0]
+dp3 r0.y, r5, c[CV_WORLD_1]
+dp3 r0.z, r5, c[CV_WORLD_2]
+
+; Dot normal with light direction in world space, output as diffuse color
+dp3 oD0, r0, c[CV_LIGHT_DIRECTION]
+
+; Output tex coords
+mov oT0.xy, v2

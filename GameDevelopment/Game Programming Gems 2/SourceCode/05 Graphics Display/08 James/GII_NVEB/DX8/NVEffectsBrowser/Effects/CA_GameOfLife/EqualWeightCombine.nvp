@@ -1,0 +1,33 @@
+/************************************************************************
+EqualWeightCombine.nvp
+
+Simple pixel shader that samples all 4 texture stages, averages these
+samples and outputs the result.
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+; Set c0  to 1/8 in setup code for equal weighting
+
+
+; get colors from all 4 texture stages
+tex t0
+tex t1
+tex t2
+tex t3
+
+; and average them according to weights in constant mem:
+; r0 = fac * t0 + fac * t1 + fac * t2 + fac * t3
+mul r0, c[PCN_MULTFACTOR_1], t0
+mad r1, c[PCN_MULTFACTOR_1], t1, r0
+mad r0, c[PCN_MULTFACTOR_1], t2, r1
+mad r0, c[PCN_MULTFACTOR_1], t3, r0
+
+

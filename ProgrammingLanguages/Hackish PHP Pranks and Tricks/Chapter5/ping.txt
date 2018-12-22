@@ -1,0 +1,6 @@
+PING 192.168.77.1 (192.168.77.1) from 192.168.77.1 : 56(84) bytes of data.
+64 bytes from 192.168.77.1: icmp_seq=1 ttl=64 time=0.126 ms
+
+--- 192.168.77.1 ping statistics ---
+1 packets transmitted, 1 received, 0% loss, time 0ms
+rtt min/avg/max/mdev = 0.126/0.126/0.126/0.000 ms

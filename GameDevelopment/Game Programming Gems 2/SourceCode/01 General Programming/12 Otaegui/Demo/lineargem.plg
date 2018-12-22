@@ -1,0 +1,62 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: lineargem - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP8215.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/lineargem.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\asteroids.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\Blitbuf.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\fplog.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\Ingame.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\Input.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\letras.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\MainPtah7.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\mymalloc.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\Prim.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\stack.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\12 Otaegui\Demo\Support.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP8215.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP8216.TMP" with contents
+[
+winmm.lib ddraw.lib dinput8.lib dxguid.lib dsound.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/lineargem.pdb" /machine:I386 /out:"Debug/lineargem.exe" /pdbtype:sept 
+".\Debug\asteroids.obj"
+".\Debug\Blitbuf.obj"
+".\Debug\fplog.obj"
+".\Debug\Ingame.obj"
+".\Debug\Input.obj"
+".\Debug\letras.obj"
+".\Debug\MainPtah7.obj"
+".\Debug\mymalloc.obj"
+".\Debug\Prim.obj"
+".\Debug\stack.obj"
+".\Debug\Support.obj"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP8216.TMP"
+<h3>Output Window</h3>
+Compiling...
+asteroids.cpp
+Blitbuf.cpp
+fplog.cpp
+Ingame.cpp
+Input.cpp
+letras.cpp
+MainPtah7.cpp
+mymalloc.cpp
+Prim.cpp
+stack.cpp
+Support.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+lineargem.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

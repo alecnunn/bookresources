@@ -1,0 +1,5 @@
+Goto command Prompt and follow the following steps
+
+c:> javacc clang.jj
+c:> javac *.java
+c:> java CParser Cfilename

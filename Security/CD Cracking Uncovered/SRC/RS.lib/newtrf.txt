@@ -1,0 +1,55 @@
+Microsoft (R) COFF Binary File Dumper Version 6.00.8168
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+
+Dump of file newtrf.dll
+
+File Type: DLL
+
+  Section contains the following exports for newtrf.dll
+
+           0 characteristics
+    3E566932 time date stamp Fri Feb 21 21:00:18 2003
+        0.00 version
+           1 ordinal base
+          28 number of functions
+          28 number of names
+
+    ordinal hint RVA      name
+
+          1    0 000041E0 ?ByteSwap2352@@YAXPAE@Z
+          2    1 0000357A ?CalcSubChannelCRC@@YAGPBEK@Z
+          3    2 00003940 ?CheckECCAndEDC_Mode1@@YAHQAEH@Z
+          4    3 000039D0 ?CheckECCAndEDC_Mode2Form1@@YAHQAEH@Z
+          5    4 00003AD4 ?CheckECCAndEDC_Mode2Form1_2336@@YAHQAEH@Z
+          6    5 00003A69 ?CheckECCAndEDC_Mode2Form2@@YAHQAEH@Z
+          7    6 00003BBA ?CheckECCAndEDC_Mode2Form2_2336@@YAHQAEH@Z
+          8    7 00003CAD ?Convert2kToMode2Form1@@YAHQBEQAEIPBE@Z
+          9    8 00003D2E ?Convert2kToMode2Form1With2332@@YAHQBEQAEPBE@Z
+         10    9 00003D48 ?Convert2kToMode2Form1With2336@@YAHQBEQAEPBE@Z
+         11    A 000041A5 ?ConvertMode2_2336_to_2352@@YAHQAEPBUSectHeaderMSF@@0@Z
+         12    B 000044E0 ?ConvertPackedToRawSubChannel@@YAXPAE00H@Z
+         13    C 00002F21 ?ExecuteActions@@YAXAAVCTaskActionArray@@@Z
+         14    D 0000439B ?ExtractPQDataFromRaw@@YAHPAUQDATAtag@@PAE@Z
+         15    E 00003C29 ?GenECCAndEDC_Mode1@@YAHQBEPBUSectHeaderMSF@@QAEW4SECT_TYPE@@@Z
+         16    F 00003D62 ?GenECCAndEDC_Mode2Form1@@YAHQBEPBUSectHeaderMSF@@0QAEW4SECT_TYPE@@@Z
+         17   10 00003DEC ?GenECCAndEDC_Mode2Form2@@YAHQBEPBUSectHeaderMSF@@0QAEW4SECT_TYPE@@@Z
+         18   11 00003E6B ?GenEDC@@YAHPAEKPAV?$LittleEndian@K@@@Z
+         19   12 000042C7 ?GenEmptyAudio96Sector@@YAXPAEHEKH@Z
+         20   13 000040B8 ?GenRawEmptySector@@YAHQAEW4TRACKMODE@@KH@Z
+         21   14 000035B5 ?GetCD_CRCTable@@YAPBKXZ
+         22   15 00004031 ?IdentifyTrack@@YA?AW4TrackModeType@@QBE@Z
+         23   16 000040A0 ?IdentifyTrackFor2336@@YA?AW4TrackModeType@@QBE@Z
+         24   17 000042DE ?MergePQ16WithRWRaw@@YAXPAE0PBE@Z
+         25   18 00004226 ?NormalizeRawSector@@YAHPAEK@Z
+         26   19 0000A975 ?OpenTransfer@@YAPAVCAbstractTransfer@@AAVCTransferSettings@@K@Z
+         27   1A 00004184 ?ScrambleSector@@YAXQAE@Z
+         28   1B 00004206 ?WordSwap2352@@YAXPAE@Z
+
+  Summary
+
+        3000 .data
+        9000 .rdata
+        2000 .reloc
+        1000 .rsrc
+       18000 .text

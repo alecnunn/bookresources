@@ -1,0 +1,36 @@
+
+#include "constants.h"
+
+vs.1.0
+
+#beginfragment calculate_basis_vectors
+// Calculate eye vector and stuff it in texture coordinates
+dp4 oT1.w, -FIXED_POSITION, c_worldviewcubemap_0
+dp4 oT2.w, -FIXED_POSITION, c_worldviewcubemap_1
+dp4 oT3.w, -FIXED_POSITION, c_worldviewcubemap_2
+
+// Scale S&T to get bump scaling
+mul r_sbasis0, v_sbasis0, BUMP_SCALE
+mul r_tbasis0, v_tbasis0, BUMP_SCALE
+
+// Skin the basis matrices
+dp3 oT1.x, r_sbasis0, c_worldviewcubemap_0
+dp3 oT1.y, r_tbasis0, c_worldviewcubemap_0
+dp3 oT1.z, v_normal, c_worldviewcubemap_0
+
+dp3 oT2.x, r_sbasis0, c_worldviewcubemap_1
+dp3 oT2.y, r_tbasis0, c_worldviewcubemap_1
+dp3 oT2.z, v_normal, c_worldviewcubemap_1
+
+dp3 oT3.x, r_sbasis0, c_worldviewcubemap_2
+dp3 oT3.y, r_tbasis0, c_worldviewcubemap_2
+dp3 oT3.z, v_normal, c_worldviewcubemap_2
+mov oT0.xy, FIXED_TEXTURE0
+#endfragment
+
+
+
+
+
+
+

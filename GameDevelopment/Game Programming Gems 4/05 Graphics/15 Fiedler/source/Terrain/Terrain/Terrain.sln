@@ -1,0 +1,68 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain", "Terrain.vcproj", "{386221C4-927B-40AE-AF13-46787B4ECD33}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D37C9A11-E86E-4F86-8137-B96702CB6F33} = {D37C9A11-E86E-4F86-8137-B96702CB6F33}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mathematics", "..\Mathematics\Mathematics.vcproj", "{1A69283D-3F9F-473A-9CDF-52B30CB27DF7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectX", "..\DirectX\DirectX.vcproj", "{8FA742D0-F628-43C4-8860-D9771E80FB59}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "System", "..\System\System.vcproj", "{D37C9A11-E86E-4F86-8137-B96702CB6F33}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccProjectName0 = Perforce\u0020Project
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Perforce\u0020SCM
+		CanCheckoutShared = true
+		SolutionUniqueID = {9EE7CBC7-1BB5-4E6B-A04B-5D5CAE6106A9}
+		SccProjectUniqueName1 = ..\\Mathematics\\Mathematics.vcproj
+		SccLocalPath1 = ..\\Mathematics
+		CanCheckoutShared = true
+		SccProjectUniqueName2 = Terrain.vcproj
+		SccLocalPath2 = .
+		CanCheckoutShared = true
+		SccProjectUniqueName3 = ..\\DirectX\\DirectX.vcproj
+		SccLocalPath3 = ..\\..\\..
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection3 = Occlusion\\Source\\DirectX\\
+		SccProjectUniqueName4 = ..\\System\\System.vcproj
+		SccLocalPath4 = ..\\..\\..
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection4 = Occlusion\\Source\\System\\
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{386221C4-927B-40AE-AF13-46787B4ECD33}.Debug.ActiveCfg = Debug|Win32
+		{386221C4-927B-40AE-AF13-46787B4ECD33}.Debug.Build.0 = Debug|Win32
+		{386221C4-927B-40AE-AF13-46787B4ECD33}.Release.ActiveCfg = Release|Win32
+		{386221C4-927B-40AE-AF13-46787B4ECD33}.Release.Build.0 = Release|Win32
+		{1A69283D-3F9F-473A-9CDF-52B30CB27DF7}.Debug.ActiveCfg = Debug|Win32
+		{1A69283D-3F9F-473A-9CDF-52B30CB27DF7}.Debug.Build.0 = Debug|Win32
+		{1A69283D-3F9F-473A-9CDF-52B30CB27DF7}.Release.ActiveCfg = Release|Win32
+		{1A69283D-3F9F-473A-9CDF-52B30CB27DF7}.Release.Build.0 = Release|Win32
+		{8FA742D0-F628-43C4-8860-D9771E80FB59}.Debug.ActiveCfg = Debug|Win32
+		{8FA742D0-F628-43C4-8860-D9771E80FB59}.Debug.Build.0 = Debug|Win32
+		{8FA742D0-F628-43C4-8860-D9771E80FB59}.Release.ActiveCfg = Release|Win32
+		{8FA742D0-F628-43C4-8860-D9771E80FB59}.Release.Build.0 = Release|Win32
+		{D37C9A11-E86E-4F86-8137-B96702CB6F33}.Debug.ActiveCfg = Debug|Win32
+		{D37C9A11-E86E-4F86-8137-B96702CB6F33}.Debug.Build.0 = Debug|Win32
+		{D37C9A11-E86E-4F86-8137-B96702CB6F33}.Release.ActiveCfg = Release|Win32
+		{D37C9A11-E86E-4F86-8137-B96702CB6F33}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

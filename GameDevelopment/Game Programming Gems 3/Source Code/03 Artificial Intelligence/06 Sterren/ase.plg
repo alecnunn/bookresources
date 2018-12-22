@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ase - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x809 /fo"Release/ase.res" /d "NDEBUG" "Z:\ase\ase.rc"" 
+Creating temporary file "D:\DOCUME~1\WILLIA~1.CGF\LOCALS~1\Temp\RSP9C.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/ase.pdb" /map:"Release/ase.map" /debug /machine:I386 /out:"Release/ase.exe" 
+.\Release\ase.obj
+.\Release\ase_board.obj
+.\Release\ase_coordpair.obj
+.\Release\ase_costs.obj
+.\Release\ase_losapproxboard.obj
+.\Release\ase_losscan.obj
+.\Release\ase_piescan.obj
+.\Release\ase_ray.obj
+.\Release\ase_search.obj
+.\Release\ase_terrain.obj
+.\Release\ase_threat.obj
+.\Release\ase_threatboard.obj
+.\Release\aseDoc.obj
+.\Release\aseView.obj
+.\Release\MainFrm.obj
+.\Release\NodeView.obj
+.\Release\PathFinder.obj
+.\Release\StdAfx.obj
+.\Release\ase.res
+]
+Creating command line "link.exe @D:\DOCUME~1\WILLIA~1.CGF\LOCALS~1\Temp\RSP9C.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Linking...
+
+
+
+<h3>Results</h3>
+ase.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

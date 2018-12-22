@@ -1,0 +1,142 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2987,         94]*)
+(*NotebookOutlinePosition[      3643,        117]*)
+(*  CellTagsIndexPosition[      3599,        113]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    StyleBox[\(\(x1\  = \ x;\)\n
+      \(x2\  = \ x\  + \ 1;\)\n
+      \(y1\  = \ y;\)\n
+      \(y2\  = \ y\  + \ 1;\)\),
+      FormatType->StandardForm,
+      FontSize->10]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(FullSimplify[x1\  + \ x2\  + \ x1\  + \ x2]\), "\n", 
+    \(FullSimplify[y1\  + \ y1\  + \ y2\  + \ y2]\), "\n", 
+    \(FullSimplify[h0\  + \ h1\  + \ h2\  + \ h3]\), "\n", 
+    \(FullSimplify[x1*x1\  + \ x2*x2\  + \ x1*x1\  + \ x2*x2]\), "\n", 
+    \(FullSimplify[x1*y1\  + \ x2*y1\  + \ x1*y2\  + \ x2*y2]\), "\n", 
+    \(FullSimplify[x1*h0\  + \ x2*h1\  + \ x1*h2\  + \ x2*h3]\), "\n", 
+    \(FullSimplify[y1*y1\  + \ y1*y1\  + \ y2*y2\  + \ y2*y2]\), "\n", 
+    \(FullSimplify[y1*h0\  + \ y1*h1\  + \ y2*h2\  + \ y2*h3]\)}], "Input"],
+
+Cell[BoxData[
+    \(2 + 4\ x\)], "Output"],
+
+Cell[BoxData[
+    \(2 + 4\ y\)], "Output"],
+
+Cell[BoxData[
+    \(h0 + h1 + h2 + h3\)], "Output"],
+
+Cell[BoxData[
+    \(2 + 4\ x\ \((1 + x)\)\)], "Output"],
+
+Cell[BoxData[
+    \(\((1 + 2\ x)\)\ \((1 + 2\ y)\)\)], "Output"],
+
+Cell[BoxData[
+    \(h1 + h3 + \((h0 + h1 + h2 + h3)\)\ x\)], "Output"],
+
+Cell[BoxData[
+    \(2 + 4\ y\ \((1 + y)\)\)], "Output"],
+
+Cell[BoxData[
+    \(h2 + h3 + \((h0 + h1 + h2 + h3)\)\ y\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1600}, {0, 1127}},
+WindowSize->{843, 740},
+WindowMargins->{{Automatic, 1}, {151, Automatic}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 198, 6, 75, "Input"],
+
+Cell[CellGroupData[{
+Cell[1940, 59, 558, 8, 170, "Input"],
+Cell[2501, 69, 42, 1, 29, "Output"],
+Cell[2546, 72, 42, 1, 29, "Output"],
+Cell[2591, 75, 51, 1, 29, "Output"],
+Cell[2645, 78, 55, 1, 29, "Output"],
+Cell[2703, 81, 64, 1, 29, "Output"],
+Cell[2770, 84, 70, 1, 29, "Output"],
+Cell[2843, 87, 55, 1, 29, "Output"],
+Cell[2901, 90, 70, 1, 29, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

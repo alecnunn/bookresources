@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Raven", "Raven.vcproj", "{DE0F46F4-C2AC-4D1F-B8A2-07CE3E69A577}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		boundschecker = boundschecker
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DE0F46F4-C2AC-4D1F-B8A2-07CE3E69A577}.boundschecker.ActiveCfg = boundschecker|Win32
+		{DE0F46F4-C2AC-4D1F-B8A2-07CE3E69A577}.boundschecker.Build.0 = boundschecker|Win32
+		{DE0F46F4-C2AC-4D1F-B8A2-07CE3E69A577}.Debug.ActiveCfg = Debug|Win32
+		{DE0F46F4-C2AC-4D1F-B8A2-07CE3E69A577}.Debug.Build.0 = Debug|Win32
+		{DE0F46F4-C2AC-4D1F-B8A2-07CE3E69A577}.Release.ActiveCfg = Release|Win32
+		{DE0F46F4-C2AC-4D1F-B8A2-07CE3E69A577}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

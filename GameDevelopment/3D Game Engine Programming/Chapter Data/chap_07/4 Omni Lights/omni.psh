@@ -1,0 +1,7 @@
+ps.1.1                       
+tex      t0                  
+texcoord t1                 
+dp3_sat r0, t1_bx2, t1_bx2
+mul r0, c0, 1-r0            
+mul r0, r0, t0              
+

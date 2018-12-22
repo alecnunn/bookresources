@@ -1,0 +1,60 @@
+README for the MahJong server / client
+
+This is the 0.2 version.  There are some big changes.  If you are upgrading
+from 0.1, your best choice is probably installing it in a separate directory
+tree, and then move some of your old files over.
+
+1.	Things you need to run the MahJong server:
+
+	JDK 1.0 or later.
+	httpd or other web servers.
+
+2.	Installation
+
+Basically, you simply need to modify the file mj.html.  Starting at line 43,
+find the <applet> tag.  You only need to change the value of the ServerHost
+parameter to the name of your machine.  If there are several aliases or IP
+numbers, then use a colon (':') separated list.  The DocBase parameter points
+to documents in my home page.  They are included in the distribution.  If you
+want the HELP menu in the client to show the docs at your site, then change
+this parameter to point to your site.
+
+Also put your company name, and your home page or email address in the
+header of mj.html.
+
+Note that the server has to listen on its own port.  The default is 5656.
+If some other port number is desired, change the ServerPort tag in mj.html.
+Also change the port number in the start_server script.
+
+3.	Starting the server
+
+Make sure there is an httpd or other web server running on the machine, and
+the file mj.html is publically accessible through http.
+
+Run the script start_server to start running the server under the Java
+interpreter.  This process should be kept running.  The script redirects
+all output into a file server_log.
+
+4.	Stopping the server
+
+Run the script stop_server.  Alternatively, use 'ps -x' to find the Java
+interpreter process and kill it manually.
+
+If server_log is to be scrutinized for debugging purposes, be sure to rename
+it before running start_server again.
+
+Running start_server twice without stopping the server causes the second
+server to abort, but you won't see an error message.  In this case, check
+the server_log file for error messages.
+
+5.	The new database format
+
+0.2 uses a different player database format.  It comes with a utility to
+convert the old format into the new one.  First, copy the old database into
+database_old, make sure there is no file called database, then run 
+
+java server.Reformat database_old database
+
+This will produce a database file that contains all the information of your
+old player database.
+

@@ -1,0 +1,624 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>Change Log</title>
+</head>
+
+<body TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#824250" VLINK="#51188E" ALINK="#FF0000"
+BACKGROUND="white.gif">
+
+<h1 align="left"><font face="Arial" size="7">Change Log</font></h1>
+
+<h4><br>
+<font face="Arial">Version 1.0.18 (17/8/99)</font></h4>
+
+<ul>
+  <li>Coded a simple installation program for ptc.dll, ptcdebug.dll, hermes.dll. See the
+    &quot;install&quot; directory.</li>
+  <li>Switched the OpenPTC for Windows library license from Library GPL to Lesser GPL. See <a
+    href="http://www.gnu.org/copyleft/lesser.html">http://www.gnu.org/copyleft/lesser.html</a>.
+    Essentially this is just a name change from Library GPL to Lesser GPL, so dont worry.</li>
+  <li>Extend mouse cursor hide/show to work while a console is open. Now you can dynamically
+    hide and show the cursor instead of just selecting the cursor mode before opening.</li>
+  <li>Investigated a problem with primary clearing reported by MRI and found a major bug!
+    Fixed by properly packing the color values to the primary pixel format instead of assuming
+    that the DX clear color value was always ARGB8888.</li>
+  <li>Added Randy Heit's complex/simple primary creation extension to work around bad drivers.</li>
+  <li>Added MRI's patches to fix a bug in DirectXPrimary clipping area set.</li>
+  <li>Fixed a nasty bug that popped up in the previous release causing crashes on WM_CLOSE
+    (ie. pressing ALT-F4, or clicking the close button).</li>
+  <li>Switched the ptc.dll, ptcdebug.dll and hermes.dll over to statically link to Visual C++
+    runtime to improve portabilty across Win32 machines. This will fix any problems caused by
+    linking to msvcrt.dll/msvcirt.dll on some systems.</li>
+  <li>Fixed the debug library _chkesp bug in msvcrt.dll under Visual C++ 5.0 by linking
+    statically to the runtime library in debug build.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.17 (4/7/99)</font></h4>
+
+<ul>
+  <li>This is going to be the last stable release for a while, i plan to start work on the
+    final development release series of OpenPTC for Windows. Once they become stable i plan to
+    stop active work and switch to a maintennance role on this distribution.</li>
+  <li>Added some more information to the log file, now it shows if the primary and secondary
+    surfaces are in video memory or system memory.</li>
+  <li>Added code that stops the mouse cursor getting hidden when you right click on the
+    program task bar entry. Thanks to Randy Heit for this patch.</li>
+  <li>Fixed the indexed color primary restore bug that caused alt-tab to fail on some systems
+    when using indexed color primary. This was the last major bug in the OpenPTC for Windows
+    that needed to be fixed. Thanks to Randy Heit for detecting this bug and submitting the
+    fix.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.16 (22/6/99)</font></h4>
+
+<ul>
+  <li>Fixed the Win32Hook to use CallWindowHook instead of casting the function pointer and
+    calling it directly. Suggested by Randy Heit.</li>
+  <li>Fixed the keyboard bug reported by Cyberfish. The problem was that no window update was
+    performed in the console.key() so a loop while (!console.key()) {} would never terminate!</li>
+  <li>Seeing as OpenPTC for Windows is single threaded at the moment, i've #undef'd out the
+    Win32Monitor critical section code. Now all the window message processing code should be
+    slightly more efficient.</li>
+  <li>Updated the &quot;C Example&quot; to use the new integral types.</li>
+  <li>Changed the OpenPTC C API to use ptc_int32, ptc_short16, ptc_char8 instead of int32,
+    short16, char8 etc. This is much better, now the C API should be usable with any other
+    system (i have noticed other systems that define int32, short16, char8 that would
+    conflict).</li>
+  <li>Renamed the hermes integral types from int32, short16, char8 to hermes_int32,
+    hermes_short16, hermes_char8 to fix conflicts with the ptc::int32, ptc::short16,
+    ptc::char8 types.</li>
+  <li>Removed &quot;HermesHandle&quot; from the hermes &quot;H_Types.h&quot; include file, and
+    moved it to its own header &quot;H_Handle.h&quot;.</li>
+  <li>Added &quot;Core/Hermes.h&quot; to work around a minor namespace conflict between ptc
+    and hermes integral types.</li>
+  <li>Added &quot;Namespace&quot; example program to demonstrate how to use ptc with
+    namespaces.</li>
+  <li>Updated the interface to support #include &quot;ptc&quot; and the ptc namespace for ANSI
+    C++ compilers.</li>
+  <li>Ported over all text file documentation from the previous release into pretty HTML and
+    added the Introduction to OpenPTC, OpenPTC C++ API Reference and OpenPTC C API Reference
+    to the documentation directory. Check it out now, real documentation! :)</li>
+  <li>Fixed the 320x200/320x240 mode insert bug that was introduced in 1.0.15. The mode insert
+    was getting logged multiple times when it only should be logged once.</li>
+  <li>Fixed a wsprintf formatting bug in DirectXCheck. Thanks to Bo for spotting this one.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.15 (24/5/99)</font></h4>
+
+<ul>
+  <li>Collapsed &quot;Tunnel3D&quot; demo into a single .cpp file so that it will work with
+    the new compiler build scripts.</li>
+  <li>Added &quot;documentation/scripts.txt&quot; with information on how to use the script
+    files.</li>
+  <li>Added build script for Cygnus C++ in &quot;scripts/cygnus&quot;.</li>
+  <li>Added build script for LCC-Win32 in &quot;scripts/lcc-win32&quot;.</li>
+  <li>Added build script for Visual C++ 5.0 in &quot;scripts/visual/6.0&quot;.</li>
+  <li>Added build script for Visual C++ 5.0 in &quot;scripts/visual/5.0&quot;.</li>
+  <li>Added build script for Visual C++ 4.x in &quot;scripts/visual/4.x&quot;.</li>
+  <li>Added build script for Watcom C++ 11.0 in &quot;scripts/watcom/11.0&quot;.</li>
+  <li>Added build script for Watcom C++ 10.x in &quot;scripts/watcom/10.x&quot;.</li>
+  <li>Added &quot;documentation/visual.txt&quot; with instructions on how to setup a project
+    and workspace for OpenPTC development under Visual C++ 5.0 and 6.0. Read this if you are
+    new<br>
+    to Visual C++ or are having problems creating your own projects.</li>
+  <li>Updated text files for all of the things that have changed since 1.0.14. A lot has
+    changed, read &quot;install.txt&quot; now!</li>
+  <li>Improved the primary surface shutdown code to detect if any surfaces have been lost and
+    if so, to skip the palette and page clearing.</li>
+  <li>Added detection code for windows 95/98 and windows nt. Under windows 95/98 320x200x8
+    (mode13h) and 320x240x8 (modex) are added to the most list if they are not already in
+    there, because many drivers do not put these modes in the mode list. Thanks to Randy Heit
+    for this tip.</li>
+  <li>Fixed the alt-f4/close crash that was introduced in 1.0.12 when i added primary palette
+    and page clearing in the close functon. Thanks to raster for finding this.</li>
+  <li>Added a lot more useful information to the ptc.log file.</li>
+  <li>Added support for LCC-Win32 (C only). See &quot;compiler.txt&quot;.</li>
+  <li>Added support for Cygnus GNU-Win32. See &quot;compiler.txt&quot;.</li>
+  <li>Added support for Watcom C++ 10.x and 11.0. See &quot;compiler.txt&quot;.</li>
+  <li>Added support for Visual C++ 4.x, 5.x and 6.0 (previously only 5.x, 6.0) were supported.
+    See &quot;compiler.txt&quot;.</li>
+  <li>Added script files in the &quot;script&quot; directory to generate import libraries for
+    &quot;ptc.dll&quot; and &quot;ptcdebug.lib&quot;. This paves the way for support for more
+    compilers.</li>
+  <li>Moved the files &quot;ptc.dll&quot;, &quot;ptcdebug.dll&quot; and &quot;hermes.dll&quot;
+    to the &quot;library&quot; directory. The &quot;library/debug&quot; and
+    &quot;library/release&quot; directories have been removed.</li>
+  <li>Made some minor improvements to the example program source code.</li>
+  <li>Greatly improved the efficiency of primary blocking (ie. when you ALT-TAB away from a
+    fullscreen console it blocks until you go back to it). Previously the application took up
+    98% CPU (!!) while blocking, now i've added sleeps it takes up 0% while blocking. Much
+    better now :)</li>
+  <li>Changed the console open code to disable primary blocking when in normal windowed
+    output. This means that now the console output does not freeze when the console window
+    looses focus, now it will continue rendering.</li>
+  <li>Added the option strings &quot;disable blocking&quot; and &quot;enable blocking&quot; to
+    the DirectX Console. Normally blocking is enabled by default, and is required for correct
+    operation (so that you can alt-tab away from a fullscreen application without losing your
+    primary surface), but in windowed output, blocking is not really required unless you are
+    writing directly to the primary surface. See &quot;options.txt&quot; for more information.</li>
+  <li>Fixed a bug reported by Randy Heit in the DirectXPrimary::primary function. Now clearing
+    of the primary surface is only performed in fullscreen output when the primary is created,
+    not in windowed output. This should fix problems with clearing failing because the clipper
+    was not attached to the primary surface yet.</li>
+  <li>Fixed a minor bug in Core/Error.cpp = operator. Thanks to Sorcerer/LM for finding this
+    one.</li>
+  <li>Stripped the &quot;source/Hermes&quot; directory down to public header files and a
+    library that references to &quot;Hermes.dll&quot;. If you wish to compile your own version
+    of HERMES you will need to download the full library from http://hermes.terminal.at from
+    now on.</li>
+  <li>Upgraded to Hermes 1.2.5 stable release.</li>
+  <li>Fixed a minor bug in &quot;compiler.h&quot; __PTC_CONPILER__ typo. Thanks to zoon for
+    spotting this one :)</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.14 (13/5/99)</font></h4>
+
+<ul>
+  <li>Fixed a minor bug when WM_CLOSE message is trapped. Now ddraw is properly shutdown again
+    before exit(0) is called.</li>
+  <li>Cleaned up and improved the ptc configuration system. Now everything is organized into
+    'config.h' for user configuration, 'compiler.h' for compiler specific setup, and
+    'version.h' for<br>
+    current version information.</li>
+  <li>Fixed link errors encountered with Visual C++ 5.0 in 1.0.13. Now the library file is vc5
+    and vc6 compatable once more ;)</li>
+  <li>Fixed the &quot;ptc_dynamic_setup&quot; link error that was introduced in version
+    1.0.12.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.13 (1/5/99)</font></h4>
+
+<ul>
+  <li>Simplified the core console down to just a proxy on top of DirectXConsole. I have saved
+    the old merger console to the files ~Console.h and ~Console.cpp for future development<br>
+    when there are GDI and DirectX consoles in OpenPTC Win32.</li>
+  <li>Implemented what i call 'open console recycling'. Basically, when a console has already
+    been opened, now instead of closing everything down and starting from scratch, i just
+    change the display mode using ddraw and reinitiatize the primary surface. What this means
+    is that now when you have to open a console more than once in a program (say a demo with
+    two parts) you get much cleaner mode setting, and most importantly, the same HWND gets
+    used during the whole program. (helps with DirectSound and DirectInput programming). Note.
+    it is also implemented in windowed output, instead of shutting down the current window and
+    creating another, a second open will just resize the existing console window. nifty :)</li>
+  <li>Sad but true, i made another improvement to the damned mouse cursor hiding code. All
+    rational attempts to hide it failed, so now i have been reduced to calling
+    &quot;SetCursor(0)&quot; on<br>
+    every single console update. oh the humanity. :)</li>
+  <li>Improved the &quot;Dynamic.def&quot; module definition file to keep the JNI/RNI exported
+    functions private and out of the ptc.lib. This has greatly reduced the size of the ptc
+    import library.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.12 (29/4/99)</font></h4>
+
+<ul>
+  <li>Updated &quot;install.txt&quot; with information on how to install now that precompiled
+    libraries are included with the distribution. Also added &quot;build.txt&quot; for those
+    that still wish to build the PTC library themselves.</li>
+  <li>Set default nearest mode matching to centering. Its the 'best' choice on most systems,
+    having stretching on systems which it is slow is very very bad... best to go for the safe
+    option<br>
+    until better code is available to detect if the stretching support is fast and high enough
+    quality to use as default.</li>
+  <li>Added an explicit &quot;console.close&quot; to all example and demo programs to keep the
+    source in sync with the java dist. Having an explicit close instead of relying on the
+    destructor<br>
+    (language specific feature) is a good idea for portability.</li>
+  <li>Finished implementation of RNI support. Now java -&gt; ptc.dll bindings will work under
+    practically every 1.1 java VM. JNI covers netscape/sun/symantec, RNI covers M$ jview and
+    internet explorer. The only thing left to do is support JDirect native methods for later
+    versions of M$ vm's.</li>
+  <li>Started work on building the RNI bindings based on the RNI headers exported from
+    ptc.rni.*.</li>
+  <li>Implemented the majority of JNI functions. Now Java -&gt; C++ through JNI works
+    perfectly! Fullscreen triple buffered vrt synced output from inside java is pretty damned
+    cool :)</li>
+  <li>Brought over all my old JNI utility routines from the old PTC Win32 2.0.8. Now
+    everything is in place to start work on implementing the JNI -&gt; Core bindings.</li>
+  <li>Implemented exception handling in the JNI interface so that any c++ exceptions thrown
+    internally are caught and rethrown in java as &quot;ptc.Error&quot; objects. funky :)</li>
+  <li>Tested the java examples with ptc.dll. Currently it is all very skeletal, just opening a
+    mode and closing it, but it proves that everything is interfacing between ptc java and<br>
+    PTC win32! :)</li>
+  <li>Implemented a basic skeletal JNI support (java to c++ bind) and exported the symbols
+    from ptc.dll.</li>
+  <li>Now that the last known bug in OpenPTC Win32 has been fixed we are getting very close to
+    moving out of beta release. As this release is a major one with many changes, it is likely
+    that i have introduced some minor bugs, if you find any problems that were introduced with
+    this version report them to <a href="news://news.scene.org/coders.ptc.bugs">news://news.scene.org/coders.ptc.bugs</a>
+    right away so i can fix them and declare the next release as stable!</li>
+  <li>Implemented a workaround for palette entry 255 = white bug. This bug occured on some
+    display drivers (ie. mine!) when the primary surface was created with multiple pages. Now
+    the palette set should work correctly on all hardware.</li>
+  <li>Updated &quot;Land&quot; demo to process all waiting key presses each frame with
+    &quot;while (console.key())&quot; not &quot;if (console.key())&quot; to check for key
+    presses. This means that all key presses<br>
+    get processed on the frame that they occur, instead of buffering up and causing delays.</li>
+  <li>Added palette and surface clearing when the DirectX primary is shutdown so that the mode
+    exit is as clean as possible.</li>
+  <li>Added a lot of nice configuration defines to Source/config.h to control exactly what
+    gets compiled in to ptc win32.</li>
+  <li>Improve mouse cursor hiding in fullscreen mode. Now the mouse cursor should be correctly
+    hidden in all situations.</li>
+  <li>I hope. heh. Tell me if the freaking mouse cursor doesnt hide because i really want to
+    make sure that its 100% correctly hiding now :)</li>
+  <li>Fixed some code in the clear class. Previously it assumed that color values for clearing
+    were in the range of the pixel format size, ie 6bits for green in RGB565, 8bits<br>
+    for all components in RGB888, however, the clear for hermes is always 0-255 range. This
+    simplifies the code to just scaling the normalized r,g,b,a floats into 0-255.</li>
+  <li>Now that assembler support is in, NASM is required to build the ptc library. You can get
+    NASM from <a href="http://www.cryogen.com/nasm">www.cryogen.com/nasm</a>. Just put
+    nasm.exe in your path or add its directory to the visual c++ directory path for
+    executables, and the build will work perfectly!</li>
+  <li>Got assembler support working for HERMES in Win32! Excellent! Now OpenPTC Win32 just got
+    a HELL OF A LOT FASTER!!! The pixel format conversion routines and clearing routines are
+    now optimized x86 assembler code. MMX routines also exist for those with MMX support!
+    Bonus! :)</li>
+  <li>Changed from hermes.lib over to hermes.dll. Now ptc.dll depends on hermes.dll for all of
+    its low level graphics functions such as pixel conversion and clearing.</li>
+  <li>Improved the resource script for ptc.dll and ptcdebug.dll. Now the resource does not
+    depend on &quot;afxres.h&quot; so users without MFC installed will not have any problems
+    compiling<br>
+    anymore.</li>
+  <li>Implemented a C++ wrapper on top of the exported C symbols from the ptc.dll. Now ptc.dll
+    exports ansi c symbols, so all win32 compilers can easily link to it, and provide a c++<br>
+    interface on top of this, pure inline. All you need do is link to the ptc.dll and include
+    ptc.h. Soon PTC will support all compilers under win32, not just visual c++!</li>
+  <li>Now only c symbols are exported from ptc.dll, not c++ ones.</li>
+  <li>Once i have written a set of inline classes to interface to the c symbols and put the
+    c++ interface back up over the dll, ptc.dll will be able to be used by any win32 c++
+    compiler<br>
+    with ease :)</li>
+  <li>Switched ptc.dll over to use a DEF file instead of dllexport this will fix the export
+    interface and stop any compatability problems in the future. The ordinals of exports are
+    now fixed<br>
+    for total backwards compatability.</li>
+  <li>Added &quot;C&quot; example to demonstrate how to use OpenPTC from C. This example is
+    just a port of the C++ random example from C++ to C. Pretty funky eh? =)</li>
+  <li>Added C/C++ detection to &quot;ptc.h&quot;. Now the C API is included when compiling
+    from C, and the C++ API from C++.</li>
+  <li>Changed all projects to generate &quot;program database&quot; instead of &quot;program
+    database for edit and continue&quot;. This will stop some warnings in Visual C++ 5.0 which
+    does not support edit and continue debugging, and also stop debugging info being turned
+    off in debug build when the projects are loaded in vc5.</li>
+  <li>Started work on a c interface to the c++ ptc classes.</li>
+  <li>Switched the source code projects to to optimize for blended processor model instead of
+    on pentium pro.</li>
+  <li>Setup code framework for JNI (Java Native Interface).</li>
+  <li>Improved the source workspace formatting, now Dynamic.dsp depends on Core.dsp to compile
+    the core source instead of including the core source into its own project.</li>
+  <li>Added projects for JNI, RNI and JDirect code bases. This is where the code for java to
+    ptc.dll support will be placed.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.11 (19/4/99)</font></h4>
+
+<ul>
+  <li>Added code to clear the primary surface when reactivating and a secondary surface is the
+    console back buffer. Without this occasionally the primary surface would have garbage on
+    it, such as remnants of the task bar when switching back into a fullscreen application
+    with ALT-TAB.</li>
+  <li>Fixed a subtle palette setting bug that may have caused programs that expected to be
+    able to read the palette back from a console to behave incorrectly. Now the contents of
+    the console palette is always updated to what was set, even in a direct color mode,
+    previously, the palette data was unchanged if in direct color.</li>
+  <li>Put code into DirectXHook to show and hide the cursor when the console is
+    activated/deactivated. This will make sure that the cursor is only hidden while the
+    application is active, and when the user switches away, the cursor will be shown again.</li>
+  <li>Added code to DirectXHook to release the ddraw interfaces and cleanly shutdown ddraw.dll
+    when WM_CLOSE is recieved. Previously the console was being closed, surfaces released and
+    display mode restored, but the ddraw objects and library were not cleaned up.</li>
+  <li>Added code to console close to make sure that the mouse cursor is always shown once
+    fullscreen output is closed down. This should fix problems reported by some users that the
+    mouse cursor remained hidden after a fullscreen ptc application had shut down.</li>
+  <li>Converted all logging functionality over from the &quot;Error&quot; class to a new
+    internal class &quot;Log&quot;. Now logging will not just be for errors, but will include
+    lots of useful information about<br>
+    the internal workings of OpenPTC Win32. Take a look at &quot;ptc.log&quot; sometime and
+    marvel at the garbage that only i can understand :)</li>
+  <li>Fixed some simple uninitialized memory reads in Win32Keyboard. I wasnt clearing the
+    m_alt/m_shift/m_control flags to false in the constructor.</li>
+  <li>Found a major memory leak in the core console. I was not deleting the managed console
+    pointer in the destructor! eek!</li>
+  <li>Started work on extensive checking of OpenPTC Win32 using BoundsChecker. The goal here
+    is to track down all minor bugs, such as uninitialized memory reads, memory leaks, win32
+    and ddraw api call failures and warnings etc.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.10 (14/4/99)</font></h4>
+
+<ul>
+  <li>Fixed another big fat bug! This one was causing an infine loop to occur when some
+    fullscreen modes were requested because the index was not being incremented to iterate
+    through the modes list when searching for a mode. simple bug. simple fix. Now i hope we
+    have the stability back to the level before we introduced the nearest mode matching and
+    mode list support! Thanks again to Marcus Fletcher for help in tracking this one down.</li>
+  <li>Tracked down an amazingly simple but devastating bug. The clearing code for the primary
+    surface was buggy, it did not specify DDBLT_WAIT to ensure that the blt would wait until
+    it could start, instead on some cards it caused DDERR_WASSTILLDRAWING to be thrown whever
+    the primary was created and cleared. The end result was that on some<br>
+    video cards fullscreen output just didnt work. Now it should. Big thanks to Marcus
+    Fletcher for helping me track this one down.</li>
+  <li>Added error logging to a file. This allows me to track the cause of bugs on other
+    peoples machines easily just by viewing the &quot;ptc.log&quot; file generated. Logging is
+    turned on automatically in ptcdebug.dll and will create a &quot;ptc.log&quot; file when
+    any errors (even internal ones that are recovered from) are thrown. You can enable and
+    disable error logging with the console options &quot;enable logging&quot; and
+    &quot;disable logging&quot;. See options.txt for more information.</li>
+  <li>Upgraded debug checking for non-open consoles, and locked consoles in functions that are
+    undefined when the console is not open and/or locked. Now the DirectXConsole throws an
+    error message specifying the exact function that caused the error so you and i can track
+    down bugs easier. For example, what was &quot;console is not open&quot; has become
+    &quot;console is not open in DirectXConsole::copy(surface)&quot;.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.9 (13/4/99)</font></h4>
+
+<ul>
+  <li>Fixed the problem with ALT-F4 closing throwing &quot;console is not open&quot; errors
+    when the m_console-&gt;close is used on WM_CLOSE. Now DX output should be shut down
+    cleanly when ALT-F4 is pressed in fullscreen, instead of screwing up the window positions
+    and exiting in a messy way.</li>
+  <li>Added options to control console key buffering: &quot;enable key buffering&quot; and
+    &quot;disable key buffering&quot;. Using these options it is possible to turn the
+    console.key/console.read functions on and off, quite useful when you are managing your own
+    HWND and really dont want key buffering going on in the background because you can handle
+    it directly! See options.txt for more information.</li>
+  <li>Improved the nearest mode match search that was added in the previous version to have a
+    fallback to the old method of mode setting. This has been added because some people
+    reported that problems getting fullscreen output were introduced in 1.0.8, so hopefully
+    this will fix it. If you still have problems getting fullscreen output please email
+    ptc@gaffer.org immediately with details about what is going wrong. A copy of the output
+    from the &quot;Modes&quot; example program on your computer will greatly assist me in
+    tracking down any mode setting bugs.</li>
+  <li>Fixed secondary to primary blitting to not blit when either source or destination
+    rectangles are zero area. This means that when in windowed output, resizing the window to
+    have zero area (ie. shrinking the window size down to nothing but the title bar) will not
+    cause a &quot;DDERR_INVALIDRECT&quot; in &quot;m_lpDDS_primary-&gt;Blt&quot;.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.8 (9/4/99)</font></h4>
+
+<ul>
+  <li>Improved the primary restoring code to perfection. This latest fix makes the
+    &quot;DirectXPrimary::block&quot; function block until the restore is successful,
+    previously, a failed restore would cause an error to be thrown in some circumstances such
+    as &quot;DDERR_WRONGMODE&quot; being thrown by &quot;m_lpDDS_primary-&gt;Restore&quot;.</li>
+  <li>Added the &quot;frequency [n]&quot; option to allow control over the the frequency of
+    the display mode opened. See &quot;options.txt&quot;</li>
+  <li>Added option strings to control whether the cursor is hidden or shown. See
+    &quot;options.txt&quot; for more information.</li>
+  <li>Added some options to choose what method is used to display the console on the nearest
+    mode, &quot;default nearest&quot; uses the fastest method (as below), &quot;center
+    nearest&quot; centers<br>
+    the console on the nearest mode, and &quot;stretch nearest&quot; stretches to the nearest
+    mode. See &quot;options.txt&quot; for more details.</li>
+  <li>Added code to choose between centering and stretching to the nearest display mode. By
+    default the fastest method is used, ie. stretching is only used if there is hardware
+    stretching support (quite common).</li>
+  <li>Implemented fullscreen closest mode emulation with stretching and centering. This is
+    majorly cool. If the user does not have the exact mode you requested, the nearest mode is
+    used and the graphics card hardware is used to stretch up from the resolution you wanted
+    up to the resolution of the display. Even better, on newer cards the stretch will be
+    performed in hardware, potentially with bilinear filtering (TNT). Its excellent!</li>
+  <li>Added proper mode list support to the DirectX console, check out the &quot;Modes&quot;
+    example now and bask in the power of a fully operational console mode list :)</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.7 (7/4/99)</font></h4>
+
+<ul>
+  <li>Removed the activate/deactivate cursor code because it seems to be having some problems
+    hiding the cursor again once it is shown on deactivate. blah.</li>
+  <li>Added code to memset the DDSURFACEDESC to zero before setting it up in
+    DirectXPrimary::primary to create the LPDIRECTDRAWSURFACE. This is a minor change but it
+    is recommended to do this in the ddraw documentation to avoid problems with poorly written
+    drivers.</li>
+  <li>Added &quot;WndProc&quot; extension example to demonstrate how to work user managed HWND
+    in fullscreen and windowed output.</li>
+  <li>Added &quot;Win32Window::update(bool force)&quot; to force window messages to get
+    processed in situations where they must be processed, even if the window is user managed
+    (for example, DirectXPrimary::block requires that window messages get processed by
+    Win32Window::update in order to operate).</li>
+  <li>Fixed DirectXHook::hook to ignore WM_CLOSE when the HWND is user managed (normally it
+    closes the console to make DX close clean in fullscreen when ALT-F4 is pressed).</li>
+  <li>Fixed Win32Window::close to leave the user managed HWND alone and not destroy it :)</li>
+  <li>Changed Win32Window::update to not process user managed window messages. this means that
+    when you use a HWND in Console::open it is your responsibility to process window messages
+    (more flexibility).</li>
+  <li>Added support for user HWNDs in Console::open. This will give users a higher level of
+    control over window management when they need it. See &quot;extensions.txt&quot; for more
+    information.</li>
+  <li>Added code to show the cursor when focus is lost, and hide it when it is regained when
+    the cursor should be hidden. This fixes some minor cursor hiding bugs, ie. no cursor when
+    the application has been ALT-TAB'ed away from and the system menu is opened with a right
+    click on the app in the task bar.</li>
+  <li>Added the workspace &quot;Extensions&quot; for future example programs that demonstrate
+    extensions supported by OpenPTC Win32.</li>
+  <li>Added a extension functions for opening a console with a user managed HWND.
+    &quot;Console::open(HWND hWnd,...)&quot;.</li>
+  <li>Extended secondary to primary blts to not use DDBLTFX_NOTEARING when the primary is
+    multipaged because it could potentially cause slowdown.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.6 (6/4/99)</font></h4>
+
+<ul>
+  <li>Fixed a major bug that was introduced in the last release. The problem occurs in
+    windowed output because the Blt with sychronization (&quot;DDBLTFX_NOTEARING&quot;) is not
+    supported on all cards. I added code to fall back to a normal, unsynced blt if the
+    hardware does not support synchonized blts. Now everything is stable and i am happy. heh
+    :)</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.5 (5/4/99)</font></h4>
+
+<ul>
+  <li>Wow! All major bugs in this distribution have been fixed! I'm happy to announce that
+    OpenPTC Win32 has moved from ALPHA stage to BETA! :)</li>
+  <li>Added options to control whether vertical retrace syncing is enabled. These options only
+    effect the Blt from secondary to primary, not the primary-&gt;Flip (flip always syncs to
+    vrt). So basically, you only have control over vertical retrace in windowed output. By
+    default all updates sycnchronize to the vertical retrace. Two options have been added to
+    control retrace synchronization: &quot;synchronized update&quot; and &quot;unsynchronized
+    update&quot;. See &quot;options.txt&quot; for details.</li>
+  <li>Added the &quot;Win32Cursor&quot; class to manage showing and hiding the cursor in
+    windows.</li>
+  <li>Fixed the bug that caused a &quot;DDERR_WRONGMODE&quot; error when the application entry
+    in the title bar was right clicked.</li>
+  <li>Implemented WM_PAINT in DirectXHook so that windowed output behaves correctly in
+    situations where update is not being repeatedly called. This makes examples like
+    &quot;Pixel&quot; and &quot;Image&quot; repaint themselves correctly when required.</li>
+  <li>Fixed some minor bugs that popped up in the Tunnel3D demo in the last release (added
+    iostream casts to char*).</li>
+  <li>Added window centering and the options &quot;center window&quot; and &quot;default
+    window position&quot; to turn it on and off. See &quot;options.txt&quot; for details.</li>
+  <li>Added a lot of options to control windowed output and the setup of primary and secondary
+    surfaces. See &quot;options.txt&quot; for details.</li>
+  <li>Added resizable window output. Now you can resize the window and if you have a cool card
+    like a Riva TNT (like i have right here...) the stretch will use bilinear interpolation!
+    awesome! &gt;B)</li>
+  <li>Fixed a majorly stupid fat bug in windowed output. Now everything works nicely.
+    Previously the width/height of the secondary surface in windowed output was not correct,<br>
+    this caused stretching to occur when it shouldnt, and copying areas to the console to not
+    work correctly.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.4 (3/4/99)</font></h4>
+
+<ul>
+  <li>Attached a clipper to the primary surface in windowed output so that it now behaves
+    correctly when windows are placed on top of it, or it is moved offscreen. windowed<br>
+    output should be 100% stable now!</li>
+  <li>Implemented much improved windowed output that renders to an offscreen secondary surface
+    then copies the contents to the primary surface on each call to Console::update.<br>
+    This fixes lots of nasty problems with windowed output.</li>
+  <li>Added code to make sure that the mouse cursor is always correctly hidden, however, on
+    some systems explorer seems to take mouse focus back from the fullscreen app and show the
+    cursor (!) when the app is run with a double click on the exe file in explorer. Still
+    looking for a fix for this problem!</li>
+  <li>Made DirectXHook close the console on WM_CLOSE. This makes DirectX fullscreen shutdown
+    cleanly when ALT-F4 is pressed, however calling exit() without first closing the console
+    still causes an unclean shutdown (ie. window positions may be messed up).</li>
+  <li>Fixed windowed output to stop accidental window flashing or activation when the window
+    loses focus (the ALT-TAB handling for fullscreen was incorrectly still in place in
+    windowed mode causing some problems...)</li>
+  <li>Made the fullscreen window WS_EX_TOPMOST, and added code to make sure it gets properly
+    minimized when the window looses focus in fullscreen. Now the switch out from a fullscreen
+    mode should be clean (no topmost window covering others...).</li>
+  <li>Fixed the ALT-TAB handling code to advoid the occasional &quot;DDERR_SURFACELOST&quot;
+    errors in the previous version. Switching away from a fullscreen console should be 100%
+    stable now!</li>
+  <li>Fixed a cut&amp;paste bug in DirectXConsole::option, the option &quot;default bits&quot;
+    was not behaving correctly (thanks zoon).</li>
+  <li>Added code to make sure that the cursor is shown in the error message box after an error
+    was reported from inside a fullscreen console. Before this fix, the mouse cursor was
+    invisible over the error message box in some circumstances.</li>
+  <li>Almost (heheh) added assembler support for HERMES in Win32. It will be in very shortly,
+    but a couple of things halted progress for the time being. See &quot;changes.txt&quot; in
+    the &quot;source/Hermes&quot; directory for a list of changes i have made to improve
+    HERMES under Win32.</li>
+  <li>Added two more extension functions to support the primary and secondary surfaces
+    directly: &quot;Console::lpDDS_primary&quot; and &quot;Console::lpDDS_secondary&quot;. See
+    &quot;extensions.txt&quot; for details.</li>
+  <li>Added a &quot;secondary&quot; ddraw surface to the console. This opens the door for a
+    lot of funky things like stable windowed output, stretching from a low resolution
+    secondary surface to a higher resolution primary surface etc.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.3 (31/3/99)</font></h4>
+
+<ul>
+  <li>Fixed mouse cursor hiding to work more correctly, although there still seems to be
+    problems when an application is launched from explorer with a double mouse click on some
+    computers... (?)</li>
+  <li>Added code to save the position of the foreground window before switching modes, and to
+    restore it on leaving the mode. This should fix the annoying bug where VC gets resized to
+    the width and height of the display mode. If you still experience problems with
+    window/icon positions with PTC, please tell me asap. so i can take more comprehensive
+    measures to make sure it does not happen (if this does not fix it, i will save and restore
+    the position of every single window and icon during mode switches!)</li>
+  <li>Found some minor problems in the merger Console::open functions not behaving exactly as
+    i would like them to regarding console options in a merged distribution (ie. DirectX +
+    GDI). To fix the problem for now i have constructed a little hack, to fix it more
+    completely may require a redesign of the merger console. For now, this will do :)</li>
+  <li>Fixed a minor bug in the merger Console::option function. Some options were not working
+    correctly.</li>
+  <li>Found the primary reason why ALT-TAB was exiting the application immediately... ALT is a
+    keypress in PTC, and the main key press loop exits immediately in most examples as soon as
+    any key is pressed. To get around this i have temporarily disabled ALT key presses and
+    modifiers, i will enable an option in the future to control whether system keys should be
+    allowed through or restricted to the application only.</li>
+  <li>Implemented DirectXHook to handle all required window messages.</li>
+  <li>Fixed Win32Hook to correctly handle multiple hooks on the same HWND. Now a lot of nasty
+    problems can be fixed...</li>
+  <li>Removed the DirectXConsole and GDIConsole from being exported! Now the ptc.dll is much
+    smaller, these consoles were exported by accident! Only the main Console was supposed to
+    be exported in the dll!</li>
+  <li>Added special defines to increase compilation speed of windows.h and to restrict ddraw.h
+    to dx3 compliance.</li>
+  <li>Found some details with option strings that i forget to mention in
+    &quot;options.txt&quot; last release. If the console options didnt work in 1.0.2, read
+    &quot;options.txt&quot; again and read the notes about options in a merged distibution.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.2 [25/3/99]</font></h4>
+
+<ul>
+  <li>Simplified the image example source code.</li>
+  <li>Implemented proper key stroke buffering and control, alt, shift modifiers. Updated the
+    &quot;Keyboard&quot; example to check the &quot;shift&quot; modifier.</li>
+  <li>Fixed a bug in the Palette class. The bug caused the first palette set to be the only
+    one used in some cases, now all palette operations will work correctly. (note. this bug
+    did<br>
+    not show up in the examples because they only use a single palette).</li>
+  <li>Added basic &quot;merger kit&quot; functionality. This is currently transparent to you
+    using PTC, but in the future will let you choose between using the default console,
+    DirectX console,<br>
+    or GDI console at runtime.</li>
+  <li>Fixed a very minor bug in the Console::lpDD/lpDD2/lpDDS functions. They were not being
+    declared as PTCAPI, which is basically stdcall, this may have caused some problems when
+    interfacing to the dll. If so, its all fixed now :)</li>
+  <li>Added &quot;GDI&quot; source tree as a placeholder for when GDI console support gets
+    added to PTC for Win32.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.1 (22/3/99)</font></h4>
+
+<ul>
+  <li>Added documentation for Win32 PTC extensions in &quot;extensions.txt&quot;</li>
+  <li>Added option strings to the console. See &quot;options.txt&quot; for more information
+    about the new option strings.</li>
+  <li>Converted all workspace and project files to Visual C++ 6.0. This is the best format to
+    use as it works perfectly with VC6 without conversion and is backwards compatable with
+    VC5.</li>
+</ul>
+
+<h4><font face="Arial">Version 1.0.0 (19/3/99)</font></h4>
+
+<ul>
+  <li>Fixed surface clear clipping bug with new porting kit 1.0.1 code.</li>
+  <li>Updated to the latest porting kit, examples kit, demos kit and testing kit. This
+    implementation is OpenPTC 1.0 compliant.</li>
+  <li>Added console pages functionality from porting kit.</li>
+  <li>Added &quot;Copy&quot; example program.</li>
+  <li>Added &quot;Console&quot; example program.</li>
+  <li>Fixed major clipping bug and upgraded clear example.</li>
+  <li>Upgraded timer class to use QueryPerformanceCounter API.</li>
+  <li>Problems with palette 255 entry being set to white DirectDraw bug.</li>
+  <li>Upgraded palette functionality to work properly without a workaround.</li>
+  <li>Upgraded DirectDraw Surface interfaces to LPDIRECTDRAWSURFACE2.</li>
+  <li>Upgraded DirectDraw interface to LPDIRECTDRAW2 in DirectXDisplay.</li>
+  <li>Modified PTCAPI to _stdcall and added DLLAPI (dllexport/import) to make sure that the
+    dll is always properly linked to.</li>
+  <li>Added PTCAPI exporting define to properly export api functions.</li>
+  <li>Changed all examples over to use ptc.dll by default.</li>
+  <li>Added dynamic library support (ptc.dll).</li>
+  <li>Partitioned code into Core, Win32 and DirectX directories.</li>
+  <li>Brought over old source code from Win32 PTC 2.0.8.</li>
+  <li>Built up Win32 implementation framework from porting kit.</li>
+</ul>
+</body>
+</html>

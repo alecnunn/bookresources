@@ -1,0 +1,8 @@
+ps_1_1
+def c0, 0, 0, 0, 0
+def c1, 0, 1, 1, 0
+texcoord t0
+mov r0.xyz, t0
+mov r1.xyz, c0
+lrp r0.xyz, c1, r1, r0
++mov r0.w, c1.w

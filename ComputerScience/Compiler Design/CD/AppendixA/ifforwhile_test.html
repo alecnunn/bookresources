@@ -1,0 +1,52 @@
+<html>
+<head>
+<title></title>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Test Program</h2>
+<p>int a,b,c;<br>
+  int main()<br>
+  {<br>
+  int idx,qty;<br>
+  double average;<br>
+  int nums,sum;<br>
+  int initialInvestment;<br>
+  int noOfMonths,monthlyIncome;<br>
+  int requiredIncome;<br>
+  int check;<br>
+  int balance,loanAmount, noOfInstallments, installments;<br>
+  int repayAmount,excess;<br>
+  sum=0;<br>
+  for(idx=0;idx&lt;nums;idx=idx+1)<br>
+  {sum = sum +qty;}<br>
+  L1: average = sum / nums;<br>
+  if(average &lt; 10.0)<br>
+  {a=10;}<br>
+  else<br>
+  {b=20;}<br>
+  c=30;<br>
+  sum = 0;<br>
+  requiredIncome = 100000;<br>
+  monthlyIncome = 2000;<br>
+  noOfMonths = 0;<br>
+  while (sum &lt;= requiredIncome)<br>
+  {<br>
+  sum = sum + monthlyIncome;<br>
+  noOfMonths = noOfMonths + 1;<br>
+  }<br>
+  check = requiredIncome == sum;<br>
+  loanAmount = 156000;<br>
+  balance = 0;<br>
+  installments = 1000;<br>
+  noOfInstallments  = 0;<br>
+  do<br>
+  {<br>
+  balance = loanAmount - installments;<br>
+  noOfInstallments = noOfInstallments + 1;<br>
+  } while(balance &lt; 0);<br>
+  excess = -balance;<br>
+  goto L1;</p>
+<p>}<br>
+</p>
+</body>
+</html>

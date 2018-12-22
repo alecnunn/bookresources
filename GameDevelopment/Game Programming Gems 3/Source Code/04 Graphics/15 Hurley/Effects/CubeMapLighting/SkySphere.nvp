@@ -1,0 +1,12 @@
+#include "constants.h"
+
+	ps.1.1
+
+
+	tex	t0			// grab base texture
+
+; multiply in sky color
+	mad	r1, c[CP_SKY_COLOR], 1-t0, t0
+; and now lighting color
+	mul_sat	r0, v0, r1
+	    

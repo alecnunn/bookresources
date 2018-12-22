@@ -1,0 +1,20 @@
+Sphinx MMOS
+------------------------------------------------------------------------------------------
+This is distribution 0205
+
+Items contained in this packet:
+
+Libraries:
+atombase			1105	
+atomgaud			0414	
+
+Applications:
+SphinxMMOSPlayer		0618			
+
+Documentation:
+
+
+Media:			0203
+patches			0203		
+samples			0203	
+

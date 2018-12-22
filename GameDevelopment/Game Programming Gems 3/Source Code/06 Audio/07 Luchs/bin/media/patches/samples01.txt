@@ -1,0 +1,158 @@
+
+CGASignal  Flap
+{
+	File = "flap01.wav";
+}
+
+
+CGAPatch "Simple Sample Player , mono"
+{
+
+	CGAWavetableOscillator Osc
+	{
+		WaveTable = Flap;
+		Frequency = 0.33;
+	}
+
+
+}
+
+
+CGASignal  Harley
+{
+	File = "m_harley05.wav";
+}
+
+
+CGAPatch "Harley Motorcycle"
+{
+
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 0.1;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = Harley;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = OSC1, WAV1, SampleOut, FM;
+
+}
+
+CGASignal  Tractor
+{
+	File = "m_tractor01.wav";
+}
+
+CGAPatch "Tractor"
+{
+
+
+	CGASineOscillator OSC1
+	{
+		Frequency = 0.1;
+		Amplitude = 0.5;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = Tractor;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = OSC1, WAV1, SampleOut, FM;
+
+}
+
+
+CGAPatch "Clicker"
+{
+
+
+	CGASequencer16 SEQ1
+	{
+		Steps = xooxooxoxooooooo;
+	}
+
+}
+
+CGAPatch "Clicker, FM"
+{
+
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+
+	CGASequencer16 SEQ1
+	{
+		Steps = xooxooxoxooooooo;
+	}
+
+	Connection = LFO1, SEQ1, SampleOut, FM;
+
+}
+
+
+
+CGASignal  Impulse
+{
+	File = "m_impulse07.wav";
+}
+
+CGAPatch "Motorcycle Sequencer"
+{
+
+	CGATriangleEnvelope Env1
+	{
+		Duration = 3;
+	}
+
+	CGASequencer16 SEQ1
+	{
+		Frequency = 3.0;
+		Steps = Xooo0oooXooo0ooo;
+		FMAttenuation = 0.6;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = Impulse;
+		Repeat = 1;
+	}
+
+	Connection = Env1, SEQ1, SampleOut, FM;
+	Connection = SEQ1, WAV1, SampleOut, TRIG;
+
+}
+
+CGASignal  EngineWave1
+{
+	File = "m_enginewave01.wav";
+}
+
+CGAPatch "engine wave"
+{
+
+	CGATriangleOscillator LFO1
+	{
+		Frequency = 0.1;
+	}
+
+	CGAWavetableOscillator WAV1
+	{
+		WaveTable = EngineWave1;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = LFO1, WAV1, SampleOut, FM;
+
+}
+

@@ -1,0 +1,1755 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML><HEAD></HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="FrameName" value="right">
+</OBJECT>
+<UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="a"><param name="Name" value="a"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m0"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="abC"><param name="Name" value="abC"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_4"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="abV1"><param name="Name" value="abV1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_2"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="abV2"><param name="Name" value="abV2"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_3"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Accept"><param name="Name" value="Accept"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c15"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="AccumulateRadiance"><param name="Name" value="AccumulateRadiance"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a7"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="area"><param name="Name" value="area"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m8"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Average"><param name="Name" value="Average"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a28"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="avgBrdf"><param name="Name" value="avgBrdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m3"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="avgKd"><param name="Name" value="avgKd"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m5"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="avgKs"><param name="Name" value="avgKs"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m6"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="b"><param name="Name" value="b"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m1"><param name="Name" value="Triangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m6"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="bbox"><param name="Name" value="bbox"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#m1"><param name="Name" value="Intersectable"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="bcC"><param name="Name" value="bcC"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_7"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="bcV1"><param name="Name" value="bcV1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_5"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="bcV2"><param name="Name" value="bcV2"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_6"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="BLACK"><param name="Name" value="BLACK"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#p0"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="BLUE"><param name="Name" value="BLUE"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="StIter_8cpp.html#a2"><param name="Name" value="StIter.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classBoundingBox.html"><param name="Name" value="BoundingBox"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classBoundingBox.html#a0"><param name="Name" value="Center"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="boundingBox"><param name="Name" value="boundingBox"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o4"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classBoundingBox.html"><param name="Name" value="BoundingBox"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classBoundingBox.html#m1"><param name="Name" value="maxPoint"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classBoundingBox.html#m0"><param name="Name" value="minPoint"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Brdfs"><param name="Name" value="Brdfs"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z7_0"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="build"><param name="Name" value="build"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c1"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Build"><param name="Name" value="Build"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a2"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="c"><param name="Name" value="c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m2"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="C_I"><param name="Name" value="C_I"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m3"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="C_W"><param name="Name" value="C_W"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m7"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="caC"><param name="Name" value="caC"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_10"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="CalculateArea"><param name="Name" value="CalculateArea"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a4"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="CalculateCoordSystem"><param name="Name" value="CalculateCoordSystem"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a32"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="CalculateDirectLight"><param name="Name" value="CalculateDirectLight"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c2"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="CalculateIntersection"><param name="Name" value="CalculateIntersection"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#a1"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="CalculateMaxPhongSpecularAlbedo"><param name="Name" value="CalculateMaxPhongSpecularAlbedo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a15"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="CalculateSpecularDirectionProbability"><param name="Name" value="CalculateSpecularDirectionProbability"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c17"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="CalculateVertexColors"><param name="Name" value="CalculateVertexColors"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c6"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="Camera_8cpp.html"><param name="Name" value="Camera.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Camera_8cpp.html#a3"><param name="Name" value="DEFAULT_CAMERA_FARCLIP"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Camera_8cpp.html#a2"><param name="Name" value="DEFAULT_CAMERA_NEARCLIP"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Camera_8cpp.html#a0"><param name="Name" value="INITIAL_SCREEN_SIZE_X"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Camera_8cpp.html#a1"><param name="Name" value="INITIAL_SCREEN_SIZE_Y"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html"><param name="Name" value="Camera"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#a0"><param name="Name" value="Camera"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#a1"><param name="Name" value="CompleteCamera"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m0"><param name="Name" value="eyep"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m8"><param name="Name" value="farClip"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m4"><param name="Name" value="fov"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m5"><param name="Name" value="hfov"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m9"><param name="Name" value="hres"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m1"><param name="Name" value="lookp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m7"><param name="Name" value="nearClip"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m14"><param name="Name" value="pixh"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m15"><param name="Name" value="pixv"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m16"><param name="Name" value="tanFovH"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m17"><param name="Name" value="tanFovV"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m2"><param name="Name" value="updir"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m6"><param name="Name" value="vfov"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m3"><param name="Name" value="viewdist"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m10"><param name="Name" value="vres"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m11"><param name="Name" value="X"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m12"><param name="Name" value="Y"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m13"><param name="Name" value="Z"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="caV1"><param name="Name" value="caV1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_8"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="caV2"><param name="Name" value="caV2"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_9"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Center"><param name="Name" value="Center"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classBoundingBox.html#a0"><param name="Name" value="BoundingBox"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Clear"><param name="Name" value="Clear"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a4"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="clear"><param name="Name" value="clear"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#a5"><param name="Name" value="TreeElement"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="ClipToUnitInterval"><param name="Name" value="ClipToUnitInterval"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a4"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Color"><param name="Name" value="Color"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Vector_8hpp.html#a0"><param name="Name" value="Vector.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="compare"><param name="Name" value="compare"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c3"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="CompleteCamera"><param name="Name" value="CompleteCamera"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#a1"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="ComputedSpecularMaxPhongAlbedo"><param name="Name" value="ComputedSpecularMaxPhongAlbedo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a14"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html"><param name="Name" value="CPhongBrdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m3"><param name="Name" value="avgBrdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m5"><param name="Name" value="avgKd"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m6"><param name="Name" value="avgKs"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a15"><param name="Name" value="CalculateMaxPhongSpecularAlbedo"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a14"><param name="Name" value="ComputedSpecularMaxPhongAlbedo"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a2"><param name="Name" value="EvalBrdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a4"><param name="Name" value="EvalDiffuseBrdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a7"><param name="Name" value="EvalSpecularBrdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a16"><param name="Name" value="FinishPhong"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a12"><param name="Name" value="GetAlbedo"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a9"><param name="Name" value="GetAverageBrdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a10"><param name="Name" value="GetDiffuseAlbedo"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a8"><param name="Name" value="GetDiffuseBrdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a13"><param name="Name" value="GetReflectanceLum"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a11"><param name="Name" value="GetSpecularAlbedo"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m0"><param name="Name" value="Kd"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m2"><param name="Name" value="kd"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m1"><param name="Name" value="Ks"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m11"><param name="Name" value="maxPhongSpecularAlbedos"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m4"><param name="Name" value="Ns"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m9"><param name="Name" value="scatteredPower"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m10"><param name="Name" value="specularMaxPhongScaling"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m8"><param name="Name" value="specularPdfScaling"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m7"><param name="Name" value="specularScaling"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html"><param name="Name" value="CPhongEdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#a5"><param name="Name" value="EvalEdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#a0"><param name="Name" value="FinishPhong"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#a2"><param name="Name" value="GetEmissionLum"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#a3"><param name="Name" value="GetEmissionRad"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#a1"><param name="Name" value="GetPowerOfArea"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#m0"><param name="Name" value="Kd"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#m1"><param name="Name" value="kd"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="createBoundingBox"><param name="Name" value="createBoundingBox"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c9"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="currentDepth"><param name="Name" value="currentDepth"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o12"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="d"><param name="Name" value="d"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m14"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="DEFAULT_CAMERA_FARCLIP"><param name="Name" value="DEFAULT_CAMERA_FARCLIP"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Camera_8cpp.html#a3"><param name="Name" value="Camera.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="DEFAULT_CAMERA_NEARCLIP"><param name="Name" value="DEFAULT_CAMERA_NEARCLIP"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Camera_8cpp.html#a2"><param name="Name" value="Camera.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="deleteLeaves"><param name="Name" value="deleteLeaves"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c0"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="depth"><param name="Name" value="depth"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHitRec.html#m1"><param name="Name" value="HitRec"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o11"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="DetermineVisibility"><param name="Name" value="DetermineVisibility"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c0"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="dir"><param name="Name" value="dir"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classRay.html#m1"><param name="Name" value="Ray"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="dirI"><param name="Name" value="dirI"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m5"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="dirW"><param name="Name" value="dirW"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m9"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="DoIteration"><param name="Name" value="DoIteration"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c4"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="DominantAxis"><param name="Name" value="DominantAxis"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a13"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="dominantAxis"><param name="Name" value="dominantAxis"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_0"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="duration"><param name="Name" value="duration"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o11"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Edfs"><param name="Name" value="Edfs"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z9_0"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="element"><param name="Name" value="element"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#o2"><param name="Name" value="Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="emitted"><param name="Name" value="emitted"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#m0"><param name="Name" value="TreeElement"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="EPSILON"><param name="Name" value="EPSILON"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a0"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="epsilon"><param name="Name" value="epsilon"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o13"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="EvalBrdf"><param name="Name" value="EvalBrdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a2"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="EvalDiffuseBrdf"><param name="Name" value="EvalDiffuseBrdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a4"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="EvalEdf"><param name="Name" value="EvalEdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#a5"><param name="Name" value="CPhongEdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="EvalSpecularBrdf"><param name="Name" value="EvalSpecularBrdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a7"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="eyep"><param name="Name" value="eyep"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m0"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="farClip"><param name="Name" value="farClip"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m8"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Fill"><param name="Name" value="Fill"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMatrix3x3.html#a0"><param name="Name" value="Matrix3x3"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="fillElement"><param name="Name" value="fillElement"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classImportanceTree.html#a0"><param name="Name" value="ImportanceTree"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPowerTree.html#a0"><param name="Name" value="PowerTree"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a5"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="FinalizeLtoEye"><param name="Name" value="FinalizeLtoEye"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c5"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="findBound"><param name="Name" value="findBound"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c5"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="FindDistrib"><param name="Name" value="FindDistrib"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a4"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Finish"><param name="Name" value="Finish"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a6"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="FinishInitializeScene"><param name="Name" value="FinishInitializeScene"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#b1"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="FinishLights"><param name="Name" value="FinishLights"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#b2"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="FinishPhong"><param name="Name" value="FinishPhong"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a16"><param name="Name" value="CPhongBrdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#a0"><param name="Name" value="CPhongEdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="followChildren"><param name="Name" value="followChildren"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c7"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="fov"><param name="Name" value="fov"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m4"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="freeNodes"><param name="Name" value="freeNodes"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o9"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="g"><param name="Name" value="g"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m5"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GenerateImportanceDirection"><param name="Name" value="GenerateImportanceDirection"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c10"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GenerateRadianceDirection"><param name="Name" value="GenerateRadianceDirection"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c9"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GenerateRandomTransillumDir"><param name="Name" value="GenerateRandomTransillumDir"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a35"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GenerateSpecularDirection"><param name="Name" value="GenerateSpecularDirection"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c11"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GetAlbedo"><param name="Name" value="GetAlbedo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a12"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GetAverageBrdf"><param name="Name" value="GetAverageBrdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a9"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="getBoundingBox"><param name="Name" value="getBoundingBox"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#a3"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="getBoundValue"><param name="Name" value="getBoundValue"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c4"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GetDiffuseAlbedo"><param name="Name" value="GetDiffuseAlbedo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a10"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GetDiffuseBrdf"><param name="Name" value="GetDiffuseBrdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a8"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GetDominantAxis"><param name="Name" value="GetDominantAxis"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a31"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GetEmissionLum"><param name="Name" value="GetEmissionLum"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#a2"><param name="Name" value="CPhongEdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GetEmissionRad"><param name="Name" value="GetEmissionRad"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#a3"><param name="Name" value="CPhongEdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="getFreeNodes"><param name="Name" value="getFreeNodes"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c8"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="getImportance"><param name="Name" value="getImportance"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c13"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GetPowerOfArea"><param name="Name" value="GetPowerOfArea"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#a1"><param name="Name" value="CPhongEdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="getRadiance"><param name="Name" value="getRadiance"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c12"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GetReflectanceLum"><param name="Name" value="GetReflectanceLum"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a13"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="getRootValue"><param name="Name" value="getRootValue"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a8"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="getSceneFileName"><param name="Name" value="getSceneFileName"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#a2"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="getShadingNormal"><param name="Name" value="getShadingNormal"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#a3"><param name="Name" value="Intersectable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a3"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GetSpecularAlbedo"><param name="Name" value="GetSpecularAlbedo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#a11"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="getValue2"><param name="Name" value="getValue2"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a7"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="getValue"><param name="Name" value="getValue"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a6"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html"><param name="Name" value="globals.hpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a13"><param name="Name" value="DominantAxis"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a0"><param name="Name" value="EPSILON"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a3"><param name="Name" value="M_1_PI"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a2"><param name="Name" value="M_PI"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a6"><param name="Name" value="MAX"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a7"><param name="Name" value="MAX3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a1"><param name="Name" value="MAX_DISTANCE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a5"><param name="Name" value="MIN"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a8"><param name="Name" value="MIN3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a4"><param name="Name" value="PI2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a9"><param name="Name" value="RAND"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a13a10"><param name="Name" value="X_DOMINANT"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a13a11"><param name="Name" value="Y_DOMINANT"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a13a12"><param name="Name" value="Z_DOMINANT"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="gMaxIndex"><param name="Name" value="gMaxIndex"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#p0"><param name="Name" value="Intersectable"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="GREEN"><param name="Name" value="GREEN"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="StIter_8cpp.html#a1"><param name="Name" value="StIter.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html"><param name="Name" value="Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#o2"><param name="Name" value="element"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a0"><param name="Name" value="Heap"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a2"><param name="Name" value="insert"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a4"><param name="Name" value="isEmpty"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a5"><param name="Name" value="isFull"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#o0"><param name="Name" value="maxSize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a3"><param name="Name" value="removeMin"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#o1"><param name="Name" value="size"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a1"><param name="Name" value="~Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="hfov"><param name="Name" value="hfov"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m5"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classHitRec.html"><param name="Name" value="HitRec"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHitRec.html#m1"><param name="Name" value="depth"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHitRec.html#a0"><param name="Name" value="HitRec"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHitRec.html#m3"><param name="Name" value="isIntersect"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHitRec.html#m2"><param name="Name" value="object"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHitRec.html#m0"><param name="Name" value="point"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="hres"><param name="Name" value="hres"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m9"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="hyperPlaneShiftOffset"><param name="Name" value="hyperPlaneShiftOffset"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_1"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="I"><param name="Name" value="I"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m4"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="id"><param name="Name" value="id"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classRay.html#m2"><param name="Name" value="Ray"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="ImportanceDirectionProbability"><param name="Name" value="ImportanceDirectionProbability"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c19"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classImportanceTree.html"><param name="Name" value="ImportanceTree"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classImportanceTree.html#a0"><param name="Name" value="fillElement"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Init"><param name="Name" value="Init"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLight.html#a1"><param name="Name" value="Light"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#a2"><param name="Name" value="LightSourceSample"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="INITIAL_SCREEN_SIZE_X"><param name="Name" value="INITIAL_SCREEN_SIZE_X"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Camera_8cpp.html#a0"><param name="Name" value="Camera.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="INITIAL_SCREEN_SIZE_Y"><param name="Name" value="INITIAL_SCREEN_SIZE_Y"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Camera_8cpp.html#a1"><param name="Name" value="Camera.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Initialize"><param name="Name" value="Initialize"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a3"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="insert"><param name="Name" value="insert"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a2"><param name="Name" value="Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="INT"><param name="Name" value="INT"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="StIter_8cpp.html#a3"><param name="Name" value="StIter.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="intersect"><param name="Name" value="intersect"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#a2"><param name="Name" value="Intersectable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a2"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html"><param name="Name" value="Intersectable"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#m1"><param name="Name" value="bbox"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#a3"><param name="Name" value="getShadingNormal"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#p0"><param name="Name" value="gMaxIndex"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#a2"><param name="Name" value="intersect"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#a0"><param name="Name" value="Intersectable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#m2"><param name="Name" value="lastTestedRayId"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#m3"><param name="Name" value="lastTestedRayResult"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#m4"><param name="Name" value="m_index"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#m0"><param name="Name" value="m_pMaterial"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#a1"><param name="Name" value="~Intersectable"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="InvertMatrix3x3"><param name="Name" value="InvertMatrix3x3"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMatrix3x3.html#a1"><param name="Name" value="Matrix3x3"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="isEmpty"><param name="Name" value="isEmpty"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a4"><param name="Name" value="Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="isFull"><param name="Name" value="isFull"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a5"><param name="Name" value="Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="isIntersect"><param name="Name" value="isIntersect"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHitRec.html#m3"><param name="Name" value="HitRec"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="isLeaf"><param name="Name" value="isLeaf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c6"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="iteration"><param name="Name" value="iteration"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m15"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Kd"><param name="Name" value="Kd"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m0"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="kd"><param name="Name" value="kd"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m2"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Kd"><param name="Name" value="Kd"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#m0"><param name="Name" value="CPhongEdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="kd"><param name="Name" value="kd"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongEdf.html#m1"><param name="Name" value="CPhongEdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="KDTree_8hpp.html"><param name="Name" value="KDTree.hpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="KDTree_8hpp.html#a0"><param name="Name" value="KDTREE_CACHE_LINE_BYTES"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structKDTree_1_1TraverseStack.html"><param name="Name" value="KDTree::TraverseStack"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structKDTree_1_1TraverseStack.html#m1"><param name="Name" value="rayMax"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structKDTree_1_1TraverseStack.html#m0"><param name="Name" value="rayMin"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structKDTree_1_1TraverseStack.html#m2"><param name="Name" value="tNode"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html"><param name="Name" value="KDTree"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o4"><param name="Name" value="boundingBox"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c1"><param name="Name" value="build"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c3"><param name="Name" value="compare"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c9"><param name="Name" value="createBoundingBox"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o12"><param name="Name" value="currentDepth"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c0"><param name="Name" value="deleteLeaves"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o11"><param name="Name" value="depth"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o13"><param name="Name" value="epsilon"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c5"><param name="Name" value="findBound"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c7"><param name="Name" value="followChildren"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o9"><param name="Name" value="freeNodes"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#a3"><param name="Name" value="getBoundingBox"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c4"><param name="Name" value="getBoundValue"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c8"><param name="Name" value="getFreeNodes"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c6"><param name="Name" value="isLeaf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#a0"><param name="Name" value="KDTree"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c10"><param name="Name" value="makePointer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o1"><param name="Name" value="maxNCacheLines"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o3"><param name="Name" value="nCacheLineBytes"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o2"><param name="Name" value="nCacheLineNodes"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o0"><param name="Name" value="nCacheLines"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o7"><param name="Name" value="nObjects"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o6"><param name="Name" value="nodeTable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o8"><param name="Name" value="objects"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o5"><param name="Name" value="poolNodeTable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c2"><param name="Name" value="quickSort"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#a2"><param name="Name" value="traverse"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o10"><param name="Name" value="traverseStack"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#a1"><param name="Name" value="~KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="KDTREE_CACHE_LINE_BYTES"><param name="Name" value="KDTREE_CACHE_LINE_BYTES"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="KDTree_8hpp.html#a0"><param name="Name" value="KDTree.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Ks"><param name="Name" value="Ks"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m1"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="lastTestedRayId"><param name="Name" value="lastTestedRayId"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#m2"><param name="Name" value="Intersectable"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="lastTestedRayResult"><param name="Name" value="lastTestedRayResult"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#m3"><param name="Name" value="Intersectable"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Ld"><param name="Name" value="Ld"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m2"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Leye"><param name="Name" value="Leye"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m12"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Leye_s"><param name="Name" value="Leye_s"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m13"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classLight.html"><param name="Name" value="Light"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLight.html#a1"><param name="Name" value="Init"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLight.html#a0"><param name="Name" value="Light"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLight.html#m0"><param name="Name" value="m_pPatch"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLight.html#m1"><param name="Name" value="m_pSamples"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLight.html#a2"><param name="Name" value="~Light"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html"><param name="Name" value="LightSourceSample"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#a2"><param name="Name" value="Init"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#a0"><param name="Name" value="LightSourceSample"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#m1"><param name="Name" value="m_nSamples"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#m0"><param name="Name" value="m_pLight"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#m2"><param name="Name" value="samples"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#a1"><param name="Name" value="~LightSourceSample"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="lookp"><param name="Name" value="lookp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m1"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m3x3Type"><param name="Name" value="m3x3Type"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Matrix_8hpp.html#a0"><param name="Name" value="Matrix.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m"><param name="Name" value="m"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMatrix3x3.html#m0"><param name="Name" value="Matrix3x3"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="M_1_PI"><param name="Name" value="M_1_PI"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a3"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_brdf"><param name="Name" value="m_brdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMaterial.html#m0"><param name="Name" value="Material"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_camera"><param name="Name" value="m_camera"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#m1"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_edf"><param name="Name" value="m_edf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMaterial.html#m1"><param name="Name" value="Material"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_EyePatchDir"><param name="Name" value="m_EyePatchDir"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m11"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_height"><param name="Name" value="m_height"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#m3"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_index"><param name="Name" value="m_index"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#m4"><param name="Name" value="Intersectable"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_maxIteration"><param name="Name" value="m_maxIteration"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o4"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_nElements"><param name="Name" value="m_nElements"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#n1"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_nIteration"><param name="Name" value="m_nIteration"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o5"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_nPixel"><param name="Name" value="m_nPixel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#m4"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_nSamples"><param name="Name" value="m_nSamples"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#m1"><param name="Name" value="LightSourceSample"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_nScenePatches"><param name="Name" value="m_nScenePatches"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#n2"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="M_PI"><param name="Name" value="M_PI"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a2"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_pImportanceTree"><param name="Name" value="m_pImportanceTree"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o2"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_pKDTree"><param name="Name" value="m_pKDTree"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#m2"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_pLight"><param name="Name" value="m_pLight"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#m0"><param name="Name" value="LightSourceSample"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_pMaterial"><param name="Name" value="m_pMaterial"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#m0"><param name="Name" value="Intersectable"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_pPatch"><param name="Name" value="m_pPatch"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLight.html#m0"><param name="Name" value="Light"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_pPowerTree"><param name="Name" value="m_pPowerTree"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o3"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_probPatchSelection_Importance"><param name="Name" value="m_probPatchSelection_Importance"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o7"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_probPatchSelection_Mix"><param name="Name" value="m_probPatchSelection_Mix"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o8"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_probPatchSelection_Power"><param name="Name" value="m_probPatchSelection_Power"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o6"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_pSamples"><param name="Name" value="m_pSamples"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLight.html#m1"><param name="Name" value="Light"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_pScene"><param name="Name" value="m_pScene"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o0"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_pScenePatches"><param name="Name" value="m_pScenePatches"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#n3"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_radiance"><param name="Name" value="m_radiance"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#m0"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_rgb"><param name="Name" value="m_rgb"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#m1"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_samplesPerLight"><param name="Name" value="m_samplesPerLight"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z11_2"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_screenBuffer"><param name="Name" value="m_screenBuffer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o1"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_TreeElements"><param name="Name" value="m_TreeElements"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#n0"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_vertexColors"><param name="Name" value="m_vertexColors"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o12"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_VisDir"><param name="Name" value="m_VisDir"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m10"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_VisibilityInfo"><param name="Name" value="m_VisibilityInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o13"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="m_width"><param name="Name" value="m_width"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#m2"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="main.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a0"><param name="Name" value="main"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="main"><param name="Name" value="main"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a0"><param name="Name" value="main.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="makePointer"><param name="Name" value="makePointer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c10"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMaterial.html"><param name="Name" value="Material"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMaterial.html#m0"><param name="Name" value="m_brdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMaterial.html#m1"><param name="Name" value="m_edf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMaterial.html#a0"><param name="Name" value="Material"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="Matrix_8hpp.html"><param name="Name" value="Matrix.hpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Matrix_8hpp.html#a0"><param name="Name" value="m3x3Type"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMatrix3x3.html"><param name="Name" value="Matrix3x3"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMatrix3x3.html#a0"><param name="Name" value="Fill"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMatrix3x3.html#a1"><param name="Name" value="InvertMatrix3x3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMatrix3x3.html#m0"><param name="Name" value="m"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMatrix3x3.html#a2"><param name="Name" value="MultiplyMatrixLeft"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="MAX3"><param name="Name" value="MAX3"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a7"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="MAX"><param name="Name" value="MAX"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a6"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="MAX_DISTANCE"><param name="Name" value="MAX_DISTANCE"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a1"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="maxNCacheLines"><param name="Name" value="maxNCacheLines"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o1"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="maxPhongSpecularAlbedos"><param name="Name" value="maxPhongSpecularAlbedos"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m11"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="maxPoint"><param name="Name" value="maxPoint"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classBoundingBox.html#m1"><param name="Name" value="BoundingBox"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="maxRayID"><param name="Name" value="maxRayID"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classRay.html#p0"><param name="Name" value="Ray"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="maxSize"><param name="Name" value="maxSize"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#o0"><param name="Name" value="Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="MergeIndirectOpenGLImage"><param name="Name" value="MergeIndirectOpenGLImage"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c7"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="midPoint"><param name="Name" value="midPoint"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m4"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="MIN3"><param name="Name" value="MIN3"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a8"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="MIN"><param name="Name" value="MIN"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a5"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="minPoint"><param name="Name" value="minPoint"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classBoundingBox.html#m0"><param name="Name" value="BoundingBox"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="MultiplyMatrixLeft"><param name="Name" value="MultiplyMatrixLeft"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMatrix3x3.html#a2"><param name="Name" value="Matrix3x3"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Na"><param name="Name" value="Na"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m5"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Nb"><param name="Name" value="Nb"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m6"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nBrdf"><param name="Name" value="nBrdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z7_1"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Nc"><param name="Name" value="Nc"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m7"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nCacheLineBytes"><param name="Name" value="nCacheLineBytes"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o3"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nCacheLineNodes"><param name="Name" value="nCacheLineNodes"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o2"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nCacheLines"><param name="Name" value="nCacheLines"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o0"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nearClip"><param name="Name" value="nearClip"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m7"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="NearEqual"><param name="Name" value="NearEqual"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a3"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nEdf"><param name="Name" value="nEdf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z9_1"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nObjects"><param name="Name" value="nObjects"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o7"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nodeTable"><param name="Name" value="nodeTable"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o6"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Norm2"><param name="Name" value="Norm2"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a19"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Norm"><param name="Name" value="Norm"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a18"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="normal"><param name="Name" value="normal"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m3"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Normalize"><param name="Name" value="Normalize"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a20"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Ns"><param name="Name" value="Ns"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m4"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nSceneLights"><param name="Name" value="nSceneLights"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z11_1"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nSceneMaterials"><param name="Name" value="nSceneMaterials"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z5_1"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nScenePatches"><param name="Name" value="nScenePatches"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z3_1"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nSceneVertices"><param name="Name" value="nSceneVertices"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z1_2"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="nScreenPixel"><param name="Name" value="nScreenPixel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m1"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="object"><param name="Name" value="object"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHitRec.html#m2"><param name="Name" value="HitRec"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="objects"><param name="Name" value="objects"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o8"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator &&"><param name="Name" value="operator &&"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a17"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator *="><param name="Name" value="operator *="></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a12"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator *"><param name="Name" value="operator *"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a16"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator%="><param name="Name" value="operator%="></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a10"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator%"><param name="Name" value="operator%"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a11"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator+="><param name="Name" value="operator+="></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a9"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator+"><param name="Name" value="operator+"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#a3"><param name="Name" value="TreeElement"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a6"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator-="><param name="Name" value="operator-="></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a8"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator-"><param name="Name" value="operator-"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a7"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator/="><param name="Name" value="operator/="></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a15"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator/"><param name="Name" value="operator/"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a14"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator<="><param name="Name" value="operator<="></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a24"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator="><param name="Name" value="operator="></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#a4"><param name="Name" value="TreeElement"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a21"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator>="><param name="Name" value="operator>="></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a25"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="operator[]"><param name="Name" value="operator[]"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a23"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="origin"><param name="Name" value="origin"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classRay.html#m0"><param name="Name" value="Ray"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html"><param name="Name" value="Patch"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m3"><param name="Name" value="C_I"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m7"><param name="Name" value="C_W"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#a1"><param name="Name" value="CalculateIntersection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m14"><param name="Name" value="d"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m5"><param name="Name" value="dirI"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m9"><param name="Name" value="dirW"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m4"><param name="Name" value="I"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m15"><param name="Name" value="iteration"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m2"><param name="Name" value="Ld"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m12"><param name="Name" value="Leye"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m13"><param name="Name" value="Leye_s"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m11"><param name="Name" value="m_EyePatchDir"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m10"><param name="Name" value="m_VisDir"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m1"><param name="Name" value="nScreenPixel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m6"><param name="Name" value="Rd"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#a0"><param name="Name" value="Reset"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m0"><param name="Name" value="visible"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m8"><param name="Name" value="W"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="Phong_8hpp.html"><param name="Name" value="Phong.hpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Phong_8hpp.html#a0"><param name="Name" value="SpecularAlbedosNum"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="PI2"><param name="Name" value="PI2"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a4"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="pixh"><param name="Name" value="pixh"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m14"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="pixv"><param name="Name" value="pixv"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m15"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="point"><param name="Name" value="point"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHitRec.html#m0"><param name="Name" value="HitRec"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="PointInTriangle"><param name="Name" value="PointInTriangle"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a5"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="poolNodeTable"><param name="Name" value="poolNodeTable"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o5"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classPowerTree.html"><param name="Name" value="PowerTree"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPowerTree.html#a0"><param name="Name" value="fillElement"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="quickSort"><param name="Name" value="quickSort"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#c2"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="r"><param name="Name" value="r"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m4"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="RadianceDirectionProbability"><param name="Name" value="RadianceDirectionProbability"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c18"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="RAND"><param name="Name" value="RAND"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a9"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classRay.html"><param name="Name" value="Ray"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classRay.html#m1"><param name="Name" value="dir"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classRay.html#m2"><param name="Name" value="id"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classRay.html#p0"><param name="Name" value="maxRayID"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classRay.html#m0"><param name="Name" value="origin"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="rayMax"><param name="Name" value="rayMax"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structKDTree_1_1TraverseStack.html#m1"><param name="Name" value="KDTree::TraverseStack"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="rayMin"><param name="Name" value="rayMin"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structKDTree_1_1TraverseStack.html#m0"><param name="Name" value="KDTree::TraverseStack"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="RBOpenGLRenderScene"><param name="Name" value="RBOpenGLRenderScene"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c8"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Rd"><param name="Name" value="Rd"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m6"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Read"><param name="Name" value="Read"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#b0"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="readBuffer"><param name="Name" value="readBuffer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a0"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="readBufferPos"><param name="Name" value="readBufferPos"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a2"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="readBufferSize"><param name="Name" value="readBufferSize"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a1"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="ReadColor"><param name="Name" value="ReadColor"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a6"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="ReadDouble"><param name="Name" value="ReadDouble"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a8"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="ReadInt"><param name="Name" value="ReadInt"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a10"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="ReadString"><param name="Name" value="ReadString"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a12"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="ReadVector"><param name="Name" value="ReadVector"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a4"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="RED"><param name="Name" value="RED"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="StIter_8cpp.html#a0"><param name="Name" value="StIter.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="reflected"><param name="Name" value="reflected"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#m1"><param name="Name" value="TreeElement"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="removeMin"><param name="Name" value="removeMin"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a3"><param name="Name" value="Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="render"><param name="Name" value="render"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#a2"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Reset"><param name="Name" value="Reset"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#a0"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="SampleHemisphereCosNTheta"><param name="Name" value="SampleHemisphereCosNTheta"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a34"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="SampleHemisphereCosTheta"><param name="Name" value="SampleHemisphereCosTheta"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a33"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="SampleLightSources"><param name="Name" value="SampleLightSources"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c3"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="samples"><param name="Name" value="samples"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#m2"><param name="Name" value="LightSourceSample"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="saveImage"><param name="Name" value="saveImage"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a8"><param name="Name" value="ScreenBuffer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#a3"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="scatteredPower"><param name="Name" value="scatteredPower"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m9"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html"><param name="Name" value="scene.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a0"><param name="Name" value="readBuffer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a2"><param name="Name" value="readBufferPos"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a1"><param name="Name" value="readBufferSize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a6"><param name="Name" value="ReadColor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a8"><param name="Name" value="ReadDouble"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a10"><param name="Name" value="ReadInt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a12"><param name="Name" value="ReadString"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a4"><param name="Name" value="ReadVector"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a5"><param name="Name" value="WriteColor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a7"><param name="Name" value="WriteDouble"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a9"><param name="Name" value="WriteInt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a11"><param name="Name" value="WriteString"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a3"><param name="Name" value="WriteVector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html"><param name="Name" value="Scene"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z7_0"><param name="Name" value="Brdfs"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z9_0"><param name="Name" value="Edfs"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#b1"><param name="Name" value="FinishInitializeScene"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#b2"><param name="Name" value="FinishLights"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#a2"><param name="Name" value="getSceneFileName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#m1"><param name="Name" value="m_camera"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#m2"><param name="Name" value="m_pKDTree"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z11_2"><param name="Name" value="m_samplesPerLight"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z7_1"><param name="Name" value="nBrdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z9_1"><param name="Name" value="nEdf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z11_1"><param name="Name" value="nSceneLights"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z5_1"><param name="Name" value="nSceneMaterials"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z3_1"><param name="Name" value="nScenePatches"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z1_2"><param name="Name" value="nSceneVertices"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#b0"><param name="Name" value="Read"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#a0"><param name="Name" value="Scene"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#m0"><param name="Name" value="sceneFileName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z11_0"><param name="Name" value="sceneLights"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z5_0"><param name="Name" value="sceneMaterials"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z3_0"><param name="Name" value="scenePatches"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z1_0"><param name="Name" value="sceneVertices"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z1_1"><param name="Name" value="sceneVerticesNormals"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#a1"><param name="Name" value="~Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="sceneFileName"><param name="Name" value="sceneFileName"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#m0"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="sceneLights"><param name="Name" value="sceneLights"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z11_0"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="sceneMaterials"><param name="Name" value="sceneMaterials"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z5_0"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="scenePatches"><param name="Name" value="scenePatches"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z3_0"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="sceneVertices"><param name="Name" value="sceneVertices"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z1_0"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="sceneVerticesNormals"><param name="Name" value="sceneVerticesNormals"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#z1_1"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html"><param name="Name" value="ScreenBuffer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a7"><param name="Name" value="AccumulateRadiance"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a4"><param name="Name" value="Clear"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a3"><param name="Name" value="Initialize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#m3"><param name="Name" value="m_height"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#m4"><param name="Name" value="m_nPixel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#m0"><param name="Name" value="m_radiance"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#m1"><param name="Name" value="m_rgb"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#m2"><param name="Name" value="m_width"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a8"><param name="Name" value="saveImage"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a0"><param name="Name" value="ScreenBuffer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a5"><param name="Name" value="SetRadiance"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a2"><param name="Name" value="Syncronize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a1"><param name="Name" value="~ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html"><param name="Name" value="SelectionTree"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a2"><param name="Name" value="Build"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a5"><param name="Name" value="fillElement"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a4"><param name="Name" value="FindDistrib"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a8"><param name="Name" value="getRootValue"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a6"><param name="Name" value="getValue"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a7"><param name="Name" value="getValue2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#n1"><param name="Name" value="m_nElements"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#n2"><param name="Name" value="m_nScenePatches"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#n3"><param name="Name" value="m_pScenePatches"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#n0"><param name="Name" value="m_TreeElements"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a0"><param name="Name" value="SelectionTree"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a3"><param name="Name" value="Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a1"><param name="Name" value="~SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="set"><param name="Name" value="set"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#a2"><param name="Name" value="TreeElement"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Set"><param name="Name" value="Set"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a2"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="SetIdealReflectedDirection"><param name="Name" value="SetIdealReflectedDirection"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a30"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="SetLinearCombination"><param name="Name" value="SetLinearCombination"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a27"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="SetRadiance"><param name="Name" value="SetRadiance"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a5"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="SetWindowPixelFormat"><param name="Name" value="SetWindowPixelFormat"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c1"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="size"><param name="Name" value="size"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#o1"><param name="Name" value="Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="SpecularAlbedosNum"><param name="Name" value="SpecularAlbedosNum"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Phong_8hpp.html#a0"><param name="Name" value="Phong.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="specularMaxPhongScaling"><param name="Name" value="specularMaxPhongScaling"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m10"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="specularPdfScaling"><param name="Name" value="specularPdfScaling"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m8"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="specularScaling"><param name="Name" value="specularScaling"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCPhongBrdf.html#m7"><param name="Name" value="CPhongBrdf"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="StIter_8cpp.html"><param name="Name" value="StIter.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="StIter_8cpp.html#a2"><param name="Name" value="BLUE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="StIter_8cpp.html#a1"><param name="Name" value="GREEN"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="StIter_8cpp.html#a3"><param name="Name" value="INT"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="StIter_8cpp.html#a0"><param name="Name" value="RED"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html"><param name="Name" value="StIter"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c15"><param name="Name" value="Accept"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c2"><param name="Name" value="CalculateDirectLight"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c17"><param name="Name" value="CalculateSpecularDirectionProbability"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c6"><param name="Name" value="CalculateVertexColors"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c0"><param name="Name" value="DetermineVisibility"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c4"><param name="Name" value="DoIteration"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o11"><param name="Name" value="duration"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c5"><param name="Name" value="FinalizeLtoEye"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c10"><param name="Name" value="GenerateImportanceDirection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c9"><param name="Name" value="GenerateRadianceDirection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c11"><param name="Name" value="GenerateSpecularDirection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c13"><param name="Name" value="getImportance"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c12"><param name="Name" value="getRadiance"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c19"><param name="Name" value="ImportanceDirectionProbability"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o4"><param name="Name" value="m_maxIteration"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o5"><param name="Name" value="m_nIteration"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o2"><param name="Name" value="m_pImportanceTree"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o3"><param name="Name" value="m_pPowerTree"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o7"><param name="Name" value="m_probPatchSelection_Importance"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o8"><param name="Name" value="m_probPatchSelection_Mix"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o6"><param name="Name" value="m_probPatchSelection_Power"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o0"><param name="Name" value="m_pScene"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o1"><param name="Name" value="m_screenBuffer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o12"><param name="Name" value="m_vertexColors"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o13"><param name="Name" value="m_VisibilityInfo"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c7"><param name="Name" value="MergeIndirectOpenGLImage"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c18"><param name="Name" value="RadianceDirectionProbability"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c8"><param name="Name" value="RBOpenGLRenderScene"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#a2"><param name="Name" value="render"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c3"><param name="Name" value="SampleLightSources"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#a3"><param name="Name" value="saveImage"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#c1"><param name="Name" value="SetWindowPixelFormat"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#a0"><param name="Name" value="StIter"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o10"><param name="Name" value="time_end"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o9"><param name="Name" value="time_start"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#a1"><param name="Name" value="~StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Syncronize"><param name="Name" value="Syncronize"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a2"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="tanFovH"><param name="Name" value="tanFovH"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m16"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="tanFovV"><param name="Name" value="tanFovV"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m17"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="time_end"><param name="Name" value="time_end"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o10"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="time_start"><param name="Name" value="time_start"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#o9"><param name="Name" value="StIter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="tNode"><param name="Name" value="tNode"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structKDTree_1_1TraverseStack.html#m2"><param name="Name" value="KDTree::TraverseStack"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="traverse"><param name="Name" value="traverse"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#a2"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="traverseStack"><param name="Name" value="traverseStack"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#o10"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html"><param name="Name" value="TreeElement"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#a5"><param name="Name" value="clear"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#m0"><param name="Name" value="emitted"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#a3"><param name="Name" value="operator+"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#a4"><param name="Name" value="operator="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#m1"><param name="Name" value="reflected"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#a2"><param name="Name" value="set"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTreeElement.html#a0"><param name="Name" value="TreeElement"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html"><param name="Name" value="Triangle"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m0"><param name="Name" value="a"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_4"><param name="Name" value="abC"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_2"><param name="Name" value="abV1"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_3"><param name="Name" value="abV2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m8"><param name="Name" value="area"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m1"><param name="Name" value="b"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_7"><param name="Name" value="bcC"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_5"><param name="Name" value="bcV1"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_6"><param name="Name" value="bcV2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m2"><param name="Name" value="c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_10"><param name="Name" value="caC"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a4"><param name="Name" value="CalculateArea"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_8"><param name="Name" value="caV1"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_9"><param name="Name" value="caV2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_0"><param name="Name" value="dominantAxis"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a6"><param name="Name" value="Finish"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a3"><param name="Name" value="getShadingNormal"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#z13_1"><param name="Name" value="hyperPlaneShiftOffset"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a2"><param name="Name" value="intersect"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m4"><param name="Name" value="midPoint"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m5"><param name="Name" value="Na"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m6"><param name="Name" value="Nb"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m7"><param name="Name" value="Nc"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#m3"><param name="Name" value="normal"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a5"><param name="Name" value="PointInTriangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classTriangle.html#a0"><param name="Name" value="Triangle"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Update"><param name="Name" value="Update"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a3"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="updir"><param name="Name" value="updir"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m2"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="v"><param name="Name" value="v"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m0"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="Vector_8hpp.html"><param name="Name" value="Vector.hpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="Vector_8hpp.html#a0"><param name="Name" value="Color"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html"><param name="Name" value="Vector"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a28"><param name="Name" value="Average"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m6"><param name="Name" value="b"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#p0"><param name="Name" value="BLACK"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a32"><param name="Name" value="CalculateCoordSystem"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a4"><param name="Name" value="ClipToUnitInterval"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m5"><param name="Name" value="g"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a35"><param name="Name" value="GenerateRandomTransillumDir"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a31"><param name="Name" value="GetDominantAxis"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a3"><param name="Name" value="NearEqual"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a18"><param name="Name" value="Norm"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a19"><param name="Name" value="Norm2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a20"><param name="Name" value="Normalize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a17"><param name="Name" value="operator &&"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a16"><param name="Name" value="operator *"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a12"><param name="Name" value="operator *="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a11"><param name="Name" value="operator%"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a10"><param name="Name" value="operator%="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a6"><param name="Name" value="operator+"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a9"><param name="Name" value="operator+="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a7"><param name="Name" value="operator-"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a8"><param name="Name" value="operator-="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a14"><param name="Name" value="operator/"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a15"><param name="Name" value="operator/="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a24"><param name="Name" value="operator<="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a21"><param name="Name" value="operator="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a25"><param name="Name" value="operator>="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a23"><param name="Name" value="operator[]"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m4"><param name="Name" value="r"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a34"><param name="Name" value="SampleHemisphereCosNTheta"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a33"><param name="Name" value="SampleHemisphereCosTheta"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a2"><param name="Name" value="Set"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a30"><param name="Name" value="SetIdealReflectedDirection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a27"><param name="Name" value="SetLinearCombination"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m0"><param name="Name" value="v"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#a0"><param name="Name" value="Vector"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m1"><param name="Name" value="x"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m2"><param name="Name" value="y"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m3"><param name="Name" value="z"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="vfov"><param name="Name" value="vfov"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m6"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="viewdist"><param name="Name" value="viewdist"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m3"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="visible"><param name="Name" value="visible"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m0"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="vres"><param name="Name" value="vres"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m10"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="W"><param name="Name" value="W"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPatch.html#m8"><param name="Name" value="Patch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="WriteColor"><param name="Name" value="WriteColor"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a5"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="WriteDouble"><param name="Name" value="WriteDouble"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a7"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="WriteInt"><param name="Name" value="WriteInt"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a9"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="WriteString"><param name="Name" value="WriteString"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a11"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="WriteVector"><param name="Name" value="WriteVector"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="scene_8cpp.html#a3"><param name="Name" value="scene.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="X"><param name="Name" value="X"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m11"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="x"><param name="Name" value="x"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m1"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="X_DOMINANT"><param name="Name" value="X_DOMINANT"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a13a10"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Y"><param name="Name" value="Y"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m12"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="y"><param name="Name" value="y"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m2"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Y_DOMINANT"><param name="Name" value="Y_DOMINANT"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a13a11"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z"><param name="Name" value="Z"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classCamera.html#m13"><param name="Name" value="Camera"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="z"><param name="Name" value="z"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classVector.html#m3"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="Z_DOMINANT"><param name="Name" value="Z_DOMINANT"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8hpp.html#a13a12"><param name="Name" value="globals.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="~Heap"><param name="Name" value="~Heap"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classHeap.html#a1"><param name="Name" value="Heap"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="~Intersectable"><param name="Name" value="~Intersectable"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classIntersectable.html#a1"><param name="Name" value="Intersectable"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="~KDTree"><param name="Name" value="~KDTree"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classKDTree.html#a1"><param name="Name" value="KDTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="~Light"><param name="Name" value="~Light"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLight.html#a2"><param name="Name" value="Light"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="~LightSourceSample"><param name="Name" value="~LightSourceSample"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLightSourceSample.html#a1"><param name="Name" value="LightSourceSample"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="~Scene"><param name="Name" value="~Scene"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScene.html#a1"><param name="Name" value="Scene"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="~ScreenBuffer"><param name="Name" value="~ScreenBuffer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classScreenBuffer.html#a1"><param name="Name" value="ScreenBuffer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="~SelectionTree"><param name="Name" value="~SelectionTree"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classSelectionTree.html#a1"><param name="Name" value="SelectionTree"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="See Also" value="~StIter"><param name="Name" value="~StIter"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classStIter.html#a1"><param name="Name" value="StIter"></OBJECT>
+</UL>

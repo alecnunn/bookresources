@@ -1,0 +1,211 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Error  Class Reference</h1>An error message. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcError-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcError.html#a0">Error</a> ()
+<li><a class="el" href="class_ptcError.html#a1">Error</a> (const char message[])
+<li><a class="el" href="class_ptcError.html#a2">Error</a> (const char message[],const Error &amp;error)
+<li><a class="el" href="class_ptcError.html#a3">Error</a> (const Error &amp;error)
+<li><a class="el" href="class_ptcError.html#a4">~Error</a> ()
+<li>void <a class="el" href="class_ptcError.html#a5">report</a> () const
+<li>const char* <a class="el" href="class_ptcError.html#a6">message</a> () const
+<li>Error&amp; <a class="el" href="class_ptcError.html#a7">operator=</a> (const Error &amp;error)
+<li>bool <a class="el" href="class_ptcError.html#a8">operator==</a> (const Error &amp;error) const
+<li>bool <a class="el" href="class_ptcError.html#a9">operator!=</a> (const Error &amp;error) const
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+An error message.
+<p>
+The error class represents an error message.
+<p>
+It provides a uniform interface for error reporting and handling via the c++ exception mechanism.
+<p>
+Error exceptions may be caught and recovered from:
+<p>
+<div class="fragment"><pre>
+
+    try
+    {
+        // open the console at 640x480 resolution
+        console.open("Error example",640,480);
+    }
+    catch (Error&amp;)
+    {
+        // fallback to default resolution
+        console.open("Error example");
+    }</pre></div>
+<p>
+Or allowed to fall through to the main try/catch block and get reported to the user:
+<p>
+<div class="fragment"><pre>
+
+    int main()
+    {
+        try
+        {
+            // open the console at 640x480 resolution
+            console.open("Error example",640,480);
+        }
+        catch (Error &amp;error)
+        {
+            // report error
+            error.report();
+        }
+
+        // exit
+        return 0;
+    }</pre></div> <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Error::Error"></a>ptc::Error::Error ()</h3>
+<div class="in">
+
+<p>
+Default constructor.
+<p>
+The error message is initialized to "". </div>
+
+<h3><a name="a1" doxytag="ptc::Error::Error"></a>ptc::Error::Error (const char message[])</h3>
+<div class="in">
+
+<p>
+Creates an error object with an error message of <em>message.</em>
+<p>
+Here is an example of typical use:
+<p>
+<div class="fragment"><pre>
+
+            // do something ...
+            bool failure = DoSomething();
+
+            // check failure
+            if (failure)
+            {
+                // error message
+                throw <a class="el" href="class_ptcError.html#a0">Error</a>("do something failed");
+            }</pre></div>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>message</em> -  the error message. </dl></div>
+
+<h3><a name="a2" doxytag="ptc::Error::Error"></a>ptc::Error::Error (const char message[], const Error &amp; <em>error</em>)</h3>
+<div class="in">
+
+<p>
+Creates a error object with the text <em>message</em> and the <em>error</em> object message compounded.
+<p>
+The <em>message</em> parameter is the first line of the error message, a newline is inserted in the string, and the <em>error</em> object message is added to the end.
+<p>
+Here is an example of typical use:
+<p>
+<div class="fragment"><pre>
+
+            try
+            {
+                // do something low level...
+                bool failure = DoSomethingLowLevel();
+
+                // check failure
+                if (failure)
+                {
+                    // error message
+                    throw <a class="el" href="class_ptcError.html#a0">Error</a>("low level failure");
+                }
+            }
+            catch (Error &amp;error)
+            {
+                // error message
+                throw Error("high level failure",error);
+            }</pre></div>
+<p>
+The error message constructed in the <em>catch</em> block has a compound message of "high level failure\nlow level failure".
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>message</em> -  the error message. <dd>
+<em>error</em> -  the compounding error. </dl></div>
+
+<h3><a name="a3" doxytag="ptc::Error::Error"></a>ptc::Error::Error (const Error &amp; <em>error</em>)</h3>
+<div class="in">
+
+<p>
+Copy constructor. </div>
+
+<h3><a name="a4" doxytag="ptc::Error::~Error"></a>ptc::Error::~Error ()</h3>
+<div class="in">
+
+<p>
+Destructor. </div>
+
+<h3><a name="a5" doxytag="ptc::Error::report"></a>void ptc::Error::report () const</h3>
+<div class="in">
+
+<p>
+Reports the error and terminates the program with <em>exit(1).</em>
+<p>
+The error is reported in the most natural method of the platform.
+<p>
+For example, UNIX systems would print the error message to stderr, Win32 systems would display a message box, DOS systems would output to stdout etc.
+<p>
+Typically this function is used in combination with wrapping the main function with a try/catch block to ensure that all unhandled error exceptions are caught and reported to the user.
+<p>
+<div class="fragment"><pre>
+
+            int main()
+            {
+                try
+                {
+                    // main program ...
+                }
+                catch (Error &amp;error)
+                {
+                    // report error
+                    error.report();
+                }
+
+                // exit
+                return 0;
+            }</pre></div> </div>
+
+<h3><a name="a6" doxytag="ptc::Error::message"></a>const char * ptc::Error::message () const</h3>
+<div class="in">
+
+<p>
+Gets the error message string.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The error message. </dl></div>
+
+<h3><a name="a7" doxytag="ptc::Error::operator="></a>Error &amp; ptc::Error::operator= (const Error &amp; <em>error</em>)</h3>
+<div class="in">
+
+<p>
+Assignment operator. </div>
+
+<h3><a name="a8" doxytag="ptc::Error::operator=="></a>bool ptc::Error::operator== (const Error &amp; <em>error</em>) const</h3>
+<div class="in">
+
+<p>
+Equality operator. </div>
+
+<h3><a name="a9" doxytag="ptc::Error::operator!="></a>bool ptc::Error::operator!= (const Error &amp; <em>error</em>) const</h3>
+<div class="in">
+
+<p>
+Inequality operator. </div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,11 @@
+ps_1_4
+def c0, 0, 0, 0, 0
+def c1, 0, 0, 0, 1
+texcrd r0.xyz, t1
+mov_sat r1.xyz, r0
+phase
+texcrd r0.xyz, t0
+texld r1, r1
+add r0.w, r1.x, -r0.x
+cmp r0.w, r0.w, c0.w, c1.w
++mov r0.xyz, c0

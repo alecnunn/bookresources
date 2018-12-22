@@ -1,0 +1,9 @@
+void main(float2 tri_coord : TEXCOORD0,
+		  uniform samplerRECT tri_rect : TEXUNIT0,
+		  uniform float4x4 mat,
+		  out float result : COLOR
+		  )
+{
+	float4 v = float4(f3texRECT(tri_rect, tri_coord), 1.0);
+	result = mul(mat, v);
+}

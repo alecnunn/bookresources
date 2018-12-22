@@ -1,0 +1,67 @@
+{VERSION 5 0 "IBM INTEL NT" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{CSTYLE "" -1 256 "" 1 18 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }{PSTYLE "Normal
+" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }1 
+1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Warning" -1 7 1 {CSTYLE "" -1 -1 "
+Courier" 1 10 0 0 255 1 2 2 2 2 2 1 1 1 3 1 }1 1 0 0 0 0 1 0 1 0 2 2 
+0 1 }{PSTYLE "Maple Output" -1 11 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 
+0 1 2 2 2 2 2 2 1 1 1 1 }3 3 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple O
+utput" -1 12 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 
+1 1 }1 3 0 0 0 0 1 0 1 0 2 2 0 1 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "restart; with( codeg
+en ):" }}{PARA 7 "" 1 "" {TEXT -1 70 "Warning, the protected name Math
+ML has been redefined and unprotected\n" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT 256 46 "Maple code sample for Games Programming Gems V" }{TEXT 
+-1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 21 "Andy Thomason 22/7/04" }}{PARA 
+0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 56 "The slerp works
+ just the same in two dimensions as four." }}{PARA 0 "" 0 "" {TEXT -1 
+0 "" }}{PARA 0 "" 0 "" {TEXT -1 63 "To bisect an angle, simply add the
+ two vectors and re-normalize" }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 120 "Bisect := ( a, b )->[(a[1]+
+b[1])/ sqrt( (a[1]+b[1])^2+(a[2]+b[2])^2 ),(a[2]+b[2])/ sqrt( (a[1]+b[
+1])^2+(a[2]+b[2])^2 )]:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 0 "" }}
+{PARA 0 "" 0 "" {TEXT -1 53 "This procedure calculates the bisections \+
+recursively." }}{PARA 0 "" 0 "" {TEXT -1 38 "n controls the number of \+
+subdivisions." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 37 "Bisection := proc( a, b, n ) local c;" }}{PARA 
+0 "> " 0 "" {MPLTEXT 1 0 22 "  c := Bisect( a, b );" }}{PARA 0 "> " 0 
+"" {MPLTEXT 1 0 78 "  if n = 0 then c; else Bisection( a, c, n-1 ), c,
+ Bisection( c, b, n-1 ); fi;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 4 "end:
+" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 
+94 "We bisect the vectors [cos(t),sin(t)] and [1,0] which we can use t
+o calculate slerp values for" }}{PARA 0 "" 0 "" {TEXT -1 42 "an arbira
+ry quaternion separation angle t." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 81 "e10 := simplify( [[cos(t),si
+n(t)],Bisection( [cos(t),sin(t)],[1,0], 2 ),[1,0]] ):" }}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 68 "The alpha
+ and beta values corresponding to these specific fractions:" }}{PARA 
+0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 43 "s
+eq( (i-1)/(nops(e10)-1), i=1..nops(e10) );" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6+\"\"!#\"\"\"\"\")#F%\"\"%#\"\"$F&#F%\"\"##\"\"&F&#F*F(#
+\"\"(F&F%" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" 
+{TEXT -1 50 "Although these look complex, they optimize nicely." }}
+{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 120 "betas := [seq( subs( solve( \{alpha*cos(t)+1=e10[i][1],beta*sin
+(t)=e10[i][2]\},\{alpha,beta\} ), beta ), i=1..nops(e10) ) ];" }}
+{PARA 12 "" 1 "" {XPPMATH 20 "6#>%&betasG7+\"\"\"**,(*&-%%sqrtG6#,&-%$
+cosG6#%\"tG\"\"#F2F&F&-F+6#,&*$F*F&F&F2F&F&F&F6F&F&F&F&F-#!\"\"F2F5F7,
+&*$F3F&F&F2F&F7*(,&F6F&F&F&F&F-F7F5F7**,(F6F&F&F&F:F&F&F-F7F5F7F9F7*&F
+&F&*$-F+6#F-F&F8**,&F:F&F&F&F&F-F7F5F7F9F7*&F&F&*&-F+6#F-F&-F+6#F5F&F8
+*&F&F&*(-F+6#F-F&-F+6#F5F&-F+6#F9F&F8\"\"!" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 108 "The optimization below s
+hows how easy it would be to generate a sequence of beta values for th
+ese fractions." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" 
+{TEXT -1 91 "So if you had exactly eight frames per key, for example, \+
+interpolation would be quite fast." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 27 "optimize( f(op( betas )) );
+" }}{PARA 12 "" 1 "" {XPPMATH 20 "6,/%#t1G-%$cosG6#%\"tG/%#t3G*&-%%sqr
+tG6#\"\"#\"\"\"-F-6#,&F$F0F0F0F0/%#t5G*$-F-6#,&F*F0F/F0F0/%#t8G*&F0F0F
+*!\"\"/%$t10G*&F0F0F5F=/%$t12G*$-F-6#,&F5F0F/F0F0/%$t13G*&F0F0FBF=/%$t
+14G*&F?F0FHF0/%$t25G*&F;F0F?F0/%$t27G-%\"fG6+F0*(,(*&F*F0F5F0F0F*F0F0F
+0F0F;F0FKF0*(,&F*F0F0F0F0F;F0F?F0*(,(F*F0F0F0F5F0F0F;F0FKF0F;*(,&F5F0F
+0F0F0F;F0FKF0FN*&FNF0FHF0\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "1 2 0" 0 }{VIEWOPTS 1 
+1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

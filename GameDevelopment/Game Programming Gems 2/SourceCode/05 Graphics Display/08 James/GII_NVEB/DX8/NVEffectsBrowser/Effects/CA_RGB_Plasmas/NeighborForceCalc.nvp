@@ -1,0 +1,55 @@
+
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+; t0 = center
+; t1, t2 = 1st axis left to right so force == 
+;   t1 - t0 + t2 - t0
+; t3 = one point of other axis
+
+
+def c7, 0.5, 0.5, 0.5, 1.0
+
+
+
+
+; get colors from all 4 texture stages
+;  t0 = center texel
+;  t1 = 1st neighbor
+;  t2 = 2nd neighbor
+;  t3 = 3rd neighbor
+
+tex t0
+tex t1
+tex t2
+tex t3
+
+
+sub r0, t1, t0
+sub r1, t2, t0
+
+; 'force' for 1st axis
+add r0, r0, r1        
+
+; one more point for 2nd axis
+sub r1, t3, t0
+add r0, r0, r1
+
+; Now force to restore center texel to 0.5
+sub r1, c7, t0
+mad r0, r1, c[PCN_EQ_REST_FAC], r0
+
+
+; shift up to center about 0.5
+add r0, r0, c[PCN_ADDHALF]
+
+
+
+
+

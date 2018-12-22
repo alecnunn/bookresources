@@ -1,0 +1,2 @@
+This section deals with the generation of the machine code for 8086 processor from the instruction form.
+The coding process is given for some of the instructiions. A similar work can be carried to the remaing instructions also.

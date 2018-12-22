@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DStarLib", "DStar.vcproj", "{C396E157-0302-4EBD-9CEB-852DC28C1403}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DstarViewer", "DstarViewer\DstarViewer.vcproj", "{2FFF11E2-649A-4480-864C-EA04EDA8C23C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C396E157-0302-4EBD-9CEB-852DC28C1403} = {C396E157-0302-4EBD-9CEB-852DC28C1403}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{C396E157-0302-4EBD-9CEB-852DC28C1403}.Debug.ActiveCfg = Debug|Win32
+		{C396E157-0302-4EBD-9CEB-852DC28C1403}.Debug.Build.0 = Debug|Win32
+		{C396E157-0302-4EBD-9CEB-852DC28C1403}.Release.ActiveCfg = Release|Win32
+		{C396E157-0302-4EBD-9CEB-852DC28C1403}.Release.Build.0 = Release|Win32
+		{2FFF11E2-649A-4480-864C-EA04EDA8C23C}.Debug.ActiveCfg = Debug|Win32
+		{2FFF11E2-649A-4480-864C-EA04EDA8C23C}.Debug.Build.0 = Debug|Win32
+		{2FFF11E2-649A-4480-864C-EA04EDA8C23C}.Release.ActiveCfg = Release|Win32
+		{2FFF11E2-649A-4480-864C-EA04EDA8C23C}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

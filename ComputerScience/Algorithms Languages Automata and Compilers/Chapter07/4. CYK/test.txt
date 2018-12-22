@@ -1,0 +1,9 @@
+S a
+S b
+N b
+A a
+S AS
+C b
+S CN
+E b
+N EN

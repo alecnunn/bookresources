@@ -1,0 +1,267 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>Sphinx MMOS - Patch Files</title>
+<style>
+<!--
+._vmSourceCodeBlock { font-family: Courier; text-align: left; line-height: 100%; word-spacing: 0; 
+               background-color: #E4E4E4; font-size: 8pt; margin-top: 1; 
+               margin-bottom: 1 }
+._vmList     { font-family: Verdana; font-size: 10pt; list-style-type: disc; margin: 2 }
+._vmStandard { font-family: Verdana; font-size: 10pt }
+-->
+PRE { BACKGROUND-COLOR: #FBEDBB; FONT-FAMILY: "Courier New", Courier, mono; 
+      WHITE-SPACE: pre; }
+CODE { COLOR: #990000; FONT-FAMILY: "Courier New", Courier, mono; }
+
+</style>
+<SCRIPT language="JavaScript">
+<!--
+ function checkFrameset() {
+  if(!parent.mainframe)
+   location.href="../../../index.htm?" + location.pathname;
+ }
+//-->
+</SCRIPT>
+</head>
+
+<body onLoad='checkFrameset()' topmargin="0" leftmargin="0">
+
+<p class="_vmStandard"><font face="Verdana">
+<b>
+<a href="index.htm">
+<img border="0" src="level_up.gif" width="32" height="16"></a>
+ | <a href="http://www.visiomedia.com/rooms/main.htm">Main</a>
+| <a href="http://www.visiomedia.com/rooms/labor/index.htm">Labor</a>
+| <a href="http://www.visiomedia.com/rooms/labor/src/sphinxmmos/index.htm">Sphinx MMOS</a>
+<br>
+</b>
+<br>
+
+<b><u><font face="Verdana" size="2"><strong>Sphinx MMOS - Patch Files</strong></font></u></b>
+<p class="_vmStandard">A <i>patch file</i> is a simple human readable textfile
+with extension *.txt or *atx. It stores information about a logical set of
+elements used to produce sound. Think about it as an <i>instrument</i>. In
+almost all our demos a patch file consists of more than one patch and more than
+one associated sample. A single patch definition describes the controlling
+parameters as name-value pairs, the connections made between the processing
+units and optionally references to samples in external soundfiles.&nbsp;
+</p>
+<p class="_vmStandard">In Sphinx MMOS soundfiles currently are restricted to the
+16bit mono 44100 SR WAV-Audio format. The sample data gets loaded into a
+wavetable oscillator and can then be used for audio playback or as complex
+modulation source for other processors.
+</p>
+<p class="_vmStandard">You can use the free <a href="player.htm"> Sphinx MMOS Player</a> to play
+files from our media package or files you have modified.
+</p>
+<p class="_vmStandard">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>How to
+write a patch definition</b>
+</p>
+<blockquote>
+<pre style="line-height: 100%; margin-left: 0; margin-top: 4; margin-bottom: 4"><font face="Courier New">CGAPatch &quot;Sine Oscillator&quot;
+{
+	CGASineOscillator VCO
+	{
+		Frequency = 200;
+	}
+
+}
+
+CGAPatch &quot;Sine Oscillator with LFO Modulation&quot;
+{
+	CGASineOscillator LFO
+	{
+		Frequency = 3.5;
+	}
+
+	CGASineOscillator VCO
+	{
+		Frequency = 200;
+		FMAttenuation = 0.1;
+	}
+
+	Connection = LFO, VCO, SampleOut, FM;
+}</font></pre>
+
+</blockquote>
+<p><font face="Verdana" size="2">In the example above we have two patches. The
+first patch creates just one oscillator and sets only one parameter, the
+frequency in Hz units. The second patch defines two sine oscillators. In order
+to connect the processors, we have to add the <i>Connection</i> line, which has
+4 arguments:<br>
+LFO and VCO are the names of the processors we want to connect. Most often
+processors have more pins than just sample in/out. Therefore we specify the
+LFO's SampleOut pin and the VCO's FM pin. This will modulate the VCO's base
+frequency of 200 Hz with the LFO's frequency. The FMAttenuation parameter sets
+the modulation depth. A value of 0.1 means a range of +- 1 octave.<br>
+&nbsp;<br>
+<br>
+If you like to write your own patch files, make sure to use the correct syntax:<br>
+A patch definition consists of the classname CGAPatch and the name of the patch
+in a single line. Inside the winged brackets (like a scope in C++) define the
+processors you want to utilize. Double check the correct spelling of the
+processors classname, the parameter names and their value range with the help of
+the sourcecode and the list of processors (coming soon). All parameter lines
+must be inside a processor's brackets and terminated by a semicolon. Use simple
+names for the processors, as LFO1, LPF2 etc and refer to those names in the
+connection line. The connection line is a parameter of the patch file and thus
+must be terminated by a semicolon.&nbsp;</font></p>
+<p class="_vmStandard"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; How to load
+sample data</b>
+</p>
+<blockquote>
+<pre style="line-height: 100%; margin-left: 0; margin-top: 4; margin-bottom: 4"><font face="Courier New">CGASignal Sonar
+{
+	File = &quot;sonar01.wav&quot;;
+}</font></pre>
+
+</blockquote>
+<p><font face="Verdana" size="2">In order to load sample data from an external
+file, you have to use the CGASignal class and the parameter <i>File</i>. This
+will load the specified wav file into the audio systems wavetables. Now let's
+use this signal in a wavetable oscillator. By setting the parameter <i>WaveTable</i>
+<i>= xxx</i> you set the source samples for the oscillator:</font></p>
+<blockquote>
+<pre style="line-height: 100%; margin-left: 0; margin-top: 4; margin-bottom: 4"><font face="Courier New">CGAWavetableOscillator OSC1
+{
+	WaveTable = Sonar;
+}</font></pre>
+
+</blockquote>
+<p><font face="Verdana" size="2">As you can see, we use the name of the signal
+(Sonar) to specify the samples and not the filename (sonar01.wav).&nbsp;&nbsp;</font></p>
+<p class="_vmStandard"><b>Patches - Latest Release is 0205</b></p>
+<table border="2" cellspacing="0" width="100%" cellpadding="2" bgcolor="#FFFFFF" bordercolor="#FFFFFF" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" class="vmtable" id="vmtable13" style="background-color: rgb(224,224,224); color: rgb(0,0,0); border: 2px solid rgb(255,255,255)">
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1"><b>File</b></font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1"><b>Description</b></font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">car01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">The
+      car-starter patches demonstrate the combination of one-shot and looped
+      samples. Power Stroke shows how to alternate samples by using the
+      sequencer or the selector unit. You also learn how to crossfade between
+      samples using the CGABalance class. The patch &quot;Screeching Tires&quot;
+      simulate the tires sound by noise modulating an oscillator's frequency.</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">combustion01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Shows
+      how to build a one-cylinder model based on a selector and samples for each
+      phase. The samples are then filtered by resonators to simulate a muffler
+      sound. Especially the 2 cylinder patches create the nice roaring sound of
+      an engine. We also show how to use wavetable as envelope for arbitrary
+      modulation shapes.</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">crossfade01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Crossfades
+      between simple oscillators.</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">envelopes01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Some
+      envelopes (CGAHalfCosineEnvelope, VGATriangleEnvelope triggered manually
+      (with a GUI-button) or by a sequencer. Also a demo for the sample based
+      modulation with averager to smooth out the curves.</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">filter01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Different
+      sound sources running through the butterworth lowpass and resonators.</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">flap01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Some
+      flap sounds with and without noise generators</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">fm01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Simple
+      Frequency Modulation</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">helicopter01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Extended
+      flap sounds and a turbine. NOT FULLY IMPLEMENTED!</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">keyboard01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Uses
+      the input of the numpad to control the oscillator frequency and shows a
+      portamento effect using the CGAGlide processor.</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">muffler01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Muffler
+      simulation. Filters sequenced (fire order) impulses with the CGAResonator
+      class. Some patches also add oscillators and noise to the sound.</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">noise01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Some
+      noise examples and the SineXOscillator which is an oscillator with
+      built-in noise modulation.</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">osc00</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Shows
+      all oscillators available.</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">propeller01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Different
+      methods of synthesing propeller sounds.&nbsp;</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">random01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Demonstrates
+      the random generator and its combination with a threshold processor to
+      trigger samples and the sequencer.</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">samples01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">How
+      to load and play samples</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16">&nbsp;</td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">simple_patch</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">-</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">submarine01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Very
+      nice example which shows all elements of a submarine including sonar and
+      engine sounds (FLOWBY)</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">turbo01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Turbolike
+      sounds NOT FULLY IMPLEMENTED!</font></td>
+  </tr>
+  <tr>
+    <td width="196" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">wavetable01</font></td>
+    <td width="431" align="left" valign="top" bgcolor="#E0E0E0" height="16"><font face="Verdana" size="1">Simple
+      modulated wavetable playing.</font></td>
+  </tr>
+</table>
+<p class="_vmStandard"> If you have made an interesting patch, we would
+like to add it to our list of user patches.
+</p>
+<p align="center"><tt><font face="Arial" color="#808080" size="1">All product
+and/or company names are trademarks or registered trademarks of their respective
+owners.<br>
+PAEngine and Sphinx Modular Media<br>
+Copyright © 1985 - 2002 Visiomedia Software Corporation<br>
+All Rights Reserved.</font></tt></p>
+<!-------------------------------    That's it!   --------------------------->
+</body>
+</html>

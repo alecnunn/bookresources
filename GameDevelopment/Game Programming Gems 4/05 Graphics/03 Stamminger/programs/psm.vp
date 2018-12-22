@@ -1,0 +1,104 @@
+//
+// Perspective Shadow Maps
+// accompanying example code for Game Programming Gems 4
+// (w)(c) 2003, Carsten Dachsbacher (dachsbacher@cs.fau.de), Marc Stamminger (stamminger@cs.fau.de)
+//
+!!ARBvp1.0
+
+OPTION ARB_position_invariant;
+
+###################
+# INPUTS
+
+# modelview and its inverse-transpose
+PARAM matModelView[4]          = { state.matrix.modelview[ 0 ] };
+PARAM modelViewInvTranspose[4] = { state.matrix.modelview[ 0 ].invtrans };
+
+# light direction (world space)
+PARAM	lightDirection         = program.env[ 0 ];
+
+# camera position (world space)
+PARAM	cameraPosition		   = program.env[ 1 ];
+
+# texture matrix * inverse modelview (for eye-space texgen)
+PARAM	matTexInvMV[ 4 ]       = { program.env[ 16..19 ] };
+
+# vertex position and normal
+ATTRIB	position               = vertex.position;
+ATTRIB	normal                 = vertex.normal;
+
+###################
+# OUTPUTS
+
+OUTPUT	shadowMapCoord         = result.texcoord[ 0 ];
+
+###################
+# TEMPORARIES
+TEMP	temp, toViewer, reflectionVector, worldSpaceNrml;
+
+# save temporaries, if you prefer
+ALIAS	invLen        = temp;
+ALIAS	diffuseLight  = temp;
+ALIAS	specularLight = toViewer;
+
+#################################
+# texture coordinate generation
+
+# object -> eyespace
+DP4		temp.x, matModelView[ 0 ], position;
+DP4		temp.y, matModelView[ 1 ], position;
+DP4		temp.z, matModelView[ 2 ], position;
+DP4		temp.w, matModelView[ 3 ], position;
+
+# reduced texture generation (identity transformation for eye space texgen)
+DP4		shadowMapCoord.x, matTexInvMV[ 0 ], temp;
+DP4		shadowMapCoord.y, matTexInvMV[ 1 ], temp;
+DP4		shadowMapCoord.z, matTexInvMV[ 2 ], temp;
+DP4		shadowMapCoord.w, matTexInvMV[ 3 ], temp;
+
+#################################
+# illumination
+
+# world space normal
+DP4		worldSpaceNrml.x, modelViewInvTranspose[ 0 ], normal;
+DP4		worldSpaceNrml.y, modelViewInvTranspose[ 1 ], normal;
+DP4		worldSpaceNrml.z, modelViewInvTranspose[ 2 ], normal;
+
+DP3		temp,   worldSpaceNrml, worldSpaceNrml;
+RSQ		invLen, temp.x;
+MUL		worldSpaceNrml,  worldSpaceNrml, invLen;
+
+# view vector and normalize
+ADD		toViewer, cameraPosition, -position;
+
+DP3		temp,   toViewer, toViewer;
+RSQ		invLen, temp.x;
+MUL		toViewer,  toViewer, invLen;
+
+# reflection vector
+DP3		temp,  worldSpaceNrml, lightDirection;
+MUL		temp,  temp,  worldSpaceNrml;
+MAD		reflectionVector, temp, 2.0, -lightDirection;
+
+DP3		temp,   reflectionVector, reflectionVector;
+RSQ		invLen, temp.x;
+MUL		reflectionVector,  reflectionVector, invLen;
+
+# N dot L
+DP3		diffuseLight,  worldSpaceNrml, lightDirection;
+MAX		diffuseLight, diffuseLight, 0.0;
+
+# R dot V
+DP3		specularLight, reflectionVector, toViewer;
+MAX		specularLight, specularLight, 0.0;
+
+# (R dot V)^n
+POW		specularLight, specularLight.x, state.material.shininess.x;
+
+# combine
+MUL		diffuseLight, diffuseLight, state.material.diffuse;
+
+MAD		temp, specularLight, state.material.specular, diffuseLight;
+ADD		result.color, temp, state.material.ambient;
+
+END

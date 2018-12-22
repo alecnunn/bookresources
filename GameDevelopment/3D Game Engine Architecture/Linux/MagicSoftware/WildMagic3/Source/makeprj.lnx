@@ -1,0 +1,62 @@
+CC := /usr/bin/g++
+GCC := /usr/bin/gcc
+CFLAGS := -c -DWM3_USE_GLUT
+AR := /usr/bin/ar
+ARFLAGS := rs
+
+ifeq (,$(findstring Debug,$(CONFIG)))
+    CFLAGS += -O2 -DNDEBUG
+else
+    CFLAGS += -g -D_DEBUG
+endif
+
+INCPATH := \
+    -I ../Approximation\
+    -I ../Collision\
+    -I ../Containment\
+    -I ../Controllers\
+    -I ../Curves\
+    -I ../Detail\
+    -I ../Distance\
+    -I ../Effects\
+    -I ../ImageAnalysis\
+    -I ../Interpolation\
+    -I ../Intersection\
+    -I ../Math\
+    -I ../Meshes\
+    -I ../Miscellaneous\
+    -I ../Numerics\
+    -I ../ObjectSystem\
+    -I ../Physics\
+    -I ../RationalArithmetic\
+    -I ../SceneGraph\
+    -I ../Shaders\
+    -I ../SharedArrays\
+    -I ../Sorting\
+    -I ../Surfaces\
+    -I ../System\
+    -I ../Terrain\
+    -I ../Tessellation
+    
+INCDIR := ../../Include
+INC := $(wildcard Wm3*.h) $(wildcard Wm3*.inl) $(wildcard Wm3*.mcr) \
+       $(wildcard WildMagic3*.h)
+INC := $(notdir $(INC))
+SRC := $(wildcard Wm3*.cpp)
+SRC := $(notdir $(SRC))
+OBJDIR := ../$(CONFIG)
+OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o) $(SRC:%.c=$(OBJDIR)/%.o)
+LIB := ../../Library/$(CONFIG)/libWildMagic3.a
+
+build : $(OBJ)
+	$(AR) $(ARFLAGS) $(LIB) $(OBJDIR)/*.o
+	cp -fp $(INC) $(INCDIR)
+
+$(OBJDIR)/%.o : %.cpp
+	$(CC) $(INCPATH) $(CFLAGS) $< -o $@
+
+$(OBJDIR)/%.o : %.c
+	gcc $(INCPATH) $(CFLAGS) $< -o $@
+
+clean :
+	rm -f $(OBJDIR)/*.o

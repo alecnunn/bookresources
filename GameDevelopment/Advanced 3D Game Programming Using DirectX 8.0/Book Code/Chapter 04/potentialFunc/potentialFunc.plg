@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: potentialFunc - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP696.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/potentialFunc.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 04\potentialFunc\potentialFunc.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP696.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP697.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/potentialFunc.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 04\potentialFunc\StdAfx.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP697.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP698.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"..\bin/potentialFunc.pdb" /machine:I386 /out:"..\bin/potentialFunc.exe" 
+".\Release\potentialFunc.obj"
+".\Release\StdAfx.obj"
+".\Release\potentialFunc.res"
+"\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Chapter 04\math3D\Release\math3D.lib"
+]
+Creating command line "link.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP698.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+potentialFunc.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+potentialFunc.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

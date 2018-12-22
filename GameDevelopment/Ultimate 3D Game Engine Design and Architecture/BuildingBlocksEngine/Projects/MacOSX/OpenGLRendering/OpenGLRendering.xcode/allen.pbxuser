@@ -1,0 +1,159 @@
+// !$*UTF8*$!
+{
+	0867D690FE84028FC02AAC07 = {
+		activeBuildStyle = 4F0BB7EC011F40E904CA0E50;
+		activeTarget = 8D07F2BC0486CC7A007CD1D0;
+		addToTargets = (
+			8D07F2BC0486CC7A007CD1D0,
+		);
+		breakpoints = (
+			9F11331C0B03D5E300E5DD67,
+			9F1133220B03D72300E5DD67,
+			9F11332B0B03D8A800E5DD67,
+		);
+		codeSenseManager = 9FD9F8540B01C1D000B0F97A;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXErrorsWarningsDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					300,
+					133,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXErrorsWarningsDataSource_TypeID,
+					PBXErrorsWarningsDataSource_MessageID,
+					PBXErrorsWarningsDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					243,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 184882623;
+			PBXWorkspaceStateSaveDate = 184882623;
+		};
+		sourceControlManager = 9FD9F8530B01C1D000B0F97A;
+		userBuildSettings = {
+		};
+	};
+	32BAE0B70371A74B00C91783 = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 433}}";
+			sepNavSelRange = "{150, 0}";
+			sepNavVisRect = "{{0, 0}, {720, 433}}";
+			sepNavWindowFrame = "{{153, 139}, {759, 562}}";
+		};
+	};
+	8D07F2BC0486CC7A007CD1D0 = {
+		activeExec = 0;
+	};
+	9F11331C0B03D5E300E5DD67 = {
+		fileReference = 9FD9F8650B01C24800B0F97A;
+		functionName = "OpenGLRenderer::CreateShaderFromFile()";
+		isa = PBXFileBreakpoint;
+		lineNumber = 783;
+		state = 1;
+	};
+	9F1133220B03D72300E5DD67 = {
+		fileReference = 9FD9F8650B01C24800B0F97A;
+		functionName = "OpenGLRenderer::CreateShaderFromMemory()";
+		isa = PBXFileBreakpoint;
+		lineNumber = 854;
+		state = 1;
+	};
+	9F11332B0B03D8A800E5DD67 = {
+		fileReference = 9FD9F8650B01C24800B0F97A;
+		functionName = "OpenGLRenderer::CreateShaderFromMemory()";
+		isa = PBXFileBreakpoint;
+		lineNumber = 804;
+		state = 1;
+	};
+	9FD9F8530B01C1D000B0F97A = {
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		isa = PBXSourceControlManager;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	9FD9F8540B01C1D000B0F97A = {
+		indexTemplatePath = "";
+		isa = PBXCodeSenseManager;
+	};
+	9FD9F8580B01C20800B0F97A = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 546}}";
+			sepNavSelRange = "{627, 0}";
+			sepNavVisRect = "{{0, 73}, {720, 433}}";
+			sepNavWindowFrame = "{{337, 134}, {759, 562}}";
+		};
+	};
+	9FD9F8590B01C20800B0F97A = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 728}}";
+			sepNavSelRange = "{718, 0}";
+			sepNavVisRect = "{{0, 0}, {720, 433}}";
+			sepNavWindowFrame = "{{107, 181}, {759, 562}}";
+		};
+	};
+	9FD9F8650B01C24800B0F97A = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 16884}}";
+			sepNavSelRange = "{217, 0}";
+			sepNavVisRect = "{{0, 0}, {720, 433}}";
+			sepNavWindowFrame = "{{84, 202}, {759, 562}}";
+		};
+	};
+	9FD9F8660B01C24800B0F97A = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 2072}}";
+			sepNavSelRange = "{4533, 0}";
+			sepNavVisRect = "{{0, 0}, {720, 433}}";
+			sepNavWindowFrame = "{{130, 160}, {759, 562}}";
+		};
+	};
+	9FD9F86B0B01C26B00B0F97A = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 2982}}";
+			sepNavSelRange = "{957, 8}";
+			sepNavVisRect = "{{0, 430}, {720, 433}}";
+			sepNavWindowFrame = "{{199, 97}, {759, 562}}";
+		};
+	};
+	9FD9F86F0B01C2DD00B0F97A = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 1414}}";
+			sepNavSelRange = "{1990, 0}";
+			sepNavVisRect = "{{0, 953}, {720, 433}}";
+			sepNavWindowFrame = "{{84, 202}, {759, 562}}";
+		};
+	};
+	9FD9F87E0B01D76B00B0F97A = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 588}}";
+			sepNavSelRange = "{268, 0}";
+			sepNavVisRect = "{{0, 155}, {720, 433}}";
+			sepNavWindowFrame = "{{176, 118}, {759, 562}}";
+		};
+	};
+}

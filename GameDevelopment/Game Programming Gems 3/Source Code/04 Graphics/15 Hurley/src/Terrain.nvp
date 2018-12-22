@@ -1,0 +1,21 @@
+#include "constants.h"
+
+	ps.1.1
+
+
+	tex	t0			// grab base texture
+	tex	t1			// grab cube map sky sphere texture
+
+
+;	mov_x2	t1, t1	// uncomment this line to make shadows darker
+; and now lighting color
+	mul_x2	r1, v0, t0
+; multiply in sky clouds shadow
+	mul	r0, r1, 1-t1
+	
+
+
+
+
+
+	    

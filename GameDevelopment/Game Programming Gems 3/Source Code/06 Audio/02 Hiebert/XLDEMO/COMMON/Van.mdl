@@ -1,0 +1,82 @@
+// "Van"
+
+// front bumper
+shape = QUADS
+color3 = 1.0, 1.0, 0.0
+normal = 0.0, 0.0, 1.0
+vertex = 0.000, 0.600, 0.000
+vertex = 2.100, 0.600, 0.000
+vertex = 2.100, 1.500, 0.000
+vertex = 0.000, 1.500, 0.000
+
+// right-rear panel
+color3 = 0.8, 0.8, 0.0
+normal = 1.0, 0.0, 0.0
+vertex = 2.100, 0.600, -0.900
+vertex = 2.100, 0.600, -3.600
+vertex = 2.100, 2.400, -3.600
+vertex = 2.100, 2.400, -0.900
+
+// right-front lower panel
+normal = 1.0, 0.0, 0.0
+vertex = 2.100, 0.600, 0.000
+vertex = 2.100, 0.600, -0.900
+vertex = 2.100, 1.500, -0.900
+vertex = 2.100, 1.500, 0.000
+
+// right-front upper panel/window
+shape = TRIANGLES
+color3= 0.0, 0.0, 0.2
+normal = 1.0, 0.0, 0.0
+vertex = 2.100, 1.500, 0.000
+vertex = 2.100, 1.500, -0.900
+vertex = 2.100, 2.400, -0.900
+
+// rear
+shape = QUADS
+color3 = 1.0, 1.0, 0.0
+normal = 0.0, 0.0, -1.0
+vertex = 2.100, 0.600, -3.600
+vertex = 0.000, 0.600, -3.600
+vertex = 0.000, 2.400, -3.600
+vertex = 2.100, 2.400, -3.600
+
+// left-back panel
+color3 = 0.8, 0.8, 0.0
+normal = -1.0, 0.0, 0.0
+vertex = 0.000, 0.600, -3.600
+vertex = 0.000, 0.600, -0.900
+vertex = 0.000, 2.400, -0.900
+vertex = 0.000, 2.400, -3.600
+
+// left-front lower panel
+normal = -1.0, 0.0, 0.0
+vertex = 0.000, 0.600, -0.900
+vertex = 0.000, 0.600, 0.000
+vertex = 0.000, 1.500, 0.000
+vertex = 0.000, 1.500, -0.900
+
+// right-front upper panel/window
+shape = TRIANGLES
+color3= 0.0, 0.0, 0.2
+normal = -1.0, 0.0, 0.0
+vertex = 0.000, 1.500, -0.900
+vertex = 0.000, 1.500, 0.000
+vertex = 0.000, 2.400, -0.900
+
+// roof
+shape = QUADS
+color3 = 0.8, 0.8, 0.0
+normal = 0.0, -1.0, 0.0
+vertex = 0.000, 2.400, -0.900
+vertex = 0.000, 2.400, -3.600
+vertex = 2.100, 2.400, -3.600
+vertex = 2.100, 2.400, -0.900
+
+// windshield
+color3 = 0.0, 0.0, 0.2
+normal = 0.0, 0.3, 0.3
+vertex = 0.000, 1.500, 0.000
+vertex = 2.100, 1.500, 0.000
+vertex = 2.100, 2.400, -0.900
+vertex = 0.000, 2.400, -0.900

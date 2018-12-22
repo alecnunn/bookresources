@@ -1,0 +1,480 @@
+
+CGASignal  Intake1
+{
+	File = "m_intake01.wav";
+}
+
+CGASignal  Impulse1
+{
+	File = "m_impulse01.wav";
+}
+
+CGASignal  Exhaust1
+{
+	File = "m_exhaust02.wav";
+}
+
+CGAPatch "Power Stroke"
+{
+	CGASineOscillator SPEED1
+	{
+		Frequency = 0.05;
+	}
+
+	CGAImpulseGenerator TRIG1
+	{
+		Frequency = 60.0;
+		FMAttenuation = 0.2;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		Frequency = 1.0;
+		Amplitude = 0.6;
+		FMAttenuation = 0.1;
+		WaveTable = Intake1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		Frequency = 0.8;
+		FMAttenuation = 0.1;
+		WaveTable = Impulse1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV3
+	{
+		Frequency = 1.0;
+		FMAttenuation = 0.1;
+		WaveTable = Exhaust1;
+		Repeat = 1;
+	}
+
+	CGASelector SEL1
+	{
+		Selection = 15;
+	}
+
+
+
+	Connection = SPEED1,TRIG1, SampleOut, FM;
+	Connection = TRIG1,WAV1, SampleOut, TRIG;
+	Connection = TRIG1,WAV2, SampleOut, TRIG;
+	Connection = TRIG1,WAV3, SampleOut, TRIG;
+	Connection = TRIG1,SEL1, SampleOut, TRIG;	
+	Connection = WAV1,SEL1, SampleOut, SampleIn1;
+	Connection = WAV2,SEL1, SampleOut, SampleIn3;
+	Connection = WAV3,SEL1, SampleOut, SampleIn4;
+
+
+
+}
+
+CGAPatch "Power Stroke with Muffler"
+{
+	CGASinCosOscillator SPEED1
+	{
+		Frequency = 0.03;
+	}
+
+	CGAImpulseGenerator TRIG1
+	{
+		Frequency = 60.0;
+		FMAttenuation = 0.2;
+	}
+
+
+	CGAWavetableOscillator WAV1
+	{
+		Frequency = 1.0;
+		Amplitude = 0.6;
+		FMAttenuation = 0.1;
+		WaveTable = Intake1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2
+	{
+		Frequency = 0.8;
+		FMAttenuation = 0.1;
+		WaveTable = Impulse1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV3
+	{
+		Frequency = 1.0;
+		FMAttenuation = 0.1;
+		WaveTable = Exhaust1;
+		Repeat = 1;
+	}
+
+	CGASelector SEL1
+	{
+		Selection = 15;
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 220;
+		FMAttenuation = 0.12;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 160;
+		FMAttenuation = 0.20;
+	}
+
+	CGAMixer3 MIX1
+	{
+		InputGain1 = 0.4;
+		InputGain2 = 0.7;
+		InputGain3 = 0.9;
+	}
+
+
+	Connection = SPEED1,TRIG1, SampleOut, FM;
+	Connection = SPEED1,Reso1, SampleOut, FM;
+	Connection = SPEED1,Reso1, SampleOut, AM;
+	Connection = SPEED1,Reso2, SampleOut, FM;
+	Connection = SPEED1,Reso2, SampleOut, AM;
+	Connection = TRIG1,WAV1, SampleOut, TRIG;
+	Connection = TRIG1,WAV2, SampleOut, TRIG;
+	Connection = TRIG1,WAV3, SampleOut, TRIG;
+	Connection = TRIG1,SEL1, SampleOut, TRIG;	
+	Connection = WAV1,SEL1, SampleOut, SampleIn1;
+	Connection = WAV2,SEL1, SampleOut, SampleIn3;
+	Connection = WAV3,SEL1, SampleOut, SampleIn4;
+
+	Connection = SEL1,Reso1, SampleOut, SampleIn;
+	Connection = SEL1,Reso2, SampleOut, SampleIn;
+
+	Connection = SEL1,MIX1, SampleOut, SampleIn1;
+	Connection = Reso1,MIX1, SampleOut, SampleIn2;
+	Connection = Reso2,MIX1, SampleOut, SampleIn3;
+
+}
+
+
+CGASignal  Impulse2
+{
+	File = "m_impulse02.wav";
+}
+
+
+CGAPatch "Power Stroke 2 cylinders with Muffler"
+{
+	CGASinCosOscillator SPEED1
+	{
+		Frequency = 0.03;
+	}
+
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.03;
+		Amplitude = 0.2;
+	}
+	
+	CGAImpulseGenerator TRIG1
+	{
+		Frequency = 60.0;
+		FMAttenuation = 0.2;
+	}
+
+	CGADelay DEL1
+	{
+		Delay = 0.1;
+	}
+
+	CGAWavetableOscillator WAV1a
+	{
+		Frequency = 1.0;
+		Amplitude = 0.6;
+		FMAttenuation = 0.1;
+		WaveTable = Intake1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2a
+	{
+		Frequency = 0.8;
+		FMAttenuation = 0.1;
+		WaveTable = Impulse1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV3a
+	{
+		Frequency = 1.0;
+		FMAttenuation = 0.1;
+		WaveTable = Exhaust1;
+		Repeat = 1;
+	}
+
+	CGASelector SEL1
+	{
+		Selection = 15;
+	}
+
+
+
+	CGAWavetableOscillator WAV1b
+	{
+		Frequency = 1.2;
+		Amplitude = 0.6;
+		FMAttenuation = 0.1;
+		WaveTable = Intake1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2b
+	{
+		Frequency = 0.7;
+		FMAttenuation = 0.12;
+		WaveTable = Impulse2;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV3b
+	{
+		Frequency = 1.1;
+		FMAttenuation = 0.15;
+		WaveTable = Exhaust1;
+		Repeat = 1;
+	}
+
+	CGASelector SEL2
+	{
+		Selection = 15;
+	}
+
+	CGABalance CylMix
+	{
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 220;
+		FMAttenuation = 0.12;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 160;
+		FMAttenuation = 0.20;
+	}
+
+	CGAMixer4 MIX1
+	{
+		InputGain1 = 0.6;
+		InputGain2 = 0.6;
+		InputGain3 = 0.9;
+		InputGain4 = 1.3;
+	}
+
+
+	Connection = SPEED1,TRIG1, SampleOut, FM;
+	Connection = LFO1,DEL1, SampleOut, Delay;
+	Connection = TRIG1,DEL1, SampleOut, SampleIn;
+	Connection = SPEED1,Reso1, SampleOut, FM;
+	Connection = SPEED1,Reso1, SampleOut, AM;
+	Connection = SPEED1,Reso2, SampleOut, FM;
+	Connection = LFO1,Reso2, SampleOut, AM;
+	Connection = LFO1,WAV2b, SampleOut, FM;
+
+	Connection = TRIG1,WAV1a, SampleOut, TRIG;
+	Connection = TRIG1,WAV2a, SampleOut, TRIG;
+	Connection = TRIG1,WAV3a, SampleOut, TRIG;
+	Connection = TRIG1,SEL1, SampleOut, TRIG;	
+
+	Connection = TRIG1,WAV1b, SampleOut, TRIG;
+	Connection = TRIG1,WAV2b, SampleOut, TRIG;
+	Connection = TRIG1,WAV3b, SampleOut, TRIG;
+	Connection = DEL1,SEL2, SampleOut, TRIG;	
+
+	Connection = WAV1a,SEL1, SampleOut, SampleIn1;
+	Connection = WAV2a,SEL1, SampleOut, SampleIn3;
+	Connection = WAV3a,SEL1, SampleOut, SampleIn4;
+
+	Connection = WAV1b,SEL2, SampleOut, SampleIn1;
+	Connection = WAV2b,SEL2, SampleOut, SampleIn3;
+	Connection = WAV3b,SEL2, SampleOut, SampleIn4;
+
+	Connection = SEL1, CylMix, SampleOut, SampleIn1;
+	Connection = SEL2, CylMix, SampleOut, SampleIn2;
+
+	Connection = CylMix,Reso1, SampleOut, SampleIn;
+	Connection = CylMix,Reso2, SampleOut, SampleIn;
+
+	Connection = SEL1,MIX1, SampleOut, SampleIn1;
+	Connection = SEL2,MIX1, SampleOut, SampleIn2;
+	Connection = Reso1,MIX1, SampleOut, SampleIn3;
+	Connection = Reso2,MIX1, SampleOut, SampleIn4;
+
+}
+
+
+
+CGASignal  Envelope
+{
+	File = "m_env01.wav";
+}
+
+
+CGAPatch "Power Stroke 2 cylinders,Muffler ENV"
+{
+	CGAWavetableOscillator SPEED1
+	{
+		WaveTable = Envelope;
+		Frequency = 0.00003;
+	}
+
+	CGASineOscillator LFO1
+	{
+		Frequency = 0.01;
+		Amplitude = 0.2;
+	}
+	
+	CGAImpulseGenerator TRIG1
+	{
+		Frequency = 60.0;
+		FMAttenuation = 0.2;
+	}
+
+	CGADelay DEL1
+	{
+		Delay = 0.1;
+	}
+
+	CGAWavetableOscillator WAV1a
+	{
+		Frequency = 1.0;
+		Amplitude = 0.6;
+		FMAttenuation = 0.12;
+		WaveTable = Intake1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2a
+	{
+		Frequency = 1.0;
+		FMAttenuation = 0.19;
+		WaveTable = Impulse1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV3a
+	{
+		Frequency = 1.0;
+		FMAttenuation = 0.17;
+		WaveTable = Exhaust1;
+		Repeat = 1;
+	}
+
+	CGASelector SEL1
+	{
+		Selection = 15;
+	}
+
+
+
+	CGAWavetableOscillator WAV1b
+	{
+		Frequency = 1.2;
+		Amplitude = 0.6;
+		FMAttenuation = 0.12;
+		WaveTable = Intake1;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV2b
+	{
+		Frequency = 1.0;
+		FMAttenuation = 0.21;
+		WaveTable = Impulse2;
+		Repeat = 1;
+	}
+
+	CGAWavetableOscillator WAV3b
+	{
+		Frequency = 1.1;
+		FMAttenuation = 0.14;
+		WaveTable = Exhaust1;
+		Repeat = 1;
+	}
+
+	CGASelector SEL2
+	{
+		Selection = 15;
+	}
+
+	CGABalance CylMix
+	{
+	}
+
+	CGAResonator Reso1
+	{
+		Frequency = 220;
+		FMAttenuation = 0.12;
+	}
+
+	CGAResonator Reso2
+	{
+		Frequency = 160;
+		FMAttenuation = 0.20;
+	}
+
+	CGAMixer4 MIX1
+	{
+		InputGain1 = 0.6;
+		InputGain2 = 0.6;
+		InputGain3 = 0.9;
+		InputGain4 = 1.3;
+	}
+
+
+	Connection = SPEED1,TRIG1, SampleOut, FM;
+	Connection = LFO1,DEL1, SampleOut, Delay;
+	Connection = TRIG1,DEL1, SampleOut, SampleIn;
+	Connection = SPEED1,Reso1, SampleOut, FM;
+	Connection = SPEED1,Reso1, SampleOut, AM;
+	Connection = SPEED1,Reso2, SampleOut, FM;
+	Connection = LFO1,Reso2, SampleOut, AM;
+	Connection = LFO1,WAV2b, SampleOut, FM;
+
+	Connection = TRIG1,WAV1a, SampleOut, TRIG;
+	Connection = TRIG1,WAV2a, SampleOut, TRIG;
+	Connection = TRIG1,WAV3a, SampleOut, TRIG;
+	Connection = TRIG1,SEL1, SampleOut, TRIG;	
+
+	Connection = TRIG1,WAV1b, SampleOut, TRIG;
+	Connection = TRIG1,WAV2b, SampleOut, TRIG;
+	Connection = TRIG1,WAV3b, SampleOut, TRIG;
+	Connection = DEL1,SEL2, SampleOut, TRIG;	
+
+	Connection = WAV1a,SEL1, SampleOut, SampleIn1;
+	Connection = WAV2a,SEL1, SampleOut, SampleIn3;
+	Connection = WAV3a,SEL1, SampleOut, SampleIn4;
+
+	Connection = WAV1b,SEL2, SampleOut, SampleIn1;
+	Connection = WAV2b,SEL2, SampleOut, SampleIn3;
+	Connection = WAV3b,SEL2, SampleOut, SampleIn4;
+
+	Connection = SEL1, CylMix, SampleOut, SampleIn1;
+	Connection = SEL2, CylMix, SampleOut, SampleIn2;
+
+	Connection = CylMix,Reso1, SampleOut, SampleIn;
+	Connection = CylMix,Reso2, SampleOut, SampleIn;
+
+	Connection = SEL1,MIX1, SampleOut, SampleIn1;
+	Connection = SEL2,MIX1, SampleOut, SampleIn2;
+	Connection = Reso1,MIX1, SampleOut, SampleIn3;
+	Connection = Reso2,MIX1, SampleOut, SampleIn4;
+
+}
+
+

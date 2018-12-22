@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ -f server_pid ]; then
+	echo There is currently a server running as process `cat server_pid`.
+	echo Be sure to kill it, and remove the file \`server_pid\'.
+else
+	CLASSPATH=`pwd`
+	export CLASSPATH
+	nohup java server.Server 5656 2>&1 > server_log &
+	echo $! > server_pid
+fi
+

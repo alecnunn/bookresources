@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Mission</title>
+<script type="text/javascript">
+function myLoad()
+{
+//alert("amma");
+	var x=window.location+"";
+	//alert("amma"+x);
+	var y=x.indexOf("=",0)+1;
+	var z=x.slice(y,x.length);
+	var srcfr=document.getElementById("src_id");
+	srcfr.src=z+".html";
+	//alert(srcfr.src);
+	//srcfra.src=z+".html";
+	//alert(srcfr.src);
+}	
+function loadTest(file)
+{
+// alert(file);
+ var testfr=document.getElementById("testpgm_id");
+ var opfr=document.getElementById("oppgm_id");
+ testfr.src=file+"_test.html";
+ opfr.src=file+"_op.html";
+}
+</script>
+<style type="text/css">
+.exec
+{
+	position:absolute;
+	left:631px;
+	top:277px;
+	height: 162px;
+}
+.test
+{
+	position:absolute;
+	left:633px;
+	top:448px;
+	height: 490px;
+}
+.op
+{
+ position:absolute;
+ left:642px;
+ top:985px;
+}
+.style1 {color: #000000}
+</style>
+</head>
+<body onLoad="myLoad();" bgcolor="#FFFFFF">
+<h2 align="center" class="style1">Chapter 8</h2>
+<h3 align="justify"><br>
+  This section deals with the generation of the machine code for 8086 processor from the instruction form.<br>
+</h3>
+<h3 align="justify">The coding process is given for some of the instructiions. A similar work can be carried to the remaing instructions also.</h3>
+<h3>&nbsp;</h3>
+<hr>
+<h3 align="center">&nbsp;</h3>
+<!-- <iframe align="middle" frameborder="0" width="1000px" src="TestPgm.php" scrolling="no" ></iframe><br> -->
+<iframe id="src_id"  src="bit.html" frameborder="1" height="670px" width="600px" scrolling="yes" ></iframe>
+<iframe class="test" src="bit_test_op.html" id="testpgm_id"  frameborder="1" height="500px" width="400px" scrolling="yes" ></iframe>
+<iframe class="exec" id="howtoexec"  frameborder="1" height="100px" width="400px" src="HowToExec.html" ></iframe>
+</body>
+</html>

@@ -1,0 +1,47 @@
+# Bones system
+
+include "../base.bld"
+
+
+set FILES =							\
+			GPGBoneCacheArray		\
+			GPGBoneNode				\
+			GPGBonesManager			\
+			GPGBonesManagerImpl		\
+			GPGCharacter			\
+			GPGConstraints			\
+			GPGCoreNode				\
+			GPGInstant				\
+			GPGKeyTrack				\
+			GPGMatrix3x4			\
+			GPGMeshGroup_Character	\
+			GPGMotion				\
+			GPGMotionManager		\
+			GPGMotionManagerImpl	\
+			GPGMotionMixer			\
+			GPGMotionMixerImpl		\
+			GPGSkin					\
+			GPGSkin_p3				\
+			GPGVertexWeight			\
+			GPGVertexWeights
+
+set LIBTARGETS = GPGBones
+set EXETARGETS =
+
+set ROOT.CPPFLAGS += -I..$(BS)Include_ifx
+set ROOT.LIBS = $(LIBTARGETS) GPGBase GPGMemory
+
+html:
+{
+	rm -f html/*
+	doc++ --html --dir html --footer FOOTER -f *.h
+}
+
+ps:
+{
+	doc++ --tex --output refman.tex *.h
+	latex refman.tex
+	latex refman.tex
+	system("dvips -f < refman.dvi > refman.ps");
+}
+

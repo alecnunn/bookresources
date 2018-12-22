@@ -1,0 +1,132 @@
+
+<h1>
+Reverb Demo
+</h1>
+
+<h2>
+written by Christian Schüler, 2004
+</h2>
+
+<h3>
+synopsis
+</h3>
+
+<p>
+This program lets you play with various parameters of a 4-channel FDN 
+in real time. A graph shows the theoretical transfer function 
+of the FDN as a whole.
+</p>
+
+<h3>
+usage
+</h3>
+
+<p>
+Click on the ellipsis "..." next to the "input file" field and select a
+wave file in ".wav" pcm format or a file containing raw pcm data. The play button starts the action.
+The graph will start to animate if the delay lengths are modulated.
+</p>
+
+<p>
+The task manager will show some ~10% CPU usage during playback. This is due to drawing
+the graph with windows GDI, it's not the cause of the reverb procedure. When you minimize the window, CPU usage
+should drop to below measureable.
+</p>
+
+<p>
+Playback frequency and volume can be changed during playback.
+</p>
+
+<p>
+If you press ENTER inside an editbox, the program will close. Press TAB instead.
+</p>
+
+<h3>
+output
+</h3>
+
+<p>
+The live sound output is also recorded to disk as a file named <code>record.wav</code> into the current directory,
+if such a file can be opened (may be locked by CoolEdit, for instance). Usually the current directory is
+set to the directory from where you opened the input file.
+</p>
+
+
+<h3>
+presets
+</h3>
+
+Presets are contained in a .txt file with the name "presets.txt" which is parsed
+when the program starts. You can edit this file, see there for explanation.
+
+<ul>
+<li>"Temple of the ancestors" - Very long reverberation time, large room.
+<li>"Temple of the ancestors (back door)" - Same as above but with 100% occlusion of direct sound.
+<li>"Open Stage in the Woods" - Very large, echoey room.
+<li>"Cardio Fitness at the Gym" - Medium size room, bright spectrum.
+<li>"U-Boat Club Party" - Small room, strong coloration, high frequency damping
+<li>"Christians Former very small Dorm Room" - very small room
+<li>"Howling Spirits" - Short delay lines as oscillators, sweeping modulation gives pitch shift.
+<li>"Leaking Biohazard Container" - Short delay lines as oscillators, inharmonic resonant modes.
+<li>"Oversize Shoe Box" - Feedback matrix simulates sign change at open ended wave reflection, gives hollow sound.
+</ul>
+
+<h3>
+parameters
+</h3>
+
+<p>
+Changing any parameter will have an immediate effect.
+</p>
+
+<dl>
+<dt>
+Feedback matrix<br>
+Delay lengths<br>
+Half lives
+<dd>
+These work as described in the article.
+</dd>
+<dt>
+Input and output rotation
+<dd>
+The input and output matrices contain some sin/cos dependent on these parameters.
+This serves to somehow distribute the signal from stereo to 4-channel and back to stereo.
+</dd>
+<dt>
+Delay length modulation
+<dd>
+The delay lengths are modulated by a sinusoid of given period and depth. 
+</dd>
+<dt>
+Mix
+<dd>
+Dry mix is the percentage of direct signal, wet mix is the percentage of reverberated signal
+in the final result.	
+</dd>
+</dl>
+
+
+<h3>
+others
+</h3>
+
+
+<dl>
+<dt>
+Mute Input
+<dd>
+Pretend the input to the reverb was silence. Good for listening to reverb responses.
+</dd>
+<dt>
+Bypass
+<dd>
+Listen to the original signal instead of the reverberated one. The reverb
+keeps updating in the background.
+</dd>
+<dt>
+Reset
+<dd>
+Zero all delay lines.
+</dd>
+</dl>

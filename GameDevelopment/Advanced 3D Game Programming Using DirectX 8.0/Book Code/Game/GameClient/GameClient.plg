@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GameClient - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP18FC.tmp" with contents
+[
+ws2_32.lib winmm.lib dsound.lib dinput8.lib d3d8.lib d3dx8.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/GameClient.pdb" /machine:I386 /out:"../bin/GameClient.exe" 
+".\Release\Drawing.obj"
+".\Release\Game.obj"
+".\Release\StdAfx.obj"
+".\Release\EntNM.obj"
+".\Release\LoginNM.obj"
+".\Release\MiscNM.obj"
+".\Release\NetMessages.obj"
+"\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameCommon\Release\GameCommon.lib"
+"\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\lib\GameLib.lib"
+"\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\math3D\Release\math3D.lib"
+"\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\lib\NetLib.lib"
+]
+Creating command line "link.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP18FC.tmp"
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+GameClient.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

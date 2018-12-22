@@ -1,0 +1,20 @@
+Real Time Input and UI in 3D Games
+
+Keyboard Input System
+by Greg Seegert
+gseegert@alum.wpi.edu
+
+Requires:
+DirectX 8.0
+
+This code is a complete keyboard input system, using buffered input.  With this code, you can create hotkeys for your game by adding just one line of code.  All you need to supply is the code you want the key to execute when it is pressed.  One feature of this program is the use of buffered input.  By adjusting the value of kTimerInterval in "Real Time Input.cpp", you can simulate lag or a starved thread.  Additionally, one of the best features of this code is the fact that it can read (and write) the key assignments to an external config file.  With a little bit of effort, support for mouse input can be added in much the same way.
+
+I've tried as much as possible to keep the input system free of implementation specific details.  Some things you may wish to change for your project may be the use of the STL classes, as well as the obsoleted windows call GetPrivateProfileString and WritePrivateProfileString.
+
+You will probably notice that all the key names are listed in a string table.  There's a very good reason for this, and that is for localization purposes.  On any large or international game you will almost certainly run into various localization issues.  The simple fact is, DirectInput scan codes correspond to the physical buttons on the keyboard, not what the key is called in the language the game is running in.  This can pose some problems if they key names are not easily translatable.
+
+One of my primary goals while writing this software was to write as simple and as clean an API as possible.  You don't need to worry about perfomance, however.  Given the features provided, this input system is fast, thanks largely to the hashtable of key presses to hotkey actions.  I have commented any areas that I am aware of which could use improvements or an improved implementation.
+
+All of the files in the project consist of the code necessary to build the input system, with the exception of Real Time Input.cpp.  Real Time Input.cpp is an example of how you use the Input System.  Adding the input system to your project should be as easy as adding the corresponding files to your workspace.
+
+I've tried to test the code as much as possible, but I'm sure it's not perfect.  Feel free to use as much or as little as you want, and I'd be interested in hearing how it worked out for you!

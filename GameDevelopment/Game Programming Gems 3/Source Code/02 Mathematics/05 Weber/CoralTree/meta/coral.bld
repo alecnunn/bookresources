@@ -1,0 +1,1690 @@
+# meta/platform.bld
+
+#force OpenGL
+set CORAL_GL = OPENGL
+
+# if header cache exists, use it
+if(exists(../hcache))
+	{
+	cp *.h ../hcache/$(MODULE)
+	set CPPFLAGS = -I../hcache
+	}
+
+# Build Dependendent locations
+if ($(BLD_OSTYPE) == win32)
+{
+	set ROOT.LIBLOC = $(CORALHOME)\lib
+	set ROOT.CAT = TYPE
+	set ROOT.BS = \ 
+}
+else
+{
+	set ROOT.LIBLOC = $(CORALHOME)/lib
+	set ROOT.CAT = cat
+	set ROOT.BS = /
+}
+
+# Distribution locations
+if (! $(DISTHOME))
+{
+	set DISTHOME = $(CORALHOME)/dist
+}
+if ($(BLD_OSTYPE) == win32)
+{
+	set ROOT.BINLOC = $(DISTHOME)\bin
+	set ROOT.INCLOC = $(DISTHOME)\include
+	set ROOT.DLIBLOC = $(DISTHOME)\lib
+	set ROOT.DOCLOC = $(DISTHOME)\doc
+	set ROOT.MANLOC = $(DISTHOME)\doc\man
+	set ROOT.HTMLLOC = $(DISTHOME)\doc\html
+}
+else
+{
+	set ROOT.BINLOC = $(DISTHOME)/bin
+	set ROOT.INCLOC = $(DISTHOME)/include
+	set ROOT.DLIBLOC = $(DISTHOME)/lib
+	set ROOT.DOCLOC = $(DISTHOME)/doc
+	set ROOT.MANLOC = $(DISTHOME)/doc/man
+	set ROOT.HTMLLOC = $(DISTHOME)/doc/html
+}
+
+([0-9]*).([0-9]*).([0-9]*).([0-9]*):
+{
+	set ROOT.CORAL_MAJOR = $(1)
+	set ROOT.CORAL_MINOR = $(2)
+	set ROOT.CORAL_PATCH = $(3)
+	set ROOT.CORAL_AVAILABILITY = $(4)
+}
+
+if ($(RMFHOME))
+{
+	set ROOT.THREADING = true
+}
+
+if ($(MTE_THREADING))
+{
+	set ROOT.THREADING = true
+}
+
+if ($(PRETTY))
+{
+	set ROOT.PRETTY = 1
+	include $(CORALHOME)/meta/pretty.bld
+}
+
+
+if (! $(CORALVERSION))
+{
+	echo "[33mCORALVERSION not set, using preset file[0m"
+	if(exists($(CORALHOME)$(BS)CORALVERSION))
+	{
+		set CORALVERSION = `$(CAT) $(CORALHOME)$(BS)CORALVERSION`
+		check($(CORALVERSION))
+	}
+}
+
+if (! $(CORALINSTALL))
+{
+	set ROOT.CORALINSTALL = /usr/local
+}
+
+warning:
+{
+	if ( $(PRETTY) )
+	{
+		echo "[31mWARNING WARNING WARNING WARNING WARNING[0m"
+	}
+	else
+	{
+		echo "WARNING WARNING WARNING WARNING WARNING"
+	}
+}
+
+platformsetup:
+{
+	# Version information
+	# CORAL_AVAILABILITY is enumerated in gpl/version.h
+	#   GPL_AVAILABILITY_ALPHA    0
+	#   GPL_AVAILABILITY_BETA     1
+	#   GPL_AVAILABILITY_GENERAL  2
+	if ($(CORALVERSION))
+	{
+		check($(CORALVERSION))
+		if (! $(CORAL_MAJOR))
+		{
+			echo ""
+			check(warning)
+			echo "CORALVERSION not set properly to "
+			echo "MAJOR.MINOR.PATCH.AVAILABILITY"
+			echo ""
+			set ROOT.CORAL_MAJOR = 0
+			set ROOT.CORAL_MINOR = 0
+			set ROOT.CORAL_PATCH = 0
+			set ROOT.CORAL_AVAILABILITY = 0
+		}
+	}
+	else
+	{
+		echo ""
+		check(warning)
+		echo "CORALVERSION not set"
+		echo ""
+		set ROOT.CORAL_MAJOR = 0
+		set ROOT.CORAL_MINOR = 0
+		set ROOT.CORAL_PATCH = 0
+		set ROOT.CORAL_AVAILABILITY = 0
+	}
+	set DQUOTE = '"'
+	if ($(CORALCODENAME))
+	{
+		set ROOT.CORAL_CODENAME = $(DQUOTE)$(CORALCODENAME)$(DQUOTE)
+	}
+	else
+	{
+		set IGNORE = 1
+		set LOCALHOSTNAME = `hostname`
+		set IGNORE = 0
+		if ($(USER))
+		{
+			set LOCALUSER = $(USER)
+		}
+		else if ($(USERNAME))
+		{
+			set LOCALUSER = $(USERNAME)
+		}
+		else if ($(LOGNAME))
+		{
+			set LOCALUSER = $(LOGNAME)
+		}
+		else
+		{
+			set LOCALUSER = unknown
+		}
+		set ROOT.CORAL_CODENAME = $(DQUOTE)$(LOCALUSER)@$(LOCALHOSTNAME)$(DQUOTE)
+	}
+
+	set ROOT.LIBPATCH = "$(CORAL_MAJOR).$(CORAL_MINOR).$(CORAL_PATCH)"
+	set ROOT.LIBMINOR = "$(CORAL_MAJOR).$(CORAL_MINOR)"
+	set ROOT.LIBMAJOR = "$(CORAL_MAJOR)"
+
+	if ($(CORAL_AVAILABILITY) == 0)
+	{
+		set AVAILTXT = Alpha
+	}
+	else if ($(CORAL_AVAILABILITY) == 1)
+	{
+		set AVAILTXT = Beta
+	}
+	else if ($(CORAL_AVAILABILITY) == 2)
+	{
+		set AVAILTXT = General
+	}
+	else
+	{
+		set AVAILTXT = "Special-$(CORAL_AVAILABILITY)"
+	}
+
+	echo "---------------------------------------------------------------------"
+	echo "CORALHOME      $(CORALHOME)"
+	if($(RMFHOME))
+	{
+		echo "RMFHOME        $(RMFHOME)"
+	}
+	else
+	{
+		echo "RMFHOME        *unset*"
+	}
+	if($(CORALINSTALL))
+	{
+		echo "CORALINSTALL   $(CORALINSTALL)"
+	}
+	else
+	{
+		echo "CORALINSTALL   *unset*"
+	}
+
+	echo "Version        $(LIBPATCH) $(AVAILTXT) $(CORAL_CODENAME)"
+
+	if (!($(PLATFORM)))
+	{
+		if (!($(BLD_PLATFORM)))
+		{
+			echo Using an old version of build. Will attempt to get platform from script
+			set ROOT.PLATFORM = `$(CORALHOME)/meta/platform`
+		}
+		else
+		{
+			set ROOT.PLATFORM = $(BLD_PLATFORM)
+		}
+	}
+	echo "PLATFORM       $(PLATFORM)"
+
+	if ($(COMPILER))
+	{
+		set BLD_COMPILER = $(COMPILER)
+	}
+
+	# Defaults (for UNIX)
+	set ROOT.CPPFLAGS = $(CPPFLAGS) "-I$(CORALHOME)" "-I/usr/X11R6/include"
+	set ROOT.CC = cc
+	set ROOT.CFLAGS = 
+	set ROOT.CXX = CC
+	set ROOT.CXXFLAGS = 
+	set ROOT.LDFLAGS =
+	set ROOT.OSLIBS =
+	set ROOT.NOLINK = -c
+	set ROOT.OUTPUT = "-o "
+	set ROOT.EXEOUTPUT = "-o "
+	set ROOT.AR = ar
+	set ROOT.ARFLAGS = -ur
+	set ROOT.MV = mv
+	set ROOT.RM = "rm -f"
+	set ROOT.LN = "ln -s"
+	set ROOT.MD = "mkdir -p"
+	set ROOT.OBJDIR = $(LIBLOC)/obj/$(MODULE)/
+	set ROOT.OBJ = .o
+	set ROOT.EXE = .exe
+	set ROOT.AROUTPREFIX =
+	set ROOT.LIBPRE= $(LIBLOC)/lib
+	set ROOT.LIBSUFF = .a
+	set ROOT.PARA = "'"
+	set ROOT.DEBUG = -g
+	set ROOT.PROFILE = -g -pg
+	set ROOT.OPTIMIZE = -O
+	set ROOT.GFXLIBS = "-L/usr/X11/lib -L/usr/X11R6/lib -lX11"
+	set ROOT.COPY = cp
+	set ROOT.PWD = pwd
+	set ROOT.LS = ls
+
+	# Standard usage
+	# C files:
+	# $(CC) $(CPPFLAGS) $(CFLAGS) $(NOLINK) <file>
+	#
+	# C programs:
+	# $(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) <file> $(OSLIBS)
+	#
+	# C++ files:
+	# $(CXX) $(CPPFLAGS) $(CXXFLAGS) $(NOLINK) <file>
+	#
+	# C++ programs:
+	# $(CXX) $(CPPFLAGS) $(CXXFLAGS) $(LDFLAGS) <file> $(OSLIBS)
+	#
+	# Archive libraries:
+	# $(AR) $(ARFLAGS) "$(AROUTPREFIX)<lib>" <files...>
+
+	# OPTIMIZE and DEBUG
+	if ($(BLD_COMPILER) == gnu)
+	{
+		set ROOT.OPTIMIZE = -O2 
+	}
+	else if($(BLD_OS) == hpux)
+	{
+		set ROOT.OPTIMIZE = +O2 +Onolimit
+	}
+
+	if ($(LIBGEN) == shared)
+	{
+		if ($(BLD_OSTYPE) == unix)
+		{
+			set ROOT.LIBSUFF = .so
+
+			if ($(BLD_OS) == sunos)
+			{
+				if ($(BLD_COMPILER) == gnu)
+				{
+					set ROOT.ARFLAGS = -shared -fPIC
+				}
+				else
+				{
+					set ROOT.ARFLAGS = -G 
+				}
+				set ROOT.LDFLAGS += "-R$(LIBLOC)"
+				set ROOT.AR = $(CC)
+			}
+			else if ($(BLD_OS) == hpux)
+			{
+				if ($(BLD_COMPILER) == gnu)
+				{
+					set ROOT.ARFLAGS = -shared -fPIC
+					set ROOT.LDFLAGS += "-Xlinker +b -Xlinker $(LIBLOC)"
+					set ROOT.AR = $(CC)
+				}
+				else
+				{
+					set ROOT.ARFLAGS = -b
+					set ROOT.AR = ld
+					set ROOT.LDFLAGS += "-Wl,+b -Wl,$(LIBLOC)"
+				}
+			}
+			else if ($(BLD_COMPILER) == gnu)
+			{
+				set ROOT.ARFLAGS = -shared -fPIC
+				set ROOT.LDFLAGS += "-Xlinker -R -Xlinker $(LIBLOC)"
+				set ROOT.AR = $(CC)
+			}
+		}
+	}
+	else
+	{
+		if ($(BLD_COMPILER) == gnu)
+		{
+# 20000601 jpweber: won't compile
+#			set ROOT.LDFLAGS += -static
+		}
+	}
+
+	# CPPFLAGS
+	if ($(BLD_OSTYPE) == win32)
+	{
+		set ROOT.CPPFLAGS += -I$(VCPP)\include
+	}
+	else if ($(BLD_OS) == sunos)
+	{
+		set ROOT.CPPFLAGS += -I/usr/openwin/share/include
+	}
+
+	# CC/CXX/CFLAGS
+	if ($(BLD_COMPILER) == gnu)
+	{
+		set ROOT.CC = gcc
+		set ROOT.CXX = g++
+		if ($(CODEGEN) == debug)
+		{
+			set ROOT.CFLAGS = -Wall
+			set ROOT.CXXFLAGS = -Wall
+		}
+	}
+	else if ($(BLD_COMPILER) == visual)
+	{
+		set ROOT.CC = cl.exe /nologo
+		set ROOT.CXX = cl.exe /nologo
+		set ROOT.CFLAGS = /W3 /GX -DWIN32 -D_DEBUG -D_WINDOWS "-Fd$(MODULE).pdb"
+		set ROOT.DEBUG = /Od -D_DEBUG
+		set ROOT.OPTIMIZE = /O1
+	}
+	else if ($(BLD_OS) == hpux && $(BLD_COMPILER) != gnu)
+	{
+		set ROOT.CXX = aCC
+		set ROOT.CFLAGS += -Ae -DAportable
+	}
+	else if ($(BLD_OS) == irix && $(BLD_COMPILER) == ansi)
+	{
+		set ROOT.CC = CC
+	#	set ROOT.CFLAGS += -woff 3262 -woff 3666 -woff 3162 -woff 3203
+	#	set ROOT.CFLAGS += -n32
+	}
+
+	# CXXFLAGS
+	if ($(BLD_OS) == irix && $(BLD_COMPILER) == ansi)
+	{
+	#	set ROOT.CXXFLAGS += -ptused -woff 3262 -woff 3666 -woff 3162 -woff 3203
+		set ROOT.CXXFLAGS += -woff 1552
+	#	set ROOT.CXXFLAGS += -ptused -n32
+	}
+	else if ($(BLD_OS) == sunos && $(BLD_OSVER) == 5 && $(BLD_COMPILER) != gnu)
+	{
+		set ROOT.CXXFLAGS += -pto
+	}
+	else if ($(BLD_OS) == hpux && $(BLD_COMPILER) != gnu)
+	{
+		set ROOT.CXXFLAGS += +DAportable
+		if ($(LIBGEN) == shared)
+		{
+		set ROOT.CFLAGS += +Z
+		set ROOT.CXXFLAGS += +Z 
+		}
+	}
+	else if ($(BLD_COMPILER) == visual)
+	{
+		set ROOT.CXXFLAGS = /W3 /GX -DWIN32 -D_WINDOWS "-Fd$(MODULE).pdb"
+	}
+	if ($(LIBGEN) == shared && $(BLD_COMPILER) == gnu)
+	{
+		set ROOT.CFLAGS += -fPIC
+		set ROOT.CXXFLAGS += -fPIC
+	}
+
+	if($(MTE_THREADING))
+	{
+		set ROOT.CFLAGS += -DMTE_THREADING_ENABLED
+		set ROOT.CXXFLAGS += -DMTE_THREADING_ENABLED
+	}
+
+	# LDFLAGS/OSLIBS
+	if ($(CORAL_GL) == OPENGL && $(BLD_OSTYPE) != win32)
+	{
+#		set ROOT.CXXFLAGS += -I/usr/local/include
+#		set ROOT.GFXLIBS += -L/usr/local/lib -lGLU -lGL -lXext
+
+		set ROOT.GFXLIBS += -lGLU -lGL -lXext -ldl -lpthread
+	}
+	if ($(BLD_OSTYPE) == win32)
+	{
+		set ROOT.LDFLAGS = /link
+		set ROOT.OSLIBS = wsock32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib winmm.lib uuid.lib
+		set ROOT.GFXLIBS =
+		if ($(CORAL_GL) == OPENGL)
+		{
+			set ROOT.GFXLIBS += glu32.lib opengl32.lib
+		}
+	}
+	else if ($(BLD_OS) == sunos)
+	{
+		if ($(THREADING) || $(OSD_THREADING))
+		{
+			set ROOT.OSLIBS += -lpthread
+		}
+		if ($(BLD_COMPILER) == gnu)
+		{
+			if ($(LIBGEN) == shared)
+			{
+				set ROOT.OSLIBS += -L/usr/openwin/lib -z muldefs -lkvm -ladm -ldl -lsocket -lnsl -lintl -lm 
+			}
+			else
+			{
+				set ROOT.OSLIBS += -L/usr/openwin/lib -z muldefs -lkvm -ladm -ldl -lsocket -lnsl -lintl -lm 
+			}
+		}
+		else
+		{
+			if ($(LIBGEN) == shared)
+			{
+				set ROOT.OSLIBS += -L/usr/openwin/lib -lkvm -ladm -ldl -lsocket -lnsl -lintl -lm
+				set ROOT.CFLAGS += -KPIC
+				set ROOT.CXXFLAGS += -KPIC
+			}
+			else
+			{
+				set ROOT.OSLIBS += -L/usr/openwin/lib -lkvm -ladm -ldl -Bstatic -lsocket -lnsl -lintl -Bdynamic -lm
+			}
+		}
+	}
+	else if ($(BLD_OS) == hpux)
+	{
+		set ROOT.OSLIBS = -lsec -lm
+		if ($(THREADING) || $(OSD_THREADING))
+		{
+			set ROOT.OSLIBS += -lpthread
+		}
+	}
+	else if ($(BLD_OS) == irix)
+	{
+		set ROOT.OSLIBS = -lm
+		if ($(THREADING) || $(OSD_THREADING))
+		{
+			set ROOT.OSLIBS += -lpthread
+		}
+	}
+	else if ($(BLD_OS) == linux)
+	{
+		set ROOT.OSLIBS = -lm -lcrypt
+		if ($(THREADING) || $(OSD_THREADING))
+		{
+			set ROOT.OSLIBS += -lpthread
+		}
+	}
+
+	if ($(BLD_OSTYPE) == win32)
+	{
+		# NOLINK
+		if ($(BLD_COMPILER) == visual)
+		{
+			set ROOT.NOLINK = /c
+
+			# OUTPUT
+			set ROOT.OUTPUT = /Fo
+			set ROOT.EXEOUTPUT = /Fe
+
+			# AR
+			set ROOT.AR = lib.exe
+
+			# ARFLAGS
+			set ROOT.ARFLAGS =
+
+			# OBJ
+			set ROOT.OBJ = .obj
+
+			# AROUTPREFIX
+			set ROOT.AROUTPREFIX = "/OUT:"
+
+			# IMPLIBPREFIX
+			set ROOT.IMPLIBPREFIX = "/IMPLIB:"
+
+			# VC++ DOESNT LIKE .cc so...
+			set ROOT.FORCECXX = -Tp
+			set ROOT.FORCECC = -Tc
+
+			set ROOT.DEBUG = /Zi
+		}
+
+		# MV
+		set ROOT.MV = move
+
+		# RM
+		set ROOT.RM = del
+
+		# COPY
+		set ROOT.COPY = copy
+
+		# LN
+		set ROOT.LN = copy
+
+		# PWD
+		set ROOT.PWD = 'cd'
+
+		# MD
+		set ROOT.MD = md
+
+		# EXE
+		set ROOT.EXE = .exe
+
+		# LIBPRE
+		set ROOT.LIBPRE = $(LIBLOC)\\
+		set ROOT.OBJDIR = $(LIBLOC)\\obj\\$(MODULE)\\
+
+		# LIBSUFF
+		set ROOT.LIBSUFF = .lib
+
+		# LIST
+		set ROOT.LS = dir
+
+
+		# PARENTHSIS
+		set ROOT.PARA =
+
+	}
+
+	if ($(CODEGEN) == optimize)
+	{
+		set ROOT.CFLAGS = $(ROOT.OPTIMIZE) $(ROOT.CFLAGS)
+		set ROOT.CXXFLAGS = $(ROOT.OPTIMIZE) $(ROOT.CXXFLAGS)
+	}
+	else if ($(CODEGEN) == debug)
+	{
+		set ROOT.CFLAGS = $(ROOT.DEBUG) $(ROOT.CFLAGS)
+		set ROOT.CXXFLAGS = $(ROOT.DEBUG) $(ROOT.CXXFLAGS)
+	}
+	else if ($(CODEGEN) == profile)
+	{
+		set ROOT.CFLAGS = $(ROOT.PROFILE) $(ROOT.CFLAGS)
+		set ROOT.CXXFLAGS = $(ROOT.PROFILE) $(ROOT.CXXFLAGS)
+	}
+	else
+	{
+		set ROOT.CODEGEN = default
+	}
+
+	if ($(LIBGEN) != shared)
+	{
+		set ROOT.LIBGEN = static
+	}
+
+	if ($(BLD_OSTYPE) == unix)
+	{
+		set ROOT.LDFLAGS += "-L$(LIBLOC)"
+		set ROOT.LIBPREFIX = ' -l'
+	}
+	else if ($(BLD_OSTYPE) == win32)
+	{
+		set ROOT.LIBPREFIX = $(LIBPRE)
+		set ROOT.LIBSUFFIX = $(LIBSUFF)
+	}
+
+	set ROOT.LIBRARY = "$(LIBPRE)$(MODULE)$(LIBSUFF)"
+	if ($(LIBGEN) == shared)
+	{
+		if ($(BLD_OS) == sunos)
+		{
+			set ROOT.ARFLAGS += "-h $(LIBRARY).$(LIBPATCH)"
+		}
+		else if ($(BLD_OS) == hpux)
+		{
+			if ($(BLD_COMPILER) == gnu)
+			{
+				#set ROOT.ARFLAGS += "-Xlinker +h -Xlinker $(LIBRARY).$(LIBPATCH)"
+			}
+			else
+			{
+				#set ROOT.ARFLAGS += "+h $(LIBRARY).$(LIBPATCH)"
+			}
+		}
+	}
+}
+
+prebuild:
+{
+	if(!exists($(OBJDIR)))
+	{
+		$(ECHO) $(MD) $(OBJDIR)
+	}
+}
+
+[!-~]+/meta/platform.h:
+{
+	set SILENT = 1
+	set IGNORE = 1
+	set NO_NEW_PLATFORM = 0
+	set PLT = _tmp_platform
+
+	if (!($(NO_NEW_PLATFORM)))
+	{
+		system("echo $(PARA)#ifndef META_PLATFORM_H$(PARA) > $(PLT)")
+		system("echo $(PARA)#define META_PLATFORM_H$(PARA) >> $(PLT)")
+
+		system("echo $(PARA)/* THIS HEADER FILE GENERATED DURING BUILD */$(PARA) >> $(PLT)")
+		system("echo $(PARA)/* EDITS OF THIS FILE MAY BE LOST          */$(PARA) >> $(PLT)")
+
+		system("echo $(PARA)/* BUILD CONFIGURATION OPTIONS */$(PARA) >> $(PLT)")
+		if ($(BLD_OS) == nt)
+		{
+			set TMPPATH = $(CORALHOME)\meta\options_h
+			system("type $(TMPPATH) >> $(PLT)")
+		}
+		else
+		{
+			system("echo $(PARA)#include <meta/options.h> $(PARA) >> $(PLT)")
+		}
+
+		# OSD_OSTYPE
+		system("echo $(PARA)#ifndef OSD_OSTYPE$(PARA) >> $(PLT)")
+		if ($(BLD_OSTYPE) == win32)
+		{
+			system("echo $(PARA)#define OSD_OSTYPE    OSD_WIN32$(PARA) >> $(PLT)")
+		}
+		else
+		{
+			system("echo $(PARA)#define OSD_OSTYPE    OSD_UNIX$(PARA) >> $(PLT)")
+		}
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# OSD_OS
+		system("echo $(PARA)#ifndef OSD_OS$(PARA) >> $(PLT)")
+		if ($(BLD_OS) == nt)
+		{
+			system("echo $(PARA)#define OSD_OS        OSD_WINNT$(PARA) >> $(PLT)")
+		}
+		else if ($(BLD_OS) == sunos)
+		{
+			system("echo $(PARA)#define OSD_OS        OSD_SUNOS$(PARA) >> $(PLT)")
+		}
+		else if ($(BLD_OS) == irix)
+		{
+			system("echo $(PARA)#define OSD_OS        OSD_IRIX$(PARA) >> $(PLT)")
+		}
+		else if ($(BLD_OS) == hpux)
+		{
+			system("echo $(PARA)#define OSD_OS        OSD_HPUX$(PARA) >> $(PLT)")
+		}
+		else if ($(BLD_OS) == linux)
+		{
+			system("echo $(PARA)#define OSD_OS        OSD_LINUX$(PARA) >> $(PLT)")
+		}
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# OSD_OSVER
+		system("echo $(PARA)#ifndef OSD_OSVER$(PARA) >> $(PLT)")
+		system("echo $(PARA)#define OSD_OSVER     $(BLD_OSVER)$(PARA) >> $(PLT)")
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# OSD_COMPILER
+		system("echo $(PARA)#ifndef OSD_COMPILER$(PARA) >> $(PLT)")
+		if ($(COMPILER))
+		{
+			set BLD_COMPILER = $(COMPILER)
+		}
+		if ($(BLD_COMPILER) == visual)
+		{
+				system("echo $(PARA)#define OSD_COMPILER  OSD_VISUAL$(PARA) >> $(PLT)")
+		}
+		else if ($(BLD_COMPILER) == kr)
+		{
+				system("echo $(PARA)#define OSD_COMPILER  OSD_KR$(PARA) >> $(PLT)")
+		}
+		else if ($(BLD_COMPILER) == gnu)
+		{
+				system("echo $(PARA)#define OSD_COMPILER  OSD_GNU$(PARA) >> $(PLT)")
+		}
+		else if ($(BLD_COMPILER) == ansi)
+		{
+				system("echo $(PARA)#define OSD_COMPILER  OSD_ANSI$(PARA) >> $(PLT)")
+		}
+		else 
+		{
+				system("echo $(PARA)#define OSD_COMPILER  undefined$(PARA) >> $(PLT)")
+		}
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# OSD_HARDWARE
+		system("echo $(PARA)#ifndef OSD_HARDWARE$(PARA) >> $(PLT)")
+		if ($(BLD_HARDWARE) == sparc)
+		{
+				system("echo $(PARA)#define OSD_HARDWARE  OSD_SPARC$(PARA) >> $(PLT)")
+		}
+		if ($(BLD_HARDWARE) == mips)
+		{
+				system("echo $(PARA)#define OSD_HARDWARE  OSD_MIPS$(PARA) >> $(PLT)")
+		}
+		if ($(BLD_HARDWARE) == hppa)
+		{
+				system("echo $(PARA)#define OSD_HARDWARE  OSD_HPPA$(PARA) >> $(PLT)")
+		}
+		if ($(BLD_HARDWARE) == axp)
+		{
+				system("echo $(PARA)#define OSD_HARDWARE  OSD_AXP$(PARA) >> $(PLT)")
+		}
+		if ($(BLD_HARDWARE) == x86)
+		{
+				system("echo $(PARA)#define OSD_HARDWARE  OSD_X86$(PARA) >> $(PLT)")
+		}
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# OSD_THREADS
+		system("echo $(PARA)#ifndef OSD_THREADS$(PARA) >> $(PLT)")
+		if ($(OSD_THREADING))
+		{
+			if ($(BLD_OS) == irix)
+			{
+					system("echo $(PARA)#define OSD_THREADS   OSD_SGI_SPROC$(PARA) >> $(PLT)")
+			}
+			else if ($(BLD_OS) == nt)
+			{
+					system("echo $(PARA)#define OSD_THREADS   OSD_WIN32_THREADS$(PARA) >> $(PLT)")
+			}
+			else if ($(BLD_OS) == sunos)
+			{
+					system("echo $(PARA)#define OSD_THREADS   OSD_PTHREADS$(PARA) >> $(PLT)")
+			}
+			else if ($(BLD_OS) == hpux)
+			{
+					system("echo $(PARA)#define OSD_THREADS   OSD_PTHREADS$(PARA) >> $(PLT)")
+			}
+			else
+			{
+					system("echo $(PARA)#define OSD_THREADS   OSD_NO_THREADS$(PARA) >> $(PLT)")
+			}
+		}
+		else
+		{
+			system("echo $(PARA)#define OSD_THREADS   OSD_NO_THREADS$(PARA) >> $(PLT)")
+		}
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# EW_WL
+		system("echo $(PARA)#ifndef EW_WL$(PARA) >> $(PLT)")
+		if ($(BLD_OSTYPE) == win32)
+		{
+				system("echo $(PARA)#define EW_WL         EW_WIN32$(PARA) >> $(PLT)")
+		}
+		else
+		{
+				system("echo $(PARA)#define EW_WL         EW_XWIN$(PARA) >> $(PLT)")
+		}
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# EW_GL
+		system("echo $(PARA)#ifndef EW_GL$(PARA) >> $(PLT)")
+		if ($(CORAL_GL))
+		{
+				system("echo $(PARA)#define EW_GL         EW_$(CORAL_GL)$(PARA) >> $(PLT)")
+		}
+		else if ($(BLD_OSTYPE) == win32)
+		{
+#				system("echo $(PARA)#define EW_GL         EW_GDI$(PARA) >> $(PLT)")
+				system("echo $(PARA)#define EW_GL         EW_OPENGL$(PARA) >> $(PLT)")
+		}
+		else
+		{
+				system("echo $(PARA)#define EW_GL         EW_X_GFX$(PARA) >> $(PLT)")
+		}
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# CORAL_MAJOR
+		system("echo $(PARA)#ifndef CORAL_MAJOR$(PARA) >> $(PLT)")
+		system("echo $(PARA)#define CORAL_MAJOR           $(CORAL_MAJOR)$(PARA) >> $(PLT)")
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# CORAL_MINOR
+		system("echo $(PARA)#ifndef CORAL_MINOR$(PARA) >> $(PLT)")
+		system("echo $(PARA)#define CORAL_MINOR           $(CORAL_MINOR)$(PARA) >> $(PLT)")
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# CORAL_PATCH
+		system("echo $(PARA)#ifndef CORAL_PATCH$(PARA) >> $(PLT)")
+		system("echo $(PARA)#define CORAL_PATCH           $(CORAL_PATCH)$(PARA) >> $(PLT)")
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# CORAL_AVAILABILITY
+		system("echo $(PARA)#ifndef CORAL_AVAILABILITY$(PARA) >> $(PLT)")
+		system("echo $(PARA)#define CORAL_AVAILABILITY    $(CORAL_AVAILABILITY)$(PARA) >> $(PLT)")
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		# CORAL_CODENAME
+		system("echo $(PARA)#ifndef CORAL_CODENAME$(PARA) >> $(PLT)")
+		system("echo $(PARA)#define CORAL_CODENAME        $(CORAL_CODENAME)$(PARA) >> $(PLT)")
+		system("echo $(PARA)#endif$(PARA) >> $(PLT)")
+
+		system("echo $(PARA)#endif /* META_PLATFORM_H */$(PARA) >> $(PLT)")
+	}
+
+	set ROOT.BUILDID = dateof ($(PLT))
+	echo "BUILDID        $(BUILDID)"
+	if ($(THREADING))
+	{
+		set T_STR = "set"
+		if ($(MTE_THREADING))
+		{
+			set THREADSTRING = 'MT+mte'
+		}
+		else
+		{
+			set THREADSTRING = MT
+		}
+	}
+	else
+	{
+		set T_STR = "*unset*"
+	}
+	echo "Generate       COMPILER=$(BLD_COMPILER) CODEGEN=$(CODEGEN) LIBGEN=$(LIBGEN)"
+	if ($(MTE_THREADING))
+	{
+		set M_STR = "set"
+	}
+	else
+	{
+		set M_STR = "*unset*"
+	}
+	echo "Threading      THREADING $(T_STR)     MTE_THREADING $(M_STR)"
+	echo "---------------------------------------------------------------------"
+	if ($(BLD_OSTYPE) == win32)
+	{
+		set ROOT.BUILDFLAG = '-DCORAL_BUILDID="\\\"'"CoralBuildID $(CORAL_MAJOR).$(CORAL_MINOR).$(CORAL_PATCH).$(CORAL_AVAILABILITY) $(CORAL_CODENAME) $(BLD_HARDWARE)_$(BLD_OS)_$(BLD_OSVER) $(BLD_COMPILER) $(CODEGEN) $(THREADSTRING) $(LIBGEN) $(MODULE)$(BUILDID)"'\\\""'
+	}
+	else
+	{
+		set ROOT.BUILDFLAG = '-DCORAL_BUILDID="\"'"CoralBuildID $(CORAL_MAJOR).$(CORAL_MINOR).$(CORAL_PATCH).$(CORAL_AVAILABILITY) $(CORAL_CODENAME) $(BLD_HARDWARE)_$(BLD_OS)_$(BLD_OSVER) $(BLD_COMPILER) $(CODEGEN) $(THREADSTRING) $(LIBGEN) $(MODULE)$(BUILDID)"'\""'
+	}
+
+	set ROOT.CPPFLAGS += $(BUILDFLAG)
+
+	set NEEDS_COPY = 0
+
+	if (exists($(0)))
+	{
+		if ($(BLD_OS) == nt)
+		{
+			set P = 0
+			set NEEDS_COPY = 1
+		}
+		else
+		{
+			set P = `diff $(PLT) $(0) 2>/dev/null`
+		}
+
+		if ($(P))
+		{
+			echo " "
+			check(warning)
+			echo "Platform specification has changed"
+			echo " "
+			set NEEDS_COPY = 1
+		}
+	}
+	else
+	{
+		set NEEDS_COPY = 1
+	}
+
+	if ($(NEEDS_COPY))
+	{
+		if ($(BLD_OSTYPE)==win32)
+		{
+			# Should this be $(COPY)?
+			system("type $(PLT) > $(0)")
+		}
+		else
+		{
+			$(COPY) $(PLT) $(0)
+		}
+	}
+	if ($(BLD_OSTYPE)==win32)
+	{
+		$(RM) $(PLT)
+	}
+	else
+	{
+		$(RM) $(PLT)
+	}
+
+	if (!exists($(LIBLOC)))
+	{
+		if ($(BLD_OSTYPE) == win32)
+		{
+			$(MD) $(LIBLOC)
+		}
+		else
+		{
+			$(MD) $(LIBLOC)
+		}
+	}
+	set SILENT = 0
+	set IGNORE = 0
+}
+
+# WI
+if (!($(WI)))
+{
+	if ($(BLD_OSTYPE) == win32)
+	{
+		set WI = W
+	}
+	else
+	{
+		set WI = X
+	}
+}
+
+# GI
+if (!($(GI)))
+{
+	if( $(CORAL_GL) == OPENGL )
+	{
+		set GI = O
+	}
+	else if ($(BLD_OSTYPE) == win32)
+	{
+		set GI = G
+	}
+	else
+	{
+		set GI = X
+	}
+}
+
+# Debugging
+debug:
+{
+	set ROOT.CFLAGS = $(ROOT.DEBUG) $(ROOT.CFLAGS)
+	set ROOT.CXXFLAGS = $(ROOT.DEBUG) $(ROOT.CXXFLAGS)
+}
+
+# Debugging
+optimize:
+{
+	set ROOT.CFLAGS = $(ROOT.OPTIMIZE) $(ROOT.CFLAGS)
+	set ROOT.CXXFLAGS = $(ROOT.OPTIMIZE) $(ROOT.CXXFLAGS)
+}
+
+# Purifying
+purify:
+{
+	set ROOT.CC = purify $(ROOT.CC)
+	set ROOT.CXX = purify $(ROOT.CXX)
+}
+
+# Quantifying
+quantify:
+{
+	set ROOT.CC = quantify $(ROOT.CC)
+	set ROOT.CXX = quantify $(ROOT.CXX)
+}
+
+# Profiling
+profile:
+{
+	set ROOT.CC = DCC
+	set ROOT.CXXFLAGS += -fullwarn +pp -ptv -sa -ptused
+}
+
+# Default pattern rules
+set ROOT.HEADERS =
+([ -~]*)(/|\\)([ -~]*).(o|obj)$:
+{
+	set SILENT = $(PRETTY)
+	if (exists("$(3).cc"))
+	{
+		if (exists("$(3).h"))
+		{
+			set HEADERS += "$(3).h"
+		}
+		if ([$(HEADERS) "$(3).cc"])
+		{
+			set COMPILE_LINE = $(CXX) "$(OUTPUT)$(0)" $(CPPFLAGS) $(CXXFLAGS) $(NOLINK) $(FORCECXX) "$(3).cc"
+			if($(PRETTY) == 1)
+			{
+				echo compiling $(3)
+				system("echo $(COMPILE_LINE) > COMPILE_LINE")
+				system("$(COMPILE_LINE) >COMPILE_LOG 2>&1")
+				if ($(BLD_OSTYPE)!=win32)
+				{
+					system("echo -n '[33m' > TMPFILE")
+				}
+				system("head -10 COMPILE_LOG >> TMPFILE")
+				if ($(BLD_OSTYPE)!=win32)
+				{
+					system("echo -n '[0m' >> TMPFILE")
+				}
+				$(CAT) TMPFILE
+				$(RM) TMPFILE
+			}
+			else
+			{
+				$(COMPILE_LINE)
+			}
+		}
+	}
+	else if (exists("$(3).c"))
+	{
+		if (exists("$(3).h"))
+		{
+			set HEADERS += "$(3).h"
+		}
+		if ([$(HEADERS) "$(3).c"])
+		{
+			set COMPILE_LINE = $(CC) "$(OUTPUT)$(0)" $(CPPFLAGS) $(CFLAGS) $(NOLINK) $(FORCECC) "$(3).c"
+			if($(PRETTY) == 1)
+			{
+				echo compiling $(3)
+				system("echo $(COMPILE_LINE) > COMPILE_LINE")
+				system("$(COMPILE_LINE) >COMPILE_LOG 2>&1")
+				if ($(BLD_OSTYPE)!=win32)
+				{
+					system("echo -n '[33m' > TMPFILE")
+				}
+				system("head -10 COMPILE_LOG >> TMPFILE")
+				if ($(BLD_OSTYPE)!=win32)
+				{
+					system("echo -n '[0m' >> TMPFILE")
+				}
+				$(CAT) TMPFILE
+				$(RM) TMPFILE
+			}
+			else
+			{
+				$(COMPILE_LINE)
+			}
+		}
+	}
+}
+
+derivedlists:
+{
+	if ($(LFILES))
+	{
+		set ROOT.LOBJECTS = 
+		foreach LFILE ($(LFILES))
+		{
+			set ROOT.LOBJECTS += $(OBJDIR)$(LFILE)$(OBJ)
+		}
+	}
+	if ($(MODULES))
+	{
+		set ROOT.CORALLIBS =
+		foreach CMODULE ($(MODULES))
+		{
+			set ROOT.CORALLIBS += $(LIBPREFIX)$(CMODULE)$(LIBSUFFIX)
+		}
+	}
+	if ($(FILES))
+	{
+		set ROOT.OBJECTS =
+		foreach F ($(FILES))
+		{
+			set ROOT.OBJECTS += $(OBJDIR)$(F)$(OBJ)
+		}
+	}
+	if ($(PICTURES))
+	{
+		set ROOT.GIFS =
+		set ROOT.EPS =
+		foreach P ($(PICTURES))
+		{
+			set ROOT.GIFS += $(P).gif
+			set ROOT.EPS += $(P).eps
+		}
+	}
+}
+
+([ -~]*).exe:
+{
+	set SILENT = $(PRETTY)
+	build (derivedlists)
+	if (exists("$(1).cc"))
+	{
+		if ([$(LIBRARY) "$(1).cc" $(LOBJECTS)] || (exists("$(1).h") && ["$(1).h"]))
+		{
+			set EXE_LINE = $(CXX) "$(EXEOUTPUT)$(0)" $(CPPFLAGS) $(CXXFLAGS) $(FORCECXX) "$(1).cc" $(LDFLAGS) $(LOBJECTS) $(LIBRARY) $(CORALLIBS) $(OSLIBS)
+			if($(PRETTY) == 1)
+			{
+				echo compiling $(1)
+				system("echo $(EXE_LINE)  > EXE_LINE")
+				system("$(EXE_LINE) >EXE_LOG 2>&1")
+			}
+			else
+			{
+				$(EXE_LINE)
+			}
+		}
+	}
+	else if (exists("$(1).c"))
+	{
+		if ([$(LIBRARY) "$(1).c" $(LOBJECTS)] || (exists("$(1).h") && ["$(1).h"]))
+		{
+			set EXE_LINE = $(CC) "$(EXEOUTPUT)$(0)" $(CPPFLAGS) $(CFLAGS) $(FORCECC) "$(1).c" $(LDFLAGS) $(LOBJECTS) $(LIBRARY) $(CORALLIBS) $(OSLIBS)
+			if($(PRETTY) == 1)
+			{
+				echo compiling $(1)
+				system("echo $(EXE_LINE)  > EXE_LINE")
+				system("$(EXE_LINE) >EXE_LOG 2>&1")
+			}
+			else
+			{
+				$(EXE_LINE)
+			}
+		}
+	}
+	set ROOT.LOBJECTS =
+}
+
+([ -~]*)(/|\\)([ -~]*).(so|a|lib)$:
+{
+	set SILENT = $(PRETTY)
+	check (prebuild)
+	check (derivedlists)
+	if ([$(OBJECTS)])
+	{
+		if ($(4) == so)
+		{
+			set AR_LINE = $(AR) $(ARFLAGS) "$(EXEOUTPUT)$(AROUTPREFIX)$(0)" $(OBJECTS)
+		}
+		else
+		{
+			set AR_LINE = $(AR) $(ARFLAGS) "$(AROUTPREFIX)$(0)" $(OBJECTS)
+		}
+		if($(PRETTY) == 1)
+		{
+			echo linking $(1)
+			system("echo $(AR_LINE)  > AR_LINE")
+			system("$(AR_LINE) >AR_LOG 2>&1")
+		}
+		else
+		{
+			$(AR_LINE)
+		}
+		if ($(BLD_OSTYPE) == win32)
+		{
+#			$(COPY) "$(0)" $(LIBLOC)
+		}
+		else
+		{
+#			$(RM) "$(LIBLOC)/$(0)"
+#			$(RM) "$(LIBLOC)/$(0).$(LIBPATCH)"
+#			ln -s "$(CORALHOME)/$(MODULE)/$(0)" "$(LIBLOC)/$(0).$(LIBPATCH)"
+#			ln -s "$(LIBLOC)/$(0).$(LIBPATCH)" "$(LIBLOC)/$(0)"
+
+			set BDIR = `$(PWD)`
+			rm -f "$(0).$(LIBPATCH)"
+			$(MV) "$(0)" "$(0).$(LIBPATCH)"
+			cd $(1)
+			rm -f "$(3).$(4)" 
+			ln -s "$(3).$(4).$(LIBPATCH)" "$(3).$(4)"
+			cd $(BDIR)
+		}
+	}
+}
+
+([ -~]*).(dll):
+{
+	check (prebuild)
+	check (derivedlists)
+    if ([$(OBJECTS)])
+    {
+        link.exe /DLL $(AROUTPREFIX)$(0) $(IMPLIBPREFIX)$(1).lib $(OBJECTS) $(CORALLIBS) $(OSLIBS)
+    }
+}
+
+clean:
+{
+	check (derivedlists)
+	set IGNORE = 1
+	set SILENT = $(PRETTY)
+	if($(PRETTY) == 1)
+	{
+		echo cleaning
+	}
+	$(RM) $(PROGRAMS) $(LIBRARY) $(OBJECTS) $(LOBJECTS) $(GIFS) $(EPS)
+}
+
+all:
+{
+	[ $(TARGETS) ]
+}
+
+install:
+{
+	set IGNORE = 1
+	if ($(CORALINSTALL))
+	{
+		if (!exists($(CORALINSTALL)))
+		{
+			check(warning)
+			echo "$(CORALINSTALL) does not exist"
+			$(MD) $(CORALINSTALL)
+		}
+		else
+		{
+			# HEADERS
+			set HEADERS = `$(LS) *.h`	
+			$(MD) $(CORALINSTALL)/include
+			$(MD) $(CORALINSTALL)/include/$(MODULE)
+			foreach HEADER ($(HEADERS))
+			{
+				$(COPY) $(HEADER) $(CORALINSTALL)/include/$(MODULE)
+			}
+
+			# LIBRARIES
+			$(MD) $(CORALINSTALL)/lib
+			$(COPY) $(LIBRARY) $(CORALINSTALL)/lib
+
+			# BINARIES
+			$(MD) $(CORALINSTALL)/bin
+			foreach PROGRAM ($(PROGRAMS))
+			{
+				$(COPY) $(PROGRAM) $(CORALINSTALL)/bin
+			}
+
+			# MANPAGES
+			$(MD) $(CORALINSTALL)/man/man3
+			set TODAY = `date +%y%m%d`
+			set MPAGES = `$(LS) *.man`
+			foreach DOC ($(MPAGES))
+			{
+				cp $(DOC) $(CORALINSTALL)/man/man3/$(DOC)
+			}
+		}
+		
+	}
+	else
+	{
+		check(warning)
+		echo "CORALINSTALL is not set.  Install not done."
+	}
+}
+
+
+([!-.0-~]+).man:
+{
+	if (["$(1).yo"])
+	{
+		yodl2man "$(1).yo"
+		set TODAY = `date +%y%m%d`
+		system("sed -e \'s/_SECTION_/Coral/; s/_DATE_/$(TODAY)/; s/_PACKAGE_/Coral Tree/; s/_MODULE_/$(MODULE)/\' $(DOC).man > _tmp_man")
+	}
+}
+
+([!-.0-~]+).ps:
+{
+	if (["$(1).yo"])
+	{
+		yodl2texps "$(1).yo"
+	}
+}
+
+([!-.0-~]+).eps:
+{
+	if (["$(1).fig"])
+	{
+		fig2dev -L pstex -m 0.5 "$(1).fig $(1).eps"
+	}
+}
+
+([!-.0-~]+).gif:
+{
+	if (["$(1).fig"])
+	{
+		fig2dev -L gif -m 1.2 "$(1).fig $(1).gif"
+	}
+}
+
+pictures:
+{
+	check(gifs)
+	check(eps)
+}
+
+gifs:
+{
+	check (derivedlists)
+	[ $(GIFS) ]
+}
+
+eps:
+{
+	check (derivedlists)
+	[ $(EPS) ]
+}
+
+([!-.0-~]+).html:
+{
+	if (["$(1).yo"])
+	{
+		yodl2html "$(1).yo"
+	}
+}
+
+# Add a binary-building rule.
+#([ -~]*).exe:+
+#{
+#	if (!exists($(BINLOC)/$(0)))
+#	{
+#		# default to link
+#		if (! $(MVCPLN))
+#		{
+#			set ROOT.MVCPLN = $(LN)
+#		}
+#		echo "Post-$(0)"
+#		set CWD = `$(PWD)`
+#		cd $(BINLOC)
+#		if ($(BLD_OSTYPE) == win32)
+#		{
+#			$(MVCPLN) $(CWD)\$(0) $(BINLOC)\$(0)
+#		}
+#		else
+#		{
+#			$(MVCPLN) $(CWD)/$(0) $(BINLOC)/$(0)
+#		}
+#		cd $(CWD)
+#	}
+#}
+
+# Add a library-building rule.
+#([ -~]*).(so|a|lib):+
+#{
+#	if (!exists($(DLIBLOC)/$(0)))
+#	{
+#		# default to link
+#		if (! $(MVCPLN))
+#		{
+#			set ROOT.MVCPLN = $(LN)
+#		}
+#		echo "Post-$(0)"
+#		set CWD = `$(PWD)`
+#		cd $(DLIBLOC)
+#		if ($(BLD_OSTYPE) == win32)
+#		{
+#			$(MVCPLN) $(CWD)\$(0) $(DLIBLOC)\$(0)
+#		}
+#		else
+#		{
+#			$(MVCPLN) $(CWD)/$(0) $(DLIBLOC)/$(0)
+#		}
+#		cd $(CWD)
+#	}
+#}
+
+move:
+{
+	set ROOT.MVCPLN = $(MV)
+}
+
+link:
+{
+	set ROOT.MVCPLN = $(LN)
+}
+
+copy:
+{
+	set ROOT.MVCPLN = $(COPY)
+}
+
+mandoc:
+{
+	set ROOT.DISTDOC = 1
+}
+
+webdoc:
+{
+	set ROOT.DISTHTML = 1
+}
+
+binary:
+{
+	set ROOT.DISTBINARY = 1
+}
+
+library:
+{
+	set ROOT.DISTLIBRARY = 1
+}
+
+header:
+{
+	set ROOT.DISTHEADER = 1
+}
+
+local: 
+{
+	check(copy)
+	check(binary)
+	check(library)
+	check(dist)
+}
+
+share:
+{
+	check(copy)
+	check(header)
+	check(webdoc)
+	check(mandoc)
+	check(dist)
+}
+
+shadow:
+{
+	check(link)
+	check(binary)
+	check(library)
+	check(header)
+	check(dist)
+}
+
+help:
+{
+	echo "For build.exe runtime flags use build.exe -h"
+	echo ""
+	echo "The following environment variables are supported"
+	echo "CORALHOME is required and CORALVERSION is recommended"
+	echo " CORALHOME     - set to root directory of coral distribution"
+	echo " CORALVERSION  - set to the current version number.  This overrides"
+	echo "                 the contents of $CORALHOME/CORALVERSION"
+	echo " CORALCODENAME - a code name for the build, by default user@host"
+	echo " RMFHOME       - set to root directory of RAMP and RMF which"
+	echo "                 are  required for NCS"
+	echo " COMPILER      - set to one of gnu,ansi,kr,visual"
+	echo "                 The default for most commercial UNIXes is"
+	echo "                 ansi.  The default free UNIXes is gnu.  The"
+	echo "                 default for Microsoft OSes is visual. "
+	echo "                 Note that if you are using gcc/g++ on a"
+	echo "                 commercial UNIX you should set COMPILER to"
+	echo "                 gnu"
+	echo " PRETTY        - If set then the build is done in a terse pretty way"
+	echo " CODEGEN       - Set to one of debug,optimize,default" 
+	echo " LIBGEN        - Set to one of shared,static"
+	echo " MTE_THREADING - If set MTE threading is enabled.  This is required"
+	echo "                 for all modules if NCS is to be built."
+	echo ""
+	echo "The following build Coral targets are supported"
+	echo " all      -  builds libraries and default executables"
+	echo " install  -  installs headers, libraries, executables, and manpages"
+	echo " debug    -  acts as a flag to turn debugging on" 
+	echo " purify   -  acts as a flag to turn purify on" 
+	echo " quantify -  acts as a flag to turn quantify on" 
+	echo " profile  -  acts as a flag to turn profiling on" 
+	echo " clean    -  removes objects files, libraries, and generated gif/eps" 
+	echo " pictures -  builds gif and eps targets" 
+	echo " gifs     -  builds gif targets" 
+	echo " eps      -  builds eps targets" 
+	echo " dist     -  builds a distribution (in the dist directory)"
+	echo "             dist options (should precede dist on command line)"
+	echo "             mandoc   -  manpages" 
+	echo "             webdoc   -  html pages" 
+	echo "             move     -  move items into dist directory" 
+	echo "             link     -  link items into dist directory" 
+	echo "             copy     -  copy items into dist directory" 
+	echo "             binary   -  executables" 
+	echo "             library  -  libraries" 
+	echo "             header  -   include files" 
+	echo " local   -   same as copy binary library dist" 
+	echo " share   -   same as copy header webdoc mandoc dist" 
+	echo " shadow  -   same as link binary library header dist" 
+}
+
+# This dist rule is implemented in a UNIX dependent fashion.  At this point it
+# is probably best to build NT binaries on the an NT box but do the 
+# distribution on a UNIX box.
+^dist$:
+{
+	# default to link
+	if (! $(MVCPLN))
+	{
+		set ROOT.MVCPLN = $(LN)
+	}
+
+	if (!exists($(BINLOC)))
+	{
+		$(MD) $(BINLOC)
+	}
+	if (!exists($(INCLOC)))
+	{
+		$(MD) $(INCLOC)
+	}
+	if (!exists($(DLIBLOC)))
+	{
+		$(MD) $(DLIBLOC)
+	}
+	if (!exists($(DOCLOC)))
+	{
+		$(MD) $(DOCLOC)
+	}
+	if (!exists($(MANLOC)))
+	{
+		$(MD) $(MANLOC)
+	}
+	if (!exists($(HTMLLOC)))
+	{
+		$(MD) $(HTMLLOC)
+	}
+
+	if ($(MODULE))
+	{
+		# Remember the module directory.
+		set MODLOC = `$(PWD)`
+
+		echo "MODULE=        $(MODULE)"
+		echo "PROGRAMS=      $(PROGRAMS)"
+		echo "LIBRARY=       $(LIBRARY)"
+
+		# Ensure that the directory structure exists.
+		if (!exists("$(INCLOC)/$(MODULE)"))
+		{
+			$(MD) "$(INCLOC)/$(MODULE)"
+		}
+
+		if ( $(DISTLIBRARY))
+		{
+			# Check the binaries and the libraries.
+			#check(all)
+
+			cd $(MODLOC)
+			set IGNORE = 1
+			set LIBRARIES = `ls *.a *.lib *.so*`
+			if ($(LIBRARIES))
+			{
+				foreach L ($(LIBRARIES))
+				{
+					if (exists($(MODLOC)/$(L)))
+					{
+						$(MVCPLN) $(MODLOC)/$(L) $(DLIBLOC)/$(L)
+					}
+				}
+			}
+		}
+
+		if ( $(DISTBINARY))
+		{
+			if ($(PROGRAMS))
+			{
+				foreach PROGRAM ($(PROGRAMS))
+				{
+					if (exists($(MODLOC)/$(PROGRAM)))
+					{
+						$(MVCPLN) $(MODLOC)/$(PROGRAM) $(BINLOC)/$(PROGRAM)
+					}
+				}
+			}
+		}
+
+		# Requires Perl
+		if ( $(DISTHEADER))
+		{
+			# Check the headers.
+			cd $(MODLOC)
+			#set HEADERS = `$(CORALHOME)/meta/modhdrs.pl $(MODULE)`
+			set HEADERS = `ls *.h`
+			cd $(INCLOC)/$(MODULE)
+			foreach HEADER ($(HEADERS))
+			{
+				$(MVCPLN) $(MODLOC)/$(HEADER) $(HEADER)
+			}
+			$(MVCPLN) $(MODLOC)/$(MODULE).h $(MODULE).h
+		}
+
+		# Requires Perl and Yodl and sed and date
+		if ( $(DISTDOC))
+		{
+			set IGNORE = 1
+			set TODAY = `date +%y%m%d`
+			# Check the man pages.
+			cd $(MODLOC)
+			set MANS = `$(CORALHOME)/meta/yoyos.pl | sed -e 's/\.yo$//'`
+			cd $(MANLOC)
+			foreach DOC ($(MANS))
+			{
+				cd $(MODLOC)
+				check($(DOC).man)
+				system("sed -e \'s/_SECTION_/Coral/; s/_DATE_/$(TODAY)/; s/_PACKAGE_/Coral Tree/; s/_MODULE_/$(MODULE)/\' $(DOC).man > _tmp_man")
+				mv _tmp_man $(DOC).man
+				cd $(MANLOC)
+				$(MVCPLN) $(MODLOC)/$(DOC).man $(DOC).man
+			}
+		}
+
+		# Requires Perl and Yodl and sed
+		if ( $(DISTHTML))
+		{
+			set IGNORE = 1
+			set TODAY = `date +%y%m%d`
+			# Check the man pages.
+			cd $(MODLOC)
+			set MANS = `$(CORALHOME)/meta/yoyos.pl | sed -e 's/\.yo$//'`
+			cd $(HTMLLOC)
+			foreach DOC ($(MANS))
+			{
+				cd $(MODLOC)
+				check($(DOC).html)
+				system("sed -e \'s/_SECTION_/Coral/; s/_DATE_/$(TODAY)/; s/_PACKAGE_/Coral Tree/; s/_MODULE_/$(MODULE)/\' $(DOC).html > _tmp_html")
+				mv _tmp_html $(DOC).html
+				cd $(HTMLLOC)
+				$(MVCPLN) $(MODLOC)/$(DOC).html $(DOC).html
+			}
+		}
+
+		cd $(MODLOC)
+	}
+}
+
+# GLOBAL CHECKS
+check("platformsetup")
+check("$(CORALHOME)/meta/platform.h")
+
+if ($(RMFHOME))
+{
+	if ($(BLD_OS) == sunos)
+	{
+		set ROOT.RMFPLATFORM = SunOS_5_5_1
+		set ROOT.RMFDEFINE = -DSUN
+		set ROOT.OSLIBS -= -lposix4
+	}
+	else if ($(BLD_OS) == linux)
+	{
+		if ($(BLD_HARDWARE) == axp)
+		{
+			set ROOT.RMFPLATFORM = Linux_2_0_axp
+			set ROOT.RMFDEFINE = -D_REENTRANT -DUNIX -DLINUX -DLINUX_2_0_32
+		}
+		else
+		{
+			set ROOT.RMFPLATFORM = Linux_2_2
+			set ROOT.RMFDEFINE = -D_REENTRANT -DUNIX -DLINUX -DLINUX_2_2_5
+		}
+	}
+	else if ($(BLD_OS) == irix)
+	{
+		set ROOT.RMFPLATFORM = IRIX_6_2
+		set ROOT.RMFDEFINE = -DSGI
+	}
+	else if ($(BLD_OSTYPE) == win32)
+	{
+		set ROOT.RMFPLATFORM = Win32
+		set ROOT.RMFDEFINE = -DSGI
+	}
+
+	set ROOT.CPPFLAGS += 	-DDNA_RMF							\
+							$(RMFDEFINE)						\
+							-I$(RMFHOME)/RMF/include 			\
+							-I$(RMFHOME)/RAMP/include
+	set ROOT.LDFLAGS += 	-L$(RMFHOME)/RMF/lib/$(RMFPLATFORM)	\
+							-L$(RMFHOME)/RAMP/lib/$(RMFPLATFORM)
+	set ROOT.OSLIBS -= 		$(LIBPREFIX)RAMP$(LIBSUFFIX) 		\
+							$(LIBPREFIX)RMF$(LIBSUFFIX)
+}
+

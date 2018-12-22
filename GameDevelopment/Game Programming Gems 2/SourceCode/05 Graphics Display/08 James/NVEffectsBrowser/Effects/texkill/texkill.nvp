@@ -1,0 +1,16 @@
+
+#include "texkill.h"
+
+; Declare pixel shader version 1.0
+ps.1.0
+
+texkill t0
+
+; result goes in output color
+mov r0, v0
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+; Transforms a vertex to homogenoeous clip space
+; and lights it with a single directional light in
+; world space, then outputs a texture coordinate.
+; - 7 instructions
+; Note that negative output colors will be clamped
+; by the implicit 0-1 clamp after the shader
+
+#include "constants.h"
+
+#define srcPosition v0
+#define srcNormal	v1
+#define srcTexCoord	v2
+
+#define destTexCoord oT0
+
+	vs.1.0
+
+
+;transform position
+	dp4 oPos.x, srcPosition, c[CV_WORLDVIEWPROJ_0]
+	dp4 oPos.y, srcPosition, c[CV_WORLDVIEWPROJ_1]
+	dp4 oPos.z, srcPosition, c[CV_WORLDVIEWPROJ_2]
+	dp4 oPos.w, srcPosition, c[CV_WORLDVIEWPROJ_3]
+
+
+	// get directional lighting at vertex
+	dp3	r0, srcNormal, c[CVP_LIGHT_DIRECTION]
+	mul	oD0, r0, c[CV_MATERIAL_COLOR]
+
+; Output texture coordinates
+	mov destTexCoord, srcTexCoord
+        

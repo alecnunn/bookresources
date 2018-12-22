@@ -1,0 +1,176 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EDIT DIALOG DISCARDABLE  0, 0, 267, 130
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Master Item List Editor (MIL Edit) by Jim Adams"
+CLASS "MILEDIT"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Load",IDC_LOAD,210,90,50,14
+    PUSHBUTTON      "Save",IDC_SAVE,210,110,50,14
+    LISTBOX         IDC_ITEMS,5,15,195,109,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Item List",IDC_STATIC,5,5,50,8
+    PUSHBUTTON      "New",IDC_NEW,210,70,50,14
+    DEFPUSHBUTTON   "Edit",IDC_EDIT,210,15,50,14
+    PUSHBUTTON      "Clear",IDC_CLEAR,210,35,50,14
+END
+
+IDD_MODIFY DIALOG DISCARDABLE  0, 0, 282, 196
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Modify Item"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NAME,55,20,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESCRIPTION,55,35,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WEIGHT,55,50,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ITEMSIZE,55,65,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VALUE,55,80,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PRICE,55,95,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SCRIPT,55,120,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MESH,55,135,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_IMAGE,55,150,80,12,ES_AUTOHSCROLL
+    CONTROL         "Money",IDC_MONEY,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    150,20,60,10
+    CONTROL         "Weapon",IDC_WEAPON,"Button",BS_AUTORADIOBUTTON,150,30,
+                    60,10
+    CONTROL         "Armor",IDC_ARMOR,"Button",BS_AUTORADIOBUTTON,150,40,60,
+                    10
+    CONTROL         "Shield",IDC_SHIELD,"Button",BS_AUTORADIOBUTTON,150,50,
+                    60,10
+    CONTROL         "Accessory",IDC_ACCESSORY,"Button",BS_AUTORADIOBUTTON,
+                    150,60,60,10
+    CONTROL         "Edible",IDC_EDIBLE,"Button",BS_AUTORADIOBUTTON,150,70,
+                    60,10
+    CONTROL         "Healing",IDC_HEALING,"Button",BS_AUTORADIOBUTTON,150,80,
+                    60,10
+    CONTROL         "Collection",IDC_COLLECTION,"Button",BS_AUTORADIOBUTTON,
+                    150,90,60,10
+    CONTROL         "Transportation",IDC_TRANSPORTATION,"Button",
+                    BS_AUTORADIOBUTTON,150,100,60,10
+    CONTROL         "Container",IDC_CONTAINER,"Button",BS_AUTORADIOBUTTON,
+                    150,110,60,10
+    CONTROL         "Other",IDC_OTHER,"Button",BS_AUTORADIOBUTTON,150,120,60,
+                    10
+    CONTROL         "Sellable",IDC_SELLABLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,150,140,50,10
+    CONTROL         "Can Drop",IDC_CANDROP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,150,151,50,10
+    CONTROL         "Use Once",IDC_USEONCE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,215,140,50,10
+    CONTROL         "Unknown",IDC_UNKNOWN,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,215,151,50,10
+    LISTBOX         IDC_USAGE,215,30,60,40,LBS_SORT | LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Set All",IDC_SETALL,220,75,50,14
+    PUSHBUTTON      "Clear All",IDC_CLEARALL,220,95,50,14
+    DEFPUSHBUTTON   "OK",IDC_OK,225,175,50,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,165,175,50,14
+    LTEXT           "Item #",IDC_STATIC,5,5,25,10
+    LTEXT           "#",IDC_NUM,35,5,50,10
+    RTEXT           "Name",IDC_STATIC,25,20,25,10
+    RTEXT           "Description",IDC_STATIC,11,35,40,10
+    RTEXT           "Weight",IDC_STATIC,21,50,30,10
+    RTEXT           "Size",IDC_STATIC,25,65,25,10
+    RTEXT           "Modifier Value",IDC_STATIC,5,80,45,10
+    RTEXT           "Price",IDC_STATIC,31,95,20,10
+    LTEXT           "Usage:",IDC_STATIC,215,20,45,10
+    RTEXT           "Script",IDC_STATIC,25,120,25,10
+    RTEXT           "Mesh",IDC_STATIC,25,135,25,10
+    RTEXT           "Image",IDC_STATIC,25,150,25,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_EDIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 123
+    END
+
+    IDD_MODIFY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

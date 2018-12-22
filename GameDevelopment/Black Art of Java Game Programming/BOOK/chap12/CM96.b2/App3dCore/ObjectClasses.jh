@@ -1,0 +1,80 @@
+import  java.awt.Graphics;
+import  java.awt.Color;
+import  java.util.Vector;
+
+abstract class fObject extends Object{
+	/**
+	 * Constructs an object.
+	 */
+	public fObject (fWorld world, fPoint3d pos, fAngle3d angle)
+	/**
+	 * If a collision has occured the core will instruct
+	 * the object to handle it. Should return false if this
+	 * collision has resulted into the death of this object.
+	 */
+	protected boolean handleCollisionWith (fObject obj,double dt)
+	/**
+	 * The core will call this method each time the object
+	 * needs to update.
+	 */
+	public void update (double dt)
+	/**
+	 * The core will ask this object if it is interested of
+	 * collision with this object. Return true if the object
+	 * is interested.
+	 */
+	public boolean interestedOfCollisionWith (fObject obj)
+	/**
+	 * Add a raw event to this object.
+	 */
+	public void addEvent (fEvent ev)
+	/**
+	 * The core calls this method for every uncracked or unknown
+	 * events.
+	 */
+	protected boolean handleEvent (fEvent event)
+	/**
+	 * Instructs the object to use this fPolyhedronInstance.
+	 */
+	protected void usePolyhedronInstance (fPolyhedronInstance poly)
+	/**
+	 * Returns a clone of this object's position.
+	 */
+	public fPoint3d getPosition ()
+	/**
+	 * Returns a clone of this object's angle.
+	 */
+	public fAngle3d getdAngle ()
+}
+
+abstract class fMovingObject extends fObject{
+	/**
+	 * Constructs a moving object.
+	 */
+	public fMovingObject (fWorld world, fPoint3d pos, fAngle3d agl, fPoint3d dpos, fAngle3d dagl)
+	/**
+	 * Sets this object's position.
+	 */
+	public void setPosition (fPoint3d p)
+	/**
+	 * Sets this object's angle.
+	 */
+	public void setAngle (fAngle3d a)
+	/**
+	 * Sets this object's velocity.
+	 */
+	public void setdPosition (fPoint3d v)
+	/**
+	 * Sets this object's angular velocity.
+	 */
+	public void setdAngle (fAngle3d da)
+	/**
+	 * Returns a clone of this object's angular velocity.
+	 */
+	public fAngle3d getdAngle ()
+	/**
+	 * Returns a clone of this object's velocity.
+	 */
+	public fPoint3d getdPosition ()
+}
+

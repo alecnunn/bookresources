@@ -1,0 +1,457 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - icmain </h2>
+<p>#include &quot;ic.h&quot;<br>
+  extern Label *labelTable;<br>
+  extern BBlock *bblockTable;<br>
+  void createLabelsListHeader(Label **labelListHeader)<br>
+  {<br>
+*labelListHeader=(Label* )malloc(sizeof(Label));<br>
+strcpy((*labelListHeader)-&gt;name,&quot; &quot;);<br>
+(*labelListHeader)-&gt;quad=NULL;<br>
+(*labelListHeader)-&gt;bblock=NULL;<br>
+(*labelListHeader)-&gt;nextLabel=NULL;<br>
+rearLabelPtr = *labelListHeader;<br>
+}</p>
+<p>void createQuadList(Quad **quadListHeader)<br>
+  {<br>
+  *quadListHeader=(Quad *)malloc(sizeof(Quad));<br>
+  (*quadListHeader)-&gt;label=NULL;<br>
+  (*quadListHeader)-&gt;operator=-1;<br>
+  (*quadListHeader)-&gt;operand1=NULL;<br>
+  (*quadListHeader)-&gt;operand2=NULL;<br>
+  (*quadListHeader)-&gt;result=NULL;<br>
+  (*quadListHeader)-&gt;nextQuad=NULL;<br>
+  }<br>
+  void createBBlockList(BBlock **bblockListHeader)<br>
+  {<br>
+  *bblockListHeader=(BBlock *)malloc(sizeof(BBlock));<br>
+  (*bblockListHeader)-&gt;start=NULL;<br>
+  (*bblockListHeader)-&gt;end=NULL;<br>
+  (*bblockListHeader)-&gt;trueNext=NULL;<br>
+  (*bblockListHeader)-&gt;falseNext=NULL;<br>
+  (*bblockListHeader)-&gt;next=NULL;<br>
+  rearBBPtr = *bblockListHeader;<br>
+  }</p>
+<p>void addLabel(Label *labelListHeader,char *name, Quad *quad,BBlock *bblock) //int value,char type)<br>
+  {<br>
+  Label *temp, *ptr;<br>
+  temp=labelListHeader;<br>
+  ptr=(Label*)malloc(sizeof(Label));<br>
+  strcpy(ptr-&gt;name,name);<br>
+  ptr-&gt;nextLabel=NULL;<br>
+  ptr-&gt;quad=quad;<br>
+  ptr-&gt;bblock=bblock;<br>
+  rearLabelPtr-&gt;nextLabel = ptr;<br>
+  rearLabelPtr = rearLabelPtr-&gt;nextLabel;<br>
+  }<br>
+</p>
+<p>void addCode(Quad *quadListHeader,char *label,int operator,Attr operand1,Attr operand2,Attr result)<br>
+  {<br>
+  int ret;<br>
+  Quad *temp,*ptr;<br>
+  temp=quadListHeader;<br>
+  while(temp-&gt;nextQuad!=NULL)<br>
+  temp=temp-&gt;nextQuad;<br>
+  ptr=(Quad*)malloc(sizeof(Quad));<br>
+  ptr-&gt;label=(char *)malloc(strlen(label)+1);<br>
+  ptr-&gt;operand1 = malloc(sizeof(operand1));<br>
+  ptr-&gt;operand2 = malloc(sizeof(operand2));<br>
+  ptr-&gt;result = malloc(sizeof(result));<br>
+  ptr-&gt;nextQuad=NULL;<br>
+  strcpy(ptr-&gt;label,label);<br>
+  if(strcmp(label,&quot; &quot;)!=0)<br>
+  strcpy(label,&quot; &quot;);              //reinitialize label to empty string<br>
+  ptr-&gt;operator=operator;<br>
+  memcpy(ptr-&gt;operand1,&amp;operand1,sizeof(operand1));<br>
+  memcpy(ptr-&gt;operand2,&amp;operand2,sizeof(operand2));<br>
+  memcpy(ptr-&gt;result,&amp;result,sizeof(result));<br>
+  temp-&gt;nextQuad=ptr;<br>
+  }</p>
+<p>void addBBlock(BBlock *bblockListHeader,Quad *start,Quad *end,char label[LABELSIZE])<br>
+  {<br>
+  BBlock *temp,*ptr;<br>
+  static blockCount=0;<br>
+  temp=bblockListHeader;<br>
+  ptr=(BBlock*)malloc(sizeof(BBlock));<br>
+  strcpy(ptr-&gt;label,label);<br>
+  ptr-&gt;blockNumber = ++blockCount;<br>
+  ptr-&gt;start=start;<br>
+  ptr-&gt;end=end;<br>
+  ptr-&gt;trueNext=NULL;<br>
+  ptr-&gt;falseNext=NULL;<br>
+  ptr-&gt;next=NULL;<br>
+  if(label[0]=='L')<br>
+  addLabel(labelTable,label,start,ptr); //int value,char type)<br>
+  rearBBPtr-&gt;next = ptr;<br>
+  rearBBPtr = rearBBPtr-&gt;next;<br>
+  }<br>
+  void printLabelsList(Label *labelListHeader)<br>
+  {<br>
+  Label *temp;<br>
+  printf(&quot;Printing Labels\n&quot;);<br>
+  temp=labelListHeader-&gt;nextLabel;<br>
+  while(temp!=NULL)<br>
+  {<br>
+  printf(&quot;%s\t&quot;,temp-&gt;name);<br>
+  temp=temp-&gt;nextLabel;<br>
+  }<br>
+  printf(&quot;\n&quot;);<br>
+  }</p>
+<p>void printQuad(Quad *temp)<br>
+  {<br>
+  if(strcmp(temp-&gt;label,&quot; &quot;))<br>
+  printf(&quot;%s:\t&quot;,temp-&gt;label);<br>
+  else<br>
+  printf(&quot;\t&quot;);<br>
+  if(temp-&gt;operator == NOP)<br>
+  printf(&quot;Nop\t&quot;);<br>
+  else<br>
+  printf(&quot;%s\t&quot;,ops[temp-&gt;operator]);<br>
+  //Printing Operand1<br>
+  if(temp-&gt;operand1-&gt;type==ID || temp-&gt;operand1-&gt;type==TID)<br>
+  {<br>
+  switch(temp-&gt;operand1-&gt;subtype)<br>
+  {<br>
+  case BASIC: <br>
+  printf(&quot;%s\t&quot;,temp-&gt;operand1-&gt;name);<br>
+  break;<br>
+  case ARRAY:<br>
+  printf(&quot;%s\t&quot;,temp-&gt;operand1-&gt;name);<br>
+  break;<br>
+  case OFFSET:<br>
+  printf(&quot;%s\t&quot;,temp-&gt;operand1-&gt;offsetName);<br>
+  break;<br>
+  case ADDR:<br>
+  printf(&quot;%ld\t&quot;,temp-&gt;operand1-&gt;value.relAddr);<br>
+  break;<br>
+  }<br>
+  }<br>
+  else if(temp-&gt;operand1-&gt;type==NOP)<br>
+  printf(&quot;-\t&quot;);<br>
+  else if(temp-&gt;operand1-&gt;type==CONST)<br>
+  {<br>
+  switch(temp-&gt;operand1-&gt;datatype)<br>
+  {<br>
+  case CHAR:<br>
+  printf(&quot;%c\t&quot;,temp-&gt;operand1-&gt;value.cVal);<br>
+  break;<br>
+  case INT:<br>
+  printf(&quot;%d\t&quot;,temp-&gt;operand1-&gt;value.iVal);<br>
+  break;<br>
+  case FLOAT:<br>
+  printf(&quot;%f\t&quot;,temp-&gt;operand1-&gt;value.fVal);<br>
+  break;<br>
+  case LONG:<br>
+  printf(&quot;%ld\t&quot;,temp-&gt;operand1-&gt;value.lVal);<br>
+  break;<br>
+  case DOUBLE:<br>
+  printf(&quot;%lf\t&quot;,temp-&gt;operand1-&gt;value.dVal);<br>
+  break;<br>
+  case STRING:<br>
+  printf(&quot;%s\t&quot;,temp-&gt;operand1-&gt;value.string);<br>
+  break;<br>
+  }<br>
+  }<br>
+  //Printing Operand2<br>
+  if(temp-&gt;operand2-&gt;type==ID || temp-&gt;operand2-&gt;type==TID)<br>
+  {<br>
+  switch(temp-&gt;operand1-&gt;subtype)<br>
+  {<br>
+  case BASIC: <br>
+  printf(&quot;%s\t&quot;,temp-&gt;operand2-&gt;name);<br>
+  break;<br>
+  case ARRAY:<br>
+  printf(&quot;%s\t&quot;,temp-&gt;operand2-&gt;name);<br>
+  break;<br>
+  case OFFSET:<br>
+  printf(&quot;%s\t&quot;,temp-&gt;operand2-&gt;offsetName);<br>
+  break;<br>
+  case ADDR:<br>
+  printf(&quot;%ld\t&quot;,temp-&gt;operand2-&gt;value.relAddr);<br>
+  break;<br>
+  }<br>
+  }<br>
+  else if(temp-&gt;operand2-&gt;type==NOP)<br>
+  printf(&quot;-\t&quot;);<br>
+  else if(temp-&gt;operand2-&gt;type==CONST)<br>
+  {<br>
+  switch(temp-&gt;operand2-&gt;datatype)<br>
+  {<br>
+  case CHAR:<br>
+  printf(&quot;%c\t&quot;,temp-&gt;operand2-&gt;value.cVal);<br>
+  break;<br>
+  case INT:<br>
+  printf(&quot;%d\t&quot;,temp-&gt;operand2-&gt;value.iVal);<br>
+  break;<br>
+  case FLOAT:<br>
+  printf(&quot;%f\t&quot;,temp-&gt;operand2-&gt;value.fVal);<br>
+  break;<br>
+  case LONG:<br>
+  printf(&quot;%ld\t&quot;,temp-&gt;operand2-&gt;value.lVal);<br>
+  break;<br>
+  case DOUBLE:<br>
+  printf(&quot;%lf\t&quot;,temp-&gt;operand2-&gt;value.dVal);<br>
+  break;<br>
+  case STRING:<br>
+  printf(&quot;%s\t&quot;,temp-&gt;operand2-&gt;value.string);<br>
+  break;<br>
+  }<br>
+  }<br>
+  //Printing result<br>
+  if(temp-&gt;result-&gt;type==ID || temp-&gt;result-&gt;type == TID || temp-&gt;result-&gt;type == LABEL)<br>
+  printf(&quot;%s\n&quot;,temp-&gt;result-&gt;name);<br>
+  else if(temp-&gt;result-&gt;type==NOP)<br>
+  printf(&quot;-\n&quot;);<br>
+  else if(temp-&gt;result-&gt;type==CONST)<br>
+  {<br>
+  switch(temp-&gt;result-&gt;datatype)<br>
+  {<br>
+  case CHAR:<br>
+  printf(&quot;%c &quot;,temp-&gt;result-&gt;value.cVal);<br>
+  break;<br>
+  case INT:<br>
+  printf(&quot;%d &quot;,temp-&gt;result-&gt;value.iVal);<br>
+  break;<br>
+  case FLOAT:<br>
+  printf(&quot;%f &quot;,temp-&gt;result-&gt;value.fVal);<br>
+  break;<br>
+  case LONG:<br>
+  printf(&quot;%ld &quot;,temp-&gt;result-&gt;value.lVal);<br>
+  break;<br>
+  case DOUBLE:<br>
+  printf(&quot;%lf &quot;,temp-&gt;result-&gt;value.dVal);<br>
+  break;<br>
+  case STRING:<br>
+  printf(&quot;%s&quot;,temp-&gt;result-&gt;value.string);<br>
+  break;<br>
+  case ADDR:<br>
+  printf(&quot;%ld&quot;,temp-&gt;result-&gt;value.relAddr);<br>
+  break;<br>
+  }<br>
+  }<br>
+  else<br>
+  printf(&quot;not id\n&quot;); //to be expanded<br>
+  }<br>
+</p>
+<p>void printCode(Quad *quadListHeader)<br>
+  {<br>
+  Quad *temp;<br>
+  temp=quadListHeader-&gt;nextQuad;<br>
+  printf(&quot; THE TABLE OF QUADRUPLES ARE\n\n&quot;);<br>
+  printf(&quot;LABEL\tOPER\tOP1\tOP2\tRES\n\n&quot;);<br>
+  while(temp!=NULL)<br>
+  {<br>
+  printQuad(temp);<br>
+  temp=temp-&gt;nextQuad;<br>
+  } <br>
+  }</p>
+<p>void printBB(BBlock *bblockListHeader)<br>
+  {<br>
+  Quad *start, *temp,*end;<br>
+  BBlock *bptr;<br>
+  int bcnt=0,ret;<br>
+  bptr = bblockListHeader;<br>
+  printf(&quot;..................................\n&quot;);<br>
+  printf(&quot;Printing the quadruples Blockwise\n&quot;);<br>
+  printf(&quot;..................................\n&quot;);<br>
+  while(bptr-&gt;next != NULL)<br>
+  {<br>
+  temp = bptr-&gt;next-&gt;start;<br>
+  end = bptr-&gt;next-&gt;end;<br>
+  printf(&quot;Block No:%d\n&quot;,bcnt++);<br>
+  while(1)<br>
+  {<br>
+  printQuad(temp);<br>
+  if(temp == end)<br>
+  break;<br>
+  temp=temp-&gt;nextQuad;<br>
+  }<br>
+  bptr = bptr-&gt;next;<br>
+  }<br>
+  } <br>
+  void itoa(int n, char *name)<br>
+  {<br>
+  int i=0,j;<br>
+  int new=n;<br>
+  if(n==0)<br>
+  strcpy(name,&quot;0&quot;);<br>
+  else<br>
+  {<br>
+  while(n)<br>
+  {<br>
+  i++;<br>
+  n=n/10;<br>
+  }<br>
+  n=new;<br>
+  for(j=i-1;j&gt;=0;j--)<br>
+  {<br>
+  name[j]=n%10+48;<br>
+  n=n/10;<br>
+  }<br>
+  name[i]='\0';<br>
+  } <br>
+  }</p>
+<p>void createTemp(char temp[])<br>
+  {<br>
+  static int i=0;<br>
+  char no[5];<br>
+  i++;<br>
+  itoa(i,no);<br>
+  strcpy(temp,&quot;t&quot;);<br>
+  strcat(temp,no);<br>
+  }<br>
+  <br>
+  void createLabel(char temp[])<br>
+  {<br>
+  static int i=0;<br>
+  char no[5];<br>
+  i++;<br>
+  itoa(i,no);<br>
+  strcpy(temp,&quot;L&quot;);<br>
+  strcat(temp,no);<br>
+  }</p>
+<p>BBlock *findBlockForLabel(char label[LABELSIZE])<br>
+  {<br>
+  Label *temp;<br>
+  BBlock *retPtr=NULL;<br>
+  int retVal;<br>
+  //printf(&quot;searching the label for the Block\n&quot;);<br>
+  <br>
+  temp=labelTable-&gt;nextLabel;<br>
+  while(temp!=NULL)<br>
+  {<br>
+  retVal = strcmp(temp-&gt;name,label);<br>
+  if(retVal == 0)<br>
+  return temp-&gt;bblock;<br>
+  temp=temp-&gt;nextLabel;<br>
+  }<br>
+  return retPtr;<br>
+  }<br>
+  void split2BB(Quad *quadListHeader, BBlock **bblockListHeader)<br>
+  {<br>
+  char label[5];<br>
+  BBlock *bptr;<br>
+  Quad *start,*end,*head,*qptr,*prev,*truePtr,*falsePtr;<br>
+  truePtr = NULL;<br>
+  falsePtr = NULL;<br>
+  qptr=quadListHeader-&gt;nextQuad;<br>
+  prev = qptr;<br>
+  if(qptr == NULL) {printf(&quot;Empty Quad Table\n&quot;);return;}<br>
+  start = qptr;<br>
+  strcpy(label,&quot; &quot;);<br>
+  while(qptr != NULL)<br>
+  {<br>
+  if(qptr-&gt;label[0] == 'L')<br>
+  {<br>
+  if(prev-&gt;operator != GOTO &amp;&amp;  prev-&gt;operator != IFEQ)<br>
+  {<br>
+  end = prev;<br>
+  addBBlock(*bblockListHeader,start,end,label);<br>
+  }<br>
+  strcpy(label,qptr-&gt;label);<br>
+  if(qptr-&gt;operator == NOP)<br>
+  {<br>
+  prev = qptr;<br>
+  qptr = qptr-&gt;nextQuad;<br>
+  start=qptr;<br>
+  }<br>
+  else<br>
+  {<br>
+  start = qptr;<br>
+  }<br>
+  if(qptr-&gt;operator == IFEQ || qptr-&gt;operator == GOTO)<br>
+  {<br>
+  end = qptr;<br>
+  addBBlock(*bblockListHeader,start,end,label);<br>
+  strcpy(label,&quot; &quot;);<br>
+  prev = qptr;<br>
+  qptr = qptr-&gt;nextQuad;<br>
+  start = qptr;<br>
+  }<br>
+  else<br>
+  {<br>
+  prev = qptr;<br>
+  qptr = qptr-&gt;nextQuad;<br>
+  }<br>
+  }<br>
+  else if(qptr-&gt;operator == IFEQ) <br>
+  {<br>
+  end = qptr;<br>
+  addBBlock(*bblockListHeader,start,end,label);<br>
+  strcpy(label,&quot; &quot;);<br>
+  prev = qptr;<br>
+  qptr = qptr-&gt;nextQuad;<br>
+  start = qptr;<br>
+  }<br>
+  else if(qptr-&gt;operator == GOTO)<br>
+  {<br>
+  end = qptr;<br>
+  addBBlock(*bblockListHeader,start,end,label);<br>
+  strcpy(label,&quot; &quot;);<br>
+  prev = qptr;<br>
+  qptr = qptr-&gt;nextQuad;<br>
+  start = qptr;<br>
+  }<br>
+  else<br>
+  {<br>
+  prev = qptr;<br>
+  qptr = qptr-&gt;nextQuad;<br>
+  }<br>
+  }<br>
+  end = prev;<br>
+  addBBlock(*bblockListHeader,start,end,label);<br>
+  return;<br>
+  }</p>
+<p>void printFlowGraph(BBlock *bblockListHeader)<br>
+  {<br>
+  BBlock *bptr;<br>
+  printf(&quot;Print Flow Graph\n&quot;);<br>
+  bptr =	bblockListHeader-&gt;next;<br>
+  if(bptr != NULL)<br>
+  printf(&quot;B%d\n&quot;,bptr-&gt;blockNumber);<br>
+  while(bptr != NULL)<br>
+  {<br>
+  if(bptr-&gt;trueNext != NULL)<br>
+  printf(&quot;B%d\t&quot;,bptr-&gt;trueNext-&gt;blockNumber);<br>
+  if(bptr-&gt;falseNext != NULL)<br>
+  printf(&quot;B%d&quot;,bptr-&gt;falseNext-&gt;blockNumber);<br>
+  printf(&quot;\n&quot;);<br>
+  bptr = bptr-&gt;next;<br>
+  }<br>
+  }<br>
+  void constructFlowGraph(BBlock *bblockListHeader)<br>
+  {<br>
+  BBlock *bptr;<br>
+  printf(&quot;Construct Flow Graph\n&quot;);<br>
+  bptr =	bblockListHeader-&gt;next;<br>
+  while(bptr != NULL)<br>
+  {<br>
+  if(bptr-&gt;end-&gt;operator == GOTO)<br>
+  bptr-&gt;trueNext = findBlockForLabel(bptr-&gt;end-&gt;result-&gt;name);<br>
+  else if(bptr-&gt;end-&gt;operator == IFEQ) <br>
+  {<br>
+  bptr-&gt;trueNext = findBlockForLabel(bptr-&gt;end-&gt;result-&gt;name);<br>
+  bptr-&gt;falseNext = bptr-&gt;next;<br>
+  }<br>
+  else<br>
+  bptr-&gt;falseNext = bptr-&gt;next;<br>
+  bptr = bptr-&gt;next;<br>
+  } <br>
+  return;<br>
+  }</p>
+<p>int main(int argc,char *argv[])<br>
+  {<br>
+  extern FILE *yyin;<br>
+  strcpy(srcFileName,argv[1]);<br>
+  yyin=fopen(argv[1],&quot;r&quot;);<br>
+  yyparse();<br>
+  return 1;<br>
+  }<br>
+</p>
+<p><br>
+</p>
+</body>
+</html>

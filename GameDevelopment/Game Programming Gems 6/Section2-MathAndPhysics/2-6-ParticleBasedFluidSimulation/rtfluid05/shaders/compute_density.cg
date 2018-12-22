@@ -1,0 +1,24 @@
+#include "sph.cg"
+void main(float2 tc0 : TEXCOORD0, // pair index
+		  uniform samplerRECT attr_rect      : TEXUNIT0,  // attributes of particles
+		  uniform samplerRECT neighbour_rect : TEXUNIT1,  // neighbour list
+		  out float result : COLOR // density
+		  )
+{
+	float m = MASS;
+	float h = SMOOTHING_LENGTH;
+	float mu = VISCOSITY;
+	float2 texel = unpack_2ushort(f1texRECT(neighbour_rect, tc0))*65536;
+	float index = texel.x;
+	float nindex = texel.y;
+
+	float3 pos_i = f3texRECT(attr_rect, float2(index, GPU_ATTR_POS));
+	float3 pos_j = f3texRECT(attr_rect, float2(nindex, GPU_ATTR_POS));
+
+	float3 dp = pos_i - pos_j;
+	float r2 = dot(dp, dp);
+	float h2_r2 = h*h - r2;
+	if (h2_r2 > 0.0)
+		result = h2_r2*h2_r2*h2_r2;
+	else result = 0;
+}

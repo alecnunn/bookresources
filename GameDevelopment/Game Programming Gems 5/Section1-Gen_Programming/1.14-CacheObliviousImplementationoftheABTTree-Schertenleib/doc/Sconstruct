@@ -1,0 +1,12 @@
+#This sconctruct will use the default settings for each platform. (gcc for Linux, MS compiler for windows)
+
+env = Environment()
+env.Program(
+		target='test_app', 
+		source = Split('''
+				test_app.cpp
+				vhdABTTree.cpp
+				vhdVector3.cpp
+				vhdSceneConverterABTTree.cpp
+				'''),
+		CPPPATH = ['..\.'])

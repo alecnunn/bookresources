@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Compiling info</title>
+</head>
+
+<body>
+
+<h1>Compiling info</h1>
+<p>To compile the book code provided on this CD you'll need to do a few things.</p>
+<h3>1. Copy files off the CD</h3>
+<p>The first step is to copy the entire directory tree (starting in this
+directory) to your hard drive.&nbsp; You can exclude certain chapters if you
+like, but the DevStudio Workspace (dsw) files in the &quot;chapter xx&quot;
+directories are counting on all the files below them being there.&nbsp;</p>
+<h3>2. Install DirectX 8.0a</h3>
+<p>Next you need to make sure DirectX 8.0 or above is installed on your
+machine.&nbsp; For your convenience the 8.0a SDK is included on this CD.&nbsp;
+You should also make sure you have the newest version of your video card drivers
+installed.&nbsp; Check their web site.</p>
+<p>For sanity's sake, you should install the debug run-time of the DirectX dll's.&nbsp;
+They provide lots of error checking to help you find bugs.</p>
+<p><img border="0" src="setup1.jpg" width="479" height="357"></p>
+<h3>3. Set up DirectX in Visual Studio</h3>
+<p>Visual Studio ships with the headers for DirectX 3.0.&nbsp; You need to do
+some work to make sure that the compiler can find the 8.0 headers (for
+compiling) and 8.0 libraries (for linking).&nbsp; To do this, go to the
+tools-&gt;options area, and click on the 'directories' tab.&nbsp; Set up things
+to look like they do in the following two images (of course, using the directory
+where you installed the SDK... on my machine it's in d:\mssdk).</p>
+<p><img border="0" src="setup2.jpg" width="417" height="319"></p>
+<p><img border="0" src="setup3.jpg" width="417" height="319"></p>
+<p>The important thing is to make sure the DirectX 8 files are at the top of the
+list (by default they'll be put at the bottom).&nbsp; When the compiler needs a
+header (like d3d8.h) it searches the list from top to bottom.&nbsp; It needs to
+search the DX8 directory (with the 8.0 version of the header) before it searches
+the VC include directories (which have the 3.0 version of the D3D header).</p>
+<h3>4. Getting new projects to compile</h3>
+<p>The above 3 steps should be enough to make the provided chapters and projects
+compile correctly.&nbsp; If you want to create new projects using the provided
+code, you can do the following:</p>
+<p>If the workspace you're using has the libraries made in the game (GameLib,
+Math3d, and NetLib, though you may not need all three), the best thing to do is
+to set up dependencies for those projects (in
+project-&gt;Dependencies...).&nbsp; For example, here is the dependency dialog
+for the GameClient project.</p>
+<p><img border="0" src="setup5.jpg" width="320" height="222"></p>
+<p>The other thing you'll need to do is link all the right libraries (in
+Project-&gt;Settings...).&nbsp; Any project using GameLib needs the following
+libraries linked:</p>
+<p>&nbsp;&nbsp;&nbsp; winmm.lib d3d8.lib dxguid.lib dinput8.lib dsound.lib
+d3dx8.lib</p>
+<p>Any project using NetLib needs the winsock DLL:</p>
+<p>&nbsp;&nbsp;&nbsp; ws2_32.lib</p>
+<p>Finally, if the libraries aren't in the workspace and you just have the
+actual .lib files sitting in the directory, you need to link them in too.&nbsp;</p>
+<p><img border="0" src="setup4.jpg" width="577" height="372"></p>
+<p>Happy coding.&nbsp; If you have any trouble, help is available on the web at <a href="http://www.wordware.com">www.wordware.com</a>.</p>
+
+</body>
+
+</html>

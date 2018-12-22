@@ -1,0 +1,13 @@
+[ASSOCIATION]
+makefile=E:\bookCode\Radiosity\Radiosity.dsp
+makefiletype=microsoft visual c++
+[COMPILER]
+workingdir=.
+INCLUDEDIRS=%(INCLUDE)
+COMPILE=concur|capture,nmake /F "%rn.mak" %b "%bd%n.obj"
+MAKE=concur|capture,nmake /F "%rn.mak" %b
+execute=,"%bdRadiosity.exe"
+debug=,msdev "%bdRadiosity.exe"
+REBUILD=concur|capture,nmake /A /F "%rn.mak" %b
+usertool_resource_editor=hide|:Resource Editor:Resource Editor,msdev
+version=5.0

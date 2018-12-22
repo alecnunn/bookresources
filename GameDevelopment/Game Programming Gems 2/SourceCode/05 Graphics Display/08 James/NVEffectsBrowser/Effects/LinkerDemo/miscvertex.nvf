@@ -1,0 +1,64 @@
+
+#include "constants.h"
+
+// Fragments for various TL lighting situations
+
+// TIP: It's nice to drop down the properties box for a shader file and set it's language type to c/c++
+// This makes the shader much easier to read because you get syntax highlighting.
+// You can also add 'mov', 'dp4', etc. the usertypes.dat file in the VC directory to get nice syntax colouring
+// I find this makes life much easier when authoring shaders of any complexity.
+
+vs.1.0
+
+
+#beginfragment set_ambient
+mov r_diffusecolor, c_ambient_light
+#endfragment
+
+#beginfragment set_default_texture
+mov r_texture0, FIXED_TEXTURE0
+#endfragment
+
+// A fragment to do the worldviewprojection calculation
+#beginfragment xform_worldviewprojection
+dp4 oPos.x, FIXED_POSITION, c_worldviewprojection_0
+dp4 oPos.y, FIXED_POSITION, c_worldviewprojection_1
+dp4 oPos.z, FIXED_POSITION, c_worldviewprojection_2
+dp4 oPos.w, FIXED_POSITION, c_worldviewprojection_3
+#endfragment
+
+// Rotates the eye vector by the cube matrix and writes the result
+#beginfragment calculate_cubereflection_vector
+dp3 oT0.x, r_eyereflection_vector, c_cubematrix_0
+dp3 oT0.y, r_eyereflection_vector, c_cubematrix_1
+dp3 oT0.z, r_eyereflection_vector, c_cubematrix_2
+#endfragment
+
+// calculates linear fog value based on distance from eye
+// (fogend -  d ) / (fogend - fogstart)
+#beginfragment calculate_linear_range_fog
+rcp r_eye_distance.w, r_eye_distance_rcp.w
+add r_fog_temp.x, c_fogconst.y, -r_eye_distance.w
+mul oFog.x, r_fog_temp.x, c_fogconst.z
+#endfragment
+
+#beginfragment write_texture
+mov oT0, r_texture0
+#endfragment
+
+#beginfragment write_default_diffuse
+mov oD0, c_ambient_light
+#endfragment
+
+#beginfragment write_default_specular
+mov oD1, ZERO
+#endfragment
+
+#beginfragment write_default_texture
+mov oT0, FIXED_TEXTURE0
+#endfragment
+
+
+
+
+

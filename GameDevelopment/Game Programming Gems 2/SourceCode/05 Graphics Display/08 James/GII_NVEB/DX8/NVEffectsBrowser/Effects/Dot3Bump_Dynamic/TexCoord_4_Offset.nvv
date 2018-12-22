@@ -1,0 +1,51 @@
+/*********************************************************************NVMH2****
+Path:  C:\Dev\devrel\Nv_sdk_4\Dx8\NVEffectsBrowser\Effects\CA_Water
+File:  TexCoord_4_Offset.nvv
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+This file is provided without support, instruction, or implied warranty of any
+kind.  NVIDIA makes no guarantee of its fitness for a particular purpose and is
+not liable under any circumstances for any damages or loss whatsoever arising
+from the use or inability to use this file or items derived from it.
+
+Comments:
+
+
+******************************************************************************/
+
+#include "Constants.h"
+
+vs.1.1
+
+; Transform vertex-position to clip-space
+dp4 oPos.x, v0, c[CV_WORLDVIEWPROJ_0]
+dp4 oPos.y, v0, c[CV_WORLDVIEWPROJ_1]
+dp4 oPos.z, v0, c[CV_WORLDVIEWPROJ_2]
+dp4 oPos.w, v0, c[CV_WORLDVIEWPROJ_3]
+
+; Read which set of offsets to use
+
+mov a0.x, c[CV_UV_OFFSET_TO_USE].x
+
+
+//	c[CV_CONSTS_1]
+//	x = 0
+//	y = 0.5
+//	z = 1
+//	w = 2.0f
+
+//  Put a scale factor into r0 so the sample points
+//    can be moved farther from the texel being written
+
+mov r0, c[CV_CONSTS_1].z
+
+
+; Copy uv-coordinates to all four texture stages
+; and offset them according to the constant values 
+; indexed by a0, scaling these offsets by the r0 value
+
+mad oT0, r0, c[a0.x + CV_T0_BASE], v1
+mad oT1, r0, c[a0.x + CV_T1_BASE], v1 
+mad oT2, r0, c[a0.x + CV_T2_BASE], v1 
+mad oT3, r0, c[a0.x + CV_T3_BASE], v1
+

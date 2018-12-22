@@ -1,0 +1,184 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: core - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPC094.TMP" with contents
+[
+/nologo /MDd /W3 /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR"Debug/" /Fp"Debug/core.pch" /Yu"priv_coreprecompiled.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\core\fixedassert.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\core\handleexceptions.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\core\miscwinfunctions.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\core\randomnumbers.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPC094.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPC095.TMP" with contents
+[
+/nologo /MDd /W3 /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR"Debug/" /Fp"Debug/core.pch" /Yc"priv_coreprecompiled.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\core\precompiled.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPC095.TMP" 
+Creating command line "link.exe -lib /nologo /out:"Debug\core.lib"  ".\Debug\fixedassert.obj" ".\Debug\handleexceptions.obj" ".\Debug\miscwinfunctions.obj" ".\Debug\precompiled.obj" ".\Debug\randomnumbers.obj" "
+<h3>Output Window</h3>
+Compiling...
+precompiled.cpp
+Compiling...
+fixedassert.cpp
+handleexceptions.cpp
+miscwinfunctions.cpp
+randomnumbers.cpp
+Generating Code...
+Creating library...
+<h3>
+--------------------Configuration: GameLibrary - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPC115.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\\" /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "STRICT" /FR"Debug/" /Fp"Debug/GameLibrary.pch" /Yu"priv_precompiled.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\GameLibrary\gameinput.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\GameLibrary\gameobjects.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\GameLibrary\microthreadmanager.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\GameLibrary\microthreads.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\GameLibrary\objectfactories.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\GameLibrary\resourcemanager.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPC115.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPC116.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\\" /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "STRICT" /FR"Debug/" /Fp"Debug/GameLibrary.pch" /Yc"priv_precompiled.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\GameLibrary\precompiled.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPC116.TMP" 
+Creating command line "link.exe -lib /nologo /out:"Debug\GameLibrary.lib"  ".\Debug\gameinput.obj" ".\Debug\gameobjects.obj" ".\Debug\microthreadmanager.obj" ".\Debug\microthreads.obj" ".\Debug\objectfactories.obj" ".\Debug\precompiled.obj" ".\Debug\resourcemanager.obj" "
+<h3>Output Window</h3>
+Compiling...
+precompiled.cpp
+Compiling...
+gameinput.cpp
+gameobjects.cpp
+microthreadmanager.cpp
+microthreads.cpp
+objectfactories.cpp
+resourcemanager.cpp
+Generating Code...
+Creating library...
+<h3>
+--------------------Configuration: ImageLibrary - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPC1D3.TMP" with contents
+[
+/nologo /MDd /W3 /GX /ZI /Od /I "..\..\libs\\" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D STRICT=1 /FR"Debug/" /Fp"Debug/ImageLibrary.pch" /Yu"priv_precompiled.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\ImageLibrary\colourspace.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\ImageLibrary\compositebitmap.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\ImageLibrary\csbitmap.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\ImageLibrary\loadbmp.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\ImageLibrary\loadimagefile.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\ImageLibrary\loadpcxfile.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\ImageLibrary\savebmp.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPC1D3.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPC1D4.TMP" with contents
+[
+/nologo /MDd /W3 /GX /ZI /Od /I "..\..\libs\\" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D STRICT=1 /FR"Debug/" /Fp"Debug/ImageLibrary.pch" /Yc"priv_precompiled.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\ImageLibrary\precompiled.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPC1D4.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPC1D5.TMP" with contents
+[
+/nologo /out:"Debug\ImageLibrary.lib" 
+".\Debug\colourspace.obj"
+".\Debug\compositebitmap.obj"
+".\Debug\csbitmap.obj"
+".\Debug\loadbmp.obj"
+".\Debug\loadimagefile.obj"
+".\Debug\loadpcxfile.obj"
+".\Debug\precompiled.obj"
+".\Debug\savebmp.obj"
+]
+Creating command line "link.exe -lib @C:\WINDOWS\TEMP\RSPC1D5.TMP"
+<h3>Output Window</h3>
+Compiling...
+precompiled.cpp
+Compiling...
+colourspace.cpp
+compositebitmap.cpp
+csbitmap.cpp
+loadbmp.cpp
+loadimagefile.cpp
+loadpcxfile.cpp
+savebmp.cpp
+Generating Code...
+Creating library...
+<h3>
+--------------------Configuration: SimpleGame - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x1009 /fo"Debug/SimpleGame.res" /d "_DEBUG" /d "_AFXDLL" "C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\SimpleGame.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPC270.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /ZI /Od /I "..\..\libs\\" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D STRICT=1 /FR"Debug/" /Fp"Debug/SimpleGame.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\DynMenu.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\exceptionhandlerhookup.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\gameworld.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\janitorobjects.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\MainFrm.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\SimpleGame.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\SimpleGameDoc.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\simplegameobjects.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\SimpleGameView.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPC270.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPC271.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /ZI /Od /I "..\..\libs\\" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D STRICT=1 /FR"Debug/" /Fp"Debug/SimpleGame.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Programs\SimpleGame\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPC271.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPC272.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/SimpleGame.pdb" /debug /machine:I386 /out:"Debug/SimpleGame.exe" 
+".\Debug\DynMenu.obj"
+".\Debug\exceptionhandlerhookup.obj"
+".\Debug\gameworld.obj"
+".\Debug\janitorobjects.obj"
+".\Debug\MainFrm.obj"
+".\Debug\SimpleGame.obj"
+".\Debug\SimpleGameDoc.obj"
+".\Debug\simplegameobjects.obj"
+".\Debug\SimpleGameView.obj"
+".\Debug\StdAfx.obj"
+".\Debug\SimpleGame.res"
+"\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\core\Debug\core.lib"
+"\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\GameLibrary\Debug\GameLibrary.lib"
+"\WINDOWS\Desktop\Gems2 CD\SourceCode\01 General Programming\16 Dawson\Libs\ImageLibrary\Debug\ImageLibrary.lib"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPC272.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+DynMenu.cpp
+exceptionhandlerhookup.cpp
+gameworld.cpp
+janitorobjects.cpp
+MainFrm.cpp
+SimpleGame.cpp
+SimpleGameDoc.cpp
+simplegameobjects.cpp
+SimpleGameView.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SimpleGame.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

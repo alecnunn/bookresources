@@ -1,0 +1,147 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base", "Base\Base.vcproj", "{DF43ECEE-CD25-4721-988B-625833779B57}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6A043F4B-7B1E-40DF-8699-005854C4D14A} = {6A043F4B-7B1E-40DF-8699-005854C4D14A}
+		{BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC} = {BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC}
+		{7FB11820-3EC6-4250-9080-A04B86154213} = {7FB11820-3EC6-4250-9080-A04B86154213}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chapter8", "Chapter8\Chapter8.vcproj", "{1B009FC4-E097-4279-92D6-0FCA022D7B43}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6A043F4B-7B1E-40DF-8699-005854C4D14A} = {6A043F4B-7B1E-40DF-8699-005854C4D14A}
+		{BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC} = {BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC}
+		{7FB11820-3EC6-4250-9080-A04B86154213} = {7FB11820-3EC6-4250-9080-A04B86154213}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Console1", "Console1\Console1.vcproj", "{F110D8A4-704D-41A6-BCBA-1558CAAB4EE7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Console2", "Console2\Console2.vcproj", "{952CBD64-2570-431E-BF00-A772592354D5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC} = {BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DX9", "DX9\DX9.vcproj", "{7FB11820-3EC6-4250-9080-A04B86154213}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuaGUI", "LuaGUI\LuaGUI.vcproj", "{6A043F4B-7B1E-40DF-8699-005854C4D14A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Take Away", "Take Away\Take Away.vcproj", "{33796785-D525-4F6F-A15F-18377E370A0F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6A043F4B-7B1E-40DF-8699-005854C4D14A} = {6A043F4B-7B1E-40DF-8699-005854C4D14A}
+		{BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC} = {BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC}
+		{7FB11820-3EC6-4250-9080-A04B86154213} = {7FB11820-3EC6-4250-9080-A04B86154213}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacToe", "TicTacToe\TicTacToe.vcproj", "{F24582D6-A21C-4223-85DF-AACCA2C4C059}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6A043F4B-7B1E-40DF-8699-005854C4D14A} = {6A043F4B-7B1E-40DF-8699-005854C4D14A}
+		{BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC} = {BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC}
+		{7FB11820-3EC6-4250-9080-A04B86154213} = {7FB11820-3EC6-4250-9080-A04B86154213}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "lua\lua.vcproj", "{BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 9
+		SccProjectUniqueName0 = Base\\Base.vcproj
+		SccProjectName0 = Base
+		SccLocalPath0 = Base
+		SccProvider0 = MSSCCI:CVS\u0020SCC\u0020Plugin
+		CanCheckoutShared = false
+		SccProjectUniqueName1 = Console1\\Console1.vcproj
+		SccProjectName1 = Console1
+		SccLocalPath1 = Console1
+		SccProvider1 = MSSCCI:CVS\u0020SCC\u0020Plugin
+		CanCheckoutShared = false
+		SccProjectUniqueName2 = Console2\\Console2.vcproj
+		SccProjectName2 = Console2
+		SccLocalPath2 = Console2
+		SccProvider2 = MSSCCI:CVS\u0020SCC\u0020Plugin
+		CanCheckoutShared = false
+		SccProjectUniqueName3 = DX9\\DX9.vcproj
+		SccProjectName3 = DX9
+		SccLocalPath3 = .
+		SccProvider3 = MSSCCI:CVS\u0020SCC\u0020Plugin
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection3 = DX9\\
+		SccProjectUniqueName4 = LuaGUI\\LuaGUI.vcproj
+		SccProjectName4 = LuaGUI
+		SccLocalPath4 = LuaGUI
+		SccProvider4 = MSSCCI:CVS\u0020SCC\u0020Plugin
+		CanCheckoutShared = false
+		SccProjectUniqueName5 = Take\u0020Away\\Take\u0020Away.vcproj
+		SccProjectName5 = Take\u0020Away
+		SccLocalPath5 = Take\u0020Away
+		SccProvider5 = MSSCCI:CVS\u0020SCC\u0020Plugin
+		CanCheckoutShared = false
+		SccProjectUniqueName6 = TicTacToe\\TicTacToe.vcproj
+		SccProjectName6 = TicTacToe
+		SccLocalPath6 = TicTacToe
+		SccProvider6 = MSSCCI:CVS\u0020SCC\u0020Plugin
+		CanCheckoutShared = false
+		SccProjectUniqueName7 = lua\\lua.vcproj
+		SccProjectName7 = lua
+		SccLocalPath7 = lua
+		SccProvider7 = MSSCCI:CVS\u0020SCC\u0020Plugin
+		CanCheckoutShared = false
+		SccProjectUniqueName8 = Chapter8\\Chapter8.vcproj
+		SccProjectName8 = Chapter8
+		SccLocalPath8 = chapter8
+		SccProvider8 = MSSCCI:CVS\u0020SCC\u0020Plugin
+		CanCheckoutShared = false
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DF43ECEE-CD25-4721-988B-625833779B57}.Debug.ActiveCfg = Debug|Win32
+		{DF43ECEE-CD25-4721-988B-625833779B57}.Debug.Build.0 = Debug|Win32
+		{DF43ECEE-CD25-4721-988B-625833779B57}.Release.ActiveCfg = Release|Win32
+		{DF43ECEE-CD25-4721-988B-625833779B57}.Release.Build.0 = Release|Win32
+		{1B009FC4-E097-4279-92D6-0FCA022D7B43}.Debug.ActiveCfg = Debug|Win32
+		{1B009FC4-E097-4279-92D6-0FCA022D7B43}.Debug.Build.0 = Debug|Win32
+		{1B009FC4-E097-4279-92D6-0FCA022D7B43}.Release.ActiveCfg = Release|Win32
+		{1B009FC4-E097-4279-92D6-0FCA022D7B43}.Release.Build.0 = Release|Win32
+		{F110D8A4-704D-41A6-BCBA-1558CAAB4EE7}.Debug.ActiveCfg = Debug|Win32
+		{F110D8A4-704D-41A6-BCBA-1558CAAB4EE7}.Debug.Build.0 = Debug|Win32
+		{F110D8A4-704D-41A6-BCBA-1558CAAB4EE7}.Release.ActiveCfg = Release|Win32
+		{F110D8A4-704D-41A6-BCBA-1558CAAB4EE7}.Release.Build.0 = Release|Win32
+		{952CBD64-2570-431E-BF00-A772592354D5}.Debug.ActiveCfg = Debug|Win32
+		{952CBD64-2570-431E-BF00-A772592354D5}.Debug.Build.0 = Debug|Win32
+		{952CBD64-2570-431E-BF00-A772592354D5}.Release.ActiveCfg = Release|Win32
+		{952CBD64-2570-431E-BF00-A772592354D5}.Release.Build.0 = Release|Win32
+		{7FB11820-3EC6-4250-9080-A04B86154213}.Debug.ActiveCfg = Debug|Win32
+		{7FB11820-3EC6-4250-9080-A04B86154213}.Debug.Build.0 = Debug|Win32
+		{7FB11820-3EC6-4250-9080-A04B86154213}.Release.ActiveCfg = Release|Win32
+		{7FB11820-3EC6-4250-9080-A04B86154213}.Release.Build.0 = Release|Win32
+		{6A043F4B-7B1E-40DF-8699-005854C4D14A}.Debug.ActiveCfg = Debug|Win32
+		{6A043F4B-7B1E-40DF-8699-005854C4D14A}.Debug.Build.0 = Debug|Win32
+		{6A043F4B-7B1E-40DF-8699-005854C4D14A}.Release.ActiveCfg = Release|Win32
+		{6A043F4B-7B1E-40DF-8699-005854C4D14A}.Release.Build.0 = Release|Win32
+		{33796785-D525-4F6F-A15F-18377E370A0F}.Debug.ActiveCfg = Debug|Win32
+		{33796785-D525-4F6F-A15F-18377E370A0F}.Debug.Build.0 = Debug|Win32
+		{33796785-D525-4F6F-A15F-18377E370A0F}.Release.ActiveCfg = Release|Win32
+		{33796785-D525-4F6F-A15F-18377E370A0F}.Release.Build.0 = Release|Win32
+		{F24582D6-A21C-4223-85DF-AACCA2C4C059}.Debug.ActiveCfg = Debug|Win32
+		{F24582D6-A21C-4223-85DF-AACCA2C4C059}.Debug.Build.0 = Debug|Win32
+		{F24582D6-A21C-4223-85DF-AACCA2C4C059}.Release.ActiveCfg = Release|Win32
+		{F24582D6-A21C-4223-85DF-AACCA2C4C059}.Release.Build.0 = Release|Win32
+		{BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC}.Debug.ActiveCfg = Debug|Win32
+		{BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC}.Debug.Build.0 = Debug|Win32
+		{BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC}.Release.ActiveCfg = Release|Win32
+		{BD5BE6C3-9E51-4601-BF3B-241B0EDB8CDC}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,66 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Tanks - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x809 /fo".\Release/Tanks.res" /d "NDEBUG" /d "_AFXDLL" "C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\14 Manslow\Tanks.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPF181.TMP" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp".\Release/Tanks.pch" /Yu"stdafx.h" /Fo".\Release/" /Fd".\Release/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\14 Manslow\CMLP.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\14 Manslow\CProjectile.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\14 Manslow\CTank.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\14 Manslow\CWorld.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\14 Manslow\MainFrm.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\14 Manslow\Tanks.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\14 Manslow\TanksDoc.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\14 Manslow\TanksView.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPF181.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPF182.TMP" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp".\Release/Tanks.pch" /Yc"stdafx.h" /Fo".\Release/" /Fd".\Release/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\14 Manslow\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPF182.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPF183.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:".\Release/Tanks.pdb" /machine:I386 /out:".\Release/Tanks.exe" 
+".\Release\CMLP.obj"
+".\Release\CProjectile.obj"
+".\Release\CTank.obj"
+".\Release\CWorld.obj"
+".\Release\MainFrm.obj"
+".\Release\StdAfx.obj"
+".\Release\Tanks.obj"
+".\Release\TanksDoc.obj"
+".\Release\TanksView.obj"
+".\Release\Tanks.res"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPF183.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+CMLP.cpp
+CProjectile.cpp
+CTank.cpp
+CWorld.cpp
+MainFrm.cpp
+Tanks.cpp
+TanksDoc.cpp
+TanksView.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Tanks.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,367 @@
+title:
+Simple Gun
+Version:
+1.15
+Num.Elems:
+15
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+46
+Num.Pts:
+2
+137 214
+198 215
+objStartId:
+55
+objEndId:
+54
+eventName:
+
+eventCond:
+
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+47
+Num.Pts:
+2
+308 205
+498 153
+objStartId:
+54
+objEndId:
+58
+eventName:
+
+eventCond:
+triggerDown and machine.numRounds > 0
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+48
+Num.Pts:
+2
+616 191
+615 219
+objStartId:
+58
+objEndId:
+59
+eventName:
+
+eventCond:
+
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+49
+Num.Pts:
+2
+500 253
+308 228
+objStartId:
+59
+objEndId:
+54
+eventName:
+
+eventCond:
+state.timer >= 0.3
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+50
+Num.Pts:
+2
+215 193
+215 125
+objStartId:
+54
+objEndId:
+57
+eventName:
+
+eventCond:
+triggerDown and machine.numRounds == 0
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+51
+Num.Pts:
+2
+289 125
+289 193
+objStartId:
+57
+objEndId:
+54
+eventName:
+
+eventCond:
+state.timer >= 0.1
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+52
+Num.Pts:
+2
+221 237
+221 309
+objStartId:
+54
+objEndId:
+56
+eventName:
+
+eventCond:
+machine.numRounds < 5 and reloadDown and machine.roundsInInventory > 0
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+53
+Num.Pts:
+2
+289 309
+289 237
+objStartId:
+56
+objEndId:
+54
+eventName:
+
+eventCond:
+state.timer > 1.5
+eventAction:
+
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+54
+ptul:
+198 193
+ptdr:
+308 237
+Num.Links:
+8
+link objId:
+47
+link objId:
+46
+link objId:
+49
+link objId:
+50
+link objId:
+51
+link objId:
+52
+link objId:
+53
+link objId:
+60
+stateName:
+Idle
+activitiesLen:
+22
+activities:
+OnEnter: print("Idle")
+type:
+1
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+55
+ptul:
+116 203
+ptdr:
+136 223
+Num.Links:
+1
+link objId:
+46
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+56
+ptul:
+58 309
+ptdr:
+455 437
+Num.Links:
+3
+link objId:
+52
+link objId:
+53
+link objId:
+60
+stateName:
+Reloading
+activitiesLen:
+402
+activities:
+OnEnter: print("Reloading")
+  state.timer = 0
+OnUpdate: state.timer = state.timer + frameTime
+OnExit: state.roundsNeeded = 5 - machine.numRounds
+ state.roundsToLoad = math.min( machine.roundsInInventory, state.roundsNeeded )
+ print("loading " .. state.roundsToLoad )
+ machine.numRounds = machine.numRounds + state.roundsToLoad
+ machine.roundsInInventory = machine.roundsInInventory - state.roundsToLoad
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+57
+ptul:
+156 45
+ptdr:
+342 125
+Num.Links:
+2
+link objId:
+50
+link objId:
+51
+stateName:
+Dry Firing
+activitiesLen:
+95
+activities:
+OnEnter: print("Click")
+    state.timer = 0
+OnUpdate: 
+   state.timer = state.timer + frameTime
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+58
+ptul:
+498 135
+ptdr:
+735 191
+Num.Links:
+2
+link objId:
+47
+link objId:
+48
+stateName:
+Firing
+activitiesLen:
+69
+activities:
+OnEnter: print("Bang!")
+    machine.numRounds = machine.numRounds - 1
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+59
+ptul:
+500 219
+ptdr:
+731 287
+Num.Links:
+2
+link objId:
+48
+link objId:
+49
+stateName:
+Recoil and Recovering
+activitiesLen:
+92
+activities:
+OnEnter: print("Recoiling")
+ state.timer = 0
+OnUpdate: state.timer = state.timer + frameTime
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+60
+Num.Pts:
+2
+253 237
+254 309
+objStartId:
+54
+objEndId:
+56
+eventName:
+
+eventCond:
+not triggerDown and machine.numRounds == 0 and machine.roundsInInventory > 0
+eventAction:
+

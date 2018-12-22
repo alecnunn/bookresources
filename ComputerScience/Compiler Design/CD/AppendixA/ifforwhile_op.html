@@ -1,0 +1,66 @@
+<html>
+<head>
+<title></title>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Output</h2>
+<pre>
+<p> THE TABLE OF QUADRUPLES ARE</p>
+<p>LABEL	OPER	OP1	OP2	RES</p>
+<p> =	0		sum<br>
+  =	0		idx<br>
+  CL1	&lt;	idx	nums	t1<br>
+  goto			CL3<br>
+  CL2	+	idx	1	t2<br>
+  =	t2		idx<br>
+  goto			CL1<br>
+  CL3	ifgo	t1		CL4<br>
+  +	sum	qty	t3<br>
+  =	t3		sum<br>
+  goto			CL2<br>
+  CL4	(null) <br>
+  L1	(null) <br>
+  /	sum	nums	t4<br>
+  =	t4	 	average<br>
+  &lt;	average	10.0	t5<br>
+  ifgo	t5	 	CL5<br>
+  =	10	 	a<br>
+  goto	 	 	CL6<br>
+  CL5	=	20	 	b<br>
+  CL6	=	30	 	c<br>
+  =	0	 	sum<br>
+  =	100000	 	requiredIncome<br>
+  =	2000	 	monthlyIncome<br>
+  =	0	 	noOfMonths<br>
+  CL7	&lt;=	sum	requiredIncome	t6<br>
+  ifgo	t6	 	CL8<br>
+  +	sum	monthlyIncome	t8<br>
+  =	t8	 	sum<br>
+  +	noOfMonths	1	t9<br>
+  =	t9	 	noOfMonths<br>
+  goto	 	 	CL7<br>
+  CL8	(null) <br>
+  ==	requiredIncome	sum	t10<br>
+  =	t10	 	check<br>
+  =	156000	 	loanAmount<br>
+  =	0	 	balance<br>
+  =	1000	 	installments<br>
+  =	0	 	noOfInstallments<br>
+  CL9	-	loanAmount	installments	t11<br>
+  =	t11	 	balance<br>
+  +	noOfInstallments	1	t12<br>
+  =	t12	 	noOfInstallments<br>
+  &lt;	balance	0	t13<br>
+  ifgo	t13	 	CL10<br>
+  goto	 	 	CL9<br>
+  CL10	(null) <br>
+  -	balance		t16<br>
+  =	t16	 	excess<br>
+  goto	 	 	L1</p>
+<p>Name	Type	subtype	Width<br>
+  t10	basic	int	4</p>
+<p>cstackTop=-1 and bstackTop =-1<br>
+</p>
+</pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+struct vertout
+{
+    float4 Pos			: POSITION;
+    float4 Col			: COLOR0;
+};
+
+void main(	vertout IN, 
+			uniform float depthScale,
+			out float4 color : COLOR) 
+{
+	color			= IN.Col;
+}

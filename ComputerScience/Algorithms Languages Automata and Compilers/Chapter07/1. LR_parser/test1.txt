@@ -1,0 +1,6 @@
+S aS
+S bA
+S ~
+A bA
+A ~
+

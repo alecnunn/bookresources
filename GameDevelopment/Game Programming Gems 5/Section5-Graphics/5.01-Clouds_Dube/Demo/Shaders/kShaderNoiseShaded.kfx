@@ -1,0 +1,168 @@
+#include "kShaderSharedParams.h"
+
+sampler Texture0;
+sampler Texture1;
+sampler Texture2;
+sampler Texture3;
+sampler Texture4;
+sampler Texture5;
+sampler Texture6;
+sampler Texture7;
+float4 OctavesScales0;
+float4 OctavesScales1;
+float4 OctavesWeights0;
+float4 OctavesWeights1;
+float4 CloudsParams; // x = cover, y = sharpness, z = pixoffset, w = ambient
+float4 WindOffset;
+float4 SunPos;
+float4 SunColor;
+
+#define fCloudsCover        CloudsParams.x
+#define fCloudsSharpness    CloudsParams.y
+#define fCloudsPixOffset    CloudsParams.z
+#define fCloudsAmbient		CloudsParams.w
+
+struct VS_INPUT
+{
+    float3 position : POSITION;
+    float2 texcoord : TEXCOORD0;
+    float4 diffuse : COLOR0;
+};
+
+struct VS_OUTPUT
+{
+    float4 position : POSITION;
+    float2 texcoord : TEXCOORD0;
+    float2 texcoord2 : TEXCOORD1;
+    float4 diffuse : COLOR0;
+};
+
+VS_OUTPUT VertexShader_1(const VS_INPUT v)
+{
+    VS_OUTPUT o = (VS_OUTPUT)0;
+    o.position = mul(float4(v.position.xyz, 1.0f), mWorldViewProj);
+    o.texcoord = v.texcoord + WindOffset.xy;
+    o.texcoord2 = v.texcoord;
+    o.diffuse = v.diffuse;
+    return o;
+}
+
+VS_OUTPUT VertexShader(const VS_INPUT v)
+{
+    VS_OUTPUT o = (VS_OUTPUT)0;
+    o.position = mul(float4(v.position.xyz, 1.0f), mWorldViewProj);
+    o.texcoord = v.texcoord + WindOffset.xy * 0.5f;
+    o.texcoord2 = v.texcoord;
+    o.diffuse = v.diffuse;
+    return o;
+}
+
+float4 PixelShader(const VS_OUTPUT v) : COLOR
+{
+    float scale = 0.33;
+	float4 tex = (tex2D(Texture0, v.texcoord * OctavesScales0.x*scale) - fCloudsPixOffset) * OctavesWeights0.x;
+	tex += (tex2D(Texture1, v.texcoord * OctavesScales0.y*scale) - fCloudsPixOffset) * OctavesWeights0.y;
+    scale = 0.6f;
+	tex += (tex2D(Texture2, v.texcoord * OctavesScales0.z*scale) - fCloudsPixOffset) * OctavesWeights0.z;
+	tex += (tex2D(Texture3, v.texcoord * OctavesScales0.w*scale) - fCloudsPixOffset) * OctavesWeights0.w;
+    scale = 0.9f;
+	tex += (tex2D(Texture4, v.texcoord * OctavesScales1.x*scale) - fCloudsPixOffset) * OctavesWeights1.x;
+	tex += (tex2D(Texture4, v.texcoord * OctavesScales1.y*scale) - fCloudsPixOffset) * OctavesWeights1.y;
+    scale = 1.0f;
+	tex += (tex2D(Texture5, v.texcoord * OctavesScales1.z*scale) - fCloudsPixOffset) * OctavesWeights1.z;
+	tex += (tex2D(Texture5, v.texcoord * OctavesScales1.w*scale) - fCloudsPixOffset) * OctavesWeights1.w;
+	
+	// Light clouds
+    float3 Ray = float3(v.texcoord2, 0.0f) - float3(0.0, 0.0, 16.0f);
+    normalize(Ray);
+    float3 S = float3(0.035f, 0.0f, (tex.g - tex.r));
+    float3 T = float3(0.0f, 0.035f, (tex.b - tex.r));
+    float3 N = cross(S, T);
+    normalize(N);
+
+#ifdef DEBUGSUNPOS
+	float2 SunRay2D = v.texcoord2 - SunPos.xy;
+	float SunDist2D = length(SunRay2D) * 32.0f;
+    float shade = max(1.0f - SunDist2D, 0.0f) * 10;
+#else
+	float shade = /*0.333f + */dot(-N, Ray);
+#endif//DEBUGSUNPOS
+
+	float2 SunRay2D = v.texcoord2 - SunPos.xy;
+	float SunDist2D = length(SunRay2D);
+    float2 CenterRay2D = float2(v.texcoord2 - float2(0.5f, 0.5f));
+    float CenterDist2D = length(CenterRay2D);
+
+    float4 cloud_cover = tex2D(Texture7, v.texcoord) * 255.0f;
+	//tex = max(tex + 256 - CenterDist2D*16 - cloud_cover, 0.0f);
+    tex = max(tex + 128 - 150 * (1-CenterDist2D), 0.0f);
+	tex = 1.0f - pow(fCloudsSharpness, tex);
+    shade = 0.1f + 1.0f / exp((1.0f - shade) * 0.25f);
+    //shade = 2.0f-tex.r;
+
+    // Simulate direct illumination of clouds.
+	float3 ShadeColor = lerp(SunColor * shade, float3(shade, shade, shade), SunDist2D);
+	float Opacity = min(SunDist2D*16, 2);
+    return float4(0.1f+ShadeColor*ShadeColor, tex.r * Opacity * v.diffuse.a * 0.5);
+}
+
+float4 PixelShader_1(const VS_OUTPUT v) : COLOR
+{
+    // Compute current clouds voxel height.
+	float4 tex = (tex2D(Texture0, v.texcoord * OctavesScales0.x) - fCloudsPixOffset) * OctavesWeights0.x;
+    tex += (tex2D(Texture1, v.texcoord * OctavesScales0.y) - fCloudsPixOffset) * OctavesWeights0.y;
+	tex += (tex2D(Texture2, v.texcoord * OctavesScales0.z) - fCloudsPixOffset) * OctavesWeights0.z;
+	tex += (tex2D(Texture3, v.texcoord * OctavesScales0.w) - fCloudsPixOffset) * OctavesWeights0.w;
+	tex += (tex2D(Texture4, v.texcoord * OctavesScales1.x) - fCloudsPixOffset) * OctavesWeights1.x;
+	tex += (tex2D(Texture4, v.texcoord * OctavesScales1.y) - fCloudsPixOffset) * OctavesWeights1.y;
+	tex += (tex2D(Texture5, v.texcoord * OctavesScales1.z) - fCloudsPixOffset) * OctavesWeights1.z;
+	tex += (tex2D(Texture5, v.texcoord * OctavesScales1.w) - fCloudsPixOffset) * OctavesWeights1.w;
+    float4 cloud_cover = tex2D(Texture7, v.texcoord) * 255.0f;
+	tex = max(tex + 128 - cloud_cover.r, 0.0f);
+
+    //float2 CenterRay2D = float2(v.texcoord2 - float2(0.5f, 0.5f));
+    //float CenterDist2D = length(CenterRay2D);
+
+    float4 Result = float4(0,0,0,0);
+    if(tex.r > 1.0f)
+    {
+        float Scattering = 0.0f;
+        float3 EndTracePos = float3(v.texcoord2.xy, -tex.r);
+	    float3 TraceDir = EndTracePos - float3(0.5f, 0.5f, SunPos.z);
+	    TraceDir = normalize(TraceDir);
+	    float3 CurTracePos = float3(0.5f, 0.5f, SunPos.z) + TraceDir * 384.0f;
+        tex = 1.0f - pow(fCloudsSharpness, tex);
+
+        // Approximate light scattering integral from sun to current cloud voxel.
+        TraceDir *= 2.0f;
+        for(int i=0; i<64; i++)
+	    {
+		    CurTracePos += TraceDir;
+            float4 tex2 = tex2D(Texture6, CurTracePos.xy) * 255.0f;
+            Scattering += 0.1f * step(CurTracePos.z*2, tex2.r*2);
+	    }
+
+	    float2 SunRay2D = v.texcoord2 - SunPos.xy;
+	    float SunDist2D = length(SunRay2D);
+
+        // Simulate light scattering through clouds.
+        Scattering = 1.0f / exp(Scattering * 0.4/*(0.5-SunDist2D)*/);
+
+        // Simulate direct illumination of clouds.
+	    float3 ShadeColor = lerp(SunColor * Scattering, float3(Scattering, Scattering, Scattering), SunDist2D);
+	    float Opacity = 2.0f - SunDist2D;
+
+        // Simulate forward scattering of backlit clouds.
+        float3 ShadeColorTweaked = max(ShadeColor - 0.75f, float3(0,0,0));
+        ShadeColor += ShadeColorTweaked * max(1-SunDist2D*16, 0);
+
+        // Simulate cloud to eye ray light scattering.
+        Result = lerp(
+            float4(ShadeColor, tex.r * Opacity * v.diffuse.a), // Zenith color
+            float4(1, 1, 1, ShadeColor.r * tex.r * v.diffuse.a), // Horizon color
+            SunDist2D * 2
+        );
+    }
+
+    return Result;
+}

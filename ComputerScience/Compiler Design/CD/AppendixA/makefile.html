@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - makefile</h2>
+cexe: y.tab.o lex.yy.o st.o cicprocess.o<br>
+cc cicprocess.o st.o y.tab.o lex.yy.o -o cexe<br>
+lex.yy.o: lex.yy.c y.tab.h<br>
+cc -c lex.yy.c<br>
+y.tab.h: cic.y<br>
+yacc -d cic.y<br>
+y.tab.o: y.tab.c cic.h<br>
+cc -c y.tab.c<br>
+y.tab.c: cic.y cic.h def.h op.h<br>
+yacc -d  cic.y<br>
+lex.yy.c: cic.l cic.h def.h op.h<br>
+flex cic.l<br>
+cicprocess.o: cicprocess.c cic.h def.h op.h<br>
+cc -c cicprocess.c<br>
+st.o:   st.c cic.h def.h op.h<br>
+cc -c st.c<br>
+</body>
+</html>

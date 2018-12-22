@@ -1,0 +1,16 @@
+#begin
+
+type           number 0
+name           string "Gun 3"
+ellipse_radius vector 1.0 1.0 1.0
+
+list_position   number 2
+rate_of_fire    float  0.5
+muzzle_velocity float  400.0
+max_damage      float  50.0
+range           float  200.0
+
+mesh           string "3rd Person.x"
+mesh_path      string ./Assets/Spawners/Gun3/
+
+#end

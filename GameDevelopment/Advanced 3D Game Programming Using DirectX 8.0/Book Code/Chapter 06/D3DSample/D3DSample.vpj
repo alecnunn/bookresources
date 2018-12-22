@@ -1,0 +1,13 @@
+[ASSOCIATION]
+makefile=E:\bookCode\D3DSample\D3DSample.dsp
+makefiletype=microsoft visual c++
+[COMPILER]
+workingdir=.
+COMPILE=concur|capture,nmake /F "%rn.mak" %b "%bd%n.obj"
+includedirs=%(INCLUDE)
+MAKE=concur|capture,nmake /F "%rn.mak" %b
+execute=,"%bdD3DSample.exe"
+debug=,msdev "%bdD3DSample.exe"
+REBUILD=concur|capture,nmake /A /F "%rn.mak" %b
+usertool_resource_editor=hide|:Resource Editor:Resource Editor,msdev
+version=5.0

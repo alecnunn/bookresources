@@ -1,0 +1,5 @@
+public abstract class fWorld extends Object{
+	public fWorld(Applet applet,double Xmin,double Ymin,double width,int maprows)
+	public void update(double dt)
+	protected abstract void initiateClasses(Applet applet);
+}

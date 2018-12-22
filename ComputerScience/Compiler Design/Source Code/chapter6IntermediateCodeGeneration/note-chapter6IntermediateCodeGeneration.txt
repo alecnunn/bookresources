@@ -1,0 +1,8 @@
+This section deals with the generation of the intermediate code for C like language, which is described in Chapter-6.
+In order to generate the intermediate code, the lexical specification file and syntax specification file have to be prepared. The commands for producing the scanner code and parser code are available in makefile.
+Run the make command either in MS cygwin prompt or Linux prompt in the appropriate folder. The different modules involved are:
+1.	Scanner (ic.l)  - ic stands intermediate code
+2.	Parser  (ic.y)  - ic.y has the syntax specicication along with the semantic actions called. The routines for these the semantic actions are avaialble in quadruple genration file and symbol table file.
+3.	Symbol table  (hset.c - set implementation for the symbol table using hashing techniques)
+4.	Quadruple generation (icmain.c)
+5.  op.h, def.h, ic.h are the header files holding the necessary data declaration for the operators, macro definition, symbol table manipulation and quadruple generation

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="Maya6ToWm3"
+	ProjectGUID="{D34D6BD6-101B-47BF-A634-3F3B4D1717C7}"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="2"
+			UseOfMFC="2"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="..\..\Include;c:\Program Files\Alias\Maya6.0\include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NT_PLUGIN"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/export:initializePlugin /export:uninitializePlugin"
+				AdditionalDependencies="WildMagic3.lib Foundation.lib OpenMaya.lib OpenMayaAnim.lib"
+				OutputFile="C:\Program Files\Alias\Maya6.0\bin\plug-ins\Maya6ToWm3.mll"
+				LinkIncremental="2"
+				AdditionalLibraryDirectories="..\..\Library\$(OutDir),C:\Program Files\Alias\Maya6.0\lib"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
+				SubSystem="2"
+				ImportLibrary="$(OutDir)/Maya6ToWm3.lib"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				Description="Copying .mel files to script directory."
+				CommandLine="copy *.mel &quot;C:\Documents and Settings\eberly\My Documents\maya\scripts&quot;"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="2"
+			UseOfMFC="2"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="..\..\Include;c:\Program Files\Alias\Maya6.0\include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;NT_PLUGIN"
+				RuntimeLibrary="2"
+				UsePrecompiledHeader="2"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/export:initializePlugin /export:uninitializePlugin"
+				AdditionalDependencies="WildMagic3.lib Foundation.lib OpenMaya.lib OpenMayaAnim.lib"
+				OutputFile="C:\Program Files\Alias\Maya6.0\bin\plug-ins\Maya6ToWm3.mll"
+				LinkIncremental="1"
+				AdditionalLibraryDirectories="..\..\Library\$(OutDir),C:\Program Files\Alias\Maya6.0\lib"
+				GenerateDebugInformation="TRUE"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				ImportLibrary="$(OutDir)/Maya6ToWm3.lib"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				Description="Copying .mel files to script directory."
+				CommandLine="copy *.mel &quot;C:\Documents and Settings\eberly\My Documents\maya\scripts&quot;"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			<File
+				RelativePath=".\CCamera.cpp">
+			</File>
+			<File
+				RelativePath=".\CGroundPlane.cpp">
+			</File>
+			<File
+				RelativePath=".\CJoint.cpp">
+			</File>
+			<File
+				RelativePath=".\CLight.cpp">
+			</File>
+			<File
+				RelativePath=".\CMesh.cpp">
+			</File>
+			<File
+				RelativePath=".\ConvertToWmof.cpp">
+			</File>
+			<File
+				RelativePath=".\CSkinClusterFilter.cpp">
+			</File>
+			<File
+				RelativePath=".\CTransform.cpp">
+			</File>
+			<File
+				RelativePath=".\CWorld.cpp">
+			</File>
+			<File
+				RelativePath=".\Exporter.cpp">
+			</File>
+			<File
+				RelativePath=".\ExporterStaticData.cpp">
+			</File>
+			<File
+				RelativePath=".\InstanceData.cpp">
+			</File>
+			<File
+				RelativePath=".\MeshData.cpp">
+			</File>
+			<File
+				RelativePath=".\MultiattributeMesh.cpp">
+			</File>
+			<File
+				RelativePath=".\Placeholder.cpp">
+			</File>
+			<File
+				RelativePath=".\SkinControllerData.cpp">
+			</File>
+			<File
+				RelativePath=".\Unsupported.cpp">
+			</File>
+			<File
+				RelativePath=".\Vertex.cpp">
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			<File
+				RelativePath=".\BumpMapData.h">
+			</File>
+			<File
+				RelativePath=".\Converter.h">
+			</File>
+			<File
+				RelativePath=".\ConvertToWmof.h">
+			</File>
+			<File
+				RelativePath=".\Exporter.h">
+			</File>
+			<File
+				RelativePath=".\Exporter.inl">
+			</File>
+			<File
+				RelativePath=".\InstanceData.h">
+			</File>
+			<File
+				RelativePath=".\MeshData.h">
+			</File>
+			<File
+				RelativePath=".\MultiattributeMesh.h">
+			</File>
+			<File
+				RelativePath=".\SkinControllerData.h">
+			</File>
+			<File
+				RelativePath=".\Vertex.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
+			<File
+				RelativePath=".\ConvertToWmofOptions.mel">
+			</File>
+		</Filter>
+		<File
+			RelativePath=".\maya_exporter.txt">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
+

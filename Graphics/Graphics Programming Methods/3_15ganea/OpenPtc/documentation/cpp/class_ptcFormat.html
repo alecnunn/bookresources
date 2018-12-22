@@ -1,0 +1,261 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Format  Class Reference</h1>Describes a pixel format. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcFormat-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcFormat.html#a0">Format</a> ()
+<li><a class="el" href="class_ptcFormat.html#a1">Format</a> (int bits)
+<li><a class="el" href="class_ptcFormat.html#a2">Format</a> (int bits,int32 r,int32 g,int32 b,int32 a=0)
+<li><a class="el" href="class_ptcFormat.html#a3">Format</a> (const Format &amp;format)
+<li><a class="el" href="class_ptcFormat.html#a4">~Format</a> ()
+<li>int32 <a class="el" href="class_ptcFormat.html#a5">r</a> () const
+<li>int32 <a class="el" href="class_ptcFormat.html#a6">g</a> () const
+<li>int32 <a class="el" href="class_ptcFormat.html#a7">b</a> () const
+<li>int32 <a class="el" href="class_ptcFormat.html#a8">a</a> () const
+<li>int <a class="el" href="class_ptcFormat.html#a9">bits</a> () const
+<li>int <a class="el" href="class_ptcFormat.html#a10">bytes</a> () const
+<li>bool <a class="el" href="class_ptcFormat.html#a11">direct</a> () const
+<li>bool <a class="el" href="class_ptcFormat.html#a12">indexed</a> () const
+<li>Format&amp; <a class="el" href="class_ptcFormat.html#a13">operator=</a> (const Format &amp;format)
+<li>bool <a class="el" href="class_ptcFormat.html#a14">operator==</a> (const Format &amp;format) const
+<li>bool <a class="el" href="class_ptcFormat.html#a15">operator!=</a> (const Format &amp;format) const
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Describes a pixel format.
+<p>
+The format class describes one of two kinds of pixel formats: indexed color and direct color.
+<p>
+Indexed color pixel formats describe of pixel values that index into a palette (See ptc::Palette).
+<p>
+Direct color pixel formats describe pixels that have red, green, blue and alpha information packed into each pixel.
+<p>
+Format objects are typically used when creating surface classes with <a class="el" href="class_ptcSurface.html#a0">Surface::Surface</a>(), and when opening consoles with <a class="el" href="class_ptcConsole.html#a8">Console::open</a>()(const char title[],const Format &amp;format,int pages). <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Format::Format"></a>ptc::Format::Format ()</h3>
+<div class="in">
+
+<p>
+Default constructor.
+<p>
+<em>bits,</em> <em>r,</em> <em>g,</em> <em>b</em> and <em>a</em> are all set to zero. </div>
+
+<h3><a name="a1" doxytag="ptc::Format::Format"></a>ptc::Format::Format (int <em>bits</em>)</h3>
+<div class="in">
+
+<p>
+Creates an indexed pixel format where each pixel entry represents an index into a palette.
+<p>
+Currently the only indexed format supported is 8 bit indexed color, ie. 256 color.
+<p>
+If the <em>bits</em> parameter is not equal to 8 then an error exception will be thrown.
+<p>
+<dl compact><dt>
+<b>See also:</b><dd>
+Palette class
+<p>
+</dl><dl compact><dt>
+<b>Parameters: </b><dd>
+<em>bits</em> -  the number of bits per pixel. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl></div>
+
+<h3><a name="a2" doxytag="ptc::Format::Format"></a>ptc::Format::Format (int <em>bits</em>, int32 <em>r</em>, int32 <em>g</em>, int32 <em>b</em>, int32 <em>a</em> = 0)</h3>
+<div class="in">
+
+<p>
+Creates a direct color pixel format with the red, green, blue and alpha masks <em>r,</em> <em>g,</em> <em>b</em> and <em>a.</em>
+<p>
+For each of the mask values set bits (1) represent bits allocated to the color component, and clear bits (0) represent unused bits.
+<p>
+Here are some common direct color pixel formats:
+<p>
+<div class="fragment"><pre>
+
+            // 32 bit RGB888
+            Format format(32,0x00FF0000,0x0000FF00,0x000000FF);
+
+            // 24 bit RGB888
+            Format format(24,0xFF0000,0x00FF00,0x0000FF);
+
+            // 16 bit RGB565
+            Format format(16,0xF800,0x07E0,0x001F);
+
+            // 15 bit RGB555
+            Format format(16,0x7C00,0x03E0,0x001F);
+
+            // 8 bit RGB332
+            Format format(8,0xE0,0x1C,0x03);
+
+            // 32 bit ARGB8888
+            Format format(32,0x00FF0000,0x0000FF00,0x000000FF,0xFF000000);
+
+            // 16 bit ARGB1555
+            Format format(16,0x7C00,0x03E0,0x001F,0x8000);</pre></div>
+<p>
+An error exception is thrown if the <em>bits</em> parameter is not 8, 16, 24 or 32.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>bits</em> -  the number of bits per pixel. <dd>
+<em>r</em> -  the red color component. <dd>
+<em>g</em> -  the green color component. <dd>
+<em>b</em> -  the blue color component. <dd>
+<em>a</em> -  the alpha color component (defaults to zero). </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl></div>
+
+<h3><a name="a3" doxytag="ptc::Format::Format"></a>ptc::Format::Format (const Format &amp; <em>format</em>)</h3>
+<div class="in">
+
+<p>
+Copy constructor. </div>
+
+<h3><a name="a4" doxytag="ptc::Format::~Format"></a>ptc::Format::~Format ()</h3>
+<div class="in">
+
+<p>
+Destructor. </div>
+
+<h3><a name="a5" doxytag="ptc::Format::r"></a>int32 ptc::Format::r () const</h3>
+<div class="in">
+
+<p>
+Gets the red component mask of the format object.
+<p>
+The red color mask is only valid if the format object is direct color.
+<p>
+A format object is direct color if it was created by the <a class="el" href="class_ptcFormat.html#a3">Format::Format</a>()(int bits,int32 r,int32 g,int32 b,int32 a) constructor.
+<p>
+If the format object is not direct color then the red mask is always zero.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The red component mask. </dl></div>
+
+<h3><a name="a6" doxytag="ptc::Format::g"></a>int32 ptc::Format::g () const</h3>
+<div class="in">
+
+<p>
+Gets the green component mask of the format object.
+<p>
+The green color mask is only valid if the format object is direct color.
+<p>
+A format object is direct color if it was created by the <a class="el" href="class_ptcFormat.html#a3">Format::Format</a>()(int bits,int32 r,int32 g,int32 b,int32 a) constructor.
+<p>
+If the format object is not direct color then the green mask is always zero.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The green component mask. </dl></div>
+
+<h3><a name="a7" doxytag="ptc::Format::b"></a>int32 ptc::Format::b () const</h3>
+<div class="in">
+
+<p>
+Gets the blue component mask of the format object.
+<p>
+The blue color mask is only valid if the format object is direct color.
+<p>
+A format object is direct color if it was created by the <a class="el" href="class_ptcFormat.html#a3">Format::Format</a>()(int bits,int32 r,int32 g,int32 b,int32 a) constructor.
+<p>
+If the format object is not direct color then the blue mask is always zero.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The blue component mask. </dl></div>
+
+<h3><a name="a8" doxytag="ptc::Format::a"></a>int32 ptc::Format::a () const</h3>
+<div class="in">
+
+<p>
+Gets the alpha component mask of the format object.
+<p>
+The alpha color mask is only valid if the format object is direct color.
+<p>
+A format object is direct color if it was created by the <a class="el" href="class_ptcFormat.html#a3">Format::Format</a>()(int bits,int32 r,int32 g,int32 b,int32 a) constructor.
+<p>
+If the format object is not direct color then the alpha mask is always zero.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The alpha component mask. </dl></div>
+
+<h3><a name="a9" doxytag="ptc::Format::bits"></a>int ptc::Format::bits () const</h3>
+<div class="in">
+
+<p>
+Gets the bits per pixel of the format object.
+<p>
+Bits per pixel is either 8, 16, 24 or 32 in direct color, or 8 in indexed color.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The number of bits per pixel. </dl></div>
+
+<h3><a name="a10" doxytag="ptc::Format::bytes"></a>int ptc::Format::bytes () const</h3>
+<div class="in">
+
+<p>
+Gets the bytes per pixel of the format object.
+<p>
+Bytes per pixel is either 1, 2, 3 or 4 in direct color, or 1 in indexed color.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The number of bytes per pixel. </dl></div>
+
+<h3><a name="a11" doxytag="ptc::Format::direct"></a>bool ptc::Format::direct () const</h3>
+<div class="in">
+
+<p>
+Checks if the format is direct color.
+<p>
+A format object is direct color if it was created by the <a class="el" href="class_ptcFormat.html#a3">Format::Format</a>()(int bits,int32 r,int32 g,int32 b,int32 a) constructor.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+<em>true</em> if the format is direct color, <em>false</em> otherwise. </dl></div>
+
+<h3><a name="a12" doxytag="ptc::Format::indexed"></a>bool ptc::Format::indexed () const</h3>
+<div class="in">
+
+<p>
+Checks if the format is indexed color.
+<p>
+A format object is indexed color if it was created by the <a class="el" href="class_ptcFormat.html#a1">Format</a>(int bits) constructor.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+<em>true</em> if the format is indexed color, <em>false</em> otherwise. </dl></div>
+
+<h3><a name="a13" doxytag="ptc::Format::operator="></a>Format &amp; ptc::Format::operator= (const Format &amp; <em>format</em>)</h3>
+<div class="in">
+
+<p>
+Assignment operator. </div>
+
+<h3><a name="a14" doxytag="ptc::Format::operator=="></a>bool ptc::Format::operator== (const Format &amp; <em>format</em>) const</h3>
+<div class="in">
+
+<p>
+Equality operator. </div>
+
+<h3><a name="a15" doxytag="ptc::Format::operator!="></a>bool ptc::Format::operator!= (const Format &amp; <em>format</em>) const</h3>
+<div class="in">
+
+<p>
+Inequality operator. </div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

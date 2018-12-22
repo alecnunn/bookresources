@@ -1,0 +1,127 @@
+<html>
+<title>
+panoshader demo version 1.0
+</title>
+<body background="./html/desktop.jpg">
+
+
+<blockquote>
+<center><table border=0>
+<tr><td>
+        <TABLE cellSpacing=0 cellPadding=0 border=0 walign="center">
+          <TBODY>
+          <TR>
+            <TD><IMG 
+              src="./html/ipanoshader.gif"></TD>
+            <TD><IMG 
+              src="./html/shadowleft.jpg"></TD>
+          <TR>
+            <TD><IMG 
+              src="./html/shadowbottom.jpg"></TD>
+            <TD><IMG 
+              src="./html/shadowbottomleft.jpg"></TD></TR></TBODY></TABLE>
+</td><td width=30></td><td width=600>
+<h2>panoshader demo version 1.0</h2>
+<p>
+Program code contributors:<br>
+<blockquote>
+<a href="http://www.cse.cuhk.edu.hk/~shor/">Siu-Hang Or</a><br>
+<a href="http://www.cs.indiana.edu/~cwfu">Chi-Wing Fu</a><br>
+<a href="http://www.cse.cuhk.edu.hk/~ttwong/myself.html">Tien-Tsin Wong</a>
+</blockquote>
+</td></tr>
+</table></center>
+
+
+<DIV ALIGN = JUSTIFY>	
+<h3>Introduction</h3> 
+<dl><dd>
+<dd> 
+
+This program demonstrates the ability to perform <b>real-time dynamic 
+lighting</b> on <b>highly compressed</b> panoramic images. This kind of 
+<b>relightable (illumination-adjustable)</b> panorama is especially useful for 
+representing large-scale complex backgrounds in computer games. The real-time 
+relighting is implemented by writing shaders on programmable graphics hardware. 
+<p>
+<dd>An image-based scene, "forbid" (less than 3MB in size), comes with this demo. 
+There are two programs, one for directional-source relighting and the other for 
+point-source relighting. In both cases, the same data set "forbid" is loaded. To 
+demonstrate the real-time performance, the light sources change in color, 
+direction or position during the run-time.
+</dl> </dl>
+
+
+
+<h3>System Requirement</h3>
+
+<dl>
+<dd>Hardware: Pentium III or above, 128MB RAM, installed with nVidia GeForce3/4/FX graphics accelerator. 
+<dd>OS: Windows 98/NT/2000/XP, with OpenGL
+</dl>
+
+
+<h3>User Manual</h3> 
+
+
+<center>
+    <TABLE cellSpacing=0 cellPadding=0 border=0 walign="center">
+    <TR><TD align=left width=250 valign=top><IMG src="./html/idir.jpg"></TD>
+    <TD width=600>
+    <h4>Directional-source relighting:</h4>    
+    Start "dir.exe" to run the demo.
+    Once the program is started, a directional light source moves around and illuminates
+    the scene forever. It changes its color from time to time.<br>
+    Drag inside the window to accelerate the change of illumination.<br>
+    Press "a" or "A" to pause/resume the change of illumination.<br>
+    Press "q" or "Q" or escape to quit the demo.<br>
+    </TD></TR><TR><TD height=50></TD></TR>
+    </TABLE></center>
+<center>
+    <TABLE cellSpacing=0 cellPadding=0 border=0 walign="center">
+    <TR><TD align=left width=250 valign=top><IMG src="./html/ipt.jpg"></TD>
+    <TD width=600>
+    <h4>Point-source relighting:</h4>
+    Start "pt.exe" to run the demo.
+    Once the program is started, a point light source moves around in the scene
+    and illuminates the scene with changing color and intensity.
+    It follows the animation script defined in "animation.txt".
+    Inappropriate modification to this script file may cause program fault.<br>
+    Press "a" or "A" to pause/resume the change of illumination.<br>
+    Press "q" or "Q" or escape to quit the demo.<br>
+    Press "t" or "T" to toggle the display of the attenuation map.<br>
+    </TD></TR>
+    </TABLE></center>
+
+
+
+
+
+<h3>Related Publication</h3>
+<ul>
+<li>"<a href="http://www.cse.cuhk.edu.hk/~ttwong/papers/panoshad/panoshad.html">
+    Real-Time Relighting of Compressed Panoramas</a>",<br>
+    Tien-Tsin Wong, Siu-Hang Or and Chi-Wing Fu<br>
+    <i>Graphics Programming Methods</i>, Edited by Jeff Lander,
+    Charles Rivers Media, 2003.
+<p>
+<li>"<a href="http://www.cse.cuhk.edu.hk/~ttwong/papers/lightfld/lightfld.html">Image-based
+    Rendering with Controllable Illumination</a>",<br>
+    Tien-Tsin Wong, Pheng-Ann Heng, Siu-Hang Or and Wai-Yin Ng,<br>
+    <i>in Proceedings of the 8-th Eurographics Workshop on Rendering</i>, 
+    St. Etienne, France, June 1997, pp 13-22.
+
+</ul>
+
+
+<h3>Contact Person</h3> 
+<dl><dd>
+<a href="http://www.cse.cuhk.edu.hk/~ttwong/myself.html">Tien-Tsin Wong</a>
+(<A HREF="mailto:ttwong@acm.org">ttwong@acm.org</A>)
+</dl>
+
+
+
+<!--#include virtual="/~ttwong/footer1.html"-->
+
+</blockquote>

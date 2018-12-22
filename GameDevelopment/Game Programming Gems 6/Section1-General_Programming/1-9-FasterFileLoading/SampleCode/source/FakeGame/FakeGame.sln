@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FakeGame", "FakeGame.vcproj", "{E3CC624A-E502-43D2-A297-2F6BADF2A63C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FE8CCC86-B4AC-49AF-8612-3E96E5BD3115} = {FE8CCC86-B4AC-49AF-8612-3E96E5BD3115}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fileio", "..\libs\FileIO\fileio.vcproj", "{FE8CCC86-B4AC-49AF-8612-3E96E5BD3115}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E3CC624A-E502-43D2-A297-2F6BADF2A63C}.Debug.ActiveCfg = Debug|Win32
+		{E3CC624A-E502-43D2-A297-2F6BADF2A63C}.Debug.Build.0 = Debug|Win32
+		{E3CC624A-E502-43D2-A297-2F6BADF2A63C}.Release.ActiveCfg = Release|Win32
+		{E3CC624A-E502-43D2-A297-2F6BADF2A63C}.Release.Build.0 = Release|Win32
+		{FE8CCC86-B4AC-49AF-8612-3E96E5BD3115}.Debug.ActiveCfg = Debug|Win32
+		{FE8CCC86-B4AC-49AF-8612-3E96E5BD3115}.Debug.Build.0 = Debug|Win32
+		{FE8CCC86-B4AC-49AF-8612-3E96E5BD3115}.Release.ActiveCfg = Release|Win32
+		{FE8CCC86-B4AC-49AF-8612-3E96E5BD3115}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

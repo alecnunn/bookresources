@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE> Working with Images   </TITLE>
+</HEAD>
+<BODY LINK = "blue">
+<TABLE>
+<TR> <TH><BR> <FONT   FACE = "Courier" SIZE = "4">
+Beautiful Places to Visit </TR>
+
+<TD  WIDTH = 200 HEIGHT = 300>
+<IMG  SRC = "BigBen.gif" WIDTH = 200 HEIGHT = 300 > </TD>
+
+<TD><FONT   FACE = "Courier" SIZE = "4"> Big Ben on a Sunny Day. 
+</FONT> It is rare to catch a glimpse of Big Ben in such fine 
+weather, but we were lucky. </TD>
+
+<H3>  The Eiffel Tower </H3>
+<IMG  SRC = "Eiffel.gif"  ALT = "Picture of the Eiffel Tower"  WIDTH 
+= 200 HEIGHT = 300  ALIGN = right>
+<P><P><P><P>A view of the Eiffel Tower from a point on the Seine River.
+
+<P></P><P></P><P></P>
+<H3> The Mountains of Shikoku, Japan </H3>
+<IMG  SRC = "Japan.gif"  ALT = "Picture of mountains in Shikoku" 
+WIDTH = 300 HEIGHT = 200  ALIGN = bottom>
+A View of the Mountains on the Northern Side of Shikoku, Japan.
+
+
+</BODY>
+<HTML>
+
+
+
+

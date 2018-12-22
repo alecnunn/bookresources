@@ -1,0 +1,196 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "Base"=.\Base\Base.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Base
+    .\base
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name DX9
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lua
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LuaGUI
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Chapter8"=.\Chapter8\Chapter8.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name DX9
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lua
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LuaGUI
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Console1"=.\Console1\Console1.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Console1
+    .\console1
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Console2"=.\Console2\Console2.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Console2
+    .\console2
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lua
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "DX9"=.\DX9\DX9.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    DX9
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "LuaGUI"=.\LuaGUI\LuaGUI.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    LuaGUI
+    .\luagui
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Take Away"=".\Take Away\Take Away.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Take Away
+    .\take away
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name DX9
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lua
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LuaGUI
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "TicTacToe"=.\TicTacToe\TicTacToe.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    TicTacToe
+    .\tictactoe
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name DX9
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lua
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LuaGUI
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "lua"=.\lua\lua.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    lua
+    .\lua
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

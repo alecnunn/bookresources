@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Benefits of Sequence Indexing</title>
+		<style> PRE { BACKGROUND-COLOR: #f2f2f2 }
+	SPAN.DocumentKeyWord { COLOR: #800080 }
+	SPAN.CodeComment { COLOR: #008000 }
+	SPAN.CodeKeyWord { COLOR: #000080 }
+	TABLE.MsoNormalTable { FONT-SIZE: 10pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: "" }
+	STRONG { COLOR: navy }
+	EM { COLOR: slategray }
+		</style>
+		<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	</head>
+	<body>
+		<H1 align="center"><FONT color="green">Benefits of Sequence Indexing</FONT></H1>
+		<P>The concept of Sequence Indexing offers various new opportunities to refine our 
+			existing solutions. For example, consider the following.</P>
+		<UL>
+			<LI>
+				<P align="justify"><STRONG>Range Sequences</STRONG> are quite useful in indexing a <EM>set 
+						of variables with well-known ranges</EM> such as class objects, graph 
+					statistics etc...
+				</P>
+				<p align="justify">For example, consider a pseudo class that defines a RPG 
+					character details as below.</p>
+				<pre>
+class
+{
+	int Magic;	//possible values between [0..10];
+	int Dexterity;	//possible values between [0..5];
+	int Sight;	//possible values between [0..15];
+	int Sex;	//suitable values [0,1];
+};
+					</pre>
+				<P align="justify">Now, the objects of this class can be treated as taking one of 
+					the all possible values for each variable. So, all objects of this class would 
+					form a Range Sequence, and hence each object can be given an unique index. 
+					Once, we have an index for any class object, the possibilites are endless.
+				</P>
+				<OL>
+			<LI>
+			We can use it as a hashing index to find/eliminate duplicates and to store 
+			unique objects;
+			<LI>
+				<DIV align="justify">Can use it to communicate the state of the object across 
+					network (without further requiring any special bitpacking algorithms);
+				</DIV>
+			<LI>
+			Can use it to serialize the objects (for example, to quick save the state of 
+			the game);
+			<LI>
+				<DIV align="justify">Further, it can be used to perform complex functions directly 
+					on the objects instead of their variables. For example, to compare two persons 
+					of the above mentioned class, we usually compare the individual member 
+					vairables of the class. The other possibility is to use the object indices as a 
+					map into a cumulative strength table and then use the table directly to compare 
+					and contrast the objects. This grately helps in isolating the data from game 
+					concepts --- an invaluable property of every well developed game;</DIV>
+			</LI>
+			</OL>
+			<p>
+			</p>
+			<LI>
+				<DIV align="justify"><STRONG>Combinational Sequences</STRONG> are quite useful in 
+					all places wherever there is a notion of <EM>choice</EM>. For example, consider 
+					a RTS game with a choice of nations or civilizations --- choosing 5 opponents 
+					randomly out of 8 civilizations. In such cases there exists no known efficient 
+					method that guarantess the choice to be unique from all past instances of the 
+					game. Please note that while the seeded-random-generators guarantee that the 
+					same sequence would be generated everytime the seed is same, no such guaratee 
+					is provided for the contrary case --- that is, one can not be guaranteed that 
+					the random sequences <EM>would not be repeated</EM> when we <EM>do not want them to 
+						be repeated</EM>; This is due to the lack of a pure random number 
+					generator.</DIV>
+				<p align="justify">In such cases, Combinational Sequences offer a bounded guarantee 
+					that no sequence it generates upto a bounded number of instances would be a 
+					duplicate of any other instance. Hence all the user actions and choices made 
+					during the game play can be indexed uniquely to express the game state in terms 
+					of the Combination Sequence indices. Once we get the index of any game state, 
+					the possibilites, as usual, are endless --- such as using it to communicate 
+					across the servers in multi-player games, quick-saves etc...
+				</p>
+			<LI>
+				<P align="justify">Finally, <STRONG>Permutation Sequences</STRONG> are useful 
+					wherever there is <EM>exhaustive rearrangements of any given set of symbols</EM>. 
+					The applications of Permutation Sequence are as exhaustive as the nature of its 
+					sequences, ranging from Artificial Intelligence to Script Debugging to ... 
+					these can be practically used anywhere where there is a scope for <EM>graph 
+						explorations</EM>.
+				</P>
+				<p align="justify">
+					For example, consider the problem of Path-Finding, where we examine a graph for 
+					an optimal distance value using some graph-walking techniques such A* etc.... 
+					However, a practical problem with these techniques in a real-time game 
+					application is that these are highly non-preemptive. That is, their computation <EM>
+						can not be spread across frames</EM> and one has to resort to alternative 
+					techniques such as dedicate AI Thread etc... to avoid frame jittering. In other 
+					words, these techniques can not be interleaved properly (in terms of 
+					computation requirements) with other elements of the game such as graphics, 
+					physics etc...
+				</p>
+				<P align="justify">Now, Permutaion Sequences provide an entire new opprotunities in 
+					such cases. These Sequences can help making the above mentioned techniques 
+					preemptive by allowing us to encode the processed graph state in terms of 
+					Permutaion Sequence indices there by enabling us to pause-resume the 
+					computation across multiple frames (by suitably updating the index as computed 
+					path states are change). <EM>However, </EM>I must confess that at this point of 
+					time this is more easily said than done --- nonetheless I hope we can give our 
+					future generations a chance in this regard.
+				</P>
+			<LI>
+				<P align="justify">Coming to the pseudo seeded random generator, here perhaps I 
+					cannot convince how Combinational/Permutational Sequences are better than the 
+					pseudo-random algorithm mechanism --- because, seeded random generation is also 
+					one of the variants of Sequence Indexing (the seed being the index of the 
+					generated random sequence), albeit of slightly different nature (the difference 
+					being of no importance to our present discussion). Hence pseudo seeded random 
+					generator can be used in <EM>almost</EM> all places where the 
+					Combinational/Permutational Sequences might be useful (perhaps with a little 
+					bit of adjustments here and there). And perhaps that might be one of the 
+					reasons why no one yet felt the necessity of the other forms of indexing.</P>
+				<p align="justify">In such cases, our interest in studying these other forms of 
+					Sequences purely lies in their theoritical role they would play in allowing a 
+					developer to choose from multitute of options that would closely and natively 
+					resemble his requirements than forcing him to mend his problem to make it 
+					suitable for few existing ones. While the benefits of these other forms of 
+					Sequences is not lively clear today as such, I hope they would nonetheless 
+					contribute their part in extending and perfecting our understanding of game 
+					development in more liberal ways than would be possible without them.
+				</p>
+				<p align="justify">
+					In this respect, while Sequence Indexing does not give us any thing new, it 
+					helps us do our old things in a more elegant and efficient way.</p>
+			</LI>
+		</UL>
+		<P align="right">P.GopalaKrishna</P>
+		<P align="right"><A href="http://www.geocities.com/krishnapg">http://www.geocities.com/krishnapg</A></P>
+		<P align="right"><A href="mailto:KrishnaPG@Yahoo.com">KrishnaPG@Yahoo.com</A></P>
+	</body>
+</html>

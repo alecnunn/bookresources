@@ -1,0 +1,21 @@
+void main(float2 sn_coord : TEXCOORD0,
+		
+		  uniform samplerRECT density_rect   : TEXUNIT0,
+		  uniform samplerRECT neighbour_rect : TEXUNIT1,
+		  out float3 result : COLOR
+		  )
+{
+	/*
+	float2 nlist_index = float2(floor(sn_coord.y)*2, sn_coord.x);
+	float neighbour_index = f1texRECT(neighbour_rect, nlist_index);
+	result = f1texRECT(density_rect, unpack_2ushort(neighbour_index)*65536);
+	neighbour_index = f1texRECT(neighbour_rect, nlist_index - float2(1, 0));
+	result += f1texRECT(density_rect, unpack_2ushort(neighbour_index)*65536);
+*/
+	//result.xy = unpack_2ushort(neighbour_index)*65536;
+	
+	//result.xy = nlist_index - float2(1, 0);//sn_coord.xy;
+
+	float neighbour_index = f1texRECT(neighbour_rect, sn_coord.yx);
+	result = f1texRECT(density_rect, unpack_2ushort(neighbour_index)*65536);
+}

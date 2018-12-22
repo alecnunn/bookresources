@@ -1,0 +1,1 @@
+Included in this chapter's project folder is the TextureGenerator program used to create the textures featured in the bonus BitmapScrollingDemo program. The noise folder includes the required Perlin library.

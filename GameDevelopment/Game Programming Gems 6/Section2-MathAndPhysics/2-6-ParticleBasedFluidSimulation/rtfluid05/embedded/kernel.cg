@@ -1,0 +1,149 @@
+const float PI = 3.1415926535;
+/*
+float kernel(float r_sq, float h)
+{
+	return 1/(PI*h*h*h)*exp(-r_sq/h/h);
+}
+*/
+
+float spiky_kernel(float len, float h, float m)
+{
+	const float PI = 3.1415926535f;
+	float h_r;
+	float result;
+	
+	//len *= 0.5f;
+	h_r = h - len;
+
+	if (h_r > 0.0f)
+		result = 0.5*m*15.0f/(PI*h*h*h*h*h*h)*pow(h_r, 3);//*h_r*h_r;
+//		result = 0.5*m*15.0f/(PI*h*h*h*h*h*h)*h_r*h_r*h_r;
+	else result = 0.0f;
+	//if (len > h)
+		//result = 0.0f;
+
+	return result;
+}
+
+float3 grad_kernel(float r, float h, float3 p0, float3 p1, float m)
+{
+	return spiky_kernel(r, h, m)*(p0 - p1);
+	/*
+	r *= 2.0f;
+
+	float inv_h = 1.0f/h;
+	float ck = -1.0f*inv_h*inv_h;
+//	float k = 1/(PI*h*h*h)*exp(-r_sq/h/h);
+	float k = 1.0*inv_h*inv_h*inv_h/PI*exp(-r*r*inv_h*inv_h);
+
+	return ck*k*(p0 - p1);
+	*/
+}
+
+/*
+float3 inverse_kernel(vector3* grad, float r, float h, const vector3* p0, const vector3* p1)
+{
+	const float PI = 3.1415926535f;
+
+	float inv_h;
+	float ck;
+	float k;
+
+	r *= 2.0f;
+
+	inv_h = 1.0f/h;
+	ck = -1.0f*inv_h*inv_h;
+	k = 1.0*inv_h*inv_h*inv_h/PI*exp(-r*r*inv_h*inv_h);
+
+	vec3_sub(grad, p0, p1);
+	vec3_scale(grad, ck*k);
+}
+*/
+float spline_kernel(float r, float h)
+{
+	float q;
+	float result;
+	float _2_q;
+
+	q = r/h;
+
+	if (q < 1)
+	{
+		result = 1 + q*q*(-3.0f/2.0f + 3.0f/4.0f*q);
+	}
+	else if (q < 2)
+	{
+		_2_q = 2.0f - q;
+		result = 1.0f/4.0f*_2_q*_2_q*_2_q;
+	}
+	else 
+	{
+		result = 0.0f;
+	}
+
+	return (1/(PI*h*h*h))*result;
+}
+
+float poly6_kernel(float lensq, float h, float m)
+{
+	float k;
+	float h2_r2;
+
+	h2_r2 = h*h -lensq;
+
+	//return max(315.0f/(64.0f*PI*pow(h, 9))*h2_r2*h2_r2*h2_r2, 0.0f);
+	
+	if (h2_r2 > 0.0f)
+		k = m*315.0f/(64.0f*PI*h*h*h*h*h*h*h*h*h)*pow(h2_r2, 3);
+//		k = 315.0f/(64.0f*PI*h*h*h*h*h*h*h*h*h)*h2_r2*h2_r2*h2_r2;
+//		k = 315.0f/(64.0f*PI*pow(h, 9))*h2_r2*h2_r2*h2_r2;
+	else k = 0.0f;
+
+	return k;
+	/*
+		return 0.0;
+
+	return 315.0f/(64.0f*PI*pow(h, 9))*h2_r2*h2_r2*h2_r2;*/
+}
+
+float lap_viscosity_kernel(float r, float h, float m, float mu)
+{
+//	return max(45.0*(h - r)/(PI*h*h*h*h*h*h), 0.0f);
+
+	float k;
+
+	if (h > r)
+		k = mu*m*45.0*(h - r)/(PI*h*h*h*h*h*h);
+	else k = 0.0f;
+
+	return k;
+	
+	//return 45.0*(h - r)/(PI*h*h*h*h*h*h);
+}
+
+/*
+void main(float2 index_coord : TEXCOORD0,
+		  uniform samplerRECT pos_rect   : TEXUNIT0,
+		  uniform samplerRECT index_rect : TEXUNIT1,
+		  out float4 result : COLOR)
+{
+	const float h = 0.005f;
+
+	float3 pos0 = f3texRECT(pos_rect, float2(index_coord.y, 0));//pos_coord);
+	float3 pos1 = f3texRECT(pos_rect, float2(f1texRECT(index_rect, index_coord), 0));
+
+	float3 diff = pos0 - pos1;
+	float distsq = dot(diff, diff);
+	float k = kernelsq(distsq, h);
+	//float k = spline_kernel(length(diff), h);
+	float k = kernel(dot(diff, diff), h);
+
+	result.xyz = -2.0/h/h*diff*k;
+	result.w = k;
+	
+	
+	//result.x = pos_coord.x;
+	//result.x = f1texRECT(index_rect, index_coord);
+	
+}
+*/

@@ -1,0 +1,7 @@
+#ifndef SGX_GAMECODE_GAMEOBJECT_HPP
+#define SGX_GAMECODE_GAMEOBJECT_HPP	1
+
+class CGameObject {
+};
+
+#endif /* #define SGX_GAMECODE_GAMEOBJECT_HPP */

@@ -1,0 +1,501 @@
+# Makefile.in generated automatically by automake 1.5 from Makefile.am.
+
+# Copyright 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001
+# Free Software Foundation, Inc.
+# This Makefile.in is free software; the Free Software Foundation
+# gives unlimited permission to copy and/or distribute it,
+# with or without modifications, as long as this notice is preserved.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
+# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+@SET_MAKE@
+
+# Copyright 2000, 2001 Free Software Foundation, Inc.
+#
+# This file is part of the GNU MP Library.
+#
+# The GNU MP Library is free software; you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation; either version 2.1 of the License, or (at your
+# option) any later version.
+#
+# The GNU MP Library is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+# or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
+# License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with the GNU MP Library; see the file COPYING.LIB.  If not, write to
+# the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+# MA 02111-1307, USA.
+
+SHELL = @SHELL@
+
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+VPATH = @srcdir@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+infodir = @infodir@
+mandir = @mandir@
+includedir = @includedir@
+oldincludedir = /usr/include
+pkgdatadir = $(datadir)/@PACKAGE@
+pkglibdir = $(libdir)/@PACKAGE@
+pkgincludedir = $(includedir)/@PACKAGE@
+top_builddir = ..
+
+ACLOCAL = @ACLOCAL@
+AUTOCONF = @AUTOCONF@
+AUTOMAKE = @AUTOMAKE@
+AUTOHEADER = @AUTOHEADER@
+
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_SCRIPT = @INSTALL_SCRIPT@
+INSTALL_HEADER = $(INSTALL_DATA)
+transform = @program_transform_name@
+NORMAL_INSTALL = :
+PRE_INSTALL = :
+POST_INSTALL = :
+NORMAL_UNINSTALL = :
+PRE_UNINSTALL = :
+POST_UNINSTALL = :
+host_alias = @host_alias@
+host_triplet = @host@
+AMTAR = @AMTAR@
+AR = @AR@
+AS = @AS@
+AWK = @AWK@
+BITS_PER_MP_LIMB = @BITS_PER_MP_LIMB@
+CALLING_CONVENTIONS_OBJS = @CALLING_CONVENTIONS_OBJS@
+CC = @CC@
+CCAS = @CCAS@
+CPP = @CPP@
+CXX = @CXX@
+CXXCPP = @CXXCPP@
+DEFN_LONG_LONG_LIMB = @DEFN_LONG_LONG_LIMB@
+DEPDIR = @DEPDIR@
+DLLTOOL = @DLLTOOL@
+ECHO = @ECHO@
+EXEEXT = @EXEEXT@
+GCJ = @GCJ@
+GCJFLAGS = @GCJFLAGS@
+GMP_LDFLAGS = @GMP_LDFLAGS@
+GMP_NAIL_BITS = @GMP_NAIL_BITS@
+HAVE_DECL_OPTARG = @HAVE_DECL_OPTARG@
+HAVE_HOST_CPU_FAMILY_power = @HAVE_HOST_CPU_FAMILY_power@
+HAVE_HOST_CPU_FAMILY_powerpc = @HAVE_HOST_CPU_FAMILY_powerpc@
+HAVE_MPFR_01 = @HAVE_MPFR_01@
+HAVE_STACK_T_01 = @HAVE_STACK_T_01@
+INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LEX = @LEX@
+LIBGMP_DLL = @LIBGMP_DLL@
+LIBM = @LIBM@
+LIBREADLINE = @LIBREADLINE@
+LIBTOOL = @LIBTOOL@
+LN_S = @LN_S@
+M4 = @M4@
+MAINT = @MAINT@
+MPFR_CFLAGS = @MPFR_CFLAGS@
+MPFR_LIBS = @MPFR_LIBS@
+OBJDUMP = @OBJDUMP@
+OBJEXT = @OBJEXT@
+PACKAGE = @PACKAGE@
+RANLIB = @RANLIB@
+RC = @RC@
+REPL_VSNPRINTF_OBJ = @REPL_VSNPRINTF_OBJ@
+REPL_VSNPRINTF_PRINTF_OBJ = @REPL_VSNPRINTF_PRINTF_OBJ@
+SPEED_CYCLECOUNTER_OBJ = @SPEED_CYCLECOUNTER_OBJ@
+STRIP = @STRIP@
+TAL_OBJECT = @TAL_OBJECT@
+TUNE_SQR_OBJ = @TUNE_SQR_OBJ@
+U = @U@
+VERSION = @VERSION@
+WITH_READLINE_01 = @WITH_READLINE_01@
+YACC = @YACC@
+am__include = @am__include@
+am__quote = @am__quote@
+gmp_srclinks = @gmp_srclinks@
+install_sh = @install_sh@
+mpn_objects = @mpn_objects@
+mpn_objs_in_libgmp = @mpn_objs_in_libgmp@
+mpn_objs_in_libmp = @mpn_objs_in_libmp@
+
+AUTOMAKE_OPTIONS = gnu no-dependencies $(top_builddir)/ansi2knr
+SUBDIRS = calc expr
+EXTRA_DIST = perl
+
+INCLUDES = -I$(top_srcdir)
+LDADD = $(top_builddir)/libgmp.la
+
+qcn_LDADD = $(LDADD) $(LIBM)
+primes_LDADD = $(LDADD) $(LIBM)
+
+# None of these programs are built by default, but "make <whatever>" will
+# build them once libgmp.la is built.
+#
+EXTRA_PROGRAMS = factorize isprime pexpr primes qcn
+
+CLEANFILES = $(EXTRA_PROGRAMS)
+subdir = demos
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+CONFIG_HEADER = $(top_builddir)/config.h
+CONFIG_CLEAN_FILES = pexpr-config.h
+EXTRA_PROGRAMS = factorize$(EXEEXT) isprime$(EXEEXT) pexpr$(EXEEXT) \
+	primes$(EXEEXT) qcn$(EXEEXT)
+factorize_SOURCES = factorize.c
+factorize_OBJECTS = factorize$U.$(OBJEXT)
+factorize_LDADD = $(LDADD)
+factorize_DEPENDENCIES = $(top_builddir)/libgmp.la
+factorize_LDFLAGS =
+isprime_SOURCES = isprime.c
+isprime_OBJECTS = isprime$U.$(OBJEXT)
+isprime_LDADD = $(LDADD)
+isprime_DEPENDENCIES = $(top_builddir)/libgmp.la
+isprime_LDFLAGS =
+pexpr_SOURCES = pexpr.c
+pexpr_OBJECTS = pexpr$U.$(OBJEXT)
+pexpr_LDADD = $(LDADD)
+pexpr_DEPENDENCIES = $(top_builddir)/libgmp.la
+pexpr_LDFLAGS =
+primes_SOURCES = primes.c
+primes_OBJECTS = primes$U.$(OBJEXT)
+primes_DEPENDENCIES = $(top_builddir)/libgmp.la
+primes_LDFLAGS =
+qcn_SOURCES = qcn.c
+qcn_OBJECTS = qcn$U.$(OBJEXT)
+qcn_DEPENDENCIES = $(top_builddir)/libgmp.la
+qcn_LDFLAGS =
+
+DEFS = @DEFS@
+DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
+CPPFLAGS = @CPPFLAGS@
+LDFLAGS = @LDFLAGS@
+LIBS = @LIBS@
+depcomp =
+COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) \
+	$(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+CCLD = $(CC)
+LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
+CFLAGS = @CFLAGS@
+DIST_SOURCES = factorize.c isprime.c pexpr.c primes.c qcn.c
+
+RECURSIVE_TARGETS = info-recursive dvi-recursive install-info-recursive \
+	uninstall-info-recursive all-recursive install-data-recursive \
+	install-exec-recursive installdirs-recursive install-recursive \
+	uninstall-recursive check-recursive installcheck-recursive
+DIST_COMMON = Makefile.am Makefile.in pexpr-config-h.in
+DIST_SUBDIRS = $(SUBDIRS)
+SOURCES = factorize.c isprime.c pexpr.c primes.c qcn.c
+
+all: all-recursive
+
+.SUFFIXES:
+.SUFFIXES: .c .lo .o .obj
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
+
+distclean-libtool:
+	-rm -f libtool
+$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
+	cd $(top_srcdir) && \
+	  $(AUTOMAKE) --gnu  demos/Makefile
+Makefile: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.in  $(top_builddir)/config.status
+	cd $(top_builddir) && \
+	  CONFIG_HEADERS= CONFIG_LINKS= \
+	  CONFIG_FILES=$(subdir)/$@ $(SHELL) ./config.status
+pexpr-config.h: $(top_builddir)/config.status pexpr-config-h.in
+	cd $(top_builddir) && CONFIG_FILES=$(subdir)/$@:demos/pexpr-config-h.in CONFIG_HEADERS= CONFIG_LINKS= $(SHELL) ./config.status
+factorize$(EXEEXT): $(factorize_OBJECTS) $(factorize_DEPENDENCIES) 
+	@rm -f factorize$(EXEEXT)
+	$(LINK) $(factorize_LDFLAGS) $(factorize_OBJECTS) $(factorize_LDADD) $(LIBS)
+isprime$(EXEEXT): $(isprime_OBJECTS) $(isprime_DEPENDENCIES) 
+	@rm -f isprime$(EXEEXT)
+	$(LINK) $(isprime_LDFLAGS) $(isprime_OBJECTS) $(isprime_LDADD) $(LIBS)
+pexpr$(EXEEXT): $(pexpr_OBJECTS) $(pexpr_DEPENDENCIES) 
+	@rm -f pexpr$(EXEEXT)
+	$(LINK) $(pexpr_LDFLAGS) $(pexpr_OBJECTS) $(pexpr_LDADD) $(LIBS)
+primes$(EXEEXT): $(primes_OBJECTS) $(primes_DEPENDENCIES) 
+	@rm -f primes$(EXEEXT)
+	$(LINK) $(primes_LDFLAGS) $(primes_OBJECTS) $(primes_LDADD) $(LIBS)
+qcn$(EXEEXT): $(qcn_OBJECTS) $(qcn_DEPENDENCIES) 
+	@rm -f qcn$(EXEEXT)
+	$(LINK) $(qcn_LDFLAGS) $(qcn_OBJECTS) $(qcn_LDADD) $(LIBS)
+
+mostlyclean-compile:
+	-rm -f *.$(OBJEXT) core *.core
+
+distclean-compile:
+	-rm -f *.tab.c
+
+ANSI2KNR = $(top_builddir)/ansi2knr
+$(top_builddir)/ansi2knr:
+	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) ansi2knr
+
+mostlyclean-kr:
+	-test "$U" = "" || rm -f *_.c
+
+.c.o:
+	$(COMPILE) -c `test -f $< || echo '$(srcdir)/'`$<
+
+.c.obj:
+	$(COMPILE) -c `cygpath -w $<`
+
+.c.lo:
+	$(LTCOMPILE) -c -o $@ `test -f $< || echo '$(srcdir)/'`$<
+factorize_.c: factorize.c $(ANSI2KNR)
+	$(CPP) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) `if test -f $(srcdir)/factorize.c; then echo $(srcdir)/factorize.c; else echo factorize.c; fi` | sed 's/^# \([0-9]\)/#line \1/' | $(ANSI2KNR) > factorize_.c || rm -f factorize_.c
+isprime_.c: isprime.c $(ANSI2KNR)
+	$(CPP) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) `if test -f $(srcdir)/isprime.c; then echo $(srcdir)/isprime.c; else echo isprime.c; fi` | sed 's/^# \([0-9]\)/#line \1/' | $(ANSI2KNR) > isprime_.c || rm -f isprime_.c
+pexpr_.c: pexpr.c $(ANSI2KNR)
+	$(CPP) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) `if test -f $(srcdir)/pexpr.c; then echo $(srcdir)/pexpr.c; else echo pexpr.c; fi` | sed 's/^# \([0-9]\)/#line \1/' | $(ANSI2KNR) > pexpr_.c || rm -f pexpr_.c
+primes_.c: primes.c $(ANSI2KNR)
+	$(CPP) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) `if test -f $(srcdir)/primes.c; then echo $(srcdir)/primes.c; else echo primes.c; fi` | sed 's/^# \([0-9]\)/#line \1/' | $(ANSI2KNR) > primes_.c || rm -f primes_.c
+qcn_.c: qcn.c $(ANSI2KNR)
+	$(CPP) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) `if test -f $(srcdir)/qcn.c; then echo $(srcdir)/qcn.c; else echo qcn.c; fi` | sed 's/^# \([0-9]\)/#line \1/' | $(ANSI2KNR) > qcn_.c || rm -f qcn_.c
+factorize_.$(OBJEXT) factorize_.lo isprime_.$(OBJEXT) isprime_.lo \
+pexpr_.$(OBJEXT) pexpr_.lo primes_.$(OBJEXT) primes_.lo qcn_.$(OBJEXT) \
+qcn_.lo : $(ANSI2KNR)
+uninstall-info-am:
+
+# This directory's subdirectories are mostly independent; you can cd
+# into them and run `make' without going through this Makefile.
+# To change the values of `make' variables: instead of editing Makefiles,
+# (1) if the variable is set in `config.status', edit `config.status'
+#     (which will cause the Makefiles to be regenerated when you run `make');
+# (2) otherwise, pass the desired values on the `make' command line.
+$(RECURSIVE_TARGETS):
+	@set fnord $(MAKEFLAGS); amf=$$2; \
+	dot_seen=no; \
+	target=`echo $@ | sed s/-recursive//`; \
+	list='$(SUBDIRS)'; for subdir in $$list; do \
+	  echo "Making $$target in $$subdir"; \
+	  if test "$$subdir" = "."; then \
+	    dot_seen=yes; \
+	    local_target="$$target-am"; \
+	  else \
+	    local_target="$$target"; \
+	  fi; \
+	  (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $$local_target) \
+	   || case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
+	done; \
+	if test "$$dot_seen" = "no"; then \
+	  $(MAKE) $(AM_MAKEFLAGS) "$$target-am" || exit 1; \
+	fi; test -z "$$fail"
+
+mostlyclean-recursive clean-recursive distclean-recursive \
+maintainer-clean-recursive:
+	@set fnord $(MAKEFLAGS); amf=$$2; \
+	dot_seen=no; \
+	case "$@" in \
+	  distclean-* | maintainer-clean-*) list='$(DIST_SUBDIRS)' ;; \
+	  *) list='$(SUBDIRS)' ;; \
+	esac; \
+	rev=''; for subdir in $$list; do \
+	  if test "$$subdir" = "."; then :; else \
+	    rev="$$subdir $$rev"; \
+	  fi; \
+	done; \
+	rev="$$rev ."; \
+	target=`echo $@ | sed s/-recursive//`; \
+	for subdir in $$rev; do \
+	  echo "Making $$target in $$subdir"; \
+	  if test "$$subdir" = "."; then \
+	    local_target="$$target-am"; \
+	  else \
+	    local_target="$$target"; \
+	  fi; \
+	  (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $$local_target) \
+	   || case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
+	done && test -z "$$fail"
+tags-recursive:
+	list='$(SUBDIRS)'; for subdir in $$list; do \
+	  test "$$subdir" = . || (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) tags); \
+	done
+
+tags: TAGS
+
+ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
+	list='$(SOURCES) $(HEADERS) $(TAGS_FILES)'; \
+	unique=`for i in $$list; do \
+	    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+	  done | \
+	  $(AWK) '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	mkid -fID $$unique $(LISP)
+
+TAGS: tags-recursive $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) \
+		$(TAGS_FILES) $(LISP)
+	tags=; \
+	here=`pwd`; \
+	list='$(SUBDIRS)'; for subdir in $$list; do \
+	  if test "$$subdir" = .; then :; else \
+	    test -f $$subdir/TAGS && tags="$$tags -i $$here/$$subdir/TAGS"; \
+	  fi; \
+	done; \
+	list='$(SOURCES) $(HEADERS) $(TAGS_FILES)'; \
+	unique=`for i in $$list; do \
+	    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+	  done | \
+	  $(AWK) '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	test -z "$(ETAGS_ARGS)$$unique$(LISP)$$tags" \
+	  || etags $(ETAGS_ARGS) $$tags  $$unique $(LISP)
+
+GTAGS:
+	here=`CDPATH=: && cd $(top_builddir) && pwd` \
+	  && cd $(top_srcdir) \
+	  && gtags -i $(GTAGS_ARGS) $$here
+
+distclean-tags:
+	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH
+
+DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+
+top_distdir = ..
+distdir = $(top_distdir)/$(PACKAGE)-$(VERSION)
+
+distdir: $(DISTFILES)
+	@for file in $(DISTFILES); do \
+	  if test -f $$file; then d=.; else d=$(srcdir); fi; \
+	  dir=`echo "$$file" | sed -e 's,/[^/]*$$,,'`; \
+	  if test "$$dir" != "$$file" && test "$$dir" != "."; then \
+	    $(mkinstalldirs) "$(distdir)/$$dir"; \
+	  fi; \
+	  if test -d $$d/$$file; then \
+	    cp -pR $$d/$$file $(distdir) \
+	    || exit 1; \
+	  else \
+	    test -f $(distdir)/$$file \
+	    || cp -p $$d/$$file $(distdir)/$$file \
+	    || exit 1; \
+	  fi; \
+	done
+	for subdir in $(SUBDIRS); do \
+	  if test "$$subdir" = .; then :; else \
+	    test -d $(distdir)/$$subdir \
+	    || mkdir $(distdir)/$$subdir \
+	    || exit 1; \
+	    (cd $$subdir && \
+	      $(MAKE) $(AM_MAKEFLAGS) \
+	        top_distdir="$(top_distdir)" \
+	        distdir=../$(distdir)/$$subdir \
+	        distdir) \
+	      || exit 1; \
+	  fi; \
+	done
+check-am: all-am
+check: check-recursive
+all-am: Makefile
+installdirs: installdirs-recursive
+installdirs-am:
+
+install: install-recursive
+install-exec: install-exec-recursive
+install-data: install-data-recursive
+uninstall: uninstall-recursive
+
+install-am: all-am
+	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
+
+installcheck: installcheck-recursive
+install-strip:
+	$(MAKE) $(AM_MAKEFLAGS) INSTALL_PROGRAM="$(INSTALL_STRIP_PROGRAM)" \
+	  `test -z '$(STRIP)' || \
+	    echo "INSTALL_PROGRAM_ENV=STRIPPROG='$(STRIP)'"` install
+mostlyclean-generic:
+
+clean-generic:
+	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
+
+distclean-generic:
+	-rm -f Makefile $(CONFIG_CLEAN_FILES) stamp-h stamp-h[0-9]*
+
+maintainer-clean-generic:
+	@echo "This command is intended for maintainers to use"
+	@echo "it deletes files that may require special tools to rebuild."
+clean: clean-recursive
+
+clean-am: clean-generic clean-libtool mostlyclean-am
+
+distclean: distclean-recursive
+
+distclean-am: clean-am distclean-compile distclean-generic \
+	distclean-libtool distclean-tags
+
+dvi: dvi-recursive
+
+dvi-am:
+
+info: info-recursive
+
+info-am:
+
+install-data-am:
+
+install-exec-am:
+
+install-info: install-info-recursive
+
+install-man:
+
+installcheck-am:
+
+maintainer-clean: maintainer-clean-recursive
+
+maintainer-clean-am: distclean-am maintainer-clean-generic
+
+mostlyclean: mostlyclean-recursive
+
+mostlyclean-am: mostlyclean-compile mostlyclean-generic mostlyclean-kr \
+	mostlyclean-libtool
+
+uninstall-am: uninstall-info-am
+
+uninstall-info: uninstall-info-recursive
+
+.PHONY: $(RECURSIVE_TARGETS) GTAGS all all-am check check-am clean \
+	clean-generic clean-libtool clean-recursive distclean \
+	distclean-compile distclean-generic distclean-libtool \
+	distclean-recursive distclean-tags distdir dvi dvi-am \
+	dvi-recursive info info-am info-recursive install install-am \
+	install-data install-data-am install-data-recursive \
+	install-exec install-exec-am install-exec-recursive \
+	install-info install-info-am install-info-recursive install-man \
+	install-recursive install-strip installcheck installcheck-am \
+	installdirs installdirs-am installdirs-recursive \
+	maintainer-clean maintainer-clean-generic \
+	maintainer-clean-recursive mostlyclean mostlyclean-compile \
+	mostlyclean-generic mostlyclean-kr mostlyclean-libtool \
+	mostlyclean-recursive tags tags-recursive uninstall \
+	uninstall-am uninstall-info-am uninstall-info-recursive \
+	uninstall-recursive
+
+
+allprogs: $(EXTRA_PROGRAMS)
+	cd calc; $(MAKE) $(AM_MAKEFLAGS) allprogs
+	cd expr; $(MAKE) $(AM_MAKEFLAGS) allprogs
+# Tell versions [3.59,3.63) of GNU make to not export all variables.
+# Otherwise a system limit (for SysV at least) may be exceeded.
+.NOEXPORT:

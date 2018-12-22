@@ -1,0 +1,15 @@
+
+In many of these scene (.setup) files the simulation will run slower
+when collisions are occuring.  A less picky collision method would be
+probably substantially faster.  The second number in each file
+determines if contratins of penalty forces should be used for
+collision responce.  ( 0 -- constraints, 1 -- penalty ) The penalty
+method tends to be faster but looks worse.
+
+The first number on the fifth line is the threshold used for
+collisions detection.  Larger numbers give faster simulations, but at
+the cost of less accurate collisions responce.
+
+
+scene.setup -- two balls bouncing into each other
+ 

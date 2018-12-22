@@ -1,0 +1,22 @@
+struct vertout
+{
+    float4 Pos			: POSITION;
+    float4 Col			: COLOR0;
+    float4 uv			: TEXCOORD0;
+};
+
+void main(	vertout IN, 
+			uniform sampler2D leavesBMP,
+			uniform float depthScale,
+			out float4 color : COLOR, 
+			out float depth : DEPTH) 
+{
+	float4 texCol	= tex2D(leavesBMP, IN.uv.xy);
+	if (texCol.a >= 0.5f) {
+		depth			= 1;
+	} else {
+		depth			= IN.uv.z + texCol.a * depthScale;
+	}
+	color.xyz		= texCol.xyz * IN.Col.xyz;
+	color.a			= 1;
+}

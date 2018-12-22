@@ -1,0 +1,36 @@
+<html>
+<head>
+<title></title>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Output</h2>
+<pre>
+<p> THE TABLE OF QUADRUPLES ARE</p>
+<p>LABEL	OPER	OP1	OP2	RES</p>
+<p> =	0		sum<br>
+  =	0		idx<br>
+  CL1	&lt;	idx	nums	t1<br>
+  goto			CL3<br>
+  CL2	+	idx	1	t2<br>
+  =	t2		idx<br>
+  goto			CL1<br>
+  CL3	ifgo	t1		CL4<br>
+  +	sum	qty	t3<br>
+  =	t3		sum<br>
+  goto			CL2<br>
+  CL4	(null) <br>
+  /	sum	nums	t4<br>
+  =	t4		average<br>
+  &lt;	average	10.0	t5<br>
+  ifgo	t5		CL5<br>
+  =	10		a<br>
+  goto	 	 	CL6<br>
+  CL5	=	20	 	b<br>
+  CL6	=	30	 	c</p>
+<p>Name	Type	subtype	Width<br>
+  t3	basic	int	4</p>
+<p>cstackTop=-1 and bstackTop =-1<br>
+</p>
+</pre>
+</body>
+</html>

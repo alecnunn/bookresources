@@ -1,0 +1,1 @@
+NormalMapCreator.exe ../height.tga ../normal.tga 20

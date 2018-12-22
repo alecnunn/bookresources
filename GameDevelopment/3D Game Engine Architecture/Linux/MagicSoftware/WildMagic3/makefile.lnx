@@ -1,0 +1,21 @@
+build :
+	cd Source && make -f makefile.lnx
+	cd Renderers && make -f makefile.lnx
+	cd Application && make -f makefile.lnx
+	cd Test && make -f makefile.lnx
+	cd SamplePhysics && make -f makefile.lnx
+	cd SampleShaders && make -f makefile.lnx
+	cd SampleImagics && make -f makefile.lnx
+	cd SampleMiscellaneous && make -f makefile.lnx
+	cd Tools && make -f makefile.lnx
+
+clean :
+	cd Source && make clean -f makefile.lnx
+	cd Renderers && make clean  -f makefile.lnx
+	cd Application && make clean -f makefile.lnx
+	cd Test && make clean -f makefile.lnx
+	cd SamplePhysics && make clean -f makefile.lnx
+	cd SampleShaders && make clean -f makefile.lnx
+	cd SampleImagics && make clean -f makefile.lnx
+	cd SampleMiscellaneous && make clean -f makefile.lnx
+	cd Tools && make clean -f makefile.lnx

@@ -1,0 +1,67 @@
+float fast_fresnel(float3 I, float3 N, float3 fresnelValues)
+{
+    float power = fresnelValues.x;
+    float scale = fresnelValues.y;
+    float bias = fresnelValues.z;
+
+    return bias + pow(1.0 + dot(I, N), power) * scale;
+}
+
+float3 myrefract(float3 i, float3 n, float eta)
+{
+    float cosi = dot(-i, n);
+    float cost2 = 1.0 - eta * eta * (1.0 - cosi*cosi);
+    float3 t = eta*i + ((eta*cosi - sqrt(abs(cost2))) * n);
+    return t * float3(cost2 > 0.0);
+}
+
+void main(float4 position : POSITION,
+		  float3 normal   : NORMAL,
+
+		  out float4 oPosition  : POSITION,
+		  out float3 incident   : TEXCOORD0,
+		  out float3 n_out      : TEXCOORD1,
+		  //out float3 incident   : TEXCOORD2,
+		  out float reflectionFactor : COLOR,
+
+		  //uniform float3 eyePositionW,
+		  uniform float3 fresnelValues,
+		  uniform float4x4 texMatrix,
+		  uniform float4x4 modelViewProj, 
+		  uniform float4x4 modelToWorld)
+{
+	float3 eyePositionW = float3(0.0, 0.0, 0.0);
+
+	oPosition = mul(modelViewProj, position);
+
+	float3 posW = mul(modelToWorld, position).xyz;
+	//posW *= 0.1;
+//	positionW = mul(texMatrix, float4(positionW, 1.0f)).xyz;
+	float3 N = mul((float3x3)modelToWorld, normal);
+
+	//transpose(modelToWorld);
+//	n_out = mul((float3x3)texMatrix, mul(modelToWorldIT, normal).xyz);
+//	n_out = mul((float3x3)texMatrix, mul((float3x3)modelToWorld, normal).xyz);
+	n_out = mul((float3x3)texMatrix, N);//mul((float3x3)modelToWorld, normal).xyz);
+	N = normalize(N);
+	//n_out = mul(modelViewProj, normal);
+
+	/** incident vector **/
+	incident = posW - eyePositionW;
+	float3 I = normalize(incident);//posW - eyePositionW);
+//	float3 I = (posW - eyePositionW);
+
+
+	float etaRatio = 1.3; // water
+	//float etaRatio = 1.1; // glass
+	//T = mul((float3x3)texMatrix, I.xyz).xyz;
+	
+	//R = mul((float3x3)texMatrix, reflect(I, N).xyz).xyz;
+	incident = mul((float3x3)texMatrix, incident);//refract(I, N, etaRatio).xyz).xyz;
+
+
+	//T = refract(I, N, etaRatio);
+	//R = reflect(I, N);
+	//
+	reflectionFactor = fast_fresnel(I, N, fresnelValues);
+}

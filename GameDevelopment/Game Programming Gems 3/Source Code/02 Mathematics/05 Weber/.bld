@@ -1,0 +1,258 @@
+include "base.bld"
+
+
+set ROOT.DIRECTORIES = $(DIRECTORIES)
+
+if(!$(DIRECTORIES))
+{
+	set ROOT.DIRECTORIES = BonesTestbed
+}
+
+help:-
+{
+	echo "The DIRECTORIES environment variable specifies default target directories"
+	echo "  Currently DIRECTORIES = $(DIRECTORIES)"
+	echo ""
+	echo "The USER_DIRS environment variable appends target directories to default"
+	echo "  Currently USER_DIRS = $(USER_DIRS)"
+	echo ""
+	echo "Target directories may be specified as targets on the command line"
+
+	echo ""
+}
+
+if(!$(BLD_TARGETS))
+{
+	echo "No target specified"
+	echo ""
+	check(help)
+}
+
+set ROOT.DIRECTORIES += $(USER_DIRS)
+
+CoralTree:
+{
+	set DEP = 
+	check($(0).dir)
+}
+
+Memory:
+{
+	set DEP = 
+	check($(0).dir)
+}
+
+Base:
+{
+	set DEP = Memory
+	check($(0).dir)
+}
+
+HParser:
+{
+	set DEP = Base
+	check($(0).dir)
+}
+
+FileIO:
+{
+	set DEP = HParser
+	check($(0).dir)
+}
+
+InfoRenderOGL:
+{
+	set DEP =
+	check($(0).dir)
+}
+
+Bones:
+{
+	set DEP =
+	check($(0).dir)
+}
+
+BonesTestbed:
+{
+	set DEP = Bones
+#	set DEP += CoralTree
+	check($(0).dir)
+}
+
+([ -~]*)_([A-Za-z]*).dsp.basename:
+{
+	set ROOT.BASENAME = $(1)
+	set ROOT.SUFFIX = $(2)
+	echo $(0) - $(1) - $(2)
+}
+
+([ -~]*).(dir):
+{
+	set SILENT=1
+	foreach I ($(DEP))
+	{
+		check($(I))
+	}
+
+	if($(PRETTY) == 1)
+	{
+		set SILENT=1
+		if($(BLD_OS)!=nt)
+		{
+			system("echo -n ==============================================================")
+			system("echo -n ")
+		}
+		echo "[5m[32m$(1)[0m $(MODENAME)"
+	}
+
+
+	if( $(BLD_TARGETS) == "tags" )
+	{
+		ctags -a $(1)/*.h $(1)/*.cpp
+		break
+	}
+
+	if(!$(SUBTARGETS))
+	{
+		set ROOT.SUBTARGETS = all
+	}
+
+	if($(DSW) == 1)
+	{
+		cd $(1)
+		build.exe dsp $(SUBTARGETS)
+		set MYDSPS=`$(LS) *.dsp`
+		cd ..
+		foreach I ($(DEP))
+		{
+			cd $(I)
+			build.exe dsp $(SUBTARGETS)
+			cd ..
+		}
+		if($(MYDSPS) != "File Not Found" && $(MYDSPS) != "The system cannot find the file specified.")
+		{
+			foreach A ($(MYDSPS))
+			{
+				build($(A).basename)
+				set X=$(BASENAME)
+				set Y=$(SUFFIX)
+				set PROJNAME=$(X).$(Y)
+				echo "$(PROJNAME) ++"
+				set PROJFILE=$(1)$(BS)$(A)
+				system("echo $(PARA)###############################################################################$(LF)$(PARA) >> $(DSWFILE)")
+				system("echo $(PARA)Project$(COLON) \"$(PROJNAME)\"=.$(BS)$(PROJFILE) - Package Owner=$(LT)4$(GT)$(LF)$(PARA) >> $(DSWFILE)")
+				system("echo $(PARA)Package=$(LT)5$(GT)$(LF)$(PARA) >> $(DSWFILE)")
+				system("echo $(PARA){{{$(LF)$(PARA) >> $(DSWFILE)")
+				system("echo $(PARA)}}}$(LF)$(PARA) >> $(DSWFILE)")
+				system("echo $(PARA)Package=$(LT)4$(GT)$(LF)$(PARA) >> $(DSWFILE)")
+				system("echo $(PARA){{{$(LF)$(PARA) >> $(DSWFILE)")
+				if($(Y) == exe)
+				{
+					foreach J ($(MYDSPS))
+					{
+						build($(J).basename)
+						set K=$(BASENAME)
+						set S=$(SUFFIX)
+						echo "$(K) - $(S) --"
+						if($(S) != exe)
+						{
+							system("echo $(PARA)Begin Project Dependency$(LF)$(PARA) >> $(DSWFILE)")
+							system("echo $(PARA)Project_Dep_Name $(K).$(S)$(LF)$(PARA) >> $(DSWFILE)")
+							system("echo $(PARA)End Project Dependency$(LF)$(PARA) >> $(DSWFILE)")
+						}
+					}
+				}
+				foreach I ($(DEP))
+				{
+					cd $(I)
+					set DSPS=`$(LS) *.dsp`
+					cd ..
+					if($(DSPS) != "File Not Found" && $(DSPS) != "The system cannot find the file specified.")
+					{
+echo "** $(DSPS) **"
+						foreach J ($(DSPS))
+						{
+							build($(J).basename)
+							set K=$(BASENAME)
+							set S=$(SUFFIX)
+							echo "$(K) - $(S) --"
+							if($(S) != exe)
+							{
+								system("echo $(PARA)Begin Project Dependency$(LF)$(PARA) >> $(DSWFILE)")
+								system("echo $(PARA)Project_Dep_Name $(K).$(S)$(LF)$(PARA) >> $(DSWFILE)")
+								system("echo $(PARA)End Project Dependency$(LF)$(PARA) >> $(DSWFILE)")
+							}
+						}
+					}
+				}
+				system("echo $(PARA)}}}$(LF)$(PARA) >> $(DSWFILE)")
+			}
+		}
+	}
+	else
+	{
+		cd $(1)
+		build.exe $(SUBTARGETS)
+		cd ..
+	}
+	set SILENT=0
+}
+
+
+
+all:
+{
+	set ROOT.SUBTARGETS += $(0)
+	build( $(DIRECTORIES) )
+}
+
+objclean:
+{
+	set ROOT.SUBTARGETS += $(0)
+	build( $(DIRECTORIES) )
+}
+
+clean:
+{
+	set ROOT.SUBTARGETS += $(0)
+	build( $(DIRECTORIES) )
+}
+
+dsp:
+{
+	set ROOT.SUBTARGETS += $(0)
+	build( $(DIRECTORIES) )
+}
+
+dsw:
+{
+	set SILENT=1
+	$(RM) pangea.opt
+	set ROOT.DSWFILE=pangea.dsw
+	system("echo $(PARA)Microsoft Developer Studio Workspace File, Format Version 6.00$(LF)$(PARA) > $(DSWFILE)")
+	system("echo $(PARA)# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!$(LF)$(PARA) >> $(DSWFILE)")
+	set ROOT.DSW=1
+	set SILENT=0
+}
+
+
+tags:
+{
+	set ROOT.SUBTARGETS += $(0)
+	ctags Include/*.h Include/*/*.h
+	build( $(DIRECTORIES) )
+}
+
+win32:
+{
+	echo "TODO check if this is this necessary??????"
+	foreach D ($(DIRECTORIES))
+	{
+		cd $(D)
+		echo "======== $(D)"
+		system("build.exe all");
+		cd ..
+	}
+}
+
+check($(USER))

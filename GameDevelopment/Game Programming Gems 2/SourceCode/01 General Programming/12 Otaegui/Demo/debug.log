@@ -1,0 +1,122 @@
+========> ACTIVATEAPP
+bActive 1 bInicio 1 bFin 0 bSuspended 0
+Fin ACTIVATEAPP
+ini ThreadPrincipal()
+ini RunGame()
+HAL: Soporta aceleracion 3d
+HAL: Soporta alpha-only textures
+
+Pixel Format:
+Red:	11 5
+Green:	5 6
+Blue:	0 5
+
+Vidmem Total: 32516096, Free: 31778816
++ Stack->NextCell 10030592 8
++ Stack->Data 10030528 8
+InitLetras()
+ini LoadLetras
+initLUTs()
+allocloadPCX: letras6.lfb
+load xsize 176 ysize 272
++ allocload_blitbufPCX->image 8934036 47872
+- allocload_blitbufPCX->image 8934036
+fin LoadLetras
+ini LoadLetras
+allocloadPCX: verde.lfb
+load xsize 406 ysize 624
++ allocload_blitbufPCX->image 8934036 253344
+- allocload_blitbufPCX->image 8934036
+fin LoadLetras
++ Stack->NextCell 10051936 8
++ Stack->Data 10051872 8
+- Stack->Data 10051872
+- Stack->NextCell 10051936
++ Stack->NextCell 10051936 8
++ Stack->Data 10051872 8
+CargarGraficosAsteroid()
+allocloadPCX: launcher.lfb
+load xsize 320 ysize 320
++ allocload_blitbufPCX->image 8934036 102400
+- allocload_blitbufPCX->image 8934036
+- Stack->Data 10051872
+- Stack->NextCell 10051936
+ini LoadLetras
+allocloadPCX: verde.lfb
+load xsize 406 ysize 624
++ allocload_blitbufPCX->image 8934036 253344
+- allocload_blitbufPCX->image 8934036
+fin LoadLetras
++ Stack->NextCell 10067232 8
++ Stack->Data 10067168 8
+- Stack->Data 10067168
+- Stack->NextCell 10067232
+INI unInitVideoSystem
+SetCooperativeLevel No error.
+RestoreDisplayMode No error.
+END unInitVideoSystem
+fin RunGame()
+fin ThreadPrincipal()
+- Stack->Data 10030528
+- Stack->Cell 10030592
+========> ACTIVATEAPP
+bActive 1 bInicio 1 bFin 0 bSuspended 0
+Fin ACTIVATEAPP
+ini ThreadPrincipal()
+ini RunGame()
+HAL: Soporta aceleracion 3d
+HAL: Soporta alpha-only textures
+
+Pixel Format:
+Red:	11 5
+Green:	5 6
+Blue:	0 5
+
+Vidmem Total: 32516096, Free: 31778816
++ Stack->NextCell 10030592 8
++ Stack->Data 10030528 8
+InitLetras()
+ini LoadLetras
+initLUTs()
+allocloadPCX: letras6.lfb
+load xsize 176 ysize 272
++ allocload_blitbufPCX->image 8934036 47872
+- allocload_blitbufPCX->image 8934036
+fin LoadLetras
+ini LoadLetras
+allocloadPCX: verde.lfb
+load xsize 406 ysize 624
++ allocload_blitbufPCX->image 8934036 253344
+- allocload_blitbufPCX->image 8934036
+fin LoadLetras
++ Stack->NextCell 10051872 8
++ Stack->Data 10051808 8
+- Stack->Data 10051808
+- Stack->NextCell 10051872
++ Stack->NextCell 10051872 8
++ Stack->Data 10051808 8
+CargarGraficosAsteroid()
+allocloadPCX: launcher.lfb
+load xsize 320 ysize 320
++ allocload_blitbufPCX->image 8934036 102400
+- allocload_blitbufPCX->image 8934036
+- Stack->Data 10051808
+- Stack->NextCell 10051872
+ini LoadLetras
+allocloadPCX: verde.lfb
+load xsize 406 ysize 624
++ allocload_blitbufPCX->image 8934036 253344
+- allocload_blitbufPCX->image 8934036
+fin LoadLetras
++ Stack->NextCell 10067168 8
++ Stack->Data 10067104 8
+- Stack->Data 10067104
+- Stack->NextCell 10067168
+INI unInitVideoSystem
+SetCooperativeLevel No error.
+RestoreDisplayMode No error.
+END unInitVideoSystem
+fin RunGame()
+fin ThreadPrincipal()
+- Stack->Data 10030528
+- Stack->Cell 10030592

@@ -1,0 +1,31 @@
+// Infinity Ball Script 1.0
+// Copyright Peter Smith 2005. All rights reserved.
+// This script will implement the behavior of the common
+// toy that randomly respondes to questions asked by
+// the user.  
+
+// This is the max number that can be randomized
+float max = 8.0;
+default
+{
+    // This code runs once when a player touches the object
+    touch_start(integer total_number)
+    {
+        float choice;
+        integer result;
+        // llFrand creates a random number
+        choice = llFrand(max);
+        // Casting the float as an integer truncates
+        // the decemal
+        result = (integer)choice;
+        
+        if(result == 0) llSay(0, "Yes, of course");
+        else if(result == 1) llSay(0, "Cannot determine now");
+        else if(result == 2) llSay(0, "Indicators point to yes");
+        else if(result == 3) llSay(0, "Not looking good");
+        else if(result == 4) llSay(0, "You can count on it");
+        else if(result == 5) llSay(0, "It is undoubtable");
+        else if(result == 6) llSay(0, "No");
+        else if(result == 7) llSay(0, "YES");
+    }
+}

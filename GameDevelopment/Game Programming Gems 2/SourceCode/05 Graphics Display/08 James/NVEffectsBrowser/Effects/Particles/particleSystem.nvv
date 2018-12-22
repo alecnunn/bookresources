@@ -1,0 +1,200 @@
+/************************************************************************
+particleSystem.nvv
+
+Vertex Shader for the Particle System
+
+Each vertex contains
+    v0: (creationTime, 1/lifeTime, periodicity, 1/periodicity)
+    v1: (decay, 1/(decay * log(2)), velocity, random-seed)
+    v2: rgba color 
+
+This vertex shader computes the position, color, and fog value for a 
+particle.  It also computes the sprite-point size.
+
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+*************************************************************************/
+
+
+#include "ParticleSystem.h"
+
+vs.1.1
+
+#define ZERO          c[VSC_CONSTANTS].x
+#define SIXTH       - c[VSC_SINE].y
+#define FOURTH        c[VSC_CONSTANTS2].y
+#define THIRD         c[VSC_CONSTANTS].w
+#define HALF          c[VSC_CONSTANTS2].x
+#define MINUS_HALF    c[VSC_COSINE].y
+#define ONE           c[VSC_COSINE].x
+#define TWO           c[VSC_CONSTANTS].y
+#define PI            c[VSC_CONSTANTS].z
+#define ONE_OVER_2PI  c[VSC_CONSTANTS2].w
+#define PART_RADIUS   c[VSC_CONSTANTS2].z
+
+#define TIME_DELTA r0
+
+#define POSITION   r1
+#define DIRECTION  r2
+
+#define PERIOD     r3
+#define RND        r7
+
+#define TEMP1      r4
+#define TEMP2      r5
+
+#define ALPHA      r7
+
+#define SIN_Y            r8
+
+#define USE_BOUNCE       r9.x
+#define NO_BOUNCE        r9.y
+#define BOUNCE_NUM       r9.z
+
+; compute time delta dt: current time - creation time
+; ensure dt >= 0 
+add TIME_DELTA.x, - c[VSC_CURRENT_TIME].x, v0.x
+max TIME_DELTA.x, - TIME_DELTA.x, ZERO 
+
+; now do dt = dt - periodicity * floor(dt/periodicity)
+; ie make dt range from 0 to periodicity
+mul  TEMP1.x, TIME_DELTA.x, v0.w
+expp TEMP1.y, TEMP1.x
+add  PERIOD.x, TEMP1.x, - TEMP1.y
+mad  TIME_DELTA.x, - PERIOD.x, v0.z, TIME_DELTA.x 
+
+; compute a randomized direction from original direction
+; first compute PERIOD modulo how many rnd vectors we have
+; offset = numRndVec * frc(period/numRndVec)
+; Since we are using PERIOD, the random numbers will NOT change
+; during the lifetime of a particle, but WILL change when it starts a 
+; new life!
+mul TEMP1.x, PERIOD.x, c[VSC_RND_NUM_VECTORS].y
+expp TEMP1.y, TEMP1.x
+mul TEMP1.x, TEMP1.y, c[VSC_RND_NUM_VECTORS].x
+mov a0.x, TEMP1.x     ; we are going to index into our random-seed field
+
+; now we are going to produce 4 random numbers in RND
+; add vertex-seed to constant-seed, and only keep the fractional part
+add RND, v1.w, c[a0.x + VSC_RND_START]
+expp TEMP1.y, RND.x
+mov RND.x, TEMP1.y
+expp TEMP1.y, RND.z
+mov RND.z, TEMP1.y
+expp TEMP1.y, RND.w
+mov RND.w, TEMP1.y
+expp RND.y, RND.y
+
+; make rnd range from (-.5 .. +.49999) * variance:
+; rnd = (rnd -.5) * variance
+add RND, MINUS_HALF, RND 
+mul RND, RND, c[VSC_RND_VARIANCE]
+
+; ok now we have 4 rnd numbers in RND.xyzw ranging from -.5*variance to +.499*variance
+; since rotation around d is too complex, we instead compute:
+; tempvec = rnd.x*perp1 + rnd.y*perp2
+; normalize tempvec
+; direction += rnd.w * tempvec 
+; normalize direction
+; direction *= rnd.z (velocity)
+mul TEMP1, RND.x, c[VSC_DIR_PERPENDICULAR1]
+mad TEMP1, RND.y, c[VSC_DIR_PERPENDICULAR2], TEMP1
+dp3 TEMP1.w, TEMP1, TEMP1
+rsq TEMP1.w, TEMP1.w
+mul TEMP1.w, TEMP1.w, RND.w
+mad DIRECTION.xyz, TEMP1.w, TEMP1, c[VSC_DIRECTION]
+dp3 DIRECTION.w,   DIRECTION, DIRECTION
+rsq DIRECTION.w,   DIRECTION.w
+mul DIRECTION.xyz, DIRECTION.w, DIRECTION
+ 
+add DIRECTION.w, v1.z, RND.z
+mul DIRECTION.xyz, DIRECTION, DIRECTION.w
+
+; compute position as start_position + dt * dt * half_gravity
+;                                    + direction * (2^(decay*dt) - 1) / (decay*ln2)
+; in essence, this is the closed form of iterating acceleration with gravity for each 
+; particle
+; decay (air-resistance) is stored in v1.x and 1/(decay*ln2) is in v1.y
+mul  TEMP1, TIME_DELTA.x, c[VSC_HALF_GRAVITY] 
+mad  POSITION, TIME_DELTA.x, TEMP1, c[VSC_START_POSITION]    ; temp1 is first line now
+; note: since c[VSC_HALF_GRAVITY].w = 0.0, Position.w = 1.0 and thus correct
+
+mul  TEMP1.x,   TIME_DELTA.x, v1.x
+expp TEMP1.zw,  TEMP1.x
+add  TEMP1.x,   TEMP1.z, - TEMP1.w
+mul  TEMP1.xyz, v1.y, TEMP1.x
+mad  POSITION.xyz, TEMP1, DIRECTION, POSITION 
+
+; if pos.y < 0 compute y = abs(sin(-y)) * 2^-b
+; this formula simulates the bounce of a particle
+slt USE_BOUNCE, POSITION.y, ZERO
+sge NO_BOUNCE,  POSITION.y, ZERO
+
+; remap y to -pi..pi:
+; y = (y+PI) * 1/(2PI) = y/2PI + 1/2
+mad  TEMP1.y, POSITION.y, ONE_OVER_2PI, HALF
+expp TEMP1.yw, TEMP1.y		            ; get fractional part, and a one in .w
+mad  TEMP1.y, TWO, TEMP1.y, - TEMP1.w   ; y in range -1..1 now
+mul  TEMP1.y, TEMP1.y, - PI             ; and y = -PI*y
+
+; compute powers of y
+mov SIN_Y.x, ONE                ; y^0
+mul SIN_Y.y, TEMP1.y, TEMP1.y   ; y^2
+mul SIN_Y.z, SIN_Y.y, SIN_Y.y   ; y^4
+mul SIN_Y.w, SIN_Y.y, SIN_Y.z   ; y^6
+mul SIN_Y, TEMP1.y, SIN_Y       ; get all the odd powers
+
+; multiple by sine taylor series coefficients and add all
+dp4 SIN_Y, SIN_Y, c[VSC_SINE]
+
+; compute abs(sin(y))
+max SIN_Y, SIN_Y, - SIN_Y
+
+; figure which bounce we are in: b = - y/2pi
+mul BOUNCE_NUM, - POSITION.y, ONE_OVER_2PI
+add BOUNCE_NUM, BOUNCE_NUM, BOUNCE_NUM
+; and exponentiate the floor: temp1.x = 2^floor(-b)
+expp TEMP1, - BOUNCE_NUM
+mul SIN_Y, SIN_Y, TEMP1.x 
+
+; approximate max height: - 1/g * (d.y/2)^2 
+rcp TEMP1, - c[VSC_HALF_GRAVITY].y
+mul TEMP2, HALF, DIRECTION.y
+mul TEMP2, TEMP2, TEMP2
+mul TEMP1, TEMP1, TEMP2
+
+; multiply max height by arbitrary constant < 1 (we choose 1/6) and multiply to SIN_Y
+mul TEMP1, TEMP1, SIXTH
+mul SIN_Y, SIN_Y, TEMP1
+
+; decide whether to use since-bounce or initial arc
+mul SIN_Y, USE_BOUNCE, SIN_Y
+mad POSITION.y, NO_BOUNCE, POSITION.y, SIN_Y
+
+; Transform position to clip space
+dp4 oPos.x, POSITION, c[VSC_WORLDVIEW_PROJ_0]
+dp4 oPos.y, POSITION, c[VSC_WORLDVIEW_PROJ_1]
+dp4 oPos.z, POSITION, c[VSC_WORLDVIEW_PROJ_2]
+dp4 oPos.w, POSITION, c[VSC_WORLDVIEW_PROJ_3]
+
+; Output color:
+; copy the green+blue, compute alpha as (1 - dt/lifetime)
+; and compute red as red*(1 - dt/lifetime)^2
+; modulate with fog-color based on which bounce we are in.
+mov oD0.xz,  v2
+mad oD0.w,   TIME_DELTA.x, - v0.y, ONE
+mad TEMP1,   TIME_DELTA.x, - v0.y, ONE
+mul TEMP1,   TEMP1, TEMP1
+mul oD0.y,   TEMP1, v2
+
+sge TEMP1.x, ONE, ONE       ; generate one in temp1.x
+mad oFog.x,  - BOUNCE_NUM, THIRD, TEMP1.x
+
+; generate dot size based on perspective distance
+dp4 TEMP1.w, POSITION, c[VSC_WORLDVIEW_PROJ_3]
+
+rcp TEMP1.w, TEMP1.w           ; 1/w
+mul oPts.x,  TEMP1.w, PART_RADIUS
+
+
+

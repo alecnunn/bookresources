@@ -1,0 +1,314 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "AudioSysDSoundLib"=.\GFSrc\Systems\Win32\AudioSysDSoundLib\AudioSysDSoundLib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ErrorSysWin32Lib"=.\GFSrc\Systems\Win32\ErrorSysWin32Lib\ErrorSysWin32Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "FactorySysWin32Lib"=.\GFSrc\Systems\Win32\FactorySysWin32Lib\FactorySysWin32Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "FrameSysWin32Lib"=.\GFSrc\Systems\Win32\FrameSysWin32Lib\FrameSysWin32Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GFDemo"=.\GFDemo\GFDemo.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name SystemsWin32Lib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name VisualSysD3D7Dll
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name VisualSysD3D8Dll
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name VisualSysOpenGLDll
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GFObjects
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "GFObjects"=.\GFSRC\OBJECTS\GFObjects.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "InputSysWin32Lib"=.\GFSrc\Systems\Win32\InputSysWin32Lib\InputSysWin32Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "LogSysWin32Lib"=.\GFSrc\Systems\Win32\LogSysWin32Lib\LogSysWin32Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NetworkSysWinsockLib"=.\GFSrc\Systems\Win32\NetworkSysWinsockLib\NetworkSysWinsockLib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ResourceSysWin32Lib"=.\GFSrc\Systems\Win32\ResourceSysWin32Lib\ResourceSysWin32Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "SystemsWin32Lib"=.\GFSrc\Systems\Win32\SystemsWin32Lib\SystemsWin32Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name AudioSysDSoundLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ErrorSysWin32Lib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name FactorySysWin32Lib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name FrameSysWin32Lib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name InputSysWin32Lib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LogSysWin32Lib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NetworkSysWinsockLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ResourceSysWin32Lib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name TaskSysWin32Lib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name TimeSysWin32Lib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name WindowSysWin32Lib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "TaskSysWin32Lib"=.\GFSrc\Systems\Win32\TaskSysWin32Lib\TaskSysWin32Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "TimeSysWin32Lib"=.\GFSrc\Systems\Win32\TimeSysWin32Lib\TimeSysWin32Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "VisualSysD3D7Dll"=.\GFSrc\Systems\Win32\VisualSysD3D7Dll\VisualSysD3D7Dll.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name VisualSysD3D7Lib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "VisualSysD3D7Lib"=.\GFSrc\Systems\Win32\VisualSysD3D7Lib\VisualSysD3D7Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "VisualSysD3D8Dll"=.\GFSrc\Systems\Win32\VisualSysD3D8Dll\VisualSysD3D8Dll.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name VisualSysD3D8Lib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "VisualSysD3D8Lib"=.\GFSrc\Systems\Win32\VisualSysD3D8Lib\VisualSysD3D8Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "VisualSysOpenGLDll"=.\GFSrc\Systems\Win32\VisualSysOpenGLDll\VisualSysOpenGLDll.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name VisualSysOpenGLLib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "VisualSysOpenGLLib"=.\GFSrc\Systems\Win32\VisualSysOpenGLLib\VisualSysOpenGLLib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "WindowSysWin32Lib"=.\GFSrc\Systems\Win32\WindowSysWin32Lib\WindowSysWin32Lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

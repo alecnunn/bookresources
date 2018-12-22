@@ -1,0 +1,184 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EDIT DIALOG DISCARDABLE  0, 0, 267, 130
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Master Character List Editor (MCL Edit) by Jim Adams"
+CLASS "MCLEDIT"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Load",IDC_LOAD,210,90,50,14
+    PUSHBUTTON      "Save",IDC_SAVE,210,110,50,14
+    LISTBOX         IDC_CHARACTERS,5,15,195,109,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Character List",IDC_STATIC,5,5,50,8
+    PUSHBUTTON      "New",IDC_NEW,210,70,50,14
+    DEFPUSHBUTTON   "Edit",IDC_EDIT,210,15,50,14
+    PUSHBUTTON      "Clear",IDC_CLEAR,210,35,50,14
+END
+
+IDD_MODIFY DIALOG DISCARDABLE  0, 0, 282, 246
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Modify Character"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_NAME,50,20,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CLASS,50,35,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HEALTH,50,50,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MANA,50,64,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LEVEL,50,79,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EXPERIENCE,50,94,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MONEY,50,109,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ATTACK,50,135,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DEFENSE,50,149,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AGILITY,50,165,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RESISTANCE,50,179,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MENTAL,50,194,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOHIT,50,210,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SPEED,50,224,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RANGE,185,20,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CHARGE,185,35,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOATTACK,185,50,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOMAGIC,185,65,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DROPITEM,185,79,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TODROP,185,95,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOEFFECT,185,110,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EFFECT,185,124,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MESH,135,150,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ITEM,135,166,85,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WEAPON,135,180,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ARMOR,135,196,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SHIELD,135,210,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ACCESSORY,135,225,35,12,ES_AUTOHSCROLL
+    LISTBOX         IDC_SPELLS,230,31,45,55,LBS_SORT | LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Set All",IDC_SETALL,230,90,45,14
+    PUSHBUTTON      "Clear All",IDC_CLEARALL,230,110,45,14
+    DEFPUSHBUTTON   "OK",IDC_OK,225,220,50,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,225,195,50,14
+    LTEXT           "Character #",IDC_STATIC,5,5,50,10
+    LTEXT           "#",IDC_NUM,45,5,50,10
+    RTEXT           "Name",IDC_STATIC,21,20,25,10
+    RTEXT           "Class",IDC_STATIC,25,35,20,10
+    RTEXT           "Money",IDC_STATIC,15,110,30,10
+    RTEXT           "Speed",IDC_STATIC,21,225,25,10
+    LTEXT           "Spells",IDC_STATIC,230,20,20,10
+    RTEXT           "Mesh #",IDC_STATIC,105,150,25,10
+    RTEXT           "Item File",IDC_STATIC,100,166,31,10
+    RTEXT           "Agility",IDC_STATIC,20,165,25,10
+    RTEXT           "Attack",IDC_STATIC,20,135,25,10
+    RTEXT           "Defense",IDC_STATIC,15,150,30,10
+    RTEXT           "Resistance",IDC_STATIC,10,180,35,10
+    RTEXT           "Mental",IDC_STATIC,20,194,25,10
+    RTEXT           "To Hit",IDC_STATIC,25,210,21,10
+    RTEXT           "Health Points",IDC_STATIC,0,50,45,10
+    RTEXT           "Mana Points",IDC_STATIC,0,65,45,10
+    RTEXT           "Level",IDC_STATIC,20,80,25,10
+    RTEXT           "Experience",IDC_STATIC,5,95,40,10
+    RTEXT           "Weapon #",IDC_STATIC,95,180,35,10
+    RTEXT           "Armor #",IDC_STATIC,100,196,30,10
+    RTEXT           "Shield #",IDC_STATIC,100,212,30,10
+    RTEXT           "Accessory #",IDC_STATIC,90,225,40,10
+    RTEXT           "Drop Item",IDC_STATIC,141,80,40,10
+    RTEXT           "Drop Chance",IDC_STATIC,135,95,45,10
+    RTEXT           "Charge Rate",IDC_STATIC,135,36,45,10
+    RTEXT           "% to Attack",IDC_STATIC,141,51,40,10
+    RTEXT           "% to Magic",IDC_STATIC,145,67,35,10
+    RTEXT           "% to Effect",IDC_STATIC,141,110,40,10
+    RTEXT           "Effect #",IDC_STATIC,135,125,45,10
+    RTEXT           "Attack Range",IDC_STATIC,135,21,45,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_EDIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 123
+    END
+
+    IDD_MODIFY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 239
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

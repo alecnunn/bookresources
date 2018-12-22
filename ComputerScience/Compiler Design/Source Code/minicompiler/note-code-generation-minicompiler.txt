@@ -1,0 +1,9 @@
+Code generation is the last phase of the compilation. To generate the machine code, the knowledge of the assembly language and machine language format is essential.
+In chapter 8, the machine code generation was explained for few instructions. However, the process of machine code generation is cumbersome. It has to be automated.
+In this section the process of machine code generation for a very limited version of C language is demonstrated passing through different stages of scanning, parsing, generating intermediate code, and machine code generatio.
+
+There two sub sections are presented. Embedding and Linking Format (ELF) is standard file format in Linux platform for creating a executable file.
+It is more involved in working with different headers. Basically ELF file is organized as a header, different segments split into multiple sections and its associated headers.
+In this sections a ELF file format demo is given. Using the existing ELF file format, the machine code for the give C source language is embedded into the ELF file for the demonstration of a mini C compiler.
+
+This section has two parts. 1) ELF demo 2) Mini Compiler

@@ -1,0 +1,126 @@
+/*********************************************************************NVMH2****
+Path:  C:\Dev\devrel\Nv_sdk_4\Dx8\NVEffectsBrowser\Effects\SimpleFog
+File:  SimpleFog.nvv
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+This file is provided without support, instruction, or implied warranty of any
+kind.  NVIDIA makes no guarantee of its fitness for a particular purpose and is
+not liable under any circumstances for any damages or loss whatsoever arising
+from the use or inability to use this file or items derived from it.
+
+Comments:
+
+This vertex shader performs the calculations for two fog effects.  The first
+outputs a fog factor which varies with the vertices' screen depth.  This is
+output to oFog.x for use in the standard D3D fog processing.
+
+The second fog term varies with the terrain height (modelspace x coordinate)
+and is written to the specular color for later addition in a pixel shader.
+
+Enjoy!
+-Greg J.
+NVIDIA Technical Developer Relations
+
+******************************************************************************/
+
+
+
+
+#include "SimpleFog.h"
+
+
+#define V_POSITION  v0
+#define V_NORMAL    v1
+#define V_DIFFUSE   v2
+#define V_TEXTURE   v3
+
+
+#define VEC_VERT_TO_EYE      r0
+#define VEC_VERT_TO_LIGHT    r1
+
+#define ALIGNED       r2
+
+#define EYE_LOCAL     r3
+#define EYE_VECTOR    r5
+
+#define TEMP          r6
+#define COR_NORMAL    r7
+
+
+vs.1.0
+
+; Transform position to clip space and output it
+dp4 oPos.x, V_POSITION, c[CV_WORLDVIEWPROJ_0]
+dp4 oPos.y, V_POSITION, c[CV_WORLDVIEWPROJ_1]
+dp4 oPos.z, V_POSITION, c[CV_WORLDVIEWPROJ_2]
+dp4 oPos.w, V_POSITION, c[CV_WORLDVIEWPROJ_3]
+
+
+; Generate a fog value:
+;  Re-calc z component of position
+dp4 r1, V_POSITION, c[CV_WORLDVIEWPROJ_2]
+
+; scale by fog parameters:
+;   c[CV_FOGPARAMS].x = fog start
+;   c[CV_FOGPARAMS].y = fog end
+;   c[CV_FOGPARAMS].z = range
+
+; cameraspace depth (z) - fog start
+add r1, r1, -c[CV_FOGPARAMS].x
+
+; 1/range
+rcp r1.y, c[CV_FOGPARAMS].z
+
+; 1.0 - (z - fog start) * 1/range
+; Because Fog = 1.0 means no fog, and fog = 0.0 means full fog
+
+mad oFog.x, -r1.x, r1.y, c[CV_ONE].x
+
+
+
+
+; Height-based fog:
+; Compute fog factor from world space x coord == height
+; Multiply the factor by itself a few times to get a sharp
+;   falloff.  Could also use the expp instruction here.
+; Output this to specular color oD1 for use in the pixel 
+;   program
+
+mul r1, V_POSITION.x, c[CV_HEIGHT_FOG_PARAMS].x
+;mul r1.x, r1.x, r1.x
+mul oD1,  r1.x, r1.x
+
+
+
+
+; Point lighting
+; Normalized vector from vertex to the light:
+
+add  VEC_VERT_TO_LIGHT, -c[CV_LIGHT_POS_OSPACE], V_POSITION
+
+dp3 TEMP.w, VEC_VERT_TO_LIGHT, VEC_VERT_TO_LIGHT
+rsq TEMP.w, TEMP.w		
+mul VEC_VERT_TO_LIGHT, VEC_VERT_TO_LIGHT, TEMP.w
+
+; Dot the vectors for the diffuse component from the 
+;  point light
+; Point light is not attenuated
+
+dp3 r4, VEC_VERT_TO_LIGHT, V_NORMAL
+
+; Use lit instruction to clamp for negative values of the dp3
+;  r5 will have diffuse light value in y component
+
+lit r5, r4
+
+; Light color to output diffuse color
+
+add oD0, r5.y, c[CV_LIGHT_CONST].x  ; x holds ambient
+
+
+
+mov oT0, V_TEXTURE
+mov oT1, V_TEXTURE
+
+
+

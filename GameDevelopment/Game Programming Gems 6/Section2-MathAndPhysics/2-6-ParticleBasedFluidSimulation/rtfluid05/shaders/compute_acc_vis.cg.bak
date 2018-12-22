@@ -1,0 +1,137 @@
+#include "sph.cg"
+
+float3 compute_pres_vis(float3 p_i, float3 v_i, float2 dp_i, 
+						float3 p_j, float3 v_j, float2 dp_j,
+						float h_r)
+{
+	return 45*m/(PI*h*h*h*h*h*h)*h_r*((dp_i.y + dp_j.y)*0.5*h_r*(pos_i - pos_j)/r + mu*(v_j - v_i))*dp_j.x*dp_i.x;
+}
+
+/*
+void main(float pindex : TEXCOORD0,
+uniform samplerRECT attr_rect : TEXUNIT0,
+//uniform samplerRECT tri_rect  : TEXUNIT1,
+uniform float4x4 mat_col,
+uniform float4x4 mat_inv_col,
+out float3 result : COLOR)*/
+void collision_glass(float3 pos_i,
+					 float3 vel_i,
+					 float4x4 mat_col, 
+					 float4x4 mat_inv_col,
+					 out float3 result)
+{
+	float stiff = 30000.0;
+	float damp = 128.0;
+	//float k = 10000.0;
+	//float k = 40000.0;
+	float radius = 0.004;
+	const float GLASS_R = 0.05;
+	const float GLASS_BOTTOM = -0.08;
+	const float GLASS_TOP = 0.08;
+	const float EPSILON = 0.000001f;
+
+	float4 pp = float4(pos_i, 1);
+//	float3 vel = mul((float3x3)mat_col, f3texRECT(attr_rect, float2(pindex, 1)));
+	float3 vel = mul((float3x3)mat_col, vel_i);//f3texRECT(attr_rect, float2(pindex, 1)));
+
+	float3 pos = mul(mat_col, pp).xyz;
+
+	float dist = GLASS_R - sqrt(dot(pos.xy, pos.xy));
+	//	float dist = GLASS_R - distance(pos.xy);//sqrt(dot(pos.xy, pos.xy))
+	float diff = 2.0*radius - dist;
+
+	float3 col_force = float3(0, 0, 0);
+	if (diff > EPSILON)
+	{
+		float3 n = -normalize(float3(pos.x, pos.y, 0.0));
+		float vel0 = dot(vel, n);
+		col_force += (stiff*diff - damp*vel0)*n;
+		//		col_force += max(k*diff - 64.0*vel0, 0.0)*n;
+	}
+
+	diff = 2.0f*radius - (pos.z - GLASS_BOTTOM);
+	//	diff = 2.0f*radius - pos.z;// - GLASS_BOTTOM);
+
+	if (diff > EPSILON)
+	{
+		float3 n = float3(0, 0, 1);
+		float vel0 = dot(vel, n);//vec3_dot(&n, &sph->vel[i]);
+
+		col_force += (stiff*diff - damp*vel0)*n;
+	}
+
+
+	diff = 2.0f*radius - (GLASS_TOP - pos.z);
+	if (diff > EPSILON)
+	{
+		float3 n = float3(0, 0, -1);
+		float vel0 = dot(vel, n);
+		col_force += (stiff*diff - damp*vel0)*n;
+	}
+
+	result = mul((float3x3)mat_inv_col, col_force);
+}
+
+void main(float index : TEXCOORD0,  // subject particle index
+		  uniform samplerRECT attr_rect      : TEXUNIT0,  // attributes of particles
+		  uniform samplerRECT neighbour_rect : TEXUNIT1,  // neighbour list
+		  uniform float mass,
+		  uniform float smoothlen,
+		  uniform float viscosity,
+		  uniform float timestep,
+		  uniform float4x4 mat_col,
+		  uniform float4x4 mat_inv_col,
+		  uniform int n_neighbours, // num. of neighbours
+		  out float3 result : COLOR // acceleration
+		  )
+{
+	float h = smoothlen;//SMOOTHING_LENGTH;
+	float m = mass;
+	//	float mu = VISCOSITY;
+	float mu = viscosity;
+
+	//	float neighbour_index = f1texRECT(neighbour_rect, sn_coord + float2(1, 0));
+
+	float3 pos_i = f3texRECT(attr_rect, float2(index, GPU_ATTR_POS));
+	float3 v_i = f3texRECT(attr_rect, float2(index, GPU_ATTR_VEL));
+	/** do you need this velosity **/
+
+
+	float2 dp_i = f2texRECT(attr_rect, float2(index, GPU_ATTR_DP));
+
+	result = float3(0, 0, 0);
+
+	for (int i = 1; i < n_neighbours; i++)
+	{
+		float neighbour_index = f1texRECT(neighbour_rect, float2(i, index));
+
+		//if (neighbour_index == 3000)
+		//		break;
+
+		float3 pos_j = f3texRECT(attr_rect, float2(neighbour_index, GPU_ATTR_POS));
+		float r = distance(pos_i, pos_j);
+
+		float h_r = h - r;
+
+		//	h_r = max(h_r, 0.0); 
+
+		if (h_r > 0.0)
+		{
+			float3 v_j = f3texRECT(attr_rect, float2(neighbour_index, GPU_ATTR_VEL));
+			float2 dp_j = f2texRECT(attr_rect, float2(neighbour_index, GPU_ATTR_DP));
+			//		result = 15*m/(PI*h*h*h*h*h*h)*h_r*((dp_i.y + dp_j.y)*0.5*h_r*h_r*(pos_i - pos_j) + 3*mu*(v_j - v_i))*dp_j.x;///dp_j.x;
+			//		result = 45*m/(PI*h*h*h*h*h*h)*h_r*((dp_i.y + dp_j.y)*0.5*h_r*(pos_i - pos_j)/r + mu*(v_j - v_i))*dp_j.x;
+			result += 45*m/(PI*h*h*h*h*h*h)*h_r*((dp_i.y + dp_j.y)*0.5*h_r*(pos_i - pos_j)/r + mu*(v_j - v_i))*dp_j.x*dp_i.x;
+
+			//result.xy = sn_coord.xy - 100;
+		}
+	}
+
+	float3 col_force;
+	float3 vel_i_half = f3texRECT(attr_rect, float2(index, GPU_ATTR_VELHALF));
+	pos_i += timestep*vel_i_half;
+	collision_glass(pos_i, v_i, mat_col, mat_inv_col, col_force);
+	result += col_force;
+		//result.xy = unpack_2ushort(neighbour_index)*65536;
+
+}

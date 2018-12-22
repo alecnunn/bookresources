@@ -1,0 +1,61 @@
+void main(float3 incident         : TEXCOORD0,
+		  float3 normal           : TEXCOORD1,
+		  float2 screen_coord     : TEXCOORD2,
+		  float3 T : TEXCOORD3,
+		  float reflection_factor : COLOR,
+
+		  out float4 color : COLOR,
+
+		  uniform sampler2D background : TEXUNIT0,
+		  uniform samplerCUBE environmentMap : TEXUNIT1)
+{
+	//float3 i_proj = mul((float3x3)modelViewProj, incident);
+	//float3 n_proj = mul((float3x3)modelViewProj, N);
+
+	incident = normalize(incident);
+	normal = normalize(normal);
+//	float eta_ratio = 1.333;
+	float eta_ratio = 1.1;
+
+	float3 rvec = refract(incident, normal, eta_ratio);
+	//rvec = normalize(T);
+//	float2 refract_coord = clamp(screen_coord + 0.3*(rvec.xy/abs(rvec.z) - incident.xy/abs(incident.z)), -1, 1);
+//	float2 refract_coord = screen_coord + 0.3*(rvec.xy/abs(rvec.z) - incident.xy/abs(incident.z));
+	//float2 refract_coord = 0.5*(rvec.xy/abs(rvec.z) + float2(1, 1));//screen_coord + 0.3*(rvec.xy/abs(rvec.z) - incident.xy/abs(incident.z));
+
+	float4 refract_color;
+	if ((rvec.x == 0) && (rvec.y == 0) && (rvec.z == 0))
+		//rvec = incident;
+		//refract_color = float4(0, 0, 0, 0);
+		reflection_factor = 1;
+
+	//refract_coord = screen_coord;
+
+	float4 reflect_color = texCUBE(environmentMap, reflect(incident, normal));
+
+
+	float4 norefract_color = tex2D(background, screen_coord);
+	if (norefract_color.w > 0)
+	{
+		refract_color = 0.6*norefract_color;
+	}
+	else
+	{
+		refract_color = texCUBE(environmentMap, rvec);//refract(incident, normal, eta_ratio));
+	//	refract_color = tex2D(background, refract_coord);
+	}
+
+
+
+	// Reflection color
+//	float4 reflect_color = texCUBE(environmentMap, reflect(incident, N));
+	//float4 reflect_color = texCUBE(environmentMap, normalize(R));
+
+	//reflect_color = float4(1, 0, 0, 0);
+	color = lerp(refract_color, reflect_color, reflection_factor);
+	//color = reflection_factor;
+
+
+	//color = float4(0.1, 0.1, dot(normal, normalize(float3(1, 1, -1))), 0);
+	//color = dot(normal, normalize(float3(1, 1, -1)));
+}

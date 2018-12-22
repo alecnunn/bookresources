@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: WindowSysWin32Lib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Default\LOCALS~1\Temp\RSP18F.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "../../../../" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/WindowSysWin32Lib.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\ToneByte\Dev\GPGems3\GFSrc\Systems\Win32\WindowSysWin32Lib\ProcessInfoWin32Impl_t.cpp"
+"C:\ToneByte\Dev\GPGems3\GFSrc\Systems\Win32\WindowSysWin32Lib\WindowSysWin32Impl_t.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Default\LOCALS~1\Temp\RSP18F.tmp" 
+Creating temporary file "C:\DOCUME~1\Default\LOCALS~1\Temp\RSP190.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "../../../../" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/WindowSysWin32Lib.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\ToneByte\Dev\GPGems3\GFSrc\Systems\Win32\WindowSysWin32Lib\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Default\LOCALS~1\Temp\RSP190.tmp" 
+Creating command line "link.exe -lib /nologo /out:"../../../../GFLib/Win32/WindowSysWin32LibD.lib"  .\Debug\ProcessInfoWin32Impl_t.obj .\Debug\StdAfx.obj .\Debug\WindowSysWin32Impl_t.obj "
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+ProcessInfoWin32Impl_t.cpp
+WindowSysWin32Impl_t.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+WindowSysWin32LibD.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,117 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_AUDIODIALOG DIALOG DISCARDABLE  0, 0, 238, 108
+STYLE DS_MODALFRAME | DS_NOFAILCREATE | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Audio Scripting Example"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_TAGLIST,7,20,152,88,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Play Tag",IDC_PLAYTAG,172,20,59,13
+    EDITTEXT        IDC_XPOS,18,54,41,12,ES_RIGHT | ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_XSPIN,"msctls_updown32",UDS_ALIGNRIGHT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,46,54,11,12
+    EDITTEXT        IDC_YPOS,70,54,41,12,ES_RIGHT | ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_YSPIN,"msctls_updown32",UDS_ALIGNRIGHT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,99,54,11,12
+    EDITTEXT        IDC_ZPOS,123,54,41,12,ES_RIGHT | ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_ZSPIN,"msctls_updown32",UDS_ALIGNRIGHT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,156,56,11,12
+    CONTROL         "Slider2",IDC_VOLUME,"msctls_trackbar32",TBS_VERT | 
+                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,195,39,16,37
+    PUSHBUTTON      "Stop All",IDC_STOPALL,63,87,46,14
+    DEFPUSHBUTTON   "Exit",IDOK,125,87,50,14
+    LTEXT           "Audio Script Tag:",IDC_STATIC,7,7,83,9,SS_CENTERIMAGE
+    LTEXT           "X:",IDC_STATIC,10,54,8,12,SS_CENTERIMAGE
+    LTEXT           "Y:",IDC_STATIC,62,54,8,12,SS_CENTERIMAGE
+    LTEXT           "Z:",IDC_STATIC,115,54,8,12,SS_CENTERIMAGE
+    LTEXT           "Listener Position:",IDC_STATIC,7,41,69,8
+    LTEXT           "Vol",IDC_STATIC,197,74,14,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_AUDIODIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 101
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

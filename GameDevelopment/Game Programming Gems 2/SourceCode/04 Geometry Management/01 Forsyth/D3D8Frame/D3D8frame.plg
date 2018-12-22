@@ -1,0 +1,68 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: D3D8frame - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP6122.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "include" /I "..\MyInc" /D "DEBUG" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D DXVERSION=8 /Fp"Debug/D3D8frame.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\d3dapp.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\d3dfile.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\d3dfont.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\d3dutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\ddutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\didcfgview.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\diutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\dmutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\dsutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\dxutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\netclient.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\netconnect.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\04 Geometry Management\01 Forsyth\D3D8Frame\src\netvoice.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP6122.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP6123.TMP" with contents
+[
+/nologo /out:"Debug\D3D8frame.lib" 
+".\Debug\d3dapp.obj"
+".\Debug\d3dfile.obj"
+".\Debug\d3dfont.obj"
+".\Debug\d3dutil.obj"
+".\Debug\ddutil.obj"
+".\Debug\didcfgview.obj"
+".\Debug\diutil.obj"
+".\Debug\dmutil.obj"
+".\Debug\dsutil.obj"
+".\Debug\dxutil.obj"
+".\Debug\netclient.obj"
+".\Debug\netconnect.obj"
+".\Debug\netvoice.obj"
+]
+Creating command line "link.exe -lib @C:\WINDOWS\TEMP\RSP6123.TMP"
+<h3>Output Window</h3>
+Compiling...
+d3dapp.cpp
+d3dfile.cpp
+d3dfont.cpp
+d3dutil.cpp
+ddutil.cpp
+didcfgview.cpp
+diutil.cpp
+dmutil.cpp
+dsutil.cpp
+dxutil.cpp
+netclient.cpp
+netconnect.cpp
+netvoice.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+D3D8frame.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

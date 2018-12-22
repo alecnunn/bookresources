@@ -1,0 +1,162 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - cic.l</h2>
+<p>%{<br>
+  #include &lt;stdio.h&gt;<br>
+  #include&lt;string.h&gt;<br>
+  #include&lt;stdlib.h&gt;<br>
+  #include&quot;cic.h&quot;<br>
+  #include &quot;y.tab.h&quot;<br>
+  //#include &quot;ic.tab.h&quot;<br>
+  int line_no = 1;<br>
+  %}</p>
+<p>%start BM</p>
+<p>/*Auxilary definitions for letter, digit, and constants or literals*/<br>
+  letter [a-zA-Z]<br>
+  digit [0-9]<br>
+  decimalLiteral [1-9]([0-9])*<br>
+  hexLiteral [0][xX]([0-9a-fA-F])+ <br>
+  octalLiteral [0]([0-7])*<br>
+  exponent [eE]([+-])?([0-9])+</p>
+<p>%%<br>
+  &quot;//&quot;(~[&quot;\n&quot;,&quot;\r&quot;])*(&quot;\n&quot;|&quot;\r&quot;|&quot;\r\n&quot;)	{ ; /*Single Line Comment*/}<br>
+  &quot;/**&quot;(~[&quot;*&quot;])*&quot;*&quot;(&quot;*&quot;|(~[&quot;*&quot;,&quot;/&quot;](~[&quot;*&quot;])*&quot;*&quot;))*&quot;/&quot;	{ ; /*Formal Comment*/}<br>
+  &quot;/*&quot;(~[&quot;*&quot;])*&quot;*&quot;(&quot;*&quot;|(~[&quot;*&quot;,&quot;/&quot;](~[&quot;*&quot;])*&quot;*&quot;))*&quot;/&quot;	{ ; /*Multi Line Comment*/}<br>
+  [ \t\r\f]		{ ; /* Skip white spaces*/}<br>
+  [\n] 		{BEGIN 0; lineNo++; /*Increment the line number*/}</p>
+<p>&quot;auto&quot;		{BEGIN 0; return _auto;	/*Keywords start here*/}<br>
+  &quot;break&quot;		{BEGIN 0;return _break;}<br>
+  &quot;case&quot;		{BEGIN 0;return _case;}<br>
+  &quot;char&quot;		{BEGIN 0;return _char;}<br>
+  &quot;const&quot;		{BEGIN 0;return _const;}<br>
+  &quot;continue&quot;	{BEGIN 0;return _continue;}<br>
+  &quot;default&quot;	{BEGIN 0;return _default;}<br>
+  &quot;do&quot;		{BEGIN 0;return _do;}<br>
+  &quot;double&quot;	{BEGIN 0;return _double;}<br>
+  &quot;else&quot;		{BEGIN 0;return _else;}<br>
+  &quot;enum&quot;		{BEGIN 0;return _enum;}<br>
+  &quot;extern&quot;	{BEGIN 0;return _extern;}<br>
+  &quot;float&quot;		{BEGIN 0;return _float;}<br>
+  &quot;for&quot;		{BEGIN 0;return _for;}<br>
+  &quot;goto&quot;		{BEGIN 0;return _goto;}<br>
+  &quot;if&quot;		{BEGIN 0;return _if;}<br>
+  &quot;inline&quot;	{BEGIN 0;return _inline;}<br>
+  &quot;int&quot;		{BEGIN 0;return _int;}<br>
+  &quot;long&quot;		{BEGIN 0;return _long;}<br>
+  &quot;register&quot;	{BEGIN 0;return _register;}<br>
+  &quot;restrict&quot;	{BEGIN 0;return _restrict;}<br>
+  &quot;return&quot;	{BEGIN 0;return _return;}<br>
+  &quot;short&quot;		{BEGIN 0;return _short;}<br>
+  &quot;signed&quot;	{BEGIN 0;return _signed;}<br>
+  &quot;sizeof&quot;	{BEGIN 0;return _sizeof;}<br>
+  &quot;static&quot;	{BEGIN 0;return _static;}<br>
+  &quot;struct&quot;	{BEGIN 0;return _struct;}<br>
+  &quot;switch&quot;	{BEGIN 0;return _switch;}<br>
+  &quot;typedef&quot;	{BEGIN 0;return _typedef;}<br>
+  &quot;union&quot;		{BEGIN 0;return _union;}<br>
+  &quot;unsigned&quot;	{BEGIN 0;return _unsigned;}<br>
+  &quot;void&quot;		{BEGIN 0;return _void;}<br>
+  &quot;volatile&quot;	{BEGIN 0;return _volatile;}<br>
+  &quot;while&quot;		{BEGIN 0;return _while;}<br>
+  &quot;bool&quot;		{BEGIN 0;return _bool;}<br>
+  &quot;complex&quot;	{BEGIN 0;return _complex;}<br>
+  &quot;_Imaginary&quot; {BEGIN 0;return _Imaginary;}</p>
+<p>&quot;,&quot;		{BEGIN 0;return _comma; /*Separators*/}<br>
+  &quot;;&quot;		{BEGIN 0;return _semicolon;}<br>
+  &quot;{&quot;		{BEGIN 0;return _leftb; }<br>
+  &quot;}&quot;		{BEGIN 0;return _rightb;}<br>
+  &quot;[&quot;		{BEGIN 0;return _leftsp;}<br>
+  &quot;]&quot;		{BEGIN BM;return _rightsp;}<br>
+  &quot;(&quot;		{BEGIN 0;return _leftp;}<br>
+  &quot;)&quot;		{BEGIN BM;return _rightp;}<br>
+  &quot;=&quot;		{BEGIN 0;return _assign;/*Operators*/}<br>
+  &quot;&gt;&quot;		{BEGIN 0;return _gt;} <br>
+  &quot;&lt;&quot;		{BEGIN 0;return _lt;}<br>
+  &quot;!&quot;		{BEGIN 0;return _bang;}<br>
+  &quot;~&quot;		{BEGIN 0;return _tilde;}<br>
+  &quot;?&quot; 		{BEGIN 0;return _hook;}<br>
+  &quot;:&quot;		{BEGIN 0;return _colon;}<br>
+  &quot;==&quot;		{BEGIN 0;return _eq;}<br>
+  &quot;&lt;=&quot;		{BEGIN 0;return _le;}<br>
+  &quot;&gt;=&quot;		{BEGIN 0;return _ge;}<br>
+  &quot;!=&quot;		{BEGIN 0;return _ne;}<br>
+  &quot;++&quot;		{BEGIN 0;return _incr;}<br>
+  &quot;--&quot;		{BEGIN 0;return _decr;}<br>
+  &quot;+&quot;		{BEGIN 0;return _plus;}<br>
+  &lt;BM&gt;&quot;-&quot;		{BEGIN 0;return _minus;}<br>
+  &quot;-&quot;		{return _uminus;}<br>
+  &quot;*&quot;		{BEGIN 0;return _mul;}<br>
+  &quot;/&quot;		{BEGIN 0;return _div;}<br>
+  &quot;%&quot;		{BEGIN 0;return _modulo;}<br>
+  &quot;&amp;&quot;		{BEGIN 0;return _bitAnd;}<br>
+  &quot;|&quot;		{BEGIN 0;return _bitOr;} <br>
+  &quot;&amp;&amp;&quot;		{BEGIN 0;return _and;}<br>
+  &quot;||&quot;		{BEGIN 0;return _or;} <br>
+  &quot;^&quot;		{BEGIN 0;return _xor;}<br>
+  &quot;&lt;&lt;&quot;		{BEGIN 0;return _lShift;}<br>
+  &quot;&gt;&gt;&quot; 		{BEGIN 0;return _rSignedShift;}<br>
+  &quot;&gt;&gt;&gt;&quot;		{BEGIN 0;return _rUnsignedShift;}<br>
+  &quot;+=&quot;		{BEGIN 0;return _plusAssign;}<br>
+  &quot;-=&quot;		{BEGIN 0;return _minusAssign;}<br>
+  &quot;*=&quot;		{BEGIN 0;return _mulAssign;}<br>
+  &quot;/=&quot;		{BEGIN 0;return _divAssign;}<br>
+  &quot;&amp;=&quot;		{BEGIN 0;return _andAssign;}<br>
+  &quot;|=&quot;		{BEGIN 0;return _orAssign;}<br>
+  &quot;^=&quot;		{BEGIN 0;return _xorAssign;}<br>
+  &quot;%=&quot;		{BEGIN 0;return _moduloAssign;}<br>
+  &quot;&lt;&lt;=&quot;		{BEGIN 0;return _lShiftAssign;}<br>
+  &quot;&gt;&gt;=&quot;		{BEGIN 0;return _rSignedShiftAssign;}<br>
+  &quot;&gt;&gt;&gt;=&quot;		{BEGIN 0;return _rUnsignedShiftAssign;}<br>
+  &quot;.&quot;		{BEGIN 0;return _dot;}<br>
+  &quot;-&gt;&quot;		{BEGIN 0;return _dereferencing;}<br>
+  {letter}({letter}|{digit})* {		/*Identifier*/<br>
+  BEGIN BM;<br>
+  strcpy(yylval.attr.name,yytext);<br>
+  yylval.attr.type=ID;<br>
+  return _id;<br>
+  }<br>
+  ({decimalLiteral}([&quot;l&quot;,&quot;L&quot;])?)|({hexLiteral}([&quot;l&quot;,&quot;L&quot;])?)|({octalLiteral}([&quot;l&quot;,&quot;L&quot;])?) 	{ /*Integer Numbers*/<br>
+  BEGIN BM;<br>
+  strcpy(yylval.attr.name,yytext); <br>
+  yylval.attr.type=CONST; <br>
+  yylval.attr.subtype=INT; <br>
+  yylval.attr.value.iVal=atoi(yytext);<br>
+  return _num;<br>
+  }<br>
+  ({digit}+[&quot;.&quot;]{digit}*{exponent}?[&quot;f&quot;,&quot;F&quot;,&quot;d&quot;,&quot;D&quot;]?)|([&quot;.&quot;]{digit}+{exponent}?[&quot;f&quot;,&quot;F&quot;,&quot;d&quot;,&quot;D&quot;]?)|({digit}+{exponent}[&quot;f&quot;,&quot;F&quot;,&quot;d&quot;,&quot;D&quot;]?)|({digit}+{exponent}?[&quot;f&quot;,&quot;F&quot;,&quot;d&quot;,&quot;D&quot;]) 	{	/*Real Numbers*/</p>
+<p> BEGIN BM;<br>
+  strcpy(yylval.attr.name,yytext);<br>
+  yylval.attr.type=CONST; <br>
+  yylval.attr.subtype=DOUBLE; <br>
+  yylval.attr.value.dVal=atof(yytext);<br>
+  return _dnum;<br>
+  }<br>
+  [']((~[&quot;'&quot;,&quot;\\&quot;,&quot;\n&quot;,&quot;\r&quot;])|(&quot;\\&quot;([&quot;n&quot;,&quot;t&quot;,&quot;b&quot;,&quot;r&quot;,&quot;f&quot;,&quot;\\&quot;,&quot;'&quot;,&quot;\&quot;&quot;]|[&quot;0&quot;-&quot;7&quot;]([&quot;0&quot;-&quot;7&quot;])?|[&quot;0&quot;-&quot;3&quot;][&quot;0&quot;-&quot;7&quot;][&quot;0&quot;-&quot;7&quot;])))[']  	{<br>
+  /*Character Constant*/  teste<br>
+  BEGIN BM;<br>
+  strcpy(yylval.attr.name,yytext);<br>
+  yylval.attr.type=CONST; <br>
+  yylval.attr.subtype=CHAR; <br>
+  yylval.attr.value.cVal=yytext[0]; <br>
+  return _charcons;<br>
+  }<br>
+  [&quot;\&quot;&quot;]((~[&quot;\&quot;&quot;,&quot;\\&quot;,&quot;\n&quot;,&quot;\r&quot;])|(&quot;\\&quot;([&quot;n&quot;,&quot;t&quot;,&quot;b&quot;,&quot;r&quot;,&quot;f&quot;,&quot;\\&quot;,&quot;'&quot;,&quot;\&quot;&quot;]|[&quot;0&quot;-&quot;7&quot;]([&quot;0&quot;-&quot;7&quot;])?|[&quot;0&quot;-&quot;3&quot;][&quot;0&quot;-&quot;7&quot;][&quot;0&quot;-&quot;7&quot;])))*[&quot;\&quot;&quot;]  	{<br>
+  /*String Constant*/<br>
+  BEGIN BM;<br>
+  strcpy(yylval.attr.name,yytext);<br>
+  yylval.attr.type=CONST; <br>
+  yylval.attr.subtype=STRING;<br>
+  yylval.attr.value.sVal = malloc(sizeof(yytext));<br>
+  strcpy(yylval.attr.value.sVal,yytext); <br>
+  return _strcons;<br>
+  }<br>
+  %%</p>
+<p>int yywrap()<br>
+  {<br>
+  return 1;<br>
+  }</p>
+<p></p>
+</body>
+</html>

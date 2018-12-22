@@ -1,0 +1,81 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GameLib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1877.tmp" with contents
+[
+/nologo /MLd /W2 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/GameLib.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\Application.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\File.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\Window.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\GraphicsLayer.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\Model.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\Sound.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\SoundLayer.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\InputLayer.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\Keyboard.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\Mouse.cpp"
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\Texture.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1877.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1878.tmp" with contents
+[
+/nologo /MLd /W2 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\wavread.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1878.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1879.tmp" with contents
+[
+/nologo /MLd /W2 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/GameLib.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Documents and Settings\Peter A Walsh\Desktop\3D Book CD\Book Code\Game\GameLib\StdAfx.cpp"
+]
+Creating command line "cl.exe @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP1879.tmp" 
+Creating temporary file "F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP187A.tmp" with contents
+[
+/nologo /out:"..\lib\GameLib.lib" 
+".\Debug\Application.obj"
+".\Debug\File.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Window.obj"
+".\Debug\GraphicsLayer.obj"
+".\Debug\Model.obj"
+".\Debug\Sound.obj"
+".\Debug\SoundLayer.obj"
+".\Debug\wavread.obj"
+".\Debug\InputLayer.obj"
+".\Debug\Keyboard.obj"
+".\Debug\Mouse.obj"
+".\Debug\Texture.obj"
+]
+Creating command line "link.exe -lib @F:\DOCUME~1\PETERA~1\LOCALS~1\Temp\RSP187A.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+Application.cpp
+File.cpp
+Window.cpp
+GraphicsLayer.cpp
+Model.cpp
+Sound.cpp
+SoundLayer.cpp
+InputLayer.cpp
+Keyboard.cpp
+Mouse.cpp
+Texture.cpp
+Generating Code...
+Compiling...
+wavread.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+GameLib.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

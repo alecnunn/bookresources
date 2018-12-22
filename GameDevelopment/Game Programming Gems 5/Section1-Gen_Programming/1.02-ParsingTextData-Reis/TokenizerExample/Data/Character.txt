@@ -1,0 +1,19 @@
+Character
+{
+	Name					"Olerac the Unstoppable"
+	Strength				20
+	Dexterity				14
+	Constitution			13
+	Intelligence			14
+	Wisdom					11
+	Charisma				9
+	HitPoints				19
+	
+	Weapon
+	{
+		Name				"Sword of unholy Might"
+		Attack				10
+		Defense				2
+		Weight				5
+	}
+}

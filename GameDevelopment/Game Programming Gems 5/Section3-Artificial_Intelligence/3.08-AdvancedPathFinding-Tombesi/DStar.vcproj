@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="DStarLib"
+	ProjectGUID="{C396E157-0302-4EBD-9CEB-852DC28C1403}"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="&quot;.\Leonardo Library\Include&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="FALSE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)/Dstar.lib"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				InlineFunctionExpansion="1"
+				OmitFramePointers="TRUE"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
+				StringPooling="TRUE"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="TRUE"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Leonardo"
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
+			<File
+				RelativePath="Leonardo Library\Include\_LEdgeInfo.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\_LEdgeMap.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\_LGraph.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\_LNodeInfo.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LArray.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LArray.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LDebug.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LDebug.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LEdgeInfo.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LEdgeInfo.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LEdgeMap.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LEdgeMap.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LException.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LException.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LGraph.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LGraph.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LGraphGen.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LGraphGen.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LGraphGen_RandomGrid.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LHash.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LHash.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LHeap.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LHeap.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LMemory.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LMemory.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LNodeInfo.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LNodeInfo.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LRandSource.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LRandSource.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LString.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LString.h">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Source\LType.c">
+			</File>
+			<File
+				RelativePath="Leonardo Library\Include\LType.h">
+			</File>
+		</Filter>
+		<File
+			RelativePath="DStar.cpp">
+		</File>
+		<File
+			RelativePath="DStar.h">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

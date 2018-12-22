@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vectors2", "vectors2.vcproj", "{755450D5-17E5-49AD-A5D9-CDBDF8DD2D67}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{755450D5-17E5-49AD-A5D9-CDBDF8DD2D67}.Debug.ActiveCfg = Debug|Win32
+		{755450D5-17E5-49AD-A5D9-CDBDF8DD2D67}.Debug.Build.0 = Debug|Win32
+		{755450D5-17E5-49AD-A5D9-CDBDF8DD2D67}.Release.ActiveCfg = Release|Win32
+		{755450D5-17E5-49AD-A5D9-CDBDF8DD2D67}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

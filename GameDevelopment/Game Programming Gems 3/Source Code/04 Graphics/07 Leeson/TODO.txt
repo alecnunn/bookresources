@@ -1,0 +1,11 @@
+TODO
+****
+Bugs are marked !, things that should be done soon are marked +,
+and longer-term ideas are marked -
++ see if inlining array functions speeds things up a bit
++ general code clean up and improve comments
+- Add backface culling code to subdivision scheme
+- Add visiblity culling code to subdivision scheme
+- Modify interpolating schemes so that instead of copying even vertices mesh references vertices in a previous level
+- Change GLScene so that is sorts materials to minimise changes and also imporve multi-pass rendering to allow for more diverse materials.
+- make subdivision schemes more robust so that meshes that are continuous can be handled

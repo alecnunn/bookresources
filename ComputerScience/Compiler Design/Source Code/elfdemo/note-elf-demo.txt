@@ -1,0 +1,4 @@
+Elf file has man internal data structure to store the information related to the program. It has both linkable and executable format.
+There is a Elf header followed by many segments which inturn consists of many sections. The different sections are text, bss, string table etc.
+This section reads the headers and content of the section and segments from a object file and display them.
+These features of studying the Elf contents helps to generate the exectuable version.

@@ -1,0 +1,128 @@
+a
+{
+ text-decoration:underline;
+ font-weight: normal;
+}
+a:link
+{
+ color: #99ffff; 
+}
+a:visited
+{
+ color: #99ffff; 
+} 
+a:active 
+{
+ color: #99ffff;
+}
+a:hover
+{
+ color: #99ffff;
+}
+body
+{
+ background-color: #000000;
+ color: #ffffff;
+ scrollbar-DarkShadow-Color: #000000;
+ scrollbar-Track-Color: #99FFFF;
+ scrollbar-Base-Color: #CCCC00;
+}
+
+.titre1
+{
+ text-align: center;
+ color: #cccc00;
+ font-size: 32;
+ font-weight: bold;
+}
+.titre2
+{
+ text-align: left;
+ color: #cccc00;
+ font-size: 18;
+ font-weight: bold;
+}
+.backtop
+{
+ text-align: center;
+ font-size: 12;
+ font-weight: bold;
+}
+.date
+{
+ color: #c0c0c0;
+}
+.highlight
+{
+ color: #ffc080;
+}
+.booktitle
+{
+ color: #99ffff;
+}
+
+.source
+{
+ background-color: #ffffff; 
+ font-family: courier;
+ font-size: 10pt;
+ color: #000000;
+}
+.comment
+{
+ color: #007f00;
+ font-family: courier;
+ font-size: 10pt;
+}
+.commblock
+{
+ color: #007f00;
+ background: #E0E0E0;
+ font-family: courier;
+ font-size: 10pt;
+}
+.keyword
+{
+ color: #0000ff;
+ font-family: courier;
+ font-size: 10pt;
+}
+.number
+{
+ color: #ff0000;
+ font-family: courier;
+ font-size: 10pt;
+}
+.operator
+{
+ color: #a00000;
+ font-family: courier;
+ font-size: 10pt; 
+}
+.string
+{
+ color: #00c000;
+ font-family: courier;
+ font-size: 10pt;  
+}
+
+.red
+{
+ color: #ff0000;
+}
+.orange
+{
+ color: #ff8000;
+}
+.green
+{
+ color: #00ff00;
+}
+.codehighlight
+{
+ color: #99ffff;
+}
+.codeinverse
+{
+ background: #ffff00;
+}

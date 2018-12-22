@@ -1,0 +1,77 @@
+/*********************************************************************NVMH2****
+Path:  C:\Dev\devrel\Nv_sdk_4\Dx8\NVEffectsBrowser\Effects\Dot3Bump_Dynamic
+File:  NeighborForceCalc.nvp
+
+Copyright (C) 1999, 2000 NVIDIA Corporation
+This file is provided without support, instruction, or implied warranty of any
+kind.  NVIDIA makes no guarantee of its fitness for a particular purpose and is
+not liable under any circumstances for any damages or loss whatsoever arising
+from the use or inability to use this file or items derived from it.
+
+Comments:
+
+Step one in the nearest-neighbor force calculation for height-based water
+simulation.  NeighborForceCalc2 is the second step.
+
+This step takes the center point and three neighboring points, and computes
+the texel difference as the "force" acting to pull the center texel.
+
+The amount to which the computed force is applied to the texel is controlled
+in a separate shader.
+
+******************************************************************************/
+
+
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+def c7, 0.5, 0.5, 0.5, 1.0
+
+
+; get colors from all 4 texture stages
+;  t0 = center texel
+;  t1 = 1st neighbor
+;  t2 = 2nd neighbor - same axis as 1st neighbor point
+;       so force for that axis == t1 - t0 + t2 - t0
+;  t3 = 3rd neighbor on other axis
+
+tex t0
+tex t1
+tex t2
+tex t3
+
+
+sub r0, t1, t0
+sub r1, t2, t0
+
+; 'force' for 1st axis
+add r0, r0, r1        
+
+; one more point for 2nd axis
+sub r1, t3, t0
+add r0, r0, r1
+
+
+; Now add in a force to gently pull the center texel's 
+;  value to 0.5.  The strength of this is controlled by
+;  the PCN_EQ_REST_FAC  - restoration factor
+; Without this, the simulation will fade to zero or fly
+;  away to saturate at 1.0
+
+sub r1, c7, t0
+mad r0, r1, c[PCN_EQ_REST_FAC], r0
+
+
+; shift up to center about 0.5
+add r0, r0, c[PCN_ADDHALF]
+
+
+
+
+

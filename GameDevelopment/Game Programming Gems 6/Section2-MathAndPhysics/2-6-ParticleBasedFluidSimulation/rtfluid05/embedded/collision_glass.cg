@@ -1,0 +1,75 @@
+//void main(float2 par_tri_coord : TEXCOORD0,
+void main(float pindex : TEXCOORD0,
+		  uniform samplerRECT attr_rect : TEXUNIT0,
+		  //uniform samplerRECT tri_rect  : TEXUNIT1,
+		  uniform float4x4 mat_col,
+		  uniform float4x4 mat_inv_col,
+		  out float3 result : COLOR)
+{
+//
+	float k = 25000.0;
+//	float k = 20000.0;
+	float radius = 0.004;
+	const float GLASS_R = 0.05;
+	const float GLASS_BOTTOM = -0.0;
+	const float GLASS_TOP = 0.19;
+	//const float GLASS_BOTTOM = -0.05;
+	//const float GLASS_TOP = 0.14;
+	const float EPSILON = 0.000001f;
+
+	/*
+	float4 pp;
+	pp.xyz = f3texRECT(attr_rect, float2(pindex, 0));
+	pp.w = 1.0;
+	float3 vel = f3texRECT(attr_rect, float2(pindex, 1));
+*/
+	float4 pp = float4(f3texRECT(attr_rect, float2(pindex, 0)), 1);
+	float3 vel = mul((float3x3)mat_col, f3texRECT(attr_rect, float2(pindex, 1)));
+
+	float3 pos = mul(mat_col, pp).xyz;
+
+	float dist = GLASS_R - sqrt(dot(pos.xy, pos.xy));
+//	float dist = GLASS_R - distance(pos.xy);//sqrt(dot(pos.xy, pos.xy))
+	float diff = 2.0*radius - dist;
+
+	float3 col_force = float3(0, 0, 0);
+	if (diff > EPSILON)
+	{
+		float3 n = -normalize(float3(pos.x, pos.y, 0.0));
+		float vel0 = dot(vel, n);
+		col_force += max(k*diff - 64.0*vel0, 0.0)*n;
+	}
+	//else result = float3(0.0, 0.0, 0.0);
+/*
+	if (diff > EPSILON)
+	{
+		float3 n = -normalize(float3(pos.x, pos.y, 0.0));
+		float vel0 = dot(vel, n);
+		result = (k*diff - 64.0*vel0)*n;
+	}
+	else result = float3(0.0, 0.0, 0.0);*/
+
+	diff = 2.0f*radius - (pos.z - GLASS_BOTTOM);
+//	diff = 2.0f*radius - pos.z;// - GLASS_BOTTOM);
+
+	if (diff > EPSILON)
+	{
+		float3 n = float3(0, 0, 1);
+		float vel0 = dot(vel, n);//vec3_dot(&n, &sph->vel[i]);
+
+		col_force += max(k*diff - 64.0*vel0, 0.0)*n;
+	}
+
+	
+	diff = 2.0f*radius - (GLASS_TOP - pos.z);
+	if (diff > EPSILON)
+	{
+		float3 n = float3(0, 0, -1);
+		float vel0 = dot(vel, n);
+		col_force += max(k*diff - 64.0*vel0, 0.0)*n;
+	}
+
+	result = mul((float3x3)mat_inv_col, col_force);
+//	result = col_force;//mul((float3x3)mat_inv_col, col_force);
+
+}

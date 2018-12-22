@@ -1,0 +1,10 @@
+Real Time Input and UI in 3D Games
+
+XML Parser
+by Greg Seegert
+gseegert@alum.wpi.edu
+
+Requires:
+MSXML 4.0 (See the references in the article)
+
+This program will parse the UI sample given in the "Real Time Input and UI in 3D Games" article.  The program is much more simple than the keyboard input system, but illustrates the mechanics of an XML file, a DTD, and the corresponding c++ code to parse and read the XML file in your programs.

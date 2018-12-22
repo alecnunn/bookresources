@@ -1,0 +1,9 @@
+CC = g++ -Wall -pedantic -ansi
+
+all:
+	$(CC) ../main.cpp -o demo -I /usr/include -I ../../../../source
+
+clean:
+	@echo Cleaning up...
+	@rm demo
+	@echo Done.

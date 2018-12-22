@@ -1,0 +1,122 @@
+/****************************************************************************
+*                                                                           *
+* THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY     *
+* KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE       *
+* IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR     *
+* PURPOSE.                                                                  *
+*                                                                           *
+* Copyright (C) 1993-95  Microsoft Corporation.  All Rights Reserved.       *
+*                                                                           *
+****************************************************************************/
+
+//Microsoft Visual C++ generated resource script.
+//
+#include "reslinkt.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "aspi32ln.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "Start &Read Loop",            IDM_START_READ_LOOP
+        MENUITEM "Start &Thread Read Loop",     IDM_START_THREAD_READ_LOOP
+        MENUITEM "&Display Read Results",       IDM_OPTIONS_DISPLAYREADRESULTS
+        , CHECKED
+        MENUITEM "Send &Post to Message Queue", IDM_OPTIONS_SENDPOSTTOMESSAGEQUEUE
+        , CHECKED
+        MENUITEM "&About...",                   IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+ABOUT DIALOG DISCARDABLE  30, 14, 136, 90
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "About ASPI for WIN32 sample"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Adaptec Windows 95 Team",104,0,63,136,8
+    CTEXT           "Copyright \251 1992-1994 Adaptec",105,0,74,136,8
+    LTEXT           "ASPI for WIN32 sample",103,40,25,95,8
+    LTEXT           "Version 1.0 B.001",106,40,35,95,8
+    DEFPUSHBUTTON   "OK",IDOK,95,6,40,14
+    CONTROL         "",108,"Static",SS_BLACKRECT,0,53,136,2
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "reslinkt.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""aspi32ln.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_OPTIONS_DISPLAYREADRESULTS 
+                            "Sends and displays each read result to window.  If disabled, no read info is displayed."
+    IDM_OPTIONS_SENDPOSTTOMESSAGEQUEUE 
+                            "Sends the next request by sending post message to message queue.  If disabled, next request is sent from post routine directly."
+END
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,95 @@
+
+// Create contact clusters from the contact points:
+
+// Loop through recorded contacts C[i]
+// N = grid subdivision level
+for( int i = 0; i < NbContacts; i++ )
+{
+    // Compute (u,v) in [-0.5, 0.5]
+    float u,v;
+
+    int CubeIndex = CubemapLookup(C[i].mNormal, u, v);
+
+    // Remap to [0, 1]
+    UnitToUVs(u, v);    // 0 <= u,v <= 1
+
+    // Remap to [0, N)
+    u *= float(N-1);    // 0 <= u <= N-1
+    v *= float(N-1);    // 0 <= v <= N-1
+
+    // Compute cluster index == sort key
+    SortKeys[i] = CubeIndex*(N*N) + int(u)*N + int(v);
+}
+
+
+
+
+// Support functions:
+
+/**
+ *    Transforms UVs from [-1,1] to [0,1]
+ *    \param    u    [in/out] mapping coordinate
+ *    \param    v    [in/out] mapping coordinate
+ */
+inline void UnitToUVs(float& u, float& v)
+{
+    u += 1.0f;    u *= 0.5f;
+    v += 1.0f;    v *= 0.5f;
+}
+
+enum CubeIndex
+{
+    CUBE_RIGHT,
+    CUBE_LEFT,
+    CUBE_TOP,
+    CUBE_BOTTOM,
+    CUBE_FRONT,
+    CUBE_BACK,
+
+    CUBE_FORCE_DWORD = 0x7fffffff
+};
+
+/**
+ *    Cubemap lookup function.
+ *
+ *    To transform returned uvs into mapping coordinates :
+ *    u += 1.0f;    u *= 0.5f;
+ *    v += 1.0f;    v *= 0.5f;
+ *
+ *    \param    direction    [in] a direction vector
+ *    \param    u            [out] impact coordinate on the unit cube, in [-1,1]
+ *    \param    v            [out] impact coordinate on the unit cube, in [-1,1]
+ *    \return   cubemap texture index
+ */
+CubeIndex CubemapLookup(const Point& direction, float& u, float& v)
+{
+    float Coeff;
+    switch(direction.ClosestAxis())
+    {
+        case _X:
+            Coeff = 1.0f / fabsf(direction.x);
+            u = direction.y * Coeff;
+            v = direction.z * Coeff;
+            if(direction.x<0.0f)    return CUBE_LEFT;
+            else                    return CUBE_RIGHT;
+        break;
+
+        case _Y:
+            Coeff = 1.0f / fabsf(direction.y);
+            u = direction.z * Coeff;
+            v = direction.x * Coeff;
+            if(direction.y<0.0f)    return CUBE_BOTTOM;
+            else                    return CUBE_TOP;
+        break;
+
+        case _Z:
+            Coeff = 1.0f / fabsf(direction.z);
+            u = direction.x * Coeff;
+            v = direction.y * Coeff;
+            if(direction.z<0.0f)    return CUBE_BACK;
+            else                    return CUBE_FRONT;
+        break;
+    }
+    return CUBE_FORCE_DWORD;
+}
+

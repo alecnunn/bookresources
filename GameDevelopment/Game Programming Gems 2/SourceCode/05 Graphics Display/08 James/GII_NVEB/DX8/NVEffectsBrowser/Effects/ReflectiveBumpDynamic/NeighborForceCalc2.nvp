@@ -1,0 +1,59 @@
+/* ****************************************
+
+2nd step of force calc for render-to-texture
+water simulation.
+
+Adds the 4th & final neighbor point to the 
+force calc..
+
+Bias and scale the values so 0 force is 0.5, 
+  full negative force is 0.0, and full pos is
+  1.0
+
+******************************************* */
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+; t0 = center
+; t1 = 2nd axis final point
+; t2 = previous partial result texture
+
+
+def c1, -0.5, -0.5, -0.5, 1.0
+
+
+; get colors from all 4 texture stages
+tex t0     // Center texel
+tex t1     // 2nd axis neighbor point
+tex t2     // previous partial force amount
+		   // Result from t1 - t0 is added to this t2
+		   //  partial result & output
+
+; last element of neighbor force
+;   result can be negative
+
+sub r0, t1, t0
+
+
+; We need to possibly subtract from previous result. 
+; Our textures don't hold signed values, so we have to
+;   use two force accumulations textures with additive
+;   blending.
+ 
+
+; If you want to further increase the magnitude of the
+;   force in this direction, uncomment some of these lines
+;add r0, r0, r0
+;add r0, r0, t2
+;add r0, r0, c1
+
+add r0, r0, t2
+
+
+

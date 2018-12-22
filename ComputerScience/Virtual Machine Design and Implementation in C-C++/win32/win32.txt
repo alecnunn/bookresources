@@ -1,0 +1,48 @@
+Overview of HEC on Win32
+------------------------
+
+There are 4 batch files which you can use to build and maintain HEC
+
+1) bldall.bat 	- makes all the win32 binaries
+2) mvbin.bat  	- moves all the win32 binaries to the win32\bin directory
+3) wipe.bat   	- deletes all the win32 binaries
+4) bldapps.bat  - builds the test application .RUN files
+ 
+Pop the CD in to your computer and copy the win32 directory tree
+to your hard drive
+
+Building HEC
+------------
+The first thing you will need to do is open a DOS command prompt window
+
+Next, run the vcvars32.bat file, which sets up the environment for Visual C++.
+If you're using a Borland compiler, you will need to find a way to make sure
+that it's executables can be found by the Windows runtime. 
+
+CD ( i.e. use the cd command ) to the win32 directory and run the following 
+batch files in the order specified
+		
+		i) bldall.bat
+		ii) mvbin.bat
+
+This will build all the native win32 binaries and move them to the 
+.\win32\bin directory. It may be a wise idea to add the .\win32\bin
+directory to your %PATH%.
+
+Taking HEC for a spin
+---------------------
+
+Go to the win32\hasm\testapps and run the bldapps.bat batch file. This will
+invoke the HASM assembler and assemble all the applications. 
+
+If you want to assemble a HEC assembly source file, you will need to issue
+a command similar to:
+
+	..\..\bin\hasm   timedate.asm 
+
+To run an application, you will need to issue a command similar to:
+
+	..\..\bin\hecvm  timedate.RUN
+
+
+

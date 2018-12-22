@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xdsConvert", "source\xdsConvert\XDSConvert.vcproj", "{DBDDA3B0-BD8B-42AE-99E6-53DB4A6198F3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xdsMakeSchema", "source\xdsMakeSchema\xdsMakeSchema.vcproj", "{1B14CBB5-8FB9-4483-93C0-290B6ECCC305}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Powerup", "sample\Powerup.vcproj", "{352407B7-433D-4837-A90C-75C80DC5AF8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DBDDA3B0-BD8B-42AE-99E6-53DB4A6198F3}.Debug.ActiveCfg = Debug|Win32
+		{DBDDA3B0-BD8B-42AE-99E6-53DB4A6198F3}.Debug.Build.0 = Debug|Win32
+		{DBDDA3B0-BD8B-42AE-99E6-53DB4A6198F3}.Release.ActiveCfg = Release|Win32
+		{DBDDA3B0-BD8B-42AE-99E6-53DB4A6198F3}.Release.Build.0 = Release|Win32
+		{1B14CBB5-8FB9-4483-93C0-290B6ECCC305}.Debug.ActiveCfg = Debug|Win32
+		{1B14CBB5-8FB9-4483-93C0-290B6ECCC305}.Debug.Build.0 = Debug|Win32
+		{1B14CBB5-8FB9-4483-93C0-290B6ECCC305}.Release.ActiveCfg = Release|Win32
+		{1B14CBB5-8FB9-4483-93C0-290B6ECCC305}.Release.Build.0 = Release|Win32
+		{352407B7-433D-4837-A90C-75C80DC5AF8B}.Debug.ActiveCfg = Debug|Win32
+		{352407B7-433D-4837-A90C-75C80DC5AF8B}.Debug.Build.0 = Debug|Win32
+		{352407B7-433D-4837-A90C-75C80DC5AF8B}.Release.ActiveCfg = Release|Win32
+		{352407B7-433D-4837-A90C-75C80DC5AF8B}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

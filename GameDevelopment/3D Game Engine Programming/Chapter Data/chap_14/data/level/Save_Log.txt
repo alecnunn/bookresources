@@ -1,0 +1,5 @@
+Datei geoeffnet
+Anzahl Skins geholt
+Basisdaten geschrieben
+Ein Sektor wurde geschrieben
+Die Skins wurden geschrieben

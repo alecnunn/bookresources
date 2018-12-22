@@ -1,0 +1,17 @@
+void main(float2 sn_coord : TEXCOORD0,
+		  /**	
+		  y  : subject particle index
+		  xy : neighbour particle index
+		  **/
+		  uniform samplerRECT density_rect   : TEXUNIT0,
+		  uniform samplerRECT neighbour_rect : TEXUNIT1,
+		  out float result : COLOR
+		  )
+{
+	float neighbour_index = f1texRECT(neighbour_rect, sn_coord.yx);
+	result = f1texRECT(density_rect, unpack_2ushort(neighbour_index)*65536);
+
+	//result = 44;
+	//result = neighbour_index;
+	//result.xy = (unpack_2ushort(neighbour_index)*65536);
+}

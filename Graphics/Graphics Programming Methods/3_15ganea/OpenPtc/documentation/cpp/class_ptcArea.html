@@ -1,0 +1,164 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::Area  Class Reference</h1>A rectangular area. 
+<a href="#_details">More...</a>
+<p>
+<a href="class_ptcArea-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li><a class="el" href="class_ptcArea.html#a0">Area</a> ()
+<li><a class="el" href="class_ptcArea.html#a1">Area</a> (int left,int top,int right,int bottom)
+<li><a class="el" href="class_ptcArea.html#a2">Area</a> (const Area &amp;area)
+<li><a class="el" href="class_ptcArea.html#a3">~Area</a> ()
+<li>int <a class="el" href="class_ptcArea.html#a4">left</a> () const
+<li>int <a class="el" href="class_ptcArea.html#a5">top</a> () const
+<li>int <a class="el" href="class_ptcArea.html#a6">right</a> () const
+<li>int <a class="el" href="class_ptcArea.html#a7">bottom</a> () const
+<li>int <a class="el" href="class_ptcArea.html#a8">width</a> () const
+<li>int <a class="el" href="class_ptcArea.html#a9">height</a> () const
+<li>Area&amp; <a class="el" href="class_ptcArea.html#a10">operator=</a> (const Area &amp;area)
+<li>bool <a class="el" href="class_ptcArea.html#a11">operator==</a> (const Area &amp;area) const
+<li>bool <a class="el" href="class_ptcArea.html#a12">operator!=</a> (const Area &amp;area) const
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+A rectangular area.
+<p>
+The area class represents a rectangle of pixels.
+<p>
+It is typically used to select certain areas of pixels for operations such as copying, and clearing.
+<p>
+The most important thing to understand about area objects is that zero areas represent zero areas.
+<p>
+This means that an area object <em>Area(0,0,0,0)</em> covers zero pixels, instead of one pixel.
+<p>
+An area <em>Area(0,0,1,1)</em> covers a single pixel, even though the points <em>(0,0)</em> and <em>(1,1)</em> span over a 2x2 block of pixels.
+<p>
+Another way to think about it is that the top-left coordinate is inclusive and the bottom-right coordinate is exclusive.
+<p>
+See <a class="el" href="class_ptcSurface.html#a7">Surface::load</a>(), <a class="el" href="class_ptcSurface.html#a9">Surface::save</a>(), <a class="el" href="class_ptcSurface.html#a3">Surface::copy</a>(), and <a class="el" href="class_ptcSurface.html#a12">Surface::clear</a>() for examples of the use of areas. <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::Area::Area"></a>ptc::Area::Area ()</h3>
+<div class="in">
+
+<p>
+Default constructor.
+<p>
+<em>left,</em> <em>right,</em> <em>top</em> and <em>bottom</em> are all set to zero. </div>
+
+<h3><a name="a1" doxytag="ptc::Area::Area"></a>ptc::Area::Area (int <em>left</em>, int <em>top</em>, int <em>right</em>, int <em>bottom</em>)</h3>
+<div class="in">
+
+<p>
+Creates a rectangular area with the upper left corner at ( <em>left,</em> <em>top</em> ) and the lower right corner at ( <em>right,</em> <em>bottom</em> ).
+<p>
+Switches the left and right coordinates if <em>left</em> &gt; <em>right.</em>
+<p>
+Switches the top and bottom coordinates if <em>top</em> &gt; <em>bottom.</em>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>left</em> -  the left coordinate of the area. <dd>
+<em>top</em> -  the top coordinate of the area. <dd>
+<em>right</em> -  the right coordinate of the area. <dd>
+<em>bottom</em> -  the bottom coordinate of the area. </dl></div>
+
+<h3><a name="a2" doxytag="ptc::Area::Area"></a>ptc::Area::Area (const Area &amp; <em>area</em>)</h3>
+<div class="in">
+
+<p>
+Copy constructor. </div>
+
+<h3><a name="a3" doxytag="ptc::Area::~Area"></a>ptc::Area::~Area ()</h3>
+<div class="in">
+
+<p>
+Destructor. </div>
+
+<h3><a name="a4" doxytag="ptc::Area::left"></a>int ptc::Area::left () const</h3>
+<div class="in">
+
+<p>
+Gets the left coordinate of the area.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The left area coordinate. </dl></div>
+
+<h3><a name="a5" doxytag="ptc::Area::top"></a>int ptc::Area::top () const</h3>
+<div class="in">
+
+<p>
+Gets the top coordinate of the area.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The top area coordinate. </dl></div>
+
+<h3><a name="a6" doxytag="ptc::Area::right"></a>int ptc::Area::right () const</h3>
+<div class="in">
+
+<p>
+Gets the right coordinate of the area.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The right area coordinate. </dl></div>
+
+<h3><a name="a7" doxytag="ptc::Area::bottom"></a>int ptc::Area::bottom () const</h3>
+<div class="in">
+
+<p>
+Gets the bottom coordinate of the area.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The bottom area coordinate. </dl></div>
+
+<h3><a name="a8" doxytag="ptc::Area::width"></a>int ptc::Area::width () const</h3>
+<div class="in">
+
+<p>
+Gets the width of the area ( <em>right</em> - <em>left</em> ).
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The area width. </dl></div>
+
+<h3><a name="a9" doxytag="ptc::Area::height"></a>int ptc::Area::height () const</h3>
+<div class="in">
+
+<p>
+Gets the height of the area ( <em>bottom</em> - <em>top</em> ).
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+The area height. </dl></div>
+
+<h3><a name="a10" doxytag="ptc::Area::operator="></a>Area &amp; ptc::Area::operator= (const Area &amp; <em>area</em>)</h3>
+<div class="in">
+
+<p>
+Assignment operator. </div>
+
+<h3><a name="a11" doxytag="ptc::Area::operator=="></a>bool ptc::Area::operator== (const Area &amp; <em>area</em>) const</h3>
+<div class="in">
+
+<p>
+Equality operator. </div>
+
+<h3><a name="a12" doxytag="ptc::Area::operator!="></a>bool ptc::Area::operator!= (const Area &amp; <em>area</em>) const</h3>
+<div class="in">
+
+<p>
+Inequality operator. </div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

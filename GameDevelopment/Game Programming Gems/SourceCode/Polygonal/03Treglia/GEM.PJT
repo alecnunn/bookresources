@@ -1,0 +1,77 @@
+;Codewright Project File (do not remove or modify this line)
+[ProjInit]
+ProjSetConfigFlags=0x04010940
+ProjCheckPath='C:\projects\pc\gem\\'
+
+[Files]
+C:\projects\pc\gem\Data\curve.sdf
+C:\projects\pc\gem\SRC\main.cpp
+C:\projects\pc\gem\SRC\def.h
+C:\projects\pc\gem\SRC\fly.cpp
+C:\projects\pc\gem\SRC\fly.h
+C:\projects\pc\gem\SRC\light.cpp
+C:\projects\pc\gem\SRC\light.h
+C:\projects\pc\gem\SRC\mtxlib.cpp
+C:\projects\pc\gem\SRC\mtxlib.h
+C:\projects\pc\gem\SRC\object.cpp
+C:\projects\pc\gem\SRC\object.h
+C:\projects\pc\gem\SRC\plane.cpp
+C:\projects\pc\gem\SRC\plane.h
+C:\projects\pc\gem\SRC\spline.cpp
+C:\projects\pc\gem\SRC\spline.h
+C:\projects\pc\gem\SRC\text.cpp
+C:\projects\pc\gem\SRC\text.h
+C:\projects\pc\gem\SRC\quaternion.cpp
+C:\projects\pc\gem\SRC\quaternion.h
+C:\PROJECTS\PC\GEM\SRC\stars.cpp
+C:\PROJECTS\PC\GEM\SRC\stars.h
+C:\PROJECTS\PC\GEM\SRC\auxobj.h
+
+[State]
+SysSetCwd='C:\projects\pc\gem'
+SrchSetFlags=0x041000fa
+FileSortMode=0x0
+StateWindowFrame=0,0,1280,996,0x620935d8
+_StateHistory=FILELIST,'c:\projects\pc\gem\src\light.cpp','C:\projects\pc\gem\src\maind.cpp','C:\projects\pc\gem\SRC\object.cpp','C:\projects\pc\gem\SRC\text.h','C:\projects\pc\gem\SRC\text.cpp','C:\projects\pc\gem\SRC\spline.h','C:\projects\pc\gem\SRC\main.cpp','C:\projects\pc\gem\SRC\fly.h','C:\projects\pc\gem\SRC\fly.cpp'
+_StateHistory=SEARCH,'P','R','im','beh','390','new','Cl','camera','new ','malloc'
+_StateHistory=XSYMBOL,'Object','TEXT_WRAP_SPACES','TEXT_DRAW_SPACES','TEXT_DRAW_BACKGROUND','Spline','IdentityMatrix44','FlyCam','TextBox','vector3','SpringDamp'
+_StateHistory=EDITFILE,'C:\pcemuOld\build\demos\charPipeline\src\previewer','C:\Projects\DOLPHIN\Spline\src\mtxlib','C:\Projects\pc\gem\Data\curve','C:\Temp\gem\src\win32.cpp','C:\projects\pc\text\gem.pjt','C:\Temp\demo\demolib.cpp','C:\projects\pc\text\src\main.cpp','C:\projects\pc\text\src\cube.cpp','C:\Pcemu\build\demos\globe\src\stars.c','C:\projects\pc\gem\src\main.cpp'
+_StateHistory=DIRECTORY,'C:\projects\pc\gem','C:\Program Files\Microsoft Visual Studio\VC98\Include','C:\projects\pc\text'
+_StateHistory=FGREP,'PC','DOLPHIN','Torus','gl','new ','malloc'
+_StateHistory=GREPSCOPE,'*.c; *.h; *.cpp'
+_StateHistory=FGREPDIR,'C:\projects\pc\mtxapp','C:\Program Files\Microsoft Visual Studio\VC98\Include','C:\projects\pc\text','C:\projects\pc\gem'
+
+[Editor]
+VCSProject=''
+VCSProjectPath=''
+VCSProjectLocalPath=''
+ScrapSetCount=37
+ClipboardEnableSepStr=1
+ClipboardSetSepStr='\r\n',0
+ClipboardEnableTermStr=1
+ClipboardSetTermStr='\r\n',0
+
+[Compiler]
+TagSetFile=''
+BrowseSetFile=''
+CompilerNewExt=.htm
+CompilerNewExt=.pas
+CompilerNewExt=.ini
+CompilerNewExt=.html
+CompilerNewExt=.txt
+TagSetCmd='${HOME}${WTAGS} -oc -d -t${TAGFILE}.tag -p${TAGFILE}.ptg',0x8000060
+
+[VersionControl:PVCS]
+VCSSetCmd=VCS_CHECKIN_ID,'put -n -T@%Q -M@%Q %b%e',0x8000040
+VCSSetCmd=VCS_CHECKINLOCK_ID,'put -n -T@%Q -M@%Q -l %b%e',0x8000040
+VCSSetCmd=VCS_CHECKOUT_ID,'get -y %b%e',0x8000040
+VCSSetCmd=VCS_CHECKOUTLOCK_ID,'get -y -l %b%e',0x8000040
+VCSSetCmd=VCS_CHECKLOCK_ID,'vcs -y -l %b%e',0x8000040
+VCSSetCmd=VCS_CHECKUNLOCK_ID,'vcs -y -u %b%e',0x8000040
+VCSSetCmd=VCS_CHECKLABEL_ID,'vcs -y -v"${VCSLABEL}" %b%e',0x8000040
+VCSSetCmd=VCS_CHECKLOG_ID,'vlog %b%e',0x8000040
+VCSSetCmd=VCS_CHECKPROP_ID,'vlog -b %b%e',0x8000040
+VCSSetCmd=VCS_CHECKDIFF_ID,'vdiff -r %b%e',0x8000040
+VCSSetCmd=VCS_CHECKMENU_ID,'pvcsvmwn',0x8000000
+VCSSetCmd=VCS_ADD_ID,'vcs -i -t@%Q %b%e',0x8000040
+VCSSetCmd=VCS_REMOVE_ID,'del /f %b%{??v|___}e',0x8000040

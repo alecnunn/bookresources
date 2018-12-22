@@ -1,0 +1,63 @@
+Overview of HEC on Linux
+------------------------
+
+There are 4 script files which you can use to build and maintain HEC
+
+1) bldall.sh 	- makes all the Linux binaries
+2) mvbin.sh  	- moves all the Linux binaries to the ${BLDROOT}/bin directory
+3) wipe.sh   	- deletes all the Linux binaries
+4) bldapps.sh   - builds the test application .RUN files
+ 
+Mount the CD-ROM and copy the linux directory tree to your filesystem
+
+	mount  /dev/cdrom  /root/cdrom
+	cp -r  /root/cdrom/linux   ./hec
+	umount /dev/cdrom
+
+Once you have copied the linux directory tree from the CD to your harddrive, 
+you will need to use the chmod command to make these scripts executable.
+
+For example:
+
+		chmod +x ./bldall.sh
+
+Also, to run these scripts you will need to edit them so that $BLDROOT
+environmental variable points to the linux directory ( i.e. the directory 
+containing the bin, hasm, hecvm subdirectories ). 
+
+For example:
+
+		BLDROOT=/root/hec/linux
+
+Building HEC
+------------
+
+From the ${BLDROOT} directory, run the following scripts in the order specified
+		
+		i) bldall.sh
+		ii) mvbin.sh
+
+This will build all the native Linux binaries and move them to the 
+${BLDROOT}/bin directory. It may be a wise idea to add the ${BLDROOT}/bin
+directory to your $PATH.
+
+Taking HEC for a spin
+---------------------
+
+Go to the ${BLDROOT}/hasm/testapps and run the bldapps.sh script. This will
+invoke the HASM assembler and assemble all the applications. 
+
+If you want to assemble a HEC assembly source file, you will need to issue
+a command similar to:
+
+	..\..\bin\hasm  timedate.asm
+	( in general,  path\hasm  asmfile.asm )
+
+Note, you will need to issue this command from the directory containing the
+assembly source file. In addition, you cannot prefix the file name.
+
+	..\..\bin\hasm  ./timedate.asm   ( this is INVALID ) 
+
+To run an application, you will need to issue a command similar to:
+
+	..\..\bin\hecvm  timedate.RUN

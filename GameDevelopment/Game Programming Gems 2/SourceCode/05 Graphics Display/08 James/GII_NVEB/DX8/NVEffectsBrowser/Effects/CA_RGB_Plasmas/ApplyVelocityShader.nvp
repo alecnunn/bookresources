@@ -1,0 +1,46 @@
+/* ****************************************
+
+2nd step of force calc for render-to-texture
+water simulation.
+
+Adds the 4th & final neighbor point to the 
+force calc..
+
+Bias and scale the values so 0 force is 0.5, 
+  full negative force is 0.0, and full pos is
+  1.0
+
+******************************************* */
+
+
+#include "PixelConstants.h"
+
+
+; Declare pixel shader version
+ps.1.1
+
+
+
+; t0 = velocity field
+; t1 = forces          
+;  or
+;  t0 = height & t1 = velocity
+
+
+
+tex t0      // prev position
+tex t1      // velocity at pt 1
+
+
+; Bias the force back to 0 = 0.0 and negative = negative.
+;   Too bad we can't store signed values in the velocity and
+;   force textures!
+
+mov r0, t1_bias
+
+
+; add force * scale and output
+mad  r0, r0, c[PCN_MULTFACTOR_1], t0
+
+
+

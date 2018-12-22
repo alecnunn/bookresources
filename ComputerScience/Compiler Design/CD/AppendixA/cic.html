@@ -1,0 +1,124 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - cic</h2>
+<p>#include&lt;stdio.h&gt;<br>
+  #include&lt;stdlib.h&gt;<br>
+  #include&lt;string.h&gt;<br>
+  #include&quot;def.h&quot;<br>
+  #include&quot;op.h&quot;<br>
+  #define STACKSIZE 100<br>
+  #define MAXLABEL 10<br>
+  #define HASHSIZE 100<br>
+  #define NAMESIZE 30<br>
+  #define MAXCASES 20 <br>
+  #define DIMSIZE 30<br>
+  #define LABELSIZE 30<br>
+  #define ERROR -1<br>
+  #define testc {printf(&quot;Test and continue\n&quot;);}<br>
+  #define teste {printf(&quot;Test and exit\n&quot;);exit(-1);}<br>
+  long int relAddr;<br>
+  char srcFileName[40];<br>
+  int errCount;<br>
+  int lineNo;<br>
+  int cstackTop;<br>
+  int bstackTop;<br>
+  char cstack[STACKSIZE][MAXLABEL];<br>
+  char bstack[STACKSIZE][MAXLABEL];<br>
+  char caseLabels[MAXCASES][MAXLABEL];<br>
+  char caseExprs[MAXCASES][NAMESIZE];<br>
+  typedef struct Attr<br>
+  {<br>
+  short int type;<br>
+  short int subtype;<br>
+  char label1[LABELSIZE];<br>
+  char label2[LABELSIZE];<br>
+  //short int datatype;             //char, integer, long, float,double<br>
+  char name[NAMESIZE];<br>
+  union                           //constant values if it is<br>
+  {<br>
+  char cVal;<br>
+  int iVal;<br>
+  float fVal;<br>
+  double dVal;<br>
+  char *sVal;<br>
+  int relAddress;<br>
+  }value;<br>
+  int dimArray[DIMSIZE+1];<br>
+  short int noDimensions;<br>
+  char offsetName[NAMESIZE];<br>
+  }Attr;</p>
+<p>typedef struct Quad{<br>
+  char *label;<br>
+  int operator;<br>
+  Attr *operand1;<br>
+  Attr * operand2;<br>
+  Attr *result;<br>
+  struct Quad *nextQuad;<br>
+  }Quad;</p>
+<p>typedef struct Symbol<br>
+  {<br>
+  short int type;                 //ID or Const<br>
+  short int subtype;              //Basic, Array, Pointer, Referernce, File, Function<br>
+  //short int datatype;             //char, integer, long, float,double<br>
+  short int nameLen;              //Lengh of the ID if it is<br>
+  char *name;                     //ID lexeme<br>
+  short int storage;              //Storage type: auto, register, static, typedef<br>
+  short int qualifier;            //Qualifier: Constant, Volatile<br>
+  short int sign;                 //unsigned, signed<br>
+  short int width;                //width of the data if applicable<br>
+  union                           //constant values if it is<br>
+  {<br>
+  char cVal;<br>
+  int iVal;<br>
+  float fVal;<br>
+  char *string;<br>
+  }value;<br>
+  int *dimArray;                  //dimArray[0] refers to how many dimenstions dimArray[1] .. dimArray[2] .. size of each dimension<br>
+  int relAddr;                    //Relative address of each symbol<br>
+  }Symbol;<br>
+</p>
+<p>Symbol sym;<br>
+</p>
+<p>typedef struct LNode<br>
+  {<br>
+  Symbol symbol;<br>
+  struct LNode *next;<br>
+  } LNode;</p>
+<p>typedef LNode *PtrToLNode ;<br>
+  typedef PtrToLNode List;<br>
+  int hsize;</p>
+<p>typedef struct ST<br>
+  {<br>
+  struct ST *prevst;<br>
+  List *HashTable;<br>
+  }ST;<br>
+  ST *prevst,*st,*cst;<br>
+  void initHash(ST*,int);</p>
+<p>Symbol copySymbol(ST *st,Attr attr, char name[NAMESIZE]);</p>
+<p>Symbol createTempSymbolWithType(ST *st,Attr attr1,Attr attr2, Attr attr3);</p>
+<p>short int findDType(ST *st,Attr attr);</p>
+<p>int  addSymbolHash(ST *st,Symbol symbol);</p>
+<p>int findHash(char[]);</p>
+<p>void dispSymbolTableHash(ST *st);</p>
+<p>void destroySymbolTable(ST *st,int size);</p>
+<p>void dispNodeHash(LNode *p);</p>
+<p>LNode *findSymbolHash(ST *st,char *name);</p>
+<p>int noElements;</p>
+<p>LNode *head;</p>
+<p>int addSymbolLL(LNode *,Symbol symbol);</p>
+<p>int dispSymbolTableLL(LNode *);</p>
+<p>/*-------------------semantic actions prototype declarations-------------*/<br>
+  short int cstackpush(char *label);<br>
+  short int cstackpop();<br>
+  short int bstackpush(char *label);<br>
+  short int bstackpop();<br>
+  void addCode(Quad *quadListHeader,char *label,int operator,Attr operand1,Attr operand2,Attr result);<br>
+</p>
+<p>void printCode(Quad *quadListHeader);</p>
+<p>void itoa(int number, char *name);</p>
+<p>void createTemp(char temp[]);<br>
+</p>
+</body>
+</html>

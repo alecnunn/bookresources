@@ -1,0 +1,8 @@
+ps.1.1
+
+; get texel from stage 0                 
+tex t0
+
+; multiply texel color
+; with diffuse color
+mul r0, t0, v0     

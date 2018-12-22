@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE> Using Lists: Both Ordered and Unordered   </TITLE>
+</HEAD>
+
+<BODY>
+<H2> Let's make an ordered list of our favorite movies. </H2>
+<OL>
+<LI> All About Eve
+<LI> Patton
+<LI> Lord of the Rings
+</OL>
+<H2> Here's an unordered list of great cities to visit.</H2>
+<UL>
+<LI> New York
+<LI> Paris
+<LI> London
+<LI> Rome
+<UL>
+
+<H2> Here's a list of useful web sites to visit. </H2>
+<P> Note that I will be using the link tag so you can visit them.
+<UL>
+<LI>  <A HREF = "http://www.google.com"> Google <A>
+<LI> <A HREF = "http://www.w3.org">World Wide Web Consortium <A>
+<LI> <A HREF = "http://java.sun.com">More about Java <A>
+<LI> <A HREF = "http://www.nytimes.com">The New York Times <A>
+<LI>
+</UL>
+
+</BODY>
+<HTML>
+
+
+
+

@@ -1,0 +1,8 @@
+BeginStateMachine
+EndStateMachine
+State
+OnEnter
+OnUpdate
+OnExit
+OnMsg
+SetState

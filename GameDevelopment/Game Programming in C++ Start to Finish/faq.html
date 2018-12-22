@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="default.css" />
+
+<title>Game Programming in C++:FAQ</title>
+</head>
+<body>
+<div class="main_content" align="center">
+  <div id="contentArea">
+      <a href="index.html"><img border="0" src="images/title-gp.gif" width="730" height="58" alt="Game Programming in C++ Start to Finish"/></a></div>
+      <hr />
+	  <center>
+	  <table class="nav_table" cellpadding="0" cellspacing="0" border="0">
+       <tr>
+        <td class="nav_cell" align="left"><a href="chapter_source/setup-win32-1_0_0.exe">Install Chapter Source</a>&nbsp;|</td>
+        <td class="nav_cell" align="left"><a href="peon/PeonSDK-Win32-1.0.0.exe">Install PeonSDK Source</a>&nbsp;|</td>
+        <td class="nav_cell" align="left"><a href="install_SDL.html">Install SDL</a>&nbsp;|</td>
+        <td class="nav_cell" align="left"><a href="install_CEGUI.html">Install CEGUI</a>&nbsp;|</td>
+		  <td class="nav_cell" align="left"><a href="game_source_code.html">Game Source Code</a>&nbsp;|</td>
+		 <td class="nav_cell" align="left"><a href="faq.html">FAQ</a>&nbsp;|</td>
+		<td class="nav_cell" align="left"><a href="readme.html">License</a>&nbsp;</td>
+       </tr>
+      </table>
+	  </center>
+	  <hr />
+<p class="mainheader" align=center>Frequently Asked Questions</p>
+<P CLASS="mainheader" ALIGN=LEFT>Q: When do I need to use STLport?</P>
+<P ALIGN=LEFT>A: You need STLport if you're running Microsoft Visual C++
+6.0 SP6 or .NET 2002, because of an older implementation of the STL in these
+versions of VC++. <b>If you are using Visual C++.Net 2003 or later you do not need
+STLport.</b></P>
+<P CLASS="mainheader" ALIGN=LEFT>Q: How do I install STLport?</P>
+<P>Answer #1 &ndash; build it yourself:</P>
+<P STYLE="margin-left: 0.82cm">Download the latest from
+<A HREF="http://www.stlport.org/">www.stlport.org</A> and unzip it
+somewhere 
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Open a command prompt, and change
+	to the folder STLport-x.x.x\src 
+	</P>
+</UL>
+<UL>
+	<LI><P>If you're using Visual C++ 6: 
+	</P>
+</UL>
+<OL>
+	<LI><P STYLE="margin-bottom: 0cm">make sure you've run VCVARS32.BAT
+	from the MSVC6 folder, <B>in the same command prompt window</B></P>
+	<LI><P>type 'nmake -f vc6.mak clean all' 
+	</P>
+</OL>
+<UL>
+	<LI><P>If you're using Visual C++.Net: 
+	</P>
+</UL>
+<OL>
+	<LI><P STYLE="margin-bottom: 0cm">make sure you've run VSVARS32.BAT
+	from the MSVC .NET folder, <B>in the same command prompt window</B> 
+	</P>
+	<LI><P>type 'nmake -f vc7.mak clean all' 
+	</P>
+</OL>
+<br />
+<P>Answer #2 &ndash; run the included install:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm"><a href="tools_install/STLPort-4.6.2-04mar05.exe">Prebuilt STLPort v4.6.2</a>
+	<i>(which is also available at the <a href="http://www.ogre3d.org">Ogre</a> homepage).</i> This is a 
+	pre-built installation of the STLPort libraries and runtimes which was posted by the Ogre development
+	team.<br />
+	</P>
+</UL>
+<br />
+<b>Once the library has been installed (or built) do not forget to add the include and lib folders
+to the necessary path settings in your compiler IDE.</b>
+<P CLASS="mainheader" ALIGN=LEFT>Q: When I'm compiling using Visual Studio (any version), why do I
+get strange linking errors with SDL?</P>
+<P ALIGN=LEFT>A: Most likely this is because you have not changed the project settings to use the <b>multithreaded
+DLL runtime libraries</b>.</p>
+<br />
+<ul>
+<li>For Visual Studio 6.0:<br />
+Highlight your project, and right-click selecting the <b>properties</b> menu item:<br />
+<img src="images/vs60_sdl_setup.png" border="0"><br /><br />
+</li>
+<li>For Visual Studio .NET 2003:<br />
+Highlight your project, and right-click selecting the <b>properties</b> menu item:<br />
+<img src="images/vs2003_sdl_setup.png" border="0"><br /><br />
+</li>
+<li>For Visual Studio .NET 2005:<br />
+Highlight your project, and right-click selecting the <b>properties</b> menu item:<br />
+<img src="images/vs2005_sdl_setup.png" border="0"><br /><br />
+</li>
+
+</ul>
+
+
+</div>
+</div>
+</body>
+</html>

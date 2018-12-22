@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>Things to do</title>
+</head>
+
+<body TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#824250" VLINK="#51188E" ALINK="#FF0000"
+BACKGROUND="white.gif">
+
+<h1 align="left"><font face="Arial" size="7">Things to do</font></h1>
+
+<h4><br>
+<font face="Arial">Short Term</font></h4>
+
+<ul>
+  <li>Improve installation program with an OpenPTC for Windows logo, progress bar, command
+    line parms for silent and force modes, plus dll version checking.</li>
+  <li>Add &quot;hook&quot; extension to allow the user to hook the wndproc messages without
+    needing to create their own window. hook must recieve messages BEFORE ptc internal hook
+    gets them! (WM_CLOSE). Make sure windows hook can pass a void* context parameter so OO
+    dudes can use it easily.</li>
+  <li>Add &quot;Hook&quot; extension example to show how to get mouse messages from the
+    console without needing to manage the WndProc.</li>
+  <li>Check the nearest mode search again, i think there are problems in the code. also, add
+    code to distinguish between indexed only and indexed/direct. this may be what is causing
+    nearest mode search pass one failure on some systems ?</li>
+  <li>Fix set palette bug under JNI/RNI. I cannot track it down!</li>
+  <li>Convert static array structures in OpenPTC Win32 over to use STL. I'm sick of managing
+    complex data structures from scratch using limited fixed size buffers. blergh. This will
+    probably mean that Visual C++ 6.0 will be required to compile ptc.dll and ptcdebug.dll.</li>
+  <li>Do a general clean up of all the code, cut down and simplify everything that can be
+    cleaned up. Some code needs a good &quot;spring cleaning&quot;.</li>
+  <li>Run GlowCode over OpenPTC for Windows to test for memory leaks and other problems.</li>
+  <li>Fix the clipping stretch area bug by passing in a reference area as input to the complex
+    clipping function.</li>
+</ul>
+
+<h4><font face="Arial">Mid Term</font></h4>
+
+<ul>
+  <li>Add control over the icon resource string so users can load their own icons for the ptc
+    window easily.</li>
+  <li>Implement proper Console::information string generation and a new
+    &quot;DirectXInformation&quot; class that will output dx structs as text information.</li>
+  <li>Fix the core console 'merger kit' to behave much more correctly, and add a concept of a
+    'default' console option to switch back from a specific console (ie. &quot;DirectX&quot;).</li>
+  <li>Extend window position saving and restoring to all top level windows (and maybe icons as
+    well) to make sure that fullscreen output can never possibly mess up the position of the
+    users windows and icons (this is required for the correct operation of user managed HWND
+    in fullscreen!). &quot;Win32Desktop&quot; class?</li>
+  <li>Implement saving and restoring of the contents of the primary and secondary surfaces +
+    failsafe surface restore in worst case when surfaces are lost unexpectedly.</li>
+  <li>Improve direct window primary writing stability by blocking the primary lock until it
+    succeeds (ie. when the window is minimized, or moved off screen).</li>
+  <li>Replace all of the code in DirectXPrimary that performs console clearing in software
+    with DX hardware clearing (windowed output clearing is mostly still software when writing
+    directly to primary, not a major problem since windowed output usually writes to a
+    secondary first then copies to primary on update).</li>
+  <li>Fix up Win32Window class name registration to make sure that it will never try to
+    register two identical class names with different class data at the same time!</li>
+  <li>Add a window update that peeks for certain window messages only. This is required
+    because the console.read should only process keyboard messages, not any other messages
+    (ie. resize!).</li>
+  <li>Implement area updates for cases where there is a secondary surface being copied to the
+    primary on each update.</li>
+  <li>Add some more window styles for windowed output.</li>
+  <li>Properly handle resizable windows when writing directly to the primary surface by
+    changing the width/height of the console?</li>
+</ul>
+
+<h4><font face="Arial">Long Term</font></h4>
+
+<ul>
+  <li>Add a lot more extension example programs to show how to interface PTC with DirectX,
+    Direct3D, OpenGL, GDI, Win32 MCI video playing routines etc. How to set a hook on the
+    console WndProc to get mouse events etc.</li>
+  <li>Make ALT-ENTER to switch between windowed and fullscreen output. This would be very hard
+    to implement but extremely cool!</li>
+  <li>Add options to the system menu of ptc windows for 1x, 2x, 4x window output, fullscreen
+    or windowed, etc.</li>
+  <li>Add support for configuring PTC options globally from inside the registry? PTC control
+    panel applet? heheh :)</li>
+  <li>Implement a workaround the windows ALT and F10 system keys to stop the program pausing
+    when they are pressed.</li>
+  <li>Add GDI support once the DirectX support is completed. This will be most useful for
+    providing easy access to WGL/OpenGL from OpenPTC.</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,84 @@
+//Windows resource file 
+//example1.rc 
+#include <windows.h>
+#include "main.h" // Icon resources 
+ICON_APPWND ICON "main.ico" 
+
+// The menu
+main_menu MENU
+BEGIN
+     POPUP "&File"
+     BEGIN
+    	  MENUITEM SEPARATOR
+	  MENUITEM "E&xit", IDM_QUIT
+	  END
+
+	  POPUP "&Terrain Generation"
+	  BEGIN
+	  MENUITEM "&Fuzzy Terrain", IDM_FUZZY
+	  MENUITEM "Quadrant A&verage", IDM_QUAD
+	  MENUITEM "Quadrant A&nalysis", IDM_QUAD_AVE
+	  MENUITEM "Fault &Lines", IDM_FAULTLINES
+	  MENUITEM SEPARATOR
+	  MENUITEM "&Properties...", IDM_TERRAIN_PROPERTIES
+	  END
+
+	  POPUP "&Output"
+	  BEGIN
+		MENUITEM "Create &MetaFile...", IDM_METAFILE
+	  END
+	
+     POPUP "&Help"
+	 BEGIN
+		MENUITEM "&About", IDM_HELP_ABOUT
+	 END
+END 
+
+about_dlg DIALOG  20, 20, 160, 116
+STYLE WS_POPUP | WS_DLGFRAME
+{
+	CTEXT "Terrain Generator"                      -1,   0,  8, 160,  8
+	CTEXT "Version 1.0"                     -1,   0, 20, 160,  8
+	CTEXT ""               -1,   0, 32, 160,  8
+	ICON  ICON_APPWND, -1,   8,  8, 0,0
+	CTEXT " "  -1,   0, 60, 160,  8
+	CTEXT "(c) Guy W. Lecky-Thompson 1999"  -1,   0, 72, 160,  8
+  	DEFPUSHBUTTON "OK"                IDD_OK,    64, 96,  32, 14, WS_GROUP
+}
+
+QuadAnalysis DIALOG 6, 15, 161, 114
+STYLE WS_CHILD | WS_VISIBLE | WS_CAPTION
+CAPTION "Quadrant Analysis"
+FONT 8, "MS Sans Serif"
+{
+ PUSHBUTTON "Start Analysis", IDC_START, 19, 96, 50, 14
+ PUSHBUTTON "Cancel", IDC_CANCEL, 88, 96, 50, 14
+ EDITTEXT IDC_QUAD_SIZE, 67, 17, 27, 12
+ LTEXT "Quadrant Size", -1, 9, 19, 48, 8
+}
+
+TerrainProperties DIALOG DISCARDABLE  0, 0, 222, 108
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Terrain Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,87,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,165,87,50,14
+    GROUPBOX        "Topography",IDC_STATIC,7,7,94,72
+    LTEXT           "Water %",IDC_STATIC,12,18,28,8
+    LTEXT           "Plains %",IDC_STATIC,12,33,27,8
+    LTEXT           "Hills %",IDC_STATIC,12,48,21,8
+    LTEXT           "Mountains %",IDC_STATIC,12,63,41,8
+    EDITTEXT        IDC_WATER,56,16,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_PLAINS,56,31,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_HILLS,56,46,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_MOUNTAINS,56,61,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Generation",IDC_STATIC,107,7,107,40
+    LTEXT           "Seed Value",IDC_STATIC,113,18,38,8
+    EDITTEXT        IDC_SEED,170,16,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Maximum Height",IDC_STATIC,113,33,53,8
+    EDITTEXT        IDC_MAXHEIGHT,170,31,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Advanced",IDC_STATIC,107,49,107,30
+    LTEXT           "Quadrant Passes",IDC_STATIC,113,62,46,8
+    EDITTEXT        IDC_QUADSIZE,170,60,40,12,ES_AUTOHSCROLL | ES_NUMBER
+END

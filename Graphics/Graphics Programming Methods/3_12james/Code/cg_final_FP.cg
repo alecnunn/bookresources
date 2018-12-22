@@ -1,0 +1,55 @@
+// Rob James 2003
+// Final pass Median Filter
+//
+
+struct v2f
+{
+	float4 Position : POSITION; // Position in clip space
+	float2 Tex0		: TEXCOORD0;// Texture coordinates
+	float4 Col0		: COLOR0;	// Diffuse light 	
+};
+
+
+fragout_float main(v2f IN, 
+			 uniform samplerRECT tex0 : texunit0)
+{
+	fragout_float OUT; 
+	//
+
+	// Some sampling offsets for the Texture Rectangle
+	fixed2 s1 = { 0.0f, 1.0f};  
+	fixed2 s2 = { 1.0f, 0.0f};  
+
+	fixed3 col0 = x3texRECT(tex0,IN.Tex0.xy);
+	fixed3 col1 = x3texRECT(tex0,IN.Tex0.xy + s1);
+	fixed3 col2 = x3texRECT(tex0,IN.Tex0.xy + s2);
+	fixed3 col3 = x3texRECT(tex0,IN.Tex0.xy - s1);
+	fixed3 col4 = x3texRECT(tex0,IN.Tex0.xy - s2);
+
+	// we only want the in-scatter bit.
+	fixed b0 = col0.y;
+	fixed b1 = col1.y;
+	fixed b2 = col2.y;
+	fixed b3 = col3.y;
+	fixed b4 = col4.y;
+
+	half  pv;
+
+	// Determine Median using a sort tree
+	if (b0>b1) {pv = b0; b0 = b1; b1 = pv;}
+	if (b3>b4) {pv = b3; b3 = b4; b4 = pv;} 
+	if (b0>b3) {pv = b0; b0 = b3; b3 = pv;} 
+	if (b1>b4) {pv = b1; b1 = b4; b4 = pv;}  
+	if (b1>b2) {pv = b1; b1 = b2; b2 = pv;}  
+	if (b2>b3) {pv = b2; b2 = b3; b3 = pv;} 
+	if (b1>b2) {pv = b1; b1 = b2; b2 = pv;} 
+
+	OUT.col.xyz = IN.Col0.xyz;	//inscatter;
+	OUT.col.w = b2;
+
+	return OUT;
+}
+
+
+
+

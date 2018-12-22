@@ -1,0 +1,78 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: LowLevelAPI - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/LowLevelAPI.res" /d "_DEBUG" /d "_AFXDLL" "C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\LowLevelAPI.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP2161.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\AudioBuffer.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\DirectSoundAcceleratedChannel.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\DirectSoundAcceleratedMixer.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\dsutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\dxutil.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\Filter.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\LowLevelAPI.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\LowLevelAPIDlg.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\MemWave.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\Mixer.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\Wave.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\WavePtr.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP2161.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP2162.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/LowLevelAPI.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\07 Lewis\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP2162.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP2163.TMP" with contents
+[
+comctl32.lib dxerr8.lib winmm.lib dsound.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/LowLevelAPI.pdb" /debug /machine:I386 /out:"Debug/LowLevelAPI.exe" /pdbtype:sept 
+".\Debug\AudioBuffer.obj"
+".\Debug\DirectSoundAcceleratedChannel.obj"
+".\Debug\DirectSoundAcceleratedMixer.obj"
+".\Debug\dsutil.obj"
+".\Debug\dxutil.obj"
+".\Debug\Filter.obj"
+".\Debug\LowLevelAPI.obj"
+".\Debug\LowLevelAPIDlg.obj"
+".\Debug\MemWave.obj"
+".\Debug\Mixer.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Wave.obj"
+".\Debug\WavePtr.obj"
+".\Debug\LowLevelAPI.res"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP2163.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+AudioBuffer.cpp
+DirectSoundAcceleratedChannel.cpp
+DirectSoundAcceleratedMixer.cpp
+dsutil.cpp
+dxutil.cpp
+Filter.cpp
+LowLevelAPI.cpp
+LowLevelAPIDlg.cpp
+MemWave.cpp
+Mixer.cpp
+Wave.cpp
+WavePtr.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+LowLevelAPI.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

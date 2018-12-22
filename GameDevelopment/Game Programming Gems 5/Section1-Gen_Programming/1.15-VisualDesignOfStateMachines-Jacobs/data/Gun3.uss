@@ -1,0 +1,415 @@
+title:
+Simple Gun
+Version:
+1.15
+Num.Elems:
+17
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+107
+Num.Pts:
+2
+85 208
+122 221
+objStartId:
+108
+objEndId:
+112
+eventName:
+
+eventCond:
+
+eventAction:
+
+type:
+1
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+108
+ptul:
+65 198
+ptdr:
+85 218
+Num.Links:
+1
+link objId:
+107
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+109
+Num.Pts:
+2
+321 211
+446 235
+objStartId:
+112
+objEndId:
+118
+eventName:
+
+eventCond:
+triggerDown and numRounds > 0 and chanceToJam > 0.04
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+110
+Num.Pts:
+2
+524 273
+525 301
+objStartId:
+118
+objEndId:
+119
+eventName:
+
+eventCond:
+
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+111
+Num.Pts:
+2
+436 335
+321 234
+objStartId:
+119
+objEndId:
+112
+eventName:
+
+eventCond:
+timer >= 0.3
+eventAction:
+
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+112
+ptul:
+122 193
+ptdr:
+321 249
+Num.Links:
+9
+link objId:
+109
+link objId:
+107
+link objId:
+111
+link objId:
+113
+link objId:
+114
+link objId:
+115
+link objId:
+116
+link objId:
+122
+link objId:
+123
+stateName:
+Idle
+activitiesLen:
+58
+activities:
+OnEnter: print("Idle")
+OnUpdate: chanceToJam=math.random()
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+113
+Num.Pts:
+2
+183 193
+139 139
+objStartId:
+112
+objEndId:
+120
+eventName:
+
+eventCond:
+triggerDown and numRounds == 0
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+114
+Num.Pts:
+2
+213 139
+257 193
+objStartId:
+120
+objEndId:
+112
+eventName:
+
+eventCond:
+timer >= 0.1
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+115
+Num.Pts:
+2
+189 249
+145 299
+objStartId:
+112
+objEndId:
+117
+eventName:
+
+eventCond:
+numRounds < 5 and reloadDown and roundsInInventory > 0
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+116
+Num.Pts:
+2
+213 299
+257 249
+objStartId:
+117
+objEndId:
+112
+eventName:
+
+eventCond:
+timer > 1.5
+eventAction:
+
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+117
+ptul:
+28 299
+ptdr:
+333 427
+Num.Links:
+2
+link objId:
+115
+link objId:
+116
+stateName:
+Reloading
+activitiesLen:
+300
+activities:
+OnEnter: print("Reloading")
+  timer = 0
+OnUpdate: timer = timer + frameTime
+OnExit: roundsNeeded = 5 - numRounds
+ roundsToLoad = math.min( roundsInInventory, roundsNeeded )
+ print("loading " .. roundsToLoad )
+ numRounds = numRounds + roundsToLoad
+ roundsInInventory = roundsInInventory - roundsToLoad
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+120
+ptul:
+106 59
+ptdr:
+240 139
+Num.Links:
+2
+link objId:
+113
+link objId:
+114
+stateName:
+Dry Firing
+activitiesLen:
+77
+activities:
+OnEnter: print("Click")
+    timer = 0
+OnUpdate: 
+   timer = timer + frameTime
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+119
+ptul:
+436 301
+ptdr:
+615 369
+Num.Links:
+2
+link objId:
+110
+link objId:
+111
+stateName:
+Recoil and Recovering
+activitiesLen:
+74
+activities:
+OnEnter: print("Recoiling")
+ timer = 0
+OnUpdate: timer = timer + frameTime
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+118
+ptul:
+446 217
+ptdr:
+603 273
+Num.Links:
+2
+link objId:
+109
+link objId:
+110
+stateName:
+Firing
+activitiesLen:
+53
+activities:
+OnEnter: print("Bang!")
+    numRounds = numRounds - 1
+type:
+3
+bgrColor:
+128 255 128
+fgrColor:
+0 0 0
+objId:
+121
+ptul:
+352 99
+ptdr:
+531 155
+Num.Links:
+2
+link objId:
+122
+link objId:
+123
+stateName:
+Gun Jammed
+activitiesLen:
+54
+activities:
+OnEnter: timer = 0
+OnUpdate: timer = timer + frameTime
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+122
+Num.Pts:
+2
+281 193
+352 127
+objStartId:
+112
+objEndId:
+121
+eventName:
+
+eventCond:
+triggerDown and numRounds > 0 and chanceToJam <= 0.04
+eventAction:
+
+type:
+4
+bgrColor:
+255 255 255
+fgrColor:
+0 0 0
+objId:
+123
+Num.Pts:
+2
+441 155
+321 221
+objStartId:
+121
+objEndId:
+112
+eventName:
+
+eventCond:
+timer > 3
+eventAction:
+

@@ -1,0 +1,59 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: AIDemo - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPA1.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GR /GX /ZI /Od /I "\dev\stl" /I "include\\" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /Fp"Debug/AIDemo.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Windows\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\03 Carter\Demo\core\handleexceptions.cpp"
+"C:\Windows\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\03 Carter\Demo\core\miscwinfunctions.cpp"
+"C:\Windows\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\03 Carter\Demo\core\precompiled.cpp"
+"C:\Windows\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\03 Carter\Demo\core\randomnumbers.cpp"
+"C:\Windows\Desktop\Gems2 CD\SourceCode\03 Artificial Intelligence\03 Carter\Demo\core\fixedassert.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPA1.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP00A2.TMP" with contents
+[
+d3dx8.lib d3d8.lib dinput8.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/AIDemo.pdb" /debug /machine:I386 /out:"Debug/AIDemo.exe" /pdbtype:sept 
+".\Debug\ai_app.obj"
+".\Debug\ai_behaviour_base.obj"
+".\Debug\ai_behaviour_hungry.obj"
+".\Debug\ai_behaviour_sleep.obj"
+".\Debug\ai_behaviour_wander.obj"
+".\Debug\ai_brain.obj"
+".\Debug\base_class.obj"
+".\Debug\entities.obj"
+".\Debug\main.obj"
+".\Debug\microthreadmanager.obj"
+".\Debug\microthreads.obj"
+".\Debug\d3dapp.obj"
+".\Debug\d3dfont.obj"
+".\Debug\d3dutil.obj"
+".\Debug\dxutil.obj"
+".\Debug\handleexceptions.obj"
+".\Debug\miscwinfunctions.obj"
+".\Debug\precompiled.obj"
+".\Debug\randomnumbers.obj"
+".\Debug\fixedassert.obj"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP00A2.TMP"
+<h3>Output Window</h3>
+Compiling...
+handleexceptions.cpp
+miscwinfunctions.cpp
+precompiled.cpp
+randomnumbers.cpp
+fixedassert.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+AIDemo.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

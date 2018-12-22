@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<title>Compiler Instructions</title>
+</head>
+
+<body TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#824250" VLINK="#51188E" ALINK="#FF0000"
+BACKGROUND="white.gif">
+
+<h1 align="left"><font face="Arial" size="7">Compiler Instructions</font></h1>
+
+<h4><br>
+<font face="Arial">Visual C++ 4.x, 5.0 and 6.0</font></h4>
+
+<ul>
+  <li>Open a command prompt or dos box in windows.</li>
+  <li>If you use Visual C++ 4.x or 5.0 you will need to run the &quot;vcvars32.bat&quot; batch
+    file included in the &quot;bin&quot; directory of your Visual C++ installation to make
+    sure that all environment variables are correctly set to use Visual C++ from the command
+    line. Users of Visual C++ 6.0 can skip this step because the environment has already been
+    setup when Visual C++ was installed.</li>
+  <li>Run &quot;scripts/visual/import.bat&quot; to generate the import libraries for
+    &quot;ptc.dll&quot; and &quot;ptcdebug.dll&quot;. The import libraries will be placed in
+    the &quot;library/visual&quot; directory.</li>
+  <li>Visual C++ 5.0 or 6.0 users can use the project/workspace files provided to compile and
+    run the examples and demos. See the <a href="install.html">Installation Instructions</a>
+    page for details.</li>
+  <li>Visual C++ 4.x users have to use the batch files in the &quot;scripts/visual/4.x&quot;
+    directory to compile the examples and demos because Visual C++ 4.x cannot read version
+    5.0/6.0 project files. See the <a href="scripts.html">Scripts Guide</a> for more
+    information.</li>
+  <li>To make using the batch files with Visual C++ 4.x easy, you should add the
+    &quot;scripts/visual/4.x&quot; directory to your path.</li>
+</ul>
+
+<h4><font face="Arial"><br>
+Watcom C++ 10.x and 11.0</font></h4>
+
+<ul>
+  <li>Open a command prompt or dos box in windows.</li>
+  <li>Make sure that Watcom C++ is in your path and all of the compiler environment variables
+    are set correctly.</li>
+  <li>Run &quot;scripts/watcom/import.bat&quot; to generate the import libraries for
+    &quot;ptc.dll&quot; and &quot;ptcdebug.dll&quot;. The import libraries will be placed in
+    the &quot;library/watcom&quot; directory.</li>
+  <li>To compile the examples and demo programs you can use the batch files in
+    &quot;scripts/watcom/10.x&quot; for Watcom C++ 10.x, or &quot;scripts/watcom/11.0&quot;
+    for Watcom C++ 11.0. See the <a href="scripts.html">Scripts Guide</a> for more
+    information.</li>
+  <li>To make using the batch files easy you should add the &quot;scripts/watcom/10.x&quot; or
+    &quot;scripts/watcom/11.0&quot; directory to your path.</li>
+</ul>
+
+<h4><font face="Arial"><br>
+Cygnus C++ (Cygwin/Cygnus GNU-Win32)</font></h4>
+
+<ul>
+  <li>Open a command prompt or dos box in windows.</li>
+  <li>Make sure that you have all the compilers and tools setup correctly. Read the compiler
+    documentation for more information.</li>
+  <li>Run &quot;scripts/cygnus/import.bat&quot; to generate the import libraries for
+    &quot;ptc.dll&quot; and &quot;ptcdebug.dll&quot;. The import libraries will be placed in
+    the &quot;library/cygnus&quot; directory.</li>
+  <li>To compile the examples and demo programs you can use the batch files in
+    &quot;scripts/cygnus&quot;. See the <a href="scripts.html">Scripts Guide</a> for more
+    information.</li>
+  <li>To make using the batch files easy you should add the &quot;scripts/cygnus&quot;
+    directory to your path.</li>
+</ul>
+
+<h4><font face="Arial"><br>
+LCC-Win32</font></h4>
+
+<ul>
+  <li>Open a command prompt or dos box in windows.</li>
+  <li>Make sure that you have the LCC-Win32 bin directory in your path. For example &quot;set
+    PATH=c:\lcc-win32\bin&quot; if you installed lcc-win32 to &quot;c:\lcc-win32&quot;.</li>
+  <li>Run &quot;scripts/lcc-win32/import.bat&quot; to generate the import libraries for
+    &quot;ptc.dll&quot; and &quot;ptcdebug.dll&quot;. The import libraries will be placed in
+    the &quot;library/lcc-win32&quot; directory.</li>
+  <li>To compile the examples and demo programs you can use the batch files in
+    &quot;scripts/lcc-win32&quot;. See the <a href="scripts.html">Scripts Guide</a> for more
+    information.</li>
+  <li>To make using the batch files easy you should add the &quot;scripts/lcc-win32&quot;
+    directory to your path.</li>
+  <li>Please note that LCC-Win32 is a C only compiler, so dont even bother trying to compile
+    C++ example programs with it ok? =)</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<map>
+ <player>
+  <start>
+   <position x="12" y="132" z="0"/>
+   <health value="100"/>
+  </start>
+ </player>
+ <ai>
+  <position x="100" y="132" z="20"/>
+ </ai>
+</map>

@@ -1,0 +1,67 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="es">
+<meta http-equiv="Content-Type" content="text/html">
+<title>CURVATURE SIMULATION</title>
+<font face="verdana, helvetica, arial, sans-serif" size=2>
+</head>
+
+<body>
+
+<h1><center>&nbsp;Curvature Simulation Gem</center></h1>
+<BR>
+<h2><center>Normal Map Generation Plugin</center></h2>
+<h4><center>Oscar Blasco <A href="mailto:oscar@asidesoft.com">(oscar@asidesoft.com)</A></HREF></center></h4>
+
+<BR> <BR> <BR>
+<h3>What Is This?</h3>
+
+<p>
+This a help document which explains all options for the 
+Normal Map Generation Plugin. 
+This document and all the related material is part of the Curvature Simulation Gem.
+</p>
+
+<h3>Launching The Plugin Dialog</h3>
+<P>
+The plugin 
+is a Max4 Tool and you can find it in the Tool Tab, otherwise you can place it there by clicking in the "Configure Button Set" icon.<BR></P>
+
+<h3>The Dialog</h3>
+
+<center><IMG src="dialog.gif"></center>
+
+<h5>Low Object Button</h5>
+Picks the low detailed object from any max viewport. If the high model is alredy picked, the process will start.
+
+<h5>High Object Button</h5>
+Picks the detailed object from any max viewport. If the low model is alredy picked, the process will start.
+
+<h5>On Selected Faces</h5>
+If pressed, the process only will use the selected faces of the low detailed mesh.
+
+<h5>Non Continous Normal</h5>
+The plugin will not share normals for the vertices with two or more texture coordinates (this can produce discontinuities).
+
+<h5>In Texture Space</h5>
+If pressed the output map will be in texture space (or tangent space) rather than in object space.
+
+<h5>Map Size</h5>
+Specifies the size of the output map.
+
+<h3>Status Dialog</h3>
+<P>After both models are picked, the process will start. While the map is being 
+generated an Status Dialog will show the progress the operation. The Low 
+Priority button changes the thread priority to decrease the usage of CPU by the 
+plugin's thread. The Cancel button will stop the progress, but will save all the 
+generated map until the button was pressed (so if the map is big, canceling the 
+operation can take some seconds)</P>
+
+<h3> Output</h3>
+<P>The generated map will be place at c:\normal.tga You can change it inside 
+the source code.</P>
+
+</body>
+
+</html>

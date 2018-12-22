@@ -1,0 +1,1 @@
+Loaded Data\ps_texture_1k.tga correctly

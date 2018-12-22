@@ -1,0 +1,22 @@
+/*
+   Game Monkey Script Example
+   Ultimate Game Engine Design and Architecture - Chapter 8
+*/
+
+
+print("Hello World");
+
+
+global AddTest = function(lVal, rVal)
+{
+   return lVal + rVal;
+};
+
+
+global Display = function()
+{
+   retVal = HostMultiply(5, 2);
+
+   print("Display() called the host function HostMultiply()");
+   print("HostMultiply(5, 2) returned:", retVal);
+};

@@ -1,0 +1,99 @@
+"End Script"
+
+"If flag #~ is ~ then"
+  INT 0 255
+  BOOL
+
+"Else"
+
+"Endif"
+
+"Set flag #~ to ~"
+  INT 0 255
+  BOOL
+
+"Display message ~"
+  TEXT
+
+"Add Char ID=~ Definition=~ Type=~ AI=~ XPos=~ YPos=~ ZPos=~ Direction=~"
+  INT 0 65535
+  INT 0 255
+  CHOICE 3
+    "PC"
+    "NPC"
+    "MONSTER"
+  CHOICE 5
+    "STAND"
+    "WANDER"
+    "ROUTE"
+    "FOLLOW"
+    "EVADE"
+  FLOAT -350 350
+  FLOAT 0 0
+  FLOAT -350 350
+  FLOAT 0 6.28
+
+"Remove Char ID=~"
+  INT 0 65535
+
+"Display message ~ from Char ID=~"
+  TEXT
+  INT 0 65535
+
+"Set Char ID=~ Type to ~"
+  INT 0 65535
+  CHOICE 3
+    "PC"
+    "NPC"
+    "MONSTER"
+  
+"Set Char ID=~ AI to ~"
+  INT 0 65535
+  CHOICE 5
+    "STAND"
+    "WANDER"
+    "ROUTE"
+    "FOLLOW"
+    "EVADE"
+
+"Set Char ID=~ distance to ~"
+  INT 0 65535
+  FLOAT 0 10000
+
+"Set Char ID=~ bounds to (~ ~ ~) - (~ ~ ~)"
+  INT 0 65535
+  FLOAT -350 350
+  FLOAT 0 0
+  FLOAT -350 350
+  FLOAT -350 350
+  FLOAT 0 0
+  FLOAT -350 350
+
+"Set Char ID=~ target to Char ID=~"
+  INT 0 65535
+  INT 0 65535
+
+"Set Char ID=~ target to NONE"
+  INT 0 65535
+
+"Create Route with ~ points"
+  INT 1 256
+
+"Set route point ~ at ~ ~ ~"
+  INT 0 255
+  FLOAT -350 350
+  FLOAT 0 0
+  FLOAT -350 350
+
+"Assign current route to Char ID=~"
+  INT 0 65535
+
+"Move Char ID=~ to ~ ~ ~"
+  INT 0 65535
+  FLOAT -350 350
+  FLOAT 0 0
+  FLOAT -350 350
+
+"Set Char ID=~ script file to ~"
+  INT 0 65535
+  TEXT

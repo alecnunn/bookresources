@@ -1,0 +1,46 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Packer - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP3393.BAT" with contents
+[
+@echo off
+bison -d -oexporter_y.c exporter.y
+]
+Creating command line "C:\WINDOWS\TEMP\RSP3393.BAT"
+Creating temporary file "C:\WINDOWS\TEMP\RSP3394.TMP" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/Packer.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\paul\Game Programming Gems 3\code\Using Lex & Yacc to Parse Custom Data Files\Packer\exporter_l.c"
+"C:\paul\Game Programming Gems 3\code\Using Lex & Yacc to Parse Custom Data Files\Packer\exporter_y.c"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP3394.TMP" 
+Generating source for .\exporter.y...
+Creating temporary file "C:\WINDOWS\TEMP\RSP33B1.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libfl.a /nologo /subsystem:console /incremental:no /pdb:"Release/Packer.pdb" /map:"Release/Packer.map" /machine:I386 /out:"Release/Packer.exe" 
+".\Release\main.obj"
+".\Release\md3.obj"
+".\Release\exporter_l.obj"
+".\Release\exporter_y.obj"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP33B1.TMP"
+<h3>Output Window</h3>
+Compiling...
+exporter_l.c
+exporter_y.c
+/usr/share/bison/bison.simple(595) : warning C4013: 'yylex' undefined; assuming extern returning int
+/usr/share/bison/bison.simple(821) : warning C4013: 'yyerror' undefined; assuming extern returning int
+Linking...
+
+
+
+<h3>Results</h3>
+Packer.exe - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

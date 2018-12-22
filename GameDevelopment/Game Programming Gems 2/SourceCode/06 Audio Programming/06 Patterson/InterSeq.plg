@@ -1,0 +1,75 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: InterSeq - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP5225.TMP" with contents
+[
+/nologo /G6 /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/InterSeq.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\EventData.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\InstrumentData.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\InterSeq.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\MusicSys.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\PerfTimer.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\Portable.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\Sequence.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\SequenceData.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\StdAfx.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\Text.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\TextBoxes.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\Track.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\TrackData.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\Voice.cpp"
+"C:\WINDOWS\Desktop\Gems2 CD\SourceCode\06 Audio Programming\06 Patterson\Win32.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP5225.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP5226.TMP" with contents
+[
+CSynUtil.lib dsound.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib opengl32.lib glu32.lib glut32.lib winmm.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/InterSeq.pdb" /machine:I386 /out:"Release/InterSeq.exe" 
+".\Release\EventData.obj"
+".\Release\InstrumentData.obj"
+".\Release\InterSeq.obj"
+".\Release\MusicSys.obj"
+".\Release\PerfTimer.obj"
+".\Release\Portable.obj"
+".\Release\Sequence.obj"
+".\Release\SequenceData.obj"
+".\Release\StdAfx.obj"
+".\Release\Text.obj"
+".\Release\TextBoxes.obj"
+".\Release\Track.obj"
+".\Release\TrackData.obj"
+".\Release\Voice.obj"
+".\Release\Win32.obj"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP5226.TMP"
+<h3>Output Window</h3>
+Compiling...
+EventData.cpp
+InstrumentData.cpp
+InterSeq.cpp
+MusicSys.cpp
+PerfTimer.cpp
+Portable.cpp
+Sequence.cpp
+SequenceData.cpp
+StdAfx.cpp
+Text.cpp
+TextBoxes.cpp
+Track.cpp
+TrackData.cpp
+Voice.cpp
+Win32.cpp
+Linking...
+LINK : warning LNK4098: defaultlib "LIBC" conflicts with use of other libs; use /NODEFAULTLIB:library
+
+
+
+<h3>Results</h3>
+InterSeq.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

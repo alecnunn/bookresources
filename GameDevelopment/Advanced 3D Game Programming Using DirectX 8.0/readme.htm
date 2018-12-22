@@ -1,0 +1,396 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./readme_files/filelist.xml">
+<title>Advanced 3D Game Programming with DirectX 8</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Beth Kohler</o:Author>
+  <o:LastAuthor>Beth Kohler</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>14</o:TotalTime>
+  <o:Created>2001-09-10T16:04:00Z</o:Created>
+  <o:LastSaved>2001-09-10T16:04:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>498</o:Words>
+  <o:Characters>2839</o:Characters>
+  <o:Company>Wordware Publishing, Inc.</o:Company>
+  <o:Lines>23</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>3486</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	mso-font-alt:Tahoma;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Arial Unicode MS";
+	mso-font-kerning:18.0pt;
+	font-weight:bold;}
+h2
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Arial Unicode MS";
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Arial Unicode MS";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:490949419;
+	mso-list-type:hybrid;
+	mso-list-template-ids:231903444 2015415606 803123040 1780917702 108404420 -1267064418 529935502 -748491856 1519915832 -961405516;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:1035231927;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1628148270 -1337976216 1469872882 594070952 1421622916 -1029398522 1927708856 2113329976 -1666303410 1166455102;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:1891646093;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-883398656 798660684 991311766 -705392246 -74262208 721422516 1125579344 1935714552 -1607415048 266223180;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1><span style='font-size:18.0pt;mso-bidi-font-size:24.0pt;font-family:Arial'>Advanced
+3D Game Programming Using DirectX 8.0<o:p></o:p></span></h1>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-family:Arial'>by
+Peter Walsh, Adrian Perez and Dan Royer<o:p></o:p></span></h2>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>Thank
+you for purchasing this book.&nbsp; We tried to pack this CD full of goodies
+that we hope you find it useful. <o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>The
+CD material is divided into the following directories:<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'>Applications<o:p></o:p></span></h3>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo2;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Paint Shop Pro
+     Anniversary Edition</span></b><span style='font-size:12.0pt;mso-bidi-font-size:
+     10.0pt;font-family:Arial'> (30-day evaluation) <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'>Book
+Code<o:p></o:p></span></h3>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>In
+the Book Code directory you'll find the source code for Chapters 1-9, plus the
+game &quot;Mobots Attack!&quot;.&nbsp; Each chapter (and the game) has its own
+workspace so you can use them independently of each other. The Book Code
+directory has information to help you compile the projects.<o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h3>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'>DirectX
+8.0a SDK<o:p></o:p></span></h3>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>In
+order to play with any of the book code, you'll need the DirectX SDK
+installed.&nbsp; The 8.0a version is provided on this CD.<o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h3>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'>Documents<o:p></o:p></span></h3>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>Several
+people have contributed additional material for you to read. The following
+articles are contained in this directory. <o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Improving Shadows and
+     Reflections via the Stencil Buffer</span></b><span style='font-size:12.0pt;
+     mso-bidi-font-size:10.0pt;font-family:Arial'> (By Mark J. Kilgrad,
+     courtesy of <a href="http://www.nvidia.com">http://www.nvidia.com</a>) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Multithreading 1
+     &amp;2 </span></b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+     font-family:Arial'><span style="mso-spacerun: yes"> </span>(By Dan Royer,
+     courtesy of <a href="http://www.flipcode.com">http://www.flipcode.com</a>)
+     <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Harmless Algorithms
+     Issues 1-3</span></b><span style='font-size:12.0pt;mso-bidi-font-size:
+     10.0pt;font-family:Arial'> (By Edward Kmett, courtesy of <a
+     href="http://www.flipcode.com">http://www.flipcode.com</a>) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Radiosity in English
+     1&amp;2</span></b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+     font-family:Arial'> (By Paul Nettle, courtesy of <a
+     href="http://www.flipcode.com">http://www.flipcode.com</a>) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Building a 3D Portal
+     Engine</span></b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+     font-family:Arial'> (By Jacco Bikker, courtesy of <a
+     href="http://www.flipcode.com">http://www.flipcode.com</a>) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Defeating Lag with
+     Cubic Splines</span></b><span style='font-size:12.0pt;mso-bidi-font-size:
+     10.0pt;font-family:Arial'> (By Nick Caldwell, courtesy of <a
+     href="http://www.gamedev.net">http://www.gamedev.net</a>) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Understanding C++
+     Exception Handling</span></b><span style='font-size:12.0pt;mso-bidi-font-size:
+     10.0pt;font-family:Arial'> (By Steve Crocker, courtesy of <a
+     href="http://www.gamedev.net">http://www.gamedev.net</a>) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Using Interfaces with
+     DLLs</span></b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+     font-family:Arial'> (By Gaz Iqbal, courtesy of <a
+     href="http://www.gamedev.net">http://www.gamedev.net</a>) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Why Pluggable
+     Factories Rock My Multiplayer World</span></b><span style='font-size:12.0pt;
+     mso-bidi-font-size:10.0pt;font-family:Arial'> (By Mason McCuskey, courtesy
+     of <a href="http://www.gamedev.net">http://www.gamedev.net</a>) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Quake 2 BSP File
+     Format</span></b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+     font-family:Arial'> (By Max McGuire) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Generic Collision
+     Detection for Games Using Ellipsoids</span></b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'> (By Paul Nettle) <o:p></o:p></span></li>
+</ul>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h3>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial;
+font-weight:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h3>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'>Other
+Code<o:p></o:p></span></h3>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>This
+directory contains other source code projects that you may find useful.<o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo1;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Crystal Space</span></b><span
+     style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'> (An
+     open-source, multi-platform 3d engine) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo1;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Descent 1 &amp; 2</span></b><span
+     style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'> (The
+     full source - Thanks parallax)&nbsp; <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo1;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Wolfenstein 3D</span></b><span
+     style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'> (One
+     of the first of id's masterpieces) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo1;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Doom</span></b><span
+     style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>
+     (Does it even need a description?&nbsp; The classic from id) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo1;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Quake I</span></b><span
+     style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'> (The
+     GPL'ed source code to <a href="http://www.idsoftware.com">id software</a>'s
+     masterpiece) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo1;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Quake III</span></b><span
+     style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>
+     (Again, more source code from id, this time version 3) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo1;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>Stan Melax (ProgMesh)</span></b><span
+     style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'> (Stan
+     Melax's progressive mesh code that appeared in <i>Game Developer</i>
+     magazine) <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo1;tab-stops:list .5in'><b><span style='font-size:
+     12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'>STLport</span></b><span
+     style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial'> (An
+     exceedingly nice implementation of the STL, strongly recommended if you
+     want to play with &quot;Mobots Attack!&quot;) <o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span style='font-size:12.0pt;mso-bidi-font-size:13.5pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h3>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>If
+you have any trouble with this CD, the first place to go is the home page for
+the book:<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><a
+href="http://www.cubonics.com/book">www.wordware.com</a><o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>There
+should be FAQs or troubleshooting tips there for known issues.&nbsp; If the
+answer you need isn't there, please feel free to e-mail Adrian at <a
+href="mailto:cuban@cubonics.com">cuban@cubonics.com</a> or Peter at <a
+href="mailto:mrzen@msn.com">mrzen@msn.com</a>.<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

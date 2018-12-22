@@ -1,0 +1,293 @@
+<HEAD>
+<LINK HREF="doxygen.css" REL="stylesheet" TYPE="text/css">
+</HEAD> 
+
+<BODY BACKGROUND="white.gif">
+<center>
+<a href="namespaces.html">Namespace List</a> &nbsp; <a href="hierarchy.html">Class Hierarchy</a> &nbsp; <a href="annotated.html">Compound List</a> &nbsp; <a href="files.html">File List</a> &nbsp; <a href="namespacemembers.html">Namespace Members</a> &nbsp; <a href="functions.html">Compound Members</a> &nbsp; </center>
+<hr><h1>ptc::BaseConsole  Class Reference</h1>Console interface. 
+<a href="#_details">More...</a>
+<p>
+<p>Class diagram for ptc::BaseConsole:
+<p><center><img src="class_ptcBaseConsole.gif" usemap="#ptc::BaseConsole_map" border="0"></center>
+<map name="ptc::BaseConsole_map"><p>
+<area href="class_ptcBaseSurface.html" ALT="ptc::BaseSurface" shape="rect" coords="0,0,109,24">
+<area href="class_ptcConsole.html" ALT="ptc::Console" shape="rect" coords="0,112,109,136">
+</MAP></P>
+<a href="class_ptcBaseConsole-members.html">List of all members.</a><h2>Public Members</h2>
+<ul>
+<li>virtual <a class="el" href="class_ptcBaseConsole.html#a0">~BaseConsole</a> ()
+<li>virtual void <a class="el" href="class_ptcBaseConsole.html#a1">configure</a> (const char file[]) = 0
+<li>virtual const Mode* <a class="el" href="class_ptcBaseConsole.html#a2">modes</a> () = 0
+<li>virtual void <a class="el" href="class_ptcBaseConsole.html#a3">open</a> (const char title[],int pages = 0) = 0
+<li>virtual void <a class="el" href="class_ptcBaseConsole.html#a4">open</a> (const char title[],const Format &amp;format,int pages = 0) = 0
+<li>virtual void <a class="el" href="class_ptcBaseConsole.html#a5">open</a> (const char title[],int width,int height,const Format &amp;format,int pages = 0) = 0
+<li>virtual void <a class="el" href="class_ptcBaseConsole.html#a6">open</a> (const char title[],const Mode &amp;mode,int pages = 0) = 0
+<li>virtual void <a class="el" href="class_ptcBaseConsole.html#a7">close</a> () = 0
+<li>virtual void <a class="el" href="class_ptcBaseConsole.html#a8">flush</a> () = 0
+<li>virtual void <a class="el" href="class_ptcBaseConsole.html#a9">finish</a> () = 0
+<li>virtual void <a class="el" href="class_ptcBaseConsole.html#a10">update</a> () = 0
+<li>virtual void <a class="el" href="class_ptcBaseConsole.html#a11">update</a> (const Area &amp;area) = 0
+<li>virtual bool <a class="el" href="class_ptcBaseConsole.html#a12">key</a> () = 0
+<li>virtual Key <a class="el" href="class_ptcBaseConsole.html#a13">read</a> () = 0
+<li>virtual int <a class="el" href="class_ptcBaseConsole.html#a14">pages</a> () const = 0
+<li>virtual const char* <a class="el" href="class_ptcBaseConsole.html#a15">name</a> () const = 0
+<li>virtual const char* <a class="el" href="class_ptcBaseConsole.html#a16">title</a> () const = 0
+<li>virtual const char* <a class="el" href="class_ptcBaseConsole.html#a17">information</a> () const = 0
+</ul>
+
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Console interface.
+<p>
+This class provides the interface for accessing the display frame buffer and basic keyboard routines.
+<p>
+It extends the surface interface so that the display frame buffer memory may be accessed as a surface. <hr><h2>Member Function Documentation</h2>
+
+<h3><a name="a0" doxytag="ptc::BaseConsole::~BaseConsole"></a>virtual ptc::BaseConsole::~BaseConsole ()<code> [virtual]</code></h3>
+<div class="in">
+
+<p>
+Virtual destructor. </div>
+
+<h3><a name="a1" doxytag="ptc::BaseConsole::configure"></a>virtual void ptc::BaseConsole::configure (const char file[])<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Configures the console by reading option strings from the text file <em>file.</em>
+<p>
+If the configuration file does not exist or cannot be read, this function will fail silently. No exception will be thrown in this case.
+<p>
+todo: example configuration file plus explanation.
+<p>
+<dl compact><dt>
+<b>See also:</b><dd>
+<a class="el" href="class_ptcBaseSurface.html#a21">BaseSurface::option</a>()
+<p>
+</dl><dl compact><dt>
+<b>Parameters: </b><dd>
+<em>file</em> -  the configuration text file. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a2">ptc::Console</a>.</div>
+
+<h3><a name="a2" doxytag="ptc::BaseConsole::modes"></a>virtual const Mode * ptc::BaseConsole::modes ()<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Returns a read only pointer to the list of display modes provided by the console.
+<p>
+This list contains only fullscreen display modes. If the console is not capable of fullscreen output then the mode list will be empty.
+<p>
+If the display platform does not provide a mode list then this list will be empty.
+<p>
+To iterate through the mode list start with the mode object at index zero and work your way through the mode list until you find a mode that is invalid. Do not make any assumptions about the size of the mode list. Any entries after the first invalid entry are undefined.
+<p>
+The following code shows how to iterate through the mode list:
+<p>
+<div class="fragment"><pre>
+
+            // get the console mode list
+            const Mode *modes = console.modes();
+
+            // mode index
+            int index = 0;
+
+            // iterate through all modes
+            while (modes[index].valid())
+            {
+                // get mode information
+                int width = modes[i].width();
+                int height = modes[i].height();
+                Format format = modes[i].format();
+
+                // do something...
+
+                // next mode
+                index ++;
+            }</pre></div>
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+A const pointer to the list of display modes. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a4">ptc::Console</a>.</div>
+
+<h3><a name="a3" doxytag="ptc::BaseConsole::open"></a>virtual void ptc::BaseConsole::open (const char title[], int <em>pages</em> = 0)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Opens the console with the default width, height and pixel format.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>title</em> -  The title of the console. <dd>
+<em>pages</em> -  The number of console pages. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a5">ptc::Console</a>.</div>
+
+<h3><a name="a4" doxytag="ptc::BaseConsole::open"></a>virtual void ptc::BaseConsole::open (const char title[], const Format &amp; <em>format</em>, int <em>pages</em> = 0)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Opens the console with the default width and height, and the pixel format <em>format.</em>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>title</em> -  The title of the console. <dd>
+<em>format</em> -  The pixel format of the console. <dd>
+<em>pages</em> -  The number of console pages. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a6">ptc::Console</a>.</div>
+
+<h3><a name="a5" doxytag="ptc::BaseConsole::open"></a>virtual void ptc::BaseConsole::open (const char title[], int <em>width</em>, int <em>height</em>, const Format &amp; <em>format</em>, int <em>pages</em> = 0)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Opens the console with the dimensions <em>width</em> by <em>height,</em> and the pixel format <em>format.</em>
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<em>title</em> -  The title of the console. <dd>
+<em>width</em> -  The width of the console in pixels. <dd>
+<em>height</em> -  The height of the console in pixels. <dd>
+<em>format</em> -  The pixel format of the console. <dd>
+<em>pages</em> -  The number of console pages. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a7">ptc::Console</a>.</div>
+
+<h3><a name="a6" doxytag="ptc::BaseConsole::open"></a>virtual void ptc::BaseConsole::open (const char title[], const Mode &amp; <em>mode</em>, int <em>pages</em> = 0)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Opens the console with the display mode <em>mode.</em>
+<p>
+If the console does not support the display mode then this function will fail by throwing a ptc::Error exception.
+<p>
+<dl compact><dt>
+<b>See also:</b><dd>
+<a class="el" href="class_ptcBaseConsole.html#a2">BaseConsole::modes</a>()
+<p>
+</dl><dl compact><dt>
+<b>Parameters: </b><dd>
+<em>title</em> -  The title of the console. <dd>
+<em>mode</em> -  The console display mode. <dd>
+<em>pages</em> -  The number of console pages. </dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a8">ptc::Console</a>.</div>
+
+<h3><a name="a7" doxytag="ptc::BaseConsole::close"></a>virtual void ptc::BaseConsole::close ()<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+Closes the console.
+<p>
+If the console is not open then this function will return immediately without reporting an error.
+<p>
+If the console is still locked then this function will throw a ptc::Error exception.
+<p>
+<dl compact><dt>
+<b>See also:</b><dd>
+<a class="el" href="class_ptcBaseConsole.html#a6">BaseConsole::open</a>()
+<p>
+</dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<em>Error</em> -  An Error exception is thrown on failure. </dl>
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a9">ptc::Console</a>.</div>
+
+<h3><a name="a8" doxytag="ptc::BaseConsole::flush"></a>virtual void ptc::BaseConsole::flush ()<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a10">ptc::Console</a>.</div>
+
+<h3><a name="a9" doxytag="ptc::BaseConsole::finish"></a>virtual void ptc::BaseConsole::finish ()<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a11">ptc::Console</a>.</div>
+
+<h3><a name="a10" doxytag="ptc::BaseConsole::update"></a>virtual void ptc::BaseConsole::update ()<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a12">ptc::Console</a>.</div>
+
+<h3><a name="a11" doxytag="ptc::BaseConsole::update"></a>virtual void ptc::BaseConsole::update (const Area &amp; <em>area</em>)<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a13">ptc::Console</a>.</div>
+
+<h3><a name="a12" doxytag="ptc::BaseConsole::key"></a>virtual bool ptc::BaseConsole::key ()<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a14">ptc::Console</a>.</div>
+
+<h3><a name="a13" doxytag="ptc::BaseConsole::read"></a>virtual Key ptc::BaseConsole::read ()<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a15">ptc::Console</a>.</div>
+
+<h3><a name="a14" doxytag="ptc::BaseConsole::pages"></a>virtual int ptc::BaseConsole::pages () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a32">ptc::Console</a>.</div>
+
+<h3><a name="a15" doxytag="ptc::BaseConsole::name"></a>virtual const char * ptc::BaseConsole::name () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a37">ptc::Console</a>.</div>
+
+<h3><a name="a16" doxytag="ptc::BaseConsole::title"></a>virtual const char * ptc::BaseConsole::title () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a38">ptc::Console</a>.</div>
+
+<h3><a name="a17" doxytag="ptc::BaseConsole::information"></a>virtual const char * ptc::BaseConsole::information () const<code> [pure virtual]</code></h3>
+<div class="in">
+
+<p>
+
+<p>
+Reimplemented in <a class="el" href="class_ptcConsole.html#a39">ptc::Console</a>.</div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="ptc.h.html">ptc.h</a></ul>
+<HR>
+
+</BODY>
+</HTML>

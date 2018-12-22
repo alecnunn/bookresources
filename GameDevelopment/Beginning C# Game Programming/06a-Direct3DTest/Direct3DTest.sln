@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Direct3DTest", "Direct3DTest.csproj", "{308687AD-3668-4856-A4CB-C31D363F7997}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{308687AD-3668-4856-A4CB-C31D363F7997}.Debug.ActiveCfg = Debug|.NET
+		{308687AD-3668-4856-A4CB-C31D363F7997}.Debug.Build.0 = Debug|.NET
+		{308687AD-3668-4856-A4CB-C31D363F7997}.Release.ActiveCfg = Release|.NET
+		{308687AD-3668-4856-A4CB-C31D363F7997}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

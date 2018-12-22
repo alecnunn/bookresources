@@ -1,0 +1,1 @@
+EDITBIN RS.anti-hack.exe /SECTION:.text,erw

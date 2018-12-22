@@ -1,0 +1,389 @@
+<html>
+<head>
+</head>
+<body bgcolor="#CCCCCC">
+<h2 align="center">Source Code - bit </h2>
+<p>#include&lt;stdio.h&gt;<br>
+  #include&lt;stdlib.h&gt;<br>
+  #define MAXCODE 100<br>
+  typedef unsigned char USC; <br>
+  USC code[MAXCODE]; <br>
+  USC data[4];<br>
+  short int dataIdx;<br>
+  unsigned int cc=0;<br>
+  unsigned int startCount,endCount;<br>
+</p>
+<p>//do effective Address Calculation<br>
+  void doEAC(short int mod,short int rm)<br>
+  {<br>
+  dataIdx=0;<br>
+  switch(mod)<br>
+  {<br>
+  case 3:<br>
+  break;<br>
+  case 0:<br>
+  if(rm == 6) //110 - direct address<br>
+  {<br>
+  code[cc++] = data[dataIdx++];<br>
+  code[cc++] = data[dataIdx++];<br>
+  }<br>
+  break;<br>
+  case 1:<br>
+  code[cc++] = data[dataIdx++];<br>
+  break;<br>
+  case 2:<br>
+  code[cc++] = data[dataIdx++];<br>
+  code[cc++] = data[dataIdx++];<br>
+  break;<br>
+  }<br>
+  }</p>
+<p>//register or memory to or from register<br>
+  void moveRM2R(USC d,USC w,USC mod,USC reg, USC rm)<br>
+  {<br>
+  USC c;<br>
+  // 1 0 0 0 1 0 d w - mod reg r/m<br>
+  c = 0x88;<br>
+  c  = c | (d &lt;&lt; 1);<br>
+  c  = c | w;<br>
+  code[cc++] = c;<br>
+  c = 0x0;<br>
+  c = c | (mod &lt;&lt; 6);<br>
+  c = c | (reg &lt;&lt; 3);<br>
+  c = c | rm ;<br>
+  code[cc++] = c;<br>
+  doEAC(mod,rm);<br>
+  } <br>
+</p>
+<p>//Immediate register or memory<br>
+  void moveImm2RM(USC w, USC mod, USC rm)<br>
+  {<br>
+  USC c;<br>
+  c = 0xc6;<br>
+  c = c | w;<br>
+  code[cc++] = c;<br>
+  c = 0x0;<br>
+  c = c | (mod &lt;&lt; 6);<br>
+  c = c | rm;<br>
+  code[cc++] = c;<br>
+  doEAC(mod,rm);<br>
+  code[cc++] = data[dataIdx++];<br>
+  if(w==1)<br>
+  code[cc++] = data[dataIdx++];<br>
+  }</p>
+<p>//move immediate to register<br>
+  void moveImm2R(USC w,USC reg)<br>
+  {<br>
+  USC c;<br>
+  c = 0xb0;<br>
+  c = c | (w &lt;&lt; 3);<br>
+  c = c | reg;<br>
+  code[cc++]=c;<br>
+  dataIdx = 0;<br>
+  code[cc++] = data[dataIdx++];<br>
+  if(w==1)<br>
+  code[cc++] = data[dataIdx++];<br>
+  } <br>
+  <br>
+  //Move Memory to accumulator<br>
+  void moveMem2Acc(USC w)<br>
+  {<br>
+  USC c;<br>
+  c = 0xb0;<br>
+  c = c | w;<br>
+  code[cc++] = c;<br>
+  dataIdx = 0;<br>
+  code[cc++] = data[dataIdx++];<br>
+  code[cc++] = data[dataIdx++];<br>
+  } <br>
+  <br>
+  //Move accumulator to memory<br>
+  void moveAcc2Mem(USC w)<br>
+  {<br>
+  USC c;<br>
+  c = 0xb2;<br>
+  c = c | w;<br>
+  code[cc++] = c;<br>
+  dataIdx = 0;<br>
+  code[cc++] = data[dataIdx++];<br>
+  code[cc++] = data[dataIdx++];<br>
+  } </p>
+<p>//Move register or memory to segment register<br>
+  void moveRM2SegR(USC mod, USC sreg, USC rm)<br>
+  {<br>
+  USC c;<br>
+  c = 0x8e;<br>
+  code[cc++] = c;<br>
+  c = 0x0;<br>
+  c = c | (mod &lt;&lt; 6);<br>
+  c = c | (sreg &lt;&lt; 3);<br>
+  c = c | rm;<br>
+  code[cc++]=c;<br>
+  doEAC(mod,rm);<br>
+  } </p>
+<p>//Move  segment register to register or memory <br>
+  void moveSegR2RM(USC mod, USC sreg, USC rm)<br>
+  {<br>
+  USC c;<br>
+  c = 0x8c;<br>
+  code[cc++] = c;<br>
+  c = 0x0;<br>
+  c = c | (mod &lt;&lt; 6);<br>
+  c = c | (sreg &lt;&lt; 3);<br>
+  c = c | rm;<br>
+  code[cc++]=c;<br>
+  doEAC(mod,rm);<br>
+  } </p>
+<p>//push data on reg or memory  on stack<br>
+  void pushRM(USC mod, USC rm)<br>
+  {<br>
+  USC c;<br>
+  c = 0xff;<br>
+  code[cc++] = c;<br>
+  c = 0x00;<br>
+  c =  c | (mod &lt;&lt; 6);<br>
+  c =  c | (0x06 &lt;&lt; 3); //mod 110 rm<br>
+  c =  c | rm;<br>
+  code[cc++] = c;<br>
+  doEAC(mod,rm);<br>
+  }<br>
+  <br>
+  //push data on reg on stack<br>
+  void pushR(USC reg)<br>
+  {<br>
+  USC c;<br>
+  c = 0x40;<br>
+  c =  c | reg;<br>
+  code[cc++] = c;<br>
+  }<br>
+  //push segment reg on stack<br>
+  void pushSR(USC sreg)<br>
+  {<br>
+  USC c;<br>
+  c = 0x0;<br>
+  c =  c | (sreg &lt;&lt; 3);<br>
+  c =  c | 0x6;        //000 reg 110<br>
+  code[cc++] = c;<br>
+  }</p>
+<p>//pop stack into reg or mem<br>
+  //1000 1111 - mod 000 r/m<br>
+  void pop2RM(USC mod, USC rm)<br>
+  {<br>
+  USC c;<br>
+  c = 0x8f;<br>
+  code[cc++] = c;<br>
+  c = 0x0;<br>
+  c = c | (mod &lt;&lt; 6);<br>
+  c = c | rm;<br>
+  code[cc++] = c;<br>
+  doEAC(mod,rm);<br>
+  }</p>
+<p>//pop into a reg<br>
+  //0101 1reg<br>
+  void pop2R(USC reg)<br>
+  {<br>
+  USC c;<br>
+  c = 0x58;<br>
+  c = c | reg;<br>
+  code[cc++] = c;<br>
+  }</p>
+<p>//pop into a seg reg<br>
+  //000 sreg 111<br>
+  void pop2SR(USC sreg)<br>
+  {<br>
+  USC c;<br>
+  c = 0x0;<br>
+  c = c | (sreg &lt;&lt; 3);<br>
+  c = c | 0x07;<br>
+  code[cc++] = c;<br>
+  }</p>
+<p>//exchange register or memory with register<br>
+  // 1000 011w - mod reg rm<br>
+  void exchangeRM2R(USC w, USC mod, USC reg, USC rm)<br>
+  {<br>
+  USC c;<br>
+  c = 0x86;<br>
+  c = c | w;<br>
+  code[cc++] = c;<br>
+  c = 0x0;<br>
+  c = c | (mod &lt;&lt; 6);<br>
+  c = c | (reg &lt;&lt; 3);<br>
+  c = c | reg;<br>
+  code[cc++] = c;<br>
+  doEAC(mod,rm);<br>
+  }</p>
+<p>void exchangeR2Acc(USC reg)<br>
+  {<br>
+  USC c;<br>
+  c = 0x90;<br>
+  c = c | reg;<br>
+  code[cc++] = c;<br>
+  }<br>
+  void printCode()<br>
+  {<br>
+  int i;<br>
+  for(i=startCount;i&lt;endCount;i++)<br>
+  printf(&quot;\t%0x\t&quot;,code[i]);<br>
+  printf(&quot;\n&quot;);<br>
+  }<br>
+  int main()<br>
+  { <br>
+  int i;<br>
+  USC d,w,mod,reg,sreg,rm,data1,data2,addrlow,addrhigh;<br>
+</p>
+<p> <br>
+  //register or memory to or from register<br>
+  //void moveRM2R(USC d,USC w,USC mod,USC reg, USC rm)<br>
+  startCount = cc;<br>
+  printf(&quot;\nMOV CX,AX Move AX register to CX register\n&quot;); <br>
+  d = 0x01;<br>
+  w = 0x01;<br>
+  mod = 0x11;<br>
+  rm = 0x01;<br>
+  reg = 0x00;<br>
+  moveRM2R(d,w,mod,reg,rm);<br>
+  endCount = cc;<br>
+  printCode();<br>
+  <br>
+  //Move Immediate data to register or memory<br>
+  //void moveImm2RM(USC w, USC mod, USC rm, USC data1, USC data2)<br>
+  startCount = cc;<br>
+  printf(&quot;\nMOV DX, #4050 - move an immediate data to DX reg\n&quot;); <br>
+  w = 0x01;<br>
+  mod = 0x11;<br>
+  rm = 0x03;<br>
+  data[0] = 0x40;<br>
+  data[1]= 0x50;<br>
+  moveImm2RM(w, mod, rm);<br>
+  endCount=cc;<br>
+  printCode();</p>
+<p> //move immediate to register<br>
+  //void moveImm2R(USC w,USC reg)<br>
+  printf(&quot;\nMov SI, #4050 - Move a immediate number to SI index reg\n&quot;);<br>
+  startCount = cc;<br>
+  w = 1;<br>
+  reg = 0x06;<br>
+  data[0] = 0x40;<br>
+  data[1] = 0x50;<br>
+  moveImm2R(w,reg);<br>
+  endCount=cc;<br>
+  printCode();<br>
+  <br>
+  printf(&quot;\nMov AX, 2025 - Move the contents of the memory 2025 into accumulator\n&quot;);<br>
+  startCount = cc;<br>
+  w = 1;<br>
+  //Move Memory to accumulator<br>
+  //void moveMem2Acc(USC w)<br>
+  w = 0x01;<br>
+  data[0] = 0x25;    //addrlow<br>
+  data[1] = 0x20;    //addrhigh;<br>
+  moveMem2Acc(w);<br>
+  endCount=cc;<br>
+  printCode();<br>
+  <br>
+  //Move accumulator to memory<br>
+  //void moveAcc2Mem(USC w)<br>
+  printf(&quot;\nMove the content of acc to a mem addressed by 2025\n&quot;);<br>
+  startCount = cc;<br>
+  w = 0x01;<br>
+  data[0] = 0x25;    //addrlow<br>
+  data[1] = 0x20;    //addrhigh;<br>
+  moveAcc2Mem(w);<br>
+  endCount=cc;<br>
+  printCode();</p>
+<p> //Move register or memory to segment register<br>
+  //void moveRM2SegR(USC mod, USC sreg, USC rm)<br>
+  printf(&quot;\nMov SS, BX - Move the contents of BX register to DS\n&quot;);<br>
+  startCount=cc;<br>
+  mod = 0x03;<br>
+  sreg = 0x02;<br>
+  rm = 0x03;<br>
+  moveRM2SegR(mod,sreg,rm);<br>
+  endCount=cc;<br>
+  printCode();</p>
+<p> //Move  segment register to register or memory <br>
+  //void moveSegR2RM(USC mod, USC sreg, USC rm)<br>
+  printf(&quot;\nMov BX,SS - Move the contents of SS to BX\n&quot;);<br>
+  startCount = cc;<br>
+  mod = 0x03;<br>
+  sreg = 0x02;<br>
+  rm = 0x03;<br>
+  moveSegR2RM(mod,sreg,rm);<br>
+  endCount=cc;<br>
+  printCode();<br>
+  <br>
+  //push data on reg or memory  on stack<br>
+  //void pushRM(USC mod, USC rm)<br>
+  printf(&quot;\nPush SI - Push SI contents onto stack\n&quot;);<br>
+  startCount = cc;<br>
+  mod = 0x03;<br>
+  rm = 0x06;<br>
+  pushRM(mod,rm);<br>
+  endCount=cc;<br>
+  printCode();</p>
+<p> //push data on reg on stack<br>
+  //void pushR(USC reg)<br>
+  printf(&quot;\nPush DI - Push DI contents onto Stack\n&quot;);<br>
+  startCount = cc;<br>
+  reg = 0x07;<br>
+  pushR(reg);<br>
+  endCount=cc;<br>
+  printCode();</p>
+<p> //push segment reg on stack<br>
+  //void pushSR(USC sreg)<br>
+  printf(&quot;\nPush DS - Push Segment Register onto stack\n&quot;);<br>
+  startCount = cc;<br>
+  sreg = 0x03;<br>
+  pushSR(sreg);<br>
+  endCount=cc;<br>
+  printCode();</p>
+<p> //pop stack into reg or mem<br>
+  //1000 1111 - mod 000 r/m<br>
+  //void pop2RM(USC mod, USC rm)<br>
+  printf(&quot;\nPop SI- Pop the top of the stack into SI reg\n&quot;);<br>
+  startCount = cc;<br>
+  mod = 0x03;<br>
+  rm = 0x06;<br>
+  pop2RM(mod,rm);<br>
+  endCount=cc;<br>
+  printCode();</p>
+<p> //pop into a reg<br>
+  //0101 1reg<br>
+  //void pop2R(USC reg)<br>
+  printf(&quot;\nPop DX - Pop the top into DX reg\n&quot;);<br>
+  startCount=cc;<br>
+  reg = 0x2;<br>
+  pop2R(reg);<br>
+  endCount=cc;<br>
+  printCode();</p>
+<p> //pop into a seg reg<br>
+  //000 sreg 111<br>
+  //void pop2SR(USC sreg)<br>
+  printf(&quot;\nPop ES - pop the top contents into ES reg\n&quot;);<br>
+  startCount = cc;<br>
+  sreg = 0x03;<br>
+  pop2SR(sreg);<br>
+  endCount=cc;<br>
+  printCode();</p>
+<p> startCount = cc;<br>
+  printf(&quot;\nXCNG DI -Exchange Register DI with Accumulator\n&quot;);<br>
+  reg = 0x07;<br>
+  exchangeR2Acc(reg);<br>
+  endCount = cc;<br>
+  printCode();</p>
+<p> //exchange register or memory with register<br>
+  // 1000 011w - mod reg rm<br>
+  //void exchangeRM2R(USC w, USC mod, USC reg, USC rm)<br>
+  printf(&quot;\nEXNG SI, DI -Exchange Register DI and SI\n&quot;);<br>
+  startCount = cc;<br>
+  w = 0x1;<br>
+  mod = 0x03;<br>
+  reg = 0x6;<br>
+  rm  = 0x7;<br>
+  exchangeRM2R(w,mod,reg,rm);<br>
+  endCount=cc;<br>
+  printCode();<br>
+  return 1;<br>
+  }<br>
+</p>
+</body>
+</html>
